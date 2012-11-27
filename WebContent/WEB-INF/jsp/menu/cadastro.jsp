@@ -1,6 +1,6 @@
 
 <%@ include file="/headerLib.jsp" %>
-<div class="paddingHeader"></div>
+<!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
 <div align="center">
@@ -17,11 +17,29 @@
 </c:if>
 
 <form action="<c:url value="/menu/cadastrar"/>" method="post">
-	<label class="labelForm">Nome:</label> 
-	<input id="pessoaNome" type="text" name="pessoa.nome" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	 
+	
+	<c:if test="${not empty nomeEmBranco}">
+		<label class="labelFormErro">${nomeEmBranco}</label>
+		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+	</c:if>
+	<c:if test="${empty nomeEmBranco}">
+		<label class="labelForm">Nome:</label>
+		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	</c:if>
+	
 	<br/><br/>
-	<label class="labelForm">Email:</label>
-	<input id="pessoaEmail" type="text" name="pessoa.email" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	
+	
+	<c:if test="${not empty emailEmBranco}">
+		<label class="labelFormErro">${emailEmBranco}</label>
+		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+	</c:if>
+	<c:if test="${empty emailEmBranco}">
+		<label class="labelForm">Email:</label>
+		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	</c:if>
+	
 	<br/><br/>
 	
 	<input type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
@@ -29,6 +47,5 @@
 </div>
 </div>
 
-<div id="espacador"></div>
-
-<%@ include file="/footer.jsp" %>
+<div id="espacadorRodape"></div>
+<%@ include file="/footerFixed.jsp" %>

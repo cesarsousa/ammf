@@ -348,4 +348,6 @@
 	
 </div>
 </div>
-<%@ include file="/footer.jsp" %>
+
+<div id="espacadorRodape"></div>
+<%@ include file="/footerFixed.jsp" %>

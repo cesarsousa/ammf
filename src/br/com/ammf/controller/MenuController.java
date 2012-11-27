@@ -7,6 +7,7 @@ import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
+import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -17,6 +18,7 @@ public class MenuController {
 	
 	private Result result;
 	private MenuService menuService;
+	private ValidacaoService validacaoService;
 	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
 	private PessoaRepository pessoaRepository;
@@ -24,11 +26,13 @@ public class MenuController {
 	public MenuController(
 			Result result,
 			MenuService menuService,
+			ValidacaoService validacaoService,
 			SessaoUsuario sessaoUsuario, 
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository){
 		this.result = result;
 		this.menuService = menuService;
+		this.validacaoService = validacaoService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
@@ -77,14 +81,23 @@ public class MenuController {
 	
 	@Post("/menu/cadastrar")
 	public void cadastrar(Pessoa pessoa){
-		// TODO validar pessoa
+		boolean validado = validacaoService.pessoa(pessoa, result);
+		if(validado){
+			pessoaRepository.cadastrar(pessoa);
+			
+			menuService.enviarEmailNotificacaoCadastro();
+			
+			redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+		}else{
+			redirecionarParaCadastro();
+		}		
 		
-		pessoaRepository.cadastrar(pessoa);
-		menuService.enviarEmailNotificacaoCadastro();
-		
-		redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 	}	
 	
+	private void redirecionarParaCadastro() {
+		result.redirectTo(this).cadastro();		
+	}
+
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
 		result.include(nomeMensagem, mensagem);
 		result.forwardTo(this).menu();

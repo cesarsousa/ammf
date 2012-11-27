@@ -1,6 +1,10 @@
 package br.com.ammf.model;
 
-public class Paragrafo {
+import java.io.Serializable;
+
+public class Paragrafo implements Serializable {
+	
+	private static final long serialVersionUID = 530833542237092262L;
 	
 	private String trechoTexto;
 	

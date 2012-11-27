@@ -15,6 +15,13 @@ h2 {
 	float: left;
 }
 
+.labelFormErro {
+	color: red;
+	font-size: small;
+	font-weight: normal;
+	float: left;
+}
+
 .hidden {
 	display: none;
 }
@@ -24,7 +31,11 @@ h2 {
 }
 
 .bordaPadrao {
-	border: 2px solid #8B8484;
+	border: 1px solid #8B8484;
+}
+
+.bordaPadraoErro {
+	border: 1px solid red;
 }
 
 .destaque {
@@ -158,18 +169,20 @@ h2 {
 	width: 100%;
 }
 
+#espacadorRodape{
+	height: 70px;
+	width: 100%;
+}
+
 .fixed {
-	background: #8b8484;
+	width: 99%;
+	height: 50px;
+	background-color: #8b8484;
+	color: #ffffff;
 	position: fixed;
 	bottom: 0;
-	float: left;
-	width: 100%;
-	height: 100px;
-	padding: 10px;
-	text-align: center;
-	border-bottom: 5px solid #5B2406;
-	font-weight: bold;
-	color: #ffffff;
+	padding: 0;
+		
 }
 
 #labelQuiron {
