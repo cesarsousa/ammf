@@ -1,18 +1,32 @@
 package br.com.ammf.service.imp;
 
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
+import javax.mail.internet.AddressException;
+
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
+import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
+import br.com.ammf.utils.email.Email;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class MenuServiceImp implements MenuService{
 	
+	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
+	private PessoaRepository pessoaRepository;
 	
-	public MenuServiceImp(TextoRepository textoRepository){
+	public MenuServiceImp(
+			SessaoUsuario sessaoUsuario,
+			TextoRepository textoRepository,
+			PessoaRepository pessoaRepository){
+		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
+		this.pessoaRepository = pessoaRepository;
 	}
 
 	@Override
@@ -32,8 +46,29 @@ public class MenuServiceImp implements MenuService{
 	}
 
 	@Override
-	public void enviarEmailNotificacaoCadastro() {
-		// TODO enviar email de cadastro de pessoa
+	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) {
+		try {
+			Email.enviarEmail(
+					sessaoUsuario.getUsuario().getEmail(), 
+					sessaoUsuario.getUsuario().getSenha(), 
+					pessoa.getEmail(), "", "");
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SendFailedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void cadastrar(Pessoa pessoa) {
+		pessoaRepository.cadastrar(pessoa);		
+		enviarEmailNotificacaoCadastro(pessoa);
 		
 	}
 

@@ -11,7 +11,7 @@ public class SessaoUsuario implements Serializable{
 
 	private static final long serialVersionUID = -1389291117203881533L;
 	
-	private Usuario logado;
+	private Usuario usuario;
 	
 	private Texto textoIndex;
 	private Texto textoPsicologia;
@@ -20,19 +20,23 @@ public class SessaoUsuario implements Serializable{
 	private Texto textoArtesOrientais;
 	
 	public void login(Usuario usuario){
-		this.logado = usuario;
+		this.usuario = usuario;
 	}
 	
 	public String getNome(){
-		return logado.getLogin();
+		return usuario.getLogin();
 	}
 	
 	public boolean isLogado(){
-		return logado != null;
+		return usuario != null;
 	}
 
 	public void logout() {
-		this.logado = null;		
+		this.usuario = null;		
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
 	}
 	
 	public Texto getTextoIndex() {

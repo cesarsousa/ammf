@@ -82,11 +82,8 @@ public class MenuController {
 	@Post("/menu/cadastrar")
 	public void cadastrar(Pessoa pessoa){
 		boolean validado = validacaoService.pessoa(pessoa, result);
-		if(validado){
-			pessoaRepository.cadastrar(pessoa);
-			
-			menuService.enviarEmailNotificacaoCadastro();
-			
+		if(validado){			
+			menuService.cadastrar(pessoa);			
 			redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 		}else{
 			redirecionarParaCadastro();
