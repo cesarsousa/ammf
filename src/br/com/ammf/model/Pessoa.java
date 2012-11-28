@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -23,6 +25,9 @@ public class Pessoa implements Serializable{
 	private String nome;
 	
 	private String email;
+	
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	public long getId() {
 		return id;
@@ -54,5 +59,13 @@ public class Pessoa implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 }

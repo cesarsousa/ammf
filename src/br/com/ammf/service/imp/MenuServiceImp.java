@@ -6,10 +6,12 @@ import javax.mail.internet.AddressException;
 
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
+import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -45,13 +47,25 @@ public class MenuServiceImp implements MenuService{
 		
 	}
 
+	
+
+	@Override
+	public void cadastrar(Pessoa pessoa) {
+		pessoa.setStatus(Status.CONFIRMADO);
+		pessoaRepository.cadastrar(pessoa);		
+		enviarEmailNotificacaoCadastro(pessoa);
+		
+	}
+	
 	@Override
 	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) {
 		try {
 			Email.enviarEmail(
 					sessaoUsuario.getUsuario().getEmail(), 
 					sessaoUsuario.getUsuario().getSenha(), 
-					pessoa.getEmail(), "", "");
+					pessoa.getEmail(), 
+					HtmlMensagem.getAssuntoCadastroPessoa(), 
+					HtmlMensagem.getMensagemCadastroPessoa(pessoa));
 		} catch (AddressException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,13 +76,6 @@ public class MenuServiceImp implements MenuService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-
-	@Override
-	public void cadastrar(Pessoa pessoa) {
-		pessoaRepository.cadastrar(pessoa);		
-		enviarEmailNotificacaoCadastro(pessoa);
 		
 	}
 

@@ -59,7 +59,7 @@ public class IndexController {
 	public void autenticacao(String login, String senha){		
 		
 		login = "alcindomiguel";
-		senha = "270879cm";
+		senha = "061160cm";
 		
 		Usuario usuario = usuarioRepository.autenticar(login, senha);
 		if(usuario != null){
