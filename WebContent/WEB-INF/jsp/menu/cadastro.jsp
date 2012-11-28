@@ -3,6 +3,8 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
+<input id="contexto" type="hidden" value="${contextoApp}"/>
+
 <div align="center">
 
 <h2>Cadastro de Pessoa</h2>
@@ -42,7 +44,7 @@
 	
 	<br/><br/>
 	
-	<input type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
+	<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
 </form>
 </div>
 </div>

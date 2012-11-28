@@ -21,21 +21,18 @@ public class MenuController {
 	private ValidacaoService validacaoService;
 	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
-	private PessoaRepository pessoaRepository;
 	
 	public MenuController(
 			Result result,
 			MenuService menuService,
 			ValidacaoService validacaoService,
 			SessaoUsuario sessaoUsuario, 
-			TextoRepository textoRepository,
-			PessoaRepository pessoaRepository){
+			TextoRepository textoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
-		this.pessoaRepository = pessoaRepository;
 	}
 	
 	@Restrito
@@ -45,6 +42,7 @@ public class MenuController {
 	
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
+		
 		textoRepository.atualizarTextoIndex(texto);
 		
 		menuService.enviarEmailNotificacao(texto);
@@ -88,7 +86,6 @@ public class MenuController {
 		}else{
 			redirecionarParaCadastro();
 		}		
-		
 	}	
 	
 	private void redirecionarParaCadastro() {
@@ -99,7 +96,4 @@ public class MenuController {
 		result.include(nomeMensagem, mensagem);
 		result.forwardTo(this).menu();
 	}
-	
-	
-
 }
