@@ -88,7 +88,7 @@ public class MenuController {
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel enviar o email de notificacao para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem());
+				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel enviar o email de notificacao para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configuracoes da Conta</b> os seus dados de cadastro.");
 			} catch (DBException e) {
 				e.printStackTrace();
 				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel efetuar o cadastro de " + pessoa.getNome() + "<br/>Mensagem de Erro: " + e.getMensagem());

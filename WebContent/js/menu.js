@@ -45,6 +45,14 @@ $(document).ready(function() {
 		$('#conteudoIndex').slideUp(1000);		
 	});	
 	
+	$('#conteudoConta').hide();
+	$('#btAbrirConteudoConta').click(function(){
+		$('#conteudoConta').slideDown(1000);		
+	});
+	$('#btFecharConteudoConta').click(function(){
+		$('#conteudoConta').slideUp(1000);		
+	});
+	
 	addRemoveDestaque('#campoAutorFraseIndex');
 	addRemoveDestaque('#campoFraseIndex');
 	$('textarea#campoFraseIndex').autoResize();

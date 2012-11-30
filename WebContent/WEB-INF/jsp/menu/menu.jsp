@@ -36,6 +36,18 @@
 
 	<table class="tamanhoDefault">
 		<tr>
+			<td>
+				<ul>
+				<li>Editar conte&uacute;do index</li>
+				<li>Configura&ccedil;&otilde;es da Conta</li>
+				</ul>
+			</td>
+		</tr>				
+	</table>
+
+
+	<table class="tamanhoDefault">
+		<tr>
 			<td >
 			<input id="btAbrirConteudoIndex" type="button" class="button esquerda" value="Editar conte&uacute;do index" />
 			<span class="info azulClaro" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
@@ -77,7 +89,39 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />	
+	<hr class="separador"  />
+	
+	<table class="tamanhoDefault">
+		<tr>
+			<td >
+			<input id="btAbrirConteudoConta" type="button" class="button esquerda" value="Configura&ccedil;&otilde;es da Conta" />
+			<span class="info azulClaro" >Verifique seus dados de acesso ao sistema.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoConta" type="button" class="button direita" value="fechar">
+			<form action="<c:url value="/menu/index/conta"/>" method="post" class="paddingPadrao">			
+				
+								
+								
+				<h3>Nome:</h3>
+				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao">
+				
+				<p>
+				<h3>Email:</h3>
+				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao">
+				</p>
+				
+				<p>
+				<input type="submit" value="cadastrar" class="buttonCadastrar">				
+				</p>
+			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>	
 	
 	<table id="tamanhoDefault" >
 		<tr>
