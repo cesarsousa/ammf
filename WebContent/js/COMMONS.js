@@ -1,4 +1,6 @@
 
+var alertWindow;
+
 function abrirJanelaDeEspera(html){
 	var esquerda = (screen.width - 550)/2;
 	var topo = (screen.height - 250)/2;
