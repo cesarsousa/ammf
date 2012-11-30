@@ -39,7 +39,7 @@ public class Email {
 	MimeMessage msg = new MimeMessage(session);
 	MimeBodyPart mbp1 = new MimeBodyPart();
 	Multipart multipart = new MimeMultipart();
-
+	
 	msg.setFrom(new InternetAddress(emailSender));
 	msg.setRecipient(Message.RecipientType.TO, new InternetAddress(emailReceiver));
 	msg.setSubject(assunto);

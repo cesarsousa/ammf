@@ -3,6 +3,7 @@ package br.com.ammf.repository.imp;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.ammf.exception.DBException;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -17,10 +18,16 @@ public class PessoaDao implements PessoaRepository {
 	}
 
 	@Override
-	public void cadastrar(Pessoa pessoa) {
-		Transaction transaction = session.beginTransaction();
-		session.save(pessoa);
-		transaction.commit();		
+	public void cadastrar(Pessoa pessoa) throws DBException {
+		try{			
+			Transaction transaction = session.beginTransaction();
+			session.save(pessoa);
+			transaction.commit();		
+		}catch (Exception e) {
+			throw new DBException("(PessoaDao) - cadastrar", e);
+		}
+		
+				
 	}
 
 }

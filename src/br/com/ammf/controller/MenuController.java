@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import br.com.ammf.exception.DBException;
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
@@ -81,8 +83,16 @@ public class MenuController {
 	public void cadastrar(Pessoa pessoa){
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){			
-			menuService.cadastrar(pessoa);			
-			redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+			try {
+				menuService.cadastrar(pessoa);
+				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+			} catch (EmailException e) {				
+				e.printStackTrace();
+				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel enviar o email de notificacao para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem());
+			} catch (DBException e) {
+				e.printStackTrace();
+				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel efetuar o cadastro de " + pessoa.getNome() + "<br/>Mensagem de Erro: " + e.getMensagem());
+			}			
 		}else{
 			redirecionarParaCadastro();
 		}		
@@ -96,4 +106,6 @@ public class MenuController {
 		result.include(nomeMensagem, mensagem);
 		result.forwardTo(this).menu();
 	}
+	
+	
 }

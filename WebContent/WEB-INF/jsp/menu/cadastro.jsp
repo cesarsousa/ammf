@@ -17,7 +17,6 @@
 <div class="msgBorder msgSucesso tamanhoErroLogin">${msgCadastro}</div>
 <br/>
 </c:if>
-
 <form action="<c:url value="/menu/cadastrar"/>" method="post">
 	 
 	

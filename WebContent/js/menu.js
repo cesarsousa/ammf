@@ -1,5 +1,5 @@
 
-function hiderCamposEdicaoPrincipal(){
+function hidenCamposEdicaoPrincipal(){
 	$('#tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').hide();
 }
 
@@ -35,7 +35,7 @@ function configurarCamposEdicaoPrincipal(elementoAbertura, elementoFechamento, t
 
 $(document).ready(function() {
 	
-	hiderCamposEdicaoPrincipal();
+	hidenCamposEdicaoPrincipal();
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
@@ -67,7 +67,10 @@ $(document).ready(function() {
 	configurarCamposEdicaoPrincipal('#linkEditarOrientais', '#btFecharEditarArtesOrientais', '#tabArtesOrientais');
 	
 	$('#boxMsgSucesso').click(function(){
-		$(this).hide();
+		$(this).fadeOut(1000);
+	});
+	$('#boxMsgErro').click(function(){
+		$(this).fadeOut(1000);
 	});
 	
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){

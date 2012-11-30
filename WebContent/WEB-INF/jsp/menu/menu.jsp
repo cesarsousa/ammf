@@ -25,6 +25,10 @@
 	<c:if test="${not empty mensagem}">
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro">${mensagem}</div>
 	</c:if>
+	
+	<c:if test="${not empty mensagemErro}">
+	<div id="boxMsgErro" class="msgBorder msgErro tamanhoEdicaoIndex ponteiro">${mensagemErro}</div>
+	</c:if>
 </p>
 </div>
 

@@ -8,6 +8,16 @@ h2 {
 	color: gray;
 }
 
+a {
+	text-decoration: none;
+	color: #cccccc;
+}
+
+a:HOVER {
+	text-decoration: none;
+	color: #dddddd;
+}
+
 .labelForm {
 	color: gray;
 	font-size: medium;
