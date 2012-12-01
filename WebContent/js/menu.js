@@ -43,9 +43,15 @@ $(document).ready(function() {
 	});
 	$('#btFecharConteudoIndex').click(function(){
 		$('#conteudoIndex').slideUp(1000);		
-	});	
+	});
 	
-	$('#conteudoConta').hide();
+	
+	if($('#flagEditarUsuario').val() == "true"){
+		$('#conteudoConta').show();
+	}else{
+		$('#conteudoConta').hide();
+	}	
+	
 	$('#btAbrirConteudoConta').click(function(){
 		$('#conteudoConta').slideDown(1000);		
 	});

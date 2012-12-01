@@ -92,6 +92,7 @@
 	<hr class="separador"  />
 	
 	<!-- CONFIGURACOES DA CONTA -->
+	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/> 
 	<table class="tamanhoDefault">
 		<tr>
 			<td >
@@ -104,27 +105,49 @@
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="button direita" value="fechar">
 			<form action="<c:url value="/menu/index/conta"/>" method="post" class="paddingPadrao">								
+				
+				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
 								
 				<h3>Nome Completo:</h3>
-				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.nome}" />
+				<c:if test="${not empty usuarioNomeBranco}">
+				<label class="labelFormErro">${usuarioNomeBranco}</label>
+				<input id="campoContaNome" type="text" class="areaTitulo bordaPadraoErro" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
+				</c:if>
+				<c:if test="${empty usuarioNomeBranco}">
+				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
+				</c:if>
 				
 				<h3>Login:</h3>
-				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.login}" />
+				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadrao" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
 				
-				<h3>Email:</h3>				
+				<h3>Email:</h3>
+				<c:if test="${not empty usuarioErroEmail}">				
+				<div class="msgBorder msgAlerta t100">
+				<b>Aten&ccedil;&atilde;o !</b><br/>
+				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
+				</div>
+				<label class="labelFormErro">${usuarioErroEmail}</label>
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
+				</c:if>
+				
+				<c:if test="${empty usuarioErroEmail}">
 				<div class="msgBorder msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
 				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
 				</div>				
-				
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.email}" />
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
+				</c:if>				
 								
 				<h3>Senha:
 				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
 				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
-				</h3>				
+				</h3>
+				<div class="msgBorder msgAlerta t100">
+				<b>Lembrete !</b><br/>
+				&Eacute; obrigat&oacute;rio que a senha seja a mesma do gmail cadastrado no site.
+				</div>				
 				<p>
-				<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}">
+				<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
 				<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
 				</p>
 				

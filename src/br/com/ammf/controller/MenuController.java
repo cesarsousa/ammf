@@ -6,8 +6,10 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
+import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -23,18 +25,21 @@ public class MenuController {
 	private ValidacaoService validacaoService;
 	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
+	private UsuarioRepository usuarioRepository;
 	
 	public MenuController(
 			Result result,
 			MenuService menuService,
 			ValidacaoService validacaoService,
 			SessaoUsuario sessaoUsuario, 
-			TextoRepository textoRepository){
+			TextoRepository textoRepository,
+			UsuarioRepository usuarioRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
+		this.usuarioRepository = usuarioRepository;
 	}
 	
 	@Restrito
@@ -88,15 +93,26 @@ public class MenuController {
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel enviar o email de notificacao para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configuracoes da Conta</b> os seus dados de cadastro.");
+				redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar o email de notificação para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configurações da Conta</b> os seus dados de cadastro.");
 			} catch (DBException e) {
 				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "Nao foi possivel efetuar o cadastro de " + pessoa.getNome() + "<br/>Mensagem de Erro: " + e.getMensagem());
+				redirecionarParaMenuAdm("mensagemErro", "Não foi possível efetuar o cadastro de " + pessoa.getNome() + "<br/>Mensagem de Erro: " + e.getMensagem());
 			}			
 		}else{
 			redirecionarParaCadastro();
 		}		
-	}	
+	}
+	
+	@Post("/menu/index/conta")
+	public void atualizarDadosDeUsuario(Usuario usuario){
+		boolean validado = validacaoService.usuario(usuario, result);
+		if(validado){
+			redirecionarParaMenuAdm("mensagem", "Dados de conta de usuário atualizados com sucesso");
+		}else{
+			redirecionarParaMenuAdm("editarUsuario", "true");
+		}
+		
+	}
 	
 	private void redirecionarParaCadastro() {
 		result.redirectTo(this).cadastro();		
