@@ -69,6 +69,25 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	$('textarea#campoTextoArtesOrientais').autoResize();
 	
+	addRemoveDestaque('#campoContaNome');
+	addRemoveDestaque('#campoContaLogin');
+	addRemoveDestaque('#campoContaEmail');
+	addRemoveDestaque('#campoContaSenha');
+	
+	
+	$('#campoContaSenhaTexto').hide();
+	$('#checkOcultarSenha').hide();
+	$('#checkMostrarSenha').click(function(){
+		$('#checkMostrarSenha').hide();
+		$('#checkOcultarSenha').show();
+		$('#campoContaSenhaTexto').slideDown();		
+	});
+	$('#checkOcultarSenha').click(function(){
+		$('#checkOcultarSenha').hide();
+		$('#checkMostrarSenha').show();
+		$('#campoContaSenhaTexto').slideUp();		
+	});
+	
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
 	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');

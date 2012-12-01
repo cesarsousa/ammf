@@ -15,7 +15,7 @@ a {
 
 a:HOVER {
 	text-decoration: none;
-	color: #dddddd;
+	color: #000000;
 }
 
 .labelForm {
@@ -41,7 +41,7 @@ a:HOVER {
 }
 
 .bordaPadrao {
-	border: 1px solid #8B8484;
+	border: 2px solid #8B8484;
 }
 
 .bordaPadraoErro {
@@ -146,15 +146,20 @@ a:HOVER {
 	height: 40px;
 }
 
+.xLarge{
+	font-size: x-large;
+}
+
 .descricaoTextoIndex{	
 	font-weight: bold;
-	font-size: x-large;	
+	font-size: large;	
 	font-style: italic;
 }
 .autorTextoIndex{
 	padding: 5px;
 	float: right;
 	font-weight: bold;
+	font-size: small;
 }
 
 #labelFooter {
@@ -362,7 +367,9 @@ padding: 0 5px 10px 5px; */
 	box-shadow: 2px 2px 2px #9C9C9C;
 }
 
-
+.invisivel{
+	display: none;
+}
 
 .letraCinza {
 	color: #9C9C9C;
@@ -405,9 +412,22 @@ padding: 0 5px 10px 5px; */
 	padding: 10px;
 }
 
+.t100 {
+	width: 91%;
+}
+
 .areaTitulo {
 	width: 90%;
-	font-size: large;
+	font-size: medium;
+	font-family: arial;
+	padding: 10px;	
+	/* border: 1px solid #8B8484; */
+	color: black;
+}
+
+.areaTitulo2 {
+	width: 50%;
+	font-size: medium;
 	font-family: arial;
 	padding: 10px;	
 	/* border: 1px solid #8B8484; */
@@ -476,7 +496,7 @@ padding: 0 5px 10px 5px; */
 
 .msgBorder {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	display: block;
 	font: 12px Arial, helvetica, sans-serif;
 	margin: 10px 2px 2px 0;

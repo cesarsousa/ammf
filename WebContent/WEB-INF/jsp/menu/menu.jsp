@@ -9,7 +9,7 @@
 
 <div class="tamanhoDefault alturaDefault">
 	<div class="esquerda">
-	<h2>Ol&aacute; ${sessaoUsuario.nome}</h2>
+	<h2>Ol&aacute; ${sessaoUsuario.usuario.nome}</h2>
 	</div>
 	
 	<div class="direita">
@@ -34,7 +34,7 @@
 
 <div class="tamanhoDefault">
 
-	<table class="tamanhoDefault">
+	<!-- <table class="tamanhoDefault">
 		<tr>
 			<td>
 				<ul>
@@ -43,9 +43,9 @@
 				</ul>
 			</td>
 		</tr>				
-	</table>
+	</table> -->
 
-
+	<!-- EDITAR CONTEUDO INDEX -->
 	<table class="tamanhoDefault">
 		<tr>
 			<td >
@@ -81,7 +81,7 @@
 				</p>
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">				
+				<input type="submit" value="atualizar" class="buttonCadastrar">				
 				</p>
 			</form>			
 			</div>
@@ -91,6 +91,7 @@
 	
 	<hr class="separador"  />
 	
+	<!-- CONFIGURACOES DA CONTA -->
 	<table class="tamanhoDefault">
 		<tr>
 			<td >
@@ -102,26 +103,43 @@
 			<td>
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="button direita" value="fechar">
-			<form action="<c:url value="/menu/index/conta"/>" method="post" class="paddingPadrao">			
-				
+			<form action="<c:url value="/menu/index/conta"/>" method="post" class="paddingPadrao">								
 								
-								
-				<h3>Nome:</h3>
-				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao">
+				<h3>Nome Completo:</h3>
+				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.nome}" />
 				
+				<h3>Login:</h3>
+				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.login}" />
+				
+				<h3>Email:</h3>				
+				<div class="msgBorder msgAlerta t100">
+				<b>Aten&ccedil;&atilde;o !</b><br/>
+				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
+				</div>				
+				
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" value="${sessaoUsuario.usuario.email}" />
+								
+				<h3>Senha:
+				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
+				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
+				</h3>				
 				<p>
-				<h3>Email:</h3>
-				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao">
+				<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}">
+				<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
 				</p>
 				
+				
+								
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">				
+				<input type="submit" value="atualizar" class="buttonCadastrar">				
 				</p>
 			</form>			
 			</div>
 			</td>
 		</tr>
-	</table>	
+	</table>
+	
+	<hr class="separador"  />	
 	
 	<table id="tamanhoDefault" >
 		<tr>
@@ -181,7 +199,7 @@
 				<textarea id="campoTextoPsicologia" class="areaTexto h500 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -219,7 +237,7 @@
 				<textarea id="campoTextoEducacao" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoEducacao.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -257,7 +275,7 @@
 				<textarea id="campoTextoCultura" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoCultura.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -295,7 +313,7 @@
 				<textarea id="campoTextoArtesOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>

@@ -14,7 +14,7 @@
 			<table id="tabMensagemIndex">
 			<tr>
 			<td>
-			<label class="descricaoTextoIndex">${sessaoCliente.textoIndex.conteudo}</label>
+			<label class="descricaoTextoIndex corPrincipal"><span class="xLarge">&ldquo;</span> ${sessaoCliente.textoIndex.conteudo} <span class="xLarge">&bdquo;</span></label>
 			<br/>
 			<label class="autorTextoIndex azulClaro">${sessaoCliente.textoIndex.autor}</label>
 			</td>
