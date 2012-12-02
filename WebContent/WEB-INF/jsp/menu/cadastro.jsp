@@ -17,8 +17,7 @@
 <div class="msgBorder msgSucesso tamanhoErroLogin">${msgCadastro}</div>
 <br/>
 </c:if>
-<form action="<c:url value="/menu/cadastrar"/>" method="post">
-	 
+<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
 	
 	<c:if test="${not empty nomeEmBranco}">
 		<label class="labelFormErro">${nomeEmBranco}</label>
@@ -46,6 +45,25 @@
 	<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
 </form>
 </div>
+
+<hr class="separador"  />
+
+<table class="tamanhoDefault">
+		<tr>
+			<td >
+			<input id="btAbrirConteudoCadastradas" type="button" class="button esquerda" value="Visualizar todas as pessoas cadastradas" />
+			<span class="info azulClaro" >Lista das pessoa cadastradas no site.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoPessoasCadastradas" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="fechar">
+				<ul id="ulPessoas"></ul>
+			</div>
+			</td>
+		</tr>
+	</table>
 </div>
 
 <div id="espacadorRodape"></div>

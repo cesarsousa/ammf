@@ -1,5 +1,8 @@
 package br.com.ammf.repository.imp;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -25,9 +28,13 @@ public class PessoaDao implements PessoaRepository {
 			transaction.commit();		
 		}catch (Exception e) {
 			throw new DBException("(PessoaDao) - cadastrar", e);
-		}
-		
-				
+		}				
+	}
+
+	@Override
+	public List<Pessoa> listar() {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		return criteria.list();
 	}
 
 }
