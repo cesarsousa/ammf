@@ -54,9 +54,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()){
 			result.include("usuarioSenhaBranco", "A senha deve ser informada");
 			resultado = false;
-		}
-		
-		
+		}		
 		return resultado;
 	}
 

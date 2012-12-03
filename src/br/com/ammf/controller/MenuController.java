@@ -107,6 +107,7 @@ public class MenuController {
 	public void atualizarDadosDeUsuario(Usuario usuario){
 		boolean validado = validacaoService.usuario(usuario, result);
 		if(validado){
+			usuarioRepository.atualizar(usuario);
 			redirecionarParaMenuAdm("mensagem", "Dados de conta de usuário atualizados com sucesso");
 		}else{
 			redirecionarParaMenuAdm("editarUsuario", "true");

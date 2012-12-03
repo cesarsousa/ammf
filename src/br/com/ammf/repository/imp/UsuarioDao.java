@@ -34,4 +34,10 @@ public class UsuarioDao implements UsuarioRepository{
 		return (Usuario) criteria.uniqueResult();
 	}
 
+	@Override
+	public void atualizar(Usuario usuario) {
+		// TODO atualizar usuario e tratar exceções.
+		
+	}
+
 }

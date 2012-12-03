@@ -8,4 +8,6 @@ public interface UsuarioRepository {
 
 	public Usuario autenticar(String login, String senha);
 
+	public void atualizar(Usuario usuario);
+
 }

@@ -434,6 +434,34 @@ padding: 0 5px 10px 5px; */
 	color: black;
 }
 
+.areaTitulo2 {
+	width: 50%;
+	font-size: medium;
+	font-family: arial;
+	padding: 10px;	
+	/* border: 1px solid #8B8484; */
+	color: black;
+}
+
+.areaTitulo3 {
+	width: 300px;
+	font-size: medium;
+	font-family: arial;
+	padding: 10px;	
+	/* border: 1px solid #8B8484; */
+	color: black;
+}
+
+.btBusca{
+	height: 43px;
+	
+}
+
+.lupa {
+	width: 30px;
+	height: 30px;
+}
+
 .areaTexto {
 	width: 90%;
 	font-family: arial;
@@ -480,6 +508,11 @@ padding: 0 5px 10px 5px; */
 	text-align: center;
 }
 
+.areaBusca{
+	border-right: 1px dashed #8B8484;
+	width: 400px;
+}
+
 .tituloTexto {
 	color: blue;
 	font-size: x-large;
@@ -492,6 +525,29 @@ padding: 0 5px 10px 5px; */
 
 .info {
 	padding: 10px;
+}
+
+.CONFIRMADO {
+	color: green;
+}
+
+.PENDENTE {
+	color: red;
+}
+
+.infoTabela{
+	width: 300px;
+	padding: 5px;
+	font-size: small;
+	
+}
+
+.headTabela{
+	width: 300px;
+	color: white;
+	background-color: #A2B5CD;
+	font-weight: bold;
+	padding: 5px;
 }
 
 .msgBorder {
@@ -532,6 +588,10 @@ padding: 0 5px 10px 5px; */
 	width: 295px;
 }
 
+.sizebtGenerico{
+	width: 300px;
+}
+
 .ponteiro {
 	cursor: pointer;
 }
@@ -542,4 +602,12 @@ padding: 0 5px 10px 5px; */
 
 .backAzul {
 	background-color: #A2B5CD;
+}
+
+.backVermelho{
+	background-color: red;
+}
+
+.backVerde{
+	background-color: green;
 }

@@ -49,17 +49,110 @@
 <hr class="separador"  />
 
 <table class="tamanhoDefault">
+	<tr>
+		<td >		
+		<form action="">
+		<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao">
+		<img id="btIniciarBusca" alt="Buscar Pessoa" title="Buscar Pessoa" src="${imagem}/lupa.png" class="lupa ponteiro">
+		<label style="color: gray;" >Resultado da busca</label>		
+		</form>
+		</td>
+	</tr>
+</table>
+
+
+
+<hr class="separador"  />
+
+<table class="tamanhoDefault">
 		<tr>
 			<td >
-			<input id="btAbrirConteudoCadastradas" type="button" class="button esquerda" value="Visualizar todas as pessoas cadastradas" />
-			<span class="info azulClaro" >Lista das pessoa cadastradas no site.</span>
+			<input id="btAbrirConteudoCadastradas" type="button" class="sizebtGenerico button esquerda" value="Visualizar todas as pessoas cadastradas" />
+			<span class="info azulClaro" >Lista das pessoas cadastradas no site.</span>
 			</td>
 		</tr>
 		<tr>
 			<td>
 			<div id="conteudoPessoasCadastradas" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="fechar">
-				<ul id="ulPessoas"></ul>
+								
+				<table>
+					<thead>
+						<tr>
+						<td class="headTabela">Nome</td>
+						<td class="headTabela">Email</td>
+						<td class="headTabela">Status</td>
+						</tr>
+					</thead>
+						
+					<tbody id="ulPessoas">						
+					</tbody>
+					
+				</table>				
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr class="separador"  />
+	
+	<table class="tamanhoDefault">
+		<tr>
+			<td >
+			<input id="btAbrirConteudoConfirmadas" type="button" class="sizebtGenerico backVerde button esquerda" value="Visualizar pessoas confirmadas" />
+			<span class="info azulClaro" >Lista das pessoas que recebem notifica&ccedil;&atilde;o de textos do site.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoPessoasConfirmadas" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoConfirmadas" type="button" class="button direita" value="fechar">
+								
+				<table>
+					<thead>
+						<tr>
+						<td class="headTabela">Nome</td>
+						<td class="headTabela">Email</td>
+						<td class="headTabela">Status</td>
+						</tr>
+					</thead>
+						
+					<tbody id="ulPessoasConfirmadas">						
+					</tbody>
+					
+				</table>				
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr class="separador"  />
+	
+	<table class="tamanhoDefault">
+		<tr>
+			<td >
+			<input id="btAbrirConteudoPendentes" type="button" class="sizebtGenerico backVermelho button esquerda" value="Visualizar pessoas pendentes" />
+			<span class="info azulClaro" >Lista das pessoas pendente confirma&ccedil;&atilde;o para receber notifica&ccedil;&atilde;o de textos do site.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoPendentes" type="button" class="button direita" value="fechar">
+								
+				<table>
+					<thead>
+						<tr>
+						<td class="headTabela">Nome</td>
+						<td class="headTabela">Email</td>
+						<td class="headTabela">Status</td>
+						</tr>
+					</thead>
+						
+					<tbody id="ulPessoasConfirmadas">						
+					</tbody>
+					
+				</table>				
 			</div>
 			</td>
 		</tr>
