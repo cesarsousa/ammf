@@ -66,3 +66,11 @@ function alterarTamanhoAreaTexto(origem, destino) {
 			break;
 	}
 }
+
+function getDataFormatada(milisegundos){
+	var data = new Date();
+	data.setTime(milisegundos);
+	
+	return data.getDate() + "/" + (data.getMonth() + 1) + "/" + data.getFullYear() + " " 
+	     + data.getHours() + ":" + data.getMinutes() + ":" + data.getMilliseconds();	
+}

@@ -1,4 +1,36 @@
 
+function ajaxGet(url, ulTabela, divTabela, btFechar){
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + url,
+		success : function(json){
+			$(ulTabela).html('');
+			for(var i = 0; i< json.length; i++){
+				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
+				$(ulTabela).append(
+					'<tr>' +
+					'<td class="infoTabela">' + json[i].nome + '</td>' +
+					'<td class="infoTabela">' + json[i].email + '</td>' +
+					'<td class="infoTabela">' + dataCadastro + '</td>' +
+					'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
+					'</tr>');						
+			}			
+			
+			$(divTabela).slideDown(1000);
+			$(btFechar).click(function(){
+				$(divTabela).slideUp(1000);		
+			});
+		},
+		error : function(){
+			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
+		}
+	});	
+	
+	
+	
+}
+
+
 $(document).ready(function() {
 	
 	var janelaHtml = $('#contexto').val() + "/telaAguarde.html";
@@ -25,11 +57,14 @@ $(document).ready(function() {
 					nome = nome.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
 					var email = json[i].email;
 					email = email.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
+					
+					var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
 										
 					$('#ulConsultadas').append(
 						'<tr>' +
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
+						'<td class="infoTabela">' + dataCadastro + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
 						'</tr>');						
 				}
@@ -45,33 +80,15 @@ $(document).ready(function() {
 		});	
 		
 	});
+	$('#btFecharConsultaPessoas').click(function(){
+		$('#conteudoConsultaPessoas').slideUp(1000);		
+	});
 	
 	$('#conteudoPessoasCadastradas').hide();
 	$('#btAbrirConteudoCadastradas').click(function(){		
-		$.ajax({
-			type : 'GET',
-			url : $('#contexto').val() + "/pessoa/listar",
-			success : function(json){
-				$('#ulPessoas').html('');
-				for(var i = 0; i< json.length; i++){					
-					$('#ulPessoas').append(
-						'<tr>' +
-						'<td class="infoTabela">' + json[i].nome + '</td>' +
-						'<td class="infoTabela">' + json[i].email + '</td>' +
-						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-						'</tr>');						
-				}				
-				
-				$('#conteudoPessoasCadastradas').slideDown(1000);
-			},
-			error : function(){
-				alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
-			}
-		});				
+		ajaxGet("/pessoa/listar", "#ulPessoas", "#conteudoPessoasCadastradas", "#btFecharConteudoCadastradas");					
 	});
-	$('#btFecharConteudoCadastradas').click(function(){
-		$('#conteudoPessoasCadastradas').slideUp(1000);		
-	});
+
 	
 	$('#conteudoPessoasConfirmadas').hide();	
 	$('#conteudoPessoasPendentes').hide();

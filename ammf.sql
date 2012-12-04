@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.5.9, for Win32 (x86)
+CREATE DATABASE  IF NOT EXISTS `ammf` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ammf`;
+-- MySQL dump 10.13  Distrib 5.5.28, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: ammf
 -- ------------------------------------------------------
--- Server version	5.1.36-community-log
+-- Server version	5.5.28-0ubuntu0.12.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,14 +18,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `ammf`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `ammf` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `ammf`;
-
---
 -- Table structure for table `pessoa`
 --
 
@@ -35,8 +29,10 @@ CREATE TABLE `pessoa` (
   `email` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `uuid` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `dataCadastro` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +41,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (1,'cesarsonline@gmail.com','César de Sousa junior','f0b854f0-540a-47b0-ba8a-aaf75d2d0836');
+INSERT INTO `pessoa` VALUES (2,'cesarsonline@gmail.com','cesar de sousa junior','db1826ce-4c45-4ed4-a09a-003c6af8b7d1','CONFIRMADO','2012-12-01 13:00:00'),(3,'carlosaraujo@gmail.com','carlos araujo','2019eca4-8621-4673-bd4e-aa02df0cbc72','CONFIRMADO','2012-12-01 13:00:00'),(4,'joanafs@ig.com.br','Joana Fonseca Siqueira','fd122c3a-ff0d-4f8e-8023-278c4437f1a7','PENDENTE','2012-12-01 13:00:00'),(5,'celsofronte@gmail.com','celso fron teodoro','3e438cdc-4164-4160-b430-f18f86f17c42','PENDENTE','2012-12-01 13:00:00'),(6,'mariaadelaide@pop.com.br','Maria Adelaide Junqueira','627511f4-56e1-499b-ae1c-a712d41ecbf0','CONFIRMADO','2012-12-01 13:00:00'),(7,'isadorath@gmail.com','Isadora Talis','660b385f-3c6d-44e5-9704-8752f80e6310','CONFIRMADO','2012-12-01 13:00:00'),(8,'mariorb@yahoo.com.br','mario roberto bueno','eb973f1b-21db-496e-bc7a-552c5a5a69c8','PENDENTE','2012-12-01 13:00:00'),(9,'cesarmartins@gmail.com','cesar martins','5ea8e430-f815-4ebd-a817-23a828fd3b59','CONFIRMADO','2012-12-01 13:00:00'),(10,'pcesar@gmail.com','paulo cesar de souza','35620d78-49b4-45a6-82d7-ad043757ec15','CONFIRMADO','2012-12-01 13:00:00'),(11,'marianaborba@gmail.com','mariana borba da costa','6902fe90-479d-41e8-8689-b6db76b94a4d','PENDENTE','2012-12-01 13:00:00'),(12,'jcosta@gmail.com','joão costa','ca69bc03-99ef-4be8-a0db-b581d97ff3de','CONFIRMADO','2012-12-01 13:00:00'),(13,'jmj@ig.com','joão maria josé','8887cf0c-cab7-487d-a881-1dd5d9bc0ad0','CONFIRMADO','2012-12-01 13:00:00'),(14,'mariadasdores@gmail.com','Maria das Dores do Nascimento','d3949b4c-bc02-4b92-ad7d-86de16ca40db','PENDENTE','2012-12-01 13:00:00');
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,6 +86,8 @@ CREATE TABLE `usuario` (
   `login` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `uuid` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -100,7 +98,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'alcindomiguel','270879cm',NULL);
+INSERT INTO `usuario` VALUES (1,'alcindomiguel','061160cm','alcindomiguel@gmail.com','Alcindo Miguel Martins filho','');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-26 17:43:32
+-- Dump completed on 2012-12-04 20:38:54
