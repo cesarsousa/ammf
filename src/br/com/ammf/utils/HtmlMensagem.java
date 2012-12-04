@@ -11,11 +11,13 @@ public class HtmlMensagem {
 	}
 
 	public static String getMensagemCadastroPessoa(Pessoa pessoa) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_cadastra_pessoa.html"); 
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_cadastra_pessoa.html");
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
-				.replace("[LINKREMOVERNOTIFICACAO]", Link.WEB_SITE);
+				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[EMAIL]", pessoa.getEmail());
 	}
 
 }

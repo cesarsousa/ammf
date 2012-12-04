@@ -46,25 +46,42 @@
 </form>
 </div>
 
-<hr class="separador"  />
+<hr class="separador" />
 
 <table class="tamanhoDefault">
-	<tr>
-		<td >		
-		<form action="">
-		<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao">
-		<img id="btIniciarBusca" alt="Buscar Pessoa" title="Buscar Pessoa" src="${imagem}/lupa.png" class="lupa ponteiro">
-		<label style="color: gray;" >Resultado da busca</label>		
-		</form>
-		</td>
-	</tr>
-</table>
+		<tr>
+			<td >
+			<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao" />
+			<img id="btIniciarBusca" alt="Buscar Pessoa" title="Buscar Pessoa" src="${imagem}/lupa.png" class="lupa ponteiro">
+			<label id="labelResultadoConsulta"></label>		
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoConsultaPessoas" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConsultaPessoas" type="button" class="button direita" value="fechar">
+								
+				<table>
+					<thead>
+						<tr>
+						<td class="headTabela">Nome</td>
+						<td class="headTabela">Email</td>
+						<td class="headTabela">Status</td>
+						</tr>
+					</thead>
+						
+					<tbody id="ulConsultadas">						
+					</tbody>
+					
+				</table>				
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr class="separador"  />
 
-
-
-<hr class="separador"  />
-
-<table class="tamanhoDefault">
+	<table class="tamanhoDefault">
 		<tr>
 			<td >
 			<input id="btAbrirConteudoCadastradas" type="button" class="sizebtGenerico button esquerda" value="Visualizar todas as pessoas cadastradas" />

@@ -8,6 +8,7 @@ import java.util.List;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
@@ -26,6 +27,17 @@ public class PessoaController {
 	public void listarPessoas(){
 		List<Pessoa> pessoas = pessoaRepository.listar();		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+	}
+	
+	@Get("/remover/email/{uuid}")
+	public void removerAssinaturaEmail(String uuid){
+		System.out.println(".........remover assinatura de email de uuid: " + uuid);
+	}
+	
+	@Get("/pessoa/consulta")
+	public void consultar(String paramConsulta){
+		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
+		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
 	}
 
 }

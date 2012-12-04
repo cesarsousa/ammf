@@ -24,7 +24,7 @@ public class Pessoa implements Serializable{
 	
 	private String nome;
 	
-	private String email;
+	private String email;	
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;

@@ -18,6 +18,10 @@ public class DataUtils {
 	public static String getFullString(Calendar postagem) {
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		return spf.format(postagem.getTime());
-	}	
+	}
+	
+	public static Calendar getHoje(){
+		return Calendar.getInstance();
+	}
 
 }
