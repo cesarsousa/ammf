@@ -132,6 +132,7 @@
 						<tr>
 						<td class="headTabela">Nome</td>
 						<td class="headTabela">Email</td>
+						<td class="headTabela">Data Cadastro</td>
 						<td class="headTabela">Status</td>
 						</tr>
 					</thead>
@@ -164,11 +165,12 @@
 						<tr>
 						<td class="headTabela">Nome</td>
 						<td class="headTabela">Email</td>
+						<td class="headTabela">Data Cadastro</td>
 						<td class="headTabela">Status</td>
 						</tr>
 					</thead>
 						
-					<tbody id="ulPessoasConfirmadas">						
+					<tbody id="ulPessoasPendentes">						
 					</tbody>
 					
 				</table>				

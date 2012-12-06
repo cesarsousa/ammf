@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -28,6 +29,18 @@ public class PessoaController {
 		List<Pessoa> pessoas = pessoaRepository.listar();		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
 	}
+	
+	@Get("/pessoa/confirmadas")
+	public void listarPessoasConfirmadas(){
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);
+		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+	}
+	
+	@Get("/pessoa/pendentes")
+	public void listarPessoasPendentes(){
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.PENDENTE);
+		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+	}	
 	
 	@Get("/remover/email/{uuid}")
 	public void removerAssinaturaEmail(String uuid){

@@ -25,9 +25,6 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
 		}
 	});	
-	
-	
-	
 }
 
 
@@ -88,11 +85,14 @@ $(document).ready(function() {
 	$('#btAbrirConteudoCadastradas').click(function(){		
 		ajaxGet("/pessoa/listar", "#ulPessoas", "#conteudoPessoasCadastradas", "#btFecharConteudoCadastradas");					
 	});
-
 	
-	$('#conteudoPessoasConfirmadas').hide();	
+	$('#conteudoPessoasConfirmadas').hide();
+	$('#btAbrirConteudoConfirmadas').click(function(){		
+		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#conteudoPessoasConfirmadas", "#btFecharConteudoConfirmadas");					
+	});	
+	
 	$('#conteudoPessoasPendentes').hide();
-	
-	
-	
+	$('#btAbrirConteudoPendentes').click(function(){		
+		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#conteudoPessoasPendentes", "#btFecharConteudoPendentes");					
+	});	
 });
