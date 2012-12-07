@@ -117,41 +117,54 @@
 				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
 				</c:if>
 				
+				
 				<h3>Login:</h3>
+				<c:if test="${not empty usuarioLoginBranco}">
+				<label class="labelFormErro">${usuarioLoginBranco}</label>
+				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadraoErro" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
+				</c:if>
+				<c:if test="${empty usuarioLoginBranco}">
 				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadrao" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
+				</c:if>
+				
 				
 				<h3>Email:</h3>
-				<c:if test="${not empty usuarioErroEmail}">				
 				<div class="msgBorder msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
 				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
 				</div>
+				<c:if test="${not empty usuarioErroEmail}">				
 				<label class="labelFormErro">${usuarioErroEmail}</label>
 				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
-				</c:if>
-				
-				<c:if test="${empty usuarioErroEmail}">
-				<div class="msgBorder msgAlerta t100">
-				<b>Aten&ccedil;&atilde;o !</b><br/>
-				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
-				</div>				
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
 				</c:if>				
+				<c:if test="${empty usuarioErroEmail}">
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
+				</c:if>
+								
 								
 				<h3>Senha:
 				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
 				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
-				</h3>
-				<div class="msgBorder msgAlerta t100">
+				</h3>				
+				<div class="msgBorder msgAlerta t100">				
 				<b>Lembrete !</b><br/>
-				&Eacute; obrigat&oacute;rio que a senha seja a mesma do gmail cadastrado no site.
-				</div>				
-				<p>
-				<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
-				<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
-				</p>
+				&Eacute; obrigat&oacute;rio que a senha seja a mesma do gmail cadastrado no site.				
+				</div>
 				
-				
+				<c:if test="${not empty usuarioSenhaBranco}">				
+				<label class="labelFormErro">${usuarioSenhaBranco}</label>
+				<br/>
+					<p>
+					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadraoErro" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					</p>
+				</c:if>				
+				<c:if test="${empty usuarioSenhaBranco}">
+					<p>
+					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					</p>
+				</c:if>			
 								
 				<p>
 				<input type="submit" value="atualizar" class="buttonCadastrar">				
