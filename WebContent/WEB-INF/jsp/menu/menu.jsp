@@ -48,9 +48,9 @@
 	<!-- EDITAR CONTEUDO INDEX -->
 	<table class="tamanhoDefault">
 		<tr>
-			<td >
-			<input id="btAbrirConteudoIndex" type="button" class="button esquerda" value="Editar conte&uacute;do index" />
-			<span class="info azulClaro" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
+			<td id="btAbrirConteudoIndex" class="headerSlide">
+			<span  class="esquerda">Editar conte&uacute;do index</span>
+			<span class="info fundoazul" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
 			</td>
 		</tr>
 		<tr>
@@ -95,9 +95,9 @@
 	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/> 
 	<table class="tamanhoDefault">
 		<tr>
-			<td >
-			<input id="btAbrirConteudoConta" type="button" class="button esquerda" value="Configura&ccedil;&otilde;es da Conta" />
-			<span class="info azulClaro" >Verifique seus dados de acesso ao sistema.</span>
+			<td id="btAbrirConteudoConta" class="headerSlide">
+			<span  class="esquerda">Configura&ccedil;&otilde;es da Conta</span>
+			<span class="info fundoazul" >Verifique seus dados de acesso ao sistema.</span>
 			</td>
 		</tr>
 		<tr>
