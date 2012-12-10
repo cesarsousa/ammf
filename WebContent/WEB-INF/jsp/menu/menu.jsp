@@ -49,7 +49,7 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoIndex" class="headerSlide">
-			<span  class="esquerda">Editar conte&uacute;do index</span>
+			<span  class="esquerda Branco">Editar conte&uacute;do index</span>
 			<span class="info fundoazul" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
 			</td>
 		</tr>
@@ -96,7 +96,7 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoConta" class="headerSlide">
-			<span  class="esquerda">Configura&ccedil;&otilde;es da Conta</span>
+			<span  class="esquerda Branco">Configura&ccedil;&otilde;es da Conta</span>
 			<span class="info fundoazul" >Verifique seus dados de acesso ao sistema.</span>
 			</td>
 		</tr>
