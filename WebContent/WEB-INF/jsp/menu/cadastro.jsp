@@ -49,7 +49,7 @@
 <table class="tamanhoDefault">
 	<tr>
 		<td >
-		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.jpg" width="50" height="50" class="ponteiro esquerda">
+		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.png" width="50" height="50" class="ponteiro esquerda">
 		</td>
 	</tr>
 </table>

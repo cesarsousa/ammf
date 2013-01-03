@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img id="imagemPsicologia" class="imgMenuPrincipal opacidade" src="${imagem}/iconePsicologia.png"/>
+			<img id="imagemPsicologia" class="imgMenuPrincipal opacidade" src="${imagem}/iconePsicologiaHover.png"/>
 		</div>
 			<div class="direita">
 			<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>

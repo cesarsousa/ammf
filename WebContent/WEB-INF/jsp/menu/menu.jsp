@@ -133,6 +133,7 @@
 				<b>Aten&ccedil;&atilde;o !</b><br/>
 				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
 				</div>
+				<p>
 				<c:if test="${not empty usuarioErroEmail}">				
 				<label class="labelFormErro">${usuarioErroEmail}</label>
 				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
@@ -140,7 +141,7 @@
 				<c:if test="${empty usuarioErroEmail}">
 				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
 				</c:if>
-								
+				</p>				
 								
 				<h3>Senha:
 				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>

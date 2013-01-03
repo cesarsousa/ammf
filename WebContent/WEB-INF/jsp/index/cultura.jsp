@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeCultura.png"/>
+			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeCulturaHover.png"/>
 		</div>
 			<div class="direita">
 			<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
