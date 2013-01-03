@@ -18,6 +18,12 @@ a:HOVER {
 	color: #000000;
 }
 
+#campoBusca{
+	background-image: url("../image/lupa2.png");
+	background-repeat: no-repeat;
+	padding-left: 35px;
+}
+
 .labelForm {
 	color: gray;
 	font-size: medium;
@@ -391,7 +397,7 @@ padding: 0 5px 10px 5px; */
 	height: 30px;
 	padding:5px;
 	font-weight: bold;
-	background-color: #8b8484;
+	background-color: #dddddd;
 	border: 1px #cccccc;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;

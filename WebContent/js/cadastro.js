@@ -5,8 +5,8 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 		url : $('#contexto').val() + url,
 		success : function(json){
 			$(ulTabela).html('');
-			for(var i = 0; i< json.length; i++){
-				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
+			for(var i = 0; i< json.length; i++){				
+				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);				
 				$(ulTabela).append(
 					'<tr>' +
 					'<td class="infoTabela">' + json[i].nome + '</td>' +
@@ -36,12 +36,27 @@ $(document).ready(function() {
 	addRemoveDestaque("#pessoaEmail");
 	addRemoveDestaque("#campoBusca");
 	
+	
+	$('#toolsAreaCadastro').hide();	
+
+	$('#btAbrirToolsCadastro').toggle(function() {
+		$('#toolsAreaCadastro').slideDown(500);
+	}, function() {
+		$('#toolsAreaCadastro').slideUp(500);
+	});
+	
+	
+	$('#btAbrirToolsCadastro').click(function(){
+		
+	});
+	
 	$('#btnCadastrarPessoa').click(function(){
 		abrirJanelaDeEspera(janelaHtml);
 	});
 	
 	$('#conteudoConsultaPessoas').hide();
-	$('#btIniciarBusca').click(function(){	
+	$('#formBuscaPessoa').submit(function(event){
+		event.preventDefault();
 		$('#conteudoConsultaPessoas').slideUp(500);
 		$.ajax({
 			type : 'GET',
@@ -66,9 +81,12 @@ $(document).ready(function() {
 						'</tr>');						
 				}
 				
-				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown(1000);					
+				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown(1000);
 				
-				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrência(s) para a pesquisa: ' + $('#campoBusca').val());
+				var textoBuscado = $('#campoBusca').val();
+				$('#campoBusca').attr("value", "").focus();
+				
+				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrência(s) para a pesquisa: ' + textoBuscado);
 								
 			},
 			error : function(){

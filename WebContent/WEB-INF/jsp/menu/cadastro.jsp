@@ -46,14 +46,27 @@
 </form>
 </div>
 
+<table class="tamanhoDefault">
+	<tr>
+		<td >
+		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.jpg" width="50" height="50" class="ponteiro esquerda">
+		</td>
+	</tr>
+</table>
+
+<div id="toolsAreaCadastro">
+
 <hr class="separador" />
 
 <table class="tamanhoDefault">
 		<tr>
 			<td >
-			<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao" />
-			<img id="btIniciarBusca" alt="Buscar Pessoa" title="Buscar Pessoa" src="${imagem}/lupa.png" class="lupa ponteiro">
+			<form id="formBuscaPessoa">
+			<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao" src="${imagem}/lupa.png" />
+			</form>
+			<p>
 			<label id="labelResultadoConsulta"></label>		
+			</p>
 			</td>
 		</tr>
 		<tr>
@@ -178,6 +191,8 @@
 			</td>
 		</tr>
 	</table>
+</div>
+
 </div>
 
 <div id="espacadorRodape"></div>

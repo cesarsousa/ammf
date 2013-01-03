@@ -20,6 +20,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(pessoa.getEmail() == null || pessoa.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado");
 			resultado = false;
+		}else if (!emailValido(pessoa.getEmail())){
+			result.include("emailEmBranco", "O email esta com formato inválido");
+			resultado = false;
 		}
 		if(!resultado){
 			result.include("pessoaCadastro", pessoa);

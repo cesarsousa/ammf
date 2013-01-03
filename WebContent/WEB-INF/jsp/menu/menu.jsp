@@ -49,8 +49,8 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoIndex" class="headerSlide">
-			<span  class="esquerda Branco">Editar conte&uacute;do index</span>
-			<span class="info fundoazul" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
+			<span  class="esquerda">Editar conte&uacute;do index</span>
+			<span class="info azulClaro" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
 			</td>
 		</tr>
 		<tr>
@@ -96,8 +96,8 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoConta" class="headerSlide">
-			<span  class="esquerda Branco">Configura&ccedil;&otilde;es da Conta</span>
-			<span class="info fundoazul" >Verifique seus dados de acesso ao sistema.</span>
+			<span  class="esquerda">Configura&ccedil;&otilde;es da Conta</span>
+			<span class="info azulClaro" >Verifique seus dados de acesso ao sistema.</span>
 			</td>
 		</tr>
 		<tr>
@@ -205,33 +205,24 @@
 			<input id="btFecharEditarPsicologia" type="button" class="button direita" value="fechar">
 						
 			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">
-				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">
-						<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
-						<span id="sizeSmallPsicologia" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumPsicologia" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargePsicologia" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargePsicologia" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargePsicologia" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
-				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class=esquerda>
-						<span class="paddingPadrao azulClaro">Tamanho da area de digita&ccedil;&atilde;o:</span>
-						<span id="sizeSmallAreaPsicologia" style="font-size: small;" class="ponteiro" >1</span>
-						<span id="sizeMediumAreaPsicologia" style="font-size: medium;" class="ponteiro" >2</span>
-						<span id="sizeLargeAreaPsicologia" style="font-size: large;" class="ponteiro" >3</span>
-						<span id="sizeXLargeAreaPsicologia" style="font-size: x-large;" class="ponteiro" >4</span>
-						<span id="sizeXxLargeAreaPsicologia" style="font-size: xx-large;" class="ponteiro" >5</span>
-					</div>	
-				</div>
-				</div>
-				
+			
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallPsicologia" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumPsicologia" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargePsicologia" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargePsicologia" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargePsicologia" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaPsicologia" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaPsicologia" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaPsicologia" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaPsicologia" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaPsicologia" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
+								
 				<textarea id="campoTextoPsicologia" class="areaTexto h500 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
 				<p>
