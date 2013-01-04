@@ -205,8 +205,7 @@
 			<div id="edicaoPsicologia" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharEditarPsicologia" type="button" class="button direita" value="fechar">
 						
-			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">
-			
+			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">			
 			
 				<table class="tamanhoDefault">
 					<tr>

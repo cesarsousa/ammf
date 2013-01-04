@@ -20,7 +20,7 @@ public class DataUtils {
 		return spf.format(postagem.getTime());
 	}
 	
-	public static Calendar getHoje(){
+	public static Calendar getNow(){
 		return Calendar.getInstance();
 	}
 

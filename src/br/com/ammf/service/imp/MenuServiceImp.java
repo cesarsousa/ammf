@@ -13,6 +13,7 @@ import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
+import br.com.ammf.utils.DataUtils;
 import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
 import br.com.caelum.vraptor.ioc.Component;
@@ -54,9 +55,9 @@ public class MenuServiceImp implements MenuService{
 	@Override
 	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
 		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);		
-		enviarEmailNotificacaoCadastro(pessoa);
-		
+		enviarEmailNotificacaoCadastro(pessoa);		
 	}
 	
 	@Override

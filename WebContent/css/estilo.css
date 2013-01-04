@@ -18,7 +18,7 @@ a:HOVER {
 	color: #000000;
 }
 
-#campoBusca{
+.fundoLupa{
 	background-image: url("../image/lupa2.png");
 	background-repeat: no-repeat;
 	padding-left: 35px;
@@ -345,6 +345,10 @@ padding: 0 5px 10px 5px; */
 	color: #5B2406;
 }
 
+.corAzul{
+	color: blue;
+}
+
 .button {
 	color: #ffffff;
 	font-weight: bold;
@@ -440,9 +444,7 @@ padding: 0 5px 10px 5px; */
 	width: 90%;
 	font-size: medium;
 	font-family: arial;
-	padding: 10px;	
-	/* border: 1px solid #8B8484; */
-	color: black;
+	padding: 10px;		
 }
 
 .areaTitulo2 {
@@ -450,31 +452,24 @@ padding: 0 5px 10px 5px; */
 	font-size: medium;
 	font-family: arial;
 	padding: 10px;	
-	/* border: 1px solid #8B8484; */
-	color: black;
-}
-
-.areaTitulo2 {
-	width: 50%;
-	font-size: medium;
-	font-family: arial;
-	padding: 10px;	
-	/* border: 1px solid #8B8484; */
-	color: black;
 }
 
 .areaTitulo3 {
 	width: 300px;
+	height: 30px;
 	font-size: medium;
 	font-family: arial;
-	padding: 10px;	
-	/* border: 1px solid #8B8484; */
-	color: black;
 }
 
 .btBusca{
 	height: 43px;
 	
+}
+
+.tdTableIcone{
+	width: 60px;
+	height: 60px;
+	float: left;
 }
 
 .lupa {
@@ -569,6 +564,34 @@ padding: 0 5px 10px 5px; */
 	background-color: #A2B5CD;
 	font-weight: bold;
 	padding: 5px;
+}
+
+.headTabelaBlog1{
+	width: 40%;
+	color: white;
+	background-color: #A2B5CD;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.headTabelaBlog2{
+	width: 20%;
+	color: white;
+	background-color: #A2B5CD;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.headTabelaBlog1Info{
+	width: 40%;
+	padding: 5px;
+	font-size: small;
+}
+
+.headTabelaBlog2Info{
+	width: 20%;
+	padding: 5px;
+	font-size: small;
 }
 
 .msgBorder {

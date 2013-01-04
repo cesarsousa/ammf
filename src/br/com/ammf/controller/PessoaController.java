@@ -5,6 +5,7 @@ import static br.com.caelum.vraptor.view.Results.json;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
@@ -24,18 +25,21 @@ public class PessoaController {
 		this.pessoaRepository = pessoaRepository;
 	}
 	
+	@Restrito
 	@Get("/pessoa/listar")
 	public void listarPessoas(){
 		List<Pessoa> pessoas = pessoaRepository.listar();		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
 	}
 	
+	@Restrito
 	@Get("/pessoa/confirmadas")
 	public void listarPessoasConfirmadas(){
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
 	}
 	
+	@Restrito
 	@Get("/pessoa/pendentes")
 	public void listarPessoasPendentes(){
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.PENDENTE);
@@ -47,6 +51,7 @@ public class PessoaController {
 		System.out.println(".........remover assinatura de email de uuid: " + uuid);
 	}
 	
+	@Restrito
 	@Get("/pessoa/consulta")
 	public void consultar(String paramConsulta){
 		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		

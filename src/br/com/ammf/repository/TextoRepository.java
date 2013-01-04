@@ -34,6 +34,8 @@ public interface TextoRepository {
 	
 	public void atualizarTextoArtesOrientais(Texto texto);
 
+	public List<Texto> listarTitulos(String titulo);
+
 	
 
 }

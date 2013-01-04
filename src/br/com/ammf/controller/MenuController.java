@@ -47,6 +47,11 @@ public class MenuController {
 		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
 	}
 	
+	@Post("/menu/adm")
+	public void menuAdministrador(){
+		result.redirectTo(this).menu();		
+	}	
+	
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
 		

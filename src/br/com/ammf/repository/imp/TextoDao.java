@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -130,5 +131,11 @@ public class TextoDao implements TextoRepository{
 		transaction.commit();		
 	}
 
-		
+	@Override
+	public List<Texto> listarTitulos(String titulo) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.like("titulo", "%" + titulo + "%"));
+		criteria.add(Restrictions.eq("local", Local.BLOG));
+		return criteria.list();
+	}		
 }

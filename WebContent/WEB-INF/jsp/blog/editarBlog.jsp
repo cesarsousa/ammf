@@ -8,33 +8,109 @@
 <h2>Blog do Miguel</h2>
 <span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o de textos.</span>
 
-<hr class="separador" />
+<c:if test="${not empty blogMensagemSucesso}">
+<table class="tamanhoDefault">
+	<tr>
+	<td>
+	<div class="msgBorder msgSucesso">
+		${blogMensagemSucesso} 
+	</div>
+</td>
+</tr>
+</table>
+<div id="separador"></div>
+</c:if>
+
+<table class="tamanhoDefault">
+	<tr>
+	<td class="tdTableIcone">
+	<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+	<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
+	</form>
+	</td>
+	
+	<td class="tdTableIcone">
+	<img id="btAddTextoBlog" alt="Adicionar novo texto" title="Adicionar novo texto" src="${imagem}/icone_add.png" width="50" height="50" class="ponteiro esquerda">
+	</td>
+	
+	<td class="tdTableIcone">
+	<img id="btEdtTextoBlog" alt="Editar um texto" title="Editar um texto" src="${imagem}/icone_editar.png" width="50" height="50" class="ponteiro esquerda">
+	</td>
+	
+	</tr>
+</table>
+
+<!-- ADICIONAR UM NOVO TEXTO -->
+<div id="divBlogNovoTexto">
+	<hr class="separador" />
+	
+	<table class="tamanhoDefault">
+		<tr>
+			<td>
+			<div class="cartao tamanhoEdicaoIndex" >
+			<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post" class="paddingPadrao">				
+								
+				<h3>T&iacute;tulo :</h3>
+				<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
+					
+				<h3>Autor :</h3>
+				<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
+								
+				<h3>Texto:</h3>
+				<div class="tamanhoDefault">
+				<div class="areaFormatacao">					
+						<div class="esquerda">						
+						<span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span>
+						<span id="sizeMediumIndex" style="font-size: medium;" class="ponteiro" >A</span>
+						<span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span>
+						<span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span>
+						<span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span>
+					</div>	
+				</div>
+				</div>
+				<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
+				
+				<p>
+				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
+				</p>
+			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- Editar um texto cadastrado -->
+
 
 <!-- BUSCA DE TEXTO PELO TITULO -->
-<table class="tamanhoDefault">
+<div id="divBlogNovoTexto">
+	<hr class="separador" />
+	<table width="100%">
 		<tr>
-			<td class="direita">
-			<label class="corPrincipal">Pesquisar pelo t&iacute;tulo do texto. </label>
-			<input id="campoBuscaTexto" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao" />
-			<img id="btIniciarBuscaTexto" alt="Buscar Pessoa" title="Buscar Pessoa" src="${imagem}/lupa.png" class="lupa ponteiro">
+			<td class="esquerda">
+			<label class="corPrincipal">T&iacute;tulo do texto. </label>
+			<form id="formBlogEdtTexto">
+			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao" />
+			</form>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoBuscaTexto" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharBuscaTexto" type="button" class="button direita" value="fechar">
+			<div id="resultBuscaTxtBlog" class="cartao" >
+			<!-- <input id="btFecharBuscaTexto" type="button" class="button direita" value="fechar"> -->
 				<label id="labelBuscaTexto">resultado da busca</label>				
-				<table>
+				<table width="100%">
 					<thead>
-						<tr>
-						<td class="headTabela">Nome</td>
-						<td class="headTabela">Email</td>
-						<td class="headTabela">Data Cadastro</td>
-						<td class="headTabela">Status</td>
+						<tr>						
+						<td class="headTabelaBlog2">data da postagem</td>
+						<td class="headTabelaBlog1">t&iacute;tulo</td>
+						<td class="headTabelaBlog1">Conte&uacute;do</td>						
 						</tr>
 					</thead>
 						
-					<tbody id="ulBuscaTexto">						
+					<tbody id="tabEdtTextoBlog">						
 					</tbody>
 					
 				</table>				
@@ -42,8 +118,9 @@
 			</td>
 		</tr>
 	</table>
+</div>
 	
-	<hr class="separador"  />
+	<!-- <hr class="separador"  />
 
 	<table class="tamanhoDefault">
 		<tr>
@@ -140,8 +217,9 @@
 			</div>
 			</td>
 		</tr>
-	</table>
-</div>
+	</table> -->
+	
+</div> <!-- div center -->
 
 <div id="espacadorRodape"></div>
 <%@ include file="/footerFixed.jsp" %>

@@ -3,7 +3,6 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
-<input id="contexto" type="hidden" value="${contextoApp}"/>
 
 <div align="center">
 
@@ -48,7 +47,13 @@
 
 <table class="tamanhoDefault">
 	<tr>
-		<td >
+		<td class="tdTableIcone">
+		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+			<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
+		</form>
+		</td>
+		
+		<td class="tdTableIcone">
 		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.png" width="50" height="50" class="ponteiro esquerda">
 		</td>
 	</tr>
@@ -62,7 +67,7 @@
 		<tr>
 			<td >
 			<form id="formBuscaPessoa">
-			<input id="campoBusca" type="text" class="sizebtGenerico areaTitulo3 bordaPadrao" src="${imagem}/lupa.png" />
+			<input id="campoBusca" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao"/>
 			</form>
 			<p>
 			<label id="labelResultadoConsulta"></label>		

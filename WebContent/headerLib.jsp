@@ -25,6 +25,7 @@
 <script type="text/javascript" src="${javascript}/cultura.js"></script>
 <script type="text/javascript" src="${javascript}/artesOrientais.js"></script>
 <script type="text/javascript" src="${javascript}/cadastro.js"></script>
+<script type="text/javascript" src="${javascript}/editarBlog.js"></script>
 
 
 </head>
