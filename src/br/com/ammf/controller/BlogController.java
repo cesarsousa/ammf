@@ -54,5 +54,12 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(textos).exclude("id", "autor", "local").serialize();		
 		
 	}
+	
+	@Restrito
+	@Get("/blog/visualizar/{uuid}")
+	public void visualizarTextoEdicao(String uuid){
+		Texto texto = textoRepository.obterPor(uuid);
+		result.use(json()).withoutRoot().from(texto).exclude("id", "local", "postagem") .serialize();		
+	}
 
 }

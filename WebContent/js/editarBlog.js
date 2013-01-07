@@ -1,5 +1,5 @@
 
-function ajaxGet(url, ulTabela, divTabela, btFechar){
+/*function ajaxGet(url, ulTabela, divTabela, btFechar){
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + url,
@@ -16,10 +16,34 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 					'</tr>');						
 			}			
 			
-			$(divTabela).slideDown(1000);
-			$(btFechar).click(function(){
-				$(divTabela).slideUp(1000);		
-			});
+			if(json.length > 0){
+				$(divTabela).slideDown(1000);
+				$(btFechar).click(function(){
+					$(divTabela).slideUp(1000);		
+				});
+			}
+		},
+		error : function(){
+			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
+		}
+	});	
+}*/
+
+function hideAllBlogFields(){
+	$('#divBlogNovoTexto, #divBlogBuscarTexto, #resultBuscaTxtBlog, #divBlogEditarTexto').hide();
+}
+
+function visualizarTextoParaEdicao(uuid){	
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/blog/visualizar/" + uuid,
+		success : function(json){
+			$('#blogEdtUuidTexto').val(json.uuid);
+			$('#blogEdtTituloTexto').val(json.titulo);
+			$('#blogEdtAutorTexto').val(json.autor);
+			$('#blogEdtConteudoTexto').val(json.conteudo);
+			
+			$('#divBlogEditarTexto').slideDown(500);			
 		},
 		error : function(){
 			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
@@ -30,13 +54,16 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 
 $(document).ready(function() {
 	
-	var janelaHtml = $('#contexto').val() + "/telaAguarde.html";
+	var janelaHtml = $('#contexto').val() + "/telaAguarde.html";	
 	
-	addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogConteudoNovoTexto");
+	addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
+	addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
 	$('#blogConteudoNovoTexto').autoResize();
 	
-	$('#divBlogNovoTexto').hide();
+	hideAllBlogFields();
+	
 	$('#btAddTextoBlog').click(function(){
+		hideAllBlogFields();		
 		$('#divBlogNovoTexto').slideDown(500);		
 	});
 	
@@ -47,16 +74,47 @@ $(document).ready(function() {
 		$('#divBlogNovoTexto').slideUp(500);		
 	});
 	
-	$('#formBlogNovoTexto').submit(function(event){
-		
-		if($('#blogTituloNovoTexto').val()== "" || $('#blogConteudoNovoTexto').val()== ""){
-			event.preventDefault();
-			alert("Por favor digite o título do texto e o conteúdo antes de cadastrar o novo texto");
-		}
-		
+	$('#btEdtTextoBlog').click(function(){
+		var texto = "Título do texto";
+		$('#campoBuscaTxtEdtBlog').puts(texto);
+		hideAllBlogFields();
+		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
+		$('#divBlogBuscarTexto').slideDown(500);		
+	});
+	$('#btFecharBuscaTextoBlog').click(function(){
+		$('#campoBuscaTxtEdtBlog').val('');
+		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
+		$('#resultBuscaTxtBlog').slideUp(500);
+		$('#divBlogBuscarTexto').slideUp(500);		
 	});
 	
-	$('#formBlogEdtTexto').submit(function(event){
+	$('#btBlogCancelEdtTexto').click(function(){		
+		$('#divBlogEditarTexto').slideUp(500);		
+	});	
+	
+	$('#formBlogNovoTexto').submit(function(event){		
+		if($('#blogTituloNovoTexto').val()== "" || $('#blogConteudoNovoTexto').val()== ""){
+			event.preventDefault();
+			alert("Por favor digite o título e o conteúdo do texto antes de cadastrar !");
+		}		
+	});
+	
+	$('#formBlogEditarTexto').submit(function(event){		
+		if($('#blogEdtTituloTexto').val()== "" || $('#blogEdtAutorTexto').val()== "" || $('#blogEdtConteudoTexto').val()== ""){
+			event.preventDefault();
+			alert("Por favor digite o título, autor e o conteúdo do texto antes de confirmar atualização !");
+		}		
+	});
+	
+	$('#sizeSmallBlogNovo, #sizeMediumBlogNovo, #sizeLargeBlogNovo, #sizeXLargeBlogNovo, #sizeXxLargeBlogNovo').click(function(){
+		alterarTamanhoTexto(this.id, '#blogConteudoNovoTexto');			
+	});
+	
+	$('#sizeSmallBlogEdit, #sizeMediumBlogEdit, #sizeLargeBlogEdit, #sizeXLargeBlogEdit, #sizeXxLargeBlogEdit').click(function(){
+		alterarTamanhoTexto(this.id, '#blogEdtConteudoTexto');			
+	});
+	
+	$('#formBlogBuscaTexto').submit(function(event){
 		event.preventDefault();
 		$('#resultBuscaTxtBlog').slideUp(500);
 		$.ajax({
@@ -74,8 +132,8 @@ $(document).ready(function() {
 					$('#tabEdtTextoBlog').append(
 						'<tr>' +
 						'<td class="headTabelaBlog2Info">' + dataCadastro + '</td>' +
-						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
-						'<td class="headTabelaBlog1Info">' + conteudo + '</td>' +
+						'<td class="headTabelaBlog1Info"><a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')">' + nome + '</td>' +
+						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
 						'</tr>');						
 				}
 				
@@ -84,7 +142,7 @@ $(document).ready(function() {
 				var textoBuscado = $('#campoBuscaTxtEdtBlog').val();
 				$('#campoBuscaTxtEdtBlog').attr("value", "").focus();
 				
-				$('#labelBuscaTexto').html('').html(json.length + ' ocorrência(s) para a pesquisa: ' + textoBuscado);
+				$('#labelBuscaTexto').html('').html('<b>' + json.length + '</b> ocorrência(s) para a pesquisa: <b>' + textoBuscado + '</b>');
 								
 			},
 			error : function(){
@@ -92,85 +150,5 @@ $(document).ready(function() {
 			}
 		});	
 		
-	});
-	
-	
-	
-	
-	/*$('#toolsAreaCadastro').hide();	
-
-	$('#btAbrirToolsCadastro').toggle(function() {
-		$('#toolsAreaCadastro').slideDown(500);
-	}, function() {
-		$('#toolsAreaCadastro').slideUp(500);
-	});
-	
-	
-	$('#btAbrirToolsCadastro').click(function(){
-		
-	});
-	
-	$('#btnCadastrarPessoa').click(function(){
-		abrirJanelaDeEspera(janelaHtml);
-	});
-	
-	$('#conteudoConsultaPessoas').hide();
-	$('#formBuscaPessoa').submit(function(event){
-		event.preventDefault();
-		$('#conteudoConsultaPessoas').slideUp(500);
-		$.ajax({
-			type : 'GET',
-			url : $('#contexto').val() + "/pessoa/consulta",
-			data:{"paramConsulta" : $('#campoBusca').val()},
-			success : function(json){
-				$('#ulConsultadas').html('');
-				for(var i = 0; i< json.length; i++){
-					var nome = json[i].nome;
-					nome = nome.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
-					var email = json[i].email;
-					email = email.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
-					
-					var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
-										
-					$('#ulConsultadas').append(
-						'<tr>' +
-						'<td class="infoTabela">' + nome + '</td>' +
-						'<td class="infoTabela">' + email + '</td>' +
-						'<td class="infoTabela">' + dataCadastro + '</td>' +
-						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-						'</tr>');						
-				}
-				
-				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown(1000);
-				
-				var textoBuscado = $('#campoBusca').val();
-				$('#campoBusca').attr("value", "").focus();
-				
-				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrência(s) para a pesquisa: ' + textoBuscado);
-								
-			},
-			error : function(){
-				alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
-			}
-		});	
-		
-	});
-	$('#btFecharConsultaPessoas').click(function(){
-		$('#conteudoConsultaPessoas').slideUp(1000);		
-	});
-	
-	$('#conteudoPessoasCadastradas').hide();
-	$('#btAbrirConteudoCadastradas').click(function(){		
-		ajaxGet("/pessoa/listar", "#ulPessoas", "#conteudoPessoasCadastradas", "#btFecharConteudoCadastradas");					
-	});
-	
-	$('#conteudoPessoasConfirmadas').hide();
-	$('#btAbrirConteudoConfirmadas').click(function(){		
-		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#conteudoPessoasConfirmadas", "#btFecharConteudoConfirmadas");					
 	});	
-	
-	$('#conteudoPessoasPendentes').hide();
-	$('#btAbrirConteudoPendentes').click(function(){		
-		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#conteudoPessoasPendentes", "#btFecharConteudoPendentes");					
-	});	*/
 });

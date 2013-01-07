@@ -484,6 +484,30 @@ padding: 0 5px 10px 5px; */
 	padding: 10px;	
 }
 
+#linkPadrao{
+	font-size: small;
+    padding: 5px;
+    color: black;	
+}
+#linkPadrao:hover{
+	font-size: small;
+    padding: 5px;
+	text-decoration: none;
+	color: blue;
+}
+
+#labelBuscaTexto{
+	padding: 10px;
+}
+
+.h1{
+	font-weight: bold;
+	/* color: #6CA6CD; */
+	color: white;
+	font-size: x-large;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
 .h50 {
 	height: 50px;
 }
@@ -517,10 +541,11 @@ padding: 0 5px 10px 5px; */
 }
 
 .separador {
-	border: 1px dashed #8B8484;
+	border: 1px solid #8B8484;
 	width: 1000px;
 	height: 1px;
 	text-align: center;
+	box-shadow: 2px 2px 2px #cccccc;
 }
 
 .areaBusca{

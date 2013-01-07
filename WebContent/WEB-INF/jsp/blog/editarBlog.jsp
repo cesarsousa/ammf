@@ -1,6 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/headerLib.jsp" %>
-<!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
 <div align="center">
@@ -46,6 +45,9 @@
 	
 	<table class="tamanhoDefault">
 		<tr>
+		<td><label class="h1">Novo Texto</label></td>
+		</tr>
+		<tr>
 			<td>
 			<div class="cartao tamanhoEdicaoIndex" >
 			<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post" class="paddingPadrao">				
@@ -60,18 +62,18 @@
 				<div class="tamanhoDefault">
 				<div class="areaFormatacao">					
 						<div class="esquerda">						
-						<span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumIndex" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span>
+						<span id="sizeSmallBlogNovo" style="font-size: small;" class="ponteiro" >A</span>
+						<span id="sizeMediumBlogNovo" style="font-size: medium;" class="ponteiro" >A</span>
+						<span id="sizeLargeBlogNovo" style="font-size: large;" class="ponteiro" >A</span>
+						<span id="sizeXLargeBlogNovo" style="font-size: x-large;" class="ponteiro" >A</span>
+						<span id="sizeXxLargeBlogNovo" style="font-size: xx-large;" class="ponteiro" >A</span>
 					</div>	
 				</div>
 				</div>
 				<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
 				
 				<p>
-				<input type="submit" value="cadastrar" class="buttonCadastrar">
+				<input id="btCadBlogTexto" type="submit" value="cadastrar" class="buttonCadastrar">
 				<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
 				</p>
 			</form>			
@@ -81,26 +83,27 @@
 	</table>
 </div>
 
-<!-- Editar um texto cadastrado -->
-
-
 <!-- BUSCA DE TEXTO PELO TITULO -->
-<div id="divBlogNovoTexto">
+<div id="divBlogBuscarTexto">
 	<hr class="separador" />
-	<table width="100%">
+	<table class="tamanhoDefault">
 		<tr>
-			<td class="esquerda">
-			<label class="corPrincipal">T&iacute;tulo do texto. </label>
-			<form id="formBlogEdtTexto">
-			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao" />
+			<td valign="middle">
+			<form id="formBlogBuscaTexto">
+			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao esquerda" />
+			<label id="labelBuscaTexto"></label>	
+			<input id="btFecharBuscaTextoBlog" type="button" class="button direita" value="fechar">
 			</form>
 			</td>
-		</tr>
+		</tr>		
+	</table>
+</div>
+<!-- RESULTADO DA BUSCA DE TEXTO PELO TITULO -->
+<div id="resultBuscaTxtBlog">
+	<table class="tamanhoDefault">
 		<tr>
 			<td>
-			<div id="resultBuscaTxtBlog" class="cartao" >
-			<!-- <input id="btFecharBuscaTexto" type="button" class="button direita" value="fechar"> -->
-				<label id="labelBuscaTexto">resultado da busca</label>				
+			<div class="cartao" >							
 				<table width="100%">
 					<thead>
 						<tr>						
@@ -114,6 +117,51 @@
 					</tbody>
 					
 				</table>				
+			</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- EDITAR UM TEXTO -->
+<div id="divBlogEditarTexto">
+	<hr class="separador" />
+	
+	<table class="tamanhoDefault">
+		<tr>
+		<td><label class="h1">Editar Texto</label></td>
+		</tr>
+		<tr>
+			<td>
+			<div class="cartao tamanhoEdicaoIndex" >
+			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post" class="paddingPadrao">
+				<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
+								
+				<h3>T&iacute;tulo :</h3>
+				<input id="blogEdtTituloTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
+					
+				<h3>Autor :</h3>
+				<input id="blogEdtAutorTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor"/>	
+								
+				<h3>Texto:</h3>
+				<div class="tamanhoDefault">
+				<div class="areaFormatacao">					
+						<div class="esquerda">						
+						<span id="sizeSmallBlogEdit" style="font-size: small;" class="ponteiro" >A</span>
+						<span id="sizeMediumBlogEdit" style="font-size: medium;" class="ponteiro" >A</span>
+						<span id="sizeLargeBlogEdit" style="font-size: large;" class="ponteiro" >A</span>
+						<span id="sizeXLargeBlogEdit" style="font-size: x-large;" class="ponteiro" >A</span>
+						<span id="sizeXxLargeBlogEdit" style="font-size: xx-large;" class="ponteiro" >A</span>
+					</div>	
+				</div>
+				</div>
+				<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
+				
+				<p>
+				<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
+				<input id="btBlogCancelEdtTexto" type="button" value="cancelar" class="button">				
+				</p>
+			</form>			
 			</div>
 			</td>
 		</tr>

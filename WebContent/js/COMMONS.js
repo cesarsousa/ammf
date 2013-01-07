@@ -44,6 +44,38 @@ function alterarTamanhoTexto(origem, destino) {
 		case 'sizeXxLarge':
 			$(destino).css("font-size", "xx-large");
 			break;
+			
+		case 'sizeSmallBlogNovo':
+			$(destino).css("font-size", "small");
+			break;
+		case 'sizeMediumBlogNovo':
+			$(destino).css("font-size", "medium");
+			break;
+		case 'sizeLargeBlogNovo':
+			$(destino).css("font-size", "large");
+			break;
+		case 'sizeXLargeBlogNovo':
+			$(destino).css("font-size", "x-large");
+			break;
+		case 'sizeXxLargeBlogNovo':
+			$(destino).css("font-size", "xx-large");
+			break;
+			
+		case 'sizeSmallBlogEdit':
+			$(destino).css("font-size", "small");
+			break;
+		case 'sizeMediumBlogEdit':
+			$(destino).css("font-size", "medium");
+			break;
+		case 'sizeLargeBlogEdit':
+			$(destino).css("font-size", "large");
+			break;
+		case 'sizeXLargeBlogEdit':
+			$(destino).css("font-size", "x-large");
+			break;
+		case 'sizeXxLargeBlogEdit':
+			$(destino).css("font-size", "xx-large");
+			break;
 	}
 }
 
