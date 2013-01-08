@@ -2,7 +2,6 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
@@ -10,7 +9,6 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 

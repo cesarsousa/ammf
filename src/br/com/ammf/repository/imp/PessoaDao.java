@@ -3,6 +3,7 @@ package br.com.ammf.repository.imp;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -53,6 +54,13 @@ public class PessoaDao implements PessoaRepository {
 		Criteria criteria = session.createCriteria(Pessoa.class);
 		criteria.add(Restrictions.eq("status", status));
 		return criteria.list();
+	}
+
+	@Override
+	public List<String> listarEmails() {
+		 Query query =session.createQuery("select p.email from Pessoa p");          
+	     List<String> emails = query.list();
+	     return emails;		
 	}
 
 }

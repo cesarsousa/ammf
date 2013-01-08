@@ -17,6 +17,8 @@ public interface PessoaRepository {
 	List<Pessoa> listarPorNomeEmail(String paramConsulta);
 	
 	List<Pessoa> listarPorStatus(Status status);
+
+	List<String> listarEmails();
 	
 	
 

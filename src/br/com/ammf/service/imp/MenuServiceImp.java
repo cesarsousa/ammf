@@ -1,5 +1,7 @@
 package br.com.ammf.service.imp;
 
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.internet.AddressException;
@@ -46,11 +48,15 @@ public class MenuServiceImp implements MenuService{
 
 	@Override
 	public void enviarEmailNotificacao(Texto texto) {
-		// TODO enviar email de atualizacao de texto
-		
+		List<String> emails = pessoaRepository.listarEmails();		
+		for(String email : emails){
+			//TODO daki
+			
+			
+			
+			System.out.println(email);
+		}
 	}
-
-	
 
 	@Override
 	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
