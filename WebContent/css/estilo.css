@@ -541,11 +541,12 @@ padding: 0 5px 10px 5px; */
 }
 
 .separador {
-	border: 1px solid #8B8484;
+	border: 1px solid #ffffff;
+	
 	width: 1000px;
-	height: 1px;
+	height: 2px;
 	text-align: center;
-	box-shadow: 2px 2px 2px #cccccc;
+	box-shadow: 1px 1px 1px #8B8484;
 }
 
 .areaBusca{
