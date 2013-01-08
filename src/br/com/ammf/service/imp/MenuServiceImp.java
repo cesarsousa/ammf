@@ -8,6 +8,7 @@ import javax.mail.internet.AddressException;
 
 import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Status;
@@ -51,11 +52,17 @@ public class MenuServiceImp implements MenuService{
 		List<String> emails = pessoaRepository.listarEmails();		
 		for(String email : emails){
 			//TODO daki
+			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto);
 			
 			
 			
-			System.out.println(email);
 		}
+	}
+
+	private void enviarEmailNotificacaoTexto(Notificacao textoAtualizado,
+			Texto texto) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -67,8 +74,7 @@ public class MenuServiceImp implements MenuService{
 	}
 	
 	@Override
-	public void enviarEmailNotificacaoCadastro(Pessoa pessoa)
-			throws EmailException {
+	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException {
 		try {
 			Email.enviarEmail(
 					sessaoUsuario.getUsuario().getEmail(),

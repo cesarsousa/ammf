@@ -7,7 +7,15 @@ public class HtmlMensagem {
 	private static final String PATH = "./html_mensagem/";
 
 	public static String getAssuntoCadastroPessoa() {
-		return "Site do Miguel - Confirmacao de Cadastro.";
+		return "Site do Miguel - Confirmacao de Cadastro";
+	}
+	
+	public static String getAssuntoTextoCadastrado() {
+		return "Blog do Miguel - O texto ' ? ' foi adicionado";
+	}
+	
+	public static String getAssuntoTextoAtualizado() {
+		return "Blog do Miguel - O texto ' ? ' foi atualizado";
 	}
 
 	public static String getMensagemCadastroPessoa(Pessoa pessoa) {
