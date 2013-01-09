@@ -8,4 +8,6 @@ public class Link {
 
 	public static final String REMOVER_EMAIL = DOMINIO + "/remover/email/{uuid}";
 
+	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/{uuid}";
+
 }

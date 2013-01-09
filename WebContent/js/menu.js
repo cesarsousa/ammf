@@ -75,10 +75,7 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	$('textarea#campoTextoArtesOrientais').autoResize();
 	
-	addRemoveDestaque('#campoContaNome');
-	addRemoveDestaque('#campoContaLogin');
-	addRemoveDestaque('#campoContaEmail');
-	addRemoveDestaque('#campoContaSenha');
+	addRemoveDestaque('#campoContaNome, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin');
 	
 	
 	$('#campoContaSenhaTexto').hide();

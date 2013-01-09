@@ -165,7 +165,14 @@
 					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
 					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
 					</p>
-				</c:if>			
+				</c:if>
+				
+				<p>
+				<span id="linked">Linked</span> <span id="in">in</span>
+				</p>
+				<p>
+				<input id="campoContaLinkedin" type="text" class="areaTitulo bordaPadrao" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
+				</p>			
 								
 				<p>
 				<input type="submit" value="atualizar" class="buttonCadastrar">				

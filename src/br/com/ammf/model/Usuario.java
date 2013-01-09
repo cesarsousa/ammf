@@ -27,6 +27,8 @@ public class Usuario implements Serializable{
 	private String senha;
 	
 	private String email;
+	
+	private String linkedin;
 
 	public long getId() {
 		return id;
@@ -74,5 +76,13 @@ public class Usuario implements Serializable{
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getLinkedin() {
+		return linkedin;
+	}
+	
+	public void setLinkedin(String linkedin) {
+		this.linkedin = linkedin;
 	}
 }

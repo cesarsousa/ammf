@@ -49,20 +49,22 @@ public class MenuServiceImp implements MenuService{
 
 	@Override
 	public void enviarEmailNotificacao(Texto texto) throws EmailException {
-		List<String> emails = pessoaRepository.listarEmails();		
-		for(String email : emails){
-			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, email);
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, pessoa);
 		}
 	}
 
-	private void enviarEmailNotificacaoTexto(Notificacao textoAtualizado, Texto texto, String email) throws EmailException{
+	
+
+	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
 		try {
 			Email.enviarEmail(
 					sessaoUsuario.getUsuario().getEmail(),
 					sessaoUsuario.getUsuario().getSenha(), 
-					email,
-					HtmlMensagem.getAssuntoTextoAtualizado().replace("?", texto.getTitulo()),
-					HtmlMensagem.getMensagemTextoAtualizado(texto));
+					pessoa.getEmail(),
+					HtmlMensagem.getAssunto(notificacao, texto),
+					HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
 		} catch (AddressException e) {
 			e.printStackTrace();
 			throw new EmailException(e.getMessage());
@@ -95,7 +97,7 @@ public class MenuServiceImp implements MenuService{
 					sessaoUsuario.getUsuario().getSenha(), 
 					pessoa.getEmail(),
 					HtmlMensagem.getAssuntoCadastroPessoa(),
-					HtmlMensagem.getMensagemCadastroPessoa(pessoa));
+					HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
 		} catch (AddressException e) {
 			e.printStackTrace();
 			throw new EmailException(e.getMessage());
