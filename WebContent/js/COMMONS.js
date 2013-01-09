@@ -2,12 +2,14 @@
 var alertWindow;
 
 function abrirJanelaDeEspera(html){
+	$('body').addClass('opacidade');
 	var esquerda = (screen.width - 550)/2;
 	var topo = (screen.height - 250)/2;
 	alertWindow = window.open(html, "bookpixWin","width=550, height=250, top=" + topo + ", left=" + esquerda);	
 }
 
 function fecharJanelaDeEspera(){
+	$('body').removeClass('opacidade');
 	alertWindow.close();
 }
 

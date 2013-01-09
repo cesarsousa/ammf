@@ -18,6 +18,12 @@ a:HOVER {
 	color: #000000;
 }
 
+.opacidade {
+	filter: alpha(opacity = 50);
+	-moz-opacity: 1.00;
+	opacity: 0.80;
+}
+
 .fundoLupa{
 	background-image: url("../image/lupa2.png");
 	background-repeat: no-repeat;
@@ -643,6 +649,7 @@ padding: 0 5px 10px 5px; */
 	padding: 5px;
 	text-align: justify;
 	vertical-align: middle;
+	width: 90%;	
 }
 
 .msgSucesso {

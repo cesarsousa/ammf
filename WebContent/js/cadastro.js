@@ -28,9 +28,7 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 }
 
 
-$(document).ready(function() {
-	
-	var janelaHtml = $('#contexto').val() + "/telaAguarde.html";
+$(document).ready(function() {	
 	
 	addRemoveDestaque("#pessoaNome");
 	addRemoveDestaque("#pessoaEmail");
@@ -50,7 +48,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btnCadastrarPessoa').click(function(){
-		abrirJanelaDeEspera(janelaHtml);
+		abrirJanelaDeEspera($('#contexto').val() + "/telaAguarde.html");
 	});
 	
 	$('#conteudoConsultaPessoas').hide();

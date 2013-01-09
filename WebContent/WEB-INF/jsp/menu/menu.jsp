@@ -20,7 +20,7 @@
 	
 </div>
 
-<div class="tamanhoDefault alturaDefault">
+<div class="tamanhoDefault">
 <p>
 	<c:if test="${not empty mensagem}">
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro">${mensagem}</div>
@@ -34,16 +34,13 @@
 
 <div class="tamanhoDefault">
 
-	<!-- <table class="tamanhoDefault">
+	<table class="tamanhoDefault">
 		<tr>
 			<td>
-				<ul>
-				<li>Editar conte&uacute;do index</li>
-				<li>Configura&ccedil;&otilde;es da Conta</li>
-				</ul>
+				
 			</td>
 		</tr>				
-	</table> -->
+	</table>
 
 	<!-- EDITAR CONTEUDO INDEX -->
 	<table class="tamanhoDefault">
@@ -81,7 +78,7 @@
 				</p>
 				
 				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">				
+				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="buttonCadastrar" >			
 				</p>
 			</form>			
 			</div>

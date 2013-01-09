@@ -35,7 +35,11 @@ public class UsuarioDao implements UsuarioRepository{
 	}
 
 	@Override
-	public void atualizar(Usuario usuario) {
+	public void atualizar(Usuario usuario) {		
+		
+		System.out.println("usuario");
+		System.out.println(usuario.getUuid());
+		
 		// TODO atualizar usuario e tratar exceções.
 		
 	}

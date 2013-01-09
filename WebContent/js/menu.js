@@ -33,7 +33,7 @@ function configurarCamposEdicaoPrincipal(elementoAbertura, elementoFechamento, t
 	});
 }
 
-$(document).ready(function() {
+$(document).ready(function() {	
 	
 	hidenCamposEdicaoPrincipal();
 	
@@ -44,6 +44,13 @@ $(document).ready(function() {
 	$('#btFecharConteudoIndex').click(function(){
 		$('#conteudoIndex').slideUp(1000);		
 	});
+	
+	$('#btAtualizarTextoIndex').click(function(){
+		abrirJanelaDeEspera($('#contexto').val() + "/telaAguardeNotificacaoAtualizacao.html");
+		
+	});
+	
+	
 	
 	
 	if($('#flagEditarUsuario').val() == "true"){

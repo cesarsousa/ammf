@@ -1,6 +1,5 @@
 package br.com.ammf.utils;
 
-import sun.org.mozilla.javascript.regexp.SubString;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
@@ -10,9 +9,9 @@ public class HtmlMensagem {
 	private static final String PATH = "./html_mensagem/";
 
 	public static String getAssunto(Notificacao notificacao, Texto texto) {
-		if(Notificacao.TEXTO_ATUALIZADO == notificacao)
+		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
 			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
-		if(Notificacao.TEXTO_NOVO == notificacao)
+		if(Notificacao.TEXTO_NOVO.equals(notificacao))
 			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
 		return "Site do Miguel";
 	}
@@ -52,7 +51,7 @@ public class HtmlMensagem {
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
 				.replace("[TRECHOTEXTO]", trechoTexto)
-				.replace("[LINKLERTEXTO]", Link.LER_TEXTO_INTEGRA.replace("uuid", texto.getUuid()))				
+				.replace("[LINKLERTEXTO]", Link.WEB_SITE)				
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)

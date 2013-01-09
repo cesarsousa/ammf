@@ -56,7 +56,7 @@ public class MenuController {
 	public void atualizarFrasePrincipal(Texto texto){
 		try {
 			textoRepository.atualizarTextoIndex(texto);
-			menuService.enviarEmailNotificacao(texto);
+			menuService.enviarEmailNotificacao(textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -119,8 +119,7 @@ public class MenuController {
 			redirecionarParaMenuAdm("mensagem", "Dados de conta de usuário atualizados com sucesso");
 		}else{
 			redirecionarParaMenuAdm("editarUsuario", "true");
-		}
-		
+		}		
 	}
 	
 	private void redirecionarParaCadastro() {
