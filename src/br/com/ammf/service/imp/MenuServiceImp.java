@@ -48,20 +48,34 @@ public class MenuServiceImp implements MenuService{
 	}
 
 	@Override
-	public void enviarEmailNotificacao(Texto texto) {
+	public void enviarEmailNotificacao(Texto texto) throws EmailException {
 		List<String> emails = pessoaRepository.listarEmails();		
 		for(String email : emails){
-			//TODO daki
-			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto);
-			
-			
-			
+			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, email);
 		}
 	}
 
-	private void enviarEmailNotificacaoTexto(Notificacao textoAtualizado,
-			Texto texto) {
-		// TODO Auto-generated method stub
+	private void enviarEmailNotificacaoTexto(Notificacao textoAtualizado, Texto texto, String email) throws EmailException{
+		try {
+			Email.enviarEmail(
+					sessaoUsuario.getUsuario().getEmail(),
+					sessaoUsuario.getUsuario().getSenha(), 
+					email,
+					HtmlMensagem.getAssuntoTextoAtualizado().replace("?", texto.getTitulo()),
+					HtmlMensagem.getMensagemTextoAtualizado(texto));
+		} catch (AddressException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			throw new EmailException("Erro na rotina de email. Email remetente : " + sessaoUsuario.getUsuario().getEmail() + ". password: " + sessaoUsuario.getUsuario().getSenha());
+		}
 		
 	}
 

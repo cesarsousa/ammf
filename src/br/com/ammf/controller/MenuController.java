@@ -54,12 +54,15 @@ public class MenuController {
 	
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
-		
-		textoRepository.atualizarTextoIndex(texto);
-		
-		menuService.enviarEmailNotificacao(texto);
-		
-		redirecionarParaMenuAdm("mensagem", "Texto atualizado com sucesso");		
+		try {
+			textoRepository.atualizarTextoIndex(texto);
+			menuService.enviarEmailNotificacao(texto);
+			redirecionarParaMenuAdm("mensagem", "Texto atualizado com sucesso");
+		} catch (EmailException e) {
+			e.printStackTrace();
+			result.include("mensagem", "Texto atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização da frase principal.");
+		}				
 	}	
 	
 	@Post("/menu/psicologia/atualizar")

@@ -1,6 +1,7 @@
 package br.com.ammf.utils;
 
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Texto;
 
 public class HtmlMensagem {
 	
@@ -26,6 +27,11 @@ public class HtmlMensagem {
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[EMAIL]", pessoa.getEmail());
+	}
+
+	public static String getMensagemTextoAtualizado(Texto texto) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -10,7 +10,7 @@ public interface MenuService {
 
 	SessaoUsuario atualizar(SessaoUsuario sessaoUsuario);
 
-	void enviarEmailNotificacao(Texto texto);	
+	void enviarEmailNotificacao(Texto texto) throws EmailException;	
 
 	void cadastrar(Pessoa pessoa) throws EmailException, DBException;
 
