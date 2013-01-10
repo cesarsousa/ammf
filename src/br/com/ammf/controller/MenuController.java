@@ -6,10 +6,7 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
-import br.com.ammf.model.Usuario;
-import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
-import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -25,21 +22,18 @@ public class MenuController {
 	private ValidacaoService validacaoService;
 	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
-	private UsuarioRepository usuarioRepository;
 	
 	public MenuController(
 			Result result,
 			MenuService menuService,
 			ValidacaoService validacaoService,
 			SessaoUsuario sessaoUsuario, 
-			TextoRepository textoRepository,
-			UsuarioRepository usuarioRepository){
+			TextoRepository textoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
-		this.usuarioRepository = usuarioRepository;
 	}
 	
 	@Restrito
@@ -109,18 +103,7 @@ public class MenuController {
 		}else{
 			redirecionarParaCadastro();
 		}		
-	}
-	
-	@Post("/menu/index/conta")
-	public void atualizarDadosDeUsuario(Usuario usuario){
-		boolean validado = validacaoService.usuario(usuario, result);
-		if(validado){
-			usuarioRepository.atualizar(usuario);
-			redirecionarParaMenuAdm("mensagem", "Dados de conta de usuário atualizados com sucesso");
-		}else{
-			redirecionarParaMenuAdm("editarUsuario", "true");
-		}		
-	}
+	}	
 	
 	private void redirecionarParaCadastro() {
 		result.redirectTo(this).cadastro();		

@@ -50,37 +50,5 @@ public class IndexController {
 	
 	@Get("/index/artesOrientais")
 	public void artesOrientais(){}
-	
-	
-	@Get("/login")
-	public void login(){}
-	
-	@Post("/index/login/autenticacao")
-	public void autenticacao(String login, String senha){		
-		
-		login = "alcindomiguel";
-		senha = "061160cm";
-		
-		Usuario usuario = usuarioRepository.autenticar(login, senha);
-		if(usuario != null){
-			sessaoUsuario.login(usuario);
-			result.redirectTo(MenuController.class).menu();
-		}else{
-			result.include("erroLogin", "Usuário ou senha inválidos");
-			result.redirectTo(this).login();
-		}
-	}
-	
-	@Path("/index/logout")
-	public void logout(){
-		sessaoUsuario.logout();
-		result.redirectTo(IndexController.class).login();
-	}
-	
-	@Path("/index/logout/site")
-	public void logoutToSite(){
-		sessaoUsuario.logout();
-		result.redirectTo(IndexController.class).index();
-	}
 
 }

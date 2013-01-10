@@ -10,4 +10,6 @@ public interface UsuarioRepository {
 
 	public void atualizar(Usuario usuario);
 
+	public long getId(String uuid);
+
 }

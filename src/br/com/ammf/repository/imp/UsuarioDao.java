@@ -36,12 +36,18 @@ public class UsuarioDao implements UsuarioRepository{
 
 	@Override
 	public void atualizar(Usuario usuario) {		
-		
-		System.out.println("usuario");
-		System.out.println(usuario.getUuid());
-		
-		// TODO atualizar usuario e tratar exceções.
-		
+		Transaction transaction = session.beginTransaction();
+		session.update(usuario);
+		transaction.commit();		
+	}
+	
+	@Override
+	public long getId(String uuid) {
+		Criteria criteria = session.createCriteria(Usuario.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		Usuario usuario = (Usuario) criteria.uniqueResult();
+		long id  = usuario.getId();
+		return id;
 	}
 
 }

@@ -3,6 +3,7 @@ package br.com.ammf.interceptor;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.ammf.controller.IndexController;
+import br.com.ammf.controller.LoginController;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.caelum.vraptor.InterceptionException;
 import br.com.caelum.vraptor.Intercepts;
@@ -38,7 +39,7 @@ public class AutorizacaoInterceptor implements Interceptor{
 		if(usuarioEstaLogado()){
 			stack.next(method, resourceInstance);
 		}else{
-			result.redirectTo(IndexController.class).login();
+			result.redirectTo(LoginController.class).login();
 		}				
 	}
 

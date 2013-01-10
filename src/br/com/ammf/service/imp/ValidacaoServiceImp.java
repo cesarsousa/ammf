@@ -47,7 +47,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("usuarioErroEmail", "O email deve ser informado");
 			resultado = false;
 		}else if (!emailValido(usuario.getEmail())){
-			result.include("usuarioErroEmail", "O email deve possuir um formato valido");
+			result.include("usuarioErroEmail", "O email deve possuir um formato válido");
 			resultado = false;
 		}else if (!ehGmail(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve deve ser do Gmail (seu_email@gmail.com)");
@@ -57,7 +57,13 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()){
 			result.include("usuarioSenhaBranco", "A senha deve ser informada");
 			resultado = false;
-		}		
+		}
+		
+		if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
+			result.include("usuarioUuidBranco", "Não foi possível definir o uuid do usuário");
+			resultado = false;
+		}
+		
 		return resultado;
 	}
 

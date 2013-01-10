@@ -13,7 +13,7 @@
 	</div>
 	
 	<div class="direita">
-	<form action="<c:url value="/index/logout" />">
+	<form action="<c:url value="/logout" />">
 	<input type="submit" class="logout button" value="Sair">
 	</form>	
 	</div>
@@ -36,8 +36,10 @@
 
 	<table class="tamanhoDefault">
 		<tr>
-			<td>
-				
+			<td>			
+			<c:if test="${not empty usuarioUuidBranco}">
+			<div id="boxMsgErro" class="msgBorder msgErro tamanhoEdicaoIndex ponteiro">${usuarioUuidBranco}</div>
+			</c:if>				
 			</td>
 		</tr>				
 	</table>
@@ -101,7 +103,7 @@
 			<td>
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="button direita" value="fechar">
-			<form action="<c:url value="/menu/index/conta"/>" method="post" class="paddingPadrao">								
+			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
 				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
 								
@@ -367,7 +369,7 @@
 	<div id="menuLink">		
 			<ul id="menuRodape">
 				<li>
-				<form action="<c:url value="/index/logout/site" />">
+				<form action="<c:url value="/logout/site" />">
 				<input type="submit" value="Site" class="buttonFooter">
 				</form>
 				</li>
