@@ -48,7 +48,8 @@ public class MenuController {
 	
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
-		try {
+		validacaoService.verificarCamposPreenchidos(texto);
+		try {			
 			textoRepository.atualizarTextoIndex(texto);
 			menuService.enviarEmailNotificacao(textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto atualizado com sucesso");

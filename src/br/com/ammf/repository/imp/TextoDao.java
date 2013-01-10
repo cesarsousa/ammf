@@ -89,7 +89,7 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoIndex(Texto texto) {
 		Texto textoIndex = getTextoIndex();
 		textoIndex.setAutor(texto.getAutor());
-		textoIndex.setConteudo(texto.getConteudo());
+		textoIndex.setConteudo(texto.getConteudo());		
 		Transaction transaction = session.beginTransaction();
 		session.update(textoIndex);
 		transaction.commit();	

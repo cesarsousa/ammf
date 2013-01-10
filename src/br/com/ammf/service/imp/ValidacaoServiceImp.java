@@ -1,15 +1,14 @@
 package br.com.ammf.service.imp;
 
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
-public class ValidacaoServiceImp implements ValidacaoService {
-	
-	
+public class ValidacaoServiceImp implements ValidacaoService {	
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
 		boolean resultado = true;
@@ -64,6 +63,10 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			resultado = false;
 		}
 		
+		if(usuario.getLinkedin() == null || usuario.getLinkedin().isEmpty()){
+			usuario.setLinkedin("");
+		}
+		
 		return resultado;
 	}
 
@@ -73,6 +76,19 @@ public class ValidacaoServiceImp implements ValidacaoService {
 
 	private boolean emailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
+	}
+
+	@Override
+	public void verificarCamposPreenchidos(Texto texto) {
+		
+		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
+			texto.setAutor("autor");
+		}
+		
+		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
+			texto.setConteudo("conteudo");
+		}
+		
 	}
 
 }
