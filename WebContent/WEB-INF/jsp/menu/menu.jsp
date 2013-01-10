@@ -448,5 +448,9 @@
 </div>
 </div>
 
-<div id="espacadorRodape"></div>
-<%@ include file="/footerFixed.jsp" %>
+</div> <!-- main -->
+</div> <!-- wrap -->
+
+<div id="footer">
+<%@ include file="/footer.jsp" %>
+</div>

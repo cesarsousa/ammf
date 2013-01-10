@@ -44,4 +44,9 @@
 
 </div>
 
+</div> <!-- main -->
+</div> <!-- wrap -->
+
+<div id="footer">
 <%@ include file="/footer.jsp" %>
+</div>

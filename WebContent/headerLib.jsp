@@ -31,4 +31,7 @@
 </head>
 <body onunload="fecharJanelaDeEspera()">
 
+<div id="wrap">
+<div id="main">
+
 <input id="contexto" type="hidden" value="${contextoApp}"/>
