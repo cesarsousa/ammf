@@ -1,6 +1,6 @@
 
 function hidenCamposEdicaoPrincipal(){
-	$('#tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').hide();
+	$('#tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();
 }
 
 function fadeoutCamposEdicaoPrincipal(){
@@ -46,12 +46,8 @@ $(document).ready(function() {
 	});
 	
 	$('#btAtualizarTextoIndex').click(function(){
-		abrirJanelaDeEspera($('#contexto').val() + "/telaAguardeNotificacaoAtualizacao.html");
-		
-	});
-	
-	
-	
+		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		
+	});	
 	
 	if($('#flagEditarUsuario').val() == "true"){
 		$('#conteudoConta').show();
@@ -102,14 +98,7 @@ $(document).ready(function() {
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
 	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');
 	configurarCamposEdicaoPrincipal('#linkEditarOrientais', '#btFecharEditarArtesOrientais', '#tabArtesOrientais');
-	
-	$('#boxMsgSucesso').click(function(){
-		$(this).fadeOut(1000);
-	});
-	$('#boxMsgErro').click(function(){
-		$(this).fadeOut(1000);
-	});
-	
+		
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Index","");		
@@ -145,8 +134,5 @@ $(document).ready(function() {
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Psicologia","");		
 		alterarTamanhoAreaTexto(origem, '#campoTextoPsicologia');
-	});
-	
-	
-	
+	});	
 });

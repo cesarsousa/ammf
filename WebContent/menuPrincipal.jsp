@@ -77,7 +77,7 @@
 				</li>
 				
 				<li>
-				<form>
+				<form action="<c:url value="/cliente/cadastro" />" method="get">
 				<input type="submit" value="Cadastro" class="buttonFooter">
 				</form>
 				</li>

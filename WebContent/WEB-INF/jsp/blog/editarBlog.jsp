@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
@@ -99,8 +100,15 @@
 	</table>
 </div>
 <!-- RESULTADO DA BUSCA DE TEXTO PELO TITULO -->
-<div id="resultBuscaTxtBlog">
+<div id="resultBuscaTxtBlog">	
 	<table class="tamanhoDefault">
+		<tr>
+			<td colspan="3">
+			<ul>
+			<li><span class="info azulClaro" >Clique no t&iacute;tulo do texto para editar</span></li>
+			</ul>
+			</td>			
+		</tr>
 		<tr>
 			<td>
 			<div class="cartao" >							

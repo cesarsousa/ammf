@@ -4,11 +4,15 @@ import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.List;
 
+import br.com.ammf.exception.DBException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.service.PessoaService;
+import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
@@ -17,10 +21,18 @@ public class PessoaController {
 	
 	private Result result;
 	private PessoaRepository pessoaRepository;
+	private ValidacaoService validacaoService;
+	private PessoaService pessoaService;
 	
-	public PessoaController(Result result, PessoaRepository pessoaRepository){
+	public PessoaController(
+			Result result, 
+			PessoaRepository pessoaRepository,
+			ValidacaoService validacaoService,
+			PessoaService pessoaService){
 		this.result = result;
 		this.pessoaRepository = pessoaRepository;
+		this.validacaoService = validacaoService;
+		this.pessoaService = pessoaService;
 	}
 	
 	@Restrito
@@ -54,6 +66,30 @@ public class PessoaController {
 	public void consultar(String paramConsulta){
 		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
+	}
+	
+	@Get("/cliente/cadastro")
+	public void cadastroCliente(){}
+	
+	@Post("/cliente/cadastrar")
+	public void cadastrarCliente(Pessoa pessoa){
+		boolean validado = validacaoService.pessoa(pessoa, result);
+		if(validado){
+			try {
+				pessoaService.cadastrar(pessoa);
+				pessoaService.notificarCadastroPelocliente(pessoa);
+			} catch (DBException e) {
+				e.printStackTrace();
+				result.include("msgErroCadastro", "Opps! Ocorreu um erro inexperado, infelizmente não foi possível realizar o seu cadastro.<br/>Por favor tente novamente mais tarde.");
+				redirecionarParaCadastroCliente();
+			}
+		}else{
+			redirecionarParaCadastroCliente();
+		}
+	}
+
+	private void redirecionarParaCadastroCliente() {
+		result.redirectTo(this).cadastroCliente();		
 	}
 
 }

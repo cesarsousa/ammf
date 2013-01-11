@@ -18,19 +18,16 @@ public class IndexController {
 	private IndexService indexService;
 	private SessaoUsuario sessaoUsuario;
 	private SessaoCliente sessaoCliente;
-	private UsuarioRepository usuarioRepository;
 		
 	public IndexController(
 			Result result,
 			IndexService indexService,
 			SessaoUsuario sessaoUsuario,
-			SessaoCliente sessaoCliente, 
-			UsuarioRepository usuarioRepository) {
+			SessaoCliente sessaoCliente) {
 		this.result = result;
 		this.indexService = indexService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.sessaoCliente = sessaoCliente;
-		this.usuarioRepository = usuarioRepository;
 	}
 
 	@Path("/")
@@ -50,5 +47,4 @@ public class IndexController {
 	
 	@Get("/index/artesOrientais")
 	public void artesOrientais(){}
-
 }

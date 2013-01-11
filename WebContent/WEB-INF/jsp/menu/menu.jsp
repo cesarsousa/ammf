@@ -5,7 +5,7 @@
 
 <hr class="separador"  />
 
-<div align="center">
+<div id="divPgMenu" align="center">
 
 <div class="tamanhoDefault alturaDefault">
 	<div class="esquerda">
@@ -23,11 +23,11 @@
 <div class="tamanhoDefault">
 <p>
 	<c:if test="${not empty mensagem}">
-	<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro">${mensagem}</div>
+	<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro closeClick">${mensagem}</div>
 	</c:if>
 	
 	<c:if test="${not empty mensagemErro}">
-	<div id="boxMsgErro" class="msgBorder msgErro tamanhoEdicaoIndex ponteiro">${mensagemErro}</div>
+	<div id="boxMsgErro" class="msgBorder msgErro tamanhoEdicaoIndex ponteiro closeClick">${mensagemErro}</div>
 	</c:if>
 </p>
 </div>
@@ -448,8 +448,22 @@
 </div>
 </div>
 
+<div id="telaAguardeMenu">
+	<div align="center">						
+		<h3 class="paddingTelaAguarde">Neste momento o sistema esta notificando as pessoas da altera&ccedil;&atilde;o no texto.
+		<br/>
+		Esta opera&ccedil;&atilde;o pode levar alguns minutos porque v&aacute;rios emails est&atilde;o sendo enviados...</h3>			
+		<h3>Por favor, aguarde...</h3>
+		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		<br />
+		<br />			
+	</div>
+</div>
+
 </div> <!-- main -->
 </div> <!-- wrap -->
+
+
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

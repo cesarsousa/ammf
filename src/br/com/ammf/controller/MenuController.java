@@ -46,10 +46,11 @@ public class MenuController {
 		result.redirectTo(this).menu();		
 	}	
 	
+	@Restrito
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
-		validacaoService.verificarCamposPreenchidos(texto);
-		try {			
+		try {
+			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoIndex(texto);
 			menuService.enviarEmailNotificacao(textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto atualizado com sucesso");
@@ -60,24 +61,46 @@ public class MenuController {
 		}				
 	}	
 	
+	@Restrito
 	@Post("/menu/psicologia/atualizar")
 	public void atualizarTextoPsicologia(Texto texto){
-		textoRepository.atualizarTextoPsicologia(texto);
-		redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
+		// TODO testar esta logica e o metodo validar psicologia		
+		try {
+			validacaoService.verificarCamposPreenchidos(texto);
+			textoRepository.atualizarTextoPsicologia(texto);
+			menuService.enviarEmailNotificacao(textoRepository.getTextoPsicologia());
+			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
+		} catch (EmailException e) {
+			e.printStackTrace();
+			result.include("mensagem", "Texto atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Psicologia.");
+		}		
 	}
 	
+	@Restrito
 	@Post("/menu/educacao/atualizar")
 	public void atualizarTextoEducacao(Texto texto){
-		textoRepository.atualizarTextoEducacao(texto);
-		redirecionarParaMenuAdm("mensagem", "Texto sobre educação atualizado com sucesso");
+		// TODO testar esta logica e o metodo validar psicologia		
+		try {
+			validacaoService.verificarCamposPreenchidos(texto);
+			textoRepository.atualizarTextoEducacao(texto);
+			menuService.enviarEmailNotificacao(textoRepository.getTextoEducacao());
+			redirecionarParaMenuAdm("mensagem", "Texto sobre Educação atualizado com sucesso");
+		} catch (EmailException e) {
+			e.printStackTrace();
+			result.include("mensagem", "Texto atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Educação.");
+		}
 	}
 	
+	@Restrito
 	@Post("/menu/cultura/atualizar")
 	public void atualizarTextoCultura(Texto texto){
 		textoRepository.atualizarTextoCultura(texto);
 		redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
 	}
 	
+	@Restrito
 	@Post("/menu/artesorientais/atualizar")
 	public void atualizarTextoArtesOrientais(Texto texto){
 		textoRepository.atualizarTextoArtesOrientais(texto);

@@ -1,17 +1,20 @@
 
 var alertWindow;
 
-function abrirJanelaDeEspera(html){
-	$('body').addClass('opacidade');
-	var esquerda = (screen.width - 550)/2;
-	var topo = (screen.height - 250)/2;
-	alertWindow = window.open(html, "bookpixWin","width=550, height=250, top=" + topo + ", left=" + esquerda);	
+function abrirJanelaDeEspera(idPagina, idJanelaEspera){
+	$(idPagina).slideUp(500);
+	$(idJanelaEspera).slideDown(500);
+	
+	//var esquerda = (screen.width - 550)/2;
+	//var topo = (screen.height - 250)/2;
+	//alertWindow = window.open(html, "bookpixWin","width=550, height=250, top=" + topo + ", left=" + esquerda);	
 }
 
-function fecharJanelaDeEspera(){
-	$('body').removeClass('opacidade');
-	alertWindow.close();
-}
+/*function fecharJanelaDeEspera(){
+	$('#telaAguardeMenu').slideUp(500);
+	$('#divPgMenu').slideDown(500);
+	//alertWindow.close();
+}*/
 
 function addRemoveOpacidade(link, imagem){
 	$(link).hover(
@@ -45,39 +48,7 @@ function alterarTamanhoTexto(origem, destino) {
 			break;
 		case 'sizeXxLarge':
 			$(destino).css("font-size", "xx-large");
-			break;
-			
-		case 'sizeSmallBlogNovo':
-			$(destino).css("font-size", "small");
-			break;
-		case 'sizeMediumBlogNovo':
-			$(destino).css("font-size", "medium");
-			break;
-		case 'sizeLargeBlogNovo':
-			$(destino).css("font-size", "large");
-			break;
-		case 'sizeXLargeBlogNovo':
-			$(destino).css("font-size", "x-large");
-			break;
-		case 'sizeXxLargeBlogNovo':
-			$(destino).css("font-size", "xx-large");
-			break;
-			
-		case 'sizeSmallBlogEdit':
-			$(destino).css("font-size", "small");
-			break;
-		case 'sizeMediumBlogEdit':
-			$(destino).css("font-size", "medium");
-			break;
-		case 'sizeLargeBlogEdit':
-			$(destino).css("font-size", "large");
-			break;
-		case 'sizeXLargeBlogEdit':
-			$(destino).css("font-size", "x-large");
-			break;
-		case 'sizeXxLargeBlogEdit':
-			$(destino).css("font-size", "xx-large");
-			break;
+			break;		
 	}
 }
 
@@ -108,3 +79,10 @@ function getDataFormatada(milisegundos){
 	return data.getDate() + "/" + (data.getMonth() + 1) + "/" + data.getFullYear() + " " 
 	     + data.getHours() + ":" + data.getMinutes() + ":" + data.getMilliseconds();	
 }
+
+$(document).ready(function() {
+	$('.closeClick').click(function(){
+		$(this).fadeOut(1000);
+	});
+	
+});

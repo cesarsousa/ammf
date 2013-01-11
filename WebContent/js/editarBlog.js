@@ -107,11 +107,15 @@ $(document).ready(function() {
 	});
 	
 	$('#sizeSmallBlogNovo, #sizeMediumBlogNovo, #sizeLargeBlogNovo, #sizeXLargeBlogNovo, #sizeXxLargeBlogNovo').click(function(){
-		alterarTamanhoTexto(this.id, '#blogConteudoNovoTexto');			
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("BlogNovo","");
+		alterarTamanhoTexto(origem, '#blogConteudoNovoTexto');			
 	});
 	
 	$('#sizeSmallBlogEdit, #sizeMediumBlogEdit, #sizeLargeBlogEdit, #sizeXLargeBlogEdit, #sizeXxLargeBlogEdit').click(function(){
-		alterarTamanhoTexto(this.id, '#blogEdtConteudoTexto');			
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("BlogEdit","");
+		alterarTamanhoTexto(origem, '#blogEdtConteudoTexto');			
 	});
 	
 	$('#formBlogBuscaTexto').submit(function(event){

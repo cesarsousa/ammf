@@ -26,10 +26,12 @@
 <script type="text/javascript" src="${javascript}/artesOrientais.js"></script>
 <script type="text/javascript" src="${javascript}/cadastro.js"></script>
 <script type="text/javascript" src="${javascript}/editarBlog.js"></script>
+<script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
+
 
 
 </head>
-<body onunload="fecharJanelaDeEspera()">
+<body>
 
 <div id="wrap">
 <div id="main">
