@@ -232,7 +232,7 @@
 				<textarea id="campoTextoPsicologia" class="areaTexto h500 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="brAlterarTxtPsicologia" type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -270,7 +270,7 @@
 				<textarea id="campoTextoEducacao" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoEducacao.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarTxtEducacao" type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -308,7 +308,7 @@
 				<textarea id="campoTextoCultura" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoCultura.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarTxtCultura" type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -346,7 +346,7 @@
 				<textarea id="campoTextoArtesOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
 				
 				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarArtOriental" type="submit" value="atualizar" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>

@@ -45,7 +45,7 @@ $(document).ready(function() {
 		$('#conteudoIndex').slideUp(1000);		
 	});
 	
-	$('#btAtualizarTextoIndex').click(function(){
+	$('#btAtualizarTextoIndex, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
 		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		
 	});	
 	
