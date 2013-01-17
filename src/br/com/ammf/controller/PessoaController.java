@@ -60,7 +60,6 @@ public class PessoaController {
 	public void removerAssinaturaEmail(String uuid){
 		
 		
-		
 		//TODO remover assinatura do cliente via email
 		System.out.println(".........remover assinatura de email de uuid: " + uuid);
 	}

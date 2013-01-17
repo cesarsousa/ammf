@@ -67,7 +67,6 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoPsicologia(texto);
-			System.out.println("titulo: " +  texto.getTitulo());
 			menuService.enviarEmailNotificacao(textoRepository.getTextoPsicologia());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
 		} catch (EmailException e) {
@@ -83,7 +82,6 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoEducacao(texto);
-			System.out.println("titulo: " +  texto.getTitulo());
 			menuService.enviarEmailNotificacao(textoRepository.getTextoEducacao());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Educação atualizado com sucesso");
 		} catch (EmailException e) {
@@ -99,7 +97,6 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);		
 			textoRepository.atualizarTextoCultura(texto);
-			System.out.println("titulo: " +  texto.getTitulo());
 			menuService.enviarEmailNotificacao(textoRepository.getTextoCultura());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
 		} catch (EmailException e) {
@@ -114,8 +111,7 @@ public class MenuController {
 	public void atualizarTextoArtesOrientais(Texto texto){		
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
-			textoRepository.atualizarTextoArtesOrientais(texto);
-			System.out.println("titulo: " +  texto.getTitulo());
+			textoRepository.atualizarTextoArtesOrientais(texto);			
 			menuService.enviarEmailNotificacao(textoRepository.getTextoArtesOrientais());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre artes orientais atualizado com sucesso");
 		} catch (EmailException e) {
