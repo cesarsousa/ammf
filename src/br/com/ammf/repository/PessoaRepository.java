@@ -19,6 +19,10 @@ public interface PessoaRepository {
 	List<Pessoa> listarPorStatus(Status status);
 
 	List<String> listarEmails();
+
+	void remover(Pessoa pessoa);
+
+	Pessoa obter(String uuid);
 	
 	
 

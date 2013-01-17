@@ -22,7 +22,8 @@
 	</tr>
 </table>
 
-<hr class="separador"/>
+<div class="separador"></div> 
+
 
 <div align="center">
 	<div id="menuLink">
@@ -103,10 +104,5 @@
 				
 	</div>
 </div>
-
-
-
-
-
 
 </div>

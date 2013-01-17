@@ -34,6 +34,7 @@ $(document).ready(function() {
 	addRemoveDestaque("#pessoaEmail");
 	addRemoveDestaque("#campoBusca");
 	
+	$('#campoBusca').puts("Digite o nome da pessoa");
 	
 	$('#toolsAreaCadastro').hide();	
 
@@ -68,13 +69,16 @@ $(document).ready(function() {
 					email = email.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
 					
 					var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
-										
+					var linkRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
+					
 					$('#ulConsultadas').append(
 						'<tr>' +
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabela">' + dataCadastro + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
+						'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px"></a></td>' +
+						'<td><img class="ponteiro" alt="editar" src="../image/icone_editar.png" width="20px" height="20px"></td>' +
 						'</tr>');						
 				}
 				

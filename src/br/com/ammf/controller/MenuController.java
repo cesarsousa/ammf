@@ -111,8 +111,7 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/artesorientais/atualizar")
-	public void atualizarTextoArtesOrientais(Texto texto){
-		
+	public void atualizarTextoArtesOrientais(Texto texto){		
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoArtesOrientais(texto);

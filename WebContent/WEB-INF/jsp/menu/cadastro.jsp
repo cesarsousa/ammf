@@ -13,7 +13,7 @@
 <div id="areaLogin">
 
 <c:if test="${not empty msgCadastro}">
-<div class="msgBorder msgSucesso tamanhoErroLogin">${msgCadastro}</div>
+<div class="msgBorder msgSucesso tamanhoErroLogin ponteiro closeClick">${msgCadastro}</div>
 <br/>
 </c:if>
 <form action="<c:url value="/menu/cadastrar"/>" method="post">	 
@@ -61,24 +61,23 @@
 
 <div id="toolsAreaCadastro">
 
-<hr class="separador" />
+<div class="separador"></div>
 
 <table class="tamanhoDefault">
 		<tr>
-			<td >
+			<td>
 			<form id="formBuscaPessoa">
 			<input id="campoBusca" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao"/>
 			</form>
 			<p>
 			<label id="labelResultadoConsulta"></label>		
-			</p>
+			</p>			
+			<input id="btFecharConsultaPessoas" type="button" class="button direita" value="^">
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoConsultaPessoas" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConsultaPessoas" type="button" class="button direita" value="fechar">
-								
+			<div id="conteudoConsultaPessoas" class="cartao tamanhoEdicaoIndex" >								
 				<table>
 					<thead>
 						<tr>
@@ -86,6 +85,7 @@
 						<td class="headTabela">Email</td>
 						<td class="headTabela">Data Cadastro</td>
 						<td class="headTabela">Status</td>
+						<td style="background-color: #A2B5CD" colspan="2"></td>
 						</tr>
 					</thead>
 						
@@ -98,7 +98,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />
+	<div class="separador"></div>
 
 	<table class="tamanhoDefault">
 		<tr>
@@ -131,7 +131,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />
+	<div class="separador"></div>
 	
 	<table class="tamanhoDefault">
 		<tr>
@@ -164,7 +164,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />
+	<div class="separador"></div>
 	
 	<table class="tamanhoDefault">
 		<tr>

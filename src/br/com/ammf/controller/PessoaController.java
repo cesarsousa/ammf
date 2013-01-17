@@ -58,8 +58,22 @@ public class PessoaController {
 	
 	@Get("/remover/email/{uuid}")
 	public void removerAssinaturaEmail(String uuid){
+		
+		
+		
+		//TODO remover assinatura do cliente via email
 		System.out.println(".........remover assinatura de email de uuid: " + uuid);
 	}
+	
+	@Restrito
+	@Get("/pessoa/remover/{uuid}")
+	public void removerPessoa(String uuid){
+		Pessoa pessoa = pessoaRepository.obter(uuid);		
+		pessoaRepository.remover(pessoa);
+		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
+		result.redirectTo(MenuController.class).cadastro();		
+	}
+	
 	
 	@Restrito
 	@Get("/pessoa/consulta")

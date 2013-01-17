@@ -3,9 +3,11 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
-<hr class="separador"  />
+
 
 <div id="divPgMenu" align="center">
+
+<div class="separador"></div>
 
 <div class="tamanhoDefault alturaDefault">
 	<div class="esquerda">
@@ -88,7 +90,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />
+	<div class="separador"></div>
 	
 	<!-- CONFIGURACOES DA CONTA -->
 	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/> 
@@ -182,7 +184,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />	
+	<div class="separador"></div>	
 	
 	<table id="tamanhoDefault" >
 		<tr>
@@ -354,7 +356,7 @@
 		</tr>
 	</table>
 	
-	<hr class="separador"  />
+	<div class="separador"></div>
 	
 	<c:if test="${not empty mensagemMenuSecundario}">
 	<div class="tamanhoDefault alturaDefault">

@@ -63,4 +63,20 @@ public class PessoaDao implements PessoaRepository {
 	     return emails;		
 	}
 
+	@Override
+	public void remover(Pessoa pessoa) {
+		Transaction transaction = session.beginTransaction();		
+		session.delete(pessoa);
+		transaction.commit();
+		
+	}
+
+	@Override
+	public Pessoa obter(String uuid) {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		return (Pessoa) criteria.uniqueResult();
+		
+	}
+
 }

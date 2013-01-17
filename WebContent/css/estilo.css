@@ -596,11 +596,11 @@ padding: 0 5px 10px 5px; */
 }
 
 .separador {
-	border: 1px solid #ffffff;	
-	width: 1000px;
-	height: 2px;
-	text-align: center;
-	box-shadow: 1px 1px 1px #8B8484;
+	width: 901px;
+	height: 3px;
+	background: url("../image/linha.png") no-repeat;
+	padding-top: 5px;
+	padding-bottom: 5px;	
 }
 
 .areaBusca{
@@ -637,6 +637,8 @@ padding: 0 5px 10px 5px; */
 	font-size: small;
 	
 }
+
+
 
 .headTabela{
 	width: 300px;
