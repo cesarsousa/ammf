@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMultipart;
 
 public class Email {
 	
-	public static void enviarEmail(String emailSender, String emailSenderPassword, String emailReceiver, String assunto, String mensagem)
+	public static void enviar(String emailSender, String emailSenderPassword, String emailReceiver, String assunto, String mensagem)
 	throws AddressException, SendFailedException, MessagingException {
 
 	java.util.Properties properties = new java.util.Properties();

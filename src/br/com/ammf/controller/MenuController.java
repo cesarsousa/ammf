@@ -52,7 +52,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoIndex(texto);
-			menuService.enviarEmailNotificacao(textoRepository.getTextoIndex());
+			menuService.notificarPessoas(textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto da página principal atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -67,7 +67,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoPsicologia(texto);
-			menuService.enviarEmailNotificacao(textoRepository.getTextoPsicologia());
+			menuService.notificarPessoas(textoRepository.getTextoPsicologia());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -82,7 +82,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoEducacao(texto);
-			menuService.enviarEmailNotificacao(textoRepository.getTextoEducacao());
+			menuService.notificarPessoas(textoRepository.getTextoEducacao());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Educação atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -97,7 +97,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);		
 			textoRepository.atualizarTextoCultura(texto);
-			menuService.enviarEmailNotificacao(textoRepository.getTextoCultura());
+			menuService.notificarPessoas(textoRepository.getTextoCultura());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -112,7 +112,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoArtesOrientais(texto);			
-			menuService.enviarEmailNotificacao(textoRepository.getTextoArtesOrientais());
+			menuService.notificarPessoas(textoRepository.getTextoArtesOrientais());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre artes orientais atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -127,18 +127,18 @@ public class MenuController {
 	
 	@Post("/menu/cadastrar")
 	public void cadastrar(Pessoa pessoa){
+		// TODO adicionar tela de aguarde em cadastro.jsp 
+		
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){			
 			try {
 				menuService.cadastrar(pessoa);
+				menuService.enviarEmailNotificacaoCadastro(pessoa);
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
 				redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar o email de notificação para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configurações da Conta</b> os seus dados de cadastro.");
-			} catch (DBException e) {
-				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "Não foi possível efetuar o cadastro de " + pessoa.getNome() + "<br/>Mensagem de Erro: " + e.getMensagem());
-			}			
+			} 		
 		}else{
 			redirecionarParaCadastro();
 		}		

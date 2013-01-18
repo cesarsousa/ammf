@@ -6,7 +6,6 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.internet.AddressException;
 
-import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
@@ -46,58 +45,33 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		return sessaoUsuario;
 	}
-
-	@Override
-	public void enviarEmailNotificacao(Texto texto) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
-		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, pessoa);
-		}
-	}
-
 	
-
-	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
-		try {
-			Email.enviarEmail(
-					sessaoUsuario.getUsuario().getEmail(),
-					sessaoUsuario.getUsuario().getSenha(), 
-					pessoa.getEmail(),
-					HtmlMensagem.getAssunto(notificacao, texto),
-					HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
-		} catch (AddressException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (MessagingException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			throw new EmailException("Erro na rotina de email. Email remetente : " + sessaoUsuario.getUsuario().getEmail() + ". password: " + sessaoUsuario.getUsuario().getSenha());
-		}
-		
-	}
-
 	@Override
-	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
+	public void cadastrar(Pessoa pessoa) {
 		pessoa.setStatus(Status.CONFIRMADO);
 		pessoa.setDataCadastro(DataUtils.getNow());
-		pessoaRepository.cadastrar(pessoa);		
-		enviarEmailNotificacaoCadastro(pessoa);		
+		pessoaRepository.cadastrar(pessoa);				
 	}
+
+	@Override
+	public void notificarPessoas(Texto texto) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmail(pessoa.getEmail(), HtmlMensagem.getAssunto(Notificacao.TEXTO_ATUALIZADO, texto), HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
+		}
+	}	
 	
 	@Override
 	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException {
+		enviarEmail(pessoa.getEmail(), HtmlMensagem.getAssuntoCadastroPessoa(), HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
+	}
+
+	private void enviarEmail(String destinatario, String assunto, String mensagem) throws EmailException {
 		try {
-			Email.enviarEmail(
+			Email.enviar(
 					sessaoUsuario.getUsuario().getEmail(),
 					sessaoUsuario.getUsuario().getSenha(), 
-					pessoa.getEmail(),
-					HtmlMensagem.getAssuntoCadastroPessoa(),
-					HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
+					destinatario, assunto, mensagem);
 		} catch (AddressException e) {
 			e.printStackTrace();
 			throw new EmailException(e.getMessage());
@@ -109,9 +83,8 @@ public class MenuServiceImp implements MenuService{
 			throw new EmailException(e.getMessage());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			throw new EmailException("Erro na rotina de email. Email remetente : " + sessaoUsuario.getUsuario().getEmail() + ". password: " + sessaoUsuario.getUsuario().getSenha());
+			throw new EmailException("Erro na rotina de email: valor nulo. " + e.getMessage());
 		}
-
 	}
 
 }

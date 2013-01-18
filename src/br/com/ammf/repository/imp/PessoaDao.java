@@ -24,14 +24,10 @@ public class PessoaDao implements PessoaRepository {
 	}
 
 	@Override
-	public void cadastrar(Pessoa pessoa) throws DBException {
-		try{			
-			Transaction transaction = session.beginTransaction();
-			session.save(pessoa);
-			transaction.commit();		
-		}catch (Exception e) {
-			throw new DBException("(PessoaDao) - cadastrar", e);
-		}				
+	public void cadastrar(Pessoa pessoa) {
+		Transaction transaction = session.beginTransaction();
+		session.save(pessoa);
+		transaction.commit();				
 	}
 
 	@Override

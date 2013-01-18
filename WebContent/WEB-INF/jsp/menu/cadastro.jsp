@@ -9,13 +9,13 @@
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastro de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
 
-
-<div id="areaLogin">
-
 <c:if test="${not empty msgCadastro}">
 <div class="msgBorder msgSucesso tamanhoErroLogin ponteiro closeClick">${msgCadastro}</div>
 <br/>
 </c:if>
+
+<div id="areaLogin">
+
 <form action="<c:url value="/menu/cadastrar"/>" method="post">	 
 	
 	<c:if test="${not empty nomeEmBranco}">
@@ -27,8 +27,7 @@
 		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	</c:if>
 	
-	<br/><br/>
-	
+	<br/><br/>	
 	
 	<c:if test="${not empty emailEmBranco}">
 		<label class="labelFormErro">${emailEmBranco}</label>
