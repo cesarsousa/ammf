@@ -3,12 +3,19 @@ package br.com.ammf.service.imp;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
-public class ValidacaoServiceImp implements ValidacaoService {	
+public class ValidacaoServiceImp implements ValidacaoService {
+	
+	private PessoaRepository pessoaRepository;
+	
+	public ValidacaoServiceImp(PessoaRepository pessoaRepository){
+		this.pessoaRepository = pessoaRepository;
+	}	
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
 		boolean resultado = true;
@@ -20,9 +27,17 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("emailEmBranco", "O email deve ser informado");
 			resultado = false;
 		}else if (!emailValido(pessoa.getEmail())){
-			result.include("emailEmBranco", "O email esta com formato inválido");
+			result.include("emailEmBranco", "O email está com formato inválido");
 			resultado = false;
-		}
+		}else{
+			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
+			if(emailCadastrado){
+				result.include("emailEmBranco", "O email já está cadastrado no site");
+				result.include("opcaoCadastro", true);
+				resultado = false;
+			}
+		}		
+		
 		if(!resultado){
 			result.include("pessoaCadastro", pessoa);
 		}

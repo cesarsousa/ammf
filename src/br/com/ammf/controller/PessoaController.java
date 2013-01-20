@@ -5,6 +5,7 @@ import static br.com.caelum.vraptor.view.Results.json;
 import java.util.List;
 
 import br.com.ammf.exception.DBException;
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
@@ -88,17 +89,27 @@ public class PessoaController {
 	public void cadastrarCliente(Pessoa pessoa){
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){
-			try {
+			try {				
 				pessoaService.cadastrar(pessoa);
 				pessoaService.notificarCadastroPelocliente(pessoa);
+				redirecionarParaIndex(pessoa);
 			} catch (DBException e) {
 				e.printStackTrace();
 				result.include("msgErroCadastro", "Opps! Ocorreu um erro inexperado, infelizmente não foi possível realizar o seu cadastro.<br/>Por favor tente novamente mais tarde.");
 				redirecionarParaCadastroCliente();
+			} catch (EmailException e) {				
+				e.printStackTrace();
+				redirecionarParaIndex(pessoa);
 			}
 		}else{
 			redirecionarParaCadastroCliente();
 		}
+	}
+
+	private void redirecionarParaIndex(Pessoa pessoa) {
+		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve você receberá uma confirmação por email.");
+		result.redirectTo(IndexController.class).index();
+		
 	}
 
 	private void redirecionarParaCadastroCliente() {

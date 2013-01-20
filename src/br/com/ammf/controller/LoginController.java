@@ -29,10 +29,7 @@ public class LoginController {
 	public void login(){}
 	
 	@Post("/login/autenticacao")
-	public void autenticacao(String login, String senha){		
-		
-		login = "cesar";
-		senha = "cesarsousa";
+	public void autenticacao(String login, String senha){	
 		
 		Usuario usuario = usuarioRepository.autenticar(login, senha);
 		if(usuario != null){

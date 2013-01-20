@@ -8,6 +8,13 @@
 <div id="espacador"></div>
 
 <div align="center">
+	
+	<c:if test="${not empty msgIndex}">
+	<div style="width: 995px;" class="msgBorder msgSucesso closeClick ponteiro"> 
+	${msgIndex}
+	</div>
+	<br/>
+	</c:if>
 	<div class="cardPrincipal">
 		<div id="mensagemIndex">
 		

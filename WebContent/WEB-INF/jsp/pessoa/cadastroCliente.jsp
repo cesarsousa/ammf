@@ -50,19 +50,7 @@
 </form>
 </div>
 
-<table class="tamanhoDefault">
-	<tr>
-		<td class="tdTableIcone">
-		<form id="formMenuPrincipal" action="<c:url value="/"/>" method="post">
-			<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
-		</form>
-		</td>
-		
-		<td class="tdTableIcone">
-		<img alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
-	</tr>
-</table>
+
 </div>
 
 <div id="telaAguardeCadastroCliente">

@@ -6,6 +6,8 @@ import br.com.ammf.model.Texto;
 
 public class HtmlMensagem {
 	
+	// http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364
+	
 	private static final String PATH = "./html_mensagem/";
 
 	public static String getAssunto(Notificacao notificacao, Texto texto) {
@@ -14,6 +16,10 @@ public class HtmlMensagem {
 		if(Notificacao.TEXTO_NOVO.equals(notificacao))
 			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
 		return "Site do Miguel";
+	}
+	
+	public static String getAssuntoCadastroPessoaPeloCliente() {
+		return "Site do Miguel - Recebimento de cadastro";
 	}
 	
 	public static String getAssuntoCadastroPessoa() {
@@ -43,10 +49,7 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_texto_atualizado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String conteudo = texto.getConteudo();		
-		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;
-		
-		// http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364
-		
+		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
@@ -58,6 +61,11 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
 
-	
-
+	public static String getMensagemCadastroPessoaPeloCliente(Pessoa pessoa, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_cadastra_pessoa_pelo_cliente.html");
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
+				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[LINKEDIN]", linkedin);				
+	}
 }

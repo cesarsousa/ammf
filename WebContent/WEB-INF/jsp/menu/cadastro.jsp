@@ -105,13 +105,12 @@
 			<td >
 			<input id="btAbrirConteudoCadastradas" type="button" class="sizebtGenerico button esquerda" value="Visualizar todas as pessoas cadastradas" />
 			<span class="info azulClaro" >Lista das pessoas cadastradas no site.</span>
+			<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="^">
 			</td>
 		</tr>
 		<tr>
 			<td>
 			<div id="conteudoPessoasCadastradas" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="fechar">
-								
 				<table>
 					<thead>
 						<tr>
@@ -138,13 +137,12 @@
 			<td >
 			<input id="btAbrirConteudoConfirmadas" type="button" class="sizebtGenerico backVerde button esquerda" value="Visualizar pessoas confirmadas" />
 			<span class="info azulClaro" >Lista das pessoas que recebem notifica&ccedil;&atilde;o de textos do site.</span>
+			<input id="btFecharConteudoConfirmadas" type="button" class="button direita" value="^">
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoPessoasConfirmadas" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoConfirmadas" type="button" class="button direita" value="fechar">
-								
+			<div id="conteudoPessoasConfirmadas" class="cartao tamanhoEdicaoIndex" >								
 				<table>
 					<thead>
 						<tr>
@@ -171,13 +169,12 @@
 			<td >
 			<input id="btAbrirConteudoPendentes" type="button" class="sizebtGenerico backVermelho button esquerda" value="Visualizar pessoas pendentes" />
 			<span class="info azulClaro" >Lista das pessoas pendente confirma&ccedil;&atilde;o para receber notifica&ccedil;&atilde;o de textos do site.</span>
+			<input id="btFecharConteudoPendentes" type="button" class="button direita" value="^">
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoPendentes" type="button" class="button direita" value="fechar">
-								
+			<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >								
 				<table>
 					<thead>
 						<tr>

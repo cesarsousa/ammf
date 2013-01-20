@@ -50,4 +50,11 @@ public class UsuarioDao implements UsuarioRepository{
 		return id;
 	}
 
+	@Override
+	public Usuario obterAdministrador() {
+		Criteria criteria = session.createCriteria(Usuario.class);
+		criteria.add(Restrictions.eq("id", 2L));
+		return (Usuario) criteria.uniqueResult();
+	}
+
 }

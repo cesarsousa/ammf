@@ -131,6 +131,7 @@ public class MenuController {
 		if(validado){			
 			try {
 				menuService.cadastrar(pessoa);
+				menuService.enviarEmailNotificacaoCadastro(pessoa);
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();

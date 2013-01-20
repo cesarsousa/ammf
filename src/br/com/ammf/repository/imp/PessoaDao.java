@@ -67,16 +67,22 @@ public class PessoaDao implements PessoaRepository {
 	public void remover(Pessoa pessoa) {
 		Transaction transaction = session.beginTransaction();		
 		session.delete(pessoa);
-		transaction.commit();
-		
+		transaction.commit();		
 	}
 
 	@Override
 	public Pessoa obter(String uuid) {
 		Criteria criteria = session.createCriteria(Pessoa.class);
 		criteria.add(Restrictions.eq("uuid", uuid));
-		return (Pessoa) criteria.uniqueResult();
-		
+		return (Pessoa) criteria.uniqueResult();		
+	}
+
+	@Override
+	public boolean jaEstaCadastrada(String email) {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("email", email));
+		Pessoa pessoa = (Pessoa) criteria.uniqueResult();
+		return pessoa == null ? false : true;
 	}
 
 }

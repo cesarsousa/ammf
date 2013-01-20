@@ -12,4 +12,6 @@ public interface UsuarioRepository {
 
 	public long getId(String uuid);
 
+	public Usuario obterAdministrador();
+
 }

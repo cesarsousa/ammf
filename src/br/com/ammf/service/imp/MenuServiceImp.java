@@ -46,6 +46,13 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		return sessaoUsuario;
 	}
+	
+	@Override
+	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
+		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setDataCadastro(DataUtils.getNow());
+		pessoaRepository.cadastrar(pessoa);			
+	}
 
 	@Override
 	public void enviarEmailNotificacao(Texto texto) throws EmailException {
@@ -54,64 +61,25 @@ public class MenuServiceImp implements MenuService{
 			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, pessoa);
 		}
 	}
-
 	
-
+	
 	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
-		try {
-			Email.enviarEmail(
-					sessaoUsuario.getUsuario().getEmail(),
-					sessaoUsuario.getUsuario().getSenha(), 
-					pessoa.getEmail(),
-					HtmlMensagem.getAssunto(notificacao, texto),
-					HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
-		} catch (AddressException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (MessagingException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			throw new EmailException("Erro na rotina de email. Email remetente : " + sessaoUsuario.getUsuario().getEmail() + ". password: " + sessaoUsuario.getUsuario().getSenha());
-		}
-		
-	}
-
-	@Override
-	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
-		pessoa.setStatus(Status.CONFIRMADO);
-		pessoa.setDataCadastro(DataUtils.getNow());
-		pessoaRepository.cadastrar(pessoa);		
-		enviarEmailNotificacaoCadastro(pessoa);		
-	}
+		Email.enviarEmail(
+				sessaoUsuario.getUsuario().getEmail(),
+				sessaoUsuario.getUsuario().getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssunto(notificacao, texto),
+				HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
+	}	
 	
 	@Override
 	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException {
-		try {
-			Email.enviarEmail(
-					sessaoUsuario.getUsuario().getEmail(),
-					sessaoUsuario.getUsuario().getSenha(), 
-					pessoa.getEmail(),
-					HtmlMensagem.getAssuntoCadastroPessoa(),
-					HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
-		} catch (AddressException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (MessagingException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			throw new EmailException("Erro na rotina de email. Email remetente : " + sessaoUsuario.getUsuario().getEmail() + ". password: " + sessaoUsuario.getUsuario().getSenha());
-		}
-
+		Email.enviarEmail(
+				sessaoUsuario.getUsuario().getEmail(),
+				sessaoUsuario.getUsuario().getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssuntoCadastroPessoa(),
+				HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
 	}
 
 }
