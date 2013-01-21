@@ -16,7 +16,7 @@
 					<a id="linkCultura" href="<c:url value="/index/cultura"/>">Cultura</a></li>
 				<li>
 					<img id="imagemOrientais" class="imgMenuPrincipal" src="${imagem}/iconeOriental.png"/>
-					<a id="linkOrientais" href="<c:url value="/index/artesOrientais"/>">Artes Orientais</a></li>
+					<a id="linkOrientais" href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
 			</ul>
 		</td>
 	</tr>

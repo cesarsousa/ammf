@@ -37,14 +37,22 @@ public class IndexController {
 	}
 	
 	@Get("/index/psicologia")
-	public void psicologia(){}
+	public void psicologia(){
+		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
 	
 	@Get("/index/educacao")
-	public void educacao(){}
+	public void educacao(){
+		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
 	
 	@Get("/index/cultura")
-	public void cultura(){}
+	public void cultura(){
+		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
 	
-	@Get("/index/artesOrientais")
-	public void artesOrientais(){}
+	@Get("/index/artesorientais")
+	public void artesOrientais(){
+		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
 }

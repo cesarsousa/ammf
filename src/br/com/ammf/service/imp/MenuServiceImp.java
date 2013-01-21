@@ -2,11 +2,6 @@ package br.com.ammf.service.imp;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
-import javax.mail.internet.AddressException;
-
-import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;

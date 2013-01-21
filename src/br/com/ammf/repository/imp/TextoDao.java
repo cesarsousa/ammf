@@ -81,7 +81,7 @@ public class TextoDao implements TextoRepository{
 	@Override
 	public Texto getTextoArtesOrientais() {
 		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.ARTES_ORIENTAIS));
+		criteria.add(Restrictions.eq("local", Local.ARTESORIENTAIS));
 		return (Texto) criteria.uniqueResult();
 	}
 

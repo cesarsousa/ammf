@@ -1,5 +1,6 @@
 package br.com.ammf.utils;
 
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
@@ -48,17 +49,26 @@ public class HtmlMensagem {
 	public static String getMensagemTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_texto_atualizado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkLerTexto = getLinkLerTexto(texto);
+		
 		String conteudo = texto.getConteudo();		
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
 				.replace("[TRECHOTEXTO]", trechoTexto)
-				.replace("[LINKLERTEXTO]", Link.WEB_SITE)				
+				.replace("[LINKLERTEXTO]", linkLerTexto)				
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
+	}
+
+	private static String getLinkLerTexto(Texto texto) {
+		if(Local.INDEX == texto.getLocal())
+			return Link.WEB_SITE;
+		else
+			return Link.WEB_SITE + "/index/" + texto.getLocal().toString().toLowerCase();
 	}
 
 	public static String getMensagemCadastroPessoaPeloCliente(Pessoa pessoa, String linkedin) {
