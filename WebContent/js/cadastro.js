@@ -34,15 +34,30 @@ $(document).ready(function() {
 	addRemoveDestaque("#pessoaEmail");
 	addRemoveDestaque("#campoBusca");
 	
-	$('#campoBusca').puts("Digite o nome da pessoa");
+	$('#campoBusca').puts("Digite o nome da pessoa");	
 	
-	$('#toolsAreaCadastro').hide();	
-
-	$('#btAbrirToolsCadastro').toggle(function() {
-		$('#toolsAreaCadastro').slideDown(500);
+	
+	$('#tabBuscaPessoa').hide();	
+	$('#iconBuscaPessoa').toggle(function() {
+		$('#tabBuscaPessoa').slideDown(500);
 	}, function() {
-		$('#toolsAreaCadastro').slideUp(500);
-	});	
+		$('#tabBuscaPessoa').slideUp(500);
+	});
+	
+	$('#tabPessoasCadastradas').hide();	
+	$('#iconPessoasCadastradas').toggle(function() {
+		$('#tabPessoasCadastradas').slideDown(500);
+		ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
+	}, function() {
+		$('#tabPessoasCadastradas').slideUp(500);
+	});
+	
+	
+	
+	
+	
+	
+	
 	
 	$('#btMenuAdm').click(function(){
 		$('#formMenuPrincipal').submit();
@@ -100,10 +115,10 @@ $(document).ready(function() {
 		$('#conteudoConsultaPessoas').slideUp(1000);		
 	});
 	
-	$('#conteudoPessoasCadastradas').hide();
+	/*$('#conteudoPessoasCadastradas').hide();
 	$('#btAbrirConteudoCadastradas').click(function(){		
 		ajaxGet("/pessoa/listar", "#ulPessoas", "#conteudoPessoasCadastradas", "#btFecharConteudoCadastradas");					
-	});
+	});*/
 	
 	$('#conteudoPessoasConfirmadas').hide();
 	$('#btAbrirConteudoConfirmadas').click(function(){		
