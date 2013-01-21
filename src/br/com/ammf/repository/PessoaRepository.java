@@ -10,7 +10,7 @@ import br.com.ammf.model.Status;
 
 public interface PessoaRepository {
 
-	void cadastrar(Pessoa pessoa) throws DBException;
+	void cadastrar(Pessoa pessoa);
 
 	List<Pessoa> listar();
 
@@ -23,9 +23,12 @@ public interface PessoaRepository {
 	void remover(Pessoa pessoa);
 
 	Pessoa obter(String uuid);
+<<<<<<< HEAD
 
 	boolean jaEstaCadastrada(String email);
 	
 	
+=======
+>>>>>>> 11524b31c1230f6461860679722243dabc0bc373
 
 }

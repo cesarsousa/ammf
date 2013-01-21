@@ -6,7 +6,6 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.internet.AddressException;
 
-import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
@@ -46,6 +45,7 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		return sessaoUsuario;
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void cadastrar(Pessoa pessoa) throws EmailException, DBException {
@@ -70,16 +70,57 @@ public class MenuServiceImp implements MenuService{
 				pessoa.getEmail(),
 				HtmlMensagem.getAssunto(notificacao, texto),
 				HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
+=======
+	
+	@Override
+	public void cadastrar(Pessoa pessoa) {
+		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setDataCadastro(DataUtils.getNow());
+		pessoaRepository.cadastrar(pessoa);				
+	}
+
+	@Override
+	public void notificarPessoas(Texto texto) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmail(pessoa.getEmail(), HtmlMensagem.getAssunto(Notificacao.TEXTO_ATUALIZADO, texto), HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
+		}
+>>>>>>> 11524b31c1230f6461860679722243dabc0bc373
 	}	
 	
 	@Override
 	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException {
+<<<<<<< HEAD
 		Email.enviarEmail(
 				sessaoUsuario.getUsuario().getEmail(),
 				sessaoUsuario.getUsuario().getSenha(), 
 				pessoa.getEmail(),
 				HtmlMensagem.getAssuntoCadastroPessoa(),
 				HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
+=======
+		enviarEmail(pessoa.getEmail(), HtmlMensagem.getAssuntoCadastroPessoa(), HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
+	}
+
+	private void enviarEmail(String destinatario, String assunto, String mensagem) throws EmailException {
+		try {
+			Email.enviar(
+					sessaoUsuario.getUsuario().getEmail(),
+					sessaoUsuario.getUsuario().getSenha(), 
+					destinatario, assunto, mensagem);
+		} catch (AddressException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			throw new EmailException(e.getMessage());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			throw new EmailException("Erro na rotina de email: valor nulo. " + e.getMessage());
+		}
+>>>>>>> 11524b31c1230f6461860679722243dabc0bc373
 	}
 
 }

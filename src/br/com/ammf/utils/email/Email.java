@@ -19,6 +19,7 @@ import br.com.ammf.exception.EmailException;
 
 public class Email {
 	
+<<<<<<< HEAD
 	public static void enviarEmail(
 			String emailSender, 
 			String emailSenderPassword, 
@@ -27,6 +28,24 @@ public class Email {
 			String mensagem) throws EmailException {
 		
 		try{
+=======
+	public static void enviar(String emailSender, String emailSenderPassword, String emailReceiver, String assunto, String mensagem)
+	throws AddressException, SendFailedException, MessagingException {
+
+	java.util.Properties properties = new java.util.Properties();
+	properties.put("mail.smtp.host", "smtp.gmail.com");
+	properties.put("mail.smtp.auth", "true");
+	properties.put("mail.debug", "true");
+	properties.put("mail.smtp.debug", "true");
+	properties.put("mail.mime.charset", "ISO-8859-1");
+	properties.put("mail.smtp.port", "465");
+	properties.put("mail.smtp.starttls.enable", "true");
+	properties.put("mail.smtp.socketFactory.port", "465");
+	properties.put("mail.smtp.socketFactory.fallback", "false");
+	properties.put("mail.smtp.socketFactory.class",	"javax.net.ssl.SSLSocketFactory");
+	properties.put("mail.smtp.quitwait", "false");
+	properties.setProperty("mail.transport.protocol", "smtp");
+>>>>>>> 11524b31c1230f6461860679722243dabc0bc373
 
 			java.util.Properties properties = new java.util.Properties();
 			properties.put("mail.smtp.host", "smtp.gmail.com");
