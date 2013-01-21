@@ -34,38 +34,18 @@ $(document).ready(function() {
 	addRemoveDestaque("#pessoaEmail");
 	addRemoveDestaque("#campoBusca");
 	
-	$('#campoBusca').puts("Digite o nome da pessoa");	
+	$('#btnCadastrarPessoa').click(function(){
+		abrirJanelaDeEspera($('#contexto').val() + "/telaAguarde.html");
+	});
 	
+	$('#campoBusca').puts("Digite o nome da pessoa");	
 	
 	$('#tabBuscaPessoa').hide();	
 	$('#iconBuscaPessoa').toggle(function() {
 		$('#tabBuscaPessoa').slideDown(500);
 	}, function() {
 		$('#tabBuscaPessoa').slideUp(500);
-	});
-	
-	$('#tabPessoasCadastradas').hide();	
-	$('#iconPessoasCadastradas').toggle(function() {
-		$('#tabPessoasCadastradas').slideDown(500);
-		ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
-	}, function() {
-		$('#tabPessoasCadastradas').slideUp(500);
-	});
-	
-	
-	
-	
-	
-	
-	
-	
-	$('#btMenuAdm').click(function(){
-		$('#formMenuPrincipal').submit();
-	});
-	
-	$('#btnCadastrarPessoa').click(function(){
-		abrirJanelaDeEspera($('#contexto').val() + "/telaAguarde.html");
-	});
+	});	
 	
 	$('#conteudoConsultaPessoas').hide();
 	$('#formBuscaPessoa').submit(function(event){
@@ -115,18 +95,29 @@ $(document).ready(function() {
 		$('#conteudoConsultaPessoas').slideUp(1000);		
 	});
 	
-	/*$('#conteudoPessoasCadastradas').hide();
-	$('#btAbrirConteudoCadastradas').click(function(){		
-		ajaxGet("/pessoa/listar", "#ulPessoas", "#conteudoPessoasCadastradas", "#btFecharConteudoCadastradas");					
-	});*/
+	$('#tabPessoasCadastradas').hide();	
+	$('#iconPessoasCadastradas').toggle(function() {
+		$('#tabPessoasCadastradas').slideDown(500);
+		ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
+	}, function() {
+		$('#tabPessoasCadastradas').slideUp(500);
+	});
 	
-	$('#conteudoPessoasConfirmadas').hide();
-	$('#btAbrirConteudoConfirmadas').click(function(){		
-		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#conteudoPessoasConfirmadas", "#btFecharConteudoConfirmadas");					
-	});	
+	$('#tabPessoasConfirmadas').hide();	
+	$('#iconPessoasConfirmadas').toggle(function() {
+		$('#tabPessoasConfirmadas').slideDown(500);
+		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#tabPessoasConfirmadas", "#btFecharConteudoConfirmadas");
+	}, function() {
+		$('#tabPessoasConfirmadas').slideUp(500);
+	});
 	
-	$('#conteudoPessoasPendentes').hide();
-	$('#btAbrirConteudoPendentes').click(function(){		
-		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#conteudoPessoasPendentes", "#btFecharConteudoPendentes");					
+	$('#tabPessoasPendentes').hide();	
+	$('#iconPessoasPendentes').toggle(function() {
+		$('#tabPessoasPendentes').slideDown(500);
+		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#tabPessoasPendentes", "#btFecharConteudoPendentes");					
+		
+	}, function() {
+		$('#tabPessoasPendentes').slideUp(500);
 	});	
+		
 });
