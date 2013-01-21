@@ -23,12 +23,7 @@ public interface PessoaRepository {
 	void remover(Pessoa pessoa);
 
 	Pessoa obter(String uuid);
-<<<<<<< HEAD
 
 	boolean jaEstaCadastrada(String email);
-	
-	
-=======
->>>>>>> 11524b31c1230f6461860679722243dabc0bc373
 
 }
