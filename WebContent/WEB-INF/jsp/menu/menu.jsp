@@ -3,24 +3,15 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
+<h5>ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span></h5>
+<form id="formLogout" action="<c:url value="/logout" />"></form>	
 
 
 <div id="divPgMenu" align="center">
 
 <div class="separador"></div>
 
-<div class="tamanhoDefault alturaDefault">
-	<div class="esquerda">
-	<h2>Ol&aacute; ${sessaoUsuario.usuario.nome}</h2>
-	</div>
-	
-	<div class="direita">
-	<form action="<c:url value="/logout" />">
-	<input type="submit" class="logout button" value="Sair">
-	</form>	
-	</div>
-	
-</div>
+<h2>Menu Principal</h2>
 
 <div class="tamanhoDefault">
 <p>

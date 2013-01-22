@@ -34,9 +34,28 @@ h3 {
 	color: gray;
 }
 
+h5 {
+	text-align: center;
+}
+
 a {
 	text-decoration: none;
 	color: #cccccc;
+}
+
+#btLogout {
+	width: 50px;
+	background-color: red;	
+	color: white;
+	padding: 5px;
+	float: right;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#btLogout:hover {
+	box-shadow: 2px 2px 2px #9C9C9C;
 }
 
 a:HOVER {

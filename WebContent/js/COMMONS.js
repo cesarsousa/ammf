@@ -85,4 +85,10 @@ $(document).ready(function() {
 		$(this).fadeOut(1000);
 	});
 	
+	$('#btLogout').click(function(){
+		$('#formLogout').submit();
+	});
+	
+	
+	
 });

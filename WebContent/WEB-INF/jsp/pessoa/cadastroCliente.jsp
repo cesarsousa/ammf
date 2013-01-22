@@ -50,6 +50,19 @@
 </form>
 </div>
 
+<table class="tamanhoDefault">
+	<tr>
+		<td class="tdTableIcone">
+		<form id="formMenuCliente" action="<c:url value="/"/>" method="post">
+			<img id="btMenuCliente" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
+		</form>
+		</td>
+	</tr>
+	<tr>
+	<td class="paddingPadrao"><div class="separador"></div></td>
+	</tr>
+</table>
+
 
 </div>
 

@@ -18,5 +18,10 @@ $(document).ready(function() {
 		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
 	});
 	
+
+	$('#btMenuCliente').click(function(){
+		$('#formMenuCliente').submit();	
+	});
+	
 	
 });

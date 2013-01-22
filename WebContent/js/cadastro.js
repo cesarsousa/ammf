@@ -34,6 +34,17 @@ $(document).ready(function() {
 	addRemoveDestaque("#pessoaEmail");
 	addRemoveDestaque("#campoBusca");
 	
+	$('#telaAguardeAdmCadastroCliente').hide();
+	
+	$('#btnCadastrarPessoa').click(function(){
+		$('#admNomeDoCliente').html($('#pessoaNome').val());	
+		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
+	});
+	
+	$('#btMenuAdm').click(function(){
+		$('#formMenuPrincipal').submit();
+	});
+	
 	$('#btnCadastrarPessoa').click(function(){
 		abrirJanelaDeEspera($('#contexto').val() + "/telaAguarde.html");
 	});

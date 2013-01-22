@@ -3,8 +3,10 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
+<h5>ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span></h5>
+<form id="formLogout" action="<c:url value="/logout" />"></form>
 
-<div align="center">
+<div id="divPgAdmCadastroCliente" align="center">
 
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastro de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
@@ -230,6 +232,20 @@
 </table>
 
 </div> <!-- centralizacao -->
+
+<div id="telaAguardeAdmCadastroCliente">
+	<div align="center">
+		
+		<h2>Cadastro de Pessoa</h2>    
+		<span class="info azulClaro" >Cadastro de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
+								
+		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para <span id="admNomeDoCliente"></span> referente ao cadastro.</h3>
+		
+		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		<br />
+		<br />			
+	</div>
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
