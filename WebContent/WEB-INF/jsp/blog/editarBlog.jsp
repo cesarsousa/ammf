@@ -3,6 +3,9 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
+<h5>ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span></h5>
+<form id="formLogout" action="<c:url value="/logout" />"></form>
+
 <div align="center">
 
 <h2>Blog do Miguel</h2>
@@ -11,7 +14,7 @@
 <c:if test="${not empty blogMensagemSucesso}">
 <table class="tamanhoDefault">
 	<tr>
-	<td>
+	<td align="center">
 	<div class="msgBorder msgSucesso">
 		${blogMensagemSucesso} 
 	</div>
@@ -42,7 +45,7 @@
 
 <!-- ADICIONAR UM NOVO TEXTO -->
 <div id="divBlogNovoTexto">
-	<hr class="separador" />
+	<div class="separador"></div>
 	
 	<table class="tamanhoDefault">
 		<tr>
@@ -86,7 +89,7 @@
 
 <!-- BUSCA DE TEXTO PELO TITULO -->
 <div id="divBlogBuscarTexto">
-	<hr class="separador" />
+	<div class="separador"></div>
 	<table class="tamanhoDefault">
 		<tr>
 			<td valign="middle">
@@ -133,7 +136,8 @@
 
 <!-- EDITAR UM TEXTO -->
 <div id="divBlogEditarTexto">
-	<hr class="separador" />
+	<br/>
+	<div class="separador"></div>
 	
 	<table class="tamanhoDefault">
 		<tr>
@@ -175,105 +179,6 @@
 		</tr>
 	</table>
 </div>
-	
-	<!-- <hr class="separador"  />
-
-	<table class="tamanhoDefault">
-		<tr>
-			<td >
-			<input id="btAbrirConteudoCadastradas" type="button" class="sizebtGenerico button esquerda" value="Visualizar todas as pessoas cadastradas" />
-			<span class="info azulClaro" >Lista das pessoas cadastradas no site.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoPessoasCadastradas" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="fechar">
-								
-				<table>
-					<thead>
-						<tr>
-						<td class="headTabela">Nome</td>
-						<td class="headTabela">Email</td>
-						<td class="headTabela">Data Cadastro</td>
-						<td class="headTabela">Status</td>
-						</tr>
-					</thead>
-						
-					<tbody id="ulPessoas">						
-					</tbody>
-					
-				</table>				
-			</div>
-			</td>
-		</tr>
-	</table>
-	
-	<hr class="separador"  />
-	
-	<table class="tamanhoDefault">
-		<tr>
-			<td >
-			<input id="btAbrirConteudoConfirmadas" type="button" class="sizebtGenerico backVerde button esquerda" value="Visualizar pessoas confirmadas" />
-			<span class="info azulClaro" >Lista das pessoas que recebem notifica&ccedil;&atilde;o de textos do site.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoPessoasConfirmadas" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoConfirmadas" type="button" class="button direita" value="fechar">
-								
-				<table>
-					<thead>
-						<tr>
-						<td class="headTabela">Nome</td>
-						<td class="headTabela">Email</td>
-						<td class="headTabela">Data Cadastro</td>
-						<td class="headTabela">Status</td>
-						</tr>
-					</thead>
-						
-					<tbody id="ulPessoasConfirmadas">						
-					</tbody>
-					
-				</table>				
-			</div>
-			</td>
-		</tr>
-	</table>
-	
-	<hr class="separador"  />
-	
-	<table class="tamanhoDefault">
-		<tr>
-			<td >
-			<input id="btAbrirConteudoPendentes" type="button" class="sizebtGenerico backVermelho button esquerda" value="Visualizar pessoas pendentes" />
-			<span class="info azulClaro" >Lista das pessoas pendente confirma&ccedil;&atilde;o para receber notifica&ccedil;&atilde;o de textos do site.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoPendentes" type="button" class="button direita" value="fechar">
-								
-				<table>
-					<thead>
-						<tr>
-						<td class="headTabela">Nome</td>
-						<td class="headTabela">Email</td>
-						<td class="headTabela">Data Cadastro</td>
-						<td class="headTabela">Status</td>
-						</tr>
-					</thead>
-						
-					<tbody id="ulPessoasPendentes">						
-					</tbody>
-					
-				</table>				
-			</div>
-			</td>
-		</tr>
-	</table> -->
 	
 </div> <!-- div center -->
 
