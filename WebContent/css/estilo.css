@@ -195,7 +195,8 @@ a:HOVER {
 }
 
 .tamanhoEdicaoIndex {
-	width: 1000px;	
+	width: 1000px;
+	padding: 5px;	
 }
 
 .areaFormatacao {
@@ -502,6 +503,11 @@ padding: 0 5px 10px 5px; */
 
 .paddingPadrao {
 	padding: 10px;
+}
+
+.paddingInput {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .paddingTelaAguarde{

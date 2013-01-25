@@ -84,6 +84,9 @@
 			</div>
 			</td>
 		</tr>
+		<tr>
+		<td class="paddingPadrao"><div class="separador"></div></td>
+		</tr>
 	</table>
 </div>
 
@@ -91,6 +94,9 @@
 <div id="divBlogBuscarTexto">
 	<div class="separador"></div>
 	<table class="tamanhoDefault">
+		<tr>
+		<td><label class="h1">Buscar Texto</label></td>
+		</tr>
 		<tr>
 			<td valign="middle">
 			<form id="formBlogBuscaTexto">
@@ -131,22 +137,23 @@
 			</div>
 			</td>
 		</tr>
+		<tr>
+		<td class="paddingPadrao"><div class="separador"></div></td>
+		</tr>
 	</table>
 </div>
 
 <!-- EDITAR UM TEXTO -->
-<div id="divBlogEditarTexto">
-	<br/>
-	<div class="separador"></div>
-	
+<div id="divBlogEditarTexto">	
 	<table class="tamanhoDefault">
 		<tr>
 		<td><label class="h1">Editar Texto</label></td>
 		</tr>
 		<tr>
 			<td>
-			<div class="cartao tamanhoEdicaoIndex" >
+			
 			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post" class="paddingPadrao">
+				<div class="cartao tamanhoEdicaoIndex" >
 				<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
 								
 				<h3>T&iacute;tulo :</h3>
@@ -168,14 +175,18 @@
 				</div>
 				</div>
 				<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
-				
-				<p>
+				</div>
+				<div class="cartao tamanhoEdicaoIndex" style="background: #CCCCCC; padding-top: 20px; padding-bottom: 20px;">
 				<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
-				<input id="btBlogCancelEdtTexto" type="button" value="cancelar" class="button">				
-				</p>
+				<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
+				<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
+				</div>
+				
 			</form>			
-			</div>
 			</td>
+		</tr>
+		<tr>
+		<td class="paddingPadrao"><div class="separador"></div></td>
 		</tr>
 	</table>
 </div>
