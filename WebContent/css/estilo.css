@@ -43,9 +43,9 @@ a {
 	color: #cccccc;
 }
 
-table tbody tr:hover{
+/* table tbody tr:hover{
 	background-color: #dddddd;
-}
+} */
 
 #btLogout {
 	width: 50px;
