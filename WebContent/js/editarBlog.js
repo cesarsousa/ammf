@@ -134,7 +134,7 @@ $(document).ready(function() {
 					var dataCadastro = getDataFormatada(json[i].postagem.time);
 										
 					$('#tabEdtTextoBlog').append(
-						'<tr>' +
+						'<tr class="zebrado">' +
 						'<td class="headTabelaBlog2Info">' + dataCadastro + '</td>' +
 						'<td class="headTabelaBlog1Info"><a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')">' + nome + '</td>' +
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +

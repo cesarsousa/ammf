@@ -3,15 +3,9 @@
 <div id="header1">
 <div align="center">
 <div id=mainCardHeader>
-
-<!-- Psicologia
-Educação
-Cultura
-Artes Orientais -->
-
-<!-- <h1>Alcindo Miguel Martins Filho</h1>
-<h2>Psicologia Clínica</h2> -->
-<!-- , Educação, Cultura e Artes Taoístas -->
+<div class="divOwner esquerda">
+<img src="${imagem}/owner.jpg">
+</div>
 </div>
 </div>
 

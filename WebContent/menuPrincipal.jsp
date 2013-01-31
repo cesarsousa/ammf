@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div align="center">
+
 <table id="tabMenuPrincipal" >
 	<tr>
 		<td>
 			<ul id="menu">
+				<li>
+					
+				</li>
 				<li>
 					<img id="imagemPsicologia" class="imgMenuPrincipal opacidade" src="${imagem}/iconePsicologia.png"/>
 					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>

@@ -8,7 +8,7 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 			for(var i = 0; i< json.length; i++){				
 				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);				
 				$(ulTabela).append(
-					'<tr>' +
+					'<tr class="zebrado" class="zebrado">' +
 					'<td class="infoTabela">' + json[i].nome + '</td>' +
 					'<td class="infoTabela">' + json[i].email + '</td>' +
 					'<td class="infoTabela">' + dataCadastro + '</td>' +
@@ -78,7 +78,7 @@ $(document).ready(function() {
 					var linkRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
 					
 					$('#ulConsultadas').append(
-						'<tr>' +
+						'<tr class="zebrado">' +
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabela">' + dataCadastro + '</td>' +
