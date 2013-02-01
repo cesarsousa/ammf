@@ -138,29 +138,36 @@ a:HOVER {
 }
 
 #headerQuiron {
-	background-color: #gray;
-	width: 100%;
+	background-image: url("../image/texturaPreta.jpeg");
+	border: 1px solid gray;
+	box-shadow: 2px 2px 2px #8B8484;	
+	width: 90%;
 	height: 100px;
 	padding: 10px;
 }
 
-#labelQuiron {
-	color: #000000;
+.sombra {
+	
+}
+
+.labelQuiron {
+	color: #CCCCCC;
 	font-weight: bold;
 	font-size: xx-large;	
-	padding-top: 30px;
+	padding-top: 20px;
 	cursor: pointer;
 }
 
-#labelQuiron:hover {
+.labelQuiron:hover {
 	color: #FFFFFF;
+	
 }
 
 #imagemQuiron:hover {
 	cursor: pointer;
 	filter: alpha(opacity = 70);
 	-moz-opacity: 0.70;
-	opacity: 0.70;
+	opacity: 0.70;	
 }
 
 #menuLink {

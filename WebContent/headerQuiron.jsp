@@ -2,11 +2,19 @@
 <div align="center">
 <div id="headerQuiron">
 <div align="center" style="width: 1000px;">
-	<div id="labelQuiron" class="esquerda">
-		<a href="<c:url value="/login" />" >Quiron</a>
-	</div>
-	
+	<form id="quironForm" action="<c:url value="/login" />" method="get"></form>
+	<label id="labelQuironForm" class="labelQuiron esquerda ponteiro">Quiron</label>	
 	<div id="imagemQuiron" class="direita"><img width="100px" height="100px" src="${imagem}/quiron.jpg"></img></div>
 </div>
 </div>
+<br/>
 </div>
+<script type="text/javascript">
+$(document).ready(function() { 
+
+	$('#labelQuironForm').click(function(){
+		$('#quironForm').submit();	
+	});
+    
+});
+</script>
