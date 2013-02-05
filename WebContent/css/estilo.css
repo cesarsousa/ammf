@@ -138,7 +138,7 @@ a:HOVER {
 }
 
 #headerQuiron {
-	background-image: url("../image/texturaPreta.jpeg");
+	background-image: url("../image/texturaPreta3.jpg");
 	border: 1px solid gray;
 	box-shadow: 2px 2px 2px #8B8484;	
 	width: 90%;
@@ -742,30 +742,41 @@ padding: 0 5px 10px 5px; */
 	padding: 5px;
 	text-align: justify;
 	vertical-align: middle;
-	width: 90%;	
+	width: 100%;	
 }
 
 .msgSucesso {
 	background-color: #E8F4D5;
 	border-color: #5D980D;
 	text-align: left;
+	color: #5D980D;
+	font-size: x-large;
 }
 
 .msgAlerta {
 	background-color: #F1E4BD;
 	border-color: #CFB848;
+	text-align: left;
+	color: #CFB848;
+	font-size: x-large;
 }
 
 .msgInfo {
 	background-color: #DEE5FF;
 	border-color: #2129A7;
 	text-align: left;
+	text-align: left;
+	color: #2129A7;
+	font-size: x-large;
 }
 
 .msgErro {
 	background-color: #FFEBE8;
 	border-color: #DD3C10;
 	text-align: left;
+	text-align: left;
+	color: #DD3C10;
+	font-size: x-large;
 }
 
 .tamanhoErroLogin {
