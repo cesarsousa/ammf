@@ -1,6 +1,6 @@
 
 <c:if test="${not empty erroLogin}">
-<div id="boxErroLogin" class=labelFormErro><p>${erroLogin}</p></div>
+	<div id="boxErroLogin" class="msgBorder msgErro ponteiro"><p>${erroLogin}</p></div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
