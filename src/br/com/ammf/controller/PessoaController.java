@@ -73,14 +73,17 @@ public class PessoaController {
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
 		result.redirectTo(MenuController.class).cadastro();		
 	}
-	
-	
+		
 	@Restrito
 	@Get("/pessoa/consulta")
 	public void consultar(String paramConsulta){
 		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
 	}
+	
+	@Get("/cliente/depoimentos")
+	public void depoimentoCliente(){}
+	
 	
 	@Get("/cliente/cadastro")
 	public void cadastroCliente(){}
