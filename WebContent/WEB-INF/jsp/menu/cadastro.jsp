@@ -1,6 +1,7 @@
 
 <c:if test="${not empty msgCadastro}">
-<div class="msgBorder msgSucesso tamanhoErroLogin ponteiro closeClick">${msgCadastro}</div>
+<div class="msgBorder msgSucesso ponteiro closeClick">${msgCadastro}</div>
+<br/>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>

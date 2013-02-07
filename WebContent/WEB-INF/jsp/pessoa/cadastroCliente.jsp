@@ -1,4 +1,7 @@
 
+<c:if test="${not empty msgErroCadastro}">
+	<div class="msgBorder msgErro tamanhoErroLogin closeClick">${msgCadastro}</div>
+</c:if>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -12,15 +15,6 @@
 
 <div id="areaLogin">
 
-<c:if test="${not empty msgCadastro}">
-<div class="msgBorder msgSucesso tamanhoErroLogin closeClick">${msgCadastro}</div>
-<br/>
-</c:if>
-
-<c:if test="${not empty msgErroCadastro}">
-<div class="msgBorder msgErro tamanhoErroLogin closeClick">${msgCadastro}</div>
-<br/>
-</c:if>
 <form action="<c:url value="/cliente/cadastrar"/>" method="post">	 
 	
 	<c:if test="${not empty nomeEmBranco}">

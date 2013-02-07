@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <c:if test="${not empty msgIndex}">
-	<div style="width: 995px;" class="msgBorder msgSucesso closeClick ponteiro"> 
-	${msgIndex}
-	</div>
+	<div class="msgBorder msgSucesso closeClick ponteiro">${msgIndex}</div>
+	<br/>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
