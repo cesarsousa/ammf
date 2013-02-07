@@ -737,7 +737,7 @@ padding: 0 5px 10px 5px; */
 	border-style: solid;
 	border-width: 2px;
 	display: block;
-	font: 12px Arial, helvetica, sans-serif;
+	font-family: Arial, helvetica, sans-serif;
 	margin: 10px 2px 2px 0;
 	padding: 5px;
 	text-align: justify;
@@ -750,7 +750,7 @@ padding: 0 5px 10px 5px; */
 	border-color: #5D980D;
 	text-align: left;
 	color: #5D980D;
-	font-size: x-large;
+	font-size: large;
 }
 
 .msgAlerta {
@@ -758,7 +758,7 @@ padding: 0 5px 10px 5px; */
 	border-color: #CFB848;
 	text-align: left;
 	color: #CFB848;
-	font-size: x-large;
+	font-size: large;
 }
 
 .msgInfo {
@@ -767,7 +767,7 @@ padding: 0 5px 10px 5px; */
 	text-align: left;
 	text-align: left;
 	color: #2129A7;
-	font-size: x-large;
+	font-size: large;
 }
 
 .msgErro {
@@ -776,7 +776,7 @@ padding: 0 5px 10px 5px; */
 	text-align: left;
 	text-align: left;
 	color: #DD3C10;
-	font-size: x-large;
+	font-size: large;
 }
 
 .tamanhoErroLogin {
