@@ -14,6 +14,7 @@ $(document).ready(function() {
 	
 	
 	$('#btnClienteCadastrar').click(function(){
+		$('#divMsgCadCliente').slideUp(500);
 		$('#nomeDoCliente').html($('#cadastroClienteNome').val());	
 		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
 	});

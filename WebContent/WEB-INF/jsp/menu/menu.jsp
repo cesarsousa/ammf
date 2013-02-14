@@ -1,12 +1,15 @@
 
 <c:if test="${not empty mensagem}">
-	<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro closeClick">${mensagem}</div>
+	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagem}</div>
+</c:if>
+
+<c:if test="${not empty mensagemMenuSecundario}">		
+	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagemMenuSecundario}</div>
 </c:if>
 	
 <c:if test="${not empty mensagemErro}">
-	<div id="boxMsgErro" class="msgBorder msgErro tamanhoEdicaoIndex ponteiro closeClick">${mensagemErro}</div>
+	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
 </c:if>
-
 
 <%@ include file="/headerLib.jsp" %>
 <!-- <div class="paddingHeader"></div> -->
@@ -347,15 +350,6 @@
 	</table>
 	
 	<div class="separador"></div>
-	
-	<c:if test="${not empty mensagemMenuSecundario}">
-	<div class="tamanhoDefault alturaDefault">
-		
-		<div id="boxMsgSucesso" class="msgBorder msgSucesso tamanhoEdicaoIndex ponteiro">${mensagemMenuSecundario}</div>
-		<div id="espacador"></div>
-		
-	</div>
-	</c:if>
 	
 	<div align="center">
 	<div id="menuLink">		

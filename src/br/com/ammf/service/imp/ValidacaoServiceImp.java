@@ -18,30 +18,30 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}	
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
-		boolean resultado = true;
+		boolean validada = true;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado");
-			resultado = false;
+			validada = false;
 		}
 		if(pessoa.getEmail() == null || pessoa.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado");
-			resultado = false;
+			validada = false;
 		}else if (!emailValido(pessoa.getEmail())){
 			result.include("emailEmBranco", "O email está com formato inválido");
-			resultado = false;
+			validada = false;
 		}else{
 			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
 				result.include("emailEmBranco", "O email já está cadastrado no site");
-				result.include("opcaoCadastro", true);
-				resultado = false;
+				result.include("opcaoCadastro", true); // ??
+				validada = false;
 			}
 		}		
 		
-		if(!resultado){
+		if(!validada){
 			result.include("pessoaCadastro", pessoa);
 		}
-		return resultado;
+		return validada;
 	}
 
 	@Override

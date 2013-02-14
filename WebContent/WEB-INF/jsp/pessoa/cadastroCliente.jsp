@@ -1,7 +1,9 @@
-
-<c:if test="${not empty msgErroCadastro}">
-	<div class="msgBorder msgErro tamanhoErroLogin closeClick">${msgCadastro}</div>
+<div id="divMsgCadCliente">
+<c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
+	<div class="msgBorder msgErro closeClick">
+	${nomeEmBranco}<br/>${emailEmBranco}</div>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -17,24 +19,21 @@
 
 <form action="<c:url value="/cliente/cadastrar"/>" method="post">	 
 	
-	<c:if test="${not empty nomeEmBranco}">
-		<label class="labelFormErro">${nomeEmBranco}</label>
+	<label class="labelForm">Nome:</label>
+	<c:if test="${not empty nomeEmBranco}">		
 		<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 	</c:if>
-	<c:if test="${empty nomeEmBranco}">
-		<label class="labelForm">Nome:</label>
+	<c:if test="${empty nomeEmBranco}">		
 		<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	</c:if>
 	
 	<br/><br/>
 	
-	
-	<c:if test="${not empty emailEmBranco}">
-		<label class="labelFormErro">${emailEmBranco}</label>
+	<label class="labelForm">Email:</label>
+	<c:if test="${not empty emailEmBranco}">		
 		<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 	</c:if>
-	<c:if test="${empty emailEmBranco}">
-		<label class="labelForm">Email:</label>
+	<c:if test="${empty emailEmBranco}">		
 		<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	</c:if>
 	

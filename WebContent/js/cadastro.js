@@ -37,6 +37,7 @@ $(document).ready(function() {
 	$('#telaAguardeAdmCadastroCliente').hide();
 	
 	$('#btnCadastrarPessoa').click(function(){
+		$('#divAdmMsgCadCliente').slideUp(500);
 		$('#admNomeDoCliente').html($('#pessoaNome').val());	
 		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
 	});

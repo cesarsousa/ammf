@@ -1,6 +1,5 @@
 package br.com.ammf.controller;
 
-import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
