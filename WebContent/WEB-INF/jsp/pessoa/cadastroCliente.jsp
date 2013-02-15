@@ -67,7 +67,11 @@
 		
 		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu cadastro esta sendo realizado.</h3>
 		<h3>Por favor, aguarde...</h3>
-		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		
+		<div class="largura100" style="background-color: #FFFFFF">
+		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>
+		</div>		
+					
 		<br />
 		<br />			
 	</div>

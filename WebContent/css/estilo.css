@@ -154,7 +154,6 @@ a:HOVER {
 	color: #CCCCCC;
 	font-weight: bold;
 	font-size: xx-large;	
-	padding-top: 20px;
 	cursor: pointer;
 }
 
@@ -768,7 +767,6 @@ padding: 0 5px 10px 5px; */
 	background-color: #2129A7;
 	border-color: #2129A7;
 	text-align: left;
-	text-align: left;
 	color: #ffffff;
 	font-size: large;
 }
@@ -776,7 +774,6 @@ padding: 0 5px 10px 5px; */
 .msgErro {
 	background-color: #DD3C10;
 	border-color: #DD3C10;
-	text-align: left;
 	text-align: left;
 	color: #ffffff;
 	font-size: large;
