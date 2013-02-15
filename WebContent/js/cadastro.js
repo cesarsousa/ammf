@@ -6,13 +6,15 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 		success : function(json){
 			$(ulTabela).html('');
 			for(var i = 0; i< json.length; i++){				
-				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);				
+				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
+				var linkRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
 				$(ulTabela).append(
 					'<tr class="zebrado" class="zebrado">' +
 					'<td class="infoTabela">' + json[i].nome + '</td>' +
 					'<td class="infoTabela">' + json[i].email + '</td>' +
 					'<td class="infoTabela">' + dataCadastro + '</td>' +
 					'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
+					'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a></td>' +
 					'</tr>');						
 			}			
 			
@@ -84,8 +86,7 @@ $(document).ready(function() {
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabela">' + dataCadastro + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-						'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px"></a></td>' +
-						'<td><img class="ponteiro" alt="editar" src="../image/icone_editar.png" width="20px" height="20px"></td>' +
+						'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a></td>' +
 						'</tr>');						
 				}
 				

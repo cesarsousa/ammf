@@ -1,6 +1,10 @@
 
+<div class="msgBorder msgInfo">
+ADMINISTRADOR - Acesso ao sistema
+</div>
+
 <c:if test="${not empty erroLogin}">
-	<div id="boxErroLogin" class="msgBorder msgErro ponteiro"><p>${erroLogin}</p></div>
+	<div class="msgBorder msgErro ponteiro closeClick">${erroLogin}</div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>

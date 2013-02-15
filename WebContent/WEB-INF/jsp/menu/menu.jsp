@@ -1,4 +1,9 @@
 
+<div class="msgBorder msgInfo">
+ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span>
+<form id="formLogout" action="<c:url value="/logout" />"></form>
+</div>
+
 <c:if test="${not empty mensagem}">
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagem}</div>
 </c:if>
@@ -15,17 +20,10 @@
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
-<h5>ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span></h5>
-<form id="formLogout" action="<c:url value="/logout" />"></form>	
-
 
 <div id="divPgMenu" align="center">
 
-<div class="separador"></div>
-
 <h2>Menu Principal</h2>
-
-
 
 <div class="tamanhoDefault">
 

@@ -37,7 +37,7 @@ public class PessoaServiceImp implements PessoaService{
 	}
 
 	@Override
-	public void notificarCadastroPelocliente(Pessoa pessoa) throws EmailException{
+	public void notificarCadastroPelocliente(Pessoa pessoa) throws EmailException {
 		Usuario administrador = usuarioRepository.obterAdministrador();
 		
 		Email.enviarEmail(

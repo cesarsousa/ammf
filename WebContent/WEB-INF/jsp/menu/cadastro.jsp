@@ -1,22 +1,23 @@
 
+<div class="msgBorder msgInfo">
+ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span>
+<form id="formLogout" action="<c:url value="/logout" />"></form>
+</div>
+
 <div id="divAdmMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
-	<div class="msgBorder msgErro closeClick">
-	${nomeEmBranco}<br/>${emailEmBranco}</div>
+	<div class="msgBorder msgErro closeClick">${nomeEmBranco}<br/>${emailEmBranco}</div>
 </c:if>
 </div>
 
 <c:if test="${not empty msgCadastro}">
-<div class="msgBorder msgSucesso ponteiro closeClick">${msgCadastro}</div>
+	<div class="msgBorder msgSucesso ponteiro closeClick">${msgCadastro}</div>
 <br/>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
-
-<h5>ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span></h5>
-<form id="formLogout" action="<c:url value="/logout" />"></form>
 
 <div id="divPgAdmCadastroCliente" align="center">
 
@@ -96,7 +97,6 @@
 		<p>
 		<label id="labelResultadoConsulta"></label>		
 		</p>			
-		<input id="btFecharConsultaPessoas" type="button" class="button direita" value="^">
 		</td>
 	</tr>
 	<tr>
@@ -109,7 +109,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
-					<td style="background-color: #A2B5CD" colspan="2"></td>
+					<td></td>
 					</tr>
 				</thead>
 					
@@ -148,6 +148,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
+					<td></td>
 					</tr>
 				</thead>
 					
@@ -185,6 +186,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
+					<td></td>
 					</tr>
 				</thead>
 					
@@ -222,6 +224,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
+					<td></td>
 					</tr>
 				</thead>
 					

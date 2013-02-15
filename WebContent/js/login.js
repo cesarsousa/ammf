@@ -4,11 +4,6 @@ $(document).ready(function() {
 	var usuario = "Usuário";
 	$('#usuarioLogin').puts(usuario);	
 		
-	$('#boxErroLogin').addClass('ponteiro');
-	$('#boxErroLogin').click(function(){
-		$('#boxErroLogin').fadeOut(1000);
-	});
-	
 	$('#passwordChecker').show();
     $('#usuarioSenha').hide();
 
