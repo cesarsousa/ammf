@@ -528,8 +528,8 @@ padding: 0 5px 10px 5px; */
 }
 
 .paddingTelaAguarde{
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .t100 {
@@ -764,8 +764,8 @@ padding: 0 5px 10px 5px; */
 }
 
 .msgInfo {
-	background-color: #2129A7;
-	border-color: #2129A7;
+	background-color: #6CA6CD;
+	border-color: #6CA6CD;
 	text-align: left;
 	color: #ffffff;
 	font-size: large;
@@ -777,6 +777,12 @@ padding: 0 5px 10px 5px; */
 	text-align: left;
 	color: #ffffff;
 	font-size: large;
+}
+
+.msgAguarde{
+	background-color: #ffffff;
+	border-color: #cccccc;
+	text-align: center;
 }
 
 .tamanhoErroLogin {

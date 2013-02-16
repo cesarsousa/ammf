@@ -46,6 +46,8 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 	</tr>
 </table>
 
+<div class="separador"></div>
+
 <!-- ADICIONAR UM NOVO TEXTO -->
 <div id="divBlogNovoTexto">
 	<div class="separador"></div>
