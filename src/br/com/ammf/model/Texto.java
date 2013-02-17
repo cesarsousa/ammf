@@ -42,6 +42,8 @@ public class Texto implements Serializable{
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar postagem = Calendar.getInstance();
+	
+	private boolean confirmado;
 
 	public long getId() {
 		return id;
@@ -97,6 +99,14 @@ public class Texto implements Serializable{
 	
 	public void setPostagem(Calendar postagem) {
 		this.postagem = postagem;
+	}
+	
+	public boolean isConfirmado() {
+		return confirmado;
+	}
+	
+	public void setConfirmado(boolean confirmado) {
+		this.confirmado = confirmado;
 	}
 	
 	public String getDataFormatada(){

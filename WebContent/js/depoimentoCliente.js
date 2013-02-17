@@ -1,28 +1,32 @@
 
 $(document).ready(function() {
 	
-	addRemoveDestaque("#cadastroClienteNome");
-	addRemoveDestaque("#cadastroClienteEmail");
+	addRemoveDestaque("#cadastroDepoimentoEmail");
+	addRemoveDestaque("#cadastroDepoimentoNome");
+	addRemoveDestaque("#cadastroDepoimentoTexto");	
 		
-	$('#telaAguardeCadastroCliente').hide();	
+	$('#cadastroDepoimentoEmail').puts("DIGITE O SEU EMAIL");
+	$('#cadastroDepoimentoNome').puts("DIGITE O SEU NOME");
+	$('#cadastroDepoimentoTexto').puts("DIGITE O SEU DEPOIMENTO");
+	
+	$('#telaAguardeCadastroDepoimento').hide();	
 
-	/*$('#btAbrirToolsCadastro').toggle(function() {
-		$('#toolsAreaCadastro').slideDown(500);
+	$('#divNovoDepoimento').hide();
+	$('#btNovoDepoimento').toggle(function() {
+		$('#divNovoDepoimento').slideDown(500);
 	}, function() {
-		$('#toolsAreaCadastro').slideUp(500);
-	});	*/
+		$('#divNovoDepoimento').slideUp(500);
+	});	
 	
 	
 	$('#btnClienteCadastrar').click(function(){
 		$('#divMsgCadCliente').slideUp(500);
-		$('#nomeDoCliente').html($('#cadastroClienteNome').val());	
-		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
+		$('#nomeDoCliente').html($('#cadastroDepoimentoNome').val());	
+		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroDepoimento");
 	});
 	
 
-	$('#btMenuCliente').click(function(){
-		$('#formMenuCliente').submit();	
-	});
+	
 	
 	
 });

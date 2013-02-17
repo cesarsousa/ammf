@@ -13,4 +13,6 @@ public interface ValidacaoService {
 
 	void verificarCamposPreenchidos(Texto texto);
 
+	boolean depoimento(Texto texto, Result result);
+
 }

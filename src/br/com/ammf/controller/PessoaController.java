@@ -9,6 +9,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
+import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
@@ -83,6 +84,17 @@ public class PessoaController {
 	
 	@Get("/cliente/depoimentos")
 	public void depoimentoCliente(){}
+	
+	@Post("/cliente/novoDepoimento")
+	public void cadastrarNovoDepoimento(Texto texto){
+		
+		System.out.println(texto.getAutor());
+		System.out.println(texto.getTitulo());
+		System.out.println(texto.getConteudo());
+		
+		
+		boolean validado = validacaoService.depoimento(texto, result);
+	}
 	
 	
 	@Get("/cliente/cadastro")

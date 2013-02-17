@@ -102,7 +102,7 @@ a:HOVER {
 }
 
 .bordaPadrao {
-	border: 2px solid #8B8484;
+	border: 1px solid #8B8484;
 }
 
 .bordaPadraoErro {
@@ -201,6 +201,17 @@ a:HOVER {
 	background-color: #4F4F4F;
 	height: 100px;
 	padding-top: 10px;
+}
+
+.card {
+	padding: 10px;
+	width:1000px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #CCCCCC;
 }
 
 #mensagemIndex{	
@@ -322,7 +333,7 @@ a:HOVER {
 	text-align: justify;
 	width: 1000px;
 	background: none repeat scroll 0 0 #ffffff;
-	border: 2px solid #CCCCCC;
+	border: 1px solid #CCCCCC;
 	border-radius: 7px 7px 7px 7px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;

@@ -15,7 +15,13 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	public ValidacaoServiceImp(PessoaRepository pessoaRepository){
 		this.pessoaRepository = pessoaRepository;
-	}	
+	}
+	
+	@Override
+	public boolean depoimento(Texto texto, Result result) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
 		boolean validada = true;
@@ -105,5 +111,4 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 	}
-
 }

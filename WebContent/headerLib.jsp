@@ -27,6 +27,7 @@
 <script type="text/javascript" src="${javascript}/cadastro.js"></script>
 <script type="text/javascript" src="${javascript}/editarBlog.js"></script>
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
+<script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
 
 
 
