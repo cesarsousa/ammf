@@ -19,11 +19,37 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	@Override
 	public boolean depoimento(Texto texto, Result result) {
-		// TODO Auto-generated method stub
-		return false;
+		texto.setAutor(texto.getAutor().trim());
+		texto.setTitulo(texto.getTitulo().trim());
+		texto.setConteudo(texto.getConteudo().trim());		
+		
+		boolean validado = true;
+		if(texto.getAutor() == null || texto.getAutor().isEmpty() || "DIGITE O SEU NOME".equalsIgnoreCase(texto.getAutor())){
+			result.include("nomeEmBranco", "O nome deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(texto.getTitulo() == null || texto.getTitulo().isEmpty() || "DIGITE O SEU EMAIL".equalsIgnoreCase(texto.getTitulo()) ){
+			result.include("emailEmBranco", "O email deve ser informado<br/>");
+			validado = false;
+		}else if(!emailValido(texto.getTitulo())){
+			result.include("emailEmBranco", "O email está com formato inválido<br/>");
+			validado = false;
+		}		
+		
+		if(texto.getConteudo() == null || texto.getConteudo().isEmpty() || "DIGITE O SEU DEPOIMENTO".equalsIgnoreCase(texto.getConteudo())){
+			result.include("textoEmBranco", "O depoimento deve ser informado<br/>");
+			validado = false;
+		}
+		
+		
+		return validado;
 	}
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
+		pessoa.setNome(pessoa.getNome().trim());
+		pessoa.setEmail(pessoa.getEmail().trim());
+		
 		boolean validada = true;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado");
@@ -39,7 +65,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
 				result.include("emailEmBranco", "O email já está cadastrado no site");
-				result.include("opcaoCadastro", true); // ??
+				//result.include("opcaoCadastro", true); // ??
 				validada = false;
 			}
 		}		

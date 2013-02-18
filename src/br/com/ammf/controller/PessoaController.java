@@ -88,12 +88,16 @@ public class PessoaController {
 	@Post("/cliente/novoDepoimento")
 	public void cadastrarNovoDepoimento(Texto texto){
 		
-		System.out.println(texto.getAutor());
-		System.out.println(texto.getTitulo());
-		System.out.println(texto.getConteudo());
-		
-		
 		boolean validado = validacaoService.depoimento(texto, result);
+		
+		if(validado){
+			result.include("msgDepoimento", "Seu depoimento foi recebido com sucesso, porém aguarda confirmação do moderador do portal");
+		}else{
+			result.include("msgErroDepoimento", true);
+			
+		}
+		
+		result.forwardTo(this).depoimentoCliente();
 	}
 	
 	

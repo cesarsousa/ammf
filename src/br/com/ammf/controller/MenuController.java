@@ -126,8 +126,7 @@ public class MenuController {
 	
 	@Post("/menu/cadastrar")
 	public void cadastrar(Pessoa pessoa){
-		// TODO adicionar tela de aguarde em cadastro.jsp 
-		
+				
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){			
 			try {

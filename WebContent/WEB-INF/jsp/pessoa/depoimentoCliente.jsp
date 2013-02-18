@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <c:if test="${not empty msgDepoimento}">
-<div class="msgBorder msgSucesso tamanhoErroLogin closeClick">${msgDepoimento}</div>
+<div class="msgBorder msgSucesso closeClick">${msgDepoimento}</div>
 <br/>
 </c:if>
 
 <c:if test="${not empty msgErroDepoimento}">
-<div class="msgBorder msgErro tamanhoErroLogin closeClick">${msgErroDepoimento}</div>
+<div class="msgBorder msgErro closeClick">
+${nomeEmBranco}
+${emailEmBranco}
+${textoEmBranco}
+</div>
 <br/>
 </c:if>
 
