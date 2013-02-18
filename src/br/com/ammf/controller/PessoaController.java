@@ -91,10 +91,10 @@ public class PessoaController {
 		boolean validado = validacaoService.depoimento(texto, result);
 		
 		if(validado){
-			result.include("msgDepoimento", "Seu depoimento foi recebido com sucesso, porém aguarda confirmação do moderador do portal");
+			pessoaService.cadastrarDepoimento(texto);
+			result.include("msgDepoimento", texto.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, porém aguarda confirmação");
 		}else{
 			result.include("msgErroDepoimento", true);
-			
 		}
 		
 		result.forwardTo(this).depoimentoCliente();

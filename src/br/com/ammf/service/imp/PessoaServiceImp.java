@@ -2,10 +2,12 @@ package br.com.ammf.service.imp;
 
 import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Status;
+import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
@@ -21,12 +23,15 @@ public class PessoaServiceImp implements PessoaService{
 	
 	private PessoaRepository pessoaRepository;
 	private UsuarioRepository usuarioRepository;
+	private TextoRepository textoRepository;
 	
 	public PessoaServiceImp(
 			PessoaRepository pessoaRepository,
-			UsuarioRepository usuarioRepository){
+			UsuarioRepository usuarioRepository,
+			TextoRepository textoRepository){
 		this.pessoaRepository = pessoaRepository;
 		this.usuarioRepository = usuarioRepository;
+		this.textoRepository = textoRepository;
 	}
 
 	@Override
@@ -46,6 +51,13 @@ public class PessoaServiceImp implements PessoaService{
 				pessoa.getEmail(), 
 				HtmlMensagem.getAssuntoCadastroPessoaPeloCliente(), 
 				HtmlMensagem.getMensagemCadastroPessoaPeloCliente(pessoa, administrador.getLinkedin()));
+	}
+
+	@Override
+	public void cadastrarDepoimento(Texto texto) {
+		texto.setLocal(Local.DEPOIMENTO);
+		texto.setConfirmado(false);
+		textoRepository.cadastrar(texto);		
 	}
 
 }
