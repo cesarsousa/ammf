@@ -19,9 +19,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	@Override
 	public boolean depoimento(Texto texto, Result result) {
-		texto.setAutor(texto.getAutor().trim());
+		/*texto.setAutor(texto.getAutor().trim());
 		texto.setTitulo(texto.getTitulo().trim());
-		texto.setConteudo(texto.getConteudo().trim());		
+		texto.setConteudo(texto.getConteudo().trim());*/		
 		
 		boolean validado = true;
 		if(texto.getAutor() == null || texto.getAutor().isEmpty() || "DIGITE O SEU NOME".equalsIgnoreCase(texto.getAutor())){
@@ -42,13 +42,22 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			validado = false;
 		}
 		
+		if(!validado){
+			result.include("novoComentario", texto);
+			
+			/*
+			 * flag para a pagina depoimentoCliente.jsp fechar a listagem dos depoimentos cadastrados 
+			 * e mostrar o form de novo depoimento. 
+			 */
+			result.include("flagErroDepoimento", true);
+		}
 		
 		return validado;
 	}
 	
 	public boolean pessoa(Pessoa pessoa, Result result) {
-		pessoa.setNome(pessoa.getNome().trim());
-		pessoa.setEmail(pessoa.getEmail().trim());
+		/*pessoa.setNome(pessoa.getNome().trim());
+		pessoa.setEmail(pessoa.getEmail().trim());*/
 		
 		boolean validada = true;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){

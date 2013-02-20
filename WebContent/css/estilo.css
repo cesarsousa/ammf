@@ -47,6 +47,11 @@ a {
 	background-color: #dddddd;
 }
 
+.bordaInferior{
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px; 
+}
+
 #btLogout {
 	width: 50px;
 	background-color: red;	
@@ -698,14 +703,15 @@ padding: 0 5px 10px 5px; */
 	color: red;
 }
 
+.fundoErro{
+	background-color: #FFDAB9;	
+}
+
 .infoTabela{
 	width: 300px;
 	padding: 5px;
-	font-size: small;
-	
+	font-size: small;	
 }
-
-
 
 .headTabela{
 	width: 300px;
@@ -713,6 +719,7 @@ padding: 0 5px 10px 5px; */
 	background-color: #A2B5CD;
 	font-weight: bold;
 	padding: 5px;
+	text-align: center;
 }
 
 .headTabelaBlog1{

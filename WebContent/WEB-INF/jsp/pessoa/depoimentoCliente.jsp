@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<c:if test="${empty flagErroDepoimento}">
+<input id="flagErroDepoimento" type="hidden" value="false" />
+</c:if>
+<c:if test="${not empty flagErroDepoimento}">
+<input id="flagErroDepoimento" type="hidden" value="true" />
+</c:if>
+
 <c:if test="${not empty msgDepoimento}">
 <div class="msgBorder msgSucesso closeClick">${msgDepoimento}</div>
 <br/>
@@ -25,7 +32,7 @@ ${textoEmBranco}
 <span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
 
 
-<div id="areaDepoimento">
+<div id="divDepoimentosCadastrados">
 
 <p>espaço para listar depoimentos</p>
 

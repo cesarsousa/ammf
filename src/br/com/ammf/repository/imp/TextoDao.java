@@ -137,5 +137,13 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.like("titulo", "%" + titulo + "%"));
 		criteria.add(Restrictions.eq("local", Local.BLOG));
 		return criteria.list();
+	}
+
+	@Override
+	public List<Texto> listarDepoimentos(boolean statusConfirmado) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		criteria.add(Restrictions.eq("confirmado", statusConfirmado));
+		return criteria.list();
 	}		
 }

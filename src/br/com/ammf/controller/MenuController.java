@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import java.util.List;
+
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
@@ -37,7 +39,8 @@ public class MenuController {
 	
 	@Restrito
 	public void menu(){
-		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
+		sessaoUsuario = menuService.atualizar(sessaoUsuario);
+		// TODO lista de notificações
 	}
 	
 	@Post("/menu/adm")
@@ -140,7 +143,15 @@ public class MenuController {
 		}else{
 			redirecionarParaCadastro();
 		}		
-	}	
+	}
+	
+	@Get("/menu/depoimentos")
+	public void depoimentos(){
+		List<Texto> depoimentosPendentes = textoRepository.listarDepoimentos(false);
+		result.include("depoimentosPendentes", depoimentosPendentes);
+		// TODO implementar logica de confirmar e excluir depoimento na pg depoimentos
+	}
+	
 	
 	private void redirecionarParaCadastro() {
 		result.redirectTo(this).cadastro();		

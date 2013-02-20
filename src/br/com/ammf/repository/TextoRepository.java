@@ -36,6 +36,8 @@ public interface TextoRepository {
 
 	public List<Texto> listarTitulos(String titulo);
 
+	public List<Texto> listarDepoimentos(boolean statusConfirmado);
+
 	
 
 }

@@ -389,7 +389,7 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 				</li>
 				
 				<li>
-				<form>
+				<form action="<c:url value="/menu/depoimentos" />" method="get" >
 				<input type="submit" value="Depoimentos" class="buttonFooter">
 				</form>
 				</li>
