@@ -52,8 +52,12 @@ a {
 	padding-bottom: 5px; 
 }
 
+.listaSimples {
+	list-style: none;
+}
+
 #btLogout {
-	width: 50px;
+	width: 50px;	
 	background-color: red;	
 	color: white;
 	padding: 5px;
@@ -777,8 +781,8 @@ padding: 0 5px 10px 5px; */
 	background-color: #CFB848;
 	border-color: #CFB848;
 	text-align: left;
-	color: #ffffff;
-	font-size: large;
+	color: #000000;
+	font-size: medium;
 }
 
 .msgInfo {

@@ -39,7 +39,7 @@ public class MenuController {
 	
 	@Restrito
 	public void menu(){
-		sessaoUsuario = menuService.atualizar(sessaoUsuario);
+		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
 		// TODO lista de notificações
 	}
 	
@@ -150,6 +150,20 @@ public class MenuController {
 		List<Texto> depoimentosPendentes = textoRepository.listarDepoimentos(false);
 		result.include("depoimentosPendentes", depoimentosPendentes);
 		// TODO implementar logica de confirmar e excluir depoimento na pg depoimentos
+	}
+	
+	@Get("/menu/depoimentos/confirmar/{uuid}")
+	public void confirmarDepoimento(String uuid){
+		// TODO confirmar
+		result.include("msgDepoimento", "Depoimento confirmado com sucesso");
+		result.redirectTo(this).depoimentos();
+	}
+	
+	@Get("/menu/depoimentos/excluir/{uuid}")
+	public void excluirDepoimento(String uuid){
+		// TODO excluir
+		result.include("msgDepoimento", "Depoimento excluído com sucesso");
+		result.redirectTo(this).depoimentos();
 	}
 	
 	

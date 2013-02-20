@@ -16,6 +16,16 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
 </c:if>
 
+<c:if test="${not empty sessaoUsuario.notificacoes}">
+	<div class="msgBorder msgAlerta">
+	<ul class="listaSimples">
+	<c:forEach items="${sessaoUsuario.notificacoes}" var="notificacao">
+		<li>${notificacao}</li>
+	</c:forEach>
+	</ul>
+	</div>
+</c:if>
+
 <%@ include file="/headerLib.jsp" %>
 <!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>

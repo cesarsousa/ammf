@@ -145,5 +145,10 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
 		criteria.add(Restrictions.eq("confirmado", statusConfirmado));
 		return criteria.list();
+	}
+
+	@Override
+	public int totalDepoimentosPendentes() {
+		return listarDepoimentos(false).size();
 	}		
 }

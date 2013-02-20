@@ -1,5 +1,6 @@
 package br.com.ammf.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
@@ -38,10 +39,13 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoPsicologia(textoRepository.getTextoPsicologia());
 		sessaoUsuario.setTextoEducacao(textoRepository.getTextoEducacao());
 		sessaoUsuario.setTextoCultura(textoRepository.getTextoCultura());
-		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
+		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());		
+		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		return sessaoUsuario;
-	}
+	}	
+
 	
+
 	@Override
 	public void cadastrar(Pessoa pessoa) throws EmailException {
 		pessoa.setStatus(Status.CONFIRMADO);
@@ -75,4 +79,20 @@ public class MenuServiceImp implements MenuService{
 				HtmlMensagem.getAssuntoCadastroPessoa(),
 				HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
 	}
+	
+	private List<String> atualizarListaDeNotificacoes() {
+		List<String> notificacoes = new ArrayList<String>();
+		
+		if(textoRepository.totalDepoimentosPendentes() > 0){
+			notificacoes.add("<b>depoimento:</b> "+ textoRepository.totalDepoimentosPendentes() + " depoimento(s) pendente(s) confirmação");
+		}
+		
+		if(pessoaRepository.totalCadastrosPendentes() > 0){
+			notificacoes.add("<b>cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirmação");
+		}
+		return notificacoes;
+	}
+	
+	
+	
 }

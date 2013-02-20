@@ -10,10 +10,9 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 </c:if>
 </div> --%>
 
-<%-- <c:if test="${not empty msgCadastro}">
-	<div class="msgBorder msgSucesso ponteiro closeClick">${msgCadastro}</div>
-<br/>
-</c:if> --%>
+<c:if test="${not empty msgDepoimento}">
+	<div class="msgBorder msgSucesso ponteiro closeClick">${msgDepoimento}</div>
+</c:if>
 
 <%@ include file="/headerLib.jsp" %>
 <!-- <div class="paddingHeader"></div> -->
@@ -87,7 +86,7 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 <div class="separador"></div>	
 
 <c:if test="${not empty depoimentosPendentes}">	
-<table id="" class="tamanhoDefault fundoErro">
+<table id="" class="tamanhoDefault">
 	<tr>
 		<td >
 		<input id="" type="button" class="button direita" value="^">
@@ -117,7 +116,12 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 						<td class="infoTabela">${depoimento.autor}</td>
 						<td class="infoTabela">${depoimento.titulo}</td>
 						<td class="infoTabela">${depoimento.dataFormatada}</td>
-						<td class="infoTabela" align="center"><label class="CONFIRMADO">confirmar</label> <label class="PENDENTE">excluir</label></td>
+						<td class="infoTabela" align="center">
+							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><label class="CONFIRMADO">confirmar</label></a>
+							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><label class="PENDENTE">excluir</label></a>
+						</td>
+						
+						
 					</tr>
 					<tr>
 						<td class="bordaInferior" colspan="4">${depoimento.conteudo}</td>

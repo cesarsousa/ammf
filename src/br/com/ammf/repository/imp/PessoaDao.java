@@ -81,4 +81,11 @@ public class PessoaDao implements PessoaRepository {
 		return pessoa == null ? false : true;
 	}
 
+	@Override
+	public int totalCadastrosPendentes() {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("status", Status.PENDENTE));
+		return criteria.list().size();
+	}
+
 }

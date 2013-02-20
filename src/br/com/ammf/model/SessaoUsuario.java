@@ -1,6 +1,7 @@
 package br.com.ammf.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
@@ -18,6 +19,8 @@ public class SessaoUsuario implements Serializable{
 	private Texto textoEducacao;
 	private Texto textoCultura;
 	private Texto textoArtesOrientais;
+		
+	private List<String> notificacoes;
 	
 	public void login(Usuario usuario){
 		this.usuario = usuario;
@@ -77,6 +80,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public void setTextoArtesOrientais(Texto textoArtesOrientais) {
 		this.textoArtesOrientais = textoArtesOrientais;
+	}
+	
+	public List<String> getNotificacoes() {
+		return notificacoes;
+	}
+	
+	public void setNotificacoes(List<String> notificacoes) {
+		this.notificacoes = notificacoes;
 	}
 
 }

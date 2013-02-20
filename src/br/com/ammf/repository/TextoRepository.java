@@ -38,6 +38,8 @@ public interface TextoRepository {
 
 	public List<Texto> listarDepoimentos(boolean statusConfirmado);
 
+	public int totalDepoimentosPendentes();
+
 	
 
 }

@@ -26,4 +26,6 @@ public interface PessoaRepository {
 
 	boolean jaEstaCadastrada(String email);
 
+	int totalCadastrosPendentes();
+
 }
