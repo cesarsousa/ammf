@@ -117,8 +117,8 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 						<td class="infoTabela">${depoimento.titulo}</td>
 						<td class="infoTabela">${depoimento.dataFormatada}</td>
 						<td class="infoTabela" align="center">
-							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><label class="CONFIRMADO">confirmar</label></a>
-							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><label class="PENDENTE">excluir</label></a>
+							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
+							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
 						</td>
 						
 						

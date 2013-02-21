@@ -1,8 +1,5 @@
 
-<div class="msgBorder msgInfo">
-ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span>
-<form id="formLogout" action="<c:url value="/logout" />"></form>
-</div>
+<%@ include file="/logAdmin.jsp" %>
 
 <c:if test="${not empty mensagem}">
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagem}</div>
@@ -75,7 +72,7 @@ ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome}
 				</div>				
 								
 				<h3>Frase:</h3>
-				<textarea id="campoFraseIndex" class="areaTexto h50 bordaPadrao" name="texto.conteudo" maxlength="255">${sessaoUsuario.textoIndex.conteudo}</textarea>				
+				<textarea id="campoFraseIndex" class="areaTexto h50 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
 				
 				<p>
 				<h3>Autor:</h3>
