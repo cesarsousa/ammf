@@ -22,6 +22,7 @@
 		<div class="esquerda">
 			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeEducacaoHover.png"/>
 		</div>
+		<span style="float: left; font-size: xx-large; padding-top: 15px;">Educa&ccedil;&atilde;o</span>
 			<div class="direita">
 			<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
 			<span id="sizeSmall" style="font-size: small;" class="ponteiro" >A</span>

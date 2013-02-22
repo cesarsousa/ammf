@@ -1,8 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div class="msgBorder msgInfo">
-ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). <span id="btLogout">Sair</span>
-<form id="formLogout" action="<c:url value="/logout" />"></form>
-</div>
+<%@ include file="/logAdmin.jsp" %>
 
 <div id="divAdmMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">

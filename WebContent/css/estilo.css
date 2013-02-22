@@ -764,6 +764,13 @@ padding: 0 5px 10px 5px; */
 	width: 100%;	
 }
 
+.msgFooter{
+	background-color: #000000;
+	border-color: #000000;
+	text-align: left;
+	font-size: medium;
+}
+
 .msgSucesso {
 	background-color: #5D980D;
 	border-color: #5D980D;
@@ -797,8 +804,8 @@ padding: 0 5px 10px 5px; */
 }
 
 .msgLogout {
-	background-color: #DD3C10;
-	border-color: #DD3C10;
+	background-color: #8B0000;
+	border-color: #8B0000;
 	text-align: center;
 	color: #ffffff;
 	font-size: large;
