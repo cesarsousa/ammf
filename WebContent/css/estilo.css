@@ -43,6 +43,16 @@ a {
 	color: #cccccc;
 }
 
+input {
+	padding: 5px;
+	color: #000000;
+}
+
+textarea {
+	padding: 10px;
+	color: #000000;
+}
+
 .icone {
 	width: 25px;
 	height: 25px;
@@ -761,6 +771,23 @@ padding: 0 5px 10px 5px; */
 	padding: 15px;
 	text-align: justify;
 	vertical-align: middle;
+	width: 100%;	
+}
+
+.msgBorderInterno {
+	border-style: solid;
+	border-width: 2px;
+	display: block;
+	font-family: Arial, helvetica, sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin: 10px 2px 2px 0;
+	text-align: justify;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
 	width: 100%;	
 }
 

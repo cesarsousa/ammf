@@ -9,6 +9,12 @@ $(document).ready(function() {
 	if($('#cadastroDepoimentoNome').val() == "") $('#cadastroDepoimentoNome').puts("DIGITE O SEU NOME");
 	if($('#cadastroDepoimentoTexto').val() == "") $('#cadastroDepoimentoTexto').puts("DIGITE O SEU DEPOIMENTO");
 	
+	$('#cadastroDepoimentoTexto').autoResize();
+	$('#cadastroDepoimentoTexto').keyup(function() {		
+		limitarCaracteres('#cadastroDepoimentoTexto', '#contadorCaracterDepoimento', 500);		  
+	});
+	
+	
 	$('#telaAguardeCadastroDepoimento').hide();	
 
 	$('#divNovoDepoimento').hide();

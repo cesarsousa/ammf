@@ -27,6 +27,7 @@ ${textoEmBranco}
 
 
 <div id="divPgDepoimentoCliente" align="center">
+<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Depoimentos</h2>
 <span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
@@ -40,13 +41,7 @@ ${textoEmBranco}
 
 <!-- barra de icones -->
 <table class="tamanhoDefault">
-	<tr>
-		<td class="tdTableIcone">
-		<form id="formMenuCliente" action="<c:url value="/"/>" method="post">
-			<img id="btMenuCliente" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
-		</form>
-		</td>
-		
+	<tr>		
 		<td class="tdTableIcone">
 			<img id="btNovoDepoimento" alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_comentario.png" width="50" height="50" class="ponteiro esquerda">
 		</td>
@@ -86,11 +81,14 @@ ${textoEmBranco}
 	<br/><br/>
 	
 	<c:if test="${not empty textoEmBranco}">		
-		<textarea id="cadastroDepoimentoTexto" name="texto.conteudo" class="letraCinza largura100 altura30 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
+		<textarea id="cadastroDepoimentoTexto" name="texto.conteudo" class="letraCinza largura100 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
 	</c:if>
 	<c:if test="${empty textoEmBranco}">		
 		<textarea id="cadastroDepoimentoTexto" name="texto.conteudo" class="letraCinza largura100 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
 	</c:if>
+	<h3>
+	Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
+	</h3>
 	
 	<br/><br/>
 	

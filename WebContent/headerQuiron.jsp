@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<form id="quironForm" action="<c:url value="/login" />" method="get"></form>
-
 <div align="center">
 <div id="headerQuiron">
 
 	<table width="100%">
 	<tr>
 	<td width="50%" align="center" valign="middle">
+		<a href="<c:url value="/login" />">
 		<label id="labelQuironForm" class="labelQuiron esquerda ponteiro">Quiron</label>
+		</a>
 	</td>
 	<td width="50%" align="center" valign="middle">
+		<a href="<c:url value="/login" />">
 		<img id="imagemQuiron" class="direita" width="100px" height="100px" src="${imagem}/quiron.jpg"></img>
+		</a>
 	</td>	
 	</tr>
 	
@@ -25,7 +27,7 @@
 </div>
 </div>
 <br/>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() { 
 
 	$('#labelQuironForm').click(function(){
@@ -33,4 +35,4 @@ $(document).ready(function() {
 	});
     
 });
-</script>
+</script> -->

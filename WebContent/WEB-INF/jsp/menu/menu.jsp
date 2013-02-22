@@ -128,7 +128,7 @@
 				
 				
 				<h3>Email:</h3>
-				<div class="msgBorder msgAlerta t100">
+				<div class="msgBorderInterno msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
 				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
 				</div>
@@ -146,7 +146,7 @@
 				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
 				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
 				</h3>				
-				<div class="msgBorder msgAlerta t100">				
+				<div class="msgBorderInterno msgAlerta t100">				
 				<b>Lembrete !</b><br/>
 				&Eacute; obrigat&oacute;rio que a senha seja a mesma do gmail cadastrado no site.				
 				</div>

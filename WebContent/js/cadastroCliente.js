@@ -17,12 +17,7 @@ $(document).ready(function() {
 		$('#divMsgCadCliente').slideUp(500);
 		$('#nomeDoCliente').html($('#cadastroClienteNome').val());	
 		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
+		$("a").click(function() { return false; });
 	});
-	
-
-	$('#btMenuCliente').click(function(){
-		$('#formMenuCliente').submit();	
-	});
-	
 	
 });

@@ -9,8 +9,8 @@
 <%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-
 <div id="divPgCadastroCliente" align="center">
+<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
@@ -44,7 +44,7 @@
 </form>
 </div>
 
-<table class="tamanhoDefault">
+<%-- <table class="tamanhoDefault">
 	<tr>
 		<td class="tdTableIcone">
 		<form id="formMenuCliente" action="<c:url value="/"/>" method="post">
@@ -55,7 +55,7 @@
 	<tr>
 	<td class="paddingPadrao"><div class="separador"></div></td>
 	</tr>
-</table>
+</table> --%>
 
 
 </div>

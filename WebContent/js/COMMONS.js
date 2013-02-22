@@ -10,6 +10,19 @@ function abrirJanelaDeEspera(idPagina, idJanelaEspera){
 	//alertWindow = window.open(html, "bookpixWin","width=550, height=250, top=" + topo + ", left=" + esquerda);	
 }
 
+function limitarCaracteres(areaDeTexto, contador, totalCaracteres){		
+	var valorDigitado = $(areaDeTexto).val();
+	var totalDigitado = valorDigitado.length;		
+		
+	if(totalDigitado < totalCaracteres){
+		var resto = totalCaracteres - totalDigitado;
+		$(contador).html('').html(resto);
+	}else{
+		$(contador).html('').html('0');
+		$(areaDeTexto).val(valorDigitado.substring(0, totalCaracteres-2));
+	}	
+}
+
 /*function fecharJanelaDeEspera(){
 	$('#telaAguardeMenu').slideUp(500);
 	$('#divPgMenu').slideDown(500);
