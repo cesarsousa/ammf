@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeEducacaoHover.png"/>
+			<img class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>
 		</div>
 		<span style="float: left; font-size: xx-large; padding-top: 15px;">Educa&ccedil;&atilde;o</span>
 			<div class="direita">

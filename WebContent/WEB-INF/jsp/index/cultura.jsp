@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeCulturaHover.png"/>
+			<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>
 		</div>
 		<span style="float: left; font-size: xx-large; padding-top: 15px;">Cultura</span>
 			<div class="direita">

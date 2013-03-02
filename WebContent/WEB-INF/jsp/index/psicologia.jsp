@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img id="imagemPsicologia" class="imgMenuPrincipal opacidade" src="${imagem}/iconePsicologiaHover.png"/>
+			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>
 		</div>
 		<span style="float: left; font-size: xx-large; padding-top: 15px;">Psicologia</span>
 			<div class="direita">

@@ -1,3 +1,4 @@
+/* ammf */
 
 /* INICIO dos estilos para fixar o rodape */
 html, body, #wrap {height: 100%;}
@@ -367,6 +368,10 @@ a:HOVER {
 	text-align: center;
 	float: left;
 	width: 83px;
+}
+
+#menuRodape a:hover{
+	color: #A2B5CD;
 }
 
 #menu {

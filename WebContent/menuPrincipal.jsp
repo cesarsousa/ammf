@@ -7,19 +7,19 @@
 		<td>
 			<ul id="menu">
 				<li>
-					
+				<!-- li para alinhamento nao remover -->	
 				</li>
 				<li>
-					<img id="imagemPsicologia" class="imgMenuPrincipal opacidade" src="${imagem}/iconePsicologia.png"/>
+					<img class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>
 					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
 				<li>
-					<img id="imagemEducacao" class="imgMenuPrincipal opacidade" src="${imagem}/iconeEducacao.png"/>
+					<img class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>
 					<a id="linkEducacao" href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
 				<li>
-					<img id="imagemCultura" class="imgMenuPrincipal" src="${imagem}/iconeCultura.png"/>
+					<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>
 					<a id="linkCultura" href="<c:url value="/index/cultura"/>">Cultura</a></li>
 				<li>
-					<img id="imagemOrientais" class="imgMenuPrincipal" src="${imagem}/iconeOriental.png"/>
+					<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>
 					<a id="linkOrientais" href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
 			</ul>
 		</td>
@@ -31,7 +31,6 @@
 
 <div align="center">
 	<div id="menuLink">
-		
 			<ul id="menuRodape">
 				<li>
 				<form action="<c:url value="/" />">
@@ -71,7 +70,7 @@
 				
 				<li>
 				<form action="<c:url value="/cliente/depoimentos" />" method="get">
-				<input type="submit" value="Depoimentos" class="buttonFooter">
+				<input type="submit" value="Depoimento" class="buttonFooter">
 				</form>
 				</li>
 				

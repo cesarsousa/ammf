@@ -397,7 +397,7 @@
 				
 				<li>
 				<form action="<c:url value="/menu/depoimentos" />" method="get" >
-				<input type="submit" value="Depoimentos" class="buttonFooter">
+				<input type="submit" value="Depoimento" class="buttonFooter">
 				</form>
 				</li>
 				

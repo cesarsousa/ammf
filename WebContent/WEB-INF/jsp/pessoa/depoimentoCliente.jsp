@@ -43,7 +43,7 @@ ${textoEmBranco}
 <table class="tamanhoDefault">
 	<tr>		
 		<td class="tdTableIcone">
-			<img id="btNovoDepoimento" alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_comentario.png" width="50" height="50" class="ponteiro esquerda">
+			<img id="btNovoDepoimento" alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_depoimento.png" width="50" height="50" class="ponteiro esquerda">
 		</td>
 	</tr>
 	<tr>

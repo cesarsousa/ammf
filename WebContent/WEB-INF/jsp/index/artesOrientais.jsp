@@ -20,7 +20,7 @@
 	
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img class="imgMenuPrincipal opacidade" src="${imagem}/iconeOrientalHover.png"/>
+			<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>
 		</div>
 		<span style="float: left; font-size: xx-large; padding-top: 15px;">Artes Orientais</span>
 			<div class="direita">
