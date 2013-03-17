@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
 <c:if test="${not empty msgIndex}">
 	<div class="msgBorder msgSucesso closeClick ponteiro">${msgIndex}</div>
 	<br/>
@@ -9,6 +10,7 @@
 <%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
+
 
 <div id="espacador"></div>
 

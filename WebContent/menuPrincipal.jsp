@@ -2,13 +2,14 @@
 
 <div align="center">
 
-<table id="tabMenuPrincipal" >
+<div align="center">
+<table id="tabMenuPrincipal">
 	<tr>
-		<td>
+		<td align="center">
 			<ul id="menu">
 				<li>
-				<!-- li para alinhamento nao remover -->	
-				</li>
+					<img class="imgMenuPrincipal" src="${imagem}/icone_home.png"/>
+						<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
 					<img class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>
 					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
@@ -25,6 +26,7 @@
 		</td>
 	</tr>
 </table>
+</div>
 
 <div class="separador"></div> 
 

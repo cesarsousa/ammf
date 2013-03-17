@@ -1,9 +1,16 @@
 /* ammf */
 
 /* INICIO dos estilos para fixar o rodape */
-html, body, #wrap {height: 100%;}
+html, body, #wrap {
+	height: 100%;
+	margin: 0 auto 0 auto;
+}
  
-body > #wrap {height: auto; min-height: 100%;}
+body > #wrap {
+	height: auto; 
+	min-height: 100%;
+	
+}
  
 #main {/* overflow:auto; */
 	padding-bottom: 60px;}  /* deve ter a mesma altura do rodapé */
@@ -193,6 +200,13 @@ a:HOVER {
 	border-radius: 1px;
 	color: #ffffff;
 	padding-top: 10px;
+}
+
+#linkein{
+	color: #8B8484
+}
+#linkein:hover{
+	color: #000000;
 }
 
 #footer1 {
@@ -401,12 +415,34 @@ a:HOVER {
 }
 
 #menu li a:hover {
-	color: #000000;
-	/* background: #F60;
-border-bottom: none;
-border-top: 5px solid #F60;	
-padding: 0 5px 10px 5px; */
+	color: #000000;	
 }
+
+
+.subMenuRodape a {
+	text-decoration: none;
+	padding: 10px;
+	font-size: medium;
+	font-weight: bold;
+	color: gray;
+}
+
+.subMenuRodape a:hover {
+	color: white;
+}
+
+.subMenu2Rodape a {
+	text-decoration: none;
+	padding: 10px;
+	font-size: small;
+	font-weight: bold;
+	color: gray;
+}
+
+.subMenu2Rodape a:hover {
+	color: white;
+}
+
 
 #tabMenuPrincipal {
 	padding-top: 20px;
