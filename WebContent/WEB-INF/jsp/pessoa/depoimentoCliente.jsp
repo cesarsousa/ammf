@@ -24,10 +24,9 @@ ${textoEmBranco}
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
-
+<%@ include file="/menuPrincipal.jsp" %>
 
 <div id="divPgDepoimentoCliente" align="center">
-<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Depoimentos</h2>
 <span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>

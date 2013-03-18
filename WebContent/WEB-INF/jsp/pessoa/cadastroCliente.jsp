@@ -8,9 +8,9 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
 
 <div id="divPgCadastroCliente" align="center">
-<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>

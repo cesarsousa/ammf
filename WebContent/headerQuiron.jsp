@@ -3,7 +3,7 @@
 <div align="center">
 <div id="headerQuiron">
 
-	<table width="100%">
+	<table width="1000px">
 	<tr>
 	<td width="50%" align="center" valign="middle">
 		<a href="<c:url value="/login" />">

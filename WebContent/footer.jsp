@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div style="padding: 10px; background-color: #000000">
+<div style="padding: 10px; background-color: #CCCCCC">
 
 
 		
@@ -12,8 +12,9 @@
 			<a href="<c:url value="/index/cultura"/>">Cultura</a>
 			<a href="<c:url value="/index/artesorientais"/>">Artes Orientais</a>
 	</div>
-	
-	<hr width="90%" style="color: #8B8484;">
+</div>
+
+<div style="padding: 10px; background-color: #DDDDDD">	
 	
 	<div align="center" class="subMenu2Rodape">
 			<a href="<c:url value="/"/>">Home</a>
@@ -32,7 +33,7 @@
 	
 		
 </div>
-<div style="width: 100%; height: 80px; background-color: #CCCCCC"> 
+<div style="width: 100%; height: 80px; background-color: #000000"> 
 	<div align="center" style="padding: 10px;">
 	<label id="labelFooter" >&copy; 2012 - Alcindo Miguel Martins Filho - Todos os Direitos Reservados
 	<br/>

@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.model.Local;
@@ -144,6 +145,7 @@ public class TextoDao implements TextoRepository{
 		Criteria criteria = session.createCriteria(Texto.class);
 		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
 		criteria.add(Restrictions.eq("confirmado", statusConfirmado));
+		criteria.addOrder(Order.desc("postagem"));
 		return criteria.list();
 	}
 

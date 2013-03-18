@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div align="center">
-
-<div align="center">
 <table id="tabMenuPrincipal">
 	<tr>
 		<td align="center">
@@ -26,88 +23,88 @@
 		</td>
 	</tr>
 </table>
-</div>
-
-<div class="separador"></div> 
-
 
 <div align="center">
-	<div id="menuLink">
-			<ul id="menuRodape">
-				<li>
-				<form action="<c:url value="/" />">
-				<input type="submit" value="Home" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Blog" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Resenhas" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Consultas" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Calendario" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Links" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form action="<c:url value="/cliente/depoimentos" />" method="get">
-				<input type="submit" value="Depoimento" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Cursos" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form action="<c:url value="/cliente/cadastro" />" method="get">
-				<input type="submit" value="Cadastro" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Contato" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Loja Virtual" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="FAQ" class="buttonFooter">
-				</form>
-				</li>
-			</ul>		
-				
+	<div class="separador"></div> 
+
+
+	<div align="center">
+		<div id="menuLink">
+				<ul id="menuRodape">
+					<li>
+					<form action="<c:url value="/" />">
+					<input type="submit" value="Home" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Blog" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Resenhas" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Consultas" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Calendario" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Links" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form action="<c:url value="/cliente/depoimentos" />" method="get">
+					<input type="submit" value="Depoimento" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Cursos" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form action="<c:url value="/cliente/cadastro" />" method="get">
+					<input type="submit" value="Cadastro" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Contato" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="Loja Virtual" class="buttonFooter">
+					</form>
+					</li>
+					
+					<li>
+					<form>
+					<input type="submit" value="FAQ" class="buttonFooter">
+					</form>
+					</li>
+				</ul>		
+					
+		</div>
 	</div>
-</div>
 
 </div>
