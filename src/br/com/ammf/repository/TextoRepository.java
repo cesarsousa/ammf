@@ -40,6 +40,8 @@ public interface TextoRepository {
 
 	public int totalDepoimentosPendentes();
 
+	public void confirmarDepoimento(String uuid);
 	
+	public void deletarDepoimento(String uuid);	
 
 }

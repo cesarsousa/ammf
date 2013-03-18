@@ -11,6 +11,7 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -23,16 +24,19 @@ public class PessoaController {
 	
 	private Result result;
 	private PessoaRepository pessoaRepository;
+	private TextoRepository textoRepository;
 	private ValidacaoService validacaoService;
 	private PessoaService pessoaService;
 	
 	public PessoaController(
 			Result result, 
 			PessoaRepository pessoaRepository,
+			TextoRepository textoRepository,
 			ValidacaoService validacaoService,
 			PessoaService pessoaService){
 		this.result = result;
 		this.pessoaRepository = pessoaRepository;
+		this.textoRepository = textoRepository;
 		this.validacaoService = validacaoService;
 		this.pessoaService = pessoaService;
 	}
@@ -83,7 +87,10 @@ public class PessoaController {
 	}
 	
 	@Get("/cliente/depoimentos")
-	public void depoimentoCliente(){}
+	public void depoimentoCliente(){
+		List<Texto> depoimentos = textoRepository.listarDepoimentos(true);
+		result.include("depoimentos", depoimentos);		
+	}
 	
 	@Post("/cliente/novoDepoimento")
 	public void cadastrarNovoDepoimento(Texto texto){

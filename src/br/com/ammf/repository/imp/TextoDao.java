@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import com.sun.mail.handlers.text_html;
+
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
@@ -152,5 +154,27 @@ public class TextoDao implements TextoRepository{
 	@Override
 	public int totalDepoimentosPendentes() {
 		return listarDepoimentos(false).size();
-	}		
+	}
+
+	@Override
+	public void confirmarDepoimento(String uuid) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		Texto texto = (Texto) criteria.uniqueResult();
+		texto.setConfirmado(true);
+		Transaction transaction = session.beginTransaction();
+		session.update(texto);
+		transaction.commit();		
+	}
+	
+	@Override
+	public void deletarDepoimento(String uuid) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		Texto texto = (Texto) criteria.uniqueResult();
+		texto.setConfirmado(true);
+		Transaction transaction = session.beginTransaction();
+		session.delete(texto);
+		transaction.commit();		
+	}
 }

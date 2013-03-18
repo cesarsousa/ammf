@@ -148,20 +148,19 @@ public class MenuController {
 	@Get("/menu/depoimentos")
 	public void depoimentos(){
 		List<Texto> depoimentosPendentes = textoRepository.listarDepoimentos(false);
-		result.include("depoimentosPendentes", depoimentosPendentes);
-		// TODO implementar logica de confirmar e excluir depoimento na pg depoimentos
+		result.include("depoimentosPendentes", depoimentosPendentes);		
 	}
 	
 	@Get("/menu/depoimentos/confirmar/{uuid}")
 	public void confirmarDepoimento(String uuid){
-		// TODO confirmar
+		textoRepository.confirmarDepoimento(uuid);		
 		result.include("msgDepoimento", "Depoimento confirmado com sucesso");
 		result.redirectTo(this).depoimentos();
 	}
 	
 	@Get("/menu/depoimentos/excluir/{uuid}")
 	public void excluirDepoimento(String uuid){
-		// TODO excluir
+		textoRepository.deletarDepoimento(uuid);
 		result.include("msgDepoimento", "Depoimento excluído com sucesso");
 		result.redirectTo(this).depoimentos();
 	}

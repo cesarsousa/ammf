@@ -165,7 +165,8 @@ a:HOVER {
 	box-shadow: 2px 2px 2px #8B8484;	
 	width: 100%;
 	height: 100px;
-	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .sombra {
@@ -230,6 +231,22 @@ a:HOVER {
 	background-color: #4F4F4F;
 	height: 100px;
 	padding-top: 10px;
+}
+
+.textoPostagemDepoimento {
+	font-size: small;
+	float: right;
+	color: #000000;
+}
+.textoConteudoDepoimento {
+	font-size: large;
+	font-style: italic;
+	text-align: left;
+	color: #696969;
+}
+.textoAutorDepoimento {
+	font-size: small;
+	font-weight: bold;
 }
 
 .card {
@@ -636,6 +653,12 @@ a:HOVER {
 	float: left;
 }
 
+.infoNew {
+	color: green;
+	font-size: large;
+	font-weight: bold; 
+}
+
 .lupa {
 	width: 30px;
 	height: 30px;
@@ -807,9 +830,9 @@ a:HOVER {
 	border-width: 2px;
 	display: block;
 	font-family: Arial, helvetica, sans-serif;
-	border-radius: 5px 5px 5px 5px;
+	/* border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	border-radius: 5px; */
 	margin: 10px 2px 2px 0;
 	padding: 15px;
 	text-align: justify;

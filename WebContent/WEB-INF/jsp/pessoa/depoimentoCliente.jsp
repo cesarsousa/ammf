@@ -29,21 +29,31 @@ ${textoEmBranco}
 <div id="divPgDepoimentoCliente" align="center">
 
 <h2>Depoimentos</h2>
-<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
 
+<p>
+<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
+</p>
 
 <div id="divDepoimentosCadastrados">
 
-<p>espaço para listar depoimentos</p>
+	<c:forEach items="${depoimentos}" var="depoimento">
+		<div class="cardViewText">
+		<p class="textoPostagemDepoimento">postado em 22/02/2012 12:00:00</p>
+		<p class="textoConteudoDepoimento">&ldquo; depoimento a respeito de alcindo miguel 1 &ldquo;</p>
+		<p class="textoAutorDepoimento azulClaro">autor depoimeto 1</p>
+		</div>
+		<br/>
+	</c:forEach>
 
 </div>
 
 <!-- barra de icones -->
 <table class="tamanhoDefault">
-	<tr>		
+	<tr >		
 		<td class="tdTableIcone">
 			<img id="btNovoDepoimento" alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_depoimento.png" width="50" height="50" class="ponteiro esquerda">
 		</td>
+		
 	</tr>
 	<tr>
 	<td class="paddingPadrao" colspan="2"><div class="separador"></div></td>
@@ -114,6 +124,8 @@ ${textoEmBranco}
 
 </div> <!-- main -->
 </div> <!-- wrap -->
+
+<br/>
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

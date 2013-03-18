@@ -23,9 +23,9 @@
 			<a href="<c:url value=""/>">Consultas</a>
 			<a href="<c:url value=""/>">Calendario</a>
 			<a href="<c:url value=""/>">Links</a>
-			<a href="<c:url value=""/>">Depoimentos</a>
+			<a href="<c:url value="/cliente/depoimentos"/>">Depoimentos</a>
 			<a href="<c:url value=""/>">Cursos</a>
-			<a href="<c:url value=""/>">Cadastro</a>
+			<a href="<c:url value="/cliente/cadastro"/>">Cadastro</a>
 			<a href="<c:url value=""/>">Contato</a>
 			<a href="<c:url value=""/>">Loja Virtual</a>
 			<a href="<c:url value=""/>">FAQ</a>
