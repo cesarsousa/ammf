@@ -38,9 +38,9 @@ ${textoEmBranco}
 
 	<c:forEach items="${depoimentos}" var="depoimento">
 		<div class="cardViewText">
-		<p class="textoPostagemDepoimento">postado em 22/02/2012 12:00:00</p>
-		<p class="textoConteudoDepoimento">&ldquo; depoimento a respeito de alcindo miguel 1 &ldquo;</p>
-		<p class="textoAutorDepoimento azulClaro">autor depoimeto 1</p>
+		<p class="textoPostagemDepoimento">postado em ${depoimento.dataFormatada}</p>
+		<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
+		<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
 		</div>
 		<br/>
 	</c:forEach>
