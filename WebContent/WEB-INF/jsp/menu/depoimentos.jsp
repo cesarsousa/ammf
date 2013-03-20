@@ -55,27 +55,36 @@
 	</tr>
 </table>
 
-
-<table class="tamanhoDefault">
-<tr>
-<td>
+<div class="msgBorder msgAlerta">
 <ul>
-<li>Total de ${totalDepoimentosCadastrados} depoimentos cadastrados</li>
-<li>Total de ${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o</li>
-<li>Total de ${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o</li>
+<li class="depsCadAll">Total de ${totalDepoimentosCadastrados} depoimentos cadastrados
+	<ul>
+		<li>Visualizar todos</li>
+		<li>Remover todos</li>
+	</ul>
+<li class="depsCadExib">Total de ${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
+	<ul>
+		<li>Visualizar todos</li>
+		<li>Remover todos</li>
+	</ul>
+<li class="depsCadPend">Total de ${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o</li>
 </ul>
-</td>
-</tr>
-</table>
+</div>
 
 <div class="separador"></div>
 
+<div align="right">
+<form id="formBuscaDepoimento">
+		<input id="campoBuscaDepoimento" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
+</form>
+</div>
+
 
 <c:if test="${not empty depoimentosPendentes}">	
-<table id="" class="tamanhoDefault">
+<table id="tabDepoimentosPendentes" class="tamanhoDefault">
 	<tr>
 		<td >
-		<input id="" type="button" class="button direita" value="^">
+		<input id="btFecharDepoimentosPendentes" type="button" class="button direita" value="^">
 		</td>
 	</tr>
 	<tr>

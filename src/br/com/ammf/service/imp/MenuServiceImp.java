@@ -84,11 +84,11 @@ public class MenuServiceImp implements MenuService{
 		List<String> notificacoes = new ArrayList<String>();
 		
 		if(textoRepository.totalDepoimentosPendentes() > 0){
-			notificacoes.add("<b>depoimento:</b> "+ textoRepository.totalDepoimentosPendentes() + " depoimento(s) pendente(s) confirmação");
+			notificacoes.add("<b>depoimento:</b> "+ textoRepository.totalDepoimentosPendentes() + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
 		if(pessoaRepository.totalCadastrosPendentes() > 0){
-			notificacoes.add("<b>cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirmação");
+			notificacoes.add("<b>cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		return notificacoes;
 	}

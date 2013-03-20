@@ -180,19 +180,24 @@ public class TextoDao implements TextoRepository{
 
 	@Override
 	public int obterTotalDepoimentosCadastrados() {
-		// TODO implementar logica
-		return 0;
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		return criteria.list().size();
 	}
 
 	@Override
 	public int obterTotalDepoimentosConfirmados() {
-		// TODO implementar logica
-		return 0;
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		criteria.add(Restrictions.eq("confirmado", true));
+		return criteria.list().size();
 	}
 
 	@Override
 	public int obterTotalDepoimentosPendentes() {
-		// TODO implementar logica
-		return 0;
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		criteria.add(Restrictions.eq("confirmado", false));
+		return criteria.list().size();
 	}
 }
