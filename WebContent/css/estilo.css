@@ -108,6 +108,12 @@ a:HOVER {
 	float: left;
 }
 
+.labelForm2 {
+	color: gray;
+	font-size: medium;
+	font-weight: bold;	
+}
+
 .labelFormErro {
 	color: red;
 	font-size: medium;
@@ -268,8 +274,7 @@ a:HOVER {
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	box-shadow: 2px 2px 2px #CCCCCC;
-	
+	box-shadow: 2px 2px 2px #CCCCCC;	
 }
 
 #tabMensagemIndex tr td{
@@ -364,8 +369,7 @@ a:HOVER {
 	color: #ffffff;
 	position: fixed;
 	bottom: 0;
-	padding: 0;
-		
+	padding: 0;		
 }
 
 #mainCardHeader {
@@ -553,7 +557,8 @@ a:HOVER {
 }
 
 .letraCinza {
-	color: #9C9C9C;
+	/* color: #9C9C9C; */
+	color: #000000;
 }
 
 .tituloEdicao {

@@ -177,4 +177,22 @@ public class TextoDao implements TextoRepository{
 		session.delete(texto);
 		transaction.commit();		
 	}
+
+	@Override
+	public int obterTotalDepoimentosCadastrados() {
+		// TODO implementar logica
+		return 0;
+	}
+
+	@Override
+	public int obterTotalDepoimentosConfirmados() {
+		// TODO implementar logica
+		return 0;
+	}
+
+	@Override
+	public int obterTotalDepoimentosPendentes() {
+		// TODO implementar logica
+		return 0;
+	}
 }

@@ -42,6 +42,12 @@ public interface TextoRepository {
 
 	public void confirmarDepoimento(String uuid);
 	
-	public void deletarDepoimento(String uuid);	
+	public void deletarDepoimento(String uuid);
+
+	public int obterTotalDepoimentosCadastrados();
+
+	public int obterTotalDepoimentosConfirmados();
+
+	public int obterTotalDepoimentosPendentes();	
 
 }

@@ -11,6 +11,12 @@
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 
+<div align="center" style="padding: 5px;">
+<form action="<c:url value="/login" ></c:url>">
+<input type="submit" value="login" />
+</form>
+</div>
+
 
 <div id="espacador"></div>
 

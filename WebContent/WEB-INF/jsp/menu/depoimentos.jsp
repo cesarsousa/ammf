@@ -21,33 +21,7 @@
 <h2>Depoimentos Cadastrados</h2>
 <span class="info azulClaro" >Depoimento dos usu&aacute;rios do site</span>
 
-<%-- <div id="areaLogin">
-<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
-	
-	<label class="labelForm">Nome:</label>
-	<c:if test="${not empty nomeEmBranco}">		
-		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-	</c:if>
-	<c:if test="${empty nomeEmBranco}">		
-		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-	</c:if>
-	
-	<br/><br/>	
-	
-	
-	<label class="labelForm">Email:</label>
-	<c:if test="${not empty emailEmBranco}">
-		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-	</c:if>
-	<c:if test="${empty emailEmBranco}">
-		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-	</c:if>
-	
-	<br/><br/>
-	
-	<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
-</form>
-</div> --%>
+
 
 <table class="tamanhoDefault">
 	<tr>
@@ -81,7 +55,21 @@
 	</tr>
 </table>
 
-<div class="separador"></div>	
+
+<table class="tamanhoDefault">
+<tr>
+<td>
+<ul>
+<li>Total de ${totalDepoimentosCadastrados} depoimentos cadastrados</li>
+<li>Total de ${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o</li>
+<li>Total de ${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<div class="separador"></div>
+
 
 <c:if test="${not empty depoimentosPendentes}">	
 <table id="" class="tamanhoDefault">
@@ -108,7 +96,7 @@
 					</tr>
 				</thead>				
 					
-				<tbody id="">
+				<tbody>
 				<c:forEach items="${depoimentosPendentes}" var="depoimento">
 					<tr>
 						<td class="infoTabela">${depoimento.autor}</td>
@@ -117,9 +105,7 @@
 						<td class="infoTabela" align="center">
 							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
 							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
-						</td>
-						
-						
+						</td>						
 					</tr>
 					<tr>
 						<td class="bordaInferior" colspan="4">${depoimento.conteudo}</td>
@@ -156,6 +142,6 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<div id="footer">
+<%-- <div id="footer">
 <%@ include file="/footer.jsp" %>
-</div>
+</div> --%>

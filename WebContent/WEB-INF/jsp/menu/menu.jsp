@@ -454,8 +454,6 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-
-
-<div id="footer">
+<%-- <div id="footer">
 <%@ include file="/footer.jsp" %>
-</div>
+</div> --%>

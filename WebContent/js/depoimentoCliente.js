@@ -4,10 +4,6 @@ $(document).ready(function() {
 	addRemoveDestaque("#cadastroDepoimentoEmail");
 	addRemoveDestaque("#cadastroDepoimentoNome");
 	addRemoveDestaque("#cadastroDepoimentoTexto");	
-		
-	if($('#cadastroDepoimentoEmail').val() == "") $('#cadastroDepoimentoEmail').puts("DIGITE O SEU EMAIL");
-	if($('#cadastroDepoimentoNome').val() == "") $('#cadastroDepoimentoNome').puts("DIGITE O SEU NOME");
-	if($('#cadastroDepoimentoTexto').val() == "") $('#cadastroDepoimentoTexto').puts("DIGITE O SEU DEPOIMENTO");
 	
 	$('#cadastroDepoimentoTexto').autoResize();
 	$('#cadastroDepoimentoTexto').keyup(function() {		
@@ -19,11 +15,9 @@ $(document).ready(function() {
 
 	$('#divNovoDepoimento').hide();
 	$('#btNovoDepoimento').toggle(function() {
-		$('#divDepoimentosCadastrados').slideUp(500);
-		$('#divNovoDepoimento').slideDown(500);
+		$('#divNovoDepoimento').slideDown(1000);
 	}, function() {
-		$('#divNovoDepoimento').slideUp(500);
-		$('#divDepoimentosCadastrados').slideDown(500);
+		$('#divNovoDepoimento').slideUp(1000);
 	});	
 	
 	$('#btnClienteCadastrar').click(function(){
@@ -35,7 +29,6 @@ $(document).ready(function() {
 	
 	// codigos daqui para cima
 	if($('#flagErroDepoimento').val() == "true"){
-		$('#divDepoimentosCadastrados').hide();
 		$('#divNovoDepoimento').show();
 		
 	}	
