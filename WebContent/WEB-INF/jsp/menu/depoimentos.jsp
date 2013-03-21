@@ -73,12 +73,26 @@
 
 <div class="separador"></div>
 
-<div align="right">
-<form id="formBuscaDepoimento">
-		<input id="campoBuscaDepoimento" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
-</form>
-</div>
+<table class="tamanhoDefault">
+<thead>
+<tr>
+	<td>
+		<div align="left">
+		<form id="formBuscaDepoimento">
+				<input id="campoBuscaDepoimento" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
+		</form>
+		</div>
+	</td>	
+</tr>
+</thead>
 
+<tbody id="resultBuscaDepoimento">
+
+</tbody>
+
+</table>
+
+<div class="separador"></div>
 
 <c:if test="${not empty depoimentosPendentes}">	
 <table id="tabDepoimentosPendentes" class="tamanhoDefault">
