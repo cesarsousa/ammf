@@ -24,19 +24,16 @@ public class PessoaController {
 	
 	private Result result;
 	private PessoaRepository pessoaRepository;
-	private TextoRepository textoRepository;
 	private ValidacaoService validacaoService;
 	private PessoaService pessoaService;
 	
 	public PessoaController(
 			Result result, 
 			PessoaRepository pessoaRepository,
-			TextoRepository textoRepository,
 			ValidacaoService validacaoService,
 			PessoaService pessoaService){
 		this.result = result;
 		this.pessoaRepository = pessoaRepository;
-		this.textoRepository = textoRepository;
 		this.validacaoService = validacaoService;
 		this.pessoaService = pessoaService;
 	}
@@ -84,29 +81,7 @@ public class PessoaController {
 	public void consultar(String paramConsulta){
 		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
-	}
-	
-	@Get("/cliente/depoimentos")
-	public void depoimentoCliente(){
-		List<Texto> depoimentos = textoRepository.listarDepoimentos(true);
-		result.include("depoimentos", depoimentos);		
-	}
-	
-	@Post("/cliente/novoDepoimento")
-	public void cadastrarNovoDepoimento(Texto texto){
-		
-		boolean validado = validacaoService.depoimento(texto, result);
-		
-		if(validado){
-			pessoaService.cadastrarDepoimento(texto);
-			result.include("msgDepoimento", texto.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, porém aguarda confirmação");
-		}else{
-			result.include("msgErroDepoimento", true);
-		}
-		
-		result.forwardTo(this).depoimentoCliente();
-	}
-	
+	}	
 	
 	@Get("/cliente/cadastro")
 	public void cadastroCliente(){}

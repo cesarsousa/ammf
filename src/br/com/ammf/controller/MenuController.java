@@ -55,11 +55,11 @@ public class MenuController {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoIndex(texto);
 			menuService.notificarPessoas(textoRepository.getTextoIndex());
-			redirecionarParaMenuAdm("mensagem", "Texto da página principal atualizado com sucesso");
+			redirecionarParaMenuAdm("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
-			result.include("mensagem", "Texto da página principal atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização da frase principal.");
+			result.include("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o da frase principal.");
 		}				
 	}	
 	
@@ -74,7 +74,7 @@ public class MenuController {
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre psicologia atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Psicologia.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Psicologia.");
 		}		
 	}
 	
@@ -85,11 +85,11 @@ public class MenuController {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoEducacao(texto);
 			menuService.notificarPessoas(textoRepository.getTextoEducacao());
-			redirecionarParaMenuAdm("mensagem", "Texto sobre Educação atualizado com sucesso");
+			redirecionarParaMenuAdm("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
-			result.include("mensagem", "Texto sobre Educação atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Educação.");
+			result.include("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Educa&ccedil;&atilde;o.");
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class MenuController {
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre cultura atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Cultura.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Cultura.");
 		}		
 	}
 	
@@ -119,7 +119,7 @@ public class MenuController {
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre artes orientais atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar os emails de notificação para os clientes referente a atualização do texto sobre Artes Orientais.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.");
 		}
 		
 	}
@@ -138,35 +138,14 @@ public class MenuController {
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "Não foi possível enviar o email de notificação para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configurações da Conta</b> os seus dados de cadastro.");
+				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configura&ccedil;&otilde;es da Conta</b> os seus dados de cadastro.");
 			} 		
 		}else{
 			redirecionarParaCadastro();
 		}		
 	}
 	
-	@Get("/menu/depoimentos")
-	public void depoimentos(){
-		List<Texto> depoimentosPendentes = textoRepository.listarDepoimentos(false);
-		result.include("depoimentosPendentes", depoimentosPendentes);
-		result.include("totalDepoimentosCadastrados", textoRepository.obterTotalDepoimentosCadastrados());
-		result.include("totalDepoimentosExibidos", textoRepository.obterTotalDepoimentosConfirmados());
-		result.include("totalDepoimentosPendentes", textoRepository.obterTotalDepoimentosPendentes());
-	}
 	
-	@Get("/menu/depoimentos/confirmar/{uuid}")
-	public void confirmarDepoimento(String uuid){
-		textoRepository.confirmarDepoimento(uuid);		
-		result.include("msgDepoimento", "Depoimento confirmado com sucesso");
-		result.redirectTo(this).depoimentos();
-	}
-	
-	@Get("/menu/depoimentos/excluir/{uuid}")
-	public void excluirDepoimento(String uuid){
-		textoRepository.deletarDepoimento(uuid);
-		result.include("msgDepoimento", "Depoimento excluído com sucesso");
-		result.redirectTo(this).depoimentos();
-	}
 	
 	
 	private void redirecionarParaCadastro() {

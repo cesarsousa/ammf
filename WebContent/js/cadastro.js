@@ -14,7 +14,8 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 					'<td class="infoTabela">' + json[i].email + '</td>' +
 					'<td class="infoTabela">' + dataCadastro + '</td>' +
 					'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-					'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a></td>' +
+					'<td>' +
+					     '<a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a></td>' +
 					'</tr>');						
 			}			
 			

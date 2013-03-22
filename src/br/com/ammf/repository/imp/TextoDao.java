@@ -200,4 +200,14 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.eq("confirmado", false));
 		return criteria.list().size();
 	}
+
+	@Override
+	public List<Texto> listarPorNomeEEmail(String paramConsulta) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		criteria.add(Restrictions.or(
+				Restrictions.like("autor", "%" + paramConsulta + "%"), 
+				Restrictions.like("titulo", "%" + paramConsulta + "%")));		
+		return criteria.list();
+	}
 }

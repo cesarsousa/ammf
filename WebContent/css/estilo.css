@@ -802,8 +802,26 @@ a:HOVER {
 	background-color: #FFDAB9;	
 }
 
+.metadado {
+	font-size: small;
+	padding: 5px;
+	color: #6CA6CD;
+}
+
 .infoTabela{
 	width: 300px;
+	padding: 5px;
+	font-size: small;	
+}
+
+.infoTabelaConteudo{
+	width: 500px;
+	padding: 5px;
+	font-size: small;	
+}
+
+.infoTabelaData{
+	width: 160px;
 	padding: 5px;
 	font-size: small;	
 }
