@@ -5,7 +5,6 @@ import static br.com.caelum.vraptor.view.Results.json;
 import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
-import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.PessoaService;
@@ -41,29 +40,24 @@ public class DepoimentoController {
 	}
 	
 	@Post("/cliente/novoDepoimento")
-	public void cadastrarNovoDepoimento(Texto texto){
-		
-		boolean validado = validacaoService.depoimento(texto, result);
-		
+	public void cadastrarNovoDepoimento(Texto texto){		
+		boolean validado = validacaoService.depoimento(texto, result);		
 		if(validado){
 			pessoaService.cadastrarDepoimento(texto);
 			result.include("msgDepoimento", texto.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, porém aguarda confirmação");
 		}else{
 			result.include("msgErroDepoimento", true);
-		}
-		
+		}		
 		result.forwardTo(this).depoimentoCliente();
 	}
 	
 	@Restrito
 	@Get("/menu/depoimentos")
-	public void depoimentos(){
-		/*List<Texto> depoimentosPendentes = textoRepository.listarDepoimentos(false);
-		result.include("depoimentosPendentes", depoimentosPendentes);*/
+	public void depoimentos(){		
 		result.include("totalDepoimentosCadastrados", textoRepository.obterTotalDepoimentosCadastrados());
 		result.include("totalDepoimentosExibidos", textoRepository.obterTotalDepoimentosConfirmados());
 		result.include("totalDepoimentosPendentes", textoRepository.obterTotalDepoimentosPendentes());
-	}
+	}	
 	
 	@Restrito
 	@Get("/menu/depoimentos/confirmar/{uuid}")
@@ -84,7 +78,42 @@ public class DepoimentoController {
 	@Restrito
 	@Get("/menu/busca/depoimento")
 	public void listarDepoimentos(String paramConsulta){		
-		List<Texto> depoimentos = textoRepository.listarPorNomeEEmail(paramConsulta);		
+		List<Texto> depoimentos = textoRepository.listarDepoimentosPorNomeEEmail(paramConsulta);		
 		result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();		
 	}
+	
+	@Restrito
+	@Get("/adm/depoimentos/cadastrados")
+	public void visualizarTodosOsDepoimentosCadastrados(){
+		List<Texto> depoimentos = textoRepository.listarDepoimentosTodos();
+		result.include("depoimentosSolicitados", depoimentos);
+		result.include("backgroundTitulo", "backAzul");
+		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados");
+		result.redirectTo(this).depoimentos();	
+	}
+	
+	@Restrito
+	@Get("/adm/depoimentos/confirmados")
+	public void visualizarTodosOsDepoimentosConfirmados(){
+		List<Texto> depoimentos = textoRepository.listarDepoimentos(true);
+		result.include("depoimentosSolicitados", depoimentos);
+		result.include("backgroundTitulo", "backVerde");
+		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o de todos os depoimentos confirmados");
+		result.redirectTo(this).depoimentos();	
+	}
+	
+	@Restrito
+	@Get("/adm/depoimentos/pendentes")
+	public void visualizarTodosOsDepoimentosPendentesConfirmacao(){
+		List<Texto> depoimentos = textoRepository.listarDepoimentos(false);
+		result.include("depoimentosSolicitados", depoimentos);
+		result.include("backgroundTitulo", "backVermelho");
+		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o");
+		result.redirectTo(this).depoimentos();	
+	}
+	
+	
+	
+	
+	
 }

@@ -59,9 +59,20 @@ $(document).ready(function() {
 								
 			},
 			error : function(){
-				alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
+				alert("Servidor indisponivel no momento, por favor tente mais tarde!");				
 			}
 		});
+	});
+	
+	$('#btFecharDepoimentosSolicitados').click(function(){
+		$('#tabDepoimentosSolicitados').slideUp(1000);
+	});
+	
+	$('#btRemoverTodosDepoimentos').click(function(event){
+		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirmação?");
+		if(!decisao){
+			event.preventDefault();
+		}		
 	});
 	
 });

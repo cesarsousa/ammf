@@ -202,12 +202,20 @@ public class TextoDao implements TextoRepository{
 	}
 
 	@Override
-	public List<Texto> listarPorNomeEEmail(String paramConsulta) {
+	public List<Texto> listarDepoimentosPorNomeEEmail(String paramConsulta) {
 		Criteria criteria = session.createCriteria(Texto.class);
 		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
 		criteria.add(Restrictions.or(
 				Restrictions.like("autor", "%" + paramConsulta + "%"), 
 				Restrictions.like("titulo", "%" + paramConsulta + "%")));		
+		return criteria.list();
+	}
+
+	@Override
+	public List<Texto> listarDepoimentosTodos() {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
+		criteria.addOrder(Order.desc("postagem"));
 		return criteria.list();
 	}
 }

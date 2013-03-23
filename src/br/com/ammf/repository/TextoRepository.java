@@ -50,6 +50,8 @@ public interface TextoRepository {
 
 	public int obterTotalDepoimentosPendentes();
 
-	public List<Texto> listarPorNomeEEmail(String paramConsulta);	
+	public List<Texto> listarDepoimentosPorNomeEEmail(String paramConsulta);
+
+	public List<Texto> listarDepoimentosTodos();	
 
 }

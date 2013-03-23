@@ -192,18 +192,46 @@ a:HOVER {
 }
 
 .depsCadAll {
-	color: blue;
-	padding: 5px;	
+	color: #87CEEB;
+	padding: 5px;
+	font-weight: bold;	
+}
+.depsCadAll a {
+	color: #87CEEB;
+	cursor: pointer;
+}
+.depsCadAll a:hover {
+	color: black;
 }
 
 .depsCadExib {
-	color: green;
+	color: #556B2F;
 	padding: 5px;
+	font-weight: bold;
+}
+
+.depsCadExib a {
+	color: #556B2F;
+	cursor: pointer;
+}
+
+.depsCadExib a:hover {
+	color: black;
 }
 
 .depsCadPend {
-	color: red;
+	color: #B22222;
 	padding: 5px;
+	font-weight: bold;
+}
+
+.depsCadPend a {
+	color: #B22222;
+	cursor: pointer;
+}
+
+.depsCadPend a:hover {
+	color: black;
 }
 
 #imagemQuiron:hover {
@@ -278,6 +306,23 @@ a:HOVER {
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+	box-shadow: 2px 2px 2px #CCCCCC;
+}
+
+#tabNotificacaoDepoimento {
+	width: 1000px;
+	padding: 10px;
+}
+
+.cardDepoimento {
+	padding: 10px;
+	text-align: left;
+	width:90%;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	box-shadow: 2px 2px 2px #CCCCCC;
 }
 

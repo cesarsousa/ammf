@@ -2,32 +2,6 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<div class="msgBorder msgAlerta">
-<ul>
-<li class="depsCadAll">Total de ${totalDepoimentosCadastrados} depoimentos cadastrados
-	<ul>
-		<li>Visualizar todos</li>
-		<li>Remover todos</li>
-	</ul>
-<li class="depsCadExib">Total de ${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
-	<ul>
-		<li>Visualizar todos</li>
-		<li>Remover todos</li>
-	</ul>
-<li class="depsCadPend">Total de ${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o
-	<ul>
-		<li>Visualizar todos</li>
-		<li>Remover todos</li>
-	</ul>
-</ul>
-</div>
-
-<%-- <div id="divAdmMsgCadCliente">
-<c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
-	<div class="msgBorder msgErro closeClick">${nomeEmBranco}<br/>${emailEmBranco}</div>
-</c:if>
-</div> --%>
-
 <c:if test="${not empty msgDepoimento}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">${msgDepoimento}</div>
 </c:if>
@@ -41,39 +15,47 @@
 <h2>Depoimentos Cadastrados</h2>
 <span class="info azulClaro" >Depoimento dos usu&aacute;rios do site</span>
 
-
-
+<!-- Barra de Icones -->
 <table class="tamanhoDefault">
 	<tr>
 		<td class="tdTableIcone">
 		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
 			<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
 		</form>
-		</td>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconBuscaPessoa" alt="Buscar pessoa" title="Buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasCadastradas" alt="Ver todas as pessoas" title="Ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasConfirmadas" alt="Ver pessoas confirmadas" title="Ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasPendentes" alt="Ver pessoas pendentes" title="Ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
+		</td>		
 	</tr>
 </table>
+
+<div align="center">
+<table id="tabNotificacaoDepoimento">  
+  <tr align="center">
+    <td width="33%">
+    	<div class="cardDepoimento depsCadAll">
+    	${totalDepoimentosCadastrados} depoimentos cadastrados
+    	<br/>
+    	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar todos</a> ou 
+    	<a>Remover todos</a>    	
+    	</div>
+    </td>
+    <td width="33%">
+		<div class="cardDepoimento depsCadExib">
+		${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
+		<br/>		
+    	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar todos</a> ou
+    	<a>Remover todos</a>
+    	</div>
+	</td>
+    <td width="33%">
+		<div class="cardDepoimento depsCadPend">
+		${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o
+    	<br/>		
+    	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar todos</a> ou
+    	<a id="btRemoverTodosDepoimentos" href="removertodos">Remover todos</a>
+    	</div>
+	</td>
+  </tr>
+</table>
+</div>
 
 <div class="separador"></div>
 
@@ -112,20 +94,22 @@
 
 <div class="separador"></div>
 
-<c:if test="${not empty depoimentosPendentes}">	
-<table id="tabDepoimentosPendentes" class="tamanhoDefault">
+
+<c:if test="${not empty depoimentosSolicitados}">
+<div id="tabDepoimentosSolicitados">	
+<table class="tamanhoDefault">
 	<tr>
 		<td >
-		<input id="btFecharDepoimentosPendentes" type="button" class="button direita" value="^">
+		<input id="btFecharDepoimentosSolicitados" type="button" class="button direita" value="^">
 		</td>
 	</tr>
 	<tr>
 		<td>
-		<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >								
+		<div id="conteudoDepoimentosSolicitados" class="cartao tamanhoEdicaoIndex" >								
 			<table>
 				<thead>
 					<tr>
-					<td colspan="4" class="headerTabPessoa backVermelho">Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o</td>
+					<td colspan="4" class="headerTabPessoa ${backgroundTitulo}">${msgTitulo}</td>
 					</tr>					
 				</thead>
 				<thead>
@@ -138,7 +122,7 @@
 				</thead>				
 					
 				<tbody>
-				<c:forEach items="${depoimentosPendentes}" var="depoimento">
+				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
 					<tr>
 						<td class="infoTabela">${depoimento.autor}</td>
 						<td class="infoTabela">${depoimento.titulo}</td>
@@ -162,6 +146,7 @@
 	<td class="paddingPadrao"><div class="separador"></div></td>
 	</tr>
 </table>
+</div>
 </c:if>
 
 </div> <!-- centralizacao -->
