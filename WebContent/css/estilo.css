@@ -212,13 +212,27 @@ a:HOVER {
 	
 }
 
-.depsCadAll {
-	color: #87CEEB;
+.fundoAzulClaro{
+	background-color: #87CEEB;
+}
+
+.fundoVerde{
+	background-color: #556B2F;
+}
+
+.fundoVermelho {
+	background-color: #B22222;
+}
+
+
+
+.depsCadAll {	
+	color: #FFFFFF;
 	padding: 5px;
 	font-weight: bold;	
 }
 .depsCadAll a {
-	color: blue;
+	color: #FFFFFF;
 	cursor: pointer;
 }
 .depsCadAll a:hover {
@@ -226,13 +240,13 @@ a:HOVER {
 }
 
 .depsCadExib {
-	color: #556B2F;
+	color: #FFFFFF;
 	padding: 5px;
 	font-weight: bold;
 }
 
 .depsCadExib a {
-	color: blue;
+	color: #FFFFFF;
 	cursor: pointer;
 }
 
@@ -241,13 +255,13 @@ a:HOVER {
 }
 
 .depsCadPend {
-	color: #B22222;
+	color: #FFFFFF;
 	padding: 5px;
 	font-weight: bold;
 }
 
 .depsCadPend a {
-	color: blue;
+	color: #FFFFFF;
 	cursor: pointer;
 }
 
@@ -339,8 +353,7 @@ a:HOVER {
 	font-size: small;
 	padding: 10px;
 	text-align: left;
-	width:90%;
-	background-color: #ffffff;
+	width:90%;	
 	border: 1px solid #cccccc;
 	border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px;

@@ -30,7 +30,7 @@
 <table id="tabNotificacaoDepoimento">  
   <tr align="center">
     <td width="33%">
-    	<div class="cardDepoimento depsCadAll">
+    	<div class="cardDepoimento depsCadAll fundoAzulClaro">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
     	<br/>
     	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar todos</a> | 
@@ -38,7 +38,7 @@
     	</div>
     </td>
     <td width="33%">
-		<div class="cardDepoimento depsCadExib">
+		<div class="cardDepoimento depsCadExib fundoVerde">
 		${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
 		<br/>		
     	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar todos</a> |
@@ -46,7 +46,7 @@
     	</div>
 	</td>
     <td width="33%">
-		<div class="cardDepoimento depsCadPend">
+		<div class="cardDepoimento depsCadPend fundoVermelho">
 		${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o
     	<br/>		
     	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar todos</a> |
