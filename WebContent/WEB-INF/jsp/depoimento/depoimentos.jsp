@@ -33,7 +33,7 @@
     	<div class="cardDepoimento depsCadAll">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
     	<br/>
-    	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar todos</a> ou 
+    	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar todos</a> | 
     	<a>Remover todos</a>    	
     	</div>
     </td>
@@ -41,7 +41,7 @@
 		<div class="cardDepoimento depsCadExib">
 		${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
 		<br/>		
-    	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar todos</a> ou
+    	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar todos</a> |
     	<a>Remover todos</a>
     	</div>
 	</td>
@@ -49,7 +49,7 @@
 		<div class="cardDepoimento depsCadPend">
 		${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o
     	<br/>		
-    	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar todos</a> ou
+    	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar todos</a> |
     	<a id="btRemoverTodosDepoimentos" href="removertodos">Remover todos</a>
     	</div>
 	</td>
@@ -119,11 +119,19 @@
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">A&ccedil;&otilde;es</td>
 					</tr>
-				</thead>				
+				</thead>								
 					
 				<tbody>
 				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
-					<tr>
+					
+					<c:if test="${depoimento.confirmado}">
+						<c:set var="cssBack" value="fundoTabVerde" />						
+					</c:if>
+					<c:if test="${not depoimento.confirmado}">
+						<c:set var="cssBack" value="fundoTabVermelho" />
+					</c:if>
+										
+					<tr class="zebrado ${cssBack}">
 						<td class="infoTabela">${depoimento.autor}</td>
 						<td class="infoTabela">${depoimento.titulo}</td>
 						<td class="infoTabela">${depoimento.dataFormatada}</td>
@@ -132,7 +140,7 @@
 							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
 						</td>						
 					</tr>
-					<tr>
+					<tr class="zebrado ${cssBack}">
 						<td class="bordaInferior" colspan="4">${depoimento.conteudo}</td>
 					</tr>				
 				</c:forEach>						

@@ -79,6 +79,18 @@ textarea {
 	list-style: none;
 }
 
+#btLogout {
+	text-align: center;
+}
+
+.fundoTabVerde {
+	background-color: #E6F1D6;
+}
+
+.fundoTabVermelho {
+	background-color: #F1D6D6;
+}
+
 #btLogout:hover {
 	background-color: #000000;
 	border-color: #000000;	
@@ -175,6 +187,15 @@ a:HOVER {
 	padding-bottom: 20px;
 }
 
+#divLogAdm {
+	
+}
+
+#tabLogAdm {
+	width: 100%;
+	border-collapse: collapse;
+}
+
 .sombra {
 	
 }
@@ -197,7 +218,7 @@ a:HOVER {
 	font-weight: bold;	
 }
 .depsCadAll a {
-	color: #87CEEB;
+	color: blue;
 	cursor: pointer;
 }
 .depsCadAll a:hover {
@@ -211,7 +232,7 @@ a:HOVER {
 }
 
 .depsCadExib a {
-	color: #556B2F;
+	color: blue;
 	cursor: pointer;
 }
 
@@ -226,7 +247,7 @@ a:HOVER {
 }
 
 .depsCadPend a {
-	color: #B22222;
+	color: blue;
 	cursor: pointer;
 }
 
@@ -315,6 +336,7 @@ a:HOVER {
 }
 
 .cardDepoimento {
+	font-size: small;
 	padding: 10px;
 	text-align: left;
 	width:90%;
@@ -908,6 +930,22 @@ a:HOVER {
 	font-size: small;
 }
 
+.msgBorderAdm {
+	border-style: solid;
+	border-width: 2px;
+	display: block;
+	font-family: Arial, helvetica, sans-serif;
+	/* border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; */
+	/* margin: 10px 2px 2px 0; */
+	padding-top: 15px;
+	padding-bottom: 15px;	
+	text-align: justify;
+	vertical-align: middle;
+	width: 100%;	
+}
+
 .msgBorder {
 	border-style: solid;
 	border-width: 2px;
@@ -916,7 +954,7 @@ a:HOVER {
 	/* border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; */
-	margin: 10px 2px 2px 0;
+	/* margin: 10px 2px 2px 0; */
 	padding: 15px;
 	text-align: justify;
 	vertical-align: middle;
