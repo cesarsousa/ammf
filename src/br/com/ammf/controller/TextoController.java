@@ -2,6 +2,7 @@ package br.com.ammf.controller;
 
 import java.util.List;
 
+import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.utils.formatter;
@@ -28,10 +29,12 @@ public class TextoController {
 	
 	@Post("/texto/cadastra")
 	public void cadastrarTexto(Texto texto){
+		System.out.println("cadastro");
 		textoRepository.cadastrar(texto);
 		result.forwardTo(this).visualizarTexto(texto);		
 	}
 	
+	@Restrito
 	@Get("/texto/lista")
 	public void listaTitulos(){
 		List<Object[]> titulos = textoRepository.listarTitulos();

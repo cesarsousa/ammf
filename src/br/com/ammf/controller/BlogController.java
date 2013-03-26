@@ -36,6 +36,8 @@ public class BlogController {
 		texto.setPostagem(DataUtils.getNow());		
 		textoRepository.cadastrar(texto);
 		
+		// TODO notificar usuarios...
+		
 		result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
 		result.redirectTo(this).editarBlog();
 	}
