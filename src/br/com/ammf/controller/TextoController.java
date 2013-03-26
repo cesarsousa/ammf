@@ -12,6 +12,8 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 public class TextoController {
+	
+	// TODO rever logica de cadastrar texto, notificar usuarios e anotar restrito.
 
 	private Result result;
 	private TextoRepository textoRepository;

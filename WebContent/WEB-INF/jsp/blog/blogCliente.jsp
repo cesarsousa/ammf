@@ -11,15 +11,14 @@
 <h2>Blog do Miguel</h2>
 
 <p>
-<span class="info azulClaro" >Texto blog do Miguel. </span>
+<span class="info azulClaro" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
 </p>
 </div>
 
-<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+<table cellpadding="5" cellspacing="5" border="0" class="display" id="example">
 	<thead align="left">
 		<tr>
 			<th class="metadado">Autor</th>
-			<th class="metadado"></th> 
 			<th class="metadado">T&iacute;tulo</th>
 			<th class="metadado">Texto</th>
 			<th class="metadado">Postagem</th>
@@ -29,10 +28,9 @@
 	</thead>
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
-			<tr>
+			<tr class="zebrado">
 				<td class="infoTabela">${texto.autor}</td>
-				<td><img src="${imagem}/lupa.png" alt="visualizar texto '${texto.titulo}'" title="visualizar texto '${texto.titulo}'" class="icone"></td>	 
-				<td class="infoTabela metadado">${texto.titulo}</td>
+				<td class="infoTabela metadado ponteiro" title="visualizar este texto">${texto.titulo}</td>
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
@@ -42,7 +40,7 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="5"><h2>Celebre a Vida !</h2> </th>			
+			<th colspan="4"><h2>Celebre a Vida !</h2> </th>			
 		</tr>
 	</tfoot>
 </table>
