@@ -54,6 +54,14 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(texto).exclude("id", "local", "postagem") .serialize();		
 	}
 	
+	@Get("/blog/cliente")
+	public void blogCliente(){
+		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
+		result.include("textosBlog", textosBlog);
+		
+	}
+	
+	
 	@Get("/blog/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		// TODO criar ler texto na integra

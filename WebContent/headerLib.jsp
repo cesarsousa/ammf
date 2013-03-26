@@ -8,6 +8,8 @@
 <title>Alcindo Miguel Martins Filho</title>
 
 <link href="${css}/estilo.css" rel="stylesheet" type="text/css" />
+<link href="${css}/table.css" rel="stylesheet" type="text/css" />
+<link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="${javascript}/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autocomplete.min.js"></script>
@@ -15,6 +17,7 @@
 <script type="text/javascript" src="${javascript}/jquery.puts.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autoresize.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.infinitecarousel3.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript" src="${javascript}/COMMONS.js"></script>
 <script type="text/javascript" src="${javascript}/index.js"></script>
@@ -29,6 +32,7 @@
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentos.js"></script>
+<script type="text/javascript" src="${javascript}/blogCliente.js"></script>
 
 
 

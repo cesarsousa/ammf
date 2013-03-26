@@ -2,13 +2,14 @@ package br.com.ammf.repository;
 
 import java.util.List;
 
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Texto;
 
 public interface TextoRepository {
 	
 	public void cadastrar(Texto texto);
 
-	public List<Texto> listar();
+	public List<Texto> listar(Local local, String orderBy);
 
 	public List<Object[]> listarTitulos();
 

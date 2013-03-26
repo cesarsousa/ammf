@@ -38,7 +38,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/blog/cliente" />" method="get">
 					<input type="submit" value="Blog" class="buttonFooter">
 					</form>
 					</li>

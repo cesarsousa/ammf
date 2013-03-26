@@ -35,8 +35,11 @@ public class TextoDao implements TextoRepository{
 	}
 
 	@Override
-	public List<Texto> listar() {		
-		return session.createCriteria(Texto.class).list();
+	public List<Texto> listar(Local local, String orderBy) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", local));
+		criteria.addOrder(Order.desc(orderBy));
+		return criteria.list();
 	}
 
 	@Override
