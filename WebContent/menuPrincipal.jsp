@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<div align="center">
 <table id="tabMenuPrincipal">
 	<tr>
 		<td align="center">
@@ -23,6 +24,7 @@
 		</td>
 	</tr>
 </table>
+</div>
 
 <div align="center">
 	<div class="separador"></div> 
