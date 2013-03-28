@@ -10,32 +10,41 @@
 
 <h2>Blog do Miguel</h2>
 
+<div id="textoModoLeitura" class="cardViewText">
+<p id="textoblogData" class="textoPostagemDepoimento">postado em 01/01/2012 12:00:00</p>
+<p id="textoblogTitulo" class="textoAutorDepoimento azulClaro">&ldquo; titulo &ldquo;</p>
+<p id="textoblogConteudo" class="textoConteudoDepoimento">conteudo</p>
+</div>
+
+
+
 <p>
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
 </p>
 </div>
 
-<table cellpadding="5" cellspacing="5" border="0" class="display" id="example">
+
+<table class="display" id="example">
 	<thead align="left">
 		<tr>
 			<th class="metadado">Autor</th>
 			<th class="metadado">T&iacute;tulo</th>
 			<th class="metadado">Texto</th>
-			<th class="metadado">Postagem</th>
-			
-			
+			<th class="metadado">Postagem</th>			
 		</tr>
 	</thead>
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
 			<tr class="zebrado">
 				<td class="infoTabela">${texto.autor}</td>
-				<td class="infoTabela metadado ponteiro" title="visualizar este texto">${texto.titulo}</td>
+				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
+				<a class="infoTabela metadado" onclick="javascript:visualizarTextoBlog('${texto.titulo}', '${texto.conteudo}', '${texto.dataFormatada}');">${texto.titulo}</a>
+				</td>
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
 				<td class="infoTabela">${texto.dataFormatada}</td>
-				</tr>			
+			</tr>			
 		</c:forEach>		
 	</tbody>
 	<tfoot>
@@ -44,6 +53,7 @@
 		</tr>
 	</tfoot>
 </table>
+
 
 <br/>
 

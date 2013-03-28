@@ -57,17 +57,26 @@
 .dataTables_length {
 	width: 40%;
 	float: left;
+	padding: 10px;
+	font-weight: bold;
+	color: #6CA6CD;
 }
 
 .dataTables_filter {
 	width: 50%;
 	float: right;
 	text-align: right;
+	padding: 10px;
+	font-weight: bold;
+	color: #6CA6CD;
 }
 
 .dataTables_info {
 	width: 60%;
 	float: left;
+	padding: 10px;
+	font-weight: bold;
+	color: #6CA6CD;
 }
 
 .dataTables_paginate {
@@ -110,6 +119,7 @@ table.display {
 	margin: 0 auto;
 	clear: both;
 	width: 100%;
+	padding: 10px;
 	
 	/* Note Firefox 3.5 and before have a bug with border-collapse
 	 * ( https://bugzilla.mozilla.org/show%5Fbug.cgi?id=155955 ) 
@@ -292,6 +302,7 @@ td.details {
 	width: 400px;
 	height: 22px;
 	line-height: 22px;
+	padding: 10px;
 }
 
 .paging_full_numbers span.paginate_button,
@@ -303,6 +314,7 @@ td.details {
 	margin: 0 3px;
 	cursor: pointer;
 	*cursor: hand;
+	color: gray;
 }
 
 .paging_full_numbers span.paginate_button {
@@ -391,22 +403,6 @@ table.KeyTable td {
 
 table.KeyTable td.focus {
 	border: 3px solid #3366FF;
-}
-
-table.display tr.gradeA {
-	background-color: #eeffee;
-}
-
-table.display tr.gradeC {
-	background-color: #ddddff;
-}
-
-table.display tr.gradeX {
-	background-color: #ffdddd;
-}
-
-table.display tr.gradeU {
-	background-color: #ddd;
 }
 
 div.box {
