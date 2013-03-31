@@ -6,8 +6,10 @@ import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.imp.IndexServiceImp;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -61,13 +63,19 @@ public class BlogController {
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
 		result.include("textosBlog", textosBlog);
 		
-	}
-	
+	}	
 	
 	@Get("/blog/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		// TODO criar ler texto na integra
+		// TODO criar ler texto na integra a partir do email 
 		System.out.println("redirecionar para logica de ler texto " + uuid);
+	}
+	
+	@Get("/blog/cliente/texto")
+	public void clienteVisualizarTexto(String uuid){
+		
+		Texto texto = textoRepository.obterPor(uuid);
+		result.use(json()).withoutRoot().from(texto).exclude("id", "local") .serialize();
 	}
 
 }

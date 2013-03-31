@@ -10,14 +10,6 @@
 
 <h2>Blog do Miguel</h2>
 
-<div id="textoModoLeitura" class="cardViewText">
-<p id="textoblogData" class="textoPostagemDepoimento">postado em 01/01/2012 12:00:00</p>
-<p id="textoblogTitulo" class="textoAutorDepoimento azulClaro">&ldquo; titulo &ldquo;</p>
-<p id="textoblogConteudo" class="textoConteudoDepoimento">conteudo</p>
-</div>
-
-
-
 <p>
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
 </p>
@@ -38,7 +30,7 @@
 			<tr class="zebrado">
 				<td class="infoTabela">${texto.autor}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-				<a class="infoTabela metadado" onclick="javascript:visualizarTextoBlog('${texto.titulo}', '${texto.conteudo}', '${texto.dataFormatada}');">${texto.titulo}</a>
+				<a class="infoTabela metadado" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
 				</td>
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
@@ -49,13 +41,35 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="4"><h2>Celebre a Vida !</h2> </th>			
-		</tr>
+			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
+		</tr>		
 	</tfoot>
 </table>
 
+<div class="espacador" ></div>
 
-<br/>
+<table id="textoModoLeitura" class="cardViewText" align="center">
+	<thead align="center">
+		<tr>
+			<td><div class="separador"></div></td>		
+		</tr>
+	</thead>
+	<tbody>
+ 		<tr>
+			<td>
+			<p id="textoblogData" class="textoPostagemDepoimento">postado em 01/01/2012 12:00:00</p>
+			<p id="textoblogTitulo" class="textoAutorDepoimento azulClaro fonteGrande">&ldquo; titulo &ldquo;</p>
+			<p id="textoblogConteudo" class="textoConteudoDepoimento">conteudo</p>
+			</td>		
+		</tr>		
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
+		</tr>
+		
+	</tfoot>
+</table>
 
 <div id="telaAguardeCadastroDepoimento">
 	<div align="center">

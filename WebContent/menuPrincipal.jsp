@@ -7,7 +7,7 @@
 			<ul id="menu">
 				<li>
 					<img class="imgMenuPrincipal" src="${imagem}/icone_home.png"/>
-						<a href="<c:url value="/"/>">Home</a></li>	
+					<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
 					<img class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>
 					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
