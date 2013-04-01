@@ -55,7 +55,10 @@
 	<tr>
 		<td class="tdTableIcone">
 		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-			<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
+			<div id="btMenuAdm" class="ponteiro esquerda"></div>
+		
+		
+			<%-- <img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda"> --%>
 		</form>
 		</td>
 		
