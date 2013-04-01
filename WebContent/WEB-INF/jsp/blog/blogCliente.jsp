@@ -15,7 +15,7 @@
 </p>
 </div>
 
-
+<a name="irTopo"></a>
 <table class="display" id="example">
 	<thead align="left">
 		<tr>
@@ -30,12 +30,12 @@
 			<tr class="zebrado">
 				<td class="infoTabela">${texto.autor}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-				<a class="infoTabela metadado" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
+				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
 				</td>
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-				<td class="infoTabela">${texto.dataFormatada}</td>
+				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
 			</tr>			
 		</c:forEach>		
 	</tbody>
@@ -46,30 +46,27 @@
 	</tfoot>
 </table>
 
-<div class="espacador" ></div>
-
-<table id="textoModoLeitura" class="cardViewText" align="center">
-	<thead align="center">
-		<tr>
-			<td><div class="separador"></div></td>		
-		</tr>
-	</thead>
+<a name="lerTexto"></a>
+<table id="textoModoLeitura" class="cardViewText" align="center">	
 	<tbody>
  		<tr>
 			<td>
-			<p id="textoblogData" class="textoPostagemDepoimento">postado em 01/01/2012 12:00:00</p>
-			<p id="textoblogTitulo" class="textoAutorDepoimento azulClaro fonteGrande">&ldquo; titulo &ldquo;</p>
-			<p id="textoblogConteudo" class="textoConteudoDepoimento">conteudo</p>
+			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar">&ldquo; titulo &ldquo;</p>
+			<p id="textoblogData" class="textoPostagemBlog aEsquerda">postado em 01/01/2012 12:00:00</p>			
+			<p id="textoblogConteudo" class="textoConteudoBlog">conteudo</p>
 			</td>		
 		</tr>		
 	</tbody>
-	<tfoot>
+	<tfoot>		
 		<tr>
-			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
-		</tr>
-		
+			<th colspan="4" align="center">
+				<h2><a id="goTopo" href="#irTopo">Visualizar outros...</a></h2>
+			</th>			
+		</tr>		
 	</tfoot>
 </table>
+
+<br/><br/>
 
 <div id="telaAguardeCadastroDepoimento">
 	<div align="center">
@@ -89,6 +86,8 @@
 </div> <!-- wrap -->
 
 <br/>
+
+
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

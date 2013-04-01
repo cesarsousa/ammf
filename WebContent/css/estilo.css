@@ -333,6 +333,20 @@ a:HOVER {
 	font-weight: bold;
 }
 
+.textoPostagemBlog {
+	font-size: small;
+	color: #000000;
+}
+.textoConteudoBlog {
+	font-size: large;
+	font-style: italic;
+	color: #696969;
+}
+.textoAutorBlog {
+	font-size: small;
+	font-weight: bold;
+}
+
 .card {
 	padding: 10px;
 	width:1000px;
@@ -832,6 +846,14 @@ a:HOVER {
 
 .centralizar {
 	text-align: center;
+}
+
+.aEsquerda {
+	text-align: left;
+}
+
+.aDireita {
+	text-align: right;
 }
 
 .direita {
