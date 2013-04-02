@@ -28,16 +28,16 @@
 	<tr>
 	<td class="tdTableIcone">
 	<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-	<img id="btMenuAdm" alt="Menu Principal" title="Menu Principal" src="${imagem}/icone_menu.png" width="50" height="50" class="ponteiro esquerda">
+	<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 	</form>
 	</td>
 	
 	<td class="tdTableIcone">
-	<img id="btAddTextoBlog" alt="Adicionar novo texto" title="Adicionar novo texto" src="${imagem}/icone_add.png" width="50" height="50" class="ponteiro esquerda">
+	<div id="btAddTextoBlog" title="Adicionar novo texto" class="ponteiro esquerda"></div>
 	</td>
 	
 	<td class="tdTableIcone">
-	<img id="btEdtTextoBlog" alt="Editar um texto" title="Editar um texto" src="${imagem}/icone_editar.png" width="50" height="50" class="ponteiro esquerda">
+	<div id="btEdtTextoBlog" title="Editar um texto" class="ponteiro esquerda"></div>
 	</td>
 	
 	</tr>
@@ -46,8 +46,7 @@
 <div class="separador"></div>
 
 <!-- ADICIONAR UM NOVO TEXTO -->
-<div id="divBlogNovoTexto">
-	<div class="separador"></div>
+<div id="divBlogNovoTexto">	
 	
 	<table class="tamanhoDefault">
 		<tr>
@@ -94,7 +93,7 @@
 
 <!-- BUSCA DE TEXTO PELO TITULO -->
 <div id="divBlogBuscarTexto">
-	<div class="separador"></div>
+	
 	<table class="tamanhoDefault">
 		<tr>
 		<td><label class="h1">Buscar Texto</label></td>

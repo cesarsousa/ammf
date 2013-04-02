@@ -37,10 +37,10 @@ ${textoEmBranco}
 <div id="divDepoimentosCadastrados">
 
 	<c:forEach items="${depoimentos}" var="depoimento">
-		<div class="cardViewText">
-		<p class="textoPostagemDepoimento">postado em ${depoimento.dataFormatada}</p>
+		<div class="cardViewText">		
 		<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
+		<p class="textoPostagemDepoimento">postado em ${depoimento.dataFormatada}</p>
 		</div>
 		<br/>
 	</c:forEach>

@@ -18,6 +18,14 @@ public class IndexController {
 		this.indexService = indexService;
 		this.sessaoCliente = sessaoCliente;
 	}
+	
+	// TODO lista de tarefas
+	/*
+	 * na pagina de cadastro de pessoas esconder o campo de add nova pessoa, 
+	 * crie um icone add novo e ao clicar usar jquery para mostrar e ocultar o form de add.
+	 * 
+	 * add as funcionalidades de excluir e conformar pessoas de acordo com a tabela em exibição.
+	 */
 
 	@Path("/")
 	public void index(){

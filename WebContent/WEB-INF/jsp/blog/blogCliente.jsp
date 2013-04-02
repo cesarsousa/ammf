@@ -60,7 +60,7 @@
 	<tfoot>		
 		<tr>
 			<th colspan="4" align="center">
-				<h2><a id="goTopo" href="#irTopo">Visualizar outros...</a></h2>
+				<h2><a id="goTopo" href="#irTopo">ler outros textos</a></h2>
 			</th>			
 		</tr>		
 	</tfoot>

@@ -44,7 +44,7 @@ public class DepoimentoController {
 		boolean validado = validacaoService.depoimento(texto, result);		
 		if(validado){
 			pessoaService.cadastrarDepoimento(texto);
-			result.include("msgDepoimento", texto.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, porém aguarda confirmação");
+			result.include("msgDepoimento", texto.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, por&eacute;m aguarda confirma&ccedil;&atilde;o");
 		}else{
 			result.include("msgErroDepoimento", true);
 		}		
