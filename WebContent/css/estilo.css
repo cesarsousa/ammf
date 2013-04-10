@@ -95,6 +95,19 @@ textarea {
 	background-image: url("../image/iconeEditarHover.png");
 }
 
+#btListarTextosBlog {
+	background-image: url("../image/iconeListar.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 50px;
+}
+#btListarTextosBlog:hover{
+	background-image: url("../image/iconeListarHover.png");
+}
+
+
+
 
 .icone {
 	width: 25px;

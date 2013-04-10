@@ -132,13 +132,18 @@ $(document).ready(function() {
 					nome = nome.replace($('#campoBuscaTxtEdtBlog').val(),"<b>" + $('#campoBuscaTxtEdtBlog').val() + "</b>");
 					var conteudo = 	json[i].conteudo.substring(0, 50);		
 					var dataCadastro = getDataFormatada(json[i].postagem.time);
-										
+					var linkRemover = $('#contexto').val() + "/blog/remover/" + json[i].uuid;
+					
 					$('#tabEdtTextoBlog').append(
 						'<tr class="zebrado">' +
 						'<td class="headTabelaBlog2Info">' + dataCadastro + '</td>' +
-						'<td class="headTabelaBlog1Info"><a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')">' + nome + '</td>' +
+						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
-						'</tr>');						
+						'<td>' +
+							'<a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
+							'<a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
+					     	'</td>' +
+						'</tr>');					
 				}
 				
 				if(json.length > 0) $('#resultBuscaTxtBlog').slideDown(1000);

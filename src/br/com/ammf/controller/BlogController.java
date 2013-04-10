@@ -58,11 +58,19 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(texto).exclude("id", "local", "postagem") .serialize();		
 	}
 	
+	@Restrito
+	@Get("/blog/remover/{uuid}")
+	public void removerTexto(String uuid){
+		// TODO logica remover texto blog
+		
+		result.include("blogMensagemSucesso", "O texto foi removido com sucesso.");
+		result.redirectTo(this).editarBlog();		
+	}
+	
 	@Get("/blog/cliente")
 	public void blogCliente(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
-		result.include("textosBlog", textosBlog);
-		
+		result.include("textosBlog", textosBlog);		
 	}	
 	
 	@Get("/blog/cliente/lertexto/{uuid}")

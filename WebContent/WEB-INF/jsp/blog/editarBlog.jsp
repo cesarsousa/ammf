@@ -2,27 +2,20 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<c:if test="${not empty blogMensagemSucesso}">
+	<div class="msgBorder msgSucesso">
+		${blogMensagemSucesso} 
+	</div>
+<div id="separador"></div>
+</c:if>
+
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
-
 
 <div align="center">
 
 <h2>Blog do Miguel</h2>
 <span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o de textos.</span>
-
-<c:if test="${not empty blogMensagemSucesso}">
-<table class="tamanhoDefault">
-	<tr>
-	<td align="center">
-	<div class="msgBorder msgSucesso">
-		${blogMensagemSucesso} 
-	</div>
-</td>
-</tr>
-</table>
-<div id="separador"></div>
-</c:if>
 
 <table class="tamanhoDefault">
 	<tr>
@@ -38,6 +31,10 @@
 	
 	<td class="tdTableIcone">
 	<div id="btEdtTextoBlog" title="Editar um texto" class="ponteiro esquerda"></div>
+	</td>
+	
+	<td class="tdTableIcone">
+	<div id="btListarTextosBlog" title="Listar todos" class="ponteiro esquerda"></div>
 	</td>
 	
 	</tr>
@@ -127,7 +124,8 @@
 						<tr>						
 						<td class="headTabelaBlog2">data da postagem</td>
 						<td class="headTabelaBlog1">t&iacute;tulo</td>
-						<td class="headTabelaBlog1">Conte&uacute;do</td>						
+						<td class="headTabelaBlog1">Conte&uacute;do</td>
+						<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
 						</tr>
 					</thead>
 						
@@ -176,13 +174,14 @@
 				</div>
 				</div>
 				<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
-				</div>
-				<div class="cartao tamanhoEdicaoIndex" style="background: #CCCCCC; padding-top: 20px; padding-bottom: 20px;">
+				
+				<p>
 				<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
 				<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
 				<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
-				</div>
+				</p>
 				
+				</div>
 			</form>			
 			</td>
 		</tr>
