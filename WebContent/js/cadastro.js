@@ -134,7 +134,11 @@ $(document).ready(function() {
 		$('#tabPessoasPendentes').slideUp(500);
 	});
 	
-	$('#admNovoCadastroPessoa').hide();	
+	
+	$('#admNovoCadastroPessoa').hide();
+	if($('#flagCadastroPessoaVazio').val()){
+		$('#admNovoCadastroPessoa').slideDown(500);
+	}
 	$('#iconAddPessoa').toggle(function() {
 		$('#admNovoCadastroPessoa').slideDown(500);		
 	}, function() {

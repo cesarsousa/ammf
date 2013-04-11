@@ -124,6 +124,7 @@ public class MenuController {
 		
 	}
 	
+	// TODO mover para pessoa controller, tela de aguarde ao enviar email esta com layout antigo usar width 100%.
 	@Get("/menu/cadastro")
 	public void cadastro(){}
 	
@@ -141,6 +142,7 @@ public class MenuController {
 				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configura&ccedil;&otilde;es da Conta</b> os seus dados de cadastro.");
 			} 		
 		}else{
+			result.include("flagCadastroPessoaVazio", true);
 			redirecionarParaCadastro();
 		}		
 	}

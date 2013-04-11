@@ -104,7 +104,7 @@ public class PessoaController {
 				e.printStackTrace();
 				redirecionarParaIndex(pessoa);
 			}
-		}else{
+		}else{			
 			redirecionarParaCadastroCliente();
 		}
 	}

@@ -63,6 +63,7 @@
 <div class="separador"></div>
 
 <!-- CADASTRO DE PESSOA -->
+<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
 <div id="admNovoCadastroPessoa">
 
 <table class="tamanhoDefault">
