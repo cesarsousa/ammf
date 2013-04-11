@@ -33,12 +33,14 @@
 	<div id="btEdtTextoBlog" title="Editar um texto" class="ponteiro esquerda"></div>
 	</td>
 	
-	<td class="tdTableIcone">
+	<td class="tdTableIcone">	
 	<div id="btListarTextosBlog" title="Listar todos" class="ponteiro esquerda"></div>
 	</td>
 	
 	</tr>
 </table>
+<!-- submit via javascript -->
+<form id="formBlogListarTodos" action="<c:url value="/blog/listar" />" method="get"></form>
 
 <div class="separador"></div>
 
@@ -106,6 +108,7 @@
 		</tr>		
 	</table>
 </div>
+
 <!-- RESULTADO DA BUSCA DE TEXTO PELO TITULO -->
 <div id="resultBuscaTxtBlog">	
 	<table class="tamanhoDefault">
@@ -143,6 +146,7 @@
 </div>
 
 <!-- EDITAR UM TEXTO -->
+<a name="editarTextoBlog"></a>
 <div id="divBlogEditarTexto">	
 	<table class="tamanhoDefault">
 		<tr>
@@ -182,7 +186,8 @@
 				</p>
 				
 				</div>
-			</form>			
+			</form>
+			<form id="formBtBlogExcluirEdtTexto" method="get"></form>			
 			</td>
 		</tr>
 		<tr>
@@ -193,9 +198,51 @@
 	
 </div> <!-- div center -->
 
+<!-- LISTAR TODOS OS TEXTOS -->
+<input id="flagAdmBlogListar" type="hidden" value="${flagAdmBlogListar}" />
+<c:if test="${not empty textosBlog}">
+<div id="divEditarBlogTodosTextos">
+<div align="center">
+<table class="tamanhoDefault">
+	<tr>
+		<td><label class="h1">Listar todos os textos</label></td>
+	</tr>
+</table>
+</div>
+<table class="display" id="example">
+	<thead align="left">
+		<tr>
+			<th class="metadado">Autor</th>
+			<th class="metadado">T&iacute;tulo</th>
+			<th class="metadado">Texto</th>
+			<th class="metadado">Postagem</th>			
+		</tr>
+	</thead>
+	<tbody>
+ 		<c:forEach items="${textosBlog}" var="texto">
+			<tr class="zebrado">
+				<td class="infoTabela">${texto.autor}</td>
+				<td class="infoTabela metadado ponteiro">
+				<a class="infoTabela metadado" href="#editarTextoBlog" href="#lerTexto" onclick="visualizarTextoParaEdicao('${texto.uuid}')">${texto.titulo}</a>
+				<td class="infoTabela">
+					<c:set var="origem"	value="${texto.conteudo}"/>
+					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
+			</tr>			
+		</c:forEach>		
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
+		</tr>		
+	</tfoot>
+</table>
+</div>
+</c:if>
+
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<div id="footer">
+<%-- <div id="footer">
 <%@ include file="/footer.jsp" %>
-</div>
+</div> --%>

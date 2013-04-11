@@ -59,11 +59,32 @@ public class BlogController {
 	}
 	
 	@Restrito
+	@Get("/blog/listar")
+	public void listarTodos(){
+		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
+		result.include("textosBlog", textosBlog);
+		result.include("flagAdmBlogListar", true);
+		result.redirectTo(this).editarBlog();
+	}
+	
+	@Restrito
 	@Get("/blog/remover/{uuid}")
 	public void removerTexto(String uuid){
-		// TODO logica remover texto blog
-		
+		textoRepository.deletar(uuid);		
 		result.include("blogMensagemSucesso", "O texto foi removido com sucesso.");
+		result.redirectTo(this).editarBlog();		
+	}
+	
+	@Restrito
+	@Post("/blog/atualiza")
+	public void atualizarTexto(Texto texto){
+		Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
+		textoOriginal.setAutor(texto.getAutor());
+		textoOriginal.setTitulo(texto.getTitulo());
+		textoOriginal.setConteudo(texto.getConteudo());
+		textoRepository.atualizar(textoOriginal);		
+		
+		result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
 		result.redirectTo(this).editarBlog();		
 	}
 	

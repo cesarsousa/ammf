@@ -38,6 +38,8 @@ public class PessoaController {
 		this.pessoaService = pessoaService;
 	}
 	
+	// TODO add flag para slide dowm quando tentar cadastrar uma pessoa vazia.
+	
 	@Restrito
 	@Get("/pessoa/listar")
 	public void listarPessoas(){
