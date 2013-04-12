@@ -5,6 +5,7 @@
 <tr align="center">
 	<td>
 	<div style="color: #FFFFFF; font-weight: bold;">
+	<form id="formLogout" action="<c:url value="/logout" />"></form>
 	ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). 
 	</div>
 	</td>
@@ -16,4 +17,3 @@
 </tr>
 </table>
 </div>
-<form id="formLogout" action="<c:url value="/logout" />"></form>

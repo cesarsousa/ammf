@@ -300,5 +300,6 @@
 </div> <!-- wrap -->
 
 <%-- <div id="footer">
-<%@ include file="/footer.jsp" %>
-</div> --%>
+<%@ include file="/footerADM.jsp" %>
+</div>
+ --%>
