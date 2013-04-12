@@ -12,6 +12,7 @@ import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.MenuService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -24,21 +25,47 @@ public class PessoaController {
 	
 	private Result result;
 	private PessoaRepository pessoaRepository;
+	private MenuService menuService;
 	private ValidacaoService validacaoService;
 	private PessoaService pessoaService;
 	
 	public PessoaController(
 			Result result, 
 			PessoaRepository pessoaRepository,
+			MenuService menuService,
 			ValidacaoService validacaoService,
 			PessoaService pessoaService){
 		this.result = result;
 		this.pessoaRepository = pessoaRepository;
+		this.menuService = menuService;
 		this.validacaoService = validacaoService;
 		this.pessoaService = pessoaService;
 	}
 	
-	// TODO add flag para slide dowm quando tentar cadastrar uma pessoa vazia.
+	@Restrito
+	@Get("/menu/cadastro")
+	public void cadastro(){}
+	
+	@Restrito
+	@Post("/menu/cadastrar")
+	public void cadastrar(Pessoa pessoa){
+				
+		boolean validado = validacaoService.pessoa(pessoa, result);
+		if(validado){			
+			try {
+				menuService.cadastrar(pessoa);
+				menuService.enviarEmailNotificacaoCadastro(pessoa);
+				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+			} catch (EmailException e) {				
+				e.printStackTrace();
+				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configura&ccedil;&otilde;es da Conta</b> os seus dados de cadastro.");
+			} 		
+		}else{
+			result.include("flagCadastroPessoaVazio", true);
+			redirecionarParaCadastroAdmin();
+		}		
+	}
+	
 	
 	@Restrito
 	@Get("/pessoa/listar")
@@ -75,7 +102,7 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obter(uuid);		
 		pessoaRepository.remover(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
-		result.redirectTo(MenuController.class).cadastro();		
+		result.redirectTo(this).cadastro();		
 	}
 		
 	@Restrito
@@ -111,12 +138,19 @@ public class PessoaController {
 
 	private void redirecionarParaIndex(Pessoa pessoa) {
 		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve você receberá uma confirmação por email.");
-		result.redirectTo(IndexController.class).index();
-		
+		result.redirectTo(IndexController.class).index();		
 	}
 
 	private void redirecionarParaCadastroCliente() {
 		result.redirectTo(this).cadastroCliente();		
 	}
-
+	
+	private void redirecionarParaCadastroAdmin() {
+		result.redirectTo(this).cadastro();		
+	}
+	
+	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
+		result.include(nomeMensagem, mensagem);
+		result.forwardTo(MenuController.class).menu();
+	}
 }

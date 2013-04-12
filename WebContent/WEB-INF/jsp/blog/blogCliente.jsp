@@ -15,7 +15,6 @@
 </p>
 </div>
 
-<a name="irTopo"></a>
 <table class="display" id="example">
 	<thead align="left">
 		<tr>
@@ -45,7 +44,7 @@
 		</tr>		
 	</tfoot>
 </table>
-
+<a name="irTopo"></a>
 <a name="lerTexto"></a>
 <table id="textoModoLeitura" class="cardViewText" align="center">	
 	<tbody>

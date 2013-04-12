@@ -40,7 +40,7 @@ public class MenuController {
 	@Restrito
 	public void menu(){
 		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
-		// TODO lista de notificações
+		// TODO listar de notificacoes
 	}
 	
 	@Post("/menu/adm")
@@ -122,36 +122,6 @@ public class MenuController {
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.");
 		}
 		
-	}
-	
-	// TODO mover para pessoa controller, tela de aguarde ao enviar email esta com layout antigo usar width 100%.
-	@Get("/menu/cadastro")
-	public void cadastro(){}
-	
-	@Post("/menu/cadastrar")
-	public void cadastrar(Pessoa pessoa){
-				
-		boolean validado = validacaoService.pessoa(pessoa, result);
-		if(validado){			
-			try {
-				menuService.cadastrar(pessoa);
-				menuService.enviarEmailNotificacaoCadastro(pessoa);
-				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
-			} catch (EmailException e) {				
-				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configura&ccedil;&otilde;es da Conta</b> os seus dados de cadastro.");
-			} 		
-		}else{
-			result.include("flagCadastroPessoaVazio", true);
-			redirecionarParaCadastro();
-		}		
-	}
-	
-	
-	
-	
-	private void redirecionarParaCadastro() {
-		result.redirectTo(this).cadastro();		
 	}
 
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
