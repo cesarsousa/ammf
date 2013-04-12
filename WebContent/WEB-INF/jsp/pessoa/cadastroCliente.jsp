@@ -9,10 +9,11 @@
 </c:if>
 </div>
 
-<%@ include file="/headerSite.jsp" %>
-<%@ include file="/menuPrincipal.jsp" %>
+<%@ include file="/headerSite.jsp"%>
 
 <div id="divPgCadastroCliente" align="center">
+
+<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>

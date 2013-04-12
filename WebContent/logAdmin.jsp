@@ -13,7 +13,6 @@
 	<td style="height: 100%">
 	<div id="btLogout" class="msgBorderAdm msgLogout ponteiro">Sair</div>
 	</td>
-
 </tr>
 </table>
 </div>

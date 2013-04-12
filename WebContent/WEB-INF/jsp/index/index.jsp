@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ include file="/headerLib.jsp" %>
+<%@ include file="/headerQuiron.jsp" %>
+
 <c:if test="${not empty msgIndex}">
 	<div class="msgBorder msgSucesso closeClick ponteiro">${msgIndex}</div>
 	<br/>
 </c:if>
 
-<%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 

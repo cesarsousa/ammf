@@ -1,16 +1,12 @@
 package br.com.ammf.controller;
 
-import java.util.List;
-
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
-import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
