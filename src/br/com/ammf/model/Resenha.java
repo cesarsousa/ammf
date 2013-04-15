@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -27,6 +29,12 @@ public class Resenha implements Serializable {
 	
 	@Column(length=45)
 	private String uuid = UUID.randomUUID().toString();
+			
+	private String tipo;
+	
+	private String genero;
+	
+	private String autor;
 	
 	private String titulo;
 	

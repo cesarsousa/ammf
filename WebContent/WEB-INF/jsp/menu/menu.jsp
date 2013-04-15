@@ -372,7 +372,7 @@
 				</li>
 				
 				<li>
-				<form>
+				<form action="<c:url value="/resenha/editar" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
 				</li>

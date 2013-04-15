@@ -2,9 +2,9 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<c:if test="${not empty blogMensagemSucesso}">
+<c:if test="${not empty resenhaMensagemSucesso}">
 	<div class="msgBorder msgSucesso">
-		${blogMensagemSucesso} 
+		${resenhaMensagemSucesso} 
 	</div>
 <div id="separador"></div>
 </c:if>
@@ -14,8 +14,8 @@
 
 <div align="center">
 
-<h2>Blog do Miguel</h2>
-<span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o de textos.</span>
+<h2>Resenha</h2>
+<span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o de resenhas.</span>
 
 <table class="tamanhoDefault">
 	<tr>
