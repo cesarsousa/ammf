@@ -115,15 +115,11 @@
 </table>
 </div>
 
-
-<table id="tabBuscaPessoa" class="tamanhoDefault">
-	<tr>
-	<td><label class="h1">Buscar pessoa</label></td>
-	</tr>
-	<tr>
-		<td>
+<table id="tabBuscaPessoa" class="tamanhoDefault">	
+	<tr>		
+		<td class="degrade centralizar" style="padding: 10px;">
 		<form id="formBuscaPessoa">
-		<input id="campoBusca" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao"/>
+		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
 		</form>
 		<p>
 		<label id="labelResultadoConsulta"></label>		
