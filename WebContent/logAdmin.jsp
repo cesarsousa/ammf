@@ -4,6 +4,7 @@
 <table id="tabLogAdm">
 <tr align="center">
 	<td>
+	<form id="formLogout" action="<c:url value="/logout" />"></form>
 	<div style="color: #FFFFFF; font-weight: bold;">
 	ADMINISTRADOR - Voc&ecirc; est&aacute; logado como ${sessaoUsuario.usuario.nome} (${sessaoUsuario.usuario.email}). 
 	</div>
@@ -16,4 +17,3 @@
 </tr>
 </table>
 </div>
-<form id="formLogout" action="<c:url value="/logout" />"></form>
