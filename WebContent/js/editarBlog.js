@@ -30,7 +30,7 @@
 }*/
 
 function hideAllBlogFields(){
-	$('#divBlogNovoTexto, #divBlogBuscarTexto, #resultBuscaTxtBlog, #divBlogEditarTexto').hide();
+	$('#divBlogNovoTexto, #divBlogBuscarTexto, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos').hide();
 }
 
 function visualizarTextoParaEdicao(uuid){	
@@ -61,6 +61,9 @@ $(document).ready(function() {
 	$('#blogConteudoNovoTexto').autoResize();
 	
 	hideAllBlogFields();
+	if($('#flagAdmBlogListar').val()){
+		$('#divEditarBlogTodosTextos').show();
+	}
 	
 	$('#btAddTextoBlog').click(function(){
 		hideAllBlogFields();		
@@ -90,6 +93,13 @@ $(document).ready(function() {
 	
 	$('#btBlogCancelEdtTexto').click(function(){		
 		$('#divBlogEditarTexto').slideUp(500);		
+	});
+	
+	$('#btBlogExcluirEdtTexto').click(function(){
+		var action = $('#contexto').val() + "/blog/remover/" + $('#blogEdtUuidTexto').val();
+		alert(action);
+		$('#formBtBlogExcluirEdtTexto').attr('action', action);
+		$('#formBtBlogExcluirEdtTexto').submit();
 	});	
 	
 	$('#formBlogNovoTexto').submit(function(event){		
@@ -97,6 +107,10 @@ $(document).ready(function() {
 			event.preventDefault();
 			alert("Por favor digite o título e o conteúdo do texto antes de cadastrar !");
 		}		
+	});
+	
+	$('#btListarTextosBlog').click(function(){		
+		$('#formBlogListarTodos').submit();
 	});
 	
 	$('#formBlogEditarTexto').submit(function(event){		
@@ -132,13 +146,18 @@ $(document).ready(function() {
 					nome = nome.replace($('#campoBuscaTxtEdtBlog').val(),"<b>" + $('#campoBuscaTxtEdtBlog').val() + "</b>");
 					var conteudo = 	json[i].conteudo.substring(0, 50);		
 					var dataCadastro = getDataFormatada(json[i].postagem.time);
-										
+					var linkRemover = $('#contexto').val() + "/blog/remover/" + json[i].uuid;
+					
 					$('#tabEdtTextoBlog').append(
 						'<tr class="zebrado">' +
 						'<td class="headTabelaBlog2Info">' + dataCadastro + '</td>' +
-						'<td class="headTabelaBlog1Info"><a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')">' + nome + '</td>' +
+						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
-						'</tr>');						
+						'<td>' +
+							'<a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
+							'<a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
+					     	'</td>' +
+						'</tr>');					
 				}
 				
 				if(json.length > 0) $('#resultBuscaTxtBlog').slideDown(1000);
@@ -154,5 +173,8 @@ $(document).ready(function() {
 			}
 		});	
 		
-	});	
+	});
+	
+
+	
 });

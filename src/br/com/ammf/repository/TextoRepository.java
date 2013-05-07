@@ -43,7 +43,7 @@ public interface TextoRepository {
 
 	public void confirmarDepoimento(String uuid);
 	
-	public void deletarDepoimento(String uuid);
+	public void deletar(String uuid);
 
 	public int obterTotalDepoimentosCadastrados();
 
@@ -53,6 +53,10 @@ public interface TextoRepository {
 
 	public List<Texto> listarDepoimentosPorNomeEEmail(String paramConsulta);
 
-	public List<Texto> listarDepoimentosTodos();	
+	public List<Texto> listarDepoimentosTodos();
+
+	public long obterId(String uuid);
+
+	public void atualizar(Texto texto);	
 
 }

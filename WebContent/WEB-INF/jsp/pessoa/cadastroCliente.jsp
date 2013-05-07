@@ -1,3 +1,7 @@
+
+<%@ include file="/headerLib.jsp" %>
+<%@ include file="/headerQuiron.jsp" %>
+
 <div id="divMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
 	<div class="msgBorder msgErro closeClick">
@@ -5,12 +9,11 @@
 </c:if>
 </div>
 
-<%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerQuiron.jsp" %>
-<%@ include file="/headerSite.jsp" %>
-<%@ include file="/menuPrincipal.jsp" %>
+<%@ include file="/headerSite.jsp"%>
 
 <div id="divPgCadastroCliente" align="center">
+
+<%@ include file="/menuPrincipal.jsp" %>
 
 <h2>Cadastro de Pessoa</h2>
 <span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
@@ -38,9 +41,9 @@
 		<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	</c:if>
 	
-	<br/><br/>
-	
+	<br/><br/>	
 	<input id="btnClienteCadastrar" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
+	<br/>
 </form>
 </div>
 
@@ -58,7 +61,7 @@
 </table> --%>
 
 
-</div>
+</div> <!-- centralizacao -->
 
 <div id="telaAguardeCadastroCliente">
 	<div align="center">

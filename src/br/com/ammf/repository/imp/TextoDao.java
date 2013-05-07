@@ -171,7 +171,7 @@ public class TextoDao implements TextoRepository{
 	}
 	
 	@Override
-	public void deletarDepoimento(String uuid) {
+	public void deletar(String uuid) {
 		Criteria criteria = session.createCriteria(Texto.class);
 		criteria.add(Restrictions.eq("uuid", uuid));
 		Texto texto = (Texto) criteria.uniqueResult();
@@ -220,5 +220,21 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
 		criteria.addOrder(Order.desc("postagem"));
 		return criteria.list();
+	}
+
+	@Override
+	public long obterId(String uuid) {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		Texto texto = (Texto) criteria.uniqueResult();
+		return texto.getId();
+	}
+
+	@Override
+	public void atualizar(Texto texto) {
+		Transaction transaction = session.beginTransaction();
+		session.update(texto);
+		transaction.commit();
+		
 	}
 }

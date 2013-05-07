@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ include file="/headerLib.jsp" %>
+<%@ include file="/headerQuiron.jsp" %>
+
 <c:if test="${empty flagErroDepoimento}">
 <input id="flagErroDepoimento" type="hidden" value="false" />
 </c:if>
@@ -21,8 +24,7 @@ ${textoEmBranco}
 <br/>
 </c:if>
 
-<%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerQuiron.jsp" %>
+
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 

@@ -6,7 +6,7 @@
 
 	<session-factory>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
@@ -20,6 +20,8 @@
 		<mapping class="br.com.ammf.model.Usuario" />
 		<mapping class="br.com.ammf.model.Texto" />
 		<mapping class="br.com.ammf.model.Pessoa" />
+		<mapping class="br.com.ammf.model.Resenha" />
+		<mapping class="br.com.ammf.model.Opcao" />
 		
 	</session-factory>
 </hibernate-configuration>

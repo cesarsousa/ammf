@@ -70,7 +70,7 @@ public class DepoimentoController {
 	@Restrito
 	@Get("/menu/depoimentos/excluir/{uuid}")
 	public void excluirDepoimento(String uuid){
-		textoRepository.deletarDepoimento(uuid);
+		textoRepository.deletar(uuid);
 		result.include("msgDepoimento", "Depoimento exclu&iacute;do com sucesso");
 		result.redirectTo(this).depoimentos();
 	}
