@@ -73,7 +73,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}else{
 			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
-				result.include("emailEmBranco", "O email já está cadastrado no site");
+				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " já está cadastrado neste site");
 				//result.include("opcaoCadastro", true); // ??
 				validada = false;
 			}
