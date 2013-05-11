@@ -2,7 +2,6 @@ package br.com.ammf.repository.imp;
 
 import java.util.List;
 
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,10 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import com.sun.mail.handlers.text_html;
-
 import br.com.ammf.model.Local;
-import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -144,31 +140,6 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.eq("local", Local.BLOG));
 		return criteria.list();
 	}
-
-	@Override
-	public List<Texto> listarDepoimentos(boolean statusConfirmado) {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		criteria.add(Restrictions.eq("confirmado", statusConfirmado));
-		criteria.addOrder(Order.desc("postagem"));
-		return criteria.list();
-	}
-
-	@Override
-	public int totalDepoimentosPendentes() {
-		return listarDepoimentos(false).size();
-	}
-
-	@Override
-	public void confirmarDepoimento(String uuid) {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("uuid", uuid));
-		Texto texto = (Texto) criteria.uniqueResult();
-		texto.setConfirmado(true);
-		Transaction transaction = session.beginTransaction();
-		session.update(texto);
-		transaction.commit();		
-	}
 	
 	@Override
 	public void deletar(String uuid) {
@@ -179,48 +150,7 @@ public class TextoDao implements TextoRepository{
 		Transaction transaction = session.beginTransaction();
 		session.delete(texto);
 		transaction.commit();		
-	}
-
-	@Override
-	public int obterTotalDepoimentosCadastrados() {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		return criteria.list().size();
-	}
-
-	@Override
-	public int obterTotalDepoimentosConfirmados() {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		criteria.add(Restrictions.eq("confirmado", true));
-		return criteria.list().size();
-	}
-
-	@Override
-	public int obterTotalDepoimentosPendentes() {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		criteria.add(Restrictions.eq("confirmado", false));
-		return criteria.list().size();
-	}
-
-	@Override
-	public List<Texto> listarDepoimentosPorNomeEEmail(String paramConsulta) {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		criteria.add(Restrictions.or(
-				Restrictions.like("autor", "%" + paramConsulta + "%"), 
-				Restrictions.like("titulo", "%" + paramConsulta + "%")));		
-		return criteria.list();
-	}
-
-	@Override
-	public List<Texto> listarDepoimentosTodos() {
-		Criteria criteria = session.createCriteria(Texto.class);
-		criteria.add(Restrictions.eq("local", Local.DEPOIMENTO));
-		criteria.addOrder(Order.desc("postagem"));
-		return criteria.list();
-	}
+	}	
 
 	@Override
 	public long obterId(String uuid) {

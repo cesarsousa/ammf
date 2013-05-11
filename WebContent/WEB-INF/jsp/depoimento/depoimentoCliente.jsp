@@ -67,10 +67,10 @@ ${textoEmBranco}
 		<td width="50%" align="right" valign="top"><label class="labelForm2">Nome:</label></td>
 		<td width="50%" align="left">
 			<c:if test="${not empty nomeEmBranco}">		
-			<input id="cadastroDepoimentoNome" type="text" name="texto.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+			<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 			</c:if>
 			<c:if test="${empty nomeEmBranco}">		
-				<input id="cadastroDepoimentoNome" type="text" name="texto.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 			</c:if>
 		</td>
 	</tr>
@@ -78,10 +78,10 @@ ${textoEmBranco}
 		<td width="50%" align="right" valign="top"><label class="labelForm2">Email:</label></td>
 		<td width="50%" align="left">
 			<c:if test="${not empty emailEmBranco}">		
-				<input id="cadastroDepoimentoEmail" type="text" name="texto.titulo" value="${novoComentario.titulo}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+				<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 			</c:if>
 			<c:if test="${empty emailEmBranco}">		
-				<input id="cadastroDepoimentoEmail" type="text" name="texto.titulo" value="${novoComentario.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 			</c:if>
 		</td>
 	</tr>
@@ -89,10 +89,10 @@ ${textoEmBranco}
 		<td width="50%" align="right" valign="top"><label class="labelForm2">Depoimento:</label></td>
 		<td width="50%" align="left">
 			<c:if test="${not empty textoEmBranco}">		
-				<textarea id="cadastroDepoimentoTexto" name="texto.conteudo" class="letraCinza largura100 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
+				<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura100 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
 			</c:if>
 			<c:if test="${empty textoEmBranco}">		
-				<textarea id="cadastroDepoimentoTexto" name="texto.conteudo" class="letraCinza largura100 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
+				<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura100 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
 			</c:if>
 		</td>
 	</tr>

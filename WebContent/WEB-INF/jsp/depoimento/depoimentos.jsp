@@ -33,7 +33,7 @@
     	<div class="cardDepoimento depsCadAll fundoAzulClaro">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
     	<br/>
-    	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar todos</a> | 
+    	<a href="<c:url value="/adm/depoimentos/cadastrados" />">Visualizar</a> | 
     	<a>Remover todos</a>    	
     	</div>
     </td>
@@ -41,7 +41,7 @@
 		<div class="cardDepoimento depsCadExib fundoVerde">
 		${totalDepoimentosExibidos} depoimentos em exibi&ccedil;&atilde;o
 		<br/>		
-    	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar todos</a> |
+    	<a href="<c:url value="/adm/depoimentos/confirmados" />">Visualizar</a> |
     	<a>Remover todos</a>
     	</div>
 	</td>
@@ -49,7 +49,7 @@
 		<div class="cardDepoimento depsCadPend fundoVermelho">
 		${totalDepoimentosPendentes} depoimentos pendentes confirma&ccedil;&atilde;o
     	<br/>		
-    	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar todos</a> |
+    	<a href="<c:url value="/adm/depoimentos/pendentes" />">Visualizar</a> |
     	<a id="btRemoverTodosDepoimentos" href="removertodos">Remover todos</a>
     	</div>
 	</td>
@@ -124,16 +124,16 @@
 				<tbody>
 				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
 					
-					<c:if test="${depoimento.confirmado}">
+					<%-- <c:if test="${depoimento.confirmado}">
 						<c:set var="cssBack" value="fundoTabVerde" />						
 					</c:if>
 					<c:if test="${not depoimento.confirmado}">
 						<c:set var="cssBack" value="fundoTabVermelho" />
-					</c:if>
+					</c:if> --%>
 										
 					<tr class="zebrado ${cssBack}">
 						<td class="infoTabela">${depoimento.autor}</td>
-						<td class="infoTabela">${depoimento.titulo}</td>
+						<td class="infoTabela">${depoimento.email}</td>
 						<td class="infoTabela">${depoimento.dataFormatada}</td>
 						<td class="infoTabela" align="center">
 							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>

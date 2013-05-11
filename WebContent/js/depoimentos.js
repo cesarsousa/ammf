@@ -23,7 +23,7 @@ $(document).ready(function() {
 				for(var i = 0; i< json.length; i++){
 					var nome = json[i].autor;
 					nome = nome.replace($('#campoBuscaDepoimento').val(),"<b>" + $('#campoBuscaDepoimento').val() + "</b>");
-					var email = json[i].titulo;
+					var email = json[i].email;
 					email = email.replace($('#campoBuscaDepoimento').val(),"<b>" + $('#campoBuscaDepoimento').val() + "</b>");
 					
 					var dataCadastro = getDataFormatada(json[i].postagem.time);

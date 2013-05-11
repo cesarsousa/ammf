@@ -116,14 +116,11 @@ public class MenuController {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre artes orientais atualizado com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.");
-		}
-		
+		}		
 	}
 
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
 		result.include(nomeMensagem, mensagem);
 		result.forwardTo(this).menu();
-	}
-	
-	
+	}	
 }

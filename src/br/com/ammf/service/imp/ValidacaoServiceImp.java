@@ -1,5 +1,6 @@
 package br.com.ammf.service.imp;
 
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
@@ -18,32 +19,32 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean depoimento(Texto texto, Result result) {
+	public boolean depoimento(Depoimento depoimento, Result result) {
 		/*texto.setAutor(texto.getAutor().trim());
 		texto.setTitulo(texto.getTitulo().trim());
 		texto.setConteudo(texto.getConteudo().trim());*/		
 		
 		boolean validado = true;
-		if(texto.getAutor() == null || texto.getAutor().isEmpty() || "DIGITE O SEU NOME".equalsIgnoreCase(texto.getAutor())){
+		if(depoimento.getAutor() == null || depoimento.getAutor().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado<br/>");
 			validado = false;
 		}
 		
-		if(texto.getTitulo() == null || texto.getTitulo().isEmpty() || "DIGITE O SEU EMAIL".equalsIgnoreCase(texto.getTitulo()) ){
+		if(depoimento.getEmail() == null || depoimento.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado<br/>");
 			validado = false;
-		}else if(!emailValido(texto.getTitulo())){
+		}else if(!emailValido(depoimento.getEmail())){
 			result.include("emailEmBranco", "O email está com formato inválido<br/>");
 			validado = false;
 		}		
 		
-		if(texto.getConteudo() == null || texto.getConteudo().isEmpty() || "DIGITE O SEU DEPOIMENTO".equalsIgnoreCase(texto.getConteudo())){
+		if(depoimento.getConteudo() == null || depoimento.getConteudo().isEmpty()){
 			result.include("textoEmBranco", "O depoimento deve ser informado<br/>");
 			validado = false;
 		}
 		
 		if(!validado){
-			result.include("novoComentario", texto);
+			result.include("novoComentario", depoimento);
 			
 			/*
 			 * flag para a pagina depoimentoCliente.jsp fechar a listagem dos depoimentos cadastrados 

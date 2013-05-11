@@ -53,11 +53,4 @@ public class PessoaServiceImp implements PessoaService{
 				HtmlMensagem.getMensagemCadastroPessoaPeloCliente(pessoa, administrador.getLinkedin()));
 	}
 
-	@Override
-	public void cadastrarDepoimento(Texto texto) {
-		texto.setLocal(Local.DEPOIMENTO);
-		texto.setConfirmado(false);
-		textoRepository.cadastrar(texto);		
-	}
-
 }

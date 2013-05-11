@@ -1,5 +1,6 @@
 package br.com.ammf.service;
 
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
@@ -13,6 +14,6 @@ public interface ValidacaoService {
 
 	void verificarCamposPreenchidos(Texto texto);
 
-	boolean depoimento(Texto texto, Result result);
+	boolean depoimento(Depoimento depoimento, Result result);
 
 }

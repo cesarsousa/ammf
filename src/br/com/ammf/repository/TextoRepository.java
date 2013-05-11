@@ -35,25 +35,9 @@ public interface TextoRepository {
 	
 	public void atualizarTextoArtesOrientais(Texto texto);
 
-	public List<Texto> listarTitulos(String titulo);
-
-	public List<Texto> listarDepoimentos(boolean statusConfirmado);
-
-	public int totalDepoimentosPendentes();
-
-	public void confirmarDepoimento(String uuid);
+	public List<Texto> listarTitulos(String titulo);	
 	
-	public void deletar(String uuid);
-
-	public int obterTotalDepoimentosCadastrados();
-
-	public int obterTotalDepoimentosConfirmados();
-
-	public int obterTotalDepoimentosPendentes();
-
-	public List<Texto> listarDepoimentosPorNomeEEmail(String paramConsulta);
-
-	public List<Texto> listarDepoimentosTodos();
+	public void deletar(String uuid);	
 
 	public long obterId(String uuid);
 

@@ -11,6 +11,4 @@ public interface PessoaService {
 
 	void notificarCadastroPelocliente(Pessoa pessoa) throws EmailException;
 
-	void cadastrarDepoimento(Texto texto);
-
 }

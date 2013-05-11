@@ -9,6 +9,7 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
+import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
@@ -23,14 +24,17 @@ public class MenuServiceImp implements MenuService{
 	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
 	private PessoaRepository pessoaRepository;
+	private DepoimentoRepository depoimentoRepository;
 	
 	public MenuServiceImp(
 			SessaoUsuario sessaoUsuario,
 			TextoRepository textoRepository,
-			PessoaRepository pessoaRepository){
+			PessoaRepository pessoaRepository,
+			DepoimentoRepository depoimentoRepository){
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
+		this.depoimentoRepository = depoimentoRepository;
 	}
 
 	@Override
@@ -83,8 +87,9 @@ public class MenuServiceImp implements MenuService{
 	private List<String> atualizarListaDeNotificacoes() {
 		List<String> notificacoes = new ArrayList<String>();
 		
-		if(textoRepository.totalDepoimentosPendentes() > 0){
-			notificacoes.add("<b>depoimento:</b> "+ textoRepository.totalDepoimentosPendentes() + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
+		int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
+		if(totalDepoimentosPendentes > 0){
+			notificacoes.add("<b>depoimento:</b> "+ totalDepoimentosPendentes + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
 		if(pessoaRepository.totalCadastrosPendentes() > 0){
