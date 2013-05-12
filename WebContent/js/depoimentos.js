@@ -8,12 +8,11 @@ $(document).ready(function() {
 	$('#campoBuscaDepoimento').puts('DIGITE O NOME DA PESSOA');
 	addRemoveDestaque('#campoBuscaDepoimento');
 	
-	$('#tabDepoimentosPendentes').hide();
 	
-	$('#metadadoBuscaDepoimento').hide();
-	$('#formBuscaDepoimento').submit(function(event){
+	/*$('#metadadoBuscaDepoimento').hide();*/
+	/*$('#formBuscaDepoimento').submit(function(event){
 		event.preventDefault();
-		/*$('#conteudoConsultaPessoas').slideUp(500);*/
+		$('#conteudoConsultaPessoas').slideUp(500);
 		$.ajax({
 			type : 'GET',
 			url : $('#contexto').val() + "/menu/busca/depoimento",
@@ -30,7 +29,7 @@ $(document).ready(function() {
 					var linkRemover = $('#contexto').val() + "/menu/depoimentos/excluir/" + json[i].uuid;
 					
 					var tagConfirmacao;
-					var confirmado = json[i].confirmado;
+					var confirmado = json[i].status == "CONFIRMADO" ? true : false;
 					if(confirmado){
 						tagConfirmacao = '';
 					}else{
@@ -44,7 +43,8 @@ $(document).ready(function() {
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabelaConteudo">' + json[i].conteudo + '</td>' +
-						'<td class="infoTabelaData">' + dataCadastro + '</td>' +						
+						'<td class="infoTabelaData">' + dataCadastro + '</td>' +
+						'<td class="infoTabela ' + json[i].status + '">' + json[i].status + '</td>' +												
 						'<td><a href="'+ linkRemover + '"><img class="ponteiro" alt="nao aceitar" src="../image/icone_excluir.png" width="20px" height="20px" title="nao aceitar"></a>' + tagConfirmacao + '</td>' +
 						'</tr>');						
 				}
@@ -61,7 +61,7 @@ $(document).ready(function() {
 			error : function(){
 				alert("Servidor indisponivel no momento, por favor tente mais tarde!");				
 			}
-		});
+		});*/
 	});
 	
 	$('#btFecharDepoimentosSolicitados').click(function(){

@@ -59,43 +59,57 @@
 
 <div class="separador"></div>
 
-<table class="tamanhoDefault">
+<table class="grid">
 <thead>
 <tr>	
-	<td colspan="4" align="center" valign="middle"><label id="labelResultadoConsulta">Busca de depoimentos pelo nome ou email</label></td>	
+	<td colspan="5" align="center" valign="middle"><label id="labelResultadoConsulta">Busca de depoimentos pelo nome ou email</label></td>	
 </tr>
 <tr>
-	<td colspan="4">
+	<td colspan="5">
 		<div align="center">
-		<form id="formBuscaDepoimento">
-				<input id="campoBuscaDepoimento" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
+		<form id="formBuscaDepoimento" action="<c:url value="/menu/busca/depoimento" />" method="get">
+				<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa areaTitulo3 bordaPadrao"/>
 		</form>
 		</div>
 	</td>
 </tr>
 </thead>
+</table>
 
+<table class="display" id="example">
 <thead id="metadadoBuscaDepoimento">
 	<tr>
 	<td class="metadado">nome</td>
 	<td class="metadado">email</td>
 	<td class="metadado">depoimento</td>
-	<td class="metadado">postagem</td>				
+	<td class="metadado">postagem</td>
+	<td class="metadado">status</td>				
 	<td class="metadado">O que fazer?</td>
 	</tr>
 </thead>
 
 
 <tbody id="resultBuscaDepoimento">
-
+<c:forEach items="${depoimentosSolicitados}" var="depoimento">
+<tr class="zebrado">
+<td class="infoTabela">${depoimento.autor}</td>
+<td class="infoTabela">${depoimento.email}</td>
+<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
+<td class="infoTabelaData">${depoimento.dataFormatada}</td>
+<td class="infoTabela">${depoimento.status}</td>
+<td class="infoTabela" align="center">
+	<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
+	<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
+</td>
+</c:forEach>
 </tbody>
 
 </table>
 
-<div class="separador"></div>
 
 
-<c:if test="${not empty depoimentosSolicitados}">
+
+<%-- <c:if test="${not empty depoimentosSolicitados}">
 <div id="tabDepoimentosSolicitados">	
 <table class="tamanhoDefault">
 	<tr>
@@ -124,12 +138,12 @@
 				<tbody>
 				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
 					
-					<%-- <c:if test="${depoimento.confirmado}">
+					<c:if test="${depoimento.confirmado}">
 						<c:set var="cssBack" value="fundoTabVerde" />						
 					</c:if>
 					<c:if test="${not depoimento.confirmado}">
 						<c:set var="cssBack" value="fundoTabVermelho" />
-					</c:if> --%>
+					</c:if>
 										
 					<tr class="zebrado ${cssBack}">
 						<td class="infoTabela">${depoimento.autor}</td>
@@ -155,7 +169,7 @@
 	</tr>
 </table>
 </div>
-</c:if>
+</c:if> --%>
 
 </div> <!-- centralizacao -->
 

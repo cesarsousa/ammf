@@ -76,9 +76,11 @@ public class DepoimentoController {
 	
 	@Restrito
 	@Get("/menu/busca/depoimento")
-	public void listarDepoimentos(String paramConsulta){		
-		List<Depoimento> depoimentos = depoimentoRepository.listarPorNomeEEmail(paramConsulta);		
-		result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();		
+	public void listarDepoimentos(String paramConsulta){
+		List<Depoimento> depoimentos = depoimentoRepository.listarPorNomeEEmail(paramConsulta);
+		result.include("depoimentosSolicitados", depoimentos);
+		result.redirectTo(this).depoimentos();
+		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/		
 	}
 	
 	@Restrito
