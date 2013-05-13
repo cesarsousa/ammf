@@ -59,7 +59,7 @@ ${textoEmBranco}
 	</p>
 	
 	<p align="center">
-	<span id="btNovoDepoimento" class="info azulClaro altura30 ponteiro xLarge" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
+	<span id="btNovoDepoimento" class="info azulClaro altura30 ponteiro xLarge destaqueLetraHover" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
 	</p>
 	
 	<table id="divNovoDepoimento"  width="100%">

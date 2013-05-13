@@ -61,8 +61,8 @@ $(document).ready(function() {
 			error : function(){
 				alert("Servidor indisponivel no momento, por favor tente mais tarde!");				
 			}
-		});*/
-	});
+		});
+	});*/
 	
 	$('#btFecharDepoimentosSolicitados').click(function(){
 		$('#tabDepoimentosSolicitados').slideUp(1000);

@@ -216,6 +216,10 @@ a:HOVER {
 	box-shadow: 2px 2px 2px #8B8484;
 }
 
+.destaqueLetraHover:hover {
+	text-shadow: #696969 0.1em 0.1em 0.2em;
+}
+
 .divOwner {	
     border-radius: 3px 3px 3px 3px;
     box-shadow: 2px 2px 2px #CCCCCC;
