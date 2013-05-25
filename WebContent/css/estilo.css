@@ -118,8 +118,15 @@ textarea {
 	background-image: url("../image/iconeListarHover.png");
 }
 
+.hrClass {
+	width: 99%;
+	border: 1px dashed #CCCCCC;
+	 
+}
 
-
+.negrito {
+	font-weight: bold;
+}
 
 .icone {
 	width: 25px;
@@ -764,6 +771,10 @@ a:HOVER {
 
 .largura100 {
 	width: 100%;
+}
+
+.largura90 {
+	width: 98%;
 }
 
 .altura30 {
