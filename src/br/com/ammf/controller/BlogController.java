@@ -91,6 +91,8 @@ public class BlogController {
 	@Get("/blog/cliente")
 	public void blogCliente(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
+		Texto ultimaPublicacao = textoRepository.obterPor(textoRepository.obterUuidUltimaPublicacao());
+		result.include("ultimaPublicacao", ultimaPublicacao);
 		result.include("textosBlog", textosBlog);		
 	}	
 	
