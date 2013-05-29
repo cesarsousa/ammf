@@ -15,6 +15,27 @@
 </p>
 </div>
 
+<div align="center">
+<div id="ultimaPublicacao" class="cardViewText">
+	
+	<c:choose>
+	<c:when test="${empty ultimaPublicacao}">
+	<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+	</c:when>
+	<c:otherwise>
+	<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
+	<p class="textoPostagemBlog aEsquerda">postado em ${ultimaPublicacao.dataFormatada}</p>			
+	<p class="textoConteudoBlog">${ultimaPublicacao.conteudo}</p>
+	</c:otherwise>
+	</c:choose>
+</div>
+</div>
+
+<hr class="hrClass">
+
+<h3 style="padding-left: 10px;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'.</h3>
+<h3 style="padding-left: 10px;">Em seguida basta clicar no T&iacute;tulo para ler o texto na íntegra.</h3>
+
 <table class="display" id="example">
 	<thead align="left">
 		<tr>

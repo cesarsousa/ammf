@@ -41,6 +41,8 @@ public interface TextoRepository {
 
 	public long obterId(String uuid);
 
-	public void atualizar(Texto texto);	
+	public void atualizar(Texto texto);
+
+	public String obterUuidUltimaPublicacao();	
 
 }

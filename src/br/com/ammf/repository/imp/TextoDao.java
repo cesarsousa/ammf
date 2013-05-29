@@ -164,7 +164,17 @@ public class TextoDao implements TextoRepository{
 	public void atualizar(Texto texto) {
 		Transaction transaction = session.beginTransaction();
 		session.update(texto);
-		transaction.commit();
-		
+		transaction.commit();		
+	}
+
+	@Override
+	public String obterUuidUltimaPublicacao() {
+		String sql = "select max(id) from Texto";
+		Query query = session.createQuery(sql);
+		long id = (Long) query.uniqueResult();
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("id", id));
+		Texto texto = (Texto) criteria.uniqueResult();		
+		return texto.getUuid();
 	}
 }
