@@ -37,7 +37,7 @@
 	
 	<div id="textoLeituraCultura" class="cardViewText">
 		<c:forEach items="${sessaoCliente.textoCultura}" var="paragrafo">
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}.</p>		
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
 		</c:forEach>
 	</div>
 

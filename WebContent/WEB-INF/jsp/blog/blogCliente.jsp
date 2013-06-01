@@ -16,25 +16,26 @@
 </div>
 
 <div align="center">
-<div id="ultimaPublicacao" class="cardViewText">
-	
+<div id="ultimaPublicacao" class="cardViewText">	
 	<c:choose>
-	<c:when test="${empty ultimaPublicacao}">
-	<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
-	</c:when>
-	<c:otherwise>
-	<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
-	<p class="textoPostagemBlog aEsquerda">postado em ${ultimaPublicacao.dataFormatada}</p>			
-	<p class="textoConteudoBlog">${ultimaPublicacao.conteudo}</p>
-	</c:otherwise>
+		<c:when test="${empty ultimaPublicacao}">
+		<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+		</c:when>
+		
+		<c:otherwise>
+			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
+			<p class="textoPostagemBlog aEsquerda negrito">postado em ${ultimaPublicacao.dataFormatada}</p>	
+			<c:forEach items="${paragrafos}" var="paragrafo">
+				<p class="textoConteudoBlog">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
+			</c:forEach>
+		</c:otherwise>
 	</c:choose>
 </div>
 </div>
 
 <hr class="hrClass">
 
-<h3 style="padding-left: 10px;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'.</h3>
-<h3 style="padding-left: 10px;">Em seguida basta clicar no T&iacute;tulo para ler o texto na íntegra.</h3>
+<h3 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler o texto na íntegra.</h3>
 
 <table class="display" id="example">
 	<thead align="left">
@@ -67,13 +68,15 @@
 </table>
 <a name="irTopo"></a>
 <a name="lerTexto"></a>
-<table id="textoModoLeitura" class="cardViewText" align="center">	
+<table id="textoModoLeitura"  width="100%">	
 	<tbody>
- 		<tr>
+ 		<tr align="center">
 			<td>
+			<div class="cardViewText">
 			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar">&ldquo; titulo &ldquo;</p>
-			<p id="textoblogData" class="textoPostagemBlog aEsquerda">postado em 01/01/2012 12:00:00</p>			
+			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito">postado em 01/01/2012 12:00:00</p>			
 			<p id="textoblogConteudo" class="textoConteudoBlog">conteudo</p>
+			</div>
 			</td>		
 		</tr>		
 	</tbody>
@@ -86,9 +89,9 @@
 	</tfoot>
 </table>
 
-<br/><br/>
+<br/>
 
-<div id="telaAguardeCadastroDepoimento">
+<%-- <div id="telaAguardeCadastroDepoimento">
 	<div align="center">
 		
 		<h2>Depoimentos</h2>
@@ -100,14 +103,10 @@
 		<br />
 		<br />			
 	</div>
-</div>
+</div> --%>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
-
-<br/>
-
-
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

@@ -14,6 +14,11 @@ $(document).ready(function() {
 	$('#telaAguardeCadastroDepoimento').hide();	
 
 	$('#divNovoDepoimento').hide();
+	
+	$('#btNovoDepoimento').hover(function() {
+		$('#textoNovoDepoimento').slideDown(500);
+	});
+	
 	$('#btNovoDepoimento').toggle(function() {
 		$('#divNovoDepoimento').slideDown(1000);
 	}, function() {

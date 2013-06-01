@@ -51,6 +51,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			 * e mostrar o form de novo depoimento. 
 			 */
 			result.include("flagErroDepoimento", true);
+			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da página</b><br/>");
 		}
 		
 		return validado;

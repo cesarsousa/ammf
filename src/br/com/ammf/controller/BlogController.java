@@ -9,6 +9,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.IndexService;
 import br.com.ammf.service.imp.IndexServiceImp;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
@@ -20,10 +21,12 @@ import br.com.caelum.vraptor.Result;
 public class BlogController {
 	
 	private Result result;
+	private IndexService indexService;
 	private TextoRepository textoRepository;
 	
-	public BlogController(Result result, TextoRepository textoRepository){
+	public BlogController(Result result, IndexService indexService, TextoRepository textoRepository){
 		this.result = result;
+		this.indexService = indexService;
 		this.textoRepository = textoRepository;
 	}
 	
@@ -92,7 +95,9 @@ public class BlogController {
 	public void blogCliente(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
 		Texto ultimaPublicacao = textoRepository.obterPor(textoRepository.obterUuidUltimaPublicacao());
+		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		result.include("ultimaPublicacao", ultimaPublicacao);
+		result.include("paragrafos", paragrafos);
 		result.include("textosBlog", textosBlog);		
 	}	
 	

@@ -17,6 +17,7 @@
 
 <c:if test="${not empty msgErroDepoimento}">
 <div class="msgBorder msgErro closeClick">
+${tituloErro}
 ${nomeEmBranco}
 ${emailEmBranco}
 ${textoEmBranco}
@@ -30,90 +31,75 @@ ${textoEmBranco}
 
 <div id="divPgDepoimentoCliente" align="center">
 
-<h2>Depoimentos</h2>
+	<h2>Depoimentos</h2>
 
-<p>
-<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
-</p>
+	<p>
+	<span class="info azulClaro" >Deixe sua opini&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
+	</p>
 
-<div id="divDepoimentosCadastrados">
-	<c:forEach items="${depoimentos}" var="depoimento">
-	<div class="cardViewText">					
-		<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
-		<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
-		<p class="textoPostagemDepoimento negrito">postado em ${depoimento.dataFormatada}</p>	
+	<div id="divDepoimentosCadastrados">
+		<c:forEach items="${depoimentos}" var="depoimento">
+		<div class="cardViewText">					
+			<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
+			<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
+			<p class="textoPostagemDepoimento negrito">postado em ${depoimento.dataFormatada}</p>	
+		</div>
+		<br/>
+		</c:forEach>
 	</div>
-	<br/>
-	</c:forEach>
-</div>
 
-<div style="padding: 10px;">
-<img alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_depoimento.png" width="100px">
-</div>
-
-
-<div class="cardViewText">
-<form action="<c:url value="/cliente/novoDepoimento"/>" method="post">
-	
-	<p align="left">
-	<label class="h1 altura30">Novo Depoimento</label>	 
-	</p>
-	
-	<p align="center">
-	<span id="btNovoDepoimento" class="info azulClaro altura30 ponteiro xLarge destaqueLetraHover" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
-	</p>
-	
-	<table id="divNovoDepoimento"  width="100%">
-	<tr>
-		<td width="50%" align="right" valign="middle"><label class="labelForm2">Nome:</label></td>
-		<td width="50%" align="left">
-			<c:if test="${not empty nomeEmBranco}">		
-			<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-			</c:if>
-			<c:if test="${empty nomeEmBranco}">		
-				<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</c:if>
-		</td>
-	</tr>
-	<tr>
-		<td width="50%" align="right" valign="middle"><label class="labelForm2">Email:</label></td>
-		<td width="50%" align="left">
-			<c:if test="${not empty emailEmBranco}">		
-				<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-			</c:if>
-			<c:if test="${empty emailEmBranco}">		
-				<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</c:if>
-		</td>
-	</tr>
-	<tr>
-		<td width="50%" align="right" valign="top"><label class="labelForm2">Depoimento:</label></td>
-		<td width="50%" align="left">
-			<c:if test="${not empty textoEmBranco}">		
-				<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
-			</c:if>
-			<c:if test="${empty textoEmBranco}">		
-				<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
-			</c:if>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<h3 align="right">
-			Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
-			</h3>
-		</td>		
-	</tr>
-	<tr>
-		<td colspan="2">
-			<h3 align="right">
-			<input id="btnClienteCadastrarDepoimento" type="submit" value="Publicar Depoimento"  class="button direita"/>
-			</h3>
-		</td>		
-	</tr>
-	</table>
-</form>
-</div>
+	<div class="superFooter" align="center">
+	<form action="<c:url value="/cliente/novoDepoimento"/>" method="post">		
+		<table width="1000px">
+			<tr>
+				<td width="50%" align="center" style="padding: 20px;">
+					<div>
+						<span id="btNovoDepoimento" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
+						</div>
+				</td>
+			
+				<td  width="50%" >					
+					<div id="divNovoDepoimento" style="border-left: 1px solid #CCCCCC; padding: 10px;">
+					
+					<h2>Novo Depoimento</h2>
+					
+					<label class="labelForm2">Nome:</label>
+					<c:if test="${not empty nomeEmBranco}">		
+					<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+					</c:if>
+					<c:if test="${empty nomeEmBranco}">		
+						<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</c:if>
+					
+					<label class="labelForm2">Email:</label>
+					<c:if test="${not empty emailEmBranco}">		
+						<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+					</c:if>
+					<c:if test="${empty emailEmBranco}">		
+						<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</c:if>
+					
+					<label class="labelForm2">Depoimento:</label>
+					<c:if test="${not empty textoEmBranco}">		
+						<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
+					</c:if>
+					<c:if test="${empty textoEmBranco}">		
+						<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
+					</c:if>
+					
+					<h3 align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
+					</h3>
+					
+					<h3 align="right">
+					<input id="btnClienteCadastrarDepoimento" type="submit" value="Publicar Depoimento"  class="button direita"/>
+					</h3>					
+					</div>
+				</td>			
+			</tr>		
+		</table>		
+	</form>
+	</div>
 </div>
 
 <div id="telaAguardeCadastroDepoimento">
@@ -133,7 +119,7 @@ ${textoEmBranco}
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<br/>
+
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

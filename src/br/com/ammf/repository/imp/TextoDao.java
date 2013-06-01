@@ -174,7 +174,8 @@ public class TextoDao implements TextoRepository{
 		long id = (Long) query.uniqueResult();
 		Criteria criteria = session.createCriteria(Texto.class);
 		criteria.add(Restrictions.eq("id", id));
-		Texto texto = (Texto) criteria.uniqueResult();		
+		Texto texto = (Texto) criteria.uniqueResult();
+		System.out.println(texto.getId());
 		return texto.getUuid();
 	}
 }

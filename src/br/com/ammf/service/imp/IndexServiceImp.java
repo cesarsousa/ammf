@@ -29,9 +29,9 @@ public class IndexServiceImp implements IndexService{
 		return sessaoCliente;
 	}
 
-	private List<Paragrafo> criarListaDeParagrafos(Texto texto) {
+	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();		
-		String textoDividido[] = texto.getConteudo().split("\\.");		
+		String textoDividido[] = texto.getConteudo().split("\\n");		
 		for(String trecho : textoDividido){
 			Paragrafo paragrafo = new Paragrafo();
 			paragrafo.setTrechoTexto(trecho.trim());
