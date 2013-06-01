@@ -37,16 +37,19 @@ ${textoEmBranco}
 </p>
 
 <div id="divDepoimentosCadastrados">
-	<div class="cardViewText">
-	<c:forEach items="${depoimentos}" var="depoimento">				
+	<c:forEach items="${depoimentos}" var="depoimento">
+	<div class="cardViewText">					
 		<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
-		<p class="textoPostagemDepoimento negrito">postado em ${depoimento.dataFormatada}</p>		
-		<hr class="hrClass">		
-	</c:forEach>
+		<p class="textoPostagemDepoimento negrito">postado em ${depoimento.dataFormatada}</p>	
 	</div>
+	<br/>
+	</c:forEach>
 </div>
 
+<div style="padding: 10px;">
+<img alt="Novo Depoimento" title="Novo Depoimento" src="${imagem}/icone_novo_depoimento.png" width="100px">
+</div>
 
 
 <div class="cardViewText">

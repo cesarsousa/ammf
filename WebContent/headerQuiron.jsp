@@ -19,11 +19,8 @@
 	</table>
 </div>
 </div>
-<br/>
 
-<div align="center">
-	
-
+<%-- <div align="center">
 
 	<table id="tabRedesSociais" style="width: 1000px; border: 1px solid #CCCCCC; background-color: #FFFFFF;">
 		<tr>
@@ -35,6 +32,26 @@
 			<div class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 			<div class="g-plusone" data-size="medium"></div>
 			</div>
+			</td>
+		</tr>
+	</table>
+</div>
+ --%>
+<div align="center" style="width: 100%; padding: 20px; background-color: #FFFFFF; border-bottom: 1px solid #CCCCCC; ">
+
+	<table id="tabRedesSociais" style="width: 1000px;">
+		<tr>
+			<td width="550px" class="pad10" align="center">
+			<span  class="azulClaro">Compartilhe em suas redes sociais preferidas</span>
+			</td>
+			<td width="150px" align="center">
+			<div id="padRedeSocial" class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+			</td>
+			<td width="150px" align="center">
+			<div id="padRedeSocial" class="g-plusone" data-size="medium"></div>
+			</td>
+			<td width="150px" align="center">
+			<a id="padRedeSocial" href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
 			</td>
 		</tr>
 	</table>
