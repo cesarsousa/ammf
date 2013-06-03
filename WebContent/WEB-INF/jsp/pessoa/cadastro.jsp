@@ -37,41 +37,87 @@
 		</td> --%>
 		
 		
-		<td class="tdTableIcone">
+		<%-- <td class="tdTableIcone">
 		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
+		</td> --%>
 		
-		<td class="tdTableIcone">
+		<%-- <td class="tdTableIcone">
 		<img id="iconPessoasCadastradas" alt="zer todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
+		</td> --%>
 		
-		<td class="tdTableIcone">
+		<%-- <td class="tdTableIcone">
 		<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
+		</td> --%>
 		
-		<td class="tdTableIcone">
+		<%-- <td class="tdTableIcone">
 		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
+		</td> --%>
 		
-		<td class="tdTableIcone">
+		<%-- <td class="tdTableIcone">
 		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
-		</td>
+		</td> --%>
 		
 	</tr>
 </table>
 
 <div class="separador"></div>
 
-<!-- CADASTRO DE PESSOA -->
-<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
-<div id="admNovoCadastroPessoa">
+<div style="width: 100%">
 
-<table class="tamanhoDefault">
+<!-- CONSULTAR PESSOA -->
+<table id="tabBuscaPessoa" class="cardViewText superFooter bordaLateral">	
+	<tr>
+		<td>
+		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
+		<label class="h1">Consultar Pessoas</label>
+		</td>
+	</tr>
+	<tr id="trCampoBuscar">		
+		<td class="centralizar" style="padding: 10px;">
+		<form id="formBuscaPessoa">
+		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
+		</form>
+		<p>
+		<label id="labelResultadoConsulta"></label>		
+		</p>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div id="conteudoConsultaPessoas" class="cartao">								
+			<table>
+				<thead>
+					<tr>
+					<td class="headTabela">Nome</td>
+					<td class="headTabela">Email</td>
+					<td class="headTabela">Data Cadastro</td>
+					<td class="headTabela">Status</td>
+					<td></td>
+					</tr>
+				</thead>
+					
+				<tbody id="ulConsultadas">						
+				</tbody>
+				
+			</table>				
+		</div>
+		</td>
+	</tr>	
+</table>
+
+<br/>
+
+<!-- CADASTRAR PESSOA -->
+<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
+<table class="cardViewText superFooter bordaLateral">
 <tr>
-	<td><label class="h1">Cadastro</label></td>
+	<td>
+	<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
+	<label class="h1">Cadastrar Pessoa</label>
+	</td>
 </tr>
 
-<tr align="center">
+<tr id="trCadastrarPessoa" align="center">
 <td>
 	<div id="areaLogin">
 	
@@ -106,67 +152,22 @@
 	</div>
 </td>
 </tr>
-
-<tr>
-	<td style="padding: 10px;">
-	<div class="separador"></div>
-	</td>
-</tr>
 </table>
-</div>
 
-<table id="tabBuscaPessoa" class="tamanhoDefault superFooter bordaLateral">	
-	<tr>		
-		<td class="centralizar" style="padding: 10px;">
-		<form id="formBuscaPessoa">
-		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
-		</form>
-		<p>
-		<label id="labelResultadoConsulta"></label>		
-		</p>			
-		</td>
-	</tr>
+<br/>
+
+<!--  PESSOAS CADASTRADAS -->
+<table id="tabPessoasCadastradas" class="cardViewText superFooter bordaLateral">
 	<tr>
 		<td>
-		<div id="conteudoConsultaPessoas" class="cartao tamanhoEdicaoIndex" >								
-			<table>
-				<thead>
-					<tr>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td></td>
-					</tr>
-				</thead>
-					
-				<tbody id="ulConsultadas">						
-				</tbody>
-				
-			</table>				
-		</div>
+		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
+		<label class="h1">Pessoas Cadastradas</label>
 		</td>
-	</tr>
-	<!-- <tr>
-	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr> -->
-</table>
-	
-
-
-<table id="tabPessoasCadastradas" class="tamanhoDefault">
-	<tr>
-	<td><label class="h1">Pessoas Cadastradas</label></td>
-	</tr>
-	<tr>
-		<td >
-		<input id="btFecharConteudoCadastradas" type="button" class="button direita" value="^">
-		</td>
-	</tr>
+	</tr>	
 	<tr>
 		<td>
-		<div id="conteudoPessoasCadastradas" class="cartao tamanhoEdicaoIndex" >
-			<table>
+		<div id="conteudoPessoasCadastradas">
+			<table class="display" id="example" >
 				<thead>
 					<tr>
 					<td colspan="4" class="headerTabPessoa backCinza">Visualiza&ccedil;&atilde;o de todas as pessoas cadastradas</td>
@@ -188,25 +189,23 @@
 			</table>				
 		</div>
 		</td>
-	</tr>
-	<tr>
-	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr>
-</table>	
+	</tr>	
+</table>
 
+<br/>
+
+<!-- PESSOAS CONFIRMADAS -->
+<table id="tabPessoasConfirmadas" class="cardViewText superFooter bordaLateral">
+	<tr>
+	<td>
+	<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
+	<label class="h1">Pessoas Confirmadas</label>
+	</td>
+	</tr>
 	
-<table id="tabPessoasConfirmadas" class="tamanhoDefault">
-	<tr>
-	<td><label class="h1">Pessoas Confirmadas</label></td>
-	</tr>
-	<tr>
-		<td >
-		<input id="btFecharConteudoConfirmadas" type="button" class="button direita" value="^">
-		</td>
-	</tr>
 	<tr>
 		<td>
-		<div id="conteudoPessoasConfirmadas" class="cartao tamanhoEdicaoIndex" >								
+		<div id="conteudoPessoasConfirmadas">								
 			<table>
 				<thead>
 					<tr>
@@ -229,25 +228,22 @@
 			</table>				
 		</div>
 		</td>
-	</tr>
-	<tr>
-	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr>
+	</tr>	
 </table>
-	
-	
-<table id="tabPessoasPendentes" class="tamanhoDefault">
-	<tr>
-	<td><label class="h1">Pessoas pendentes confirma&ccedil;&atilde;o</label></td>
-	</tr>
-	<tr>
-		<td >
-		<input id="btFecharConteudoPendentes" type="button" class="button direita" value="^">
-		</td>
-	</tr>
+		
+<br/>
+
+<!-- PESSOAS PENDENTES -->
+<table id="tabPessoasPendentes" class="cardViewText superFooter bordaLateral">
 	<tr>
 		<td>
-		<div id="conteudoPessoasPendentes" class="cartao tamanhoEdicaoIndex" >								
+		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
+		<label class="h1">Pessoas pendentes confirma&ccedil;&atilde;o</label>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+		<div id="conteudoPessoasPendentes">								
 			<table>
 				<thead>
 					<tr>
@@ -270,11 +266,10 @@
 			</table>				
 		</div>
 		</td>
-	</tr>
-	<tr>
-	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr>
+	</tr>	
 </table>
+
+</div>
 
 </div> <!-- centralizacao -->
 
@@ -295,7 +290,6 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<%-- <div id="footer">
+<div id="footer">
 <%@ include file="/footerADM.jsp" %>
 </div>
- --%>

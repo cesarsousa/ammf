@@ -58,11 +58,16 @@ $(document).ready(function() {
 	
 	$('#campoBusca').puts("Digite o nome da pessoa");	
 	
-	$('#tabBuscaPessoa').hide();	
+	/*$('#tabBuscaPessoa').hide();	*/
+	$('#trCampoBuscar').hide();	
 	$('#iconBuscaPessoa').toggle(function() {
-		$('#tabBuscaPessoa').slideDown(500);
+		/*$('#tabBuscaPessoa').slideDown(500);*/
+		$('#trCampoBuscar').slideDown(500);
 	}, function() {
-		$('#tabBuscaPessoa').slideUp(500);
+		/*$('#tabBuscaPessoa').slideUp(500);*/
+		$('#conteudoConsultaPessoas').slideUp(500);
+		$('#trCampoBuscar').slideUp(500);
+		
 	});	
 	
 	$('#conteudoConsultaPessoas').hide();
@@ -110,42 +115,44 @@ $(document).ready(function() {
 	});
 	$('#btFecharConsultaPessoas').click(function(){
 		$('#conteudoConsultaPessoas').slideUp(1000);		
-	});
+	});	
 	
-	$('#tabPessoasCadastradas').hide();	
+	$('#trCadastrarPessoa').hide();
+	if($('#flagCadastroPessoaVazio').val()){
+		$('#trCadastrarPessoa').slideDown(500);
+	}
+	$('#iconAddPessoa').toggle(function() {
+		$('#trCadastrarPessoa').slideDown(500);		
+	}, function() {
+		$('#trCadastrarPessoa').slideUp(500);
+	});	
+	
+	$('#conteudoPessoasCadastradas').hide();	
 	$('#iconPessoasCadastradas').toggle(function() {
-		$('#tabPessoasCadastradas').slideDown(500);
+		$('#conteudoPessoasCadastradas').slideDown(500);
 		ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
 	}, function() {
-		$('#tabPessoasCadastradas').slideUp(500);
+		$('#conteudoPessoasCadastradas').slideUp(500);
 	});
 	
-	$('#tabPessoasConfirmadas').hide();	
+	$('#conteudoPessoasConfirmadas').hide();	
 	$('#iconPessoasConfirmadas').toggle(function() {
-		$('#tabPessoasConfirmadas').slideDown(500);
+		$('#conteudoPessoasConfirmadas').slideDown(500);
 		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#tabPessoasConfirmadas", "#btFecharConteudoConfirmadas");
 	}, function() {
-		$('#tabPessoasConfirmadas').slideUp(500);
+		$('#conteudoPessoasConfirmadas').slideUp(500);
 	});
 	
-	$('#tabPessoasPendentes').hide();	
+	$('#conteudoPessoasPendentes').hide();	
 	$('#iconPessoasPendentes').toggle(function() {
-		$('#tabPessoasPendentes').slideDown(500);
+		$('#conteudoPessoasPendentes').slideDown(500);
 		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#tabPessoasPendentes", "#btFecharConteudoPendentes");					
 		
 	}, function() {
-		$('#tabPessoasPendentes').slideUp(500);
+		$('#conteudoPessoasPendentes').slideUp(500);
 	});
 	
 	
-	$('#admNovoCadastroPessoa').hide();
-	if($('#flagCadastroPessoaVazio').val()){
-		$('#admNovoCadastroPessoa').slideDown(500);
-	}
-	$('#iconAddPessoa').toggle(function() {
-		$('#admNovoCadastroPessoa').slideDown(500);		
-	}, function() {
-		$('#admNovoCadastroPessoa').slideUp(500);
-	});	
+	
 		
 });

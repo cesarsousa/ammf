@@ -16,19 +16,15 @@
 <span class="info azulClaro" >Depoimento dos usu&aacute;rios do site</span>
 
 <!-- Barra de Icones -->
-<table class="tamanhoDefault">
-	<tr>
-		<td class="tdTableIcone">
-		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
-		</form>
-		</td>		
-	</tr>
-</table>
 
 <div align="center">
 <table id="tabNotificacaoDepoimento">  
   <tr align="center">
+  	<td class="tdTableIcone" width="60px">
+		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
+		</form>
+		</td>
     <td width="33%">
     	<div class="cardDepoimento depsCadAll fundoAzulClaro">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
