@@ -173,8 +173,5 @@ $(document).ready(function() {
 			}
 		});	
 		
-	});
-	
-
-	
+	});	
 });

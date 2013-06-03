@@ -55,7 +55,7 @@ ${textoEmBranco}
 				<td width="50%" align="center" style="padding: 20px;">
 					<div>
 						<span id="btNovoDepoimento" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
-						</div>
+					</div>
 				</td>
 			
 				<td  width="50%" >					

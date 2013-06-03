@@ -33,7 +33,9 @@
 </div>
 </div>
 
-<hr class="hrClass">
+
+
+<div id="divTodosTextos">
 
 <h3 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler o texto na íntegra.</h3>
 
@@ -88,8 +90,15 @@
 		</tr>		
 	</tfoot>
 </table>
+</div> 
 
-<br/>
+<br/><br/>
+
+<div class="superFooter" align="center">
+	<div style="width: 1000px; text-align: left; padding: 20px;">
+		<span id="btVisualizarTodos" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar textos anteriores.</span>
+	</div>
+</div>
 
 <%-- <div id="telaAguardeCadastroDepoimento">
 	<div align="center">
@@ -107,6 +116,8 @@
 
 </div> <!-- main -->
 </div> <!-- wrap -->
+
+
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

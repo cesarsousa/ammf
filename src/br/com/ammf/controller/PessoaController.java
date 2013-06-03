@@ -104,6 +104,16 @@ public class PessoaController {
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
 		result.redirectTo(this).cadastro();		
 	}
+	
+	@Restrito
+	@Get("/pessoa/confirmar/{uuid}")
+	public void confirmarPessoa(String uuid){
+		Pessoa pessoa = pessoaRepository.obter(uuid);		
+		pessoaRepository.confirmar(pessoa);
+		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
+		result.redirectTo(this).cadastro();
+		//TODO adicionar logica de envio de email no servidor e no cliente (tela aguarde). 
+	}
 		
 	@Restrito
 	@Get("/pessoa/consulta")

@@ -65,6 +65,14 @@ public class PessoaDao implements PessoaRepository {
 		session.delete(pessoa);
 		transaction.commit();		
 	}
+	
+	@Override
+	public void confirmar(Pessoa pessoa) {
+		pessoa.setStatus(Status.CONFIRMADO);
+		Transaction transaction = session.beginTransaction();
+		session.update(pessoa);
+		transaction.commit();		
+	}
 
 	@Override
 	public Pessoa obter(String uuid) {
@@ -87,5 +95,4 @@ public class PessoaDao implements PessoaRepository {
 		criteria.add(Restrictions.eq("status", Status.PENDENTE));
 		return criteria.list().size();
 	}
-
 }

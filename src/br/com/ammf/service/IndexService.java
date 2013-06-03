@@ -9,6 +9,7 @@ import br.com.ammf.model.Texto;
 public interface IndexService {
 
 	SessaoCliente atualizar(SessaoCliente sessaoCliente);	
+	
 	List<Paragrafo> criarListaDeParagrafos(Texto texto);
 	
 }

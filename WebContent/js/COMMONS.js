@@ -100,8 +100,5 @@ $(document).ready(function() {
 	
 	$('#btLogout').click(function(){
 		$('#formLogout').submit();
-	});
-	
-	
-	
+	});	
 });

@@ -91,7 +91,25 @@ $(document).ready(function() {
 		"bPaginate": true,
 		"bJQueryUI": false,
 		"sPaginationType": "full_numbers"
-	});
+	});	
+	
+	$('#divTodosTextos').hide();
+	
+	$('#btVisualizarTodos').toggle(function() {
+		$('#ultimaPublicacao').slideUp(500);
+		$('#divTodosTextos').slideDown(500);
+		$('#btVisualizarTodos').html('').append('Visualizar ultima publicação');
+	}, function() {
+		$('#divTodosTextos').slideUp(500);
+		$('#ultimaPublicacao').slideDown(500);
+		$('#btVisualizarTodos').html('').append('Visualizar textos anteriores.');
+	});	
+	
+	/*$('#btVisualizarTodos').click(function (){
+		$('#ultimaPublicacao').slideUp(500);
+		$('#divTodosTextos').slideDown(500);
+	});*/
+	
 	
 	$('#textoModoLeitura').hide();
 	$('#goTopo').smoothScroll();

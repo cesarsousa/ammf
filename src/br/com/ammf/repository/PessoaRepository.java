@@ -18,11 +18,15 @@ public interface PessoaRepository {
 	List<String> listarEmails();
 
 	void remover(Pessoa pessoa);
+	
+	void confirmar(Pessoa pessoa);
 
 	Pessoa obter(String uuid);
 
 	boolean jaEstaCadastrada(String email);
 
 	int totalCadastrosPendentes();
+
+	
 
 }

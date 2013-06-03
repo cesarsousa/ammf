@@ -115,9 +115,9 @@
 </table>
 </div>
 
-<table id="tabBuscaPessoa" class="tamanhoDefault">	
+<table id="tabBuscaPessoa" class="tamanhoDefault superFooter bordaLateral">	
 	<tr>		
-		<td class="degrade centralizar" style="padding: 10px;">
+		<td class="centralizar" style="padding: 10px;">
 		<form id="formBuscaPessoa">
 		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
 		</form>
@@ -147,9 +147,9 @@
 		</div>
 		</td>
 	</tr>
-	<tr>
+	<!-- <tr>
 	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr>
+	</tr> -->
 </table>
 	
 
