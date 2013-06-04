@@ -230,12 +230,7 @@
 				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
 			</tr>			
 		</c:forEach>		
-	</tbody>
-	<tfoot>
-		<tr>
-			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
-		</tr>		
-	</tfoot>
+	</tbody>	
 </table>
 </div>
 </c:if>
