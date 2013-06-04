@@ -31,14 +31,12 @@ public class IndexServiceImp implements IndexService{
 
 	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
-		String textoDividido[] = texto.getConteudo().split("\n");		
-		for(String trecho : textoDividido){			
-			if(!"".equals(trecho)){
-				Paragrafo paragrafo = new Paragrafo();
-				paragrafo.setTrechoTexto(trecho.trim());
-				paragrafos.add(paragrafo);
-			}
-		}		
+		String textoDividido[] = texto.getConteudo().split("\n");
+		for (String trecho : textoDividido) {
+			Paragrafo paragrafo = new Paragrafo();
+			paragrafo.setTrechoTexto(trecho.trim());
+			paragrafos.add(paragrafo);
+		}
 		return paragrafos;
 	}
 
