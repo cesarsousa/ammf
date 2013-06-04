@@ -30,33 +30,7 @@
 		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
 			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>		
 		</form>
-		</td>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="btAbrirToolsCadastro" alt="Outras opcoes de cadastro" title="Outras opcoes de cadastro" src="${imagem}/icone_setting.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasCadastradas" alt="zer todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
-		<%-- <td class="tdTableIcone">
-		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
-		</td> --%>
-		
+		</td>		
 	</tr>
 </table>
 

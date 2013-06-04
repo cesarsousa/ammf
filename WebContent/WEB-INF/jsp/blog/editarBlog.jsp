@@ -6,7 +6,7 @@
 	<div class="msgBorder msgSucesso">
 		${blogMensagemSucesso} 
 	</div>
-<div id="separador"></div>
+	<div id="separador"></div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
@@ -23,20 +23,7 @@
 	<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
 	<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 	</form>
-	</td>
-	
-	<td class="tdTableIcone">
-	<div id="btAddTextoBlog" title="Adicionar novo texto" class="ponteiro esquerda"></div>
-	</td>
-	
-	<td class="tdTableIcone">
-	<div id="btEdtTextoBlog" title="Editar um texto" class="ponteiro esquerda"></div>
-	</td>
-	
-	<td class="tdTableIcone">	
-	<div id="btListarTextosBlog" title="Listar todos" class="ponteiro esquerda"></div>
-	</td>
-	
+	</td>	
 	</tr>
 </table>
 <!-- submit via javascript -->
@@ -44,17 +31,22 @@
 
 <div class="separador"></div>
 
-<!-- ADICIONAR UM NOVO TEXTO -->
-<div id="divBlogNovoTexto">	
-	
-	<table class="tamanhoDefault">
-		<tr>
-		<td><label class="h1">Novo Texto</label></td>
-		</tr>
+<div style="width: 100%">
+
+	<!-- ADICIONAR UM NOVO TEXTO -->
+	<table class="cardViewText superFooter bordaLateral">
 		<tr>
 			<td>
-			<div class="cartao tamanhoEdicaoIndex" >
-			<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post" class="paddingPadrao">				
+			<div id="btAddTextoBlog" title="Adicionar novo texto" class="ponteiro esquerda"></div>
+			<label class="h1">Novo Texto</label>			
+			</td>
+		</tr>
+		<tr>
+			<td id="tdNovoBlog">
+			<div align="right">
+			<input id="btFecharAddTextoBlog" type="button" value="FECHAR" class="backVermelho button">
+			</div>
+			<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
 								
 				<h3>T&iacute;tulo :</h3>
 				<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
@@ -81,82 +73,62 @@
 				<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
 				</p>
 			</form>			
-			</div>
-			</td>
-		</tr>
-		<tr>
-		<td class="paddingPadrao"><div class="separador"></div></td>
-		</tr>
-	</table>
-</div>
-
-<!-- BUSCA DE TEXTO PELO TITULO -->
-<div id="divBlogBuscarTexto">
-	
-	<table class="tamanhoDefault">
-		<tr>
-		<td><label class="h1">Buscar Texto</label></td>
-		</tr>
-		<tr>
-			<td valign="middle">
-			<form id="formBlogBuscaTexto">
-			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao esquerda" />
-			<label id="labelBuscaTexto"></label>	
-			<input id="btFecharBuscaTextoBlog" type="button" class="button direita" value="fechar">
-			</form>
+			
 			</td>
 		</tr>		
 	</table>
-</div>
-
-<!-- RESULTADO DA BUSCA DE TEXTO PELO TITULO -->
-<div id="resultBuscaTxtBlog">	
-	<table class="tamanhoDefault">
-		<tr>
-			<td colspan="3">
-			<ul>
-			<li><span class="info azulClaro" >Clique no t&iacute;tulo do texto para editar</span></li>
-			</ul>
-			</td>			
-		</tr>
+	
+	<br/>
+	
+	<!-- EDITAR COM CAMPO DE BUSCA -->
+	<table class="cardViewText superFooter bordaLateral">
 		<tr>
 			<td>
-			<div class="cartao" >							
-				<table width="100%">
-					<thead>
-						<tr>						
-						<td class="headTabelaBlog2">data da postagem</td>
-						<td class="headTabelaBlog1">t&iacute;tulo</td>
-						<td class="headTabelaBlog1">Conte&uacute;do</td>
-						<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
-						</tr>
-					</thead>
-						
-					<tbody id="tabEdtTextoBlog">						
-					</tbody>
-					
-				</table>				
-			</div>
+			<div id="btEdtTextoBlog" title="Editar um texto" class="ponteiro esquerda"></div>
+			<label class="h1">Editar Texto</label>
 			</td>
 		</tr>
-		<tr>
-		<td class="paddingPadrao"><div class="separador"></div></td>
+		<tr id="blogAreaBusca" >
+			<td  valign="middle" style="padding-left: 50px;">
+			<div align="right">
+			<input id="btFecharEdtTextoBlog" type="button" value="FECHAR" class="backVermelho button">
+			</div>
+			<form id="formBlogBuscaTexto">
+			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao esquerda" />
+				
+			<!-- <input id="btFecharBuscaTextoBlog" type="button" class="button direita" value="fechar"> -->
+			</form>
+			</td>
 		</tr>
-	</table>
-</div>
-
-<!-- EDITAR UM TEXTO -->
-<a name="editarTextoBlog"></a>
-<div id="divBlogEditarTexto">	
-	<table class="tamanhoDefault">
-		<tr>
-		<td><label class="h1">Editar Texto</label></td>
+		<tr id="resultBuscaTxtBlog">
+		<td>
+			<br/>
+			<ul>
+			<li><span class="info azulClaro" ><label id="labelBuscaTexto"></label></span></li>
+			</ul>
+			<table width="100%">
+				<thead>
+					<tr>						
+					<td class="headTabelaBlog2">data da postagem</td>
+					<td class="headTabelaBlog1">t&iacute;tulo</td>
+					<td class="headTabelaBlog1">Conte&uacute;do</td>
+					<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
+					</tr>
+				</thead>
+					
+				<tbody id="tabEdtTextoBlog">						
+				</tbody>
+				
+			</table>			
+		</td>
 		</tr>
-		<tr>
-			<td>
-			
-			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post" class="paddingPadrao">
-				<div class="cartao tamanhoEdicaoIndex" >
+		<tr id="divBlogEditarTexto">
+		<td>
+			<!-- AREA DE EDICAO DE UM TEXTO -->
+			<a name="editarTextoBlog"></a>
+			<h2>Editar Texto</h2>
+			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post">
+				
 				<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
 								
 				<h3>T&iacute;tulo :</h3>
@@ -184,61 +156,61 @@
 				<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
 				<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
 				</p>
-				
-				</div>
+							
 			</form>
 			<form id="formBtBlogExcluirEdtTexto" method="get"></form>			
+		</td>
+		</tr>		
+	</table>
+	
+	<br/>
+		
+	<!-- LISTAR TODOS OS TEXTOS -->
+	<table class="cardViewText superFooter bordaLateral">
+		<tr>
+			<td>
+			<div id="btListarTextosBlog" title="Listar todos" class="ponteiro esquerda"></div>
+			<label class="h1">Listar todos os textos</label>
 			</td>
 		</tr>
-		<tr>
-		<td class="paddingPadrao"><div class="separador"></div></td>
+		<tr id="divEditarBlogTodosTextos">
+		<td>
+		<c:if test="${not empty textosBlog}">
+		<div id="divEditarBlogTodosTextos">
+		<div align="right">
+		<input id="btBlogFecharTextos" type="button" value="FECHAR" class="backVermelho button">
+		</div>
+		<table class="display cardViewText superFooter bordaLateral" id="example">
+			<thead align="left">
+				<tr>
+					<th class="metadado">Autor</th>
+					<th class="metadado">T&iacute;tulo</th>
+					<th class="metadado">Texto</th>
+					<th class="metadado">Postagem</th>			
+				</tr>
+			</thead>
+			<tbody>
+		 		<c:forEach items="${textosBlog}" var="texto">
+					<tr class="zebrado">
+						<td class="infoTabela">${texto.autor}</td>
+						<td class="infoTabela metadado ponteiro">
+						<a class="infoTabela metadado" href="#editarTextoBlog" href="#lerTexto" onclick="visualizarTextoParaEdicao('${texto.uuid}')">${texto.titulo}</a>
+						<td class="infoTabela">
+							<c:set var="origem"	value="${texto.conteudo}"/>
+							<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+						<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
+					</tr>			
+				</c:forEach>		
+			</tbody>			
+		</table>
+		</div>
+		</c:if>
+		</td>
 		</tr>
-	</table>
+	</table>	
 </div>
 	
 </div> <!-- div center -->
-
-<!-- LISTAR TODOS OS TEXTOS -->
-<input id="flagAdmBlogListar" type="hidden" value="${flagAdmBlogListar}" />
-<c:if test="${not empty textosBlog}">
-<div id="divEditarBlogTodosTextos">
-<div align="center">
-<table class="tamanhoDefault">
-	<tr>
-		<td><label class="h1">Listar todos os textos</label></td>
-	</tr>
-</table>
-</div>
-<table class="display" id="example">
-	<thead align="left">
-		<tr>
-			<th class="metadado">Autor</th>
-			<th class="metadado">T&iacute;tulo</th>
-			<th class="metadado">Texto</th>
-			<th class="metadado">Postagem</th>			
-		</tr>
-	</thead>
-	<tbody>
- 		<c:forEach items="${textosBlog}" var="texto">
-			<tr class="zebrado">
-				<td class="infoTabela">${texto.autor}</td>
-				<td class="infoTabela metadado ponteiro">
-				<a class="infoTabela metadado" href="#editarTextoBlog" href="#lerTexto" onclick="visualizarTextoParaEdicao('${texto.uuid}')">${texto.titulo}</a>
-				<td class="infoTabela">
-					<c:set var="origem"	value="${texto.conteudo}"/>
-					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
-			</tr>			
-		</c:forEach>		
-	</tbody>
-	<tfoot>
-		<tr>
-			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
-		</tr>		
-	</tfoot>
-</table>
-</div>
-</c:if>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

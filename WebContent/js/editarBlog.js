@@ -30,7 +30,7 @@
 }*/
 
 function hideAllBlogFields(){
-	$('#divBlogNovoTexto, #divBlogBuscarTexto, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos').hide();
+	$('#divBlogNovoTexto, #divBlogBuscarTexto, #resultBuscaTxtBlog, #divBlogEditarTexto').hide();
 }
 
 function visualizarTextoParaEdicao(uuid){	
@@ -60,16 +60,16 @@ $(document).ready(function() {
 	addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
 	$('#blogConteudoNovoTexto').autoResize();
 	
-	hideAllBlogFields();
-	if($('#flagAdmBlogListar').val()){
-		$('#divEditarBlogTodosTextos').show();
-	}
+	hideAllBlogFields();	
 	
-	$('#btAddTextoBlog').click(function(){
-		hideAllBlogFields();		
-		$('#divBlogNovoTexto').slideDown(500);		
+	$('#tdNovoBlog').hide();
+	$('#btAddTextoBlog').click(function() {
+		$('#tdNovoBlog').slideDown(500);		
 	});
-	
+	$('#btFecharAddTextoBlog').click(function() {
+		$('#tdNovoBlog').slideUp(500);		
+	});	
+
 	$('#btBlogCancelNovoTexto').click(function(){
 		$('#blogTituloNovoTexto').val('');
 		$('#blogConteudoNovoTexto').val('');
@@ -77,19 +77,20 @@ $(document).ready(function() {
 		$('#divBlogNovoTexto').slideUp(500);		
 	});
 	
+	$('#blogAreaBusca').hide();	
 	$('#btEdtTextoBlog').click(function(){
 		var texto = "Título do texto";
 		$('#campoBuscaTxtEdtBlog').puts(texto);
-		hideAllBlogFields();
 		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
-		$('#divBlogBuscarTexto').slideDown(500);		
-	});
-	$('#btFecharBuscaTextoBlog').click(function(){
+		$('#blogAreaBusca').slideDown(500);		
+	});	
+	$('#btFecharEdtTextoBlog').click(function() {
+		$('#blogAreaBusca').slideUp(500);
 		$('#campoBuscaTxtEdtBlog').val('');
 		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
 		$('#resultBuscaTxtBlog').slideUp(500);
-		$('#divBlogBuscarTexto').slideUp(500);		
-	});
+		$('#divBlogEditarTexto').slideUp(500);
+	});	
 	
 	$('#btBlogCancelEdtTexto').click(function(){		
 		$('#divBlogEditarTexto').slideUp(500);		
@@ -111,7 +112,13 @@ $(document).ready(function() {
 	
 	$('#btListarTextosBlog').click(function(){		
 		$('#formBlogListarTodos').submit();
+		$('#divEditarBlogTodosTextos').slideDown(500);
 	});
+	$('#btBlogFecharTextos').click(function(){		
+		$('#divEditarBlogTodosTextos').slideUp(500);
+	});
+	
+	
 	
 	$('#formBlogEditarTexto').submit(function(event){		
 		if($('#blogEdtTituloTexto').val()== "" || $('#blogEdtAutorTexto').val()== "" || $('#blogEdtConteudoTexto').val()== ""){
