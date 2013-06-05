@@ -32,7 +32,7 @@ public class BlogController {
 	
 	@Restrito
 	@Get("/blog/editar")
-	public void editarBlog(){}
+	public void blogAdmin(){}
 	
 	@Restrito
 	@Post("/blog/novo")
@@ -44,7 +44,7 @@ public class BlogController {
 		// TODO notificar usuarios...
 		
 		result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
-		result.redirectTo(this).editarBlog();
+		result.redirectTo(this).blogAdmin();
 	}
 	
 	@Restrito
@@ -66,7 +66,7 @@ public class BlogController {
 	public void listarTodos(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
 		result.include("textosBlog", textosBlog);
-		result.redirectTo(this).editarBlog();
+		result.redirectTo(this).blogAdmin();
 	}
 	
 	@Restrito
@@ -74,7 +74,7 @@ public class BlogController {
 	public void removerTexto(String uuid){
 		textoRepository.deletar(uuid);		
 		result.include("blogMensagemSucesso", "O texto foi removido com sucesso.");
-		result.redirectTo(this).editarBlog();		
+		result.redirectTo(this).blogAdmin();		
 	}
 	
 	@Restrito
@@ -87,7 +87,7 @@ public class BlogController {
 		textoRepository.atualizar(textoOriginal);		
 		
 		result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
-		result.redirectTo(this).editarBlog();		
+		result.redirectTo(this).blogAdmin();		
 	}
 	
 	@Get("/blog/cliente")

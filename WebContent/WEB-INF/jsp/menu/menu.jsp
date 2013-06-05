@@ -55,7 +55,7 @@
 		<tr>
 			<td>
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoIndex" type="button" class="button direita" value="fechar">
+			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<div class="tamanhoDefault">
@@ -102,7 +102,7 @@
 		<tr>
 			<td>
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoConta" type="button" class="button direita" value="fechar">
+			<input id="btFecharConteudoConta" type="button" class="backVermelho button direita" value="fechar">
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
 				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
@@ -201,7 +201,7 @@
 	<table id="tabPsicologia" class="tamanhoDefault">
 		<tr>
 			<td>
-			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconePsicologia.png"/>			
+			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>			
 			<label class="tituloEdicao"> Psicologia </label>
 			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre psicologia.</span>
 			</td>
@@ -209,7 +209,7 @@
 		<tr>
 			<td>
 			<div id="edicaoPsicologia" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarPsicologia" type="button" class="button direita" value="fechar">
+			<input id="btFecharEditarPsicologia" type="button" class="backVermelho button direita" value="fechar">
 						
 			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">			
 			
@@ -243,7 +243,7 @@
 	<table id="tabEducacao" class="tamanhoDefault">
 		<tr>
 			<td>
-			<img id="imagemEducacao" class="imgMenuPrincipal" src="${imagem}/iconeEducacao.png"/>			
+			<img id="imagemEducacao" class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>			
 			<label class="tituloEdicao"> Educa&ccedil;&atilde;o </label>
 			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre educa&ccedil;&atilde;o.</span>
 			</td>
@@ -251,7 +251,7 @@
 		<tr>
 			<td>
 			<div id="edicaoEducacao" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarEducacao" type="button" class="button direita" value="fechar">
+			<input id="btFecharEditarEducacao" type="button" class="backVermelho button direita" value="fechar">
 			<form action="<c:url value="/menu/educacao/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">
@@ -281,7 +281,7 @@
 	<table id="tabCultura" class="tamanhoDefault">
 		<tr>
 			<td>
-			<img class="imgMenuPrincipal" src="${imagem}/iconeCultura.png"/>			
+			<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>			
 			<label class="tituloEdicao"> Cultura </label>
 			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre cultura.</span>
 			</td>
@@ -289,7 +289,7 @@
 		<tr>
 			<td>
 			<div id="edicaoCultura" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarCultura" type="button" class="button direita" value="fechar">
+			<input id="btFecharEditarCultura" type="button" class="backVermelho button direita" value="fechar">
 			<form action="<c:url value="/menu/cultura/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">
@@ -319,7 +319,7 @@
 	<table id="tabArtesOrientais" class="tamanhoDefault">
 		<tr>
 			<td>
-			<img class="imgMenuPrincipal" src="${imagem}/iconeOriental.png"/>			
+			<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>			
 			<label class="tituloEdicao"> Artes Orientais </label>
 			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre artes orientais.</span>
 			</td>
@@ -327,7 +327,7 @@
 		<tr>
 			<td>
 			<div id="edicaoArtesOrientais" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarArtesOrientais" type="button" class="button direita" value="fechar">
+			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
 			<form action="<c:url value="/menu/artesorientais/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">

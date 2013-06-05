@@ -726,6 +726,16 @@ a:HOVER {
 	color: blue;
 }
 
+.buttonAlt {
+	color: #8b8484;
+	font-size: medium;
+	cursor: pointer;
+	width: 200px; 
+}
+.buttonAlt:hover {
+	color: gray;
+}
+
 .button {
 	color: #ffffff;
 	font-weight: bold;
@@ -738,13 +748,14 @@ a:HOVER {
 	cursor: pointer;
 }
 .button:hover {
+	background-color: #696969;
 	box-shadow: 2px 2px 2px #9C9C9C;
 }
 
 .buttonCadastrar {
 	color: #ffffff;
 	font-weight: bold;
-	background-color: green;
+	background-color: #006400;
 	border: 0;
 	height: 30px;
 	-webkit-border-radius: 4px;
@@ -753,6 +764,7 @@ a:HOVER {
 	font-size: small;
 }
 .buttonCadastrar:hover {
+	background-color: green;
 	box-shadow: 2px 2px 2px #9C9C9C;
 }
 
@@ -858,6 +870,30 @@ a:HOVER {
 	width: 300px;
 	height: 35px;
 	font-size: medium;
+	font-family: arial;
+}
+
+.editarLinhaTextArea {
+	width: 73px;
+	height: 28px;
+	text-align: right;
+	padding: 5px;
+	color: gray;
+}
+
+.linha {
+	width: 50px;
+	border: 1px solid #FFFFFF;
+}
+
+.btAltLinha:hover {
+	color: black;
+}
+
+.areaTitulo4 {
+	width: 10%;
+	height: 35px;
+	font-size: small;
 	font-family: arial;
 }
 

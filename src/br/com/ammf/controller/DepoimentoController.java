@@ -52,7 +52,7 @@ public class DepoimentoController {
 	
 	@Restrito
 	@Get("/menu/depoimentos")
-	public void depoimentos(){		
+	public void depoimentoAdmin(){		
 		result.include("totalDepoimentosCadastrados", depoimentoRepository.getTotalDepoimentosCadastrados());
 		result.include("totalDepoimentosExibidos", depoimentoRepository.getTotalDepoimentosConfirmados());
 		result.include("totalDepoimentosPendentes", depoimentoRepository.getTotalDepoimentosPendentes());
@@ -63,7 +63,7 @@ public class DepoimentoController {
 	public void confirmarDepoimento(String uuid){
 		depoimentoRepository.confirmar(uuid);		
 		result.include("msgDepoimento", "Depoimento confirmado com sucesso");
-		result.redirectTo(this).depoimentos();
+		result.redirectTo(this).depoimentoAdmin();
 	}
 	
 	@Restrito
@@ -71,7 +71,7 @@ public class DepoimentoController {
 	public void excluirDepoimento(String uuid){
 		depoimentoRepository.deletar(uuid);
 		result.include("msgDepoimento", "Depoimento exclu&iacute;do com sucesso");
-		result.redirectTo(this).depoimentos();
+		result.redirectTo(this).depoimentoAdmin();
 	}
 	
 	@Restrito
@@ -79,7 +79,7 @@ public class DepoimentoController {
 	public void listarDepoimentos(String paramConsulta){
 		List<Depoimento> depoimentos = depoimentoRepository.listarPorNomeEEmail(paramConsulta);
 		result.include("depoimentosSolicitados", depoimentos);
-		result.redirectTo(this).depoimentos();
+		result.redirectTo(this).depoimentoAdmin();
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/		
 	}
 	
@@ -90,7 +90,7 @@ public class DepoimentoController {
 		result.include("depoimentosSolicitados", depoimentos);
 		result.include("backgroundTitulo", "backAzul");
 		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados");
-		result.redirectTo(this).depoimentos();	
+		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
 	@Restrito
@@ -100,7 +100,7 @@ public class DepoimentoController {
 		result.include("depoimentosSolicitados", depoimentos);
 		result.include("backgroundTitulo", "backVerde");
 		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o de todos os depoimentos confirmados");
-		result.redirectTo(this).depoimentos();	
+		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
 	@Restrito
@@ -110,6 +110,6 @@ public class DepoimentoController {
 		result.include("depoimentosSolicitados", depoimentos);
 		result.include("backgroundTitulo", "backVermelho");
 		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o");
-		result.redirectTo(this).depoimentos();	
+		result.redirectTo(this).depoimentoAdmin();	
 	}	
 }

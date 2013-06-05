@@ -28,11 +28,12 @@
 <script type="text/javascript" src="${javascript}/cultura.js"></script>
 <script type="text/javascript" src="${javascript}/artesOrientais.js"></script>
 <script type="text/javascript" src="${javascript}/cadastro.js"></script>
-<script type="text/javascript" src="${javascript}/editarBlog.js"></script>
+<script type="text/javascript" src="${javascript}/blogCliente.js"></script>
+<script type="text/javascript" src="${javascript}/blogAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
-<script type="text/javascript" src="${javascript}/depoimentos.js"></script>
-<script type="text/javascript" src="${javascript}/blogCliente.js"></script>
+<script type="text/javascript" src="${javascript}/depoimentoAdmin.js"></script>
+
 
 
 
