@@ -27,7 +27,7 @@
 <script type="text/javascript" src="${javascript}/educacao.js"></script>
 <script type="text/javascript" src="${javascript}/cultura.js"></script>
 <script type="text/javascript" src="${javascript}/artesOrientais.js"></script>
-<script type="text/javascript" src="${javascript}/cadastro.js"></script>
+<script type="text/javascript" src="${javascript}/cadastroAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/blogCliente.js"></script>
 <script type="text/javascript" src="${javascript}/blogAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>

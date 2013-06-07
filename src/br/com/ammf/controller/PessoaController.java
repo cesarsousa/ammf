@@ -44,7 +44,7 @@ public class PessoaController {
 	
 	@Restrito
 	@Get("/menu/cadastro")
-	public void cadastro(){}
+	public void cadastroAdmin(){}
 	
 	@Restrito
 	@Post("/menu/cadastrar")
@@ -102,7 +102,7 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obter(uuid);		
 		pessoaRepository.remover(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
-		result.redirectTo(this).cadastro();		
+		result.redirectTo(this).cadastroAdmin();		
 	}
 	
 	@Restrito
@@ -111,7 +111,7 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obter(uuid);		
 		pessoaRepository.confirmar(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
-		result.redirectTo(this).cadastro();
+		result.redirectTo(this).cadastroAdmin();
 		//TODO adicionar logica de envio de email no servidor e no cliente (tela aguarde). 
 	}
 		
@@ -156,7 +156,7 @@ public class PessoaController {
 	}
 	
 	private void redirecionarParaCadastroAdmin() {
-		result.redirectTo(this).cadastro();		
+		result.redirectTo(this).cadastroAdmin();		
 	}
 	
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
