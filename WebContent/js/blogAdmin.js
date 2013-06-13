@@ -90,7 +90,10 @@ $(document).ready(function() {
 		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
 		$('#resultBuscaTxtBlog').slideUp(500);
 		$('#divBlogEditarTexto').slideUp(500);
-	});	
+	});
+	$('#btFecharEdtEdtTextoBlog').click(function() {
+		$('#divBlogEditarTexto').slideUp(500);		
+	});
 	
 	$('#btBlogCancelEdtTexto').click(function(){		
 		$('#divBlogEditarTexto').slideUp(500);		

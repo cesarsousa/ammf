@@ -88,9 +88,10 @@ public class DepoimentoController {
 	public void visualizarTodosOsDepoimentosCadastrados(){
 		List<Depoimento> depoimentos = depoimentoRepository.listarTodos();
 		result.include("depoimentosSolicitados", depoimentos);
-		result.include("backgroundTitulo", "backAzul");
+		result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();
+		/*result.include("backgroundTitulo", "backAzul");
 		result.include("msgTitulo", "Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados");
-		result.redirectTo(this).depoimentoAdmin();	
+		result.redirectTo(this).depoimentoAdmin();*/	
 	}
 	
 	@Restrito

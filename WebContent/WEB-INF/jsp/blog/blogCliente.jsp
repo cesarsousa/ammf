@@ -39,7 +39,9 @@
 
 <h3 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler o texto na íntegra.</h3>
 
-<table class="display" id="example">
+<div align="center">
+<div class="cardViewText superFooter bordaLateral">
+<table class="display dataTable">
 	<thead align="left">
 		<tr>
 			<th class="metadado">Autor</th>
@@ -64,10 +66,14 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="4" align="center"><h2>Celebre a Vida !</h2> </th>			
+			<th colspan="4" align="center"><h2>Celebre a Vida !</h2></th>			
 		</tr>		
 	</tfoot>
 </table>
+<br/>
+</div>
+</div>
+
 <a name="irTopo"></a>
 <a name="lerTexto"></a>
 <table id="textoModoLeitura"  width="100%">	

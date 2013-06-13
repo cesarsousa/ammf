@@ -93,7 +93,19 @@ function getDataFormatada(milisegundos){
 	     + data.getHours() + ":" + data.getMinutes() + ":" + data.getMilliseconds();	
 }
 
+function confirmarExclusao(){
+	return confirm("Tem certeza que deseja remover este registro?");	
+}
+
+
 $(document).ready(function() {
+	
+	$('.dataTable').dataTable({
+		"bPaginate": true,
+		"bJQueryUI": false,
+		"sPaginationType": "full_numbers"
+	});
+	
 	$('.closeClick').click(function(){
 		$(this).fadeOut(1000);
 	});

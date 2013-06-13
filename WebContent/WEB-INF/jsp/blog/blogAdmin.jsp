@@ -109,29 +109,35 @@
 			</td>
 		</tr>
 		<tr id="resultBuscaTxtBlog">
-		<td>
-			<br/>
-			<table width="100%">
-				<thead>
-					<tr>						
-					<td class="headTabelaBlog2">data da postagem</td>
-					<td class="headTabelaBlog1">t&iacute;tulo</td>
-					<td class="headTabelaBlog1">Conte&uacute;do</td>
-					<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
-					</tr>
-				</thead>
+			<td>
+				<br/>
+				<table width="100%">
+					<thead>
+						<tr>						
+						<td class="headTabelaBlog2">data da postagem</td>
+						<td class="headTabelaBlog1">t&iacute;tulo</td>
+						<td class="headTabelaBlog1">Conte&uacute;do</td>
+						<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
+						</tr>
+					</thead>
+						
+					<tbody id="tabEdtTextoBlog">						
+					</tbody>
 					
-				<tbody id="tabEdtTextoBlog">						
-				</tbody>
-				
-			</table>			
-		</td>
+				</table>			
+			</td>
 		</tr>
+		
 		<tr id="divBlogEditarTexto">
 		<td>
 			<!-- AREA DE EDICAO DE UM TEXTO -->
 			<hr class="hrClass">
 			<a name="editarTextoBlog"></a>
+			
+			<div align="right">
+			<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
+			</div>
+			
 			<h2>Editar Texto</h2>
 			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post">
 								
@@ -189,28 +195,33 @@
 		<td>
 		<c:if test="${not empty textosBlog}">
 		<div id="divEditarBlogTodosTextos">
-		<div align="right">
+		<div align="right">		
 		<input id="btBlogFecharTextos" type="button" value="fechar" class="backVermelho button">
 		</div>
-		<table class="display cardViewText superFooter bordaLateral" id="example">
+		<h3>Clique no t&iacute;tulo do texto para visualiz&aacute;-lo em modo de edição.</h3>
+		<table class="display dataTable cardViewText superFooter bordaLateral">
 			<thead align="left">
 				<tr>
 					<th class="metadado">Autor</th>
 					<th class="metadado">T&iacute;tulo</th>
 					<th class="metadado">Texto</th>
-					<th class="metadado">Postagem</th>			
+					<th class="metadado">Postagem</th>
+					<th class="metadado">A&ccedil;&atilde;o</th>			
 				</tr>
 			</thead>
 			<tbody>
 		 		<c:forEach items="${textosBlog}" var="texto">
 					<tr class="zebrado">
 						<td class="infoTabela">${texto.autor}</td>
-						<td class="infoTabela metadado ponteiro">
-						<a class="infoTabela metadado" href="#editarTextoBlog" href="#lerTexto" onclick="visualizarTextoParaEdicao('${texto.uuid}')">${texto.titulo}</a>
+						<td class="infoTabela metadado ponteiro">${texto.titulo}</td>
 						<td class="infoTabela">
 							<c:set var="origem"	value="${texto.conteudo}"/>
 							<c:out value="${fn:substring(origem,0,50)}"/>...</td>
 						<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
+						<td class="infoTabelaData">
+							<a id="linkPadrao" class="ponteiro" href="#editarTextoBlog" onclick="visualizarTextoParaEdicao('${texto.uuid}')"><img class="ponteiro icone" alt="editar" src="../image/iconeEditarHover.png" title="editar este texto"></a>
+							<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+							</td>
 					</tr>			
 				</c:forEach>		
 			</tbody>			

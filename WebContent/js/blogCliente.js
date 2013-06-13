@@ -87,12 +87,6 @@ function visualizarTextoBlog(uuid){
 
 $(document).ready(function() {
 	
-	oTable = $('#example').dataTable({
-		"bPaginate": true,
-		"bJQueryUI": false,
-		"sPaginationType": "full_numbers"
-	});	
-	
 	$('#divTodosTextos').hide();
 	
 	$('#btVisualizarTodos').toggle(function() {
@@ -113,7 +107,5 @@ $(document).ready(function() {
 	
 	$('#textoModoLeitura').hide();
 	$('#goTopo').smoothScroll();
-	
-	
 	
 });

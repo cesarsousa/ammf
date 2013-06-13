@@ -86,36 +86,39 @@ textarea {
 }
 
 #btAddTextoBlog {
-	background-image: url("../image/iconeAdd.png");
+	/* background-image: url("../image/iconeAdd.png"); */
+	background-image: url("../image/iconeAddHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 50px;
 	height: 50px;
 }
 #btAddTextoBlog:hover{
-	background-image: url("../image/iconeAddHover.png");
+	/* background-image: url("../image/iconeAddHover.png"); */
 }
 
 #btEdtTextoBlog {
-	background-image: url("../image/iconeEditar.png");
+	/* background-image: url("../image/iconeEditar.png"); */
+	background-image: url("../image/iconeEditarHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 50px;
 	height: 50px;
 }
 #btEdtTextoBlog:hover{
-	background-image: url("../image/iconeEditarHover.png");
+	/* background-image: url("../image/iconeEditarHover.png"); */
 }
 
 #btListarTextosBlog {
-	background-image: url("../image/iconeListar.png");
+	/* background-image: url("../image/iconeListar.png"); */
+	background-image: url("../image/iconeListarHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 50px;
 	height: 50px;
 }
 #btListarTextosBlog:hover{
-	background-image: url("../image/iconeListarHover.png");
+	/* background-image: url("../image/iconeListarHover.png"); */
 }
 
 .hrClass {

@@ -34,9 +34,6 @@
 <script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentoAdmin.js"></script>
 
-
-
-
 </head>
 <body>
 

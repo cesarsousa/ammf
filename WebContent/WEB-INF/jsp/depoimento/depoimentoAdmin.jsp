@@ -67,13 +67,37 @@
 	</table>
 	
 	<br/>
-
+	
+	<!-- DEPOIMENTOS CADASTRADOS -->
 	<table class="cardViewText">
 	<tr>
 		<td>
-		<img alt="" title="" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
-		<h2>Novo Texto</h2>			
-		</td>
+		<img id="btDepoimentoVerTodos" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
+		<h2>Visualizar Todos</h2>			
+		</td>		
+	</tr>
+	<tr id="trAdmTodosDepoimentos">
+		<td>
+		<div align="right">		
+		<input id="btFecharDepoimentoVerTodos" type="button" value="fechar" class="backVermelho button">
+		</div>
+		<table class="display dataTable cardViewText superFooter bordaLateral">
+			<thead>
+				<tr>
+				<td class="metadado">nome</td>
+				<td class="metadado">email</td>
+				<td class="metadado">depoimento</td>
+				<td class="metadado">postagem</td>
+				<td class="metadado">status</td>				
+				<td class="metadado">O que fazer?</td>
+				</tr>
+			</thead>
+			
+			<tbody id="resultTodosDepoimentos"></tbody>
+
+		</table>
+		
+		</td>		
 	</tr>
 	</table>
 	
@@ -121,33 +145,33 @@
 </thead>
 </table>
 
-<table class="display" id="example">
-<thead id="metadadoBuscaDepoimento">
-	<tr>
-	<td class="metadado">nome</td>
-	<td class="metadado">email</td>
-	<td class="metadado">depoimento</td>
-	<td class="metadado">postagem</td>
-	<td class="metadado">status</td>				
-	<td class="metadado">O que fazer?</td>
-	</tr>
-</thead>
-
-
-<tbody id="resultBuscaDepoimento">
-<c:forEach items="${depoimentosSolicitados}" var="depoimento">
-<tr class="zebrado">
-<td class="infoTabela">${depoimento.autor}</td>
-<td class="infoTabela">${depoimento.email}</td>
-<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
-<td class="infoTabelaData">${depoimento.dataFormatada}</td>
-<td class="infoTabela">${depoimento.status}</td>
-<td class="infoTabela" align="center">
-	<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
-	<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
-</td>
-</c:forEach>
-</tbody>
+<table class="display dataTable">
+	<thead id="metadadoBuscaDepoimento">
+		<tr>
+		<td class="metadado">nome</td>
+		<td class="metadado">email</td>
+		<td class="metadado">depoimento</td>
+		<td class="metadado">postagem</td>
+		<td class="metadado">status</td>				
+		<td class="metadado">O que fazer?</td>
+		</tr>
+	</thead>
+	
+	<tbody id="resultBuscaDepoimento">
+		<c:forEach items="${depoimentosSolicitados}" var="depoimento">
+			<tr class="zebrado">
+			<td class="infoTabela">${depoimento.autor}</td>
+			<td class="infoTabela">${depoimento.email}</td>
+			<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
+			<td class="infoTabelaData">${depoimento.dataFormatada}</td>
+			<td class="infoTabela">${depoimento.status}</td>
+			<td class="infoTabela" align="center">
+				<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
+				<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
+			</td>
+			</tr>
+		</c:forEach>
+	</tbody>
 
 </table>
 
