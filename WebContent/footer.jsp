@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div align="center">
+<!-- <div align="center">
 <h2>Celebre a Vida !</h2>
-</div>
+</div> -->
 <div style="padding: 10px; background-color: #CCCCCC">
-
-
 		
 	<div id="espacador"></div>
 	

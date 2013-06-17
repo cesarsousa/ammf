@@ -93,7 +93,7 @@ public class BlogController {
 	@Get("/blog/cliente")
 	public void blogCliente(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
-		Texto ultimaPublicacao = textoRepository.obterPor(textoRepository.obterUuidUltimaPublicacao());
+		Texto ultimaPublicacao = textoRepository.obterUuidUltimaPublicacao();
 		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		result.include("ultimaPublicacao", ultimaPublicacao);
 		result.include("paragrafos", paragrafos);

@@ -43,6 +43,6 @@ public interface TextoRepository {
 
 	public void atualizar(Texto texto);
 
-	public String obterUuidUltimaPublicacao();	
+	public Texto obterUuidUltimaPublicacao();	
 
 }
