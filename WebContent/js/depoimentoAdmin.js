@@ -54,43 +54,43 @@ function ajaxDepoimentos(url, idTbody){
 
 
 function hideAllDepoimentosFields(){
-	$('#trAdmTodosDepoimentos').hide();
+	$('#tabBuscaDepoimento').hide();
 }
 
 $(document).ready(function() {	
 	hideAllDepoimentosFields();
 	
-	$('#btFecharDepoimentosPendentes').click(function(){
-		$('#tabDepoimentosPendentes').slideUp(500);		
+	if($('#flagMostrarBusca').val()){
+		$('#tabBuscaDepoimento').show();
+	}
+	$('#btBuscaDepoimento').toggle(function() {
+		$('#tabBuscaDepoimento').slideDown(500);
+	}, function() {
+		$('#tabBuscaDepoimento').slideUp(500);
 	});
+	
 	
 	$('#campoBuscaDepoimento').puts('DIGITE O NOME DA PESSOA');
 	addRemoveDestaque('#campoBuscaDepoimento');
 	
-	$('#btDepoimentoVerTodos').click(function(event){		
-		event.preventDefault();
+	$('#btDepoimentoVerTodos').click(function(){
+		$('#formDepoimentoVerTodos').submit();
+		/*event.preventDefault();
 		$('#trAdmTodosDepoimentos').slideDown(1000);
 		var url = $('#contexto').val() + "/adm/depoimentos/cadastrados";
 		var idTbody = "#resultTodosDepoimentos";
 		
-		ajaxDepoimentos(url, idTbody);
-	});
-	$('#btFecharDepoimentoVerTodos').click(function(){		
-		$('#trAdmTodosDepoimentos').slideUp(500);
+		ajaxDepoimentos(url, idTbody);*/
 	});
 	
-	/*<c:forEach items="${depoimentosSolicitados}" var="depoimento">
-	<tr class="zebrado">
-	<td class="infoTabela">${depoimento.autor}</td>
-	<td class="infoTabela">${depoimento.email}</td>
-	<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
-	<td class="infoTabelaData">${depoimento.dataFormatada}</td>
-	<td class="infoTabela">${depoimento.status}</td>
-	<td class="infoTabela" align="center">
-		<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
-		<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
-	</td>
-	</c:forEach>*/	
+	$('#btDepoimentosConfirmados').click(function(){
+		$('#formDepoimentosConfirmados').submit();
+	});
+	
+	$('#btDepoimentosPendentes').click(function(){
+		$('#formDepoimentosPendentes').submit();
+	});
+	
 	
 	$('#formBuscaDepoimento').submit(function(event){		
 		

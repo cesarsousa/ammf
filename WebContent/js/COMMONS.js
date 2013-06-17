@@ -1,4 +1,7 @@
 
+
+
+
 var alertWindow;
 
 function abrirJanelaDeEspera(idPagina, idJanelaEspera){
@@ -99,6 +102,12 @@ function confirmarExclusao(){
 
 
 $(document).ready(function() {
+	
+	/*$('#btNovoDepoimento').toggle(function() {
+		$('#divNovoDepoimento').slideDown(1000);
+	}, function() {
+		$('#divNovoDepoimento').slideUp(1000);
+	});*/
 	
 	$('.dataTable').dataTable({
 		"bPaginate": true,

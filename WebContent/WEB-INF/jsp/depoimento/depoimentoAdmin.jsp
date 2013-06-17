@@ -12,22 +12,62 @@
 
 <div id="divPgAdmCadastroCliente" align="center">
 
-<h2>Depoimentos Cadastrados</h2>
-<span class="info azulClaro" >Depoimento dos usu&aacute;rios do site</span>
+<h2>DEPOIMENTOS</h2>
+
+
+<!-- Barra de Icones
+<div align="center" class="divMenuOpcao">
+<table class="menuOpcao">
+<tr>
+<td>
+<ul class="itemMenuOpcao">
+	<li class="itemMenuPrincipal">Menu Principal</li>
+	<li>Busca</li>
+	<li>Cadastrados</li>
+	<li>Confirmados</li>
+	<li>Pendentes</li>	
+</ul>
+</td>
+</tr>
+</table>
+</div> -->
 
 <!-- Barra de Icones -->
-<div class="menuOpcao" >
-<ul class="itemMenuOpcao">
-	<li>MENU PRINCIPAL</li>
-	<li>BUSCA</li>
-	<li>CADASTRADOS</li>
-	<li>CONFIRMADOS</li>
-	<li>PENDENTES</li>	
-</ul>
+<form id="formDepoimentoVerTodos" action="<c:url value="/adm/depoimentos/cadastrados" />" method="get"></form>
+<form id="formDepoimentosConfirmados" action="<c:url value="/adm/depoimentos/confirmados" />" method="get"></form>
+<form id="formDepoimentosPendentes" action="<c:url value="/adm/depoimentos/pendentes" />" method="get"></form>
 
+<div align="center" class="divMenuOpcao">
+<table class="menuOpcao">
+<tr>
+<td>
+<ul class="itemMenuOpcao">
+	<li class="itemMenuPrincipal">
+		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
+		</form>
+	</li>
+	<li>
+		<img id="btBuscaDepoimento" alt="" title="" src="${imagem}/iconeComentarioBuscar.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btDepoimentoVerTodos" alt="" title="" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btDepoimentosConfirmados" alt="" title="" src="${imagem}/iconeComentarioConfirmados.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btDepoimentosPendentes" alt="" title="" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
+	</li>	
+</ul>
+</td>
+</tr>
+</table>
 </div>
 
+<div class="separador"></div>
 
+<%--
 <div align="center">
 <table id="tabNotificacaoDepoimento">  
   <tr align="center">
@@ -36,7 +76,7 @@
 			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 		</form>
 		</td>
-    <td width="33%">    	
+     <td width="33%">    	
     	<div class="cardDepoimento depsCadAll fundoAzulClaro">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
     	<br/>
@@ -62,7 +102,7 @@
 	</td>
   </tr>
 </table>
-</div>
+</div> --%>
 
 
 
@@ -139,19 +179,23 @@
 
 
 
-<table class="grid" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; width: 100%">
+<table id="tabBuscaDepoimento" class="grid" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; width: 100%">
 <thead>
 <tr>	
-	<td colspan="5" align="center" valign="middle"><label id="labelResultadoConsulta">Busca de depoimentos pelo nome ou email</label></td>	
+	<td colspan="5" align="center" valign="middle"><p class="info azulClaro">Busca de depoimentos pelo nome ou email</p></td>	
 </tr>
 <tr>
 	<td colspan="5">
 		<div align="center">
+		<input id="flagMostrarBusca" type="hidden" value="${flagMostrarBusca}">
 		<form id="formBuscaDepoimento" action="<c:url value="/menu/busca/depoimento" />" method="get">
 				<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa areaTitulo3 bordaPadrao"/>
 		</form>
 		</div>
 	</td>
+</tr>
+<tr>	
+	<td colspan="5" align="center" valign="middle"><p id="labelResultadoConsulta" class="info">${labelResultadoConsulta}</p></td>	
 </tr>
 </thead>
 </table>
@@ -160,6 +204,9 @@
 <div style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; width: 100%">
 <table class="display dataTable">
 	<thead id="metadadoBuscaDepoimento">
+		<tr>
+		<th colspan="6"><span class="${backgroundTitulo}">${tituloDepoimentosSolicitados}</span></th>
+		</tr>
 		<tr>
 		<th class="metadado">nome</th>
 		<th class="metadado">email</th>
@@ -188,69 +235,6 @@
 </table>
 </div>
 </c:if>
-
-
-<%-- <c:if test="${not empty depoimentosSolicitados}">
-<div id="tabDepoimentosSolicitados">	
-<table class="tamanhoDefault">
-	<tr>
-		<td >
-		<input id="btFecharDepoimentosSolicitados" type="button" class="button direita" value="^">
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<div id="conteudoDepoimentosSolicitados" class="cartao tamanhoEdicaoIndex" >								
-			<table>
-				<thead>
-					<tr>
-					<td colspan="4" class="headerTabPessoa ${backgroundTitulo}">${msgTitulo}</td>
-					</tr>					
-				</thead>
-				<thead>
-					<tr>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">A&ccedil;&otilde;es</td>
-					</tr>
-				</thead>								
-					
-				<tbody>
-				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
-					
-					<c:if test="${depoimento.confirmado}">
-						<c:set var="cssBack" value="fundoTabVerde" />						
-					</c:if>
-					<c:if test="${not depoimento.confirmado}">
-						<c:set var="cssBack" value="fundoTabVermelho" />
-					</c:if>
-										
-					<tr class="zebrado ${cssBack}">
-						<td class="infoTabela">${depoimento.autor}</td>
-						<td class="infoTabela">${depoimento.email}</td>
-						<td class="infoTabela">${depoimento.dataFormatada}</td>
-						<td class="infoTabela" align="center">
-							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
-							<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />"><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
-						</td>						
-					</tr>
-					<tr class="zebrado ${cssBack}">
-						<td class="bordaInferior" colspan="4">${depoimento.conteudo}</td>
-					</tr>				
-				</c:forEach>						
-				</tbody>
-				
-			</table>				
-		</div>
-		</td>
-	</tr>
-	<tr>
-	<td class="paddingPadrao"><div class="separador"></div></td>
-	</tr>
-</table>
-</div>
-</c:if> --%>
 
 </div> <!-- centralizacao -->
 
