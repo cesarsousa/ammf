@@ -213,7 +213,7 @@
 		 		<c:forEach items="${textosBlog}" var="texto">
 					<tr class="zebrado">
 						<td class="infoTabela">${texto.autor}</td>
-						<td class="infoTabela metadado ponteiro">${texto.titulo}</td>
+						<td class="infoTabela metadado">${texto.titulo}</td>
 						<td class="infoTabela">
 							<c:set var="origem"	value="${texto.conteudo}"/>
 							<c:out value="${fn:substring(origem,0,50)}"/>...</td>

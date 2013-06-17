@@ -16,6 +16,17 @@
 <span class="info azulClaro" >Depoimento dos usu&aacute;rios do site</span>
 
 <!-- Barra de Icones -->
+<div class="menuOpcao" >
+<ul class="itemMenuOpcao">
+	<li>MENU PRINCIPAL</li>
+	<li>BUSCA</li>
+	<li>CADASTRADOS</li>
+	<li>CONFIRMADOS</li>
+	<li>PENDENTES</li>	
+</ul>
+
+</div>
+
 
 <div align="center">
 <table id="tabNotificacaoDepoimento">  
@@ -25,7 +36,7 @@
 			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 		</form>
 		</td>
-    <td width="33%">
+    <td width="33%">    	
     	<div class="cardDepoimento depsCadAll fundoAzulClaro">
     	${totalDepoimentosCadastrados} depoimentos cadastrados
     	<br/>
@@ -53,9 +64,9 @@
 </table>
 </div>
 
-<div class="separador"></div>
 
-<div style="width: 100%">
+
+<%-- <div style="width: 100%">
 
 	<table class="cardViewText">
 	<tr>
@@ -123,12 +134,12 @@
 	</tr>
 	</table>
 		
-</div>
+</div> --%>
 
 
 
 
-<table class="grid">
+<table class="grid" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; width: 100%">
 <thead>
 <tr>	
 	<td colspan="5" align="center" valign="middle"><label id="labelResultadoConsulta">Busca de depoimentos pelo nome ou email</label></td>	
@@ -145,15 +156,17 @@
 </thead>
 </table>
 
+<c:if test="${not empty depoimentosSolicitados}">
+<div style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; width: 100%">
 <table class="display dataTable">
 	<thead id="metadadoBuscaDepoimento">
 		<tr>
-		<td class="metadado">nome</td>
-		<td class="metadado">email</td>
-		<td class="metadado">depoimento</td>
-		<td class="metadado">postagem</td>
-		<td class="metadado">status</td>				
-		<td class="metadado">O que fazer?</td>
+		<th class="metadado">nome</th>
+		<th class="metadado">email</th>
+		<th class="metadado">depoimento</th>
+		<th class="metadado">postagem</th>
+		<th class="metadado">status</th>				
+		<th class="metadado">O que fazer?</th>
 		</tr>
 	</thead>
 	
@@ -172,10 +185,9 @@
 			</tr>
 		</c:forEach>
 	</tbody>
-
 </table>
-
-
+</div>
+</c:if>
 
 
 <%-- <c:if test="${not empty depoimentosSolicitados}">
@@ -259,6 +271,6 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<%-- <div id="footer">
-<%@ include file="/footer.jsp" %>
-</div> --%>
+<div id="footer">
+<%@ include file="/footerADM.jsp" %>
+</div>
