@@ -102,4 +102,8 @@ public class Depoimento implements Serializable{
 	public String getDataFormatada(){
 		return DataUtils.getFullString(postagem);
 	}
+	
+	public boolean isPendente(){
+		return Status.PENDENTE == this.status;
+	}
 }

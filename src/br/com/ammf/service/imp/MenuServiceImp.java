@@ -89,11 +89,11 @@ public class MenuServiceImp implements MenuService{
 		
 		int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
 		if(totalDepoimentosPendentes > 0){
-			notificacoes.add("<b>depoimento:</b> "+ totalDepoimentosPendentes + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
+			notificacoes.add("<b>Depoimento:</b> "+ totalDepoimentosPendentes + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
 		if(pessoaRepository.totalCadastrosPendentes() > 0){
-			notificacoes.add("<b>cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
+			notificacoes.add("<b>Cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		return notificacoes;
 	}

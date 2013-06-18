@@ -52,8 +52,6 @@ a {
 	color: #cccccc;
 }
 
-
-
 input {
 	padding: 5px;
 	color: #000000;
@@ -129,6 +127,13 @@ textarea {
 	 
 }
 
+.titulo {
+	font-family: monospace;
+	font-size: x-large;
+	font-weight: bold;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.2em;
+}
+
 .negrito {
 	font-weight: bold;
 }
@@ -139,7 +144,7 @@ textarea {
 }
 
 .zebrado:hover {
-	background-color: #dddddd;
+	background-color: #ADD8E6;
 }
 
 .bordaInferior{
@@ -295,8 +300,7 @@ a:HOVER {
 }
 
 .labelQuiron:hover {
-	color: #FFFFFF;
-	
+	color: #FFFFFF;	
 }
 
 .fundoAzulClaro{
@@ -652,7 +656,21 @@ a:HOVER {
 	color: red;
 }
 
+.corVermelho{
+	color: red;
+}
 
+.corVerde{
+	color: green;
+}
+
+.corAzul{
+	color: #6CA6CD;
+}
+
+.corCinza{
+	color: gray;
+}
 
 #menu {
 	margin: 0;
@@ -763,10 +781,6 @@ a:HOVER {
 
 .corQuiron {
 	color: #5B2406;
-}
-
-.corAzul{
-	color: blue;
 }
 
 .buttonAlt {
@@ -1094,7 +1108,7 @@ a:HOVER {
 }
 
 .metadado {
-	font-size: small;
+	font-size: medium;
 	padding: 5px;
 	color: #6CA6CD;
 }
@@ -1203,8 +1217,6 @@ a:HOVER {
 }
 
 .msgFooter{
-	background-color: #000000;
-	border-color: #000000;
 	text-align: left;
 	font-size: medium;
 }

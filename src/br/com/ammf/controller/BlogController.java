@@ -66,6 +66,7 @@ public class BlogController {
 	public void listarTodos(){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
 		result.include("textosBlog", textosBlog);
+		result.include("flagTextosblog", true);
 		result.redirectTo(this).blogAdmin();
 	}
 	

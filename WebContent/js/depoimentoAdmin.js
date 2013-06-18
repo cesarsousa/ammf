@@ -69,18 +69,19 @@ $(document).ready(function() {
 		$('#tabBuscaDepoimento').slideUp(500);
 	});
 	
+	$('#btFecharDepoimentosSolicitados').click(function(){
+		$('#tabDepoimentosCadastrados').slideUp(500);
+	});
 	
 	$('#campoBuscaDepoimento').puts('DIGITE O NOME DA PESSOA');
 	addRemoveDestaque('#campoBuscaDepoimento');
 	
+	$('#btFecharBuscarDepoimentos').click(function(){
+		$('#tabBuscaDepoimento').slideUp(500);
+	});
+	
 	$('#btDepoimentoVerTodos').click(function(){
 		$('#formDepoimentoVerTodos').submit();
-		/*event.preventDefault();
-		$('#trAdmTodosDepoimentos').slideDown(1000);
-		var url = $('#contexto').val() + "/adm/depoimentos/cadastrados";
-		var idTbody = "#resultTodosDepoimentos";
-		
-		ajaxDepoimentos(url, idTbody);*/
 	});
 	
 	$('#btDepoimentosConfirmados').click(function(){
@@ -89,22 +90,12 @@ $(document).ready(function() {
 	
 	$('#btDepoimentosPendentes').click(function(){
 		$('#formDepoimentosPendentes').submit();
-	});
+	});	
 	
-	
-	$('#formBuscaDepoimento').submit(function(event){		
-		
-	});
-	
-	$('#btFecharDepoimentosSolicitados').click(function(){
-		$('#tabDepoimentosSolicitados').slideUp(1000);
-	});
-	
-	$('#btRemoverTodosDepoimentos').click(function(event){
-		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirmaÃ§Ã£o?");
+	/*$('#btRemoverTodosDepoimentos').click(function(event){
+		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirmação?");
 		if(!decisao){
 			event.preventDefault();
 		}		
-	});
-	
+	});*/	
 });

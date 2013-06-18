@@ -83,8 +83,9 @@ public class DepoimentoController {
 	public void listarDepoimentos(String paramConsulta){
 		List<Depoimento> depoimentos = depoimentoRepository.listarPorNomeEEmail(paramConsulta);
 		result.include("depoimentosSolicitados", depoimentos);
+		result.include("backgroundTitulo", "corCinza");
 		result.include("labelResultadoConsulta", depoimentos.size() + " resultados para a busca '<b>" + paramConsulta + "</b>'");
-		result.include("tituloDepoimentosSolicitados", "<h2>Visualiza&ccedil;&atilde;o de todos os depoimentos de <b>"+ paramConsulta + "</b></h2>");
+		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos de <b>"+ paramConsulta + "</b>");
 		result.include("flagMostrarBusca", true);
 		result.redirectTo(this).depoimentoAdmin();
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/		
@@ -95,8 +96,9 @@ public class DepoimentoController {
 	public void visualizarTodosOsDepoimentosCadastrados(){
 		List<Depoimento> depoimentos = depoimentoRepository.listarTodos();
 		result.include("depoimentosSolicitados", depoimentos);
+		result.include("backgroundTitulo", "corAzul");
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/
-		result.include("tituloDepoimentosSolicitados", "<h2>Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados</h2>");
+		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados");
 		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
@@ -105,7 +107,8 @@ public class DepoimentoController {
 	public void visualizarTodosOsDepoimentosConfirmados(){
 		List<Depoimento> depoimentos = depoimentoRepository.listarTodos(Status.CONFIRMADO);
 		result.include("depoimentosSolicitados", depoimentos);
-		result.include("tituloDepoimentosSolicitados", "<h2>Visualiza&ccedil;&atilde;o de todos os depoimentos confirmados</h2>");
+		result.include("backgroundTitulo", "corVerde");
+		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos confirmados");
 		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
@@ -114,7 +117,8 @@ public class DepoimentoController {
 	public void visualizarTodosOsDepoimentosPendentesConfirmacao(){
 		List<Depoimento> depoimentos = depoimentoRepository.listarTodos(Status.PENDENTE);
 		result.include("depoimentosSolicitados", depoimentos);
-		result.include("tituloDepoimentosSolicitados", "<h2>Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o</h2>");
+		result.include("backgroundTitulo", "corVermelho");
+		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o");
 		result.redirectTo(this).depoimentoAdmin();	
 	}	
 }
