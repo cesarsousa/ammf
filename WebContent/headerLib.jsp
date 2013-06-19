@@ -37,6 +37,8 @@
 </head>
 <body>
 
+<input id="imageContexto" type="hidden" value="${imagem}"/>
+
 <!-- rede social facebook -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

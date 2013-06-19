@@ -65,6 +65,7 @@
 		<div align="right">
 		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="backVermelho button">
 		</div>
+		<img align="left" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
 		<h2 align="center">Consultar Pessoas</h2>
 		</td>
 	</tr>
@@ -110,7 +111,8 @@
 	<td>
 	<div align="right">
 		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="backVermelho button">
-	</div>
+	</div>	
+	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
 	<h2 align="center">Cadastrar Pessoa</h2>
 	</td>
 </tr>
@@ -161,7 +163,9 @@
 		<div align="right">
 			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="backVermelho button">
 		</div>
-		<div id="tituloPessoasSolicitadas"></div>   
+		<img align="left" id="iconTituloPessoasSolicitadas" width="50" height="50" class="ponteiro esquerda">	
+		<div id="tituloPessoasSolicitadas"></div>
+		<div id="mensagemSemRegistro"></div>   
 		</td>
 	</tr>	
 	<tr>

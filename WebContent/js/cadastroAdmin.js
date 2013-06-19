@@ -1,11 +1,13 @@
-//ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
-function ajaxGet(url, tituloTabela){
+		
+function ajaxGet(url, tituloTabela, nomeImagem){
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + url,
 		success : function(json){
 			$('#tituloPessoasSolicitadas').html('').append(tituloTabela);
-			
+			var imagem = $('#imageContexto').val() + nomeImagem;
+			$('#iconTituloPessoasSolicitadas').attr('src', imagem);		
+				
 			$('#bodyPessoasSolicitadas').html('');
 			for(var i = 0; i< json.length; i++){				
 				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
@@ -22,16 +24,13 @@ function ajaxGet(url, tituloTabela){
 					'<td>' +
 					     '<a href="'+ linkRemover + '"><img class="ponteiro" alt="excluir esta pessoa" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a>' + tagConfirmar + '</td>' +
 					'</tr>');						
-			}			
+			}					
 			
-			// se não existe conteudoPessoasSolicitadas slide up
 			$('#tabPessoasSolicitadas').slideDown(1000);
-			/*$(btFechar).click(function(){
-				$('#tabPessoasSolicitadas').slideUp(1000);		
-			});*/
+			
 		},
 		error : function(){
-			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
+			alert("Servidor nao esta disponiel no momento, por favor tente mais tarde!");				
 		}
 	});	
 }
@@ -49,6 +48,8 @@ $(document).ready(function() {
 	
 	$('#tabBuscaPessoa').hide();
 	$('#iconBuscaPessoa').click(function() {
+		$('#tabPessoasSolicitadas').slideUp(500);
+		$('#tabCadastrarPessoa').slideUp(500);
 		$('#tabBuscaPessoa').slideDown(500);
 		$('#campoBusca').puts("Digite o nome da pessoa");
 		addRemoveDestaque("#campoBusca");
@@ -111,7 +112,9 @@ $(document).ready(function() {
 	if($('#flagCadastroPessoaVazio').val()){
 		$('#tabCadastrarPessoa').slideDown(500);
 	}
-	$('#iconAddPessoa').click(function() {		
+	$('#iconAddPessoa').click(function() {
+		$('#tabBuscaPessoa').slideUp(500);
+		$('#tabPessoasSolicitadas').slideUp(500);
 		$('#tabCadastrarPessoa').slideDown(500);		
 	});
 	
@@ -129,15 +132,21 @@ $(document).ready(function() {
 	
 	$('#tabPessoasSolicitadas').hide();	
 	$('#iconPessoasCadastradas').click(function() {
-		ajaxGet("/pessoa/listar", '<div align="center"><span class="titulo corAzul">Pessoas Cadastradas</span></div>');
+		$('#tabBuscaPessoa').slideUp(500);
+		$('#tabCadastrarPessoa').slideUp(500);
+		ajaxGet("/pessoa/listar", '<div align="center"><span class="titulo corCinza">Pessoas Cadastradas</span></div>', '/usuario_cinza.png');
 	});
 	
 	$('#iconPessoasConfirmadas').click(function() {
-		ajaxGet("/pessoa/confirmadas", '<div align="center"><span class="titulo corVerde">Pessoas Confirmadas</span></div>');
+		$('#tabBuscaPessoa').slideUp(500);
+		$('#tabCadastrarPessoa').slideUp(500);
+		ajaxGet("/pessoa/confirmadas", '<div align="center"><span class="titulo corVerde">Pessoas Confirmadas</span></div>', '/usuario_verde.png');
 	});
 	
 	$('#iconPessoasPendentes').click(function() {
-		ajaxGet("/pessoa/pendentes", '<div align="center"><span class="titulo corVermelho">Pessoas Pendentes Confirma&ccedil;&atilde;o</span></div>');				
+		$('#tabBuscaPessoa').slideUp(500);
+		$('#tabCadastrarPessoa').slideUp(500);
+		ajaxGet("/pessoa/pendentes", '<div align="center"><span class="titulo corVermelho">Pessoas Pendentes Confirma&ccedil;&atilde;o</span></div>', '/usuario_vermelho.png');				
 	});
 	
 	$('#btFecharPessoasSolicitadas').click(function(){
