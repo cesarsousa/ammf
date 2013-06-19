@@ -142,7 +142,7 @@ table.display thead {
 table.display thead th {
 	padding: 15px 18px 15px 10px;
 	border-bottom: 1px solid black;
-	font-weight: normal;
+	font-weight: bold;
 	cursor: pointer;
 	* cursor: hand;
 }

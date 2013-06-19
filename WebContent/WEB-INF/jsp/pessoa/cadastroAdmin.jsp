@@ -156,38 +156,64 @@
 
 <br/>
 
+<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
+<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
+<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
+
 <!--  PESSOAS SOLICITADAS -->
+<c:if test="${visualizarPessoas}">
 <table id="tabPessoasSolicitadas" class="cardViewText superFooter bordaLateral">
 	<tr>
 		<td>
 		<div align="right">
 			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="backVermelho button">
 		</div>
-		<img align="left" id="iconTituloPessoasSolicitadas" width="50" height="50" class="ponteiro esquerda">	
-		<div id="tituloPessoasSolicitadas"></div>
-		<div id="mensagemSemRegistro"></div>   
+		
+		<c:if test="${isPessoasCadastradas}">
+			<img src="${imagem}/usuario_cinza.png" width="50" height="50" class="esquerda">
+		</c:if>
+		<c:if test="${isPessoasConfirmadas}">
+			<img src="${imagem}/usuario_verde.png" width="50" height="50" class="esquerda">
+		</c:if>
+		<c:if test="${isPessoasPendentes}">
+			<img src="${imagem}/usuario_vermelho.png" width="50" height="50" class="esquerda">
+		</c:if>	
+		
+		<span class="titulo ${cssCorFonte}">${tituloPessoasSolicitadas}</span>
+		
 		</td>
 	</tr>	
 	<tr>
 		<td>
 		<div id="conteudoPessoasSolicitadas">
-			<table class="display" id="example" >
+			<table class="display dataTable cardViewText superFooter bordaLateral" >				
 				<thead>
 					<tr>
-					<td colspan="4" class="headerTabPessoa backCinza">Visualiza&ccedil;&atilde;o de todas as pessoas cadastradas</td>
-					</tr>					
-				</thead>
-				<thead>
-					<tr>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td></td>
+					<th class="metadado">Nome</th>
+					<th class="metadado">Email</th>
+					<th class="metadado">Data Cadastro</th>
+					<th class="metadado">Status</th>
+					<th class="metadado">A&ccedil;&otilde;es</th>
 					</tr>
-				</thead>
-					
-				<tbody id="bodyPessoasSolicitadas">						
+				</thead>					
+				<tbody>
+					<c:forEach items="${pessoasSolicitadas}" var="pessoa">
+						<tr class="zebrado">
+							<td class="infoTabela">${pessoa.nome}</td>
+							<td class="infoTabela">${pessoa.email}</td>
+							<td class="infoTabela">${pessoa.dataFormatada}</td>
+							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
+							<td>
+								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
+									<img class="ponteiro" alt="excluir esta pessoa" src="${imagem}/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa">
+								</a>
+								
+								<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
+									<img class="ponteiro" alt="confirmar esta pessoa" src="${imagem}/icone_confirmar.png" width="20px" height="20px" title="confirmar esta pessoa">
+								</a>
+							</td>
+						</tr>
+					</c:forEach>						
 				</tbody>
 				
 			</table>				
@@ -195,6 +221,7 @@
 		</td>
 	</tr>	
 </table>
+</c:if>
 
 </div>
 

@@ -70,22 +70,40 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/listar")
 	public void listarPessoas(){
-		List<Pessoa> pessoas = pessoaRepository.listar();		
-		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+		List<Pessoa> pessoas = pessoaRepository.listar();
+		result.include("pessoasSolicitadas", pessoas);
+		result.include("tituloPessoasSolicitadas", pessoas.size() + " Pessoas Cadastradas");
+		result.include("isPessoasCadastradas", true);
+		result.include("cssCorFonte", "corCinza");
+		result.include("visualizarPessoas", true);
+		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
+		result.redirectTo(this).cadastroAdmin();
 	}
 	
 	@Restrito
 	@Get("/pessoa/confirmadas")
 	public void listarPessoasConfirmadas(){
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);
-		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+		result.include("pessoasSolicitadas", pessoas);
+		result.include("tituloPessoasSolicitadas", pessoas.size() + " Pessoas Confirmadas");
+		result.include("isPessoasConfirmadas", true);
+		result.include("cssCorFonte", "corVerde");
+		result.include("visualizarPessoas", true);
+		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
+		result.redirectTo(this).cadastroAdmin();
 	}
 	
 	@Restrito
 	@Get("/pessoa/pendentes")
 	public void listarPessoasPendentes(){
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.PENDENTE);
-		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();
+		result.include("pessoasSolicitadas", pessoas);
+		result.include("tituloPessoasSolicitadas", pessoas.size() + " Pessoas Pendentes Confirma&ccedil;&atilde;o");
+		result.include("isPessoasPendentes", true);
+		result.include("cssCorFonte", "corVermelho");
+		result.include("visualizarPessoas", true);
+		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
+		result.redirectTo(this).cadastroAdmin();
 	}	
 	
 	@Get("/remover/email/{uuid}")
