@@ -63,10 +63,9 @@ $(document).ready(function() {
 	if($('#flagMostrarBusca').val()){
 		$('#tabBuscaDepoimento').show();
 	}
-	$('#btBuscaDepoimento').toggle(function() {
+	$('#btBuscaDepoimento').click(function() {
+		$('#tabDepoimentosCadastrados').slideUp(500);
 		$('#tabBuscaDepoimento').slideDown(500);
-	}, function() {
-		$('#tabBuscaDepoimento').slideUp(500);
 	});
 	
 	$('#btFecharDepoimentosSolicitados').click(function(){
@@ -93,7 +92,7 @@ $(document).ready(function() {
 	});	
 	
 	/*$('#btRemoverTodosDepoimentos').click(function(event){
-		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirmação?");
+		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirmaï¿½ï¿½o?");
 		if(!decisao){
 			event.preventDefault();
 		}		

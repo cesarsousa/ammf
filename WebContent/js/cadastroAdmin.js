@@ -1,17 +1,19 @@
-
-function ajaxGet(url, ulTabela, divTabela, btFechar){
+//ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
+function ajaxGet(url, tituloTabela){
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + url,
 		success : function(json){
-			$(ulTabela).html('');
+			$('#tituloPessoasSolicitadas').html('').append(tituloTabela);
+			
+			$('#bodyPessoasSolicitadas').html('');
 			for(var i = 0; i< json.length; i++){				
 				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
 				var linkRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
 				var linkConfirmar = $('#contexto').val() + "/pessoa/confirmar/" + json[i].uuid;
 				var tagConfirmar = json[i].status == "PENDENTE" ? '<a href="'+ linkConfirmar + '"><img class="ponteiro" alt="confirmar esta pessoa" src="../image/icone_confirmar.png" width="20px" height="20px" title="confirmar esta pessoa"></a>' : '';
 				
-				$(ulTabela).append(
+				$('#bodyPessoasSolicitadas').append(
 					'<tr class="zebrado" class="zebrado">' +
 					'<td class="infoTabela">' + json[i].nome + '</td>' +
 					'<td class="infoTabela">' + json[i].email + '</td>' +
@@ -22,10 +24,11 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 					'</tr>');						
 			}			
 			
-			$(divTabela).slideDown(1000);
-			$(btFechar).click(function(){
-				$(divTabela).slideUp(1000);		
-			});
+			// se não existe conteudoPessoasSolicitadas slide up
+			$('#tabPessoasSolicitadas').slideDown(1000);
+			/*$(btFechar).click(function(){
+				$('#tabPessoasSolicitadas').slideUp(1000);		
+			});*/
 		},
 		error : function(){
 			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
@@ -34,40 +37,21 @@ function ajaxGet(url, ulTabela, divTabela, btFechar){
 }
 
 
-$(document).ready(function() {	
-	
-	addRemoveDestaque("#pessoaNome");
-	addRemoveDestaque("#pessoaEmail");
-	addRemoveDestaque("#campoBusca");
+$(document).ready(function() {
 	
 	$('#telaAguardeAdmCadastroCliente').hide();
 	
-	$('#btnCadastrarPessoa').click(function(){
-		$('#divAdmMsgCadCliente').slideUp(500);
-		$('#admNomeDoCliente').html($('#pessoaNome').val());	
-		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
-	});
-	
 	$('#btMenuAdm').click(function(){
 		$('#formMenuPrincipal').submit();
-	});
+	});		
 	
-	$('#btnCadastrarPessoa').click(function(){
-		abrirJanelaDeEspera($('#contexto').val() + "/telaAguarde.html");
-	});
+	//**** BUSCA
 	
-	$('#campoBusca').puts("Digite o nome da pessoa");	
-	
-	/*$('#tabBuscaPessoa').hide();	*/
-	$('#trCampoBuscar').hide();	
-	$('#iconBuscaPessoa').toggle(function() {
-		/*$('#tabBuscaPessoa').slideDown(500);*/
-		$('#trCampoBuscar').slideDown(500);
-	}, function() {
-		/*$('#tabBuscaPessoa').slideUp(500);*/
-		$('#conteudoConsultaPessoas').slideUp(500);
-		$('#trCampoBuscar').slideUp(500);
-		
+	$('#tabBuscaPessoa').hide();
+	$('#iconBuscaPessoa').click(function() {
+		$('#tabBuscaPessoa').slideDown(500);
+		$('#campoBusca').puts("Digite o nome da pessoa");
+		addRemoveDestaque("#campoBusca");
 	});	
 	
 	$('#conteudoConsultaPessoas').hide();
@@ -113,46 +97,50 @@ $(document).ready(function() {
 		});	
 		
 	});
-	$('#btFecharConsultaPessoas').click(function(){
-		$('#conteudoConsultaPessoas').slideUp(1000);		
+	
+	$('#btFecharBuscaPessoa').click(function(){
+		$('#tabBuscaPessoa').slideUp(500);		
 	});	
 	
-	$('#trCadastrarPessoa').hide();
+	//****** CADASTRAR PESSOA
+	
+	addRemoveDestaque("#pessoaNome");
+	addRemoveDestaque("#pessoaEmail");
+	
+	$('#tabCadastrarPessoa').hide();
 	if($('#flagCadastroPessoaVazio').val()){
-		$('#trCadastrarPessoa').slideDown(500);
+		$('#tabCadastrarPessoa').slideDown(500);
 	}
-	$('#iconAddPessoa').toggle(function() {
-		$('#trCadastrarPessoa').slideDown(500);		
-	}, function() {
-		$('#trCadastrarPessoa').slideUp(500);
-	});	
-	
-	$('#conteudoPessoasCadastradas').hide();	
-	$('#iconPessoasCadastradas').toggle(function() {
-		$('#conteudoPessoasCadastradas').slideDown(500);
-		ajaxGet("/pessoa/listar", "#ulPessoas", "#tabPessoasCadastradas", "#btFecharConteudoCadastradas");		
-	}, function() {
-		$('#conteudoPessoasCadastradas').slideUp(500);
+	$('#iconAddPessoa').click(function() {		
+		$('#tabCadastrarPessoa').slideDown(500);		
 	});
 	
-	$('#conteudoPessoasConfirmadas').hide();	
-	$('#iconPessoasConfirmadas').toggle(function() {
-		$('#conteudoPessoasConfirmadas').slideDown(500);
-		ajaxGet("/pessoa/confirmadas", "#ulPessoasConfirmadas", "#tabPessoasConfirmadas", "#btFecharConteudoConfirmadas");
-	}, function() {
-		$('#conteudoPessoasConfirmadas').slideUp(500);
+	$('#btnCadastrarPessoa').click(function(){
+		$('#divAdmMsgCadCliente').slideUp(500);
+		$('#admNomeDoCliente').html($('#pessoaNome').val());	
+		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
 	});
 	
-	$('#conteudoPessoasPendentes').hide();	
-	$('#iconPessoasPendentes').toggle(function() {
-		$('#conteudoPessoasPendentes').slideDown(500);
-		ajaxGet("/pessoa/pendentes", "#ulPessoasPendentes", "#tabPessoasPendentes", "#btFecharConteudoPendentes");					
-		
-	}, function() {
-		$('#conteudoPessoasPendentes').slideUp(500);
+	$('#btFecharCadastrarPessoa').click(function(){
+		$('#tabCadastrarPessoa').slideUp(500);		
 	});
 	
+	//*** LISTAGEM DE PESSOAS SOLICITADAS
 	
+	$('#tabPessoasSolicitadas').hide();	
+	$('#iconPessoasCadastradas').click(function() {
+		ajaxGet("/pessoa/listar", '<div align="center"><span class="titulo corAzul">Pessoas Cadastradas</span></div>');
+	});
 	
-		
+	$('#iconPessoasConfirmadas').click(function() {
+		ajaxGet("/pessoa/confirmadas", '<div align="center"><span class="titulo corVerde">Pessoas Confirmadas</span></div>');
+	});
+	
+	$('#iconPessoasPendentes').click(function() {
+		ajaxGet("/pessoa/pendentes", '<div align="center"><span class="titulo corVermelho">Pessoas Pendentes Confirma&ccedil;&atilde;o</span></div>');				
+	});
+	
+	$('#btFecharPessoasSolicitadas').click(function(){
+		$('#tabPessoasSolicitadas').slideUp(500);		
+	});
 });

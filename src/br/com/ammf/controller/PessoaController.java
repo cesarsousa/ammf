@@ -135,7 +135,7 @@ public class PessoaController {
 				redirecionarParaIndex(pessoa);
 			} catch (DBException e) {
 				e.printStackTrace();
-				result.include("msgErroCadastro", "Opps! Ocorreu um erro inexperado, infelizmente não foi possível realizar o seu cadastro.<br/>Por favor tente novamente mais tarde.");
+				result.include("msgErroCadastro", "Opps! Ocorreu um erro inexperado, infelizmente n&atilde;o foi poss&iacute;vel realizar o seu cadastro.<br/>Por favor tente novamente mais tarde.");
 				redirecionarParaCadastroCliente();
 			} catch (EmailException e) {				
 				e.printStackTrace();
@@ -147,7 +147,7 @@ public class PessoaController {
 	}
 
 	private void redirecionarParaIndex(Pessoa pessoa) {
-		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve você receberá uma confirmação por email.");
+		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve voc&ecirc; receber&aacute; uma confirma&ccedil;&atilde;o por email.");
 		result.redirectTo(IndexController.class).index();		
 	}
 

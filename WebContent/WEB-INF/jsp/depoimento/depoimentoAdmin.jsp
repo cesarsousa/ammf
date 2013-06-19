@@ -65,7 +65,7 @@
 
 <div class="separador"></div>
 
-<table id="tabBuscaDepoimento" class="grid" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; width: 100%">
+<table id="tabBuscaDepoimento" class="grid fullSize">
 <thead>
 <tr>	
 	<td colspan="5" align="right"><input id="btFecharBuscarDepoimentos" type="button" value="fechar" class="backVermelho button"></td>	
@@ -90,7 +90,7 @@
 </table>
 
 <c:if test="${not empty depoimentosSolicitados}">
-<table id="tabDepoimentosCadastrados"  style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; width: 100%">
+<table id="tabDepoimentosCadastrados" class="fullSize" >
 <tr>
 <td>
 <div align="right"><input id="btFecharDepoimentosSolicitados" type="button" value="fechar" class="backVermelho button"></div>
@@ -98,10 +98,10 @@
 </tr>
 <tr>
 <td>
-	<table class="display dataTable">
+	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead id="metadadoBuscaDepoimento">
 			<tr>
-			<th colspan="6"><span class="titulo ${backgroundTitulo}">${tituloDepoimentosSolicitados}</span></th>
+			<th colspan="6" align="center"><span class="titulo ${backgroundTitulo}">${tituloDepoimentosSolicitados}</span></th>
 			</tr>
 			<tr>
 			<th class="metadado">nome</th>

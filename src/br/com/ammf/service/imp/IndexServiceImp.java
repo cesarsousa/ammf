@@ -34,7 +34,7 @@ public class IndexServiceImp implements IndexService{
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
 		if(texto == null){
 			Paragrafo paragrafo = new Paragrafo();
-			paragrafo.setTrechoTexto("Texto não disponibilizado.");
+			paragrafo.setTrechoTexto("Texto nao disponibilizado.");
 			paragrafos.add(paragrafo);
 		}else{
 			String textoDividido[] = texto.getConteudo().split("\n");

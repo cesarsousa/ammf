@@ -31,7 +31,7 @@ public class UsuarioController {
 	@Post("/usuario/cadastrar")
 	public void cadastrar(Usuario usuario){
 		usuarioRepository.salvar(usuario);
-		result.include("mensagem", "Usuário adicionado com sucesso.");
+		result.include("mensagem", "Usu&aacute;rio adicionado com sucesso.");
 		result.forwardTo(IndexController.class).index();
 	}
 	
@@ -43,7 +43,7 @@ public class UsuarioController {
 			usuario.setId(sessaoUsuario.getUsuario().getId());
 			usuarioRepository.atualizar(usuario);
 			sessaoUsuario.login(usuario);
-			redirecionarParaMenuAdm("mensagem", "Dados de conta de usuário atualizados com sucesso");
+			redirecionarParaMenuAdm("mensagem", "Dados de conta de usu&aacute;rio atualizados com sucesso");
 		}else{
 			redirecionarParaMenuAdm("editarUsuario", "true");
 		}		

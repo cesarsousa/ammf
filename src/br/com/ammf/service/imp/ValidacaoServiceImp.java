@@ -34,7 +34,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("emailEmBranco", "O email deve ser informado<br/>");
 			validado = false;
 		}else if(!emailValido(depoimento.getEmail())){
-			result.include("emailEmBranco", "O email está com formato inválido<br/>");
+			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido<br/>");
 			validado = false;
 		}		
 		
@@ -51,7 +51,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			 * e mostrar o form de novo depoimento. 
 			 */
 			result.include("flagErroDepoimento", true);
-			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da página</b><br/>");
+			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da p&aacute;gina</b><br/>");
 		}
 		
 		return validado;
@@ -70,12 +70,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("emailEmBranco", "O email deve ser informado");
 			validada = false;
 		}else if (!emailValido(pessoa.getEmail())){
-			result.include("emailEmBranco", "O email está com formato inválido");
+			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido");
 			validada = false;
 		}else{
 			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
-				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " já está cadastrado neste site");
+				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site");
 				//result.include("opcaoCadastro", true); // ??
 				validada = false;
 			}
@@ -104,7 +104,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("usuarioErroEmail", "O email deve ser informado");
 			resultado = false;
 		}else if (!emailValido(usuario.getEmail())){
-			result.include("usuarioErroEmail", "O email deve possuir um formato válido");
+			result.include("usuarioErroEmail", "O email deve possuir um formato v&aacute;lido");
 			resultado = false;
 		}else if (!ehGmail(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve deve ser do Gmail (seu_email@gmail.com)");
@@ -117,7 +117,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
-			result.include("usuarioUuidBranco", "Não foi possível definir o uuid do usuário");
+			result.include("usuarioUuidBranco", "N&atilde;o foi poss&iacute;vel definir o uuid do usu&aacute;rio");
 			resultado = false;
 		}
 		

@@ -74,6 +74,13 @@ textarea {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B0C4DE', endColorstr='#E8E8E8',GradientType=0 ); /* IE6-8 */
 }
 
+.fullSize{
+	background-color: #FFFFFF; 
+	border-top: 1px solid #CCCCCC; 
+	border-bottom: 1px solid #CCCCCC; 
+	width: 100%	
+}
+
 #btMenuAdm {
 	background-image: url("../image/iconeMenu.jpg");
 	background-position: center;

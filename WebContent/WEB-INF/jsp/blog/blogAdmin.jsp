@@ -183,7 +183,7 @@
 
 <!-- LISTAR TODOS OS TEXTOS -->
 <input id="flagTextosblog" type="hidden" value="${flagTextosblog}">
-<table id="divEditarBlogTodosTextos" class="cardViewText">	
+<table id="divEditarBlogTodosTextos" class="fullSize">	
 	<tr>
 	<td>
 	<div align="right">		
@@ -191,17 +191,17 @@
 	</div>
 	<c:if test="${empty textosBlog}">
 	<h3>N&atilde;o existem textos cadastrados</h3>
-	</c:if>	
+	</c:if>
 	<c:if test="${not empty textosBlog}">
-	<h3>Clique no t&iacute;tulo do texto para visualiz&aacute;-lo em modo de edi&ccedil;&atilde;o.</h3>
+	<h3 align="center">Textos Cadastrados.</h3>
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
 				<th class="metadado">Autor</th>
 				<th class="metadado">T&iacute;tulo</th>
 				<th class="metadado">Texto</th>
-				<th class="metadado">Postagem</th>
-				<th class="metadado">A&ccedil;&atilde;o</th>			
+				<th class="metadado" style="width: 160px;">Postagem</th>
+				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
 			</tr>
 		</thead>
 		<tbody>
@@ -212,8 +212,8 @@
 					<td class="infoTabela">
 						<c:set var="origem"	value="${texto.conteudo}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-					<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
-					<td class="infoTabelaData">
+					<td class="infoTabela" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
+					<td class="infoTabelaData" style="width: 80px;">
 						<a id="linkPadrao" class="ponteiro" href="#editarTextoBlog" onclick="visualizarTextoParaEdicao('${texto.uuid}')"><img class="ponteiro icone" alt="editar" src="../image/iconeEditarHover.png" title="editar este texto"></a>
 						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
 						</td>

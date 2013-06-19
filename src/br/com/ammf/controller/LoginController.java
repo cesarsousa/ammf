@@ -39,7 +39,7 @@ public class LoginController {
 			sessaoUsuario.login(usuario);
 			result.redirectTo(MenuController.class).menu();
 		}else{
-			result.include("erroLogin", "Usuário ou senha inválidos");
+			result.include("erroLogin", "Usu&aacute;rio ou senha inv&aacute;lidos");
 			result.redirectTo(this).login();
 		}
 	}

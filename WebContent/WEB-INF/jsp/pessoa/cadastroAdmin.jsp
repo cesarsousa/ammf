@@ -14,7 +14,6 @@
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
-<!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
 
 <div id="divPgAdmCadastroCliente" align="center">
@@ -24,15 +23,36 @@
 <span class="info azulClaro">Cadastro e consulta de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
 </p>
 
-<table class="tamanhoDefault">
-	<tr>
-		<td class="tdTableIcone">
+<div align="center" class="divMenuOpcao">
+<table class="menuOpcao">
+<tr>
+<td>
+<ul class="itemMenuOpcao">
+	<li class="itemMenuPrincipal">
 		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>		
+			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 		</form>
-		</td>		
-	</tr>
+	</li>
+	<li>
+		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
+	</li>	
+</ul>
+</td>
+</tr>
 </table>
+</div>
 
 <div class="separador"></div>
 
@@ -42,11 +62,13 @@
 <table id="tabBuscaPessoa" class="cardViewText superFooter bordaLateral">	
 	<tr>
 		<td>
-		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
-		<h2>Consultar Pessoas</h2>
+		<div align="right">
+		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="backVermelho button">
+		</div>
+		<h2 align="center">Consultar Pessoas</h2>
 		</td>
 	</tr>
-	<tr id="trCampoBuscar">		
+	<tr>		
 		<td class="centralizar" style="padding: 10px;">
 		<form id="formBuscaPessoa">
 		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
@@ -83,15 +105,17 @@
 
 <!-- CADASTRAR PESSOA -->
 <input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
-<table class="cardViewText superFooter bordaLateral">
+<table id="tabCadastrarPessoa" class="cardViewText superFooter bordaLateral">
 <tr>
 	<td>
-	<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
-	<h2>Cadastrar Pessoa</h2>
+	<div align="right">
+		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="backVermelho button">
+	</div>
+	<h2 align="center">Cadastrar Pessoa</h2>
 	</td>
 </tr>
 
-<tr id="trCadastrarPessoa" align="center">
+<tr align="center">
 <td>
 	<div id="areaLogin">
 	
@@ -130,17 +154,19 @@
 
 <br/>
 
-<!--  PESSOAS CADASTRADAS -->
-<table id="tabPessoasCadastradas" class="cardViewText superFooter bordaLateral">
+<!--  PESSOAS SOLICITADAS -->
+<table id="tabPessoasSolicitadas" class="cardViewText superFooter bordaLateral">
 	<tr>
 		<td>
-		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-		<h2>Pessoas Cadastradas</h2>
+		<div align="right">
+			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="backVermelho button">
+		</div>
+		<div id="tituloPessoasSolicitadas"></div>   
 		</td>
 	</tr>	
 	<tr>
 		<td>
-		<div id="conteudoPessoasCadastradas">
+		<div id="conteudoPessoasSolicitadas">
 			<table class="display" id="example" >
 				<thead>
 					<tr>
@@ -157,84 +183,7 @@
 					</tr>
 				</thead>
 					
-				<tbody id="ulPessoas">						
-				</tbody>
-				
-			</table>				
-		</div>
-		</td>
-	</tr>	
-</table>
-
-<br/>
-
-<!-- PESSOAS CONFIRMADAS -->
-<table id="tabPessoasConfirmadas" class="cardViewText superFooter bordaLateral">
-	<tr>
-	<td>
-	<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-	<h2>Pessoas Confirmadas</h2>
-	</td>
-	</tr>
-	
-	<tr>
-		<td>
-		<div id="conteudoPessoasConfirmadas">								
-			<table>
-				<thead>
-					<tr>
-					<td colspan="4" class="headerTabPessoa backVerde">Visualiza&ccedil;&atilde;o de todas as pessoas confirmadas</td>
-					</tr>					
-				</thead>
-				<thead>
-					<tr>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td></td>
-					</tr>
-				</thead>
-					
-				<tbody id="ulPessoasConfirmadas">						
-				</tbody>
-				
-			</table>				
-		</div>
-		</td>
-	</tr>	
-</table>
-		
-<br/>
-
-<!-- PESSOAS PENDENTES -->
-<table id="tabPessoasPendentes" class="cardViewText superFooter bordaLateral">
-	<tr>
-		<td>
-		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-		<h2>Pessoas pendentes confirma&ccedil;&atilde;o</h2>
-		</td>
-	</tr>	
-	<tr>
-		<td>
-		<div id="conteudoPessoasPendentes">								
-			<table>
-				<thead>
-					<tr>
-					<td colspan="4" class="headerTabPessoa backVermelho">Visualiza&ccedil;&atilde;o de todas as pessoas pendentes confirma&ccedil;&atilde;o</td>
-					</tr>					
-				</thead>
-				<thead>
-					<tr>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td></td>
-					</tr>
-				</thead>
-					
-				<tbody id="ulPessoasPendentes">						
+				<tbody id="bodyPessoasSolicitadas">						
 				</tbody>
 				
 			</table>				
