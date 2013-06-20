@@ -95,7 +95,7 @@
 </thead>
 </table>
 
-<c:if test="${not empty depoimentosSolicitados}">
+<c:if test="${not empty depoimentosRequest}">
 <table id="tabDepoimentosCadastrados" class="fullSize" >
 	<tr>
 	<td>

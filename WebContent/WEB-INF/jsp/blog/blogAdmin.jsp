@@ -195,7 +195,7 @@
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
 	<c:if test="${empty textosBlog}">
-	<h3>N&atilde;o existem textos cadastrados</h3>
+	<h3 align="center">N&atilde;o existem textos cadastrados</h3>
 	</c:if>
 	<c:if test="${not empty textosBlog}">
 	<h3 align="center">Textos Cadastrados.</h3>
