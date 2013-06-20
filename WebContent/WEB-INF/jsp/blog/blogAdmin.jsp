@@ -3,7 +3,7 @@
 <%@ include file="/logAdmin.jsp" %>
 
 <c:if test="${not empty blogMensagemSucesso}">
-	<div class="msgBorder msgSucesso">
+	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${blogMensagemSucesso} 
 	</div>
 	<div id="separador"></div>
@@ -14,7 +14,7 @@
 
 <div align="center">
 
-<h2>Blog do Miguel</h2>
+<h2>BLOG</h2>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">

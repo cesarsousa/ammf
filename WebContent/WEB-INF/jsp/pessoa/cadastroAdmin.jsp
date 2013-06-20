@@ -18,7 +18,7 @@
 
 <div id="divPgAdmCadastroCliente" align="center">
 
-<h2>Cadastro de Pessoa</h2>
+<h2>CADASTRO</h2>
 <p>
 <span class="info azulClaro">Cadastro e consulta de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
 </p>

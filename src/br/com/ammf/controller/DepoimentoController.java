@@ -87,6 +87,7 @@ public class DepoimentoController {
 		result.include("labelResultadoConsulta", depoimentos.size() + " resultados para a busca '<b>" + paramConsulta + "</b>'");
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos de <b>"+ paramConsulta + "</b>");
 		result.include("flagMostrarBusca", true);
+		result.include("isDepoimentosCadastrados", true);
 		result.redirectTo(this).depoimentoAdmin();
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/		
 	}
@@ -96,9 +97,10 @@ public class DepoimentoController {
 	public void visualizarTodosOsDepoimentosCadastrados(){
 		List<Depoimento> depoimentos = depoimentoRepository.listarTodos();
 		result.include("depoimentosSolicitados", depoimentos);
-		result.include("backgroundTitulo", "corAzul");
+		result.include("backgroundTitulo", "corCinza");
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos cadastrados");
+		result.include("isDepoimentosCadastrados", true);
 		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
@@ -109,6 +111,7 @@ public class DepoimentoController {
 		result.include("depoimentosSolicitados", depoimentos);
 		result.include("backgroundTitulo", "corVerde");
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos confirmados");
+		result.include("isDepoimentosConfirmados", true);
 		result.redirectTo(this).depoimentoAdmin();	
 	}
 	
@@ -119,6 +122,7 @@ public class DepoimentoController {
 		result.include("depoimentosSolicitados", depoimentos);
 		result.include("backgroundTitulo", "corVermelho");
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o dos depoimentos pendentes confirma&ccedil;&atilde;o");
+		result.include("isDepoimentosPendentes", true);
 		result.redirectTo(this).depoimentoAdmin();	
 	}	
 }

@@ -11,7 +11,7 @@
 
 <div id="divPgAdmCadastroCliente" align="center">
 
-<h2>DEPOIMENTOS</h2>
+<h2>DEPOIMENTO</h2>
 
 <!-- Barra de Icones
 <div align="center" class="divMenuOpcao">
@@ -19,7 +19,7 @@
 <tr>
 <td>
 <ul class="itemMenuOpcao">
-	<li class="itemMenuPrincipal">Menu Principal</li>
+	<li>Menu Principal</li>
 	<li>Busca</li>
 	<li>Cadastrados</li>
 	<li>Confirmados</li>
@@ -68,7 +68,13 @@
 <table id="tabBuscaDepoimento" class="grid fullSize">
 <thead>
 <tr>	
-	<td colspan="5" align="right"><input id="btFecharBuscarDepoimentos" type="button" value="fechar" class="backVermelho button"></td>	
+	<td colspan="5">
+	<div align="right">
+	<input id="btFecharBuscarDepoimentos" type="button" value="fechar" class="backVermelho button">
+	</div>
+	<img src="${imagem}/iconeComentarioBuscar.png" class="icone50 esquerda">
+	<h2 align="center">Buscar Depoimento</h2>
+	</td>	
 </tr>
 <tr>	
 	<td colspan="5" align="center" valign="middle"><p class="info azulClaro">Busca de depoimentos pelo nome ou email</p></td>	
@@ -91,53 +97,67 @@
 
 <c:if test="${not empty depoimentosSolicitados}">
 <table id="tabDepoimentosCadastrados" class="fullSize" >
-<tr>
-<td>
-<div align="right"><input id="btFecharDepoimentosSolicitados" type="button" value="fechar" class="backVermelho button"></div>
-</td>
-</tr>
-<tr>
-<td>
-	<table class="display dataTable cardViewText superFooter bordaLateral">
-		<thead id="metadadoBuscaDepoimento">
-			<tr>
-			<th colspan="6" align="center"><span class="titulo ${backgroundTitulo}">${tituloDepoimentosSolicitados}</span></th>
-			</tr>
-			<tr>
-			<th class="metadado">nome</th>
-			<th class="metadado">email</th>
-			<th class="metadado">depoimento</th>
-			<th class="metadado">postagem</th>
-			<th class="metadado">status</th>				
-			<th class="metadado">O que fazer?</th>
-			</tr>
-		</thead>
+	<tr>
+	<td>
+	<div align="right">
+		<input id="btFecharDepoimentosSolicitados" type="button" value="fechar" class="backVermelho button">
+	</div>
+	
+	<c:if test="${isDepoimentosCadastrados}">
+		<img src="${imagem}/iconeComentarioTodos.png" class="icone50 esquerda">
+	</c:if>
+	<c:if test="${isDepoimentosConfirmados}">
+		<img src="${imagem}/iconeComentarioConfirmados.png" class="icone50 esquerda">
+	</c:if>
+	<c:if test="${isDepoimentosPendentes}">
+		<img src="${imagem}/iconeComentarioPendentes.png" class="icone50 esquerda">
+	</c:if>
 		
-		<tbody id="resultBuscaDepoimento">
-			<c:forEach items="${depoimentosSolicitados}" var="depoimento">
-				<tr class="zebrado">
-				<td class="infoTabela">${depoimento.autor}</td>
-				<td class="infoTabela">${depoimento.email}</td>
-				<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
-				<td class="infoTabelaData">${depoimento.dataFormatada}</td>
-				<td class="infoTabela ${depoimento.status}">${depoimento.status}</td>
-				<td class="infoTabela" align="center">
-					<c:choose>
-						<c:when test="${depoimento.pendente}">
-						<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
-						</c:when>
-						<c:otherwise>
-						<img class="icone" alt="confirmado" title="confirmado" src="${imagem}/iconeConfirmarDisabled.png">
-						</c:otherwise>
-					</c:choose>
-					<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
-				</td>
+	<div align="center">
+		<span class="titulo ${backgroundTitulo}">${tituloDepoimentosSolicitados}</span>
+	</div>
+	
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="display dataTable cardViewText superFooter bordaLateral">
+			<thead id="metadadoBuscaDepoimento">
+				<tr>
+				<th class="metadado">nome</th>
+				<th class="metadado">email</th>
+				<th class="metadado">depoimento</th>
+				<th class="metadado">postagem</th>
+				<th class="metadado">status</th>				
+				<th class="metadado">O que fazer?</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</td>
-</tr>
+			</thead>
+			
+			<tbody id="resultBuscaDepoimento">
+				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
+					<tr class="zebrado">
+					<td class="infoTabela">${depoimento.autor}</td>
+					<td class="infoTabela">${depoimento.email}</td>
+					<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
+					<td class="infoTabelaData">${depoimento.dataFormatada}</td>
+					<td class="infoTabela ${depoimento.status}">${depoimento.status}</td>
+					<td class="infoTabela" align="center">
+						<c:choose>
+							<c:when test="${depoimento.pendente}">
+							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
+							</c:when>
+							<c:otherwise>
+							<img class="icone" alt="confirmado" title="confirmado" src="${imagem}/iconeConfirmarDisabled.png">
+							</c:otherwise>
+						</c:choose>
+						<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
+					</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</td>
+	</tr>
 </table>
 </c:if>
 

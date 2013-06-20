@@ -1124,6 +1124,10 @@ a:HOVER {
 	color: red;
 }
 
+.centralizado {
+	text-align: center;
+}
+
 .fundoErro{
 	background-color: #FFDAB9;	
 }
