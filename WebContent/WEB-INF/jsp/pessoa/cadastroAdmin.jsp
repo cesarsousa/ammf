@@ -65,7 +65,7 @@
 		<div align="right">
 		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="backVermelho button">
 		</div>
-		<img align="left" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
+		<img align="left" src="${imagem}/usuario_lupa.png" width="50" height="50" class="esquerda">
 		<h2 align="center">Consultar Pessoas</h2>
 		</td>
 	</tr>
@@ -89,7 +89,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
-					<td></td>
+					<td class="w50 headTabela">A&ccedil;&atilde;o</td>
 					</tr>
 				</thead>
 					
@@ -112,7 +112,7 @@
 	<div align="right">
 		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="backVermelho button">
 	</div>	
-	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
+	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="esquerda">
 	<h2 align="center">Cadastrar Pessoa</h2>
 	</td>
 </tr>
@@ -203,14 +203,21 @@
 							<td class="infoTabela">${pessoa.email}</td>
 							<td class="infoTabela">${pessoa.dataFormatada}</td>
 							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
-							<td>
-								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
-									<img class="ponteiro" alt="excluir esta pessoa" src="${imagem}/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa">
-								</a>
+							<td>								
+								<c:choose>
+									<c:when test="${pessoa.pendente}">
+										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
+											<img src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
+										</a>
+									</c:when>
+									<c:otherwise>										
+										<img src="${imagem}/iconeConfirmarDisabled.png" class="icone20" alt="pessoa confirmada"  title="pessoa confirmada">
+									</c:otherwise>
+								</c:choose>
 								
-								<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
-									<img class="ponteiro" alt="confirmar esta pessoa" src="${imagem}/icone_confirmar.png" width="20px" height="20px" title="confirmar esta pessoa">
-								</a>
+								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
+									<img class="ponteiro" alt="excluir esta pessoa" src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" width="20px" height="20px" title="excluir esta pessoa">
+								</a>								
 							</td>
 						</tr>
 					</c:forEach>						

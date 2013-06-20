@@ -27,13 +27,13 @@
 		</form>
 	</li>
 	<li>
-		<img id="btAddTextoBlog" alt="adicionar texto" title="adicionar texto" src="${imagem}/iconeAddHover.png" width="50" height="50" class="ponteiro esquerda">
+		<img id="btAddTextoBlog" alt="adicionar texto" title="adicionar texto" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btEdtTextoBlog" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" width="50" height="50" class="ponteiro esquerda">
+		<img id="btEdtTextoBlog" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btListarTextosBlog" alt="" title="" src="${imagem}/iconeListarHover.png" width="50" height="50" class="ponteiro esquerda">
+		<img id="btListarTextosBlog" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li>	
 </ul>
 </td>
@@ -50,10 +50,12 @@
 <table id="tdNovoBlog" class="cardViewText">		
 	<tr>
 		<td >
-		<h2>Novo Texto</h2>
 		<div align="right">
 		<input id="btFecharAddTextoBlog" type="button" value="fechar" class="backVermelho button">
 		</div>
+		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
+		<h2 align="center">Novo Texto</h2>
+		
 		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
 			 				
 			<h3>T&iacute;tulo :</h3>
@@ -95,11 +97,13 @@
 <!-- EDITAR COM CAMPO DE BUSCA -->
 <table id="blogAreaBusca" class="cardViewText">		
 	<tr>
-		<td  valign="middle" style="padding-left: 50px;">
-		<h2>Editar Texto</h2>
+		<td  valign="middle">
 		<div align="right">
 		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
 		</div>
+		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
+		<h2 align="center">Editar Texto</h2>		
+		
 		<form id="formBlogBuscaTexto">
 		<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao esquerda" />
 		
@@ -137,8 +141,8 @@
 		<div align="right">
 		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
 		</div>
-		
-		<h2>Editar Texto</h2>
+		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
+		<h2 align="center">Edi&ccedil;&atilde;o de Texto</h2>
 		<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post">
 							
 			<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
@@ -189,6 +193,7 @@
 	<div align="right">		
 	<input id="btBlogFecharTextos" type="button" value="fechar" class="backVermelho button">
 	</div>
+	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
 	<c:if test="${empty textosBlog}">
 	<h3>N&atilde;o existem textos cadastrados</h3>
 	</c:if>

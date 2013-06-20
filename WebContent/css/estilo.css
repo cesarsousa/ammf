@@ -150,6 +150,16 @@ textarea {
 	height: 25px;
 }
 
+.icone20{
+	width: 20px;
+	height: 20px;
+}
+
+.icone50{
+	width: 50px;
+	height: 50px;
+}
+
 .zebrado:hover {
 	background-color: #ADD8E6;
 }
@@ -1037,6 +1047,10 @@ a:HOVER {
 	height: 200px;
 }
 
+.w50 {
+	width: 50px;
+}
+
 .h500 {
 	height: 500px;
 }
@@ -1139,7 +1153,7 @@ a:HOVER {
 }
 
 .headTabela{
-	width: 300px;
+	/* width: 300px; */
 	color: white;
 	background-color: #A2B5CD;
 	font-weight: bold;

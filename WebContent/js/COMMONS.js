@@ -1,7 +1,4 @@
 
-
-
-
 var alertWindow;
 
 function abrirJanelaDeEspera(idPagina, idJanelaEspera){
