@@ -66,6 +66,9 @@ $(document).ready(function() {
 		$('#divEditarBlogTodosTextos').show();
 	}
 	
+	if($('#flagCadastrarBlogVazio').val()){
+		$('#tdNovoBlog').slideDown(500);
+	}
 	$('#btAddTextoBlog').click(function() {
 		hideAllBlogFields();
 		$('#tdNovoBlog').slideDown(500);		
@@ -111,12 +114,12 @@ $(document).ready(function() {
 		$('#formBtBlogExcluirEdtTexto').submit();
 	});	
 	
-	$('#formBlogNovoTexto').submit(function(event){		
+	/*$('#formBlogNovoTexto').submit(function(event){		
 		if($('#blogTituloNovoTexto').val()== "" || $('#blogConteudoNovoTexto').val()== ""){
 			event.preventDefault();
 			alert("Por favor digite o titulo e o conteudo do texto antes de cadastrar !");
 		}		
-	});	
+	});	*/
 	
 	$('#btListarTextosBlog').click(function(){
 		hideAllBlogFields();

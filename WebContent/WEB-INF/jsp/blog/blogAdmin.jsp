@@ -2,6 +2,12 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<c:if test="${blogErroCadastro}">
+	<div class="msgBorder msgErro ponteiro closeClick">
+	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
+	${tituloEmBranco}${autorEmBranco}${conteudoEmBranco}</div>
+</c:if>
+
 <c:if test="${not empty blogMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${blogMensagemSucesso} 
@@ -47,6 +53,7 @@
 <div class="separador"></div>
 
 <!-- ADICIONAR UM NOVO TEXTO -->
+<input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" >
 <table id="tdNovoBlog" class="cardViewText">		
 	<tr>
 		<td >
@@ -59,10 +66,10 @@
 		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
 			 				
 			<h3>T&iacute;tulo :</h3>
-			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
+			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroTitulo} corAzul " name="texto.titulo" value="${textoBlog.titulo}"/>
 				
 			<h3>Autor :</h3>
-			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
+			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroAutor}" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
 							
 			<h3>Texto:</h3>												
 			
@@ -82,7 +89,7 @@
 				</tr>				
 			</table>	
 					
-			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
+			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao${comErroConteudo}" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
 			
 			<p>
 			<input id="btCadBlogTexto" type="submit" value="cadastrar" class="buttonCadastrar">

@@ -10,6 +10,7 @@ import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.IndexService;
+import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.service.imp.IndexServiceImp;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
@@ -22,11 +23,13 @@ public class BlogController {
 	
 	private Result result;
 	private IndexService indexService;
+	private ValidacaoService validacaoService;
 	private TextoRepository textoRepository;
 	
-	public BlogController(Result result, IndexService indexService, TextoRepository textoRepository){
+	public BlogController(Result result, IndexService indexService,ValidacaoService validacaoService , TextoRepository textoRepository){
 		this.result = result;
 		this.indexService = indexService;
+		this.validacaoService = validacaoService;
 		this.textoRepository = textoRepository;
 	}
 	
@@ -36,14 +39,20 @@ public class BlogController {
 	
 	@Restrito
 	@Post("/blog/novo")
-	public void cadastrarNovo(Texto texto){		
-		texto.setLocal(Local.BLOG);
-		texto.setPostagem(DataUtils.getNow());		
-		textoRepository.cadastrar(texto);
+	public void cadastrarNovo(Texto texto){
 		
-		// TODO notificar usuarios...
+		boolean validado = validacaoService.blog(texto, result);		
+		if(validado){
+			texto.setLocal(Local.BLOG);
+			texto.setPostagem(DataUtils.getNow());		
+			textoRepository.cadastrar(texto);
+			// TODO notificar usuarios de novo texto cadastrado...			
+			result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
+		}else{
+			result.include("flagCadastrarBlogVazio", true);
+			result.include("comErro", "Erro");
+		}
 		
-		result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
 		result.redirectTo(this).blogAdmin();
 	}
 	

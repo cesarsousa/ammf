@@ -57,6 +57,31 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		return validado;
 	}
 	
+	public boolean blog(Texto texto, Result result) {
+		boolean validado = true;
+		if(texto.getTitulo() == null || texto.getTitulo().isEmpty()){
+			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
+			result.include("comErroTitulo", "Erro");
+			validado = false;
+		}
+		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
+			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
+			result.include("comErroAutor", "Erro");
+			validado = false;
+		}
+		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
+			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve ser informado");
+			result.include("comErroConteudo", "Erro");
+			validado = false;
+		}
+		if(!validado){
+			result.include("textoBlog", texto);
+			result.include("blogErroCadastro", true);
+		}
+		
+		return validado;
+	}
+	
 	public boolean pessoa(Pessoa pessoa, Result result) {
 		/*pessoa.setNome(pessoa.getNome().trim());
 		pessoa.setEmail(pessoa.getEmail().trim());*/
@@ -148,4 +173,5 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 	}
+	
 }

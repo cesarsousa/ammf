@@ -4,7 +4,7 @@
 
 <div id="divAdmMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
-	<div class="msgBorder msgErro closeClick">${nomeEmBranco}<br/>${emailEmBranco}</div>
+	<div class="msgBorder msgErro ponteiro closeClick">${nomeEmBranco}<br/>${emailEmBranco}</div>
 </c:if>
 </div>
 

@@ -6,14 +6,16 @@ import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.caelum.vraptor.Result;
 
-public interface ValidacaoService {	
+public interface ValidacaoService {
+	
+	void verificarCamposPreenchidos(Texto texto);
 	
 	boolean pessoa(Pessoa pessoa, Result result);
 
-	boolean usuario(Usuario usuario, Result result);
-
-	void verificarCamposPreenchidos(Texto texto);
+	boolean usuario(Usuario usuario, Result result);	
 
 	boolean depoimento(Depoimento depoimento, Result result);
+
+	boolean blog(Texto texto, Result result);	
 
 }
