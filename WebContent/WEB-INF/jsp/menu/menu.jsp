@@ -433,8 +433,7 @@
 			</ul>		
 				
 		</div>
-	</div>
-		
+	</div>	
 	
 </div>
 </div>
@@ -444,8 +443,8 @@
 		<h3 class="paddingTelaAguarde">Neste momento o sistema esta notificando as pessoas da altera&ccedil;&atilde;o no texto.
 		<br/>
 		Esta opera&ccedil;&atilde;o pode levar alguns minutos porque v&aacute;rios emails est&atilde;o sendo enviados...</h3>			
-		<h3>Por favor, aguarde...</h3>
-		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		
+		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
 		<br />
 		<br />			
 	</div>

@@ -15,12 +15,6 @@ function fecharCampoEdicao(elemento){
 	$(elemento).fadeOut(1000);
 }
 
-/**
- * configuração do comportamento de abrir e ocultar as div de edição dos textos
- * @param elementoAbertura
- * @param elementoFechamento
- * @param tabela
- */
 function configurarCamposEdicaoPrincipal(elementoAbertura, elementoFechamento, tabela){
 	$(elementoAbertura).click(function(evento){
 		evento.preventDefault();

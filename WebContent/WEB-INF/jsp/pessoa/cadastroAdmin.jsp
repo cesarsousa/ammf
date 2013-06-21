@@ -231,7 +231,6 @@
 </c:if>
 
 </div>
-
 </div> <!-- centralizacao -->
 
 <div id="telaAguardeAdmCadastroCliente">

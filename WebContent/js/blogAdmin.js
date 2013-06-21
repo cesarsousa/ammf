@@ -30,7 +30,7 @@
 }*/
 
 function hideAllBlogFields(){
-	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos').hide();
+	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar').hide();
 }
 
 function visualizarTextoParaEdicao(uuid){	
@@ -84,6 +84,10 @@ $(document).ready(function() {
 		$('#divBlogNovoTexto').slideUp(500);		
 	});
 	
+	$('#btCadBlogTexto').click(function() {		
+		abrirJanelaDeEspera("#divPgBlogAdmin", "#telaAguardeAdmBlogCadastrar");	
+	});
+	
 	$('#blogAreaBusca').hide();	
 	$('#btEdtTextoBlog').click(function(){
 		hideAllBlogFields();
@@ -108,18 +112,12 @@ $(document).ready(function() {
 	});
 	
 	$('#btBlogExcluirEdtTexto').click(function(){
-		var action = $('#contexto').val() + "/blog/remover/" + $('#blogEdtUuidTexto').val();
-		alert(action);
-		$('#formBtBlogExcluirEdtTexto').attr('action', action);
-		$('#formBtBlogExcluirEdtTexto').submit();
-	});	
-	
-	/*$('#formBlogNovoTexto').submit(function(event){		
-		if($('#blogTituloNovoTexto').val()== "" || $('#blogConteudoNovoTexto').val()== ""){
-			event.preventDefault();
-			alert("Por favor digite o titulo e o conteudo do texto antes de cadastrar !");
-		}		
-	});	*/
+		if(confirmarExclusao()){
+			var action = $('#contexto').val() + "/blog/remover/" + $('#blogEdtUuidTexto').val();
+			$('#formBtBlogExcluirEdtTexto').attr('action', action);
+			$('#formBtBlogExcluirEdtTexto').submit();
+		}
+	});
 	
 	$('#btListarTextosBlog').click(function(){
 		hideAllBlogFields();
@@ -183,7 +181,7 @@ $(document).ready(function() {
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
 						'<td>' +
 							'<a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
-							'<a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
+							'<a href="'+ linkRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
 					     	'</td>' +
 						'</tr>');					
 				}

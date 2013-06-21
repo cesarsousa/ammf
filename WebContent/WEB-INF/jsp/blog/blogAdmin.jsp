@@ -18,7 +18,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div align="center">
+<div id="divPgBlogAdmin" align="center">
 
 <h2>BLOG</h2>
 
@@ -66,7 +66,7 @@
 		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
 			 				
 			<h3>T&iacute;tulo :</h3>
-			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroTitulo} corAzul " name="texto.titulo" value="${textoBlog.titulo}"/>
+			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroTitulo} corAzul negrito" name="texto.titulo" value="${textoBlog.titulo}"/>
 				
 			<h3>Autor :</h3>
 			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroAutor}" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
@@ -239,6 +239,20 @@
 </table>
 
 </div> <!-- div center -->
+
+<div id="telaAguardeAdmBlogCadastrar">
+	<div align="center">
+		
+		<h2>BLOG</h2>    
+		<span class="info azulClaro" >Novo texto sendo cadastrado.</span>
+								
+		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
+		
+		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		<br />
+		<br />			
+	</div>
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
