@@ -9,6 +9,8 @@ public interface PessoaService {
 
 	void cadastrar(Pessoa pessoa) throws DBException;
 
-	void notificarCadastroPelocliente(Pessoa pessoa) throws EmailException;
+	void notificacarNovoCadastro(Pessoa pessoa) throws EmailException;
+
+	
 
 }

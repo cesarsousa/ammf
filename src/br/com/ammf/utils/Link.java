@@ -10,4 +10,6 @@ public class Link {
 
 	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/{uuid}";
 
+	public static final String WEB_SITE_LOGIN = DOMINIO + "/login";
+
 }

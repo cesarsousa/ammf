@@ -149,7 +149,7 @@ public class PessoaController {
 		if(validado){
 			try {				
 				pessoaService.cadastrar(pessoa);
-				pessoaService.notificarCadastroPelocliente(pessoa);
+				pessoaService.notificacarNovoCadastro(pessoa);				
 				redirecionarParaIndex(pessoa);
 			} catch (DBException e) {
 				e.printStackTrace();

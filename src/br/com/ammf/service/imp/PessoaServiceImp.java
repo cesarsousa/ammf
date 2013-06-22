@@ -42,15 +42,26 @@ public class PessoaServiceImp implements PessoaService{
 	}
 
 	@Override
-	public void notificarCadastroPelocliente(Pessoa pessoa) throws EmailException {
+	public void notificacarNovoCadastro(Pessoa pessoa) throws EmailException {
 		Usuario administrador = usuarioRepository.obterAdministrador();
 		
+		// Notificar o cliente do recebimento e cadastramento.
 		Email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(), 
-				HtmlMensagem.getAssuntoCadastroPessoaPeloCliente(), 
-				HtmlMensagem.getMensagemCadastroPessoaPeloCliente(pessoa, administrador.getLinkedin()));
+				HtmlMensagem.getAssuntoNotificarClienteRecebimentoCadastro(), 
+				HtmlMensagem.getMensagemNotificarClienteRecebimentoCadastro(pessoa, administrador.getLinkedin()));
+		
+		// Notificar o administrador do novo cadatro
+		Email.enviarEmail(
+				administrador.getEmail(), 
+				administrador.getSenha(), 
+				administrador.getEmail(), 
+				HtmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
+				HtmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
 	}
+
+	
 
 }

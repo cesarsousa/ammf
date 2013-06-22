@@ -19,8 +19,47 @@ public class HtmlMensagem {
 		return "Site do Miguel";
 	}
 	
-	public static String getAssuntoCadastroPessoaPeloCliente() {
+	/**
+	 * @return o assunto de um email a ser enviado para um cliente quando este realiza a solicitacao de cadastro pelo site.
+	 */
+	public static String getAssuntoNotificarClienteRecebimentoCadastro() {
 		return "Site do Miguel - Recebimento de cadastro";
+	}
+	
+	/**
+	 * @param pessoa a nova pessoa cadastrada.
+	 * @param linkedin linked in do administrador.
+	 * @return a mensagem de um email a ser enviado para um cliente quando este realiza a solicitacao de cadastro pelo site.
+	 */
+	public static String getMensagemNotificarClienteRecebimentoCadastro(Pessoa pessoa, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastro.html");
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
+				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[LINKEDIN]", linkedin);				
+	}
+	
+	/**
+	 * 
+	 * @param nomeDaPessoa cadastrada no site.
+	 * @return o assunto de um email a ser enviado para o administrador informando quando uma pessoa realiza a solicitacao de cadastro pelo site.
+	 */
+	public static String getAssuntoNotificarAdmRecebimentoCadastro(String nomeDaPessoa) {
+		return "Novo cadastro de pessoa realizado: nome - " + nomeDaPessoa;
+	}
+	
+	/**
+	 * 
+	 * @param pessoa nova pessoa cadastrada no site
+	 * @return a assunto de um email a ser enviado para o administrador informando quando uma pessoa realiza a solicitacao de cadastro pelo site.
+	 */
+	public static String getMensagemNotificarAdmRecebimentoCadastro(Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_adm_recebimento_cadastro.html");
+		return mensagem
+			.replace("[NOME]", pessoa.getNome()) 
+			.replace("[EMAIL]", pessoa.getEmail())
+			.replace("[ID]", String.valueOf(pessoa.getId()))
+			.replace("[WEBSITE_LOGIN_ADM]", Link.WEB_SITE_LOGIN);
 	}
 	
 	public static String getAssuntoCadastroPessoa() {
@@ -71,11 +110,9 @@ public class HtmlMensagem {
 			return Link.WEB_SITE + "/index/" + texto.getLocal().toString().toLowerCase();
 	}
 
-	public static String getMensagemCadastroPessoaPeloCliente(Pessoa pessoa, String linkedin) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_cadastra_pessoa_pelo_cliente.html");
-		return mensagem
-				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
-				.replace("[WEBSITE]", Link.WEB_SITE)
-				.replace("[LINKEDIN]", linkedin);				
-	}
+	
+
+	
+
+	
 }
