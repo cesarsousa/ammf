@@ -9,15 +9,7 @@ public class HtmlMensagem {
 	
 	// http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364
 	
-	private static final String PATH = "./html_mensagem/";
-
-	public static String getAssunto(Notificacao notificacao, Texto texto) {
-		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
-			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
-		if(Notificacao.TEXTO_NOVO.equals(notificacao))
-			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
-		return "Site do Miguel";
-	}
+	private static final String PATH = "./html_mensagem/";	
 	
 	/**
 	 * @return o assunto de um email a ser enviado para um cliente quando este realiza a solicitacao de cadastro pelo site.
@@ -66,7 +58,7 @@ public class HtmlMensagem {
 	 * 
 	 * @return o assunto de um email a ser enviado para um cliente quando o administrador realiza o seu cadastro no site.
 	 */
-	public static String getAssuntoCadastroPessoa() {
+	public static String getAssuntoCadastroPessoaPeloAdm() {
 		return "Site do Miguel - Convite de Cadastramento";
 	}
 	
@@ -76,16 +68,39 @@ public class HtmlMensagem {
 	 * @param linkedin linked in do administrador.
 	 * @return a mensagem de um email a ser enviado para um cliente quando o administrador realiza o seu cadastro no site.
 	 */
-	public static String getMensagemCadastroPessoa(Pessoa pessoa, String linkedin) {
+	public static String getMensagemCadastroPessoaPeloAdm(Pessoa pessoa, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloAdm.html");
-		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("{uuid}", pessoa.getUuid());
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
-	}	
+	}
+	
+	/**
+	 * @return o assunto de um email a ser enviado para um cliente solicitando a confirmacao do cadastro no site.
+	 */
+	public static String getAssuntoSolicitacaoParaConfirmacaoCadastro() {
+		return "Site do Miguel - Confirmacao de Cadastramento";
+	}
+	
+	/**
+	 * @return a mensagem de um email a ser enviado para um cliente solicitando a confirmacao do cadastro no site.
+	 */
+	public static String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
+		// TODO criar metodo
+		return null;
+	}
+	
+	public static String getAssunto(Notificacao notificacao, Texto texto) {
+		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
+			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
+		if(Notificacao.TEXTO_NOVO.equals(notificacao))
+			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
+		return "Site do Miguel";
+	}
 	
 	public static String getAssuntoTextoCadastrado() {
 		return "Blog do Miguel - O texto ' ? ' foi adicionado";
@@ -118,11 +133,5 @@ public class HtmlMensagem {
 			return Link.WEB_SITE;
 		else
 			return Link.WEB_SITE + "/index/" + texto.getLocal().toString().toLowerCase();
-	}
-
-	
-
-	
-
-	
+	}	
 }

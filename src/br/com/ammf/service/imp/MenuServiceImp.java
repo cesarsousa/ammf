@@ -75,8 +75,8 @@ public class MenuServiceImp implements MenuService{
 				sessaoUsuario.getUsuario().getEmail(),
 				sessaoUsuario.getUsuario().getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoCadastroPessoa(),
-				HtmlMensagem.getMensagemCadastroPessoa(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
+				HtmlMensagem.getAssuntoCadastroPessoaPeloAdm(),
+				HtmlMensagem.getMensagemCadastroPessoaPeloAdm(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
 	}
 	
 	private List<String> atualizarListaDeNotificacoes() {

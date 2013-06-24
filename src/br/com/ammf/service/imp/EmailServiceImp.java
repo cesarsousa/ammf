@@ -38,7 +38,6 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				HtmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
 				HtmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
-		
 	}
 
 	@Override
@@ -48,10 +47,19 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoCadastroPessoa(),
-				HtmlMensagem.getMensagemCadastroPessoa(pessoa, administrador.getLinkedin()));
-		
-		
+				HtmlMensagem.getAssuntoCadastroPessoaPeloAdm(),
+				HtmlMensagem.getMensagemCadastroPessoaPeloAdm(pessoa, administrador.getLinkedin()));
+	}
+
+	@Override
+	public void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException {
+		//TODO adicionar logica de envio de email com cofirmação por link no servidor e no cliente (tela aguarde). 
+		Email.enviarEmail(
+				administrador.getEmail(), 
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssuntoSolicitacaoParaConfirmacaoCadastro(),
+				HtmlMensagem.getMensagemSolicitacaoParaConfirmacaoCadastro(pessoa, administrador.getLinkedin()));
 	}
 
 }

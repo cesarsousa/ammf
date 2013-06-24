@@ -8,6 +8,7 @@ import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
@@ -108,11 +109,19 @@ public class PessoaController {
 	}	
 	
 	@Get("/remover/email/{uuid}")
-	public void removerAssinaturaEmail(String uuid){
-		
-		
-		//TODO remover assinatura do cliente via email
-		System.out.println(".........remover assinatura de email de uuid: " + uuid);
+	public void removerAssinaturaEmail(String uuid){		
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		if(pessoa == null){
+			result.include("pessoaInvalida", true);
+		}else{
+			if(pessoa.getSituacao() == Situacao.REMOVIDO_PELO_CLIENTE){
+				result.include("pessoaRemovidaCliente", true);
+			}else if(pessoa.getSituacao() == Situacao.REMOVIDO_PELO_ADM){
+				result.include("pessoaRemovidaAdm", true);
+			}else{
+				result.include("pessoa", pessoa);
+			}			
+		}		
 	}
 	
 	@Restrito
@@ -127,11 +136,17 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/confirmar/{uuid}")
 	public void confirmarPessoa(String uuid){
-		Pessoa pessoa = pessoaRepository.obter(uuid);		
-		pessoaRepository.confirmar(pessoa);
-		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
-		result.redirectTo(this).cadastroAdmin();
-		//TODO adicionar logica de envio de email no servidor e no cliente (tela aguarde). 
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		try {					
+			pessoaRepository.confirmar(pessoa);
+			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);			
+			result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
+			result.redirectTo(this).cadastroAdmin();
+			
+		} catch (EmailException e) {
+			e.printStackTrace();
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+		}
 	}
 		
 	@Restrito

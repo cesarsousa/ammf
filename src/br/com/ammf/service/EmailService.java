@@ -9,4 +9,6 @@ public interface EmailService {
 
 	void notificacarNovoCadastroFeitoPeloAdm(Pessoa pessoa) throws EmailException;
 
+	void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException;
+
 }

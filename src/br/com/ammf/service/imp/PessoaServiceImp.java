@@ -6,6 +6,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
+import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
@@ -37,6 +38,7 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoCliente(Pessoa pessoa) throws DBException {
 		pessoa.setStatus(Status.PENDENTE);
+		pessoa.setSituacao(Situacao.ATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);
 	}
@@ -44,6 +46,7 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoAdm(Pessoa pessoa) {
 		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setSituacao(Situacao.ATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);
 		

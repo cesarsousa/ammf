@@ -19,6 +19,9 @@ import br.com.ammf.exception.EmailException;
 
 public class Email {
 	
+	/**
+	 * flag de des/ativar envio de email.
+	 */
 	private static boolean emailAtivado = true;
 	
 	public static void enviarEmail(
