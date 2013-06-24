@@ -11,7 +11,7 @@ public interface MenuService {
 
 	void notificarPessoas(Texto texto) throws EmailException;	
 
-	void cadastrar(Pessoa pessoa) throws EmailException;
+	
 
 	void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException;
 	

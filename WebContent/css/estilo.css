@@ -926,6 +926,10 @@ a:HOVER {
 	width: 91%;
 }
 
+.w100px{
+	width: 100px;
+}
+
 .areaTitulo {
 	width: 90%;
 	font-size: medium;
@@ -941,7 +945,7 @@ a:HOVER {
 }
 
 .areaTitulo3 {
-	width: 300px;
+	width: 305px;
 	height: 35px;
 	font-size: medium;
 	font-family: arial;
@@ -1141,7 +1145,8 @@ a:HOVER {
 .infoTabela{
 	width: 300px;
 	padding: 5px;
-	font-size: medium;	
+	font-size: medium;
+	text-align: left;	
 }
 
 .infoTabelaConteudo{

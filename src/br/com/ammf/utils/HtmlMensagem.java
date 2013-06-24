@@ -32,7 +32,7 @@ public class HtmlMensagem {
 	 * @return a mensagem de um email a ser enviado para um cliente quando este realiza a solicitacao de cadastro pelo site.
 	 */
 	public static String getMensagemNotificarClienteRecebimentoCadastro(Pessoa pessoa, String linkedin) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastro.html");
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloCliente.html");
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
@@ -54,7 +54,7 @@ public class HtmlMensagem {
 	 * @return a assunto de um email a ser enviado para o administrador informando quando uma pessoa realiza a solicitacao de cadastro pelo site.
 	 */
 	public static String getMensagemNotificarAdmRecebimentoCadastro(Pessoa pessoa) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_adm_recebimento_cadastro.html");
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_adm_recebimento_cadastroPeloCliente.html");
 		return mensagem
 			.replace("[NOME]", pessoa.getNome()) 
 			.replace("[EMAIL]", pessoa.getEmail())
@@ -62,20 +62,22 @@ public class HtmlMensagem {
 			.replace("[WEBSITE_LOGIN_ADM]", Link.WEB_SITE_LOGIN);
 	}
 	
+	/**
+	 * 
+	 * @return o assunto de um email a ser enviado para um cliente quando o administrador realiza o seu cadastro no site.
+	 */
 	public static String getAssuntoCadastroPessoa() {
-		return "Site do Miguel - Confirmacao de Cadastro";
+		return "Site do Miguel - Convite de Cadastramento";
 	}
 	
-	public static String getAssuntoTextoCadastrado() {
-		return "Blog do Miguel - O texto ' ? ' foi adicionado";
-	}
-	
-	public static String getAssuntoTextoAtualizado() {
-		return "Blog do Miguel - O texto ' ? ' foi atualizado";
-	}
-
+	/**
+	 * 
+	 * @param pessoa nova pessoa cadastrada no site.
+	 * @param linkedin linked in do administrador.
+	 * @return a mensagem de um email a ser enviado para um cliente quando o administrador realiza o seu cadastro no site.
+	 */
 	public static String getMensagemCadastroPessoa(Pessoa pessoa, String linkedin) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_cadastra_pessoa.html");
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloAdm.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
@@ -83,6 +85,14 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
+	}	
+	
+	public static String getAssuntoTextoCadastrado() {
+		return "Blog do Miguel - O texto ' ? ' foi adicionado";
+	}
+	
+	public static String getAssuntoTextoAtualizado() {
+		return "Blog do Miguel - O texto ' ? ' foi atualizado";
 	}
 
 	public static String getMensagemTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {

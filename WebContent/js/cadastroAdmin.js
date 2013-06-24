@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$('#tabPessoasSolicitadas').slideUp(500);
 		$('#tabCadastrarPessoa').slideUp(500);
 		$('#tabBuscaPessoa').slideDown(500);
-		$('#campoBusca').puts("Digite o nome da pessoa");
+		$('#campoBusca').puts("Digite o nome ou o codigo da pessoa");
 		addRemoveDestaque("#campoBusca");
 	});	
 	
@@ -35,15 +35,18 @@ $(document).ready(function() {
 					email = email.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
 					
 					var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
-					var linkRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
+					var urlRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
+					var urlConfirmar = $('#contexto').val() + "/pessoa/confirmar/" + json[i].uuid;
+					var linkConfirmar = json[i].status == "PENDENTE" ? '<a href="'+ urlConfirmar + '"><img class="ponteiro" alt="confirmar" src="../image/icone_confirmar.png" width="20px" height="20px" title="confirmar"></a>' : '<img alt="confirmado" src="../image/iconeConfirmarDisabled.png" width="20px" height="20px" title="confirmado">';
 					
 					$('#ulConsultadas').append(
 						'<tr class="zebrado">' +
+						'<td class="infoTabela">' +  json[i].id + '</td>' +
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabela">' + dataCadastro + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-						'<td align="center"><a href="'+ linkRemover + '"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir esta pessoa"></a></td>' +
+						'<td align="center">' + linkConfirmar + '<a href="'+ urlRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="remover"></a></td>' +
 						'</tr>');						
 				}
 				

@@ -27,6 +27,8 @@ public interface PessoaRepository {
 
 	int totalCadastrosPendentes();
 
+	List<Pessoa> obter(long parseLong);
+
 	
 
 }

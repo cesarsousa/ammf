@@ -70,14 +70,14 @@
 		</td>
 	</tr>
 	<tr>		
-		<td class="centralizar" style="padding: 10px;">
+		<td style="padding: 10px;">
 		<form id="formBuscaPessoa">
-		<input id="campoBusca" type="text" class="fundoLupa w90 areaTitulo3 bordaPadrao"/>
+		<input id="campoBusca" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
 		</form>
 		<p>
 		<label id="labelResultadoConsulta"></label>		
 		</p>			
-		</td>
+		</td>		
 	</tr>
 	<tr>
 		<td>
@@ -85,6 +85,7 @@
 			<table>
 				<thead>
 					<tr>
+					<td class="headTabela">C&oacute;digo</td>
 					<td class="headTabela">Nome</td>
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
@@ -189,6 +190,7 @@
 			<table class="display dataTable cardViewText superFooter bordaLateral" >				
 				<thead>
 					<tr>
+					<th class="metadado" style="width: 90px;">C&oacute;digo</th>
 					<th class="metadado">Nome</th>
 					<th class="metadado">Email</th>
 					<th class="metadado">Data Cadastro</th>
@@ -199,6 +201,7 @@
 				<tbody>
 					<c:forEach items="${pessoasSolicitadas}" var="pessoa">
 						<tr class="zebrado">
+							<td class="infoTabela" style="width: 90px;">${pessoa.id}</td>
 							<td class="infoTabela">${pessoa.nome}</td>
 							<td class="infoTabela">${pessoa.email}</td>
 							<td class="infoTabela">${pessoa.dataFormatada}</td>

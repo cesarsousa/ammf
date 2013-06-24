@@ -12,6 +12,7 @@ import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
@@ -24,22 +25,22 @@ import br.com.caelum.vraptor.Result;
 public class PessoaController {
 	
 	private Result result;
-	private PessoaRepository pessoaRepository;
-	private MenuService menuService;
+	private PessoaRepository pessoaRepository;	
 	private ValidacaoService validacaoService;
 	private PessoaService pessoaService;
+	private EmailService emailService;
 	
 	public PessoaController(
 			Result result, 
-			PessoaRepository pessoaRepository,
-			MenuService menuService,
+			PessoaRepository pessoaRepository,			
 			ValidacaoService validacaoService,
-			PessoaService pessoaService){
+			PessoaService pessoaService,
+			EmailService emailService){
 		this.result = result;
-		this.pessoaRepository = pessoaRepository;
-		this.menuService = menuService;
+		this.pessoaRepository = pessoaRepository;		
 		this.validacaoService = validacaoService;
 		this.pessoaService = pessoaService;
+		this.emailService = emailService;
 	}
 	
 	@Restrito
@@ -53,8 +54,8 @@ public class PessoaController {
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){			
 			try {
-				menuService.cadastrar(pessoa);
-				menuService.enviarEmailNotificacaoCadastro(pessoa);
+				pessoaService.cadastrarComoAdm(pessoa);
+				emailService.notificacarNovoCadastroFeitoPeloAdm(pessoa);
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
@@ -148,8 +149,8 @@ public class PessoaController {
 		boolean validado = validacaoService.pessoa(pessoa, result);
 		if(validado){
 			try {				
-				pessoaService.cadastrar(pessoa);
-				pessoaService.notificacarNovoCadastro(pessoa);				
+				pessoaService.cadastrarComoCliente(pessoa);
+				emailService.notificacarNovoCadastroFeitoPeloCliente(pessoa);				
 				redirecionarParaIndex(pessoa);
 			} catch (DBException e) {
 				e.printStackTrace();

@@ -35,32 +35,31 @@ public class PessoaServiceImp implements PessoaService{
 	}
 
 	@Override
-	public void cadastrar(Pessoa pessoa) throws DBException {
+	public void cadastrarComoCliente(Pessoa pessoa) throws DBException {
 		pessoa.setStatus(Status.PENDENTE);
 		pessoa.setDataCadastro(DataUtils.getNow());
-		pessoaRepository.cadastrar(pessoa);		
+		pessoaRepository.cadastrar(pessoa);
 	}
 
 	@Override
-	public void notificacarNovoCadastro(Pessoa pessoa) throws EmailException {
-		Usuario administrador = usuarioRepository.obterAdministrador();
+	public void cadastrarComoAdm(Pessoa pessoa) {
+		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setDataCadastro(DataUtils.getNow());
+		pessoaRepository.cadastrar(pessoa);
 		
-		// Notificar o cliente do recebimento e cadastramento.
-		Email.enviarEmail(
-				administrador.getEmail(), 
-				administrador.getSenha(), 
-				pessoa.getEmail(), 
-				HtmlMensagem.getAssuntoNotificarClienteRecebimentoCadastro(), 
-				HtmlMensagem.getMensagemNotificarClienteRecebimentoCadastro(pessoa, administrador.getLinkedin()));
-		
-		// Notificar o administrador do novo cadatro
-		Email.enviarEmail(
-				administrador.getEmail(), 
-				administrador.getSenha(), 
-				administrador.getEmail(), 
-				HtmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
-				HtmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
 	}
+
+	@Override
+	public boolean ehCodigo(String paramConsulta) {
+		try {
+			Integer.parseInt(paramConsulta);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+
+	
 
 	
 

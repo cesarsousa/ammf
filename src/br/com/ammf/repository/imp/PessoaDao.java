@@ -1,5 +1,6 @@
 package br.com.ammf.repository.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -94,5 +95,20 @@ public class PessoaDao implements PessoaRepository {
 		Criteria criteria = session.createCriteria(Pessoa.class);
 		criteria.add(Restrictions.eq("status", Status.PENDENTE));
 		return criteria.list().size();
+	}
+
+	@Override
+	/**
+	 * Listagem utilizada para retorno via JSON 
+	 */
+	public List<Pessoa> obter(long id) {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("id", id));
+		Pessoa pessoa = (Pessoa) criteria.uniqueResult();
+		List<Pessoa> pessoas = new ArrayList<Pessoa>();
+		if(pessoa != null){
+			pessoas.add(pessoa);
+		}
+		return pessoas;
 	}
 }

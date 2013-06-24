@@ -19,6 +19,8 @@ import br.com.ammf.exception.EmailException;
 
 public class Email {
 	
+	private static boolean emailAtivado = true;
+	
 	public static void enviarEmail(
 			String emailSender, 
 			String emailSenderPassword, 
@@ -26,53 +28,54 @@ public class Email {
 			String assunto, 
 			String mensagem) throws EmailException {	
 		
-		try{
+		if (emailAtivado) {
+			try {
 
-			java.util.Properties properties = new java.util.Properties();
-			properties.put("mail.smtp.host", "smtp.gmail.com");
-			properties.put("mail.smtp.auth", "true");
-			properties.put("mail.debug", "true");
-			properties.put("mail.smtp.debug", "true");
-			properties.put("mail.mime.charset", "ISO-8859-1");
-			properties.put("mail.smtp.port", "465");
-			properties.put("mail.smtp.starttls.enable", "true");
-			properties.put("mail.smtp.socketFactory.port", "465");
-			properties.put("mail.smtp.socketFactory.fallback", "false");
-			properties.put("mail.smtp.socketFactory.class",	"javax.net.ssl.SSLSocketFactory");
-			properties.put("mail.smtp.quitwait", "false");
-			properties.setProperty("mail.transport.protocol", "smtp");
+				java.util.Properties properties = new java.util.Properties();
+				properties.put("mail.smtp.host", "smtp.gmail.com");
+				properties.put("mail.smtp.auth", "true");
+				properties.put("mail.debug", "true");
+				properties.put("mail.smtp.debug", "true");
+				properties.put("mail.mime.charset", "ISO-8859-1");
+				properties.put("mail.smtp.port", "465");
+				properties.put("mail.smtp.starttls.enable", "true");
+				properties.put("mail.smtp.socketFactory.port", "465");
+				properties.put("mail.smtp.socketFactory.fallback", "false");
+				properties.put("mail.smtp.socketFactory.class",
+						"javax.net.ssl.SSLSocketFactory");
+				properties.put("mail.smtp.quitwait", "false");
+				properties.setProperty("mail.transport.protocol", "smtp");
 
-			
-		
-			Session session = Session.getInstance(properties, new Autenticacao(emailSender, emailSenderPassword));
-		
-			MimeMessage msg = new MimeMessage(session);
-			MimeBodyPart mbp1 = new MimeBodyPart();
-			Multipart multipart = new MimeMultipart();
-		
-		
-		
-			msg.setFrom(new InternetAddress(emailSender));
-			msg.setRecipient(Message.RecipientType.TO, new InternetAddress(emailReceiver));
-			msg.setSubject(assunto);
-		
-			mbp1.setDataHandler(new DataHandler(mensagem, "text/html"));
-		
-			multipart.addBodyPart(mbp1);
-			msg.setHeader("X-Mailer", "smtpsend");
-			msg.setSentDate(new Date());
-			msg.setContent(multipart);
-			Transport.send(msg);
-	
-		} catch (AddressException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
-		} catch (MessagingException e) {
-			e.printStackTrace();
-			throw new EmailException(e.getMessage());
+				Session session = Session.getInstance(properties,
+						new Autenticacao(emailSender, emailSenderPassword));
+
+				MimeMessage msg = new MimeMessage(session);
+				MimeBodyPart mbp1 = new MimeBodyPart();
+				Multipart multipart = new MimeMultipart();
+
+				msg.setFrom(new InternetAddress(emailSender));
+				msg.setRecipient(Message.RecipientType.TO, new InternetAddress(
+						emailReceiver));
+				msg.setSubject(assunto);
+
+				mbp1.setDataHandler(new DataHandler(mensagem, "text/html"));
+
+				multipart.addBodyPart(mbp1);
+				msg.setHeader("X-Mailer", "smtpsend");
+				msg.setSentDate(new Date());
+				msg.setContent(multipart);
+				Transport.send(msg);
+
+			} catch (AddressException e) {
+				e.printStackTrace();
+				throw new EmailException(e.getMessage());
+			} catch (SendFailedException e) {
+				e.printStackTrace();
+				throw new EmailException(e.getMessage());
+			} catch (MessagingException e) {
+				e.printStackTrace();
+				throw new EmailException(e.getMessage());
+			}
 		}
 	}
 }

@@ -50,12 +50,7 @@ public class MenuServiceImp implements MenuService{
 
 	
 
-	@Override
-	public void cadastrar(Pessoa pessoa) throws EmailException {
-		pessoa.setStatus(Status.CONFIRMADO);
-		pessoa.setDataCadastro(DataUtils.getNow());
-		pessoaRepository.cadastrar(pessoa);			
-	}
+	
 	
 	@Override
 	public void notificarPessoas(Texto texto) throws EmailException {

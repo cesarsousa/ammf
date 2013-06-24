@@ -6,10 +6,12 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 
 public interface PessoaService {
+	
+	boolean ehCodigo(String paramConsulta);
 
-	void cadastrar(Pessoa pessoa) throws DBException;
+	void cadastrarComoCliente(Pessoa pessoa) throws DBException;
 
-	void notificacarNovoCadastro(Pessoa pessoa) throws EmailException;
+	void cadastrarComoAdm(Pessoa pessoa);
 
 	
 
