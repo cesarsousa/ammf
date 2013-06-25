@@ -8,7 +8,7 @@
 
 <c:if test="${not empty pessoaInvalida}">
 	<h2>Remo&ccedil;&atilde;o de Cadastro</h2>
-	<h3>O cadastro desta solicita&ccedil;&atilde;o de cancelamento foi removido de nossos regitro de uma das seguintes maneiras, listadas abaixo.</h3>
+	<h3>O cadastro desta solicita&ccedil;&atilde;o de cancelamento foi removido de nossos regitro de uma das seguintes maneiras.</h3>
 	<ul style="text-align: left;">
 	<li><h4>Atrav&eacute;s do link de remo&ccedil;&atilde;o de email.</h4></li>
 	<li><h4>O link utilizado para remover este cadastro pode ter sido usado de forma err&ocirc;nea. Certifique-se que o email contendo o link de remo&ccedil;&atilde;o n&atilde;o tenha sido encaminhado para outra pessoa, pois esta pode ter efetuado a remo&ccedil;&atilde;o.</h4></li>
@@ -43,15 +43,6 @@
 	</tr>
 	</table>
 </c:if>
-
-
-
-
-
-
-
-
-
 
 </div>
 </div>

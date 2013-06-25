@@ -59,7 +59,7 @@ public class HtmlMensagem {
 	 * @return o assunto de um email a ser enviado para um cliente quando o administrador realiza o seu cadastro no site.
 	 */
 	public static String getAssuntoCadastroPessoaPeloAdm() {
-		return "Site do Miguel - Convite de Cadastramento";
+		return "Site Quiron - Convite de Cadastramento";
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class HtmlMensagem {
 	 * @return o assunto de um email a ser enviado para um cliente solicitando a confirmacao do cadastro no site.
 	 */
 	public static String getAssuntoSolicitacaoParaConfirmacaoCadastro() {
-		return "Site do Miguel - Confirmacao de Cadastramento";
+		return "Site Quiron - Confirmacao de Cadastramento";
 	}
 	
 	/**
@@ -110,15 +110,15 @@ public class HtmlMensagem {
 			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
 		if(Notificacao.TEXTO_NOVO.equals(notificacao))
 			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
-		return "Site do Miguel";
+		return "Site Quiron";
 	}
 	
 	public static String getAssuntoTextoCadastrado() {
-		return "Blog do Miguel - O texto ' ? ' foi adicionado";
+		return "Blog Quiron - O texto ' ? ' foi adicionado";
 	}
 	
 	public static String getAssuntoTextoAtualizado() {
-		return "Blog do Miguel - O texto ' ? ' foi atualizado";
+		return "Blog Quiron - O texto ' ? ' foi atualizado";
 	}
 
 	public static String getMensagemTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
