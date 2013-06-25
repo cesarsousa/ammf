@@ -15,7 +15,7 @@
 1. Relação do usuário com o site.
 </p>
 <p class="nivel2">
-1.1 O uso dos serviços está sujeito aos termos de um contrato entre o usuário e o Portal, onde a expressão 'Portal' significa quiron.com.br.
+1.1 O uso dos serviços está sujeito aos termos de um contrato entre o usuário e o Portal, onde a expressão 'Portal' significa quiron.psc.br.
 </p>
 <p class="nivel1">
 2. Aceitação dos Termos

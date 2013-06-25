@@ -36,6 +36,8 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
+<br/>
+
 <div id="footer">
 <%@ include file="/footer.jsp" %>
 </div>

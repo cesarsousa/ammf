@@ -3,9 +3,9 @@
 <div id="header1">
 <div align="center">
 <div id=mainCardHeader>
-<div class="divOwner esquerda">
+<%-- <div class="divOwner esquerda">
 <img src="${imagem}/owner.jpg">
-</div>
+</div> --%>
 </div>
 </div>
 
