@@ -36,6 +36,11 @@ public class IndexController {
 		result.redirectTo(this).index();
 	}
 	
+	@Get("/quiron")
+	public void quiron(){
+		
+	}
+	
 	@Get("/index/psicologia")
 	public void psicologia(){
 		sessaoCliente = indexService.atualizar(sessaoCliente);

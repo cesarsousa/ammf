@@ -11,7 +11,7 @@
 			</a>
 		</td>
 		<td width="50%" align="center" valign="middle">
-			<a href="<c:url value="/login" />">
+			<a href="<c:url value="/quiron" />">
 			<img id="imagemQuiron" class="direita" width="100px" height="100px" src="${imagem}/quiron.jpg"></img>
 			</a>
 		</td>	
@@ -20,23 +20,6 @@
 </div>
 </div>
 
-<%-- <div align="center">
-
-	<table id="tabRedesSociais" style="width: 1000px; border: 1px solid #CCCCCC; background-color: #FFFFFF;">
-		<tr>
-			<td width="151px"><img id="imagemShare" src="${imagem}/imageShare.png"></img></td>
-			<td width="849px" valign="middle">
-			<div id="divRedesSociais" class="azulClaro">
-			compartilhe em suas redes sociais preferidas<br/>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
-			<div class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-			<div class="g-plusone" data-size="medium"></div>
-			</div>
-			</td>
-		</tr>
-	</table>
-</div>
- --%>
 <div align="center" style="width: 100%; padding: 20px; background-color: #FFFFFF; border-bottom: 1px solid #CCCCCC; ">
 
 	<table id="tabRedesSociais" style="width: 1000px;">
