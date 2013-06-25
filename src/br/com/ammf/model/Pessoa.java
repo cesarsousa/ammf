@@ -35,10 +35,7 @@ public class Pessoa implements Serializable{
 	private Calendar dataCadastro;
 	
 	@Enumerated(EnumType.STRING)
-	private Status status;
-	
-	@Enumerated(EnumType.STRING)
-	private Situacao situacao;
+	private Status status;	
 
 	public long getId() {
 		return id;
@@ -79,15 +76,7 @@ public class Pessoa implements Serializable{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
-	public Situacao getSituacao() {
-		return situacao;
-	}
-	
-	public void setSituacao(Situacao situacao) {
-		this.situacao = situacao;
-	}
-	
+		
 	public Calendar getDataCadastro() {
 		return dataCadastro;
 	}

@@ -29,6 +29,4 @@ public interface PessoaRepository {
 
 	List<Pessoa> obter(long parseLong);
 
-	
-
 }

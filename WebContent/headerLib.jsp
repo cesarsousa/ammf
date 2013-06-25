@@ -33,6 +33,7 @@
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
 <script type="text/javascript" src="${javascript}/depoimentoAdmin.js"></script>
+<script type="text/javascript" src="${javascript}/assinaturaEmail.js"></script>
 
 </head>
 <body>

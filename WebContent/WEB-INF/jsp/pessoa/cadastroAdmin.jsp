@@ -120,12 +120,12 @@
 
 <tr align="center">
 <td>
+	<p>
+		<span class="info azulClaro">Enviar um convite a uma pessoa.<br/>Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</span>
+	</p>
 	<div id="areaLogin">
 	
-	<form action="<c:url value="/menu/cadastrar"/>" method="post">
-		<p>
-		<span class="info azulClaro">Entre com os dados da pessoa</span>
-		</p>	 
+	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
 		
 		<label class="labelForm">Nome:</label>
 		<c:if test="${not empty nomeEmBranco}">		

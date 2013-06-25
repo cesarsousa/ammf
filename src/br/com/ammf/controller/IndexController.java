@@ -5,24 +5,35 @@ import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 
 @Resource
 public class IndexController {
 	
 	private IndexService indexService;
 	private SessaoCliente sessaoCliente;
+	private Result result;
 		
 	public IndexController(
 			IndexService indexService,
-			SessaoCliente sessaoCliente) {
+			SessaoCliente sessaoCliente,
+			Result result) {
 		this.indexService = indexService;
 		this.sessaoCliente = sessaoCliente;
+		this.result = result;
 	}
 	
 	@Path("/")
 	public void index(){
-		// TODO tratar exceção de banco de dados fora do ar.
+		// acesso tradicional pelo navegador
 		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
+	
+	@Get("/site")
+	public void site(){
+		// acesso pelo cliente atraves do link de email
+		result.include("msgIndex", "Bem Vindo! Sempre que for efetuada uma altera&ccedil;&atilde;o por aqui voc&ecirc; ser&aacute; notificado por email");
+		result.redirectTo(this).index();
 	}
 	
 	@Get("/index/psicologia")
@@ -44,4 +55,7 @@ public class IndexController {
 	public void artesOrientais(){
 		sessaoCliente = indexService.atualizar(sessaoCliente);
 	}
+	
+	@Get("/termosDeContrato")
+	public void termosDeContrato(){}
 }

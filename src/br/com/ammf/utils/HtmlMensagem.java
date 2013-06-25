@@ -70,11 +70,13 @@ public class HtmlMensagem {
 	 */
 	public static String getMensagemCadastroPessoaPeloAdm(Pessoa pessoa, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloAdm.html");
-		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("{uuid}", pessoa.getUuid());
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)				
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
@@ -90,8 +92,17 @@ public class HtmlMensagem {
 	 * @return a mensagem de um email a ser enviado para um cliente solicitando a confirmacao do cadastro no site.
 	 */
 	public static String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
-		// TODO criar metodo
-		return null;
+		// TODO melhorar esta mensagem... add termos de contratos e informar para não encaminhar o email criar de ativar a assinatura...
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_solicitar_confirmacao_cadastroPeloCliente.html");
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
+				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
+				.replace("[LINKEDIN]", linkedin)
+				.replace("[EMAIL]", pessoa.getEmail());
 	}
 	
 	public static String getAssunto(Notificacao notificacao, Texto texto) {

@@ -53,7 +53,7 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException {
-		//TODO adicionar logica de envio de email com cofirmação por link no servidor e no cliente (tela aguarde). 
+		
 		Email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 

@@ -22,23 +22,15 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class PessoaServiceImp implements PessoaService{
 	
-	private PessoaRepository pessoaRepository;
-	private UsuarioRepository usuarioRepository;
-	private TextoRepository textoRepository;
+	private PessoaRepository pessoaRepository;	
 	
-	public PessoaServiceImp(
-			PessoaRepository pessoaRepository,
-			UsuarioRepository usuarioRepository,
-			TextoRepository textoRepository){
+	public PessoaServiceImp(PessoaRepository pessoaRepository){
 		this.pessoaRepository = pessoaRepository;
-		this.usuarioRepository = usuarioRepository;
-		this.textoRepository = textoRepository;
 	}
 
 	@Override
 	public void cadastrarComoCliente(Pessoa pessoa) throws DBException {
 		pessoa.setStatus(Status.PENDENTE);
-		pessoa.setSituacao(Situacao.ATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);
 	}
@@ -46,10 +38,8 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoAdm(Pessoa pessoa) {
 		pessoa.setStatus(Status.CONFIRMADO);
-		pessoa.setSituacao(Situacao.ATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
-		pessoaRepository.cadastrar(pessoa);
-		
+		pessoaRepository.cadastrar(pessoa);		
 	}
 
 	@Override

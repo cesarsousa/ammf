@@ -2,6 +2,7 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.exception.DBException;
@@ -106,22 +107,6 @@ public class PessoaController {
 		result.include("visualizarPessoas", true);
 		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
 		result.redirectTo(this).cadastroAdmin();
-	}	
-	
-	@Get("/remover/email/{uuid}")
-	public void removerAssinaturaEmail(String uuid){		
-		Pessoa pessoa = pessoaRepository.obter(uuid);
-		if(pessoa == null){
-			result.include("pessoaInvalida", true);
-		}else{
-			if(pessoa.getSituacao() == Situacao.REMOVIDO_PELO_CLIENTE){
-				result.include("pessoaRemovidaCliente", true);
-			}else if(pessoa.getSituacao() == Situacao.REMOVIDO_PELO_ADM){
-				result.include("pessoaRemovidaAdm", true);
-			}else{
-				result.include("pessoa", pessoa);
-			}			
-		}		
 	}
 	
 	@Restrito
@@ -152,9 +137,14 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/consulta")
 	public void consultar(String paramConsulta){
-		List<Pessoa> pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
+		List<Pessoa> pessoas = new ArrayList<Pessoa>();
+		if(pessoaService.ehCodigo(paramConsulta)){
+			pessoas = pessoaRepository.obter(Long.parseLong(paramConsulta));
+		}else{
+			pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
+		}		
 		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
-	}	
+	}
 	
 	@Get("/cliente/cadastro")
 	public void cadastroCliente(){}
@@ -179,6 +169,29 @@ public class PessoaController {
 			redirecionarParaCadastroCliente();
 		}
 	}
+	
+	@Get("/pessoa/remover/email/{uuid}")
+	public void removerAssinaturaEmail(String uuid){		
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		if(pessoa == null){
+			result.include("pessoaInvalida", true);
+		}else{
+			result.include("pessoa", pessoa);
+		}		
+	}
+	
+	@Get("/pessoa/confirmaRemocao/email/")
+	public void confirmarRemocaoEmail(String uuid){
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		pessoaRepository.remover(pessoa);		
+		result.redirectTo(this).removerAssinaturaEmail(uuid);		
+	}
+	
+	@Get("/pessoa/ativar/email/{uuid}")
+	public void ativarAssinaturaEmail(String uuid){		
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		System.out.println("ativar assinatura de email");		
+	}	
 
 	private void redirecionarParaIndex(Pessoa pessoa) {
 		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve voc&ecirc; receber&aacute; uma confirma&ccedil;&atilde;o por email.");

@@ -6,10 +6,14 @@ public class Link {
 	
 	public static final String WEB_SITE = DOMINIO;
 
-	public static final String REMOVER_EMAIL = DOMINIO + "/remover/email/{uuid}";
+	public static final String REMOVER_EMAIL = DOMINIO + "/pessoa/remover/email/uuid";
 
-	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/{uuid}";
+	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
 
 	public static final String WEB_SITE_LOGIN = DOMINIO + "/login";
+
+	public static final String ATIVAR_EMAIL = DOMINIO + "/pessoa/ativar/email/uuid";
+
+	public static final String TERMOS_CONTRATO = DOMINIO + "/termosDeContrato";;
 
 }
