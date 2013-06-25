@@ -2,7 +2,7 @@
 
 <%@ include file="/headerLib.jsp" %>
 
-<script>
+<!-- <script>
 
 // Funcao adaptImage()
 // Parametros: targetimg (objeto jquery com elementos selecionados)
@@ -58,7 +58,7 @@ $(window).resize(function() {
 //quando a pagina carregar, fazemos o mesmo
 $(window).load(function() {
 	$(window).resize();
-});</script>
+});</script> -->
 
 <%-- <%@ include file="/headerSite.jsp" %> --%>
 
