@@ -144,7 +144,6 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoQuiron(Texto texto) {
 		Texto textoQuiron = getTextoQuiron();
 		textoQuiron.setConteudo(texto.getConteudo());
-		textoQuiron.setTitulo(texto.getTitulo());
 		Transaction transaction = session.beginTransaction();
 		session.update(textoQuiron);
 		transaction.commit();		

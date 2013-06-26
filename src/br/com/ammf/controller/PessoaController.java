@@ -61,7 +61,7 @@ public class PessoaController {
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
-				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ". Verifique em sua <b>Configura&ccedil;&otilde;es da Conta</b> os seus dados de cadastro.");
+				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 			} 		
 		}else{
 			result.include("flagCadastroPessoaVazio", true);

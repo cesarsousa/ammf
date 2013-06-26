@@ -47,7 +47,7 @@ $(document).ready(function() {
 		$('#conteudoCampoQuiron').slideUp(1000);		
 	});
 	
-	$('#btAtualizarTextoIndex, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
+	$('#btAtualizarTextoIndex, #btAtualizarTextoQuiron, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
 		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		
 	});	
 	

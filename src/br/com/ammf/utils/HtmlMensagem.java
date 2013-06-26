@@ -92,7 +92,6 @@ public class HtmlMensagem {
 	 * @return a mensagem de um email a ser enviado para um cliente solicitando a confirmacao do cadastro no site.
 	 */
 	public static String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
-		// TODO melhorar esta mensagem... add termos de contratos e informar para não encaminhar o email criar de ativar a assinatura...
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_solicitar_confirmacao_cadastroPeloCliente.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
@@ -105,6 +104,12 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
 	
+	/**
+	 * 
+	 * @param notificacao uma notificacao de atualizacao ou de criacao de texto.
+	 * @param texto o texto atualizado ou criado.
+	 * @return o assunto para o email de notificacao para as pessoas cadastradas no site.
+	 */
 	public static String getAssunto(Notificacao notificacao, Texto texto) {
 		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
 			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
@@ -115,14 +120,20 @@ public class HtmlMensagem {
 	
 	public static String getAssuntoTextoCadastrado() {
 		return "Blog Quiron - O texto ' ? ' foi adicionado";
-	}
-	
+	}	
 	public static String getAssuntoTextoAtualizado() {
 		return "Blog Quiron - O texto ' ? ' foi atualizado";
 	}
 
-	public static String getMensagemTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
-		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "notificacao_adm_texto_atualizado.html");
+	/**
+	 * 
+	 * @param texto o texto que foi atualizado
+	 * @param linkedin linked in do administrador
+	 * @param pessoa a pessoa a ser notificada
+	 * @return a mensagem para o email de notificacao para as pessoas cadastradas no site.
+	 */
+	public static String getMensagemNotificacaoDeTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_atualizado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkLerTexto = getLinkLerTexto(texto);
 		
@@ -139,10 +150,28 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
 
+	public static String getMensagemNotificacaoDeTextoAdicionado(Texto texto, String linkedin, Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_adicionado.html");
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkLerTexto = getLinkLerTexto(texto);
+		
+		String conteudo = texto.getConteudo();		
+		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
+				.replace("[TITULOTEXTO]", texto.getTitulo())
+				.replace("[TRECHOTEXTO]", trechoTexto)
+				.replace("[LINKLERTEXTO]", linkLerTexto)				
+				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[LINKEDIN]", linkedin)
+				.replace("[EMAIL]", pessoa.getEmail());
+	}
+	
 	private static String getLinkLerTexto(Texto texto) {
 		if(Local.INDEX == texto.getLocal())
 			return Link.WEB_SITE;
 		else
 			return Link.WEB_SITE + "/index/" + texto.getLocal().toString().toLowerCase();
-	}	
+	}
 }

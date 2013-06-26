@@ -2,17 +2,24 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<c:if test="${blogErroCadastro}">
-	<div class="msgBorder msgErro ponteiro closeClick">
-	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
-	${tituloEmBranco}${autorEmBranco}${conteudoEmBranco}</div>
-</c:if>
-
 <c:if test="${not empty blogMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${blogMensagemSucesso} 
 	</div>
-	<div id="separador"></div>
+	<!-- <div id="separador"></div> -->
+</c:if>
+
+<c:if test="${not empty blogMensagemErro}">
+	<div class="msgBorder msgErro ponteiro closeClick">
+		${blogMensagemErro} 
+	</div>
+	<!-- <div id="separador"></div> -->
+</c:if>
+
+<c:if test="${blogErroCadastro}">
+	<div class="msgBorder msgErro ponteiro closeClick">
+	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
+	${tituloEmBranco}${autorEmBranco}${conteudoEmBranco}</div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>

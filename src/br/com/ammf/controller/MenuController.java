@@ -2,9 +2,11 @@ package br.com.ammf.controller;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -18,18 +20,21 @@ public class MenuController {
 	private Result result;
 	private MenuService menuService;
 	private ValidacaoService validacaoService;
-	private SessaoUsuario sessaoUsuario;
+	private EmailService emailService;
+	private SessaoUsuario sessaoUsuario;	
 	private TextoRepository textoRepository;
 	
 	public MenuController(
 			Result result,
 			MenuService menuService,
 			ValidacaoService validacaoService,
-			SessaoUsuario sessaoUsuario, 
+			SessaoUsuario sessaoUsuario,
+			EmailService emailService,
 			TextoRepository textoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
+		this.emailService = emailService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
 	}
@@ -37,7 +42,6 @@ public class MenuController {
 	@Restrito
 	public void menu(){
 		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
-		// TODO listar de notificacoes
 	}
 	
 	@Post("/menu/adm")
@@ -51,12 +55,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoIndex(texto);
-			menuService.notificarPessoas(textoRepository.getTextoIndex());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o da frase principal.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o da frase principal.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}				
 	}
 	
@@ -66,12 +70,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoQuiron(texto);
-			menuService.notificarPessoas(textoRepository.getTextoQuiron());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoQuiron());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Quiron atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre Quiron atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Quiron.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Quiron.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
 	}	
 	
@@ -81,12 +85,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoPsicologia(texto);
-			menuService.notificarPessoas(textoRepository.getTextoPsicologia());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoPsicologia());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre psicologia atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Psicologia.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Psicologia.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}		
 	}
 	
@@ -96,12 +100,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoEducacao(texto);
-			menuService.notificarPessoas(textoRepository.getTextoEducacao());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoEducacao());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Educa&ccedil;&atilde;o.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Educa&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
 	}
 	
@@ -111,12 +115,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);		
 			textoRepository.atualizarTextoCultura(texto);
-			menuService.notificarPessoas(textoRepository.getTextoCultura());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoCultura());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre cultura atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Cultura.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Cultura.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}		
 	}
 	
@@ -126,12 +130,12 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoArtesOrientais(texto);			
-			menuService.notificarPessoas(textoRepository.getTextoArtesOrientais());
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoArtesOrientais());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre artes orientais atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
 			result.include("mensagem", "Texto sobre artes orientais atualizado com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.");
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}		
 	}
 

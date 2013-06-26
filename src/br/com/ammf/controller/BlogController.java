@@ -4,11 +4,14 @@ import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.List;
 
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.service.imp.IndexServiceImp;
@@ -24,12 +27,19 @@ public class BlogController {
 	private Result result;
 	private IndexService indexService;
 	private ValidacaoService validacaoService;
+	private EmailService emailService;
 	private TextoRepository textoRepository;
 	
-	public BlogController(Result result, IndexService indexService,ValidacaoService validacaoService , TextoRepository textoRepository){
+	public BlogController(
+			Result result, 
+			IndexService indexService,
+			ValidacaoService validacaoService,
+			EmailService emailService,
+			TextoRepository textoRepository){
 		this.result = result;
 		this.indexService = indexService;
 		this.validacaoService = validacaoService;
+		this.emailService = emailService;
 		this.textoRepository = textoRepository;
 	}
 	
@@ -40,20 +50,24 @@ public class BlogController {
 	@Restrito
 	@Post("/blog/novo")
 	public void cadastrarNovo(Texto texto){
-		
-		boolean validado = validacaoService.blog(texto, result);		
-		if(validado){
-			texto.setLocal(Local.BLOG);
-			texto.setPostagem(DataUtils.getNow());		
-			textoRepository.cadastrar(texto);
-			// TODO notificar usuarios de novo texto cadastrado...			
+		try {
+			boolean validado = validacaoService.blog(texto, result);		
+			if(validado){
+				texto.setLocal(Local.BLOG);
+				texto.setPostagem(DataUtils.getNow());		
+				textoRepository.cadastrar(texto);
+				emailService.notificarPessoas(Notificacao.TEXTO_NOVO, texto);
+				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
+			}else{
+				result.include("flagCadastrarBlogVazio", true);
+				result.include("comErro", "Erro");
+			}			
+			result.redirectTo(this).blogAdmin();			
+		} catch (EmailException e) {
 			result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
-		}else{
-			result.include("flagCadastrarBlogVazio", true);
-			result.include("comErro", "Erro");
-		}
-		
-		result.redirectTo(this).blogAdmin();
+			result.include("blogMensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente ao cadastro do texto '" + texto.getTitulo() + "'.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).blogAdmin();		
+		}	
 	}
 	
 	@Restrito

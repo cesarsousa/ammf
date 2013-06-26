@@ -21,17 +21,14 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class MenuServiceImp implements MenuService{
 	
-	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
 	private PessoaRepository pessoaRepository;
 	private DepoimentoRepository depoimentoRepository;
 	
 	public MenuServiceImp(
-			SessaoUsuario sessaoUsuario,
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository,
 			DepoimentoRepository depoimentoRepository){
-		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.depoimentoRepository = depoimentoRepository;
@@ -48,34 +45,7 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		return sessaoUsuario;
 	}	
-	
-	@Override
-	public void notificarPessoas(Texto texto) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
-		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoTexto(Notificacao.TEXTO_ATUALIZADO, texto, pessoa);
-		}
-	}	
-	
-	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
-		Email.enviarEmail(
-				sessaoUsuario.getUsuario().getEmail(),
-				sessaoUsuario.getUsuario().getSenha(), 
-				pessoa.getEmail(),
-				HtmlMensagem.getAssunto(notificacao, texto),
-				HtmlMensagem.getMensagemTextoAtualizado(texto, sessaoUsuario.getUsuario().getLinkedin(), pessoa));
-	}	
-	
-	@Override
-	public void enviarEmailNotificacaoCadastro(Pessoa pessoa) throws EmailException {
-		Email.enviarEmail(
-				sessaoUsuario.getUsuario().getEmail(),
-				sessaoUsuario.getUsuario().getSenha(), 
-				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoCadastroPessoaPeloAdm(),
-				HtmlMensagem.getMensagemCadastroPessoaPeloAdm(pessoa, sessaoUsuario.getUsuario().getLinkedin()));
-	}
-	
+		
 	private List<String> atualizarListaDeNotificacoes() {
 		List<String> notificacoes = new ArrayList<String>();
 		
@@ -89,6 +59,8 @@ public class MenuServiceImp implements MenuService{
 		}
 		return notificacoes;
 	}
+
+
 	
 	
 	
