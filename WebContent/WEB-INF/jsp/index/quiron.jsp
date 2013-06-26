@@ -2,7 +2,7 @@
 
 <%@ include file="/headerLib.jsp" %>
 
-<script>
+<!-- <script>
 
 // Funcao adaptImage()
 // Parametros: targetimg (objeto jquery com elementos selecionados)
@@ -58,7 +58,7 @@ $(window).resize(function() {
 //quando a pagina carregar, fazemos o mesmo
 $(window).load(function() {
 	$(window).resize();
-});</script>
+});</script> -->
 
 <%-- <%@ include file="/headerSite.jsp" %> --%>
 
@@ -70,17 +70,19 @@ $(window).load(function() {
 </div>
 
 <div id="conteudoQuiron">
-    <h1>Site Exemplo</h1>
-    <p>
-        conteudo com texto...
-    </p>
+    <h1>QUIRON</h1>
+	    <c:forEach items="${sessaoCliente.textoQuiron}" var="paragrafo">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
+		</c:forEach>
+    <div align="right">
+    <form action="<c:url value="/" ></c:url>">
+    	<input type="submit" value="Voltar" class="buttonAzul"/> 
+    </form>
+    
+    <%@ include file="/footerQuiron.jsp" %>
+    
+    </div>
 </div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
-
-<br/>
-
-<div id="footer" style="color: #000000;">
-<%@ include file="/footerQuiron.jsp" %>
-</div>

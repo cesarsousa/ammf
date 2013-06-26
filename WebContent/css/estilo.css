@@ -887,6 +887,22 @@ a:HOVER {
 	box-shadow: 2px 2px 2px #9C9C9C;
 }
 
+.buttonAzul {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #6CA6CD;
+	border: 0;
+	height: 30px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: small;
+}
+.buttonAzul:hover {
+	background-color: #87CEFA;
+	box-shadow: 2px 2px 2px #9C9C9C;
+}
+
 .invisivel{
 	display: none;
 }

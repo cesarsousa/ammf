@@ -38,7 +38,7 @@ public class IndexController {
 	
 	@Get("/quiron")
 	public void quiron(){
-		
+		sessaoCliente = indexService.atualizar(sessaoCliente);
 	}
 	
 	@Get("/index/psicologia")

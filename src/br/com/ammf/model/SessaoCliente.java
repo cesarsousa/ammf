@@ -18,6 +18,7 @@ public class SessaoCliente implements Serializable {
 	private List<Paragrafo> textoEducacao;
 	private List<Paragrafo> textoCultura;
 	private List<Paragrafo> textoArtesOrientais;
+	private List<Paragrafo> textoQuiron;
 	
 	public Texto getTextoIndex() {
 		return textoIndex;
@@ -57,5 +58,13 @@ public class SessaoCliente implements Serializable {
 	
 	public void setTextoArtesOrientais(List<Paragrafo> textoArtesOrientais) {
 		this.textoArtesOrientais = textoArtesOrientais;
+	}	
+	
+	public List<Paragrafo> getTextoQuiron() {
+		return textoQuiron;
+	}
+	
+	public void setTextoQuiron(List<Paragrafo> textoQuiron) {
+		this.textoQuiron = textoQuiron;
 	}
 }

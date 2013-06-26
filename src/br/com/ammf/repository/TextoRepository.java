@@ -24,6 +24,8 @@ public interface TextoRepository {
 	public Texto getTextoCultura();
 	
 	public Texto getTextoArtesOrientais();
+	
+	public Texto getTextoQuiron();	
 
 	public void atualizarTextoIndex(Texto texto);
 	
@@ -34,6 +36,8 @@ public interface TextoRepository {
 	public void atualizarTextoCultura(Texto texto);
 	
 	public void atualizarTextoArtesOrientais(Texto texto);
+	
+	public void atualizarTextoQuiron(Texto texto);
 
 	public List<Texto> listarTitulos(String titulo);	
 	
@@ -43,6 +47,8 @@ public interface TextoRepository {
 
 	public void atualizar(Texto texto);
 
-	public Texto obterUuidUltimaPublicacao();	
+	public Texto obterUuidUltimaPublicacao();
+
+	
 
 }

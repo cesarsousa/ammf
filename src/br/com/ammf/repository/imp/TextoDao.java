@@ -86,6 +86,13 @@ public class TextoDao implements TextoRepository{
 		criteria.add(Restrictions.eq("local", Local.ARTESORIENTAIS));
 		return (Texto) criteria.uniqueResult();
 	}
+	
+	@Override
+	public Texto getTextoQuiron() {
+		Criteria criteria = session.createCriteria(Texto.class);
+		criteria.add(Restrictions.eq("local", Local.QUIRON));
+		return (Texto) criteria.uniqueResult();
+	}
 
 	@Override
 	public void atualizarTextoIndex(Texto texto) {
@@ -130,6 +137,16 @@ public class TextoDao implements TextoRepository{
 		textoArtesOrientais.setConteudo(texto.getConteudo());
 		Transaction transaction = session.beginTransaction();
 		session.update(textoArtesOrientais);
+		transaction.commit();		
+	}
+	
+	@Override
+	public void atualizarTextoQuiron(Texto texto) {
+		Texto textoQuiron = getTextoQuiron();
+		textoQuiron.setConteudo(texto.getConteudo());
+		textoQuiron.setTitulo(texto.getTitulo());
+		Transaction transaction = session.beginTransaction();
+		session.update(textoQuiron);
 		transaction.commit();		
 	}
 
@@ -177,4 +194,6 @@ public class TextoDao implements TextoRepository{
 		Texto texto = (Texto) criteria.uniqueResult();
 		return texto;
 	}
+
+	
 }

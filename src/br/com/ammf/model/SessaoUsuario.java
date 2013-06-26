@@ -19,6 +19,7 @@ public class SessaoUsuario implements Serializable{
 	private Texto textoEducacao;
 	private Texto textoCultura;
 	private Texto textoArtesOrientais;
+	private Texto textoQuiron;
 		
 	private List<String> notificacoes;
 	
@@ -80,6 +81,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public void setTextoArtesOrientais(Texto textoArtesOrientais) {
 		this.textoArtesOrientais = textoArtesOrientais;
+	}
+	
+	public Texto getTextoQuiron() {
+		return textoQuiron;
+	}
+	
+	public void setTextoQuiron(Texto textoQuiron) {
+		this.textoQuiron = textoQuiron;
 	}
 	
 	public List<String> getNotificacoes() {

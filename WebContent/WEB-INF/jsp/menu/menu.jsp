@@ -56,6 +56,7 @@
 			<td>
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">
+			<h2 align="center">INDEX</h2>
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<div class="tamanhoDefault">
@@ -90,6 +91,52 @@
 	
 	<div class="separador"></div>
 	
+	<!-- EDITAR CONTEUDO QUIRON -->	
+	<table class="tamanhoDefault">
+		<tr>
+			<td id="btAbrirConteudoQuiron" class="headerSlide">
+			<span  class="esquerda">Editar conte&uacute;do quiron</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do do texto da p&aacute;gina sobre quiron.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoQuiron" type="button" class="backVermelho button direita" value="fechar">
+			<h2 align="center">QUIRON</h2>
+			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
+								
+				<h3>Texto:</h3>
+				
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumQuiron" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeQuiron" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeQuiron" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeQuiron" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaQuiron" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaQuiron" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaQuiron" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaQuiron" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
+				
+				<textarea id="campoConteudoQuiron" class="areaTexto h500 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+								
+				<p>
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="buttonCadastrar" >			
+				</p>
+			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="separador"></div>
+	
 	<!-- CONFIGURACOES DA CONTA -->
 	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/> 
 	<table class="tamanhoDefault">
@@ -100,9 +147,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td>			
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="backVermelho button direita" value="fechar">
+			<h2 align="center">CONFIGURA&Ccedil;&Atilde;O DA CONTA</h2>
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
 				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />

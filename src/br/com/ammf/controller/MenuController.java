@@ -7,6 +7,7 @@ import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -57,6 +58,21 @@ public class MenuController {
 			result.include("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o da frase principal.");
 		}				
+	}
+	
+	@Restrito
+	@Post("/menu/quiron/atualizar")
+	public void atualizarTextoQuiron(Texto texto){
+		try {
+			validacaoService.verificarCamposPreenchidos(texto);
+			textoRepository.atualizarTextoQuiron(texto);
+			menuService.notificarPessoas(textoRepository.getTextoQuiron());
+			redirecionarParaMenuAdm("mensagem", "Texto sobre Quiron atualizado com sucesso");
+		} catch (EmailException e) {
+			e.printStackTrace();
+			result.include("mensagem", "Texto sobre Quiron atualizado com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Quiron.");
+		}
 	}	
 	
 	@Restrito

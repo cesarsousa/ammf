@@ -39,6 +39,14 @@ $(document).ready(function() {
 		$('#conteudoIndex').slideUp(1000);		
 	});
 	
+	$('#conteudoCampoQuiron').hide();
+	$('#btAbrirConteudoQuiron').click(function(){
+		$('#conteudoCampoQuiron').slideDown(1000);		
+	});
+	$('#btFecharConteudoQuiron').click(function(){
+		$('#conteudoCampoQuiron').slideUp(1000);		
+	});
+	
 	$('#btAtualizarTextoIndex, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
 		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		
 	});	
@@ -100,6 +108,12 @@ $(document).ready(function() {
 		alterarTamanhoTexto(origem, '#campoAutorFraseIndex');
 	});
 	
+	$('#sizeSmallQuiron, #sizeMediumQuiron, #sizeLargeQuiron, #sizeXLargeQuiron, #sizeXxLargeQuiron').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("Quiron","");		
+		alterarTamanhoTexto(origem, '#campoConteudoQuiron');
+	});
+	
 	$('#sizeSmallPsicologia, #sizeMediumPsicologia, #sizeLargePsicologia, #sizeXLargePsicologia, #sizeXxLargePsicologia').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Psicologia","");		
@@ -128,5 +142,11 @@ $(document).ready(function() {
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Psicologia","");		
 		alterarTamanhoAreaTexto(origem, '#campoTextoPsicologia');
-	});	
+	});
+	
+	$('#sizeSmallAreaQuiron, #sizeMediumAreaQuiron, #sizeLargeAreaQuiron, #sizeXLargeAreaQuiron, #sizeXxLargeAreaQuiron').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("Quiron","");		
+		alterarTamanhoAreaTexto(origem, '#campoConteudoQuiron');
+	});
 });

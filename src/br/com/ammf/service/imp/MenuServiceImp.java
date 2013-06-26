@@ -43,14 +43,11 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoPsicologia(textoRepository.getTextoPsicologia());
 		sessaoUsuario.setTextoEducacao(textoRepository.getTextoEducacao());
 		sessaoUsuario.setTextoCultura(textoRepository.getTextoCultura());
-		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());		
+		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
+		sessaoUsuario.setTextoQuiron(textoRepository.getTextoQuiron());
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		return sessaoUsuario;
 	}	
-
-	
-
-	
 	
 	@Override
 	public void notificarPessoas(Texto texto) throws EmailException {

@@ -26,26 +26,29 @@ public class IndexServiceImp implements IndexService{
 	public SessaoCliente atualizar(SessaoCliente sessaoCliente) {		
 		
 		Texto textoIndex = textoRepository.getTextoIndex();
-		if(textoIndex == null) criarTextoDefault(textoIndex, Local.INDEX);		
+		if(textoIndex == null) textoIndex = criarTextoDefault(Local.INDEX);		
 		Texto textoPsicologia = textoRepository.getTextoPsicologia();
-		if(textoPsicologia == null) criarTextoDefault(textoPsicologia, Local.PSICOLOGIA);
+		if(textoPsicologia == null) textoPsicologia = criarTextoDefault(Local.PSICOLOGIA);
 		Texto textoEducacao = textoRepository.getTextoEducacao();
-		if(textoEducacao == null) criarTextoDefault(textoEducacao, Local.EDUCACAO);
+		if(textoEducacao == null) textoEducacao = criarTextoDefault(Local.EDUCACAO);
 		Texto textoCultura = textoRepository.getTextoCultura();
-		if(textoCultura == null) criarTextoDefault(textoCultura, Local.CULTURA);
+		if(textoCultura == null) textoCultura = criarTextoDefault(Local.CULTURA);
 		Texto textoArtesOrientais = textoRepository.getTextoArtesOrientais();
-		if(textoArtesOrientais == null) criarTextoDefault(textoArtesOrientais, Local.ARTESORIENTAIS);		
+		if(textoArtesOrientais == null) textoArtesOrientais = criarTextoDefault(Local.ARTESORIENTAIS);		
+		Texto textoQuiron = textoRepository.getTextoQuiron();
+		if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
 		
-		sessaoCliente.setTextoIndex(textoRepository.getTextoIndex());
-		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoRepository.getTextoPsicologia()));
-		sessaoCliente.setTextoEducacao(criarListaDeParagrafos(textoRepository.getTextoEducacao()));
-		sessaoCliente.setTextoCultura(criarListaDeParagrafos(textoRepository.getTextoCultura()));
-		sessaoCliente.setTextoArtesOrientais(criarListaDeParagrafos(textoRepository.getTextoArtesOrientais()));
+		sessaoCliente.setTextoIndex(textoIndex);
+		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoPsicologia));
+		sessaoCliente.setTextoEducacao(criarListaDeParagrafos(textoEducacao));
+		sessaoCliente.setTextoCultura(criarListaDeParagrafos(textoCultura));
+		sessaoCliente.setTextoArtesOrientais(criarListaDeParagrafos(textoArtesOrientais));
+		sessaoCliente.setTextoQuiron(criarListaDeParagrafos(textoQuiron));
 		return sessaoCliente;
 	}
 
-	private void criarTextoDefault(Texto texto, Local local) {
-		texto = new Texto();
+	private Texto criarTextoDefault(Local local) {
+		Texto texto = new Texto();
 		texto.setAutor("Alcindo Miguel Martins Filho");
 		texto.setConfirmado(true);
 		texto.setConteudo("Texto nao disponibilizado.");
@@ -54,6 +57,7 @@ public class IndexServiceImp implements IndexService{
 		texto.setTitulo(local.toString());
 		texto.setUuid(UUID.randomUUID().toString());
 		textoRepository.cadastrar(texto);
+		return texto;
 	}
 
 	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
