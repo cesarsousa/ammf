@@ -92,7 +92,12 @@ $(document).ready(function() {
 	$('#btVisualizarTodos').toggle(function() {
 		$('#ultimaPublicacao').slideUp(500);
 		$('#divTodosTextos').slideDown(500);
-		$('#btVisualizarTodos').html('').append('Visualizar ultima publicação');
+		if($('#emailRequest').val()){
+			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
+		}else{
+			$('#btVisualizarTodos').html('').append('Visualizar ultima publicac�o');
+		}
+		
 	}, function() {
 		$('#divTodosTextos').slideUp(500);
 		$('#ultimaPublicacao').slideDown(500);

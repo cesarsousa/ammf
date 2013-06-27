@@ -114,25 +114,36 @@ public class BlogController {
 		result.redirectTo(this).blogAdmin();		
 	}
 	
+	/**
+	 * 
+	 * @param emailRequest flag para indicar, se <b><code>true</code></b> que a requisicao foi disparada 
+	 * pelo email, senao o texto sera carregado pela requisicao do browser
+	 * @param texto texto, solicitado via email, a ser carregado.
+	 */
 	@Get("/blog/cliente")
-	public void blogCliente(){
+	public void blogCliente(boolean emailRequest, Texto texto){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
-		Texto ultimaPublicacao = textoRepository.obterUuidUltimaPublicacao();
+		Texto ultimaPublicacao = emailRequest ? texto : textoRepository.obterUuidUltimaPublicacao();			
 		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		result.include("ultimaPublicacao", ultimaPublicacao);
 		result.include("paragrafos", paragrafos);
 		result.include("textosBlog", textosBlog);		
 	}	
 	
+	/**
+	 * Recebe a requisicao de leitura do link de email e redireciona para blog cliente.
+	 * @param uuid
+	 */
 	@Get("/blog/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		// TODO criar ler texto na integra a partir do email 
-		System.out.println("redirecionar para logica de ler texto " + uuid);
+		Texto texto = textoRepository.obterPor(uuid);
+		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
+		result.include("emailRequest", true);
+		result.redirectTo(this).blogCliente(true, texto);		
 	}
 	
 	@Get("/blog/cliente/texto")
-	public void clienteVisualizarTexto(String uuid){
-		
+	public void clienteVisualizarTexto(String uuid){		
 		Texto texto = textoRepository.obterPor(uuid);
 		result.use(json()).withoutRoot().from(texto).exclude("id", "local") .serialize();
 	}

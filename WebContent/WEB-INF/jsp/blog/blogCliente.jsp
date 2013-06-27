@@ -100,6 +100,7 @@
 
 <br/><br/>
 
+<input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
 		<span id="btVisualizarTodos" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar textos anteriores.</span>
