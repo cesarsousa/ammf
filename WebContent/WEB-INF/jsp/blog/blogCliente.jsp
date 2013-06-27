@@ -19,7 +19,14 @@
 <div id="ultimaPublicacao" class="cardViewText">	
 	<c:choose>
 		<c:when test="${empty ultimaPublicacao}">
-		<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+		<c:choose>
+			<c:when test="${emailRequest}">
+				<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog.</p>
+			</c:when>
+			<c:otherwise>
+				<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+			</c:otherwise>
+		</c:choose>
 		</c:when>
 		
 		<c:otherwise>

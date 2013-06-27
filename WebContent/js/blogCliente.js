@@ -95,7 +95,7 @@ $(document).ready(function() {
 		if($('#emailRequest').val()){
 			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
 		}else{
-			$('#btVisualizarTodos').html('').append('Visualizar ultima publicacão');
+			$('#btVisualizarTodos').html('').append('Visualizar ultima publi&ccedil;&atilde;o');
 		}
 		
 	}, function() {
@@ -103,11 +103,6 @@ $(document).ready(function() {
 		$('#ultimaPublicacao').slideDown(500);
 		$('#btVisualizarTodos').html('').append('Visualizar textos anteriores.');
 	});	
-	
-	/*$('#btVisualizarTodos').click(function (){
-		$('#ultimaPublicacao').slideUp(500);
-		$('#divTodosTextos').slideDown(500);
-	});*/
 	
 	
 	$('#textoModoLeitura').hide();
