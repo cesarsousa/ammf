@@ -31,6 +31,7 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoCliente(Pessoa pessoa) throws DBException {
 		pessoa.setStatus(Status.PENDENTE);
+		pessoa.setSituacao(Situacao.INATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);
 	}
@@ -38,6 +39,7 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoAdm(Pessoa pessoa) {
 		pessoa.setStatus(Status.CONFIRMADO);
+		pessoa.setSituacao(Situacao.INATIVO);
 		pessoa.setDataCadastro(DataUtils.getNow());
 		pessoaRepository.cadastrar(pessoa);		
 	}

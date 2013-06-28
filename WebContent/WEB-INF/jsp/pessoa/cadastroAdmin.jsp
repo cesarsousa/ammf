@@ -90,6 +90,7 @@
 					<td class="headTabela">Email</td>
 					<td class="headTabela">Data Cadastro</td>
 					<td class="headTabela">Status</td>
+					<td class="headTabela">Situa&ccedil;&atilde;o</td>
 					<td class="w50 headTabela">A&ccedil;&atilde;o</td>
 					</tr>
 				</thead>
@@ -195,6 +196,7 @@
 					<th class="metadado">Email</th>
 					<th class="metadado">Data Cadastro</th>
 					<th class="metadado">Status</th>
+					<th class="metadado">Situa&ccedil;&atilde;o</th>
 					<th class="metadado">A&ccedil;&otilde;es</th>
 					</tr>
 				</thead>					
@@ -206,6 +208,7 @@
 							<td class="infoTabela">${pessoa.email}</td>
 							<td class="infoTabela">${pessoa.dataFormatada}</td>
 							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
+							<td class="infoTabela">${pessoa.situacao}</td>
 							<td>								
 								<c:choose>
 									<c:when test="${pessoa.pendente}">

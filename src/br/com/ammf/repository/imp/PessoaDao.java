@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.DBException;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -52,6 +53,14 @@ public class PessoaDao implements PessoaRepository {
 		criteria.add(Restrictions.eq("status", status));
 		return criteria.list();
 	}
+	
+	@Override
+	public List<Pessoa> listarPorStatus(Status status, Situacao situacao) {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("status", status));
+		criteria.add(Restrictions.eq("situacao", situacao));
+		return criteria.list();
+	}
 
 	@Override
 	public List<String> listarEmails() {
@@ -73,6 +82,15 @@ public class PessoaDao implements PessoaRepository {
 		Transaction transaction = session.beginTransaction();
 		session.update(pessoa);
 		transaction.commit();		
+	}
+	
+	@Override
+	public void ativar(Pessoa pessoa) {
+		Transaction transaction = session.beginTransaction();
+		pessoa.setSituacao(Situacao.ATIVO);
+		session.update(pessoa);
+		transaction.commit();
+		
 	}
 
 	@Override
@@ -110,5 +128,5 @@ public class PessoaDao implements PessoaRepository {
 			pessoas.add(pessoa);
 		}
 		return pessoas;
-	}
+	}	
 }

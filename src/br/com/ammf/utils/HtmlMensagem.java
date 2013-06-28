@@ -72,10 +72,12 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloAdm.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
+		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
 				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)				
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
@@ -94,13 +96,14 @@ public class HtmlMensagem {
 	public static String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_solicitar_confirmacao_cadastroPeloCliente.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
-		/*String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());*/
+		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
 				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
