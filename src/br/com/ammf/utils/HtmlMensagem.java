@@ -15,7 +15,7 @@ public class HtmlMensagem {
 	 * @return o assunto de um email a ser enviado para um cliente quando este realiza a solicitacao de cadastro pelo site.
 	 */
 	public static String getAssuntoNotificarClienteRecebimentoCadastro() {
-		return "Site do Miguel - Recebimento de cadastro";
+		return "Site Quiron - Recebimento de cadastro";
 	}
 	
 	/**
@@ -94,12 +94,13 @@ public class HtmlMensagem {
 	public static String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_solicitar_confirmacao_cadastroPeloCliente.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
-		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
+		/*String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());*/
+		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
-				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
@@ -153,13 +154,14 @@ public class HtmlMensagem {
 	public static String getMensagemNotificacaoDeTextoAdicionado(Texto texto, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_adicionado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
-		String linkLerTexto = getLinkLerTexto(texto);
-		
-		String conteudo = texto.getConteudo();		
+		String linkLerTexto = getLinkLerTexto(texto);		
+		String conteudo = texto.getConteudo();
+		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
+				.replace("[COMPLEMENTO]", complemento)
 				.replace("[TRECHOTEXTO]", trechoTexto)
 				.replace("[LINKLERTEXTO]", linkLerTexto)				
 				.replace("[WEBSITE]", Link.WEB_SITE)
@@ -169,9 +171,14 @@ public class HtmlMensagem {
 	}
 	
 	private static String getLinkLerTexto(Texto texto) {
-		if(Local.INDEX == texto.getLocal())
+		if(Local.INDEX == texto.getLocal()){
 			return Link.WEB_SITE;
-		else
-			return Link.WEB_SITE + "/index/" + texto.getLocal().toString().toLowerCase();
+		}else if(Local.QUIRON == texto.getLocal()){
+			return Link.TEXTO_QUIRON;
+		}else if(Local.BLOG == texto.getLocal()){
+			return Link.TEXTO_BLOG.replace("uuid", texto.getUuid());
+		}else{
+			return Link.TEXTOS_PRINCIPAIS + texto.getLocal().toString().toLowerCase();
+		}
 	}
 }

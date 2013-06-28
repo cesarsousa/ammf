@@ -149,7 +149,15 @@
 <p class="nivel2">
     13.1 O Portal poderá alterar periodicamente os Termos Universais ou Termos Adicionais. Quando essas alterações forem efetuadas.
 </p>
-<h3 align="center">01 de Maio de 2011.</h3>		
+<h3 align="center">01 de Maio de 2011.</h3>
+
+<br/>
+<div align="right">
+    <form action="<c:url value="/" ></c:url>">
+    	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
+    </form>   
+</div>
+		
 </div>
 </div>
 

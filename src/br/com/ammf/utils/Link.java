@@ -14,6 +14,12 @@ public class Link {
 
 	public static final String ATIVAR_EMAIL = DOMINIO + "/pessoa/ativar/email/uuid";
 
-	public static final String TERMOS_CONTRATO = DOMINIO + "/termosDeContrato";;
+	public static final String TERMOS_CONTRATO = DOMINIO + "/termosDeContrato";
+
+	public static final String TEXTO_QUIRON = DOMINIO + "/quiron";
+
+	public static final String TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";
+
+	public static final String TEXTOS_PRINCIPAIS = DOMINIO + "/index/";
 
 }

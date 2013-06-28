@@ -109,7 +109,7 @@ public class BlogController {
 		textoOriginal.setTitulo(texto.getTitulo());
 		textoOriginal.setConteudo(texto.getConteudo());
 		textoRepository.atualizar(textoOriginal);		
-		
+		// TODO notificar pessoas
 		result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
 		result.redirectTo(this).blogAdmin();		
 	}

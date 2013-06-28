@@ -33,7 +33,7 @@
 	
 	<br/><br/>
 	
-	<label class="labelForm">Email:</label>
+	<label class="labelForm">Email: <span class="info azulClaro" >(o email n&atilde;o ser&aacute; divulgado no site)</span></label>
 	<c:if test="${not empty emailEmBranco}">		
 		<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 	</c:if>
@@ -56,7 +56,7 @@
 		<h2>Cadastro de Pessoa</h2>
 		<span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>						
 		
-		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu cadastro est&aacute; sendo realizado.</h3>
+		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span>, o seu cadastro est&aacute; sendo realizado.</h3>
 		
 		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>		
 					

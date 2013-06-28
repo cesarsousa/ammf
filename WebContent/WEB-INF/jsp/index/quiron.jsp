@@ -76,9 +76,9 @@ $(window).load(function() {
 		</c:forEach>
     <div align="right">
     <form action="<c:url value="/" ></c:url>">
-    	<input type="submit" value="Voltar" class="buttonAzul"/> 
+    	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
     </form>
-    
+    <br/>
     <%@ include file="/footerQuiron.jsp" %>
     
     </div>
