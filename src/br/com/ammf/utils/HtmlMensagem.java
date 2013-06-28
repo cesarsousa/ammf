@@ -137,12 +137,13 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_atualizado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkLerTexto = getLinkLerTexto(texto);
-		
+		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
 		String conteudo = texto.getConteudo();		
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
+				.replace("[COMPLEMENTO]", complemento)
 				.replace("[TRECHOTEXTO]", trechoTexto)
 				.replace("[LINKLERTEXTO]", linkLerTexto)				
 				.replace("[WEBSITE]", Link.WEB_SITE)

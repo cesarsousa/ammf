@@ -33,7 +33,7 @@
 	
 	<br/><br/>
 	
-	<label class="labelForm">Email: <span class="info azulClaro" >(o email n&atilde;o ser&aacute; divulgado no site)</span></label>
+	<label class="labelForm">Email: <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
 	<c:if test="${not empty emailEmBranco}">		
 		<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
 	</c:if>

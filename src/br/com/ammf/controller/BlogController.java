@@ -104,14 +104,21 @@ public class BlogController {
 	@Restrito
 	@Post("/blog/atualiza")
 	public void atualizarTexto(Texto texto){
-		Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
-		textoOriginal.setAutor(texto.getAutor());
-		textoOriginal.setTitulo(texto.getTitulo());
-		textoOriginal.setConteudo(texto.getConteudo());
-		textoRepository.atualizar(textoOriginal);		
-		// TODO notificar pessoas
-		result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
-		result.redirectTo(this).blogAdmin();		
+		
+		try {
+			Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
+			textoOriginal.setAutor(texto.getAutor());
+			textoOriginal.setTitulo(texto.getTitulo());
+			textoOriginal.setConteudo(texto.getConteudo());
+			textoRepository.atualizar(textoOriginal);		
+			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
+			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
+			result.redirectTo(this).blogAdmin();			
+		} catch (EmailException e) {
+			result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi atualizado com sucesso.");
+			result.include("blogMensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto '" + texto.getTitulo() + "'.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).blogAdmin();		
+		}				
 	}
 	
 	/**

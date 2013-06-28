@@ -84,7 +84,7 @@ $(document).ready(function() {
 		$('#divBlogNovoTexto').slideUp(500);		
 	});
 	
-	$('#btCadBlogTexto').click(function() {		
+	$('#btCadBlogTexto, #btCadEdtTexto').click(function() {		
 		abrirJanelaDeEspera("#divPgBlogAdmin", "#telaAguardeAdmBlogCadastrar");	
 	});
 	
