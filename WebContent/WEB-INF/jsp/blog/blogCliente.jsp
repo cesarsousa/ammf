@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -19,14 +18,14 @@
 <div id="ultimaPublicacao" class="cardViewText">	
 	<c:choose>
 		<c:when test="${empty ultimaPublicacao}">
-		<c:choose>
-			<c:when test="${emailRequest}">
-				<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog.</p>
-			</c:when>
-			<c:otherwise>
-				<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
-			</c:otherwise>
-		</c:choose>
+			<c:choose>
+				<c:when test="${emailRequest}">
+					<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog.</p>
+				</c:when>
+				<c:otherwise>
+					<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+				</c:otherwise>
+			</c:choose>
 		</c:when>
 		
 		<c:otherwise>

@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
@@ -69,7 +70,7 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void notificarPessoas(Notificacao notificacao, Texto texto) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO);		
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
 		for(Pessoa pessoa : pessoas){
 			enviarEmailNotificacaoTexto(notificacao, texto, pessoa);
 		}		

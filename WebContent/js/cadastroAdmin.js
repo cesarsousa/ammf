@@ -46,6 +46,7 @@ $(document).ready(function() {
 						'<td class="infoTabela">' + email + '</td>' +
 						'<td class="infoTabela">' + dataCadastro + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
+						'<td class="infoTabela">' + json[i].situacao + '</td>' +
 						'<td align="center">' + linkConfirmar + '<a href="'+ urlRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="remover"></a></td>' +
 						'</tr>');						
 				}
@@ -55,11 +56,11 @@ $(document).ready(function() {
 				var textoBuscado = $('#campoBusca').val();
 				$('#campoBusca').attr("value", "").focus();
 				
-				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrência(s) para a pesquisa: ' + textoBuscado);
+				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrencia(s) para a pesquisa: ' + textoBuscado);
 								
 			},
 			error : function(){
-				alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
+				alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
 			}
 		});	
 		

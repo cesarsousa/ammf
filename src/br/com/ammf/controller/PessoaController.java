@@ -143,7 +143,7 @@ public class PessoaController {
 		}else{
 			pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
 		}		
-		result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();		
+		result.use(json()).withoutRoot().from(pessoas).serialize();		
 	}
 	
 	@Get("/cliente/cadastro")
@@ -190,7 +190,8 @@ public class PessoaController {
 	@Get("/pessoa/ativar/email/{uuid}")
 	public void ativarAssinaturaEmail(String uuid){		
 		Pessoa pessoa = pessoaRepository.obter(uuid);
-		System.out.println("ativar assinatura de email");		
+		pessoaRepository.ativar(pessoa);
+		result.redirectTo(IndexController.class).site();
 	}	
 
 	private void redirecionarParaIndex(Pessoa pessoa) {
