@@ -210,8 +210,7 @@
 							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
 							<td class="infoTabela">${pessoa.situacao}</td>
 							<td>								
-								<c:choose>
-								
+								<c:choose>								
 									<c:when test="${pessoa.pendente}">
 										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
 											<img src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
