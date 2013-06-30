@@ -1,6 +1,13 @@
 
 $(document).ready(function() {
 	
+	$('#formNotifClienteEmailJaCadastrado').hide();
+	$('#btFormNotifClienteEmailJaCadastrado').click(function(){
+		addRemoveDestaque("#campoEmailjaCadastrado");
+		$('#campoEmailjaCadastrado').puts("Digite o email que deseja receber a mensagem");
+		$('#formNotifClienteEmailJaCadastrado').slideDown(500);
+	});
+	
 	addRemoveDestaque("#cadastroClienteNome");
 	addRemoveDestaque("#cadastroClienteEmail");
 		

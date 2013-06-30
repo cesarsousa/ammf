@@ -208,7 +208,14 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obter(uuid);
 		pessoaRepository.ativar(pessoa);
 		result.redirectTo(IndexController.class).site();
-	}	
+	}
+	
+	@Get("/pessoa/cadastro/esclarecimento")
+	public void esclarecimentoDeCadastro(String email){
+		// TODO adicionar RN
+		result.include("msgIndex", "Uma mensagem foi enviada para <b>" + email + "</b> contendo informações sobre o cadastramento do email.");
+		result.redirectTo(IndexController.class).index();
+	}
 
 	private void redirecionarParaIndex(Pessoa pessoa) {
 		result.include("msgIndex", "<b>" + pessoa.getNome() + "</b>, seu cadastro foi recebido com sucesso.<br/>Aguarde que em breve voc&ecirc; receber&aacute; uma confirma&ccedil;&atilde;o por email.");

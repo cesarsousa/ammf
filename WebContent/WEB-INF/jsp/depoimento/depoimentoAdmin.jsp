@@ -124,12 +124,12 @@
 		<table class="display dataTable cardViewText superFooter bordaLateral">
 			<thead id="metadadoBuscaDepoimento">
 				<tr>
-				<th class="metadado">nome</th>
-				<th class="metadado">email</th>
-				<th class="metadado">depoimento</th>
-				<th class="metadado">postagem</th>
-				<th class="metadado">status</th>				
-				<th class="metadado">O que fazer?</th>
+				<th class="metadado">Nome</th>
+				<th class="metadado">Email</th>
+				<th class="metadado">Depoimento</th>
+				<th class="metadado">Postagem</th>
+				<th class="metadado">Status</th>				
+				<th class="metadado" style="width: 100px">A&ccedil;&atilde;o</th>
 				</tr>
 			</thead>
 			
@@ -141,7 +141,7 @@
 					<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
 					<td class="infoTabelaData">${depoimento.dataFormatada}</td>
 					<td class="infoTabela ${depoimento.status}">${depoimento.status}</td>
-					<td class="infoTabela" align="center">
+					<td class="infoTabela" align="center" style="width: 100px">
 						<c:choose>
 							<c:when test="${depoimento.pendente}">
 							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>

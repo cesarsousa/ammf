@@ -4,8 +4,21 @@
 
 <div id="divMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
-	<div class="msgBorder msgErro closeClick">
-	${nomeEmBranco}<br/>${emailEmBranco}</div>
+	<div class="msgBorder msgErro">
+	${nomeEmBranco}<br/>${emailEmBranco}
+	<c:if test="${emailJaCadastrado}">
+	<br/>
+	<span id="btFormNotifClienteEmailJaCadastrado" class="ponteiro negrito" >Entenda como seu email foi cadastrado neste site</span>
+	<div id="formNotifClienteEmailJaCadastrado">
+		<form action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
+			Uma mensagem ser&aacute; enviada ao seu email contendo todas as informa&ccedil;&otilde;es sobre o cadastramento.
+			<br/>
+			<input id="campoEmailjaCadastrado" class="letraCinza w300px" type="text" name="email">
+			<input class="buttonCadastrar" type="submit" value="Enviar Mensagem" />
+		</form>
+	</div>
+	</c:if>
+	</div>
 </c:if>
 </div>
 
