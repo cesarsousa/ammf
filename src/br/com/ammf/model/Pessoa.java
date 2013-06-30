@@ -103,4 +103,8 @@ public class Pessoa implements Serializable{
 	public boolean isPendente(){
 		return Status.PENDENTE == this.status;
 	}
+	
+	public boolean isInativa(){
+		return Situacao.INATIVO == this.situacao || Situacao.INATIVO_NOTIFICADO == this.situacao;
+	}
 }

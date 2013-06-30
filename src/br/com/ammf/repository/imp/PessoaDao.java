@@ -89,9 +89,16 @@ public class PessoaDao implements PessoaRepository {
 		Transaction transaction = session.beginTransaction();
 		pessoa.setSituacao(Situacao.ATIVO);
 		session.update(pessoa);
+		transaction.commit();		
+	}
+	
+	@Override
+	public void atualizar(Pessoa pessoa) {
+		Transaction transaction = session.beginTransaction();
+		session.update(pessoa);
 		transaction.commit();
 		
-	}
+	}	
 
 	@Override
 	public Pessoa obter(String uuid) {
@@ -128,5 +135,7 @@ public class PessoaDao implements PessoaRepository {
 			pessoas.add(pessoa);
 		}
 		return pessoas;
-	}	
+	}
+
+
 }

@@ -164,7 +164,7 @@
 
 <!--  PESSOAS SOLICITADAS -->
 <c:if test="${visualizarPessoas}">
-<table id="tabPessoasSolicitadas" class="cardViewText superFooter bordaLateral">
+<table id="tabPessoasSolicitadas" class="superFooter bordaLateral">
 	<tr>
 		<td>
 		<div align="right">
@@ -209,20 +209,21 @@
 							<td class="infoTabela">${pessoa.dataFormatada}</td>
 							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
 							<td class="infoTabela">${pessoa.situacao}</td>
-							<td>								
-								<c:choose>								
-									<c:when test="${pessoa.pendente}">
-										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
-											<img src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
-										</a>
-									</c:when>
-									<c:otherwise>										
-										<img src="${imagem}/iconeConfirmarDisabled.png" class="icone20" alt="pessoa confirmada"  title="pessoa confirmada">
-									</c:otherwise>
-								</c:choose>
+							<td>
+								<c:if test="${pessoa.inativa}">							
+									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}" />">
+										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
+									</a>
+								</c:if>
+																
+								<c:if test="${pessoa.pendente}">
+									<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
+										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
+									</a>
+								</c:if>
 								
 								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
-									<img class="ponteiro" alt="excluir esta pessoa" src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" width="20px" height="20px" title="excluir esta pessoa">
+									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir esta pessoa" title="excluir esta pessoa">
 								</a>								
 							</td>
 						</tr>

@@ -133,6 +133,22 @@ public class PessoaController {
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
 	}
+	
+	@Restrito
+	@Get("/pessoa/notificar/{uuid}")
+	public void notificarPessoa(String uuid){
+		Pessoa pessoa = pessoaRepository.obter(uuid);
+		try {
+			pessoa.setSituacao(Situacao.INATIVO_NOTIFICADO);
+			pessoaRepository.atualizar(pessoa);
+			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);
+			result.include("msgCadastro", "Notifica&ccedil;&atilde;o com solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o de cadastro reenviado para '<b>" + pessoa.getNome() + "</b>.");
+			result.redirectTo(this).cadastroAdmin();
+		} catch (EmailException e) {
+			e.printStackTrace();
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel reenviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+		}
+	}
 		
 	@Restrito
 	@Get("/pessoa/consulta")

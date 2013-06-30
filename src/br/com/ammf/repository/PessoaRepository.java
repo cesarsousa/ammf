@@ -9,6 +9,14 @@ import br.com.ammf.model.Status;
 public interface PessoaRepository {
 
 	void cadastrar(Pessoa pessoa);
+	
+	void remover(Pessoa pessoa);
+	
+	void confirmar(Pessoa pessoa);
+	
+	void ativar(Pessoa pessoa);
+	
+	void atualizar(Pessoa pessoa);
 
 	List<Pessoa> listar();
 
@@ -20,11 +28,7 @@ public interface PessoaRepository {
 
 	List<String> listarEmails();
 
-	void remover(Pessoa pessoa);
 	
-	void confirmar(Pessoa pessoa);
-	
-	void ativar(Pessoa pessoa);
 
 	Pessoa obter(String uuid);
 
