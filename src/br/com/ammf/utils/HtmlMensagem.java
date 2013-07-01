@@ -25,6 +25,7 @@ public class HtmlMensagem {
 	 */
 	public static String getMensagemNotificarClienteRecebimentoCadastro(Pessoa pessoa, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_recebimento_cadastroPeloCliente.html");
+		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
@@ -47,6 +48,7 @@ public class HtmlMensagem {
 	 */
 	public static String getMensagemNotificarAdmRecebimentoCadastro(Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_adm_recebimento_cadastroPeloCliente.html");
+		
 		return mensagem
 			.replace("[NOME]", pessoa.getNome()) 
 			.replace("[EMAIL]", pessoa.getEmail())
@@ -73,6 +75,7 @@ public class HtmlMensagem {
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
 		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
+		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
@@ -98,6 +101,7 @@ public class HtmlMensagem {
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkAtivarEmail = Link.ATIVAR_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
+		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
 				.replace("[WEBSITE]", Link.WEB_SITE)
@@ -130,7 +134,6 @@ public class HtmlMensagem {
 	}
 
 	/**
-	 * 
 	 * @param texto o texto que foi atualizado
 	 * @param linkedin linked in do administrador
 	 * @param pessoa a pessoa a ser notificada
@@ -143,6 +146,7 @@ public class HtmlMensagem {
 		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
 		String conteudo = texto.getConteudo();		
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
+		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
@@ -154,7 +158,13 @@ public class HtmlMensagem {
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
 	}
-
+	
+	/**
+	 * @param texto o texto que foi criado
+	 * @param linkedin linked in do administrador
+	 * @param pessoa a pessoa a ser notificada
+	 * @return a mensagem para o email de notificacao para as pessoas cadastradas no site.
+	 */
 	public static String getMensagemNotificacaoDeTextoAdicionado(Texto texto, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_adicionado.html");
 		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
@@ -162,6 +172,7 @@ public class HtmlMensagem {
 		String conteudo = texto.getConteudo();
 		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
+		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[TITULOTEXTO]", texto.getTitulo())
@@ -184,5 +195,26 @@ public class HtmlMensagem {
 		}else{
 			return Link.TEXTOS_PRINCIPAIS + texto.getLocal().toString().toLowerCase();
 		}
+	}	
+	
+	public static String getAssuntoEsclarecimentoCadastro() {
+		return "Site Quiron - Esclarecimeno sobre cadastro de email no site";
+	}
+
+	public static String getMensagemEsclarecimentoCadastro(Pessoa pessoa, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "cadastro_notificar_cliente_esclarecimento_sobre_cadastro.html");
+		String linkRemoverEmail = Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
+		String linkTermosDeContrato = Link.TERMOS_CONTRATO;
+		String linkSiteContato = Link.WEB_SITE_CONTATO;
+			
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
+				.replace("[NOME]", pessoa.getNome())
+				.replace("[EMAIL]", pessoa.getEmail())
+				.replace("[DATA]", pessoa.getDataFormatada())
+				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)
+				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
+				.replace("[WEBSITECONTATO]", linkSiteContato)
+				.replace("[LINKEDIN]", linkedin);
 	}
 }

@@ -9,8 +9,8 @@
 	<c:if test="${emailJaCadastrado}">
 	<br/>
 	<span id="btFormNotifClienteEmailJaCadastrado" class="ponteiro negrito" >Entenda como seu email foi cadastrado neste site</span>
-	<div id="formNotifClienteEmailJaCadastrado">
-		<form action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
+	<div id="divNotifClienteEmailJaCadastrado">
+		<form id="formNotifClienteEmailJaCadastrado" action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
 			Uma mensagem ser&aacute; enviada ao seu email contendo todas as informa&ccedil;&otilde;es sobre o cadastramento.
 			<br/>
 			<input id="campoEmailjaCadastrado" class="letraCinza w300px" type="text" name="email">
@@ -69,7 +69,7 @@
 		<h2>Cadastro de Pessoa</h2>
 		<span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>						
 		
-		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span>, o seu cadastro est&aacute; sendo realizado.</h3>
+		<h3 class="paddingTelaAguarde">Sua solicita&ccedil;&atilde;o est&aacute; sendo enviada. Esta opera&ccedil;&atilde;o pode levar alguns segundos. </h3>
 		
 		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>		
 					

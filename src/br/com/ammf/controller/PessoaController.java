@@ -112,7 +112,7 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/remover/{uuid}")
 	public void removerPessoa(String uuid){
-		Pessoa pessoa = pessoaRepository.obter(uuid);		
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);		
 		pessoaRepository.remover(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
 		result.redirectTo(this).cadastroAdmin();		
@@ -121,7 +121,7 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/confirmar/{uuid}")
 	public void confirmarPessoa(String uuid){
-		Pessoa pessoa = pessoaRepository.obter(uuid);
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		try {					
 			pessoaRepository.confirmar(pessoa);
 			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);			
@@ -137,7 +137,7 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/notificar/{uuid}")
 	public void notificarPessoa(String uuid){
-		Pessoa pessoa = pessoaRepository.obter(uuid);
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		try {
 			pessoa.setSituacao(Situacao.INATIVO_NOTIFICADO);
 			pessoaRepository.atualizar(pessoa);
@@ -188,7 +188,7 @@ public class PessoaController {
 	
 	@Get("/pessoa/remover/email/{uuid}")
 	public void removerAssinaturaEmail(String uuid){		
-		Pessoa pessoa = pessoaRepository.obter(uuid);
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		if(pessoa == null){
 			result.include("pessoaInvalida", true);
 		}else{
@@ -198,23 +198,34 @@ public class PessoaController {
 	
 	@Get("/pessoa/confirmaRemocao/email/")
 	public void confirmarRemocaoEmail(String uuid){
-		Pessoa pessoa = pessoaRepository.obter(uuid);
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		pessoaRepository.remover(pessoa);		
 		result.redirectTo(this).removerAssinaturaEmail(uuid);		
 	}
 	
 	@Get("/pessoa/ativar/email/{uuid}")
 	public void ativarAssinaturaEmail(String uuid){		
-		Pessoa pessoa = pessoaRepository.obter(uuid);
+		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		pessoaRepository.ativar(pessoa);
 		result.redirectTo(IndexController.class).site();
 	}
 	
 	@Get("/pessoa/cadastro/esclarecimento")
 	public void esclarecimentoDeCadastro(String email){
-		// TODO adicionar RN
-		result.include("msgIndex", "Uma mensagem foi enviada para <b>" + email + "</b> contendo informações sobre o cadastramento do email.");
-		result.redirectTo(IndexController.class).index();
+		Pessoa pessoa = pessoaRepository.obterPeloEmail(email);
+		if(pessoa == null){
+			result.include("emailEmBranco", "O email <b>" + email + "</b> n&atilde;o consta em nossa base de dados.");
+			result.redirectTo(PessoaController.class).cadastroCliente();
+		}else{
+			try {
+				emailService.enviarEsclarecimentoSobreCadastro(pessoa);
+				result.include("msgIndex", "Uma mensagem foi enviada para <b>" + email + "</b> contendo as informa&ccedil;&otilde;es sobre o cadastramento do email.");
+				result.redirectTo(IndexController.class).index();
+			} catch (EmailException e) {
+				result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar a mensagem solicitada para <b>" + email + "</b>.<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;o e desculpem-nos o transtorno.");
+				result.redirectTo(IndexController.class).index();
+			}			
+		}		
 	}
 
 	private void redirecionarParaIndex(Pessoa pessoa) {

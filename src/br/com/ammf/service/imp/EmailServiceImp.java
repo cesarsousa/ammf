@@ -94,4 +94,15 @@ public class EmailServiceImp implements EmailService {
 				mensagem);
 	}
 
+	@Override
+	public void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException {
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssuntoEsclarecimentoCadastro(),
+				HtmlMensagem.getMensagemEsclarecimentoCadastro(pessoa, administrador.getLinkedin()));
+		
+	}
+
 }

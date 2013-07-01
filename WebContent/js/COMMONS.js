@@ -1,13 +1,11 @@
 
-var alertWindow;
+// comando para desabilitar link durante envio de email
+// $("a").click(function() { return false; });
+
 
 function abrirJanelaDeEspera(idPagina, idJanelaEspera){
 	$(idPagina).slideUp(500);
 	$(idJanelaEspera).slideDown(500);
-	
-	//var esquerda = (screen.width - 550)/2;
-	//var topo = (screen.height - 250)/2;
-	//alertWindow = window.open(html, "bookpixWin","width=550, height=250, top=" + topo + ", left=" + esquerda);	
 }
 
 function limitarCaracteres(areaDeTexto, contador, totalCaracteres){		
@@ -22,12 +20,6 @@ function limitarCaracteres(areaDeTexto, contador, totalCaracteres){
 		$(areaDeTexto).val(valorDigitado.substring(0, totalCaracteres-2));
 	}	
 }
-
-/*function fecharJanelaDeEspera(){
-	$('#telaAguardeMenu').slideUp(500);
-	$('#divPgMenu').slideDown(500);
-	//alertWindow.close();
-}*/
 
 function addRemoveOpacidade(link, imagem){
 	$(link).hover(

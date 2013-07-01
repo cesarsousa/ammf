@@ -101,10 +101,17 @@ public class PessoaDao implements PessoaRepository {
 	}	
 
 	@Override
-	public Pessoa obter(String uuid) {
+	public Pessoa obterPeloUuid(String uuid) {
 		Criteria criteria = session.createCriteria(Pessoa.class);
 		criteria.add(Restrictions.eq("uuid", uuid));
 		return (Pessoa) criteria.uniqueResult();		
+	}
+	
+	@Override
+	public Pessoa obterPeloEmail(String email) {
+		Criteria criteria = session.createCriteria(Pessoa.class);
+		criteria.add(Restrictions.eq("email", email));
+		return (Pessoa) criteria.uniqueResult();
 	}
 
 	@Override
@@ -136,6 +143,8 @@ public class PessoaDao implements PessoaRepository {
 		}
 		return pessoas;
 	}
+
+	
 
 
 }

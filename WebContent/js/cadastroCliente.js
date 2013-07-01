@@ -1,11 +1,11 @@
 
 $(document).ready(function() {
 	
-	$('#formNotifClienteEmailJaCadastrado').hide();
+	$('#divNotifClienteEmailJaCadastrado').hide();
 	$('#btFormNotifClienteEmailJaCadastrado').click(function(){
 		addRemoveDestaque("#campoEmailjaCadastrado");
 		$('#campoEmailjaCadastrado').puts("Digite o email que deseja receber a mensagem");
-		$('#formNotifClienteEmailJaCadastrado').slideDown(500);
+		$('#divNotifClienteEmailJaCadastrado').slideDown(500);
 	});
 	
 	addRemoveDestaque("#cadastroClienteNome");
@@ -23,6 +23,12 @@ $(document).ready(function() {
 	$('#btnClienteCadastrar').click(function(){
 		$('#divMsgCadCliente').slideUp(500);
 		$('#nomeDoCliente').html($('#cadastroClienteNome').val());	
+		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
+		$("a").click(function() { return false; });
+	});
+	
+	$('#formNotifClienteEmailJaCadastrado').submit(function(){
+		$('#divNotifClienteEmailJaCadastrado, #btFormNotifClienteEmailJaCadastrado').slideUp(500);		
 		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroCliente");
 		$("a").click(function() { return false; });
 	});

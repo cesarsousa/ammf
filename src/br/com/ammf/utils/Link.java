@@ -11,6 +11,8 @@ public class Link {
 	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
 
 	public static final String WEB_SITE_LOGIN = DOMINIO + "/login";
+	
+	public static final String WEB_SITE_CONTATO = DOMINIO + "/cliente/contato";
 
 	public static final String ATIVAR_EMAIL = DOMINIO + "/pessoa/ativar/email/uuid";
 
@@ -21,5 +23,7 @@ public class Link {
 	public static final String TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";
 
 	public static final String TEXTOS_PRINCIPAIS = DOMINIO + "/index/";
+
+	
 
 }

@@ -8,6 +8,11 @@
 	<br/>
 </c:if>
 
+<c:if test="${not empty msgErroIndex}">
+	<div class="msgBorder msgErro closeClick ponteiro">${msgErroIndex}</div>
+	<br/>
+</c:if>
+
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 

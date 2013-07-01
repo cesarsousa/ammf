@@ -15,4 +15,6 @@ public interface EmailService {
 
 	void notificarPessoas(Notificacao notificacao, Texto textoIndex) throws EmailException;
 
+	void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException;
+
 }

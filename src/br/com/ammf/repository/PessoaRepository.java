@@ -26,16 +26,18 @@ public interface PessoaRepository {
 	
 	List<Pessoa> listarPorStatus(Status status, Situacao situacao);
 
-	List<String> listarEmails();
+	List<String> listarEmails();	
 
+	Pessoa obterPeloUuid(String uuid);
 	
-
-	Pessoa obter(String uuid);
+	Pessoa obterPeloEmail(String email);
 
 	boolean jaEstaCadastrada(String email);
 
 	int totalCadastrosPendentes();
 
 	List<Pessoa> obter(long parseLong);
+
+	
 
 }
