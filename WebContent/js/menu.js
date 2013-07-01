@@ -80,8 +80,8 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	$('textarea#campoTextoArtesOrientais').autoResize();
 	
-	addRemoveDestaque('#campoContaNome, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin');
-	
+	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco');
+	$('#campoContaTelefone').mask("(99)9999-9999");
 	
 	$('#campoContaSenhaTexto').hide();
 	$('#checkOcultarSenha').hide();

@@ -29,7 +29,15 @@ public class Usuario implements Serializable{
 	private String email;
 	
 	private String linkedin;
-
+	
+	private String endereco;
+	
+	private String localizacao;
+	
+	private String telefone;
+	
+	private boolean mostrarMapa;
+	
 	public long getId() {
 		return id;
 	}
@@ -84,5 +92,37 @@ public class Usuario implements Serializable{
 	
 	public void setLinkedin(String linkedin) {
 		this.linkedin = linkedin;
+	}
+	
+	public String getEndereco() {
+		return endereco;
+	}
+	
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	public String getLocalizacao() {
+		return localizacao;
+	}
+	
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
+	
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	public boolean isMostrarMapa() {
+		return mostrarMapa;
+	}
+	
+	public void setMostrarMapa(boolean mostrarMapa) {
+		this.mostrarMapa = mostrarMapa;
 	}
 }

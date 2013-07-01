@@ -24,9 +24,7 @@
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
-<!-- <div class="paddingHeader"></div> -->
 <%@ include file="/headerSite.jsp" %>
-
 
 <div id="divPgMenu" align="center">
 
@@ -164,6 +162,15 @@
 				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
 				</c:if>
 				
+				<h3>Telefone:</h3>
+				<c:if test="${not empty usuarioTelefoneBranco}">
+				<label class="labelFormErro">${usuarioTelefoneBranco}</label>
+				<input id="campoContaTelefone" type="text" class="areaTitulo bordaPadraoErro" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
+				</c:if>
+				<c:if test="${empty usuarioTelefoneBranco}">
+				<input id="campoContaTelefone" type="text" class="areaTitulo bordaPadrao" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
+				</c:if>
+				
 				
 				<h3>Login:</h3>
 				<c:if test="${not empty usuarioLoginBranco}">
@@ -219,8 +226,23 @@
 				</p>
 				<p>
 				<input id="campoContaLinkedin" type="text" class="areaTitulo bordaPadrao" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
-				</p>			
-								
+				</p>
+				
+				<hr style="width: 100%; border: 1px dashed #CCCCCC;" />			
+					
+				<h3>Dados de localiza&ccedil;&atilde;o e configura&ccedil;&atilde;o do Google Maps</h3>
+				
+				<h3>Endere&ccedil;o:<span class="info azulClaro" > Entre com as informa&ccedil;&otilde;es que voc&ecirc; deseja que os clientes visualizem.</span></h3>
+				<c:if test="${not empty usuarioLoginBranco}">
+				<label class="labelFormEndereco">${usuarioLoginBranco}</label>
+				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadraoErro" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
+				</c:if>
+				<c:if test="${empty usuarioLoginBranco}">
+				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadrao" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
+				</c:if>	
+				
+				
+							
 				<p>
 				<input type="submit" value="atualizar" class="buttonCadastrar">				
 				</p>

@@ -89,7 +89,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/cliente/contato" />" method="get">
 					<input type="submit" value="Contato" class="buttonFooter">
 					</form>
 					</li>
