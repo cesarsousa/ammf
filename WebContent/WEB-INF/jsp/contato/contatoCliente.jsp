@@ -26,8 +26,8 @@
 <h2>Contato</h2>
 
 	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
+		<h3>Meu consult&oacute;rio est&aacute; localizado na ${sessaoCliente.contato.endereco}</h3>	
 		<c:if test="${sessaoCliente.contato.mostrarMapa}">
-			<h3>Meu consult&oacute;rio est&aacute; localizado na ${sessaoCliente.contato.endereco}</h3>	
 			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
 			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">
 		</c:if>
@@ -47,7 +47,7 @@
 	</p>
 	
 	<p>
-	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
+	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" class="destaqueLetraHover" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
 	</p>
 	
 	
@@ -59,8 +59,8 @@
 						<div align="center">
 						<img src="${imagem}/fotoEnviarEmail.jpg" width="200" height="200">						
 						</div>
-						<p class="info azulClaro altura30 xLarge ponteiro" >Deixe-nos saber a sua opini&atilde;o.</p>
-						<p class="info azulClaro altura30 xLarge ponteiro" >Utilize os campos ao lado e mande o seu email de critica, sugest&atilde;o ou reclama&ccedil;&atilde;o.</p>
+						<p class="info azulClaro altura30 xLarge" >Deixe-nos saber a sua opini&atilde;o.</p>
+						<p class="info azulClaro altura30 xLarge" >Utilize os campos ao lado e mande o seu email de critica, sugest&atilde;o ou reclama&ccedil;&atilde;o.</p>
 					</div>
 				</td>
 			
