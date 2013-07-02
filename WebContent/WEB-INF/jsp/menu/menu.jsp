@@ -241,7 +241,30 @@
 				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadrao" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
 				</c:if>	
 				
+				<h3>Google Maps</h3>
+				<table>
+				<tr>
+				<td valign="top" align="left">
+					<c:choose>
+						<c:when test="${sessaoUsuario.usuario.mostrarMapa}">
+							<input id="checkHabilitarMapa" type="checkbox" name="usuario.mostrarMapa" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input id="checkHabilitarMapa" type="checkbox" name="usuario.mostrarMapa" />
+						</c:otherwise>
+					</c:choose>				
+				</td>
+				<td valign="top" align="left"><h3>Habilitar mapa com a visualiza&ccedil;&atilde;o do endere&ccedil;o na p&aacute;gina de contato do site.</h3></td>
+				</tr>
+				</table>
 				
+				<div id="divGeoLocalizacao">
+				<div class="msgBorderInterno msgAlerta t100">
+				Ao marcar a op&ccedil;&atilde;o de <b>visualiza&ccedil;&atilde;o com Google Maps</b> ser&aacute; habilitado para o usu&aacute;rio o mapa contendo o endere&ccedil;o da empresa. Para desabilitar esta funcionalidade mantenha a op&ccedil;&atilde;o desmarcada.
+				</div>				
+				<h3>Insira o HTML contendo a localiza&ccedil;&atilde;o do endere&ccedil;o.</h3>
+				<textarea id="areaLocalizacaoMapa" rows="10" class="areaTitulo bordaPadrao" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
+				</div>
 							
 				<p>
 				<input type="submit" value="atualizar" class="buttonCadastrar">				

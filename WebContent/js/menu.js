@@ -60,6 +60,38 @@ $(document).ready(function() {
 	$('#btAbrirConteudoConta').click(function(){
 		$('#conteudoConta').slideDown(1000);		
 	});
+	
+	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco, #areaLocalizacaoMapa');
+	$('#campoContaTelefone').mask("(99)9999-9999");
+	
+	$('#campoContaSenhaTexto').hide();
+	$('#checkOcultarSenha').hide();
+	$('#checkMostrarSenha').click(function(){
+		$('#checkMostrarSenha').hide();
+		$('#checkOcultarSenha').show();
+		$('#campoContaSenhaTexto').slideDown();		
+	});
+	$('#checkOcultarSenha').click(function(){
+		$('#checkOcultarSenha').hide();
+		$('#checkMostrarSenha').show();
+		$('#campoContaSenhaTexto').slideUp();		
+	});
+	
+	// primeira execucao checa o estado inicial
+	if ($('#checkHabilitarMapa').is(":checked")) {
+		$('#divGeoLocalizacao').slideDown(500);
+	} else {
+		$('#divGeoLocalizacao').slideUp(500);
+	}
+	// checagem durante cliques no checkbox
+	$('#checkHabilitarMapa').click(function() {
+		if ($('#checkHabilitarMapa').is(":checked")) {
+			$('#divGeoLocalizacao').slideDown(500);
+		} else {
+			$('#divGeoLocalizacao').slideUp(500);
+		}
+	});
+		
 	$('#btFecharConteudoConta').click(function(){
 		$('#conteudoConta').slideUp(1000);		
 	});
@@ -80,21 +112,7 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	$('textarea#campoTextoArtesOrientais').autoResize();
 	
-	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco');
-	$('#campoContaTelefone').mask("(99)9999-9999");
 	
-	$('#campoContaSenhaTexto').hide();
-	$('#checkOcultarSenha').hide();
-	$('#checkMostrarSenha').click(function(){
-		$('#checkMostrarSenha').hide();
-		$('#checkOcultarSenha').show();
-		$('#campoContaSenhaTexto').slideDown();		
-	});
-	$('#checkOcultarSenha').click(function(){
-		$('#checkOcultarSenha').hide();
-		$('#checkMostrarSenha').show();
-		$('#campoContaSenhaTexto').slideUp();		
-	});
 	
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	

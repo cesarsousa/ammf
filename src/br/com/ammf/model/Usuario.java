@@ -3,6 +3,7 @@ package br.com.ammf.model;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,6 +33,7 @@ public class Usuario implements Serializable{
 	
 	private String endereco;
 	
+	@Column(length=1500)
 	private String localizacao;
 	
 	private String telefone;
