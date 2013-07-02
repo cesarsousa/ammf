@@ -148,9 +148,18 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	@Override
 	public boolean usuario(Usuario usuario, Result result) {
 		boolean resultado = true;
+		if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
+			result.include("usuarioUuidBranco", "N&atilde;o foi poss&iacute;vel definir o uuid do usu&aacute;rio");
+			resultado = false;
+		}
+		
 		if(usuario.getNome() == null || usuario.getNome().isEmpty()){
 			result.include("usuarioNomeBranco", "O nome deve ser informado");
 			resultado = false;
+		}
+		
+		if(usuario.getTelefone() == null || usuario.getTelefone().isEmpty()){
+			usuario.setTelefone("nao disponivel");
 		}
 		
 		if(usuario.getLogin() == null || usuario.getLogin().isEmpty()){
@@ -172,15 +181,14 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()){
 			result.include("usuarioSenhaBranco", "A senha deve ser informada");
 			resultado = false;
-		}
-		
-		if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
-			result.include("usuarioUuidBranco", "N&atilde;o foi poss&iacute;vel definir o uuid do usu&aacute;rio");
-			resultado = false;
-		}
+		}		
 		
 		if(usuario.getLinkedin() == null || usuario.getLinkedin().isEmpty()){
 			usuario.setLinkedin("");
+		}
+		
+		if(usuario.getEndereco() == null || usuario.getEndereco().isEmpty()){
+			usuario.setEndereco("nao disponivel");
 		}
 		
 		return resultado;

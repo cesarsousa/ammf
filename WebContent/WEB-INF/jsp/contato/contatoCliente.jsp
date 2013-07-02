@@ -26,7 +26,7 @@
 <h2>Contato</h2>
 
 	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
-		<h3>Meu consult&oacute;rio est&aacute; localizado na ${sessaoCliente.contato.endereco}</h3>	
+		<h3>Meu consult&oacute;rio est&aacute; localizado no endere&ccedil;o ${sessaoCliente.contato.endereco}</h3>	
 		<c:if test="${sessaoCliente.contato.mostrarMapa}">
 			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
 			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">

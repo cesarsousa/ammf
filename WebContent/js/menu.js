@@ -62,7 +62,7 @@ $(document).ready(function() {
 	});
 	
 	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco, #areaLocalizacaoMapa');
-	$('#campoContaTelefone').mask("(99)9999-9999");
+	/*$('#campoContaTelefone').mask("(99)9999-9999");*/
 	
 	$('#campoContaSenhaTexto').hide();
 	$('#checkOcultarSenha').hide();

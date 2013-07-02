@@ -28,7 +28,7 @@ public class HtmlMensagem {
 		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
-				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 				.replace("[LINKEDIN]", linkedin);				
 	}
 	
@@ -78,7 +78,7 @@ public class HtmlMensagem {
 		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
-				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
 				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)				
@@ -104,7 +104,7 @@ public class HtmlMensagem {
 		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome()) 
-				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKATIVARNOTIFICACAO]", linkAtivarEmail)
@@ -153,7 +153,7 @@ public class HtmlMensagem {
 				.replace("[COMPLEMENTO]", complemento)
 				.replace("[TRECHOTEXTO]", trechoTexto)
 				.replace("[LINKLERTEXTO]", linkLerTexto)				
-				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
@@ -179,7 +179,7 @@ public class HtmlMensagem {
 				.replace("[COMPLEMENTO]", complemento)
 				.replace("[TRECHOTEXTO]", trechoTexto)
 				.replace("[LINKLERTEXTO]", linkLerTexto)				
-				.replace("[WEBSITE]", Link.WEB_SITE)
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
@@ -214,7 +214,7 @@ public class HtmlMensagem {
 				.replace("[DATA]", pessoa.getDataFormatada())
 				.replace("[LINKTERMOSCONTRATO]", linkTermosDeContrato)
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
-				.replace("[WEBSITECONTATO]", linkSiteContato)
+				.replace("[WEBSITE_CONTATO]", linkSiteContato)
 				.replace("[LINKEDIN]", linkedin);
 	}
 }
