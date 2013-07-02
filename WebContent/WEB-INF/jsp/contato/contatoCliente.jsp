@@ -1,18 +1,130 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-<div align="center">
+<%@ include file="/headerLib.jsp" %>
+<%@ include file="/headerQuiron.jsp" %>
 
-<iframe width="850" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+da+Concei%C3%A7%C3%A3o,+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;aq=0&amp;oq=Rua+da+Concei%C3%A7%C3%A3o,+13+Niter%C3%B3i+-+Rio+de+Janeiro&amp;sll=-22.894233,-43.12092&amp;sspn=0.010536,0.016243&amp;ie=UTF8&amp;hq=&amp;hnear=R.+da+Concei%C3%A7%C3%A3o,+13+-+Niteroi,+Rio+de+Janeiro,+24020-080&amp;ll=-22.894224,-43.12093&amp;spn=0.010536,0.016243&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.br/maps?f=q&amp;source=embed&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+da+Concei%C3%A7%C3%A3o,+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;aq=0&amp;oq=Rua+da+Concei%C3%A7%C3%A3o,+13+Niter%C3%B3i+-+Rio+de+Janeiro&amp;sll=-22.894233,-43.12092&amp;sspn=0.010536,0.016243&amp;ie=UTF8&amp;hq=&amp;hnear=R.+da+Concei%C3%A7%C3%A3o,+13+-+Niteroi,+Rio+de+Janeiro,+24020-080&amp;ll=-22.894224,-43.12093&amp;spn=0.010536,0.016243&amp;t=m&amp;z=14" style="color:#0000FF;text-align:left">Exibir mapa ampliado</a></small>
+<c:if test="${not empty msgContatoCliente}">
+	<div class="msgBorder msgSucesso ponteiro closeClick">
+	${msgContatoCliente}
+	</div>
+</c:if>
+<c:if test="${not empty msgErroContatoCliente}">
+	<div id="mensagemErroContato" class="msgBorder msgErro ponteiro closeClick">
+	${tituloErro}
+	${nomeEmBranco}
+	${emailEmBranco}
+	${conteudoEmBranco}
+	</div>
+</c:if>
 
+<%@ include file="/headerSite.jsp"%>
+
+<div id="divPgContatoCliente" align="center">
+
+<%@ include file="/menuPrincipal.jsp" %>
+
+<h2>Contato</h2>
+
+	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
+		<c:if test="${sessaoCliente.contato.mostrarMapa}">
+			<h3>Meu consult&oacute;rio est&aacute; localizado na ${sessaoCliente.contato.endereco}</h3>	
+			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
+			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">
+		</c:if>
+	
+	</div>
+	
+	<div id="mapaGeoLocalizacao">${sessaoCliente.contato.localizacao}</div>
+	
+	<div class="cartaoSemBordaTop tamanhoEdicaoIndex bordaPadrao" align="left">
+	<h3 align="left">Utilize os canais de contato para falar conosco</h3>
+	<p>
+	<span class="info azulClaro negrito">Telefone: ${sessaoCliente.contato.telefone}</span>
+	</p>
+	
+	<p>
+	<span class="info azulClaro negrito">Email: ${sessaoCliente.contato.email}</span>
+	</p>
+	
+	<p>
+	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
+	</p>
+	
+	
+	<form action="<c:url value="/contato/email"/>" method="post">		
+		<table width="100%">
+			<tr>
+				<td width="50%" align="center" style="padding: 20px;">
+					<div>
+						<div align="center">
+						<img src="${imagem}/fotoEnviarEmail.jpg" width="200" height="200">						
+						</div>
+						<p class="info azulClaro altura30 xLarge ponteiro" >Deixe-nos saber a sua opini&atilde;o.</p>
+						<p class="info azulClaro altura30 xLarge ponteiro" >Utilize os campos ao lado e mande o seu email de critica, sugest&atilde;o ou reclama&ccedil;&atilde;o.</p>
+					</div>
+				</td>
+			
+				<td  width="50%" >					
+					<div style="border-left: 1px solid #CCCCCC; padding: 10px;">
+					
+					<h2>Enviar uma mensagem</h2>
+					
+					<label class="labelForm2">Nome:</label>
+					<c:if test="${not empty nomeEmBranco}">		
+					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+					</c:if>
+					<c:if test="${empty nomeEmBranco}">		
+						<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</c:if>
+					
+					<label class="labelForm2">Email:</label>
+					<c:if test="${not empty emailEmBranco}">		
+						<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
+					</c:if>
+					<c:if test="${empty emailEmBranco}">		
+						<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</c:if>
+					
+					<label class="labelForm2">Mensagem:</label>
+					<c:if test="${not empty conteudoEmBranco}">		
+						<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadraoErro" rows="5">${novaMensagem.conteudo}</textarea>
+					</c:if>
+					<c:if test="${empty conteudoEmBranco}">		
+						<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
+					</c:if>
+					
+					<h3 align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterContato">500</span> caracteres em sua mensagem.
+					</h3>
+					
+					<h3 align="right">
+					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="button direita"/>
+					</h3>					
+					</div>
+				</td>			
+			</tr>		
+		</table>		
+	</form>
+	
+	
+	</div>		
+	
+<br/>
+</div> <!-- centralizacao -->
+
+<div id="telaAguardeContatoCliente">
+	<div align="center">		
+		<h2>Contato</h2>		
+		<h3 class="paddingTelaAguarde">Sua solicita&ccedil;&atilde;o est&aacute; sendo enviada. Esta opera&ccedil;&atilde;o pode levar alguns segundos. </h3>
+		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>		
+		<br />
+		<br />			
+	</div>
 </div>
 
+</div> <!-- main -->
+</div> <!-- wrap -->
 
-</body>
-</html>
+<div id="footer">
+<%@ include file="/footer.jsp" %>
+</div>

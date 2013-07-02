@@ -200,9 +200,18 @@ textarea {
 	height: 20px;
 }
 
+.icone25{
+	width: 25px;
+	height: 25px;
+}
+
 .icone50{
 	width: 50px;
 	height: 50px;
+}
+
+.HeaderMapa{
+	background-color: #CCCCCC;
 }
 
 .zebrado:hover {
@@ -282,7 +291,7 @@ a:HOVER {
 }
 
 .bordaPadrao {
-	border: 1px solid #8B8484;
+	border: 1px solid #CCCCCC;
 }
 
 .bordaPadraoErro {
@@ -552,9 +561,38 @@ a:HOVER {
 	box-shadow: 2px 2px 2px #CCCCCC;
 }
 
+.cartaoSemBordaBottom{
+	background-color: #ffffff;
+	border-bottom: none;
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #CCCCCC;
+}
+
+.cartaoSemBordaTop{
+	background-color: #ffffff;
+	border-top: none;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #CCCCCC;
+}
+
 .tamanhoEdicaoIndex {
 	width: 1000px;
 	padding: 5px;	
+}
+
+.pontilhado {
+	border: 1px solid #CCCCCC;
+	width: 100%;
 }
 
 .areaFormatacao {

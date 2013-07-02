@@ -8,7 +8,7 @@ function abrirJanelaDeEspera(idPagina, idJanelaEspera){
 	$(idJanelaEspera).slideDown(500);
 }
 
-function limitarCaracteres(areaDeTexto, contador, totalCaracteres){		
+function limitarCaracteres(areaDeTexto, contador, totalCaracteres){	
 	var valorDigitado = $(areaDeTexto).val();
 	var totalDigitado = valorDigitado.length;		
 		

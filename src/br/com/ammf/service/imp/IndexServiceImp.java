@@ -5,11 +5,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.ammf.model.Contato;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.Texto;
+import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -17,9 +20,13 @@ import br.com.caelum.vraptor.ioc.Component;
 public class IndexServiceImp implements IndexService{
 	
 	private TextoRepository textoRepository;
+	private UsuarioRepository usuarioRepository;
 	
-	public IndexServiceImp(TextoRepository textoRepository){
+	public IndexServiceImp(
+			TextoRepository textoRepository,
+			UsuarioRepository usuarioRepository){
 		this.textoRepository = textoRepository;
+		this.usuarioRepository = usuarioRepository;
 	}
 
 	@Override
@@ -44,7 +51,23 @@ public class IndexServiceImp implements IndexService{
 		sessaoCliente.setTextoCultura(criarListaDeParagrafos(textoCultura));
 		sessaoCliente.setTextoArtesOrientais(criarListaDeParagrafos(textoArtesOrientais));
 		sessaoCliente.setTextoQuiron(criarListaDeParagrafos(textoQuiron));
+		
+		sessaoCliente.setContato(criarDadosDeContato());
+		
 		return sessaoCliente;
+	}
+
+	private Contato criarDadosDeContato() {
+		Usuario administrador = usuarioRepository.obterAdministrador();
+		
+		String email = administrador.getEmail();
+		String linkedin = administrador.getLinkedin();
+		String telefone = administrador.getTelefone();
+		String endereco = administrador.getEndereco();
+		boolean mostrarMapa = administrador.isMostrarMapa();
+		String localizacao = administrador.isMostrarMapa() ? administrador.getLocalizacao() : "";
+		Contato contato = new Contato(email, linkedin, telefone, endereco, mostrarMapa, localizacao);		
+		return contato;
 	}
 
 	private Texto criarTextoDefault(Local local) {

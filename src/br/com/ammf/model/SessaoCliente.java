@@ -19,6 +19,7 @@ public class SessaoCliente implements Serializable {
 	private List<Paragrafo> textoCultura;
 	private List<Paragrafo> textoArtesOrientais;
 	private List<Paragrafo> textoQuiron;
+	private Contato contato;
 	
 	public Texto getTextoIndex() {
 		return textoIndex;
@@ -66,5 +67,13 @@ public class SessaoCliente implements Serializable {
 	
 	public void setTextoQuiron(List<Paragrafo> textoQuiron) {
 		this.textoQuiron = textoQuiron;
+	}
+	
+	public Contato getContato() {
+		return contato;
+	}
+	
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 }

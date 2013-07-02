@@ -43,7 +43,7 @@ public class UsuarioController {
 			usuario.setId(sessaoUsuario.getUsuario().getId());
 			usuarioRepository.atualizar(usuario);
 			sessaoUsuario.login(usuario);
-			redirecionarParaMenuAdm("mensagem", "Dados de conta de usu&aacute;rio atualizados com sucesso");
+			redirecionarParaMenuAdm("mensagem", "Dados de conta de administrador atualizados com sucesso");
 		}else{
 			redirecionarParaMenuAdm("editarUsuario", "true");
 		}		

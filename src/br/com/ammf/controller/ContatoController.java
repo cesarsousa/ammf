@@ -1,19 +1,54 @@
 package br.com.ammf.controller;
 
+import br.com.ammf.model.Mensagem;
+import br.com.ammf.model.SessaoCliente;
+import br.com.ammf.service.EmailService;
+import br.com.ammf.service.IndexService;
+import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
 @Resource
 public class ContatoController {
 	
-	private Result result;
+	//TODO validar novos campos de configuracao de conta e envio de email pelo contato.
 	
-	public ContatoController(Result result){
+	private Result result;
+	private SessaoCliente sessaoCliente;
+	private IndexService indexService;
+	private ValidacaoService validacaoService;
+	private EmailService emailService;
+	
+	public ContatoController(
+			Result result,
+			SessaoCliente sessaoCliente,
+			IndexService indexService,
+			ValidacaoService validacaoService,
+			EmailService emailService){
 		this.result = result;
+		this.sessaoCliente = sessaoCliente;
+		this.indexService = indexService;
+		this.validacaoService = validacaoService;
+		this.emailService = emailService;
 	}
 	
 	@Get("/cliente/contato")
-	public void contatoCliente(){}
+	public void contatoCliente(){
+		sessaoCliente = indexService.atualizar(sessaoCliente);
+	}
+	
+	@Post("/contato/email")
+	public void processarContatoDeCliente(Mensagem mensagem){
+		boolean validado = validacaoService.mensagem(mensagem, result);
+		if(validado){
+			// enviar email do cliente
+			result.include("msgContatoCliente", "<b>" + mensagem.getNome() + "</b> sua mensagem foi enviada com sucesso");
+		}else{
+			result.include("msgErroContatoCliente", true);
+		}
+		result.redirectTo(this).contatoCliente();		
+	}
 
 }

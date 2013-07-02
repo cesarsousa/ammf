@@ -1,6 +1,7 @@
 package br.com.ammf.service.imp;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
@@ -51,6 +52,36 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			 * e mostrar o form de novo depoimento. 
 			 */
 			result.include("flagErroDepoimento", true);
+			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da p&aacute;gina</b><br/>");
+		}
+		
+		return validado;
+	}
+	
+	@Override
+	public boolean mensagem(Mensagem mensagem, Result result) {
+		boolean validado = true;
+		if(mensagem.getNome() == null || mensagem.getNome().isEmpty()){
+			result.include("nomeEmBranco", "O nome deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(mensagem.getEmail() == null || mensagem.getEmail().isEmpty()){
+			result.include("emailEmBranco", "O email deve ser informado<br/>");
+			validado = false;
+		}else if(!emailValido(mensagem.getEmail())){
+			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido<br/>");
+			validado = false;
+		}
+		
+		if(mensagem.getConteudo() == null || mensagem.getConteudo().isEmpty()){
+			result.include("conteudoEmBranco", "A mensagem deve ser informada<br/>");
+			validado = false;
+		}
+		
+		if(!validado){
+			result.include("novaMensagem", mensagem);
+			result.include("msgErroContatoCliente", true);
 			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da p&aacute;gina</b><br/>");
 		}
 		
@@ -153,27 +184,24 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		return resultado;
-	}
+	}	
 
+	@Override
+	public void verificarCamposPreenchidos(Texto texto) {		
+		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
+			texto.setAutor("autor");
+		}		
+		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
+			texto.setConteudo("conteudo");
+		}		
+	}
+	
 	private boolean ehGmail(String email) {
 		return email.endsWith("@gmail.com");
 	}
 
 	private boolean emailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
-	}
-
-	@Override
-	public void verificarCamposPreenchidos(Texto texto) {
-		
-		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
-			texto.setAutor("autor");
-		}
-		
-		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
-			texto.setConteudo("conteudo");
-		}
-		
 	}
 	
 }
