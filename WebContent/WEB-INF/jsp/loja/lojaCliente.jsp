@@ -94,14 +94,16 @@
 			</tr>
 			</thead>
 			
-			<tbody class="bordaPadrao">
+			<tbody>
 			<tr>
 			<td class="tabTitulo">Sinopse</td>
 			<td class="tabDescricao">Livro sobre ... </td>
 			</tr>
 			<tr>
-			<td colspan="2"><hr style="border: 1px solid #CCCCCC;"></td>			
-			</tr>			
+			<td class="tabTitulo">Titulo</td>
+			<td class="tabDescricao">Levantando do chão - lendo josé saramago</td>
+			</tr>
+						
 			</tbody>
 			</table>
 		</div>
