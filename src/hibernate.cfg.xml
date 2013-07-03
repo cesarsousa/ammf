@@ -23,6 +23,7 @@
 		<mapping class="br.com.ammf.model.Resenha" />
 		<mapping class="br.com.ammf.model.Opcao" />
 		<mapping class="br.com.ammf.model.Depoimento" />
+		<mapping class="br.com.ammf.model.Livro" />
 		
 	</session-factory>
 </hibernate-configuration>

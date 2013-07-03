@@ -31,7 +31,7 @@ body:before {
 }
 /* FIM dos estilos para fixar o rodape */
 
-
+/* QUIRON PAGE inicio */
 #fundo-externo {
     overflow: hidden; /* para que n�o tenha rolagem se a imagem de fundo for maior que a tela */
     width: 100%;
@@ -60,6 +60,76 @@ body:before {
     background: #FFF; /* fundo branco para navegadores que n�o suportam rgba */
     background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transpar�ncia */
 }
+/* QUIRON PAGE fim */
+
+/* TAB effect inicio */
+
+.mainContainer
+{
+	margin:60px auto 0 auto;
+	width:800px;
+}
+
+.topNav
+{
+	font-weight:bold;
+	font-size:12px;
+	width:960px;
+	margin:0 auto;
+	letter-spacing:-1px\9;
+}
+
+.tabs li
+{
+	display:inline;
+}
+
+.tabs li a
+{
+	cursor: pointer;
+	padding:26px 13px 11px 12px;
+	border:1px solid #cccccc;
+	font-size:13px;
+	color: #666666;
+	/* background-color: #87CEEB; */
+	font-size: medium;
+	font-weight: bold;
+	/* text-transform:uppercase; */
+}
+
+.tabs .tab-current
+{
+	padding: 37px 13px 12px 12px;
+	border-bottom:0px;
+	background:#ffffff;
+}
+
+.tabsContent
+{
+	border:1px solid #cccccc;
+	-moz-box-shadow: 3px 3px 5px #cccccc;
+	-webkit-box-shadow: 3px 3px 5px #cccccc;
+	box-shadow: 3px 3px 5px #cccccc;
+	background:#ffffff;
+	padding:20px 20px 20px 20px;
+	color:#666666;
+    display:none;
+}
+
+ul.tabs
+{
+	margin: 0 0 11px 20px;
+}
+
+/*Firefox hack*/
+@-moz-document url-prefix()
+{
+	ul.tabs
+	{
+	   margin: 0 0 10px 20px;
+	}
+}
+/* TAB effect fim */
 
 body {
 	background-color: #F8F8FF;	
@@ -1032,6 +1102,60 @@ a:HOVER {
 
 .w300px{
 	width: 300px;
+}
+
+.fotoLivro {
+	width: 100px;
+	height: 150px;
+	
+}
+
+.divComprarLivro{
+	width: 200px;
+	height: 40px;
+	background-color: #006400;
+	color: #FFFFFF;
+	font-size: xx-large;
+	font-weight: bold;
+	font-family: monospace;
+	text-transform: uppercase;
+	vertical-align: middle;
+	display: table-cell;
+	padding: 5px;
+	cursor: pointer;
+	float: right;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.divComprarLivro:hover {
+	box-shadow: 2px 2px 2px #8B8484;
+	background-color: green;
+}
+
+
+table.tabLivro {
+	width: 100%;
+	border: 1px solid #CCCCCC;
+}
+
+table.tabLivro thead  tr td{
+	background-color: #CCCCCC;
+	color: #1C1C1C;
+	font-weight: bold;
+	text-align: left;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.tabTitulo {
+	color: #1C1C1C;
+	font-weight: bold;
+	width: 20%;
+}
+
+.tabDescricao{
+	color: #1C1C1C;
+	width: 80%;
 }
 
 .areaTitulo {
