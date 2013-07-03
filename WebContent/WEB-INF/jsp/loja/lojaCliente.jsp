@@ -10,6 +10,6 @@ Loja Virtual do cliente
 
 <br/>
 
-${mensagem}
+<a href="<c:url value="/downloadboleto"></c:url>">Teste de boleto</a>
 </body>
 </html>
