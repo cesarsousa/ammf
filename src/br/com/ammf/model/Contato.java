@@ -1,10 +1,13 @@
 package br.com.ammf.model;
 
+import java.io.Serializable;
+
 /**
  * Classe utilitaria para adicionar conteudo na pagina de contato.
  */
-public class Contato {
-	
+public class Contato implements Serializable{
+
+	private static final long serialVersionUID = -1695555390008481106L;
 	private String endereco;
 	private String telefone;
 	private boolean mostrarMapa;

@@ -95,7 +95,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/cliente/loja" />" method="get">
 					<input type="submit" value="Loja Virtual" class="buttonFooter">
 					</form>
 					</li>

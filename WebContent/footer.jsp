@@ -29,7 +29,7 @@
 			<a href="<c:url value=""/>">Cursos</a>
 			<a href="<c:url value="/cliente/cadastro"/>">Cadastro</a>
 			<a href="<c:url value="/cliente/contato"/>">Contato</a>
-			<a href="<c:url value=""/>">Loja Virtual</a>
+			<a href="<c:url value="/cliente/loja"/>">Loja Virtual</a>
 			<a href="<c:url value=""/>">FAQ</a>
 	</div>
 	
