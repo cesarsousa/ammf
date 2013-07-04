@@ -1,5 +1,6 @@
 package br.com.ammf.controller;
 
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.EmailService;
@@ -42,13 +43,19 @@ public class ContatoController {
 	@Post("/contato/email")
 	public void processarContatoDeCliente(Mensagem mensagem){
 		boolean validado = validacaoService.mensagem(mensagem, result);
-		if(validado){
-			// enviar email do cliente
-			result.include("msgContatoCliente", "<b>" + mensagem.getNome() + "</b> sua mensagem foi enviada com sucesso");
-		}else{
-			result.include("msgErroContatoCliente", true);
-		}
-		result.redirectTo(this).contatoCliente();		
+		try {
+			if(validado){
+				emailService.notificarNovoContatoFeitoCliente(mensagem);
+				result.include("msgContatoCliente", "<b>" + mensagem.getNome() + "</b> sua mensagem foi enviada com sucesso");
+			}else{
+				result.include("msgErroContatoCliente", true);
+			}
+			result.redirectTo(this).contatoCliente();
+		} catch (EmailException e) {
+			e.printStackTrace();
+			result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar sua mensagem .<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;o e desculpem-nos o transtorno.");
+			result.redirectTo(IndexController.class).index();
+		}		
 	}
 
 }

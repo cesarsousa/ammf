@@ -57,7 +57,7 @@ public class PessoaController {
 		if(validado){			
 			try {
 				pessoaService.cadastrarComoAdm(pessoa);
-				emailService.notificacarNovoCadastroFeitoPeloAdm(pessoa);
+				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
 				e.printStackTrace();
@@ -171,7 +171,7 @@ public class PessoaController {
 		if(validado){
 			try {				
 				pessoaService.cadastrarComoCliente(pessoa);
-				emailService.notificacarNovoCadastroFeitoPeloCliente(pessoa);				
+				emailService.notificarNovoCadastroFeitoPeloCliente(pessoa);				
 				redirecionarParaIndex(pessoa);
 			} catch (DBException e) {
 				e.printStackTrace();

@@ -1,6 +1,7 @@
 package br.com.ammf.utils;
 
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
@@ -38,7 +39,7 @@ public class HtmlMensagem {
 	 * @return o assunto de um email a ser enviado para o administrador informando quando uma pessoa realiza a solicitacao de cadastro pelo site.
 	 */
 	public static String getAssuntoNotificarAdmRecebimentoCadastro(String nomeDaPessoa) {
-		return "Novo cadastro de pessoa realizado: nome - " + nomeDaPessoa;
+		return "Novo cadastro de cliente realizado: nome - " + nomeDaPessoa;
 	}
 	
 	/**
@@ -216,5 +217,19 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", linkRemoverEmail)
 				.replace("[WEBSITE_CONTATO]", linkSiteContato)
 				.replace("[LINKEDIN]", linkedin);
+	}
+
+	public static String getAssuntoNotificarAdmNovoContato(String nomeDaPessoa) {
+		return "Novo contato de cliente recebido: nome - " + nomeDaPessoa;
+	}
+
+	public static String getMensagemNotificarAdmNovoContato(Mensagem mensagem) {
+		String strMensagem = new LeitorDeArquivo().lerArquivo(PATH + "contato_notificar_adm_recebimento_novo_contato.html");
+			
+		return strMensagem
+				.replace("[NOME]", mensagem.getNome())
+				.replace("[EMAIL]", mensagem.getEmail())
+				.replace("[MENSAGEM]", mensagem.getConteudo())
+				.replace("[WEBSITE_LOGIN_ADM]", Link.WEB_SITE_LOGIN);
 	}
 }

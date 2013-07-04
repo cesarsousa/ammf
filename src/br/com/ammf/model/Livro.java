@@ -119,4 +119,8 @@ public class Livro implements Serializable {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+	
+	public String getPrecoFormatado(){
+		return this.preco.toString();
+	}
 }

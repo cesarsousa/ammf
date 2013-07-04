@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Situacao;
@@ -30,7 +31,7 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificacarNovoCadastroFeitoPeloCliente(Pessoa pessoa) throws EmailException {					
+	public void notificarNovoCadastroFeitoPeloCliente(Pessoa pessoa) throws EmailException {					
 		// Notificar o cliente do recebimento e cadastramento.
 		Email.enviarEmail(
 				administrador.getEmail(), 
@@ -49,7 +50,7 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificacarNovoCadastroFeitoPeloAdm(Pessoa pessoa) throws EmailException {		
+	public void notificarNovoCadastroFeitoPeloAdm(Pessoa pessoa) throws EmailException {		
 		Email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
@@ -103,6 +104,18 @@ public class EmailServiceImp implements EmailService {
 				HtmlMensagem.getAssuntoEsclarecimentoCadastro(),
 				HtmlMensagem.getMensagemEsclarecimentoCadastro(pessoa, administrador.getLinkedin()));
 		
+	}
+
+	@Override
+	public void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException {
+		Email.enviarEmail(
+				administrador.getEmail(), 
+				administrador.getSenha(), 
+				administrador.getEmail(), 
+				HtmlMensagem.getAssuntoNotificarAdmNovoContato(mensagem.getNome()), 
+				HtmlMensagem.getMensagemNotificarAdmNovoContato(mensagem));
+		
+		// TODO notificar o cliente tambem do recebimento.
 	}
 
 }

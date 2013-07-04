@@ -15,6 +15,14 @@ $(document).ready(function() {
 	    $(this).addClass('tab-current');
 	});
 	
+	$('#tabInformacaoLivro').hide();
+	$('#btAbrirInfoLivro').click(function(){
+		$('#tabInformacaoLivro').slideDown(500);
+	});
+	$('#btFecharInfoLivro').click(function(){
+		$('#tabInformacaoLivro').slideUp(500);
+	});
+	
 	
 	
 });

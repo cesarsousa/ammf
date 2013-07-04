@@ -22,8 +22,6 @@
 
 <h2>Loja Virtual</h2>
 
-<a href="<c:url value="/downloadboleto"></c:url>">Teste de boleto</a>
-
 <div class="mainContainer">
 <div class="htmltabs">
 	<!-- The tabs -->
@@ -79,10 +77,14 @@
 			<p class="titulo" >Lendo José Saramago - Levantando do Chão</p>
 			<p class="autor" >Alcindo Miguel Martins Filho</p>
 			<p class="titulo azulClaro" >R$ 30,00</p>
+			
+			<a href="<c:url value="/downloadboleto"></c:url>">			
 			<div class="divComprarLivro">
 				COMPRAR
 				<img src="${imagem}/iconeBoleto.gif">
 			</div>
+			</a>
+			
 			</td>		
 			</tr>
 			</table>
@@ -90,18 +92,65 @@
 			<table class="tabLivro bordaPadrao">
 			<thead>
 			<tr>
-			<td colspan="2">INFORMA&Ccedil;&Otilde;ES DO PRODUTO</td>
+			<td colspan="2" id="btAbrirInfoLivro">INFORMA&Ccedil;&Otilde;ES DO PRODUTO</td>
 			</tr>
 			</thead>
 			
-			<tbody>
+			<tbody id="tabInformacaoLivro">
+			
+			<tr>
+			<td colspan="2">
+			<input id="btFecharInfoLivro" type="button" class="button direita" value="fechar"/>
+			</td>
+			</tr>
+			
 			<tr>
 			<td class="tabTitulo">Sinopse</td>
-			<td class="tabDescricao">Livro sobre ... </td>
+			<td class="tabDescricao">${livro.sinopse}</td>
 			</tr>
 			<tr>
-			<td class="tabTitulo">Titulo</td>
-			<td class="tabDescricao">Levantando do chão - lendo josé saramago</td>
+			<td class="tabTitulo">T&iacute;tulo </td>
+			<td class="tabDescricao">${livro.titulo}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Subt&iacute;tulo </td>
+			<td class="tabDescricao">${livro.subtituto}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Editora</td>
+			<td class="tabDescricao">${livro.editora}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">ISBN</td>
+			<td class="tabDescricao">${livro.isbn}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">N&ordm; de p&aacute;ginas</td>
+			<td class="tabDescricao">${livro.paginas}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Edi&ccedil;&atilde;o </td>
+			<td class="tabDescricao">${livro.edicao}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Ano</td>
+			<td class="tabDescricao">${livro.ano}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Assunto</td>
+			<td class="tabDescricao">${livro.assunto}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Idioma</td>
+			<td class="tabDescricao">${livro.idioma}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">C&oacute;digo de barras </td>
+			<td class="tabDescricao">${livro.Barra}</td>
+			</tr>
+			<tr>
+			<td class="tabTitulo">Preco</td>
+			<td class="tabDescricao">${livro.precoFormatado}</td>
 			</tr>
 						
 			</tbody>
