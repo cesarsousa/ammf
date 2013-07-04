@@ -33,40 +33,19 @@
 		</li>
 		<li class="tab2">
 			<a class="tab2 tab">
-				About
+				Textos
 			</a>
 		</li>
 		<li class="tab3">
 			<a class="tab3 tab">
-				Blog
-			</a>
-		</li>
-		<li class="tab4">
-			<a class="tab4 tab">
-				Career
-			</a>
-		</li>
-		<li class="tab5">
-			<a class="tab5 tab">
-				Contact
-			</a>
-		</li>
-		<li class="tab6">
-			<a class="tab6 tab">
-				News
-			</a>
-		</li>
-		<li class="tab7">
-			<a class="tab7 tab">
-				Events
+				Cursos
 			</a>
 		</li>
 	</ul>
 	<div class="tab1 tabsContent">
 		<div class="paddingPadrao">
-		<h3>Livros Publicados</h3>
+		<h3>LIVROS PUBLICADOS</h3>
 		
-		<div class="cartao paddingPadrao">		
 			<table width="100%">
 			<tr>
 			<td width="120px"  align="left">
@@ -78,29 +57,27 @@
 			<p class="autor" >Alcindo Miguel Martins Filho</p>
 			<p class="titulo azulClaro" >R$ 30,00</p>
 			
-			<a href="<c:url value="/downloadboleto"></c:url>">			
-			<div class="divComprarLivro">
-				COMPRAR
-				<img src="${imagem}/iconeBoleto.gif">
+			
+			<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
+			<div align="right">
+				<img id="btInformacaoLivro" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
+				<img id="btComprarLivro" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
 			</div>
-			</a>
 			
 			</td>		
 			</tr>
 			</table>
 			
-			<table class="tabLivro bordaPadrao">
+			<table id="tabInformacaoLivro" class="tabLivro bordaPadrao">
 			<thead>
 			<tr>
-			<td colspan="2" id="btAbrirInfoLivro">INFORMA&Ccedil;&Otilde;ES DO PRODUTO</td>
-			</tr>
+			<td colspan="2"><input id="btFecharInfoLivro" type="button" class="button" value="fechar informações sobre o produto"/></td>			
+			</tr>			
 			</thead>
 			
-			<tbody id="tabInformacaoLivro">
-			
+			<tbody>			
 			<tr>
 			<td colspan="2">
-			<input id="btFecharInfoLivro" type="button" class="button direita" value="fechar"/>
 			</td>
 			</tr>
 			
@@ -155,7 +132,6 @@
 						
 			</tbody>
 			</table>
-		</div>
 		
 		</div>
 	</div>
@@ -165,27 +141,13 @@
 	<!-- tab 2 -->
 	<div class="tab2 tabsContent">
 		<div>About content goes here!</div>
-	</div><!-- end of t2 -->
+	</div>
+	
 	<!-- tab 3 -->
 	<div class="tab3 tabsContent">
 		<div>Blog content goes here!</div>
-	</div><!-- end of t3 -->
-	<!-- tab 4 -->
-	<div class="tab4 tabsContent">
-		<div>Career content goes here!</div>
-	</div><!-- end of t4 -->
-	<!-- tab 5 -->
-	<div class="tab5 tabsContent">
-		<div>Contact content goes here!</div>
-	</div><!-- end of t5 -->
-	<!-- tab 6 -->
-	<div class="tab6 tabsContent">
-		<div>News content goes here!</div>
-	</div><!-- end of t6 -->
-	<!-- tab 7 -->
-	<div class="tab7 tabsContent">
-		<div>Events content goes here!</div>
-	</div><!-- end of t7 -->
+	</div>
+	
 </div><!-- htmltabs ends here-->	
 </div>	
 	

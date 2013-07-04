@@ -16,13 +16,15 @@ $(document).ready(function() {
 	});
 	
 	$('#tabInformacaoLivro').hide();
-	$('#btAbrirInfoLivro').click(function(){
+	$('#btInformacaoLivro').click(function(){
 		$('#tabInformacaoLivro').slideDown(500);
 	});
 	$('#btFecharInfoLivro').click(function(){
 		$('#tabInformacaoLivro').slideUp(500);
 	});
 	
-	
+	$('#btComprarLivro').click(function(){
+		$('#formDownloadBoleto').submit();
+	});
 	
 });

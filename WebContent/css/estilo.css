@@ -1142,9 +1142,8 @@ table.tabLivro thead  tr td{
 	background-color: #CCCCCC;
 	color: #1C1C1C;
 	font-weight: bold;
-	text-align: left;
+	text-align: center;
 	padding: 5px;
-	cursor: pointer;
 }
 
 .tabTitulo {
