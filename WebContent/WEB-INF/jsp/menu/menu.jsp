@@ -506,14 +506,14 @@
 				</form>
 				</li>
 				
-				<li>
+				<!-- <li>
 				<form>
 				<input type="submit" value="Contato" class="buttonFooter">
 				</form>
-				</li>
+				</li> -->
 				
 				<li>
-				<form>
+				<form action="<c:url value="/menu/loja" />" method="get" >
 				<input type="submit" value="Loja Virtual" class="buttonFooter">
 				</form>
 				</li>

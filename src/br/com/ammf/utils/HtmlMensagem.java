@@ -220,7 +220,7 @@ public class HtmlMensagem {
 	}
 
 	public static String getAssuntoNotificarAdmNovoContato(String nomeDaPessoa) {
-		return "Novo contato de cliente recebido: nome - " + nomeDaPessoa;
+		return "Novo contato de cliente de " + nomeDaPessoa + " recebido";
 	}
 
 	public static String getMensagemNotificarAdmNovoContato(Mensagem mensagem) {
@@ -229,7 +229,20 @@ public class HtmlMensagem {
 		return strMensagem
 				.replace("[NOME]", mensagem.getNome())
 				.replace("[EMAIL]", mensagem.getEmail())
-				.replace("[MENSAGEM]", mensagem.getConteudo())
-				.replace("[WEBSITE_LOGIN_ADM]", Link.WEB_SITE_LOGIN);
+				.replace("[MENSAGEM]", mensagem.getConteudo());
+	}
+
+	public static String getAssuntoNotificarClienteNovoContato() {
+		return "Site Quiron - Contato recebido com sucesso";
+	}
+
+	public static String getMensagemNotificarClienteNovoContato(Mensagem mensagem, String linkedin) {
+		String strMensagem = new LeitorDeArquivo().lerArquivo(PATH + "contato_notificar_cliente_recebimento_novo_contato.html");		
+		
+		return strMensagem
+			.replace("[NOMEDOCLIENTE]", mensagem.getNome())		
+			.replace("[MENSAGEM]", mensagem.getConteudo())
+			.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
+			.replace("[LINKEDIN]", linkedin);
 	}
 }

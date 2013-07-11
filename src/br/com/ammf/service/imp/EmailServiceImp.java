@@ -107,7 +107,9 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException {
+	public void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException {		
+		
+		// notificar o administrador no novo contato enviado
 		Email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
@@ -115,7 +117,13 @@ public class EmailServiceImp implements EmailService {
 				HtmlMensagem.getAssuntoNotificarAdmNovoContato(mensagem.getNome()), 
 				HtmlMensagem.getMensagemNotificarAdmNovoContato(mensagem));
 		
-		// TODO notificar o cliente tambem do recebimento.
+		// notificar o cliente do contato enviado
+		Email.enviarEmail(
+				administrador.getEmail(), 
+				administrador.getSenha(), 
+				mensagem.getEmail(), 
+				HtmlMensagem.getAssuntoNotificarClienteNovoContato(), 
+				HtmlMensagem.getMensagemNotificarClienteNovoContato(mensagem, administrador.getLinkedin()));		
 	}
 
 }

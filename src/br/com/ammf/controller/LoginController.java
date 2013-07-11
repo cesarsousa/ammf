@@ -32,7 +32,7 @@ public class LoginController {
 	public void autenticacao(String login, String senha){	
 		
 		login = "cesarsousajunior";
-		senha = "cesarsousa";
+		senha = "cesarjunior";
 		
 		Usuario usuario = usuarioRepository.autenticar(login, senha);
 		if(usuario != null){

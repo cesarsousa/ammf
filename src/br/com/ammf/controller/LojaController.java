@@ -5,6 +5,7 @@ package br.com.ammf.controller;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import br.com.ammf.interceptor.Restrito;
 import br.com.caelum.stella.boleto.Banco;
 import br.com.caelum.stella.boleto.Boleto;
 import br.com.caelum.stella.boleto.Datas;
@@ -27,6 +28,13 @@ public class LojaController {
 		this.result = result;
 	}
 	
+	@Restrito
+	@Get("/menu/loja")
+	public void lojaAdmin(){
+		
+	}
+	
+	
 	@Get("/cliente/loja")
 	public void lojaCliente(){
 		
@@ -40,14 +48,14 @@ public class LojaController {
 				.comVencimento(1, 8, 2013);
 			
 			Emissor emissor = Emissor.novoEmissor()
-				.comCedente("Site Quiron Cobranças")
+				.comCedente("Site Quiron Cobranï¿½as")
 				.comAgencia(127).comDigitoAgencia('0')
 				.comContaCorrente(1018021)
 				.comDigitoContaCorrente('5')
 				.comNossoNumero(900025001);
 			
 			Sacado sacado = Sacado.novoSacado()
-				.comNome("César de Sousa Júnior")
+				.comNome("Cï¿½sar de Sousa Jï¿½nior")
 				.comCpf("026.765.639.47")
 				.comEndereco("Rua Padre Anchieta 142, centro")
 				.comCep("24210050")

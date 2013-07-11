@@ -46,7 +46,7 @@
 		<div class="paddingPadrao">
 		<h3>LIVROS PUBLICADOS</h3>
 		
-			<table width="100%">
+			<table width="80%" class="cartao bordaPadrao paddingPadrao ">
 			<tr>
 			<td width="120px"  align="left">
 			<img src="${imagem}/livro_lendoJoseSaramago.png" class="fotoLivro">			
@@ -55,7 +55,7 @@
 			<td valign="top">
 			<p class="titulo" >Lendo José Saramago - Levantando do Chão</p>
 			<p class="autor" >Alcindo Miguel Martins Filho</p>
-			<p class="titulo azulClaro" >R$ 30,00</p>
+			<p class="fonteSuperGrande titulo azulClaro" >R$ 30,00</p>
 			
 			
 			<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
@@ -66,8 +66,8 @@
 			
 			</td>		
 			</tr>
-			</table>
 			
+			<tr><td colspan="2">			
 			<table id="tabInformacaoLivro" class="tabLivro bordaPadrao">
 			<thead>
 			<tr>
@@ -132,6 +132,9 @@
 						
 			</tbody>
 			</table>
+			
+			</td></tr>			
+			</table>
 		
 		</div>
 	</div>
@@ -151,7 +154,6 @@
 </div><!-- htmltabs ends here-->	
 </div>	
 	
-<br/>
 </div> <!-- centralizacao -->
 
 <div id="telaAguardeLojaCliente">

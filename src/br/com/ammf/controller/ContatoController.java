@@ -53,7 +53,7 @@ public class ContatoController {
 			result.redirectTo(this).contatoCliente();
 		} catch (EmailException e) {
 			e.printStackTrace();
-			result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar sua mensagem .<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;o e desculpem-nos o transtorno.");
+			result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar sua mensagem .<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;&atilde;o e desculpem-nos o transtorno.");
 			result.redirectTo(IndexController.class).index();
 		}		
 	}

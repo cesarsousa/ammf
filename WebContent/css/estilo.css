@@ -67,7 +67,7 @@ body:before {
 .mainContainer
 {
 	margin:60px auto 0 auto;
-	width:800px;
+	width:100%;
 }
 
 .topNav
@@ -106,10 +106,7 @@ body:before {
 
 .tabsContent
 {
-	border:1px solid #cccccc;
-	-moz-box-shadow: 3px 3px 5px #cccccc;
-	-webkit-box-shadow: 3px 3px 5px #cccccc;
-	box-shadow: 3px 3px 5px #cccccc;
+	border-top:1px solid #cccccc;
 	background:#ffffff;
 	padding:20px 20px 20px 20px;
 	color:#666666;
@@ -731,6 +728,10 @@ a:HOVER {
 
 .fonteGrande {
 	font-size: x-large;	
+}
+
+.fonteSuperGrande {
+	font-size: xx-large;	
 }
 
 #espacadorRodape{
