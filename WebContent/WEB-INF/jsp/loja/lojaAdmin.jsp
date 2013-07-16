@@ -39,7 +39,7 @@
 		</form>
 	</li>
 	<li>
-		<img id="iconBuscaPessoa" alt="livros" title="livros" src="${imagem}/iconeLivro.png" class="icone50 ponteiro esquerda">
+		<img id="iconOpcaoLivro" alt="livros" title="livros" src="${imagem}/iconeLivro.png" class="icone50 ponteiro esquerda">
 	</li>
 	<%-- <li>
 		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
@@ -63,13 +63,16 @@
 
 <div style="width: 100%">
 
-<table id="tabIconesLivros">	
+<table id="tabIconesLivros" style="padding: 10px;">	
 	<tr>
 		<td>
-		<img id="" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
 		</td>
 		<td>
-		<img id="" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
+		<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		</td>
+		<td>
+		<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
 		</td>
 		<td>
 		<img id="" alt="listar todos os livros" title="listar todos os livros" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
@@ -82,7 +85,7 @@
 	<tr>
 		<td>
 		<div align="right">
-		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharBuscaLivro" type="button" value="fechar" class="backVermelho button">
 		</div>
 		<img alt="left" src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
 		<h2 align="center">Buscar e editar livro</h2>
@@ -131,7 +134,7 @@
 <tr>
 	<td>
 	<div align="right">
-		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharCadastrarLivro" type="button" value="fechar" class="backVermelho button">
 	</div>	
 	<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
 	<h2 align="center">Cadastrar Livro</h2>
@@ -181,7 +184,7 @@
 <form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
 <form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
 
-<!--  PESSOAS SOLICITADAS -->
+<!--  LIVROS SOLICITADOS -->
 <c:if test="${visualizarLivros}">
 <table id="tabLivrosSolicitadas" class="superFooter bordaLateral">
 	<tr>

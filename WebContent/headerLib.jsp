@@ -36,6 +36,7 @@
 <script type="text/javascript" src="${javascript}/contatoCliente.js"></script>
 <script type="text/javascript" src="${javascript}/assinaturaEmail.js"></script>
 <script type="text/javascript" src="${javascript}/lojaCliente.js"></script>
+<script type="text/javascript" src="${javascript}/lojaAdmin.js"></script>
 
 
 </head>
