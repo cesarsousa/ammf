@@ -2,12 +2,15 @@ package br.com.ammf.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import br.com.ammf.utils.DataUtils;
 
 @Entity
 @Table(name="livro")
@@ -34,6 +37,8 @@ public class Livro implements Serializable {
 	private String idioma;
 	private String codigoBarra;
 	private BigDecimal preco;
+	private Calendar postagem;
+	private String linkVenda;
 	
 	public long getId() {
 		return id;
@@ -120,7 +125,28 @@ public class Livro implements Serializable {
 		this.preco = preco;
 	}
 	
+	public Calendar getPostagem() {
+		return postagem;
+	}
+	
+	public void setPostagem(Calendar postagem) {
+		this.postagem = postagem;
+	}
+	
+	public String getLinkVenda() {
+		return linkVenda;
+	}
+	
+	public void setLinkVenda(String linkVenda) {
+		this.linkVenda = linkVenda;
+	}
+	
+	public String getDataFormatada(){
+		return DataUtils.getFullString(postagem);
+	}
+	
 	public String getPrecoFormatado(){
-		return this.preco.toString();
+		
+		return preco == null ? "0,00" : this.preco.toString();
 	}
 }

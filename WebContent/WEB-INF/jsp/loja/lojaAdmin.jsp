@@ -10,6 +10,12 @@
 </c:if>
 </div> --%>
 
+<c:if test="${not empty msgErroLojaCadastroLivro}">
+	<div class="msgBorder msgErro ponteiro closeClick">
+		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
+		${autorEmBranco}${tituloEmBranco}
+	</div>
+</c:if>
 <c:if test="${not empty msgErroLojaAdm}">
 	<div class="msgBorder msgErro ponteiro closeClick">${msgErroLojaAdm}</div>
 </c:if>
@@ -144,36 +150,120 @@
 <tr align="center">
 <td>
 	<p>
-		<span class="info azulClaro">Enviar um convite a uma pessoa.<br/>Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</span>
-	</p>
-	<div id="areaLogin">
+		<span class="info azulClaro">Entre com os dados referente ao cadastrado do novo livro.</span>
+	</p>	
 	
-	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
+	<form action="<c:url value="/livro/cadastrar"/>" method="post">	 
 		
-		<label class="labelForm">Nome:</label>
-		<c:if test="${not empty nomeEmBranco}">		
-			<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-		</c:if>
-		<c:if test="${empty nomeEmBranco}">		
-			<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-		</c:if>
-		
-		<br/><br/>	
-		
-		
-		<label class="labelForm">Email:</label>
-		<c:if test="${not empty emailEmBranco}">
-			<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-		</c:if>
-		<c:if test="${empty emailEmBranco}">
-			<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-		</c:if>
+		<div class="cartao campoObrigatorio">		
+			<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
+			<br/><br/>
+			<label class="labelForm">Autor</label>
+			<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
+							
+			<label class="labelForm">T&iacute;tulo</label>
+			<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
+		</div>
 		
 		<br/><br/>
 		
-		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>	
+		<div class="campoOpcional">
+			
+			<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
+			
+			<p>
+				<span class="info azulClaro">
+					Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
+					Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
+				</span>
+			</p>
+			
+			<div class="paddingPadrao">
+			<div class="msgBorderInterno msgAlerta">
+			<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibiliar o produto com valor de R$ 0,00.
+			</div>			
+			<label class="labelForm">Pre&ccedil;o</label>
+			<br/>
+			<span class="info azulClaro">formato 99999 para valores inteiros ou 99999.99 para valores decimais.</span>
+			<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Subt&iacute;tulo</label>
+			<br/>
+			<span class="info azulClaro">ex. volume 1, parte 1, ...</span>
+			<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Sinopse</label>
+			<br/>
+			<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livroCadastro.sinopse}</textarea>
+			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Editora</label>
+			<br/>
+			<input id="livroEditora" type="text" name="livro.editora" value="${livroCadastro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>			
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">ISBN</label>
+			<br/>
+			<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
+			<br/>
+			<input id="livroPaginas" type="text" name="livro.paginas" value="${livroCadastro.paginas}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Edi&ccedil;&atilde;o</label>
+			<br/>
+			<input id="livroEdicao" type="text" name="livro.edicao" value="${livroCadastro.edicao}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Ano</label>
+			<br/>
+			<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Assunto</label>
+			<br/>
+			<input id="livroAssunto" type="text" name="livro.assunto" value="${livroCadastro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Idioma</label>
+			<br/>
+			<input id="livroIdioma" type="text" name="livro.idioma" value="${livroCadastro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">C&oacute;digo de barras</label>
+			<br/>
+			<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+			
+			<div class="paddingPadrao">
+			<label class="labelForm">Link de venda</label>
+			<br/>
+			<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+			</div>
+					
+			<br/><br/>
+			<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
+		</div>
+		
+		
+		
+			
 	</form>
-	</div>
 </td>
 </tr>
 </table>

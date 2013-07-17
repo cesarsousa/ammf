@@ -49,7 +49,7 @@ public class BlogController {
 	
 	@Restrito
 	@Post("/blog/novo")
-	public void cadastrarNovo(Texto texto){
+	public void cadastrar(Texto texto){
 		try {
 			boolean validado = validacaoService.blog(texto, result);		
 			if(validado){

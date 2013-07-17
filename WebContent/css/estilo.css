@@ -620,8 +620,18 @@ a:HOVER {
 	text-align: justify;
 }
 
+.campoObrigatorio {
+	width: 500px; 
+	padding: 10px; 
+	border: 1px solid #CCCCCC;
+}
+
+.campoOpcional{
+	width: 500px; 
+	padding: 10px; 
+}
+
 .cartao {
-	background-color: #ffffff;
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;

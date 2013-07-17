@@ -1,6 +1,7 @@
 package br.com.ammf.service;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
@@ -19,6 +20,8 @@ public interface ValidacaoService {
 
 	boolean blog(Texto texto, Result result);
 
-	boolean mensagem(Mensagem mensagem, Result result);	
+	boolean mensagem(Mensagem mensagem, Result result);
+
+	boolean livro(Livro livro, Result result);	
 
 }

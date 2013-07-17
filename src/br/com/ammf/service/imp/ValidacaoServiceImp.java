@@ -1,12 +1,14 @@
 package br.com.ammf.service.imp;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.stella.validation.ValidadorDeDV;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -192,7 +194,31 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		return resultado;
-	}	
+	}
+	
+	@Override
+	public boolean livro(Livro livro, Result result) {
+		boolean validado = true;
+		if(livro.getAutor() == null || livro.getAutor().isEmpty()){
+			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
+			result.include("comErroAutor", "Erro");
+			validado = false;
+		}
+		
+		if(livro.getTitulo() == null || livro.getTitulo().isEmpty()){
+			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado");
+			result.include("comErroTitulo", "Erro");
+			validado = false;
+		}
+		
+		if(!validado){
+			result.include("livroCadastro", livro);
+			result.include("msgErroLojaCadastroLivro", true);
+			result.include("flagCadastroLivroVazio", true);			
+		}	
+		
+		return validado;
+	}
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -211,5 +237,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean emailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
 	}
+
+	
 	
 }
