@@ -8,6 +8,7 @@ import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.ValidacaoService;
+import br.com.ammf.utils.DataUtils;
 import br.com.caelum.stella.validation.ValidadorDeDV;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
@@ -206,10 +207,34 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		if(livro.getTitulo() == null || livro.getTitulo().isEmpty()){
-			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado");
+			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
 			result.include("comErroTitulo", "Erro");
 			validado = false;
+		}		
+		
+		if(livro.getPaginas() == 0){
+			result.include("paginaEmBranco", "O n&uacute;mero de p&aacute;ginas deve ser informado<br/>");
+			result.include("comErroPagina", "Erro");
+			validado = false;
 		}
+		
+		if(livro.getEdicao() == 0){
+			result.include("edicaoEmBranco", "O n&uacute;mero da edi&ccedil;&atilde;o deve ser informado<br/>");
+			result.include("comErroEdicao", "Erro");
+			validado = false;
+		}		
+		
+		if(livro.getAno() == 0){
+			validado = setMsgErroAno(result, "O ano de lan&ccedil;amento deve ser informado<br/>");
+		}else{
+			if(livro.getAno() < 1500){
+				validado = setMsgErroAno(result, "O ano de lan&ccedil;amento deve ser superior a ano 1499<br/>");
+			}
+			System.out.println("corrente" + DataUtils.getAnoCorrente());
+			if(livro.getAno() > DataUtils.getAnoCorrente()){
+				validado = setMsgErroAno(result, "O ano de lan&ccedil;amento n&atilde;o pode ser posterior ao ano corrente<br/>");
+			}
+		}	
 		
 		if(!validado){
 			result.include("livroCadastro", livro);
@@ -219,6 +244,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		return validado;
 	}
+
+	
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -238,6 +265,10 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
 	}
 
-	
+	private boolean setMsgErroAno(Result result, String mensagem) {		
+		result.include("anoEmBranco", mensagem);
+		result.include("comErroAno", "Erro");		
+		return false;
+	}
 	
 }

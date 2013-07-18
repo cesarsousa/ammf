@@ -23,5 +23,10 @@ public class DataUtils {
 	public static Calendar getNow(){
 		return Calendar.getInstance();
 	}
+	
+	public static int getAnoCorrente(){
+		Calendar hoje = Calendar.getInstance();
+		return hoje.get(Calendar.YEAR);
+	}
 
 }

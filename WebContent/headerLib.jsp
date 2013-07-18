@@ -18,6 +18,8 @@
 <script type="text/javascript" src="${javascript}/jquery.autoresize.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.infinitecarousel3.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.maskmoney.js"></script>
+
 
 <script type="text/javascript" src="${javascript}/COMMONS.js"></script>
 <script type="text/javascript" src="${javascript}/index.js"></script>

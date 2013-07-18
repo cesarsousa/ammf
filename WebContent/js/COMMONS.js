@@ -21,6 +21,39 @@ function limitarCaracteres(areaDeTexto, contador, totalCaracteres){
 	}	
 }
 
+function ehNumero(param){
+	if(param == '1' || param == '2' || param == '3' || param == '4' || param == '5' || param == '6' || param == '7' || param == '8' || param == '9' || param == '0'){
+		return true;
+	}
+	return false;
+}
+
+function somenteNumero(e){
+	// escrever este evento no input do html onkeypress="return somenteNumero(event)"
+	var tecla=(window.event)?event.keyCode:e.which;
+	if((tecla>47 && tecla<58)) return true;
+	else{
+	if (tecla==8 || tecla==0) return true;
+	else return false;
+	}
+}
+
+function editarCampoNumerico(areaDeTexto){	
+	var valorDigitado = $(areaDeTexto).val();
+	var totalDigitado = valorDigitado.length;
+	
+	if (totalDigitado == 1 && ( valorDigitado == '0' || !ehNumero)){
+		$(areaDeTexto).val('');
+	}else{
+		var str = new String(valorDigitado);
+		var ultimoCaracter = str.substring(str.length -1, str.length);
+		if(!ehNumero(ultimoCaracter)){
+			var valorCorrigido = str.substring(0, str.length - 1);
+			$(areaDeTexto).val(valorCorrigido);
+		}
+	}	
+}
+
 function addRemoveOpacidade(link, imagem){
 	$(link).hover(
 			function(){$(imagem).removeClass('opacidade');},
