@@ -3,6 +3,7 @@ package br.com.ammf.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,9 @@ public class Livro implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	private long id;	
+	private long id;
+	
+	private String uuid = UUID.randomUUID().toString();
 	
 	@Column(length=1000)
 	private String sinopse;
@@ -45,6 +48,12 @@ public class Livro implements Serializable {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 	public String getSinopse() {
 		return sinopse;
@@ -145,8 +154,7 @@ public class Livro implements Serializable {
 		return DataUtils.getFullString(postagem);
 	}
 	
-	public String getPrecoFormatado(){
-		
+	public String getPrecoFormatado(){		
 		return preco == null ? "0,00" : this.preco.toString();
 	}
 }

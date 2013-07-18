@@ -64,6 +64,11 @@ $(document).ready(function() {
 		$('#tabCadastrarLivro').slideUp(500);		
 	});
 	
+	$('#btnCadastrarPessoa').click(function(){
+		$('#mensagensPgLojaAdmin').slideUp(500);
+		abrirJanelaDeEspera('#divPgAdmCadastroCliente', '#telaAguardeAdmCadastroLivro');
+	});
+	
 	$('#abrirBuscarEditarLivro').click(function(){
 		fecharAreasDeLivros();
 		$('#tabBuscaLivro').slideDown(500);		

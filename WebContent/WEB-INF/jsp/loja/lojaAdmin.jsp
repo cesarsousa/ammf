@@ -10,6 +10,7 @@
 </c:if>
 </div> --%>
 
+<div id="mensagensPgLojaAdmin">
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
@@ -23,6 +24,7 @@
 <c:if test="${not empty msgLojaAdm}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">${msgLojaAdm}</div>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>

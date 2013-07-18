@@ -1,11 +1,12 @@
 package br.com.ammf.controller;
 
-
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Livro;
+import br.com.ammf.repository.LivroRepository;
 import br.com.caelum.stella.boleto.Banco;
 import br.com.caelum.stella.boleto.Boleto;
 import br.com.caelum.stella.boleto.Datas;
@@ -23,21 +24,23 @@ import br.com.caelum.vraptor.interceptor.download.InputStreamDownload;
 public class LojaController {
 	
 	private Result result;
+	private LivroRepository livroRepository;
 	
-	public LojaController(Result result){
+	public LojaController(
+			Result result,
+			LivroRepository livroRepository){
 		this.result = result;
+		this.livroRepository = livroRepository;
 	}
 	
 	@Restrito
 	@Get("/menu/loja")
-	public void lojaAdmin(){
+	public void lojaAdmin(){}
 		
-	}
-	
-	
 	@Get("/cliente/loja")
 	public void lojaCliente(){
-		
+		List<Livro> livrosPublicados = livroRepository.listar();
+		result.include("livrosPublicados", livrosPublicados);		
 	}
 	
 	@Get("/downloadboleto")
@@ -87,5 +90,4 @@ public class LojaController {
 			
 			return download;		
 	}
-
 }

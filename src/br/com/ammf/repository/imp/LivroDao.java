@@ -1,5 +1,8 @@
 package br.com.ammf.repository.imp;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -22,7 +25,10 @@ public class LivroDao implements LivroRepository {
 		session.save(livro);
 		transaction.commit();		
 	}
-	
-	
-	
+
+	@Override
+	public List<Livro> listar() {
+		Criteria criteria = session.createCriteria(Livro.class);
+		return criteria.list();
+	}	
 }

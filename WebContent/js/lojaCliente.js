@@ -15,6 +15,8 @@ $(document).ready(function() {
 	    $(this).addClass('tab-current');
 	});
 	
+	$('.modoHidden').hide();
+	
 	$('#tabInformacaoLivro').hide();
 	$('#btInformacaoLivro').click(function(){
 		$('#tabInformacaoLivro').slideDown(500);
