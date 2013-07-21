@@ -10,4 +10,6 @@ public interface LivroRepository {
 
 	List<Livro> listar();
 
+	void atualizar(Livro livro);
+
 }

@@ -155,7 +155,8 @@
 		<span class="info azulClaro">Entre com os dados referente ao cadastrado do novo livro.</span>
 	</p>	
 	
-	<form action="<c:url value="/livro/cadastrar"/>" method="post">	 
+	<form action="<c:url value="/livro/cadastrar"/>" enctype="multipart/form-data" method="post">
+		<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
 		
 		<div class="cartao campoObrigatorio">		
 			<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
@@ -202,6 +203,11 @@
 					Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
 				</span>
 			</p>
+			
+			<div class="paddingPadrao">
+				<label class="labelForm">Foto da capa do livro:</label>
+				<input type="file" name="imagemLivro" class="button"/>
+			</div>
 			
 			<div class="paddingPadrao">
 			<div class="msgBorderInterno msgAlerta">

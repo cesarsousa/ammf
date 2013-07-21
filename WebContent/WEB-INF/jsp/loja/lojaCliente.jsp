@@ -56,28 +56,32 @@
 				<table width="80%" class="cartao bordaPadrao paddingPadrao ">
 				<tr>
 				<td width="120px"  align="left">
-				<img src="${imagem}/capaLivroDefault.jpg" class="fotoLivro">			
+				<img src="${imagem}/capaLivroDefault.jpg" class="fotoLivro">							
 				</td>
 				
 				<td valign="top">
-				<p class="titulo" >${livro.titulo}</p>
+				<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
 				<p class="autor" >${livro.autor}</p>
 				<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
-						
+				</td>
+				
+				<td valign="bottom">		
 				<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
 				<div align="right">
-					<img id="btInformacaoLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
+					<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
+					<a href="${livro.linkVenda}" target="_blank">
 					<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
+					</a>
 				</div>
 				
 				</td>		
 				</tr>
 				
-				<tr><td colspan="2">			
-				<table id="${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
+				<tr><td colspan="3">			
+				<table id="tabInfoLivro${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
 				<thead>
 				<tr>
-				<td colspan="2"><input id="btFecharInfoLivro${livro.uuid}" type="button" class="button" value="fechar informações sobre o produto"/></td>			
+				<td colspan="2"><input id="btFecharInfoLivro${livro.uuid}" onclick="fecharInformacaoProduto(this)" type="button" class="button" value="fechar informações sobre o produto"/></td>			
 				</tr>			
 				</thead>
 				
@@ -153,12 +157,30 @@
 	
 	<!-- tab 2 -->
 	<div class="tab2 tabsContent">
-		<div>About content goes here!</div>
+		<div>
+			<c:choose>			
+			<c:when test="${empty textosPagos}">
+				<h3>N&atilde;o existem textos a serem vendidos.</h3>
+			</c:when>
+			<c:otherwise>
+				<h3>TEXTOS</h3>
+			</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
 	
 	<!-- tab 3 -->
 	<div class="tab3 tabsContent">
-		<div>Blog content goes here!</div>
+		<div>
+			<c:choose>			
+			<c:when test="${empty cursos}">
+				<h3>N&atilde;o existem cursos a serem ministrados.</h3>
+			</c:when>
+			<c:otherwise>
+				<h3>CURSOS</h3>
+			</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
 	
 </div><!-- htmltabs ends here-->	

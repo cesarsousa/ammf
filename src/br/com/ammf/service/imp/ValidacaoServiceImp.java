@@ -230,7 +230,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			if(livro.getAno() < 1500){
 				validado = setMsgErroAno(result, "O ano de lan&ccedil;amento deve ser superior a ano 1499<br/>");
 			}
-			System.out.println("corrente" + DataUtils.getAnoCorrente());
+			
 			if(livro.getAno() > DataUtils.getAnoCorrente()){
 				validado = setMsgErroAno(result, "O ano de lan&ccedil;amento n&atilde;o pode ser posterior ao ano corrente<br/>");
 			}

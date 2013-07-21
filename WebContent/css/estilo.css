@@ -252,6 +252,12 @@ textarea {
 	font-weight: bold;
 	text-shadow: #CCCCCC 0.1em 0.1em 0.2em;
 }
+.subtitulo {
+	font-family: monospace;
+	font-size: large;
+	font-weight: bold;
+	text-shadow: #CCCCCC 0.1em 0.1em 0.2em;
+}
 
 .negrito {
 	font-weight: bold;

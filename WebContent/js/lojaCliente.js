@@ -1,4 +1,18 @@
 
+function abrirInformacaoProduto(elemento){
+	var id = elemento.id;
+	var uuid = id.replace("btInformacaoLivro", "");
+	var tabInfoLivro = "#tabInfoLivro" + uuid;	
+	$(tabInfoLivro).slideDown(500);
+}
+
+function fecharInformacaoProduto(elemento){
+	var id = elemento.id;
+	var uuid = id.replace("btFecharInfoLivro", "");
+	var tabInfoLivro = "#tabInfoLivro" + uuid;	
+	$(tabInfoLivro).fadeOut(500).slideUp(500);
+}
+
 $(document).ready(function() {
 	
 	$('#telaAguardeLojaCliente').hide();

@@ -25,8 +25,10 @@ public class Livro implements Serializable {
 	
 	private String uuid = UUID.randomUUID().toString();
 	
-	@Column(length=1000)
+	@Column(length=1005)
 	private String sinopse;
+	
+	private String nomeImagem = "capaLivroDefault.jpg";
 	
 	private String titulo;
 	private String autor;
@@ -60,6 +62,12 @@ public class Livro implements Serializable {
 	}
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
+	}
+	public String getNomeImagem() {
+		return nomeImagem;
+	}
+	public void setNomeImagem(String nomeImagem) {
+		this.nomeImagem = nomeImagem;
 	}
 	public String getTitulo() {
 		return titulo;

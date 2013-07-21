@@ -30,5 +30,12 @@ public class LivroDao implements LivroRepository {
 	public List<Livro> listar() {
 		Criteria criteria = session.createCriteria(Livro.class);
 		return criteria.list();
+	}
+
+	@Override
+	public void atualizar(Livro livro) {
+		Transaction transaction = session.beginTransaction();
+		session.update(livro);
+		transaction.commit();		
 	}	
 }
