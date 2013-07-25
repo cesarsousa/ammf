@@ -1,5 +1,7 @@
 package br.com.ammf.service.imp;
 
+import org.apache.tomcat.util.digester.SetRootRule;
+
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
@@ -11,6 +13,7 @@ import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.stella.validation.ValidadorDeDV;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -198,7 +201,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean livro(Livro livro, Result result) {
+	public boolean livro(UploadedFile imagemLivro, Livro livro, Result result) {
 		boolean validado = true;
 		if(livro.getAutor() == null || livro.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
@@ -234,7 +237,14 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			if(livro.getAno() > DataUtils.getAnoCorrente()){
 				validado = setMsgErroAno(result, "O ano de lan&ccedil;amento n&atilde;o pode ser posterior ao ano corrente<br/>");
 			}
-		}	
+		}
+		
+		if(imagemLivro != null){
+			if(!imagemLivro.getContentType().startsWith("image")){
+				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto.");
+				validado = false;
+			}
+		}		
 		
 		if(!validado){
 			result.include("livroCadastro", livro);
@@ -270,5 +280,6 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		result.include("comErroAno", "Erro");		
 		return false;
 	}
+
 	
 }

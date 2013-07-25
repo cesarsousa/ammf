@@ -1124,7 +1124,8 @@ a:HOVER {
 .fotoLivro {
 	width: 100px;
 	height: 150px;
-	
+	box-shadow: 5px 5px 5px #8B8484;
+	border: 1px solid #CCCCCC;
 }
 
 .divComprarLivro{

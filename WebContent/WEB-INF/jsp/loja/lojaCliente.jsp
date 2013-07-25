@@ -56,7 +56,7 @@
 				<table width="80%" class="cartao bordaPadrao paddingPadrao ">
 				<tr>
 				<td width="120px"  align="left">
-				<img src="${imagem}/capaLivroDefault.jpg" class="fotoLivro">							
+				<img src="${imagemLivro}/${livro.nomeImagem}" class="fotoLivro">							
 				</td>
 				
 				<td valign="top">

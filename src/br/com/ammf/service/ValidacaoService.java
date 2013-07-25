@@ -7,6 +7,7 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ValidacaoService {
 	
@@ -22,6 +23,6 @@ public interface ValidacaoService {
 
 	boolean mensagem(Mensagem mensagem, Result result);
 
-	boolean livro(Livro livro, Result result);	
+	boolean livro(UploadedFile imagemLivro, Livro livro, Result result);	
 
 }

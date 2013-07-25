@@ -14,7 +14,7 @@
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
-		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}
+		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${fotoInvalida}
 	</div>
 </c:if>
 <c:if test="${not empty msgErroLojaAdm}">
@@ -155,7 +155,7 @@
 		<span class="info azulClaro">Entre com os dados referente ao cadastrado do novo livro.</span>
 	</p>	
 	
-	<form action="<c:url value="/livro/cadastrar"/>" enctype="multipart/form-data" method="post">
+	<form id="formCadLivro" action="<c:url value="/livro/cadastrar"/>" enctype="multipart/form-data" method="post">
 		<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
 		
 		<div class="cartao campoObrigatorio">		
@@ -206,7 +206,7 @@
 			
 			<div class="paddingPadrao">
 				<label class="labelForm">Foto da capa do livro:</label>
-				<input type="file" name="imagemLivro" class="button"/>
+				<input id="inputImagemLivro" type="file" name="imagemLivro" class="button" />
 			</div>
 			
 			<div class="paddingPadrao">
@@ -269,13 +269,9 @@
 			</div>
 					
 			<div class="paddingPadrao">
-			<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
+			<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="button direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
 			</div>
-		</div>
-		
-		
-		
-			
+		</div>			
 	</form>
 </td>
 </tr>
