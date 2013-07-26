@@ -1,4 +1,9 @@
 
+function abrirJanelaDeEsperaCadastroLivro(){
+	$('#mensagensPgLojaAdmin').slideUp(500);
+	abrirJanelaDeEspera('#divPgAdmCadastroCliente', '#telaAguardeAdmCadastroLivro');
+}
+
 
 function verificarExtensao(formulario, arquivo) {
    extensoes_permitidas = new Array(".gif", ".jpg", ".png");
@@ -19,7 +24,8 @@ function verificarExtensao(formulario, arquivo) {
    if (!permitida) {
       alert("Tipo de arquivo da capa do livro inválido.\nSó são permitidos arquivos de fotos nos formatos: " + extensoes_permitidas.join());
       return 0;
-   }else{      
+   }else{
+	  abrirJanelaDeEsperaCadastroLivro();
       formulario.submit();
       return 1;
    } 
@@ -88,13 +94,16 @@ $(document).ready(function() {
 		configurarCamposAddLivro();		
 	});
 	$('#btFecharCadastrarLivro').click(function(){
-		$('#tabCadastrarLivro').slideUp(500);		
+		$('#tabCadastrarLivro').slideUp(500);				
 	});
 	
-	$('#formCadLivro').submit(function(){
-		$('#mensagensPgLojaAdmin').slideUp(500);
-		abrirJanelaDeEspera('#divPgAdmCadastroCliente', '#telaAguardeAdmCadastroLivro');
-	});
+	$('#btRemoverUploadFotoLivro').click(function(){
+		$('#divUploadFotoLivro')
+		.slideUp(500)
+		.html('')
+		.append('<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>')
+		.slideDown(500);
+	});	
 	
 	$('#abrirBuscarEditarLivro').click(function(){
 		fecharAreasDeLivros();

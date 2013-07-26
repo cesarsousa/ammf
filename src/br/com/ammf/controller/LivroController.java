@@ -46,8 +46,11 @@ public class LivroController {
 			
 			if(validado){			
 				livro.setPostagem(DataUtils.getNow());
+				if(imagemLivro != null){
+					imagemService.salvarFotoLivro(imagemLivro, livro);
+				}
 				livroRepository.cadastrar(livro);
-				imagemService.salvarFotoLivro(imagemLivro, livro);
+				
 				// notificar clientes cliente e adm.
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}			
@@ -55,7 +58,6 @@ public class LivroController {
 			result.forwardTo(LojaController.class).lojaAdmin();
 		} catch (Exception e) { // TODO trocar email exception verificar exeção de salvar arquivos
 			e.printStackTrace();
-			result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente ao cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}

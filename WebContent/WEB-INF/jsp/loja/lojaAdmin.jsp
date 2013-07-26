@@ -204,14 +204,17 @@
 				</span>
 			</p>
 			
-			<div class="paddingPadrao">
-				<label class="labelForm">Foto da capa do livro:</label>
-				<input id="inputImagemLivro" type="file" name="imagemLivro" class="button" />
+			<div class="paddingPadrao bordaPadrao">
+				<label class="labelForm">Foto da capa do livro</label><br/>
+				<div id="divUploadFotoLivro">
+					<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+				</div>
+				<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
 			</div>
 			
 			<div class="paddingPadrao">
 			<div class="msgBorderInterno msgAlerta">
-			<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibiliar o produto com valor de R$ 0,00.
+			<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
 			</div>			
 			<label class="labelForm">Pre&ccedil;o</label>
 			<br/>

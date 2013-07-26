@@ -136,8 +136,8 @@
 				<td class="tabDescricao">${livro.codigoBarra}</td>
 				</tr>
 				<tr>
-				<td class="tabTitulo">Preco</td>
-				<td class="tabDescricao">${livro.precoFormatado}</td>
+				<td class="tabTitulo" style="border: none;">Preco</td>
+				<td class="tabDescricao" style="border: none;">${livro.precoFormatado}</td>
 				</tr>
 							
 				</tbody>
