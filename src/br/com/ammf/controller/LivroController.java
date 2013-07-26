@@ -58,7 +58,7 @@ public class LivroController {
 			result.forwardTo(LojaController.class).lojaAdmin();
 		} catch (Exception e) { // TODO trocar email exception verificar exeção de salvar arquivos
 			e.printStackTrace();
-			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente ao cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
+			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar o cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}
 	}
