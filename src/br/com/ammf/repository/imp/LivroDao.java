@@ -5,8 +5,10 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.repository.LivroRepository;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -37,5 +39,14 @@ public class LivroDao implements LivroRepository {
 		Transaction transaction = session.beginTransaction();
 		session.update(livro);
 		transaction.commit();		
+	}
+
+	@Override
+	public List<Livro> listarPorAutorTitulo(String param) {
+		Criteria criteria = session.createCriteria(Livro.class);
+		criteria.add(Restrictions.or(
+				Restrictions.like("autor", "%" + param + "%"), 
+				Restrictions.like("titulo", "%" + param + "%")));		
+		return criteria.list();
 	}	
 }

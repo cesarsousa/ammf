@@ -14,7 +14,7 @@
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
-		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${fotoInvalida}
+		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${precoEmBranco}${fotoInvalida}
 	</div>
 </c:if>
 <c:if test="${not empty msgErroLojaAdm}">
@@ -49,6 +49,28 @@
 	<li>
 		<img id="iconOpcaoLivro" alt="livros" title="livros" src="${imagem}/iconeLivro.png" class="icone50 ponteiro esquerda">
 	</li>
+	
+	<li>
+		<table id="tabIconesLivros" style="padding: 10px;" class="bordaPadrao">	
+		<tr>
+			<td>
+			<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
+			</td>
+			<td>
+			<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+			</td>
+			<td>
+			<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
+			</td>
+			<td>
+			<a href="<c:url value="/livro/adm/listar"/>"> 
+			<img alt="listar todos os livros" title="listar todos os livros" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
+			</a>
+			</td>
+		</tr>
+	</table>
+	</li>
+	
 	<%-- <li>
 		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
@@ -71,24 +93,8 @@
 
 <div style="width: 100%">
 
-<table id="tabIconesLivros" style="padding: 10px;">	
-	<tr>
-		<td>
-		<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
-		</td>
-		<td>
-		<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
-		</td>
-		<td>
-		<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
-		</td>
-		<td>
-		<img id="" alt="listar todos os livros" title="listar todos os livros" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
-		</td>
-	</tr>
-</table>
-
-<!-- CONSULTAR LIVROS -->
+<!-- BUSCAR LIVROS -->
+<input id="flagBuscarLivro" type="hidden" value="${flagBuscarLivro}"  />
 <table id="tabBuscaLivro" class="cardViewText superFooter bordaLateral">	
 	<tr>
 		<td>
@@ -101,211 +107,181 @@
 	</tr>
 	<tr>		
 		<td style="padding: 10px;">
-		<form id="formBuscaLivro">
-		<input id="campoBuscaLivro" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
+		<span class="info azulClaro">Digite o nome do autor ou do t&iacute;tulo do livro e pressione a tecla <code>ENTER</code> para realizar a consulta.</span>
+		
+		
+		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
+			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa areaTitulo3 bordaPadrao w100"/>
 		</form>
-		<p>
-		<label id="labelResultadoConsultaLivro"></label>		
-		</p>			
-		</td>		
-	</tr>
-	<tr>
-		<td>
-		<div id="conteudoConsultaLivros" class="cartao">								
-			<table>
-				<thead>
-					<tr>
-					<td class="headTabela">C&oacute;digo</td>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td class="headTabela">Situa&ccedil;&atilde;o</td>
-					<td class="w50 headTabela">A&ccedil;&atilde;o</td>
-					</tr>
-				</thead>
-					
-				<tbody id="ulLivrosConsultados">						
-				</tbody>
-				
-			</table>				
+		
+		<c:if test="${not empty buscaSemResultado}">
+		<div align="center">		
+		<span class="titulo">${buscaSemResultado}</span>
 		</div>
-		</td>
-	</tr>	
+		</c:if>
+						
+		</td>		
+	</tr>		
 </table>
-
-<br/>
 
 <!-- CADASTRAR LIVRO -->
 <input id="flagCadastroLivroVazio" type="hidden" value="${flagCadastroLivroVazio}"  /> 
 <table id="tabCadastrarLivro" class="cardViewText superFooter bordaLateral">
-<tr>
-	<td>
-	<div align="right">
-		<input id="btFecharCadastrarLivro" type="button" value="fechar" class="backVermelho button">
-	</div>	
-	<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
-	<h2 align="center">Cadastrar Livro</h2>
-	</td>
-</tr>
+	<tr>
+		<td>
+		<div align="right">
+			<input id="btFecharCadastrarLivro" type="button" value="fechar" class="backVermelho button">
+		</div>	
+		<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
+		<h2 align="center">Cadastrar Livro</h2>
+		</td>		
+	</tr>
 
-<tr align="center">
-<td>
-	<p>
-		<span class="info azulClaro">Entre com os dados referente ao cadastrado do novo livro.</span>
-	</p>	
-	
-	<form id="formCadLivro" action="<c:url value="/livro/cadastrar"/>" enctype="multipart/form-data" method="post">
-		<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
+	<tr align="center">
+	<td>
+		<p>
+			<span class="info azulClaro">Entre com os dados referente ao cadastrado do novo livro.</span>
+		</p>	
 		
-		<div class="cartao campoObrigatorio">		
-			<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
-			<br/>
-			<div class="paddingPadrao">
-			<label class="labelForm">Autor</label>
-			<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
-			</div>
+		<form id="formCadLivro" action="<c:url value="/livro/adm/cadastrar"/>" enctype="multipart/form-data" method="post">
+			<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
 			
-			<div class="paddingPadrao">				
-			<label class="labelForm">T&iacute;tulo</label>
-			<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
-			</div>
-		
-			<div class="paddingPadrao">
-			<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
-			<br/>
-			<input id="livroPaginas" type="text" name="livro.paginas" value="${livroCadastro.paginas}" class="letraCinza largura100 altura30 bordaPadrao${comErroPagina}" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Edi&ccedil;&atilde;o</label>
-			<br/>
-			<input id="livroEdicao" type="text" name="livro.edicao" value="${livroCadastro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao${comErroEdicao}" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Ano</label>
-			<br/>
-			<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="letraCinza largura100 altura30 bordaPadrao${comErroAno}" maxlength="100"/>
-			</div>
-				
-		</div>
-		
-		<br/><br/>
-		
-		<div class="campoOpcional">
-			
-			<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
-			
-			<p>
-				<span class="info azulClaro">
-					Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
-					Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
-				</span>
-			</p>
-			
-			<div class="paddingPadrao bordaPadrao">
-				<label class="labelForm">Foto da capa do livro</label><br/>
-				<div id="divUploadFotoLivro">
-					<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+			<div class="cartao campoObrigatorio">		
+				<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
+				<br/>
+				<div class="paddingPadrao">
+				<label class="labelForm">Autor</label>
+				<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
 				</div>
-				<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-			</div>
+				
+				<div class="paddingPadrao">				
+				<label class="labelForm">T&iacute;tulo</label>
+				<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
+				</div>
 			
-			<div class="paddingPadrao">
-			<div class="msgBorderInterno msgAlerta">
-			<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
-			</div>			
-			<label class="labelForm">Pre&ccedil;o</label>
-			<br/>
-			<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
-			<br/>
-			
-			<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Sinopse</label>
-			<br/>
-			<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livroCadastro.sinopse}</textarea>
-			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Editora</label>
-			<br/>
-			<input id="livroEditora" type="text" name="livro.editora" value="${livroCadastro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>			
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">ISBN</label>
-			<br/>
-			<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>			
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Assunto</label>
-			<br/>
-			<input id="livroAssunto" type="text" name="livro.assunto" value="${livroCadastro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Idioma</label>
-			<br/>
-			<input id="livroIdioma" type="text" name="livro.idioma" value="${livroCadastro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">C&oacute;digo de barras</label>
-			<br/>
-			<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
-			
-			<div class="paddingPadrao">
-			<label class="labelForm">Link de venda</label>
-			<br/>
-			<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-			</div>
+				<div class="paddingPadrao">
+				<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
+				<br/>
+				<input id="livroPaginas" type="text" name="livro.paginas" value="${livroCadastro.paginas}" class="letraCinza largura100 altura30 bordaPadrao${comErroPagina}" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Edi&ccedil;&atilde;o</label>
+				<br/>
+				<input id="livroEdicao" type="text" name="livro.edicao" value="${livroCadastro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao${comErroEdicao}" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Ano</label>
+				<br/>
+				<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="letraCinza largura100 altura30 bordaPadrao${comErroAno}" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<!-- <div class="msgBorderInterno msgAlerta">
+				<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
+				</div> -->			
+				<label class="labelForm">Pre&ccedil;o</label>
+				<br/>
+				<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao${comErroPreco}" maxlength="100"/>
+				</div>
 					
-			<div class="paddingPadrao">
-			<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="button direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
 			</div>
-		</div>			
-	</form>
-</td>
-</tr>
+			
+			<br/><br/>
+			
+			<div class="campoOpcional">
+				
+				<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
+				
+				<p>
+					<span class="info azulClaro">
+						Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
+						Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
+					</span>
+				</p>
+				
+				<div class="paddingPadrao bordaPadrao">
+					<label class="labelForm">Foto da capa do livro</label><br/>
+					<div id="divUploadFotoLivro">
+						<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+					</div>
+					<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+				</div>			
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+				<br/>
+				
+				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Sinopse</label>
+				<br/>
+				<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livroCadastro.sinopse}</textarea>
+				<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Editora</label>
+				<br/>
+				<input id="livroEditora" type="text" name="livro.editora" value="${livroCadastro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>			
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">ISBN</label>
+				<br/>
+				<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>			
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Assunto</label>
+				<br/>
+				<input id="livroAssunto" type="text" name="livro.assunto" value="${livroCadastro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Idioma</label>
+				<br/>
+				<input id="livroIdioma" type="text" name="livro.idioma" value="${livroCadastro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">C&oacute;digo de barras</label>
+				<br/>
+				<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Link de venda</label>
+				<br/>
+				<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+						
+				<div class="paddingPadrao">
+				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="button direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
+				</div>
+			</div>			
+		</form>
+	</td>
+	</tr>
 </table>
 
-<br/>
-
-<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
-<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
-<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
-
-<!--  LIVROS SOLICITADOS -->
-<c:if test="${visualizarLivros}">
+<!--  LIVROS SOLICITADOS tabLivrosSolicitadas -->
+<c:if test="${not empty livrosSolicitados}">
 <table id="tabLivrosSolicitadas" class="superFooter bordaLateral">
 	<tr>
 		<td>
 		<div align="right">
-			<input id="btFecharLivrosSolicitadas" type="button" value="fechar" class="backVermelho button">
+			<input id="btFecharLivrosSolicitados" type="button" value="fechar" class="backVermelho button">
 		</div>
+				
+		<img src="${imagem}/iconeLivro.png" class="icone50 esquerda">
 		
-		<c:if test="${isPessoasCadastradas}">
-			<img src="${imagem}/usuario_cinza.png" width="50" height="50" class="esquerda">
-		</c:if>
-		<c:if test="${isPessoasConfirmadas}">
-			<img src="${imagem}/usuario_verde.png" width="50" height="50" class="esquerda">
-		</c:if>
-		<c:if test="${isPessoasPendentes}">
-			<img src="${imagem}/usuario_vermelho.png" width="50" height="50" class="esquerda">
-		</c:if>	
-		
-		<span class="titulo ${cssCorFonte}">${tituloPessoasSolicitadas}</span>
+		<div align="center">		
+		<span class="titulo">${labelResultadoConsultaLivro}</span>
+		</div>
 		
 		</td>
 	</tr>	
@@ -315,39 +291,35 @@
 			<table class="display dataTable cardViewText superFooter bordaLateral" >				
 				<thead>
 					<tr>
+					<th class="metadado" style="width: 50px;"></th>
 					<th class="metadado" style="width: 90px;">C&oacute;digo</th>
-					<th class="metadado">Nome</th>
-					<th class="metadado">Email</th>
-					<th class="metadado">Data Cadastro</th>
-					<th class="metadado">Status</th>
-					<th class="metadado">Situa&ccedil;&atilde;o</th>
+					<th class="metadado">T&iacute;tulo </th>
+					<th class="metadado">Autor</th>
+					<th class="metadado">Editora</th>
+					<th class="metadado" style="width: 90px;">Ano</th>
+					<th class="metadado" style="width: 150px;">Pre&ccedil;o</th>
+					<th class="metadado" style="width: 150px;">Postagem</th>
 					<th class="metadado">A&ccedil;&otilde;es</th>
 					</tr>
 				</thead>					
 				<tbody>
-					<c:forEach items="${pessoasSolicitadas}" var="pessoa">
+					<c:forEach items="${livrosSolicitados}" var="livro">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 90px;">${pessoa.id}</td>
-							<td class="infoTabela">${pessoa.nome}</td>
-							<td class="infoTabela">${pessoa.email}</td>
-							<td class="infoTabela">${pessoa.dataFormatada}</td>
-							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
-							<td class="infoTabela">${pessoa.situacao}</td>
-							<td>
-								<c:if test="${pessoa.inativa}">							
-									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}" />">
-										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
-									</a>
-								</c:if>
-																
-								<c:if test="${pessoa.pendente}">
-									<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
-										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
-									</a>
-								</c:if>
+							<td class="infoTabela" style="width: 50px;"><img src="${imagemLivro}${livro.nomeImagem}" class="icone25"></td>
+							<td class="infoTabela" style="width: 90px;">${livro.id}</td>
+							<td class="infoTabela">${livro.titulo}</td>
+							<td class="infoTabela">${livro.autor}</td>
+							<td class="infoTabela">${livro.editora}</td>
+							<td class="infoTabela" style="width: 90px;">${livro.ano}</td>
+							<td class="infoTabela" style="width: 150px;">${livro.precoFormatado}</td>
+							<td class="infoTabela" style="width: 150px;">${livro.dataFormatada}</td>
+							<td>															
+								<a href="<c:url value="/livro/adm/editar/${livro.uuid}" />">
+									<img src="${imagem}/iconeEditarHover.png" class="icone20 ponteiro" alt="editar livro" title="editar livro">
+								</a>
 								
-								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
-									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir esta pessoa" title="excluir esta pessoa">
+								<a href="<c:url value="/livro/adm/remover/${livro.uuid}" />">
+									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir livro" title="excluir livro">
 								</a>								
 							</td>
 						</tr>
@@ -360,6 +332,8 @@
 	</tr>	
 </table>
 </c:if>
+
+<!-- EDITAR LIVROS -->
 
 </div>
 </div> <!-- centralizacao -->

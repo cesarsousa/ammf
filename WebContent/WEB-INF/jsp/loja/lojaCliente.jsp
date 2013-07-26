@@ -68,6 +68,7 @@
 				<td valign="bottom">		
 				<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
 				<div align="right">
+					<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
 					<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
 					<a href="${livro.linkVenda}" target="_blank">
 					<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">

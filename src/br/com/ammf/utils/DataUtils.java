@@ -20,6 +20,11 @@ public class DataUtils {
 		return spf.format(postagem.getTime());
 	}
 	
+	public static String getString(Calendar postagem, String formato) {
+		SimpleDateFormat spf = new SimpleDateFormat(formato);
+		return spf.format(postagem.getTime());
+	}
+	
 	public static Calendar getNow(){
 		return Calendar.getInstance();
 	}

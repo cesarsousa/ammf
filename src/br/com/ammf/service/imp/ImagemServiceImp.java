@@ -24,8 +24,8 @@ public class ImagemServiceImp implements ImagemService {
 		this.context = context;
 		
 		//PASTA_IMAGEM_LIVRO = this.context.getRealPath("/");
-		//PASTA_IMAGEM_LIVRO = "C:/Users/cesarsousa/Documents/GitHub/ammf/WebContent/livro";		
-		PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
+		PASTA_IMAGEM_LIVRO = "C:/Users/cesarsousa/Documents/GitHub/ammf/WebContent/livro";		
+		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
 		
 	}	
 
@@ -44,9 +44,7 @@ public class ImagemServiceImp implements ImagemService {
 				outputStream.write(var);
 			}
 			i.close();
-			outputStream.close();*/	
-			
-			System.err.println(file.getPath());
+			outputStream.close();*/		
 			
 			IOUtils.copy(imagem.getFile(), new FileOutputStream(file));
 			

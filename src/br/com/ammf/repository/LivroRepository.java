@@ -12,4 +12,6 @@ public interface LivroRepository {
 
 	void atualizar(Livro livro);
 
+	List<Livro> listarPorAutorTitulo(String param);
+
 }

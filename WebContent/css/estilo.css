@@ -1556,6 +1556,9 @@ table.tabLivro thead  tr td{
 .w90 {
 	width: 90%;
 }
+.w100 {
+	width: 100%;
+}
 
 .ponteiro {
 	cursor: pointer;

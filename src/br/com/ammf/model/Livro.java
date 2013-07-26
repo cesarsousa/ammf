@@ -28,7 +28,7 @@ public class Livro implements Serializable {
 	@Column(length=1005)
 	private String sinopse;
 	
-	private String nomeImagem = "capaLivroDefault.jpg";
+	private String nomeImagem = "/capaLivroDefault.jpg";
 	
 	private String titulo;
 	private String autor;
@@ -159,7 +159,7 @@ public class Livro implements Serializable {
 	}
 	
 	public String getDataFormatada(){
-		return DataUtils.getFullString(postagem);
+		return DataUtils.getString(postagem, "dd/MM/yyyy");
 	}
 	
 	public String getPrecoFormatado(){		

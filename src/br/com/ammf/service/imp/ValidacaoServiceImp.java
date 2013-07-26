@@ -239,6 +239,16 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			}
 		}
 		
+		if(livro.getPreco() == null){
+			result.include("precoEmBranco", "O pre&ccedil;o deve ser informado<br/>");
+			result.include("comErroPreco", "Erro");
+			validado = false;
+		}
+		
+		System.out.println("preco");
+		System.out.println(livro.getPreco());
+		
+		
 		if(imagemLivro != null){
 			if(!imagemLivro.getContentType().startsWith("image")){
 				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto.");

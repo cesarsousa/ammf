@@ -1,12 +1,6 @@
 package br.com.ammf.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Livro;
@@ -14,6 +8,7 @@ import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -39,7 +34,7 @@ public class LivroController {
 	}
 	
 	@Restrito
-	@Post("/livro/cadastrar")
+	@Post("/livro/adm/cadastrar")
 	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro){
 		try {
 			boolean validado = validacaoService.livro(imagemLivro, livro, result);		
@@ -61,5 +56,24 @@ public class LivroController {
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar o cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}
+	}
+	
+	@Restrito
+	@Get("/livro/adm/busca")
+	public void buscarLivros(String param){		
+		List<Livro> livrosSolicitados = livroRepository.listarPorAutorTitulo(param);
+		result.include("livrosSolicitados", livrosSolicitados);
+		result.include("flagBuscarLivro", true);
+		result.include("labelResultadoConsultaLivro", "Total de " + livrosSolicitados.size() + " ocorr&ecirc;ncia(s) para a pesquisa '" + param + "'");
+		if(livrosSolicitados.size() == 0) result.include("buscaSemResultado", "sem ocorr&ecirc;ncias para a pesquisa '" + param + "'");
+		result.redirectTo(LojaController.class).lojaAdmin();
+	}
+	
+	@Restrito
+	@Get("/livro/adm/listar")
+	public void listarTodos(){
+		List<Livro> livrosSolicitados = livroRepository.listar();
+		result.include("livrosSolicitados", livrosSolicitados);
+		result.redirectTo(LojaController.class).lojaAdmin();
 	}
 }
