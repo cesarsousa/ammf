@@ -14,7 +14,7 @@
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
-		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${precoEmBranco}${fotoInvalida}
+		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${precoEmBranco}${fotoInvalida}${linkEmBranco}
 	</div>
 </c:if>
 <c:if test="${not empty msgErroLojaAdm}">
@@ -51,7 +51,7 @@
 	</li>
 	
 	<li>
-		<table id="tabIconesLivros" style="padding: 10px;" class="bordaPadrao">	
+		<table id="tabIconesLivros" style="padding: 10px; background: #FFFFFF;" class="bordaPadrao">	
 		<tr>
 			<td>
 			<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
@@ -185,6 +185,12 @@
 				<br/>
 				<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao${comErroPreco}" maxlength="100"/>
 				</div>
+				
+				<div class="paddingPadrao">
+				<label class="labelForm">Link de venda</label>
+				<br/>
+				<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao${comErroLink}" maxlength="100"/>
+				</div>
 					
 			</div>
 			
@@ -251,16 +257,10 @@
 				<label class="labelForm">C&oacute;digo de barras</label>
 				<br/>
 				<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-				</div>
-				
-				<div class="paddingPadrao">
-				<label class="labelForm">Link de venda</label>
-				<br/>
-				<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-				</div>
+				</div>				
 						
 				<div class="paddingPadrao">
-				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="button direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
+				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
 				</div>
 			</div>			
 		</form>
@@ -334,6 +334,173 @@
 </c:if>
 
 <!-- EDITAR LIVROS -->
+<c:if test="${editarLivro}">
+<c:choose>
+<c:when test="${empty livro}">
+	<table id="tabCadastrarLivro" class="cardViewText superFooter bordaLateral">
+		<tr>
+			<td>
+			<div align="center">
+				<h3>O livro solicitado n&atilde;o est&aacute; cadastrado. C&oacute;digo do livro solicitado: ${uuid}</h3>
+			</div>
+			</td>
+		</tr>
+	</table>
+</c:when>
+<c:otherwise>
+	<table id="tabAtualizarLivro" class="cardViewText superFooter bordaLateral">
+		<tr>
+			<td>
+			<div align="right">
+				<input id="btFecharAtualizarLivro" type="button" value="fechar" class="backVermelho button">
+			</div>	
+			<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
+			<h2 align="center">Atualizar Livro</h2>
+			</td>		
+		</tr>
+	
+		<tr align="center">
+		<td>
+			<p>
+				<span class="info azulClaro">Formul&aacute;rio de atualiza&ccedil;&aacute;o de livro.</span>
+			</p>	
+			
+			<form id="formAtualizaLivro" action="<c:url value="/livro/adm/atualizar"/>" enctype="multipart/form-data" method="post">
+				<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
+				
+				
+				
+				<div class="cartao campoObrigatorio">
+					<div class="paddingPadrao">				
+					<label class="labelForm">C&oacute;digo do livro</label>
+					<input type="text" name="livro.id" value="${livro.id}" class="letraCinza largura100 altura30 bordaPadrao" readonly="readonly" disabled="disabled"/>
+					</div>
+						
+					<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
+					<br/>
+					<div class="paddingPadrao">
+					<label class="labelForm">Autor</label>
+					<input id="livroAutor" type="text" name="livro.autor" value="${livro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">				
+					<label class="labelForm">T&iacute;tulo</label>
+					<input id="livroTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
+					</div>
+				
+					<div class="paddingPadrao">
+					<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
+					<br/>
+					<input id="livroPaginas" type="text" name="livro.paginas" value="${livro.paginas}" class="letraCinza largura100 altura30 bordaPadrao${comErroPagina}" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Edi&ccedil;&atilde;o</label>
+					<br/>
+					<input id="livroEdicao" type="text" name="livro.edicao" value="${livro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao${comErroEdicao}" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Ano</label>
+					<br/>
+					<input id="livroAno" type="text" name="livro.ano" value="${livro.ano}" class="letraCinza largura100 altura30 bordaPadrao${comErroAno}" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<!-- <div class="msgBorderInterno msgAlerta">
+					<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
+					</div> -->			
+					<label class="labelForm">Pre&ccedil;o</label>
+					<br/>
+					<input id="livroPreco" type="text" name="livro.preco" value="${livro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao${comErroPreco}" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Link de venda</label>
+					<br/>
+					<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao${comErroLink}" maxlength="100"/>
+					</div>
+						
+				</div>
+				
+				<br/><br/>
+				
+				<div class="campoOpcional">
+					
+					<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
+					
+					<p>
+						<span class="info azulClaro">
+							Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.
+						</span>
+					</p>
+					
+					<div class="paddingPadrao bordaPadrao">
+						<img src="${imagemLivro}${livro.nomeImagem}" class="fotoLivro"><br/>
+						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
+						<div id="divUploadNovaFotoLivro">
+							<input id="inputNovaImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+						</div>
+						<input id="btRemoverUploadNovaFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+					</div>			
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+					<br/>
+					
+					<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Sinopse</label>
+					<br/>
+					<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livro.sinopse}</textarea>
+					<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Editora</label>
+					<br/>
+					<input id="livroEditora" type="text" name="livro.editora" value="${livro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>			
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">ISBN</label>
+					<br/>
+					<input id="livroIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>			
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Assunto</label>
+					<br/>
+					<input id="livroAssunto" type="text" name="livro.assunto" value="${livro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">Idioma</label>
+					<br/>
+					<input id="livroIdioma" type="text" name="livro.idioma" value="${livro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
+					
+					<div class="paddingPadrao">
+					<label class="labelForm">C&oacute;digo de barras</label>
+					<br/>
+					<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>					
+							
+					<div class="paddingPadrao">
+					<input name="btnAtualizarLivro" type="button" value="Atualizar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
+					</div>
+				</div>			
+			</form>
+		</td>
+		</tr>
+	</table>
+
+
+</c:otherwise>
+</c:choose>
+</c:if>
 
 </div>
 </div> <!-- centralizacao -->

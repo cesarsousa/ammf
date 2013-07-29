@@ -14,4 +14,6 @@ public interface LivroRepository {
 
 	List<Livro> listarPorAutorTitulo(String param);
 
+	Livro obterPorUuid(String uuid);
+
 }

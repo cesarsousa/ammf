@@ -40,7 +40,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(depoimento.getEmail() == null || depoimento.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado<br/>");
 			validado = false;
-		}else if(!emailValido(depoimento.getEmail())){
+		}else if(!ehEmailValido(depoimento.getEmail())){
 			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido<br/>");
 			validado = false;
 		}		
@@ -75,7 +75,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(mensagem.getEmail() == null || mensagem.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado<br/>");
 			validado = false;
-		}else if(!emailValido(mensagem.getEmail())){
+		}else if(!ehEmailValido(mensagem.getEmail())){
 			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido<br/>");
 			validado = false;
 		}
@@ -131,7 +131,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(pessoa.getEmail() == null || pessoa.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O email deve ser informado");
 			validada = false;
-		}else if (!emailValido(pessoa.getEmail())){
+		}else if (!ehEmailValido(pessoa.getEmail())){
 			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido");
 			validada = false;
 		}else{
@@ -176,7 +176,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(usuario.getEmail() == null || usuario.getEmail().isEmpty()){
 			result.include("usuarioErroEmail", "O email deve ser informado");
 			resultado = false;
-		}else if (!emailValido(usuario.getEmail())){
+		}else if (!ehEmailValido(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve possuir um formato v&aacute;lido");
 			resultado = false;
 		}else if (!ehGmail(usuario.getEmail())){
@@ -245,10 +245,16 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			validado = false;
 		}
 		
-		System.out.println("preco");
-		System.out.println(livro.getPreco());
-		
-		
+		if(livro.getLinkVenda() == null || livro.getLinkVenda().isEmpty()){
+			result.include("linkEmBranco", "O link de venda do produto deve ser informado<br/>");
+			result.include("comErroLink", "Erro");
+			validado = false;
+		}else if(!ehLinkValido(livro.getLinkVenda())){
+			result.include("linkEmBranco", "O link de venda do produto deve come&ccedil;ar com '<b>http://www.</b>'<br/>");
+			result.include("comErroLink", "Erro");
+			validado = false;
+		}
+			
 		if(imagemLivro != null){
 			if(!imagemLivro.getContentType().startsWith("image")){
 				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto.");
@@ -281,8 +287,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		return email.endsWith("@gmail.com");
 	}
 
-	private boolean emailValido(String email) {
+	private boolean ehEmailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
+	}
+	
+	private boolean ehLinkValido(String link){
+		return link.startsWith("http://www");
 	}
 
 	private boolean setMsgErroAno(Result result, String mensagem) {		

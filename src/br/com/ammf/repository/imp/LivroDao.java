@@ -48,5 +48,12 @@ public class LivroDao implements LivroRepository {
 				Restrictions.like("autor", "%" + param + "%"), 
 				Restrictions.like("titulo", "%" + param + "%")));		
 		return criteria.list();
+	}
+
+	@Override
+	public Livro obterPorUuid(String uuid) {
+		Criteria criteria = session.createCriteria(Livro.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		return (Livro) criteria.uniqueResult();
 	}	
 }

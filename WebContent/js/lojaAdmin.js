@@ -75,13 +75,13 @@ function configurarCamposAddLivro(){
 }
 
 $(document).ready(function() {
+	configurarCamposAddLivro();		
 	
 	$('#telaAguardeAdmCadastroLivro').hide();
 	$('#tabIconesLivros, #tabBuscaLivro, #tabCadastrarLivro').hide();
 	
 	if($('#flagCadastroLivroVazio').val()){
-		$('#tabIconesLivros, #tabCadastrarLivro').slideDown(500);
-		configurarCamposAddLivro();
+		$('#tabIconesLivros, #tabCadastrarLivro').slideDown(500);		
 	}
 	
 	$('#iconOpcaoLivro').click(function(){
@@ -94,8 +94,7 @@ $(document).ready(function() {
 	
 	$('#abrirAddLivro').click(function(){
 		fecharAreasDeLivros();
-		$('#tabCadastrarLivro').slideDown(500);
-		configurarCamposAddLivro();		
+		$('#tabCadastrarLivro').slideDown(500);		
 	});
 	$('#btFecharCadastrarLivro').click(function(){
 		$('#tabCadastrarLivro').slideUp(500);				
@@ -106,6 +105,14 @@ $(document).ready(function() {
 		.slideUp(500)
 		.html('')
 		.append('<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>')
+		.slideDown(500);
+	});
+	
+	$('#btRemoverUploadNovaFotoLivro').click(function(){
+		$('#divUploadNovaFotoLivro')
+		.slideUp(500)
+		.html('')
+		.append('<input id="inputNovaImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>')
 		.slideDown(500);
 	});	
 	
@@ -127,6 +134,10 @@ $(document).ready(function() {
 		$('#tabLivrosSolicitadas').slideUp(500);		
 	});
 	
+	
+	$('#btFecharAtualizarLivro').click(function(){
+		$('#tabAtualizarLivro').slideUp(500);		
+	});
 	
 	
 });

@@ -76,4 +76,14 @@ public class LivroController {
 		result.include("livrosSolicitados", livrosSolicitados);
 		result.redirectTo(LojaController.class).lojaAdmin();
 	}
+	
+	@Restrito
+	@Get("/livro/adm/editar/{uuid}")
+	public void editarLivro(String uuid){
+		Livro livro = livroRepository.obterPorUuid(uuid);
+		result.include("livro", livro);
+		result.include("editarLivro", true);
+		result.include("uuid", uuid);
+		result.redirectTo(LojaController.class).lojaAdmin();
+	}
 }
