@@ -436,8 +436,10 @@
 					</p>
 					
 					<div class="paddingPadrao bordaPadrao">
-						<img src="${imagemLivro}${livro.nomeImagem}" class="fotoLivro"><br/>
+						<img src="${imagemLivro}${livro.nomeImagem}" class="fotoLivro">
+						<p>
 						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
+						</p>
 						<div id="divUploadNovaFotoLivro">
 							<input id="inputNovaImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
