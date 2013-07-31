@@ -201,7 +201,30 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean livro(UploadedFile imagemLivro, Livro livro, Result result) {
+	public boolean cadastrarLivro(UploadedFile imagemLivro, Livro livro, Result result) {
+		boolean validado = verificarCamposPreenchidos(imagemLivro, livro, result);		
+		if(!validado){
+			result.include("livroCadastro", livro);
+			result.include("msgErroLojaCadastroLivro", true);
+			result.include("flagCadastroLivroVazio", true);			
+		}		
+		return validado;
+	}
+	
+	@Override
+	public boolean atualizarLivro(UploadedFile imagemLivro, Livro livro, Result result) {		
+		boolean validado = verificarCamposPreenchidos(imagemLivro, livro, result);
+		
+		if(!validado){
+			result.include("livro", livro);
+			result.include("msgErroLojaCadastroLivro", true);
+			result.include("editarLivro", true);			
+		}	
+		
+		return validado;
+	}
+
+	private boolean verificarCamposPreenchidos(UploadedFile imagemLivro, Livro livro, Result result) {
 		boolean validado = true;
 		if(livro.getAutor() == null || livro.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
@@ -260,18 +283,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto.");
 				validado = false;
 			}
-		}		
-		
-		if(!validado){
-			result.include("livroCadastro", livro);
-			result.include("msgErroLojaCadastroLivro", true);
-			result.include("flagCadastroLivroVazio", true);			
-		}	
-		
+		}
 		return validado;
-	}
-
-	
+	}	
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -300,6 +314,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		result.include("comErroAno", "Erro");		
 		return false;
 	}
+
+	
 
 	
 }

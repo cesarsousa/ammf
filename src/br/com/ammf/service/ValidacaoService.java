@@ -23,6 +23,8 @@ public interface ValidacaoService {
 
 	boolean mensagem(Mensagem mensagem, Result result);
 
-	boolean livro(UploadedFile imagemLivro, Livro livro, Result result);	
+	boolean cadastrarLivro(UploadedFile imagemLivro, Livro livro, Result result);
+
+	boolean atualizarLivro(UploadedFile imagemLivro, Livro livro, Result result);	
 
 }

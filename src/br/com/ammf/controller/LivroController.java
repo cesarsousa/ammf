@@ -37,7 +37,7 @@ public class LivroController {
 	@Post("/livro/adm/cadastrar")
 	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro){
 		try {
-			boolean validado = validacaoService.livro(imagemLivro, livro, result);		
+			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
 			if(validado){			
 				livro.setPostagem(DataUtils.getNow());
@@ -56,6 +56,32 @@ public class LivroController {
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar o cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}
+	}
+	
+	@Restrito
+	@Post("/livro/adm/atualizar")
+	public void atualizarLivro(UploadedFile imagemLivro, Livro livro){
+		try {
+			System.out.println("idlivro" + livro.getId());
+			boolean validado = validacaoService.atualizarLivro(imagemLivro, livro, result);
+			
+			if(validado){
+				/*if(imagemLivro != null){
+				imagemService.salvarFotoLivro(imagemLivro, livro);
+			}*/
+			livroRepository.atualizar(livro);
+			
+			// notificar clientes cliente e adm.
+			result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
+			}
+			
+			result.forwardTo(LojaController.class).lojaAdmin();
+		} catch (Exception e) { // TODO trocar email exception verificar exeção de salvar arquivos
+			e.printStackTrace();
+			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
+			result.redirectTo(LojaController.class).lojaAdmin();
+		}
+		
 	}
 	
 	@Restrito
