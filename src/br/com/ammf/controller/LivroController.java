@@ -60,15 +60,16 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/atualizar")
-	public void atualizarLivro(UploadedFile imagemLivro, Livro livro){
+	public void atualizarLivro(UploadedFile imagemLivro, Livro livro){ 
 		try {
-			System.out.println("idlivro" + livro.getId());
+			
 			boolean validado = validacaoService.atualizarLivro(imagemLivro, livro, result);
 			
 			if(validado){
 				/*if(imagemLivro != null){
 				imagemService.salvarFotoLivro(imagemLivro, livro);
 			}*/
+			livro.setPostagem(livroRepository.getPostagem(livro.getUuid()));	
 			livroRepository.atualizar(livro);
 			
 			// notificar clientes cliente e adm.
@@ -80,8 +81,7 @@ public class LivroController {
 			e.printStackTrace();
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
-		}
-		
+		}		
 	}
 	
 	@Restrito

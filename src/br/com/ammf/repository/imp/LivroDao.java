@@ -1,5 +1,6 @@
 package br.com.ammf.repository.imp;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -55,5 +56,13 @@ public class LivroDao implements LivroRepository {
 		Criteria criteria = session.createCriteria(Livro.class);
 		criteria.add(Restrictions.eq("uuid", uuid));
 		return (Livro) criteria.uniqueResult();
+	}
+
+	@Override
+	public Calendar getPostagem(String uuid) {
+		Criteria criteria = session.createCriteria(Livro.class);
+		criteria.add(Restrictions.eq("uuid", uuid));
+		Livro livro = (Livro) criteria.uniqueResult();
+		return livro.getPostagem();
 	}	
 }

@@ -1523,10 +1523,11 @@ table.tabLivro thead  tr td{
 }
 
 .msgErro {
-	background-color: #DD3C10;
-	border-color: #DD3C10;
+	background-color: #f7bdbd;
+	border-color: #f7bdbd;
 	text-align: left;
-	color: #ffffff;
+	text-shadow: #ffffff 0.1em 0.1em 0.2em;
+	color: #ff0000;
 	font-size: large;
 }
 

@@ -366,59 +366,55 @@
 			</p>	
 			
 			<form id="formAtualizaLivro" action="<c:url value="/livro/adm/atualizar"/>" enctype="multipart/form-data" method="post">
-				<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
-				
-				
+				<input type="hidden" name="ctxImagemLivro" value="${imagem}">
+				<input type="hidden" name="livro.uuid" value="${livro.uuid}">		
 				
 				<div class="cartao campoObrigatorio">
 					<div class="paddingPadrao">				
 					<label class="labelForm">C&oacute;digo do livro</label>
-					<input type="text" name="livro.id" value="${livro.id}" class="letraCinza largura100 altura30 bordaPadrao" readonly="readonly" disabled="disabled"/>
+					<input type="text" name="livro.id" value="${livro.id}" class="letraCinza largura100 altura30 bordaPadrao" readonly="readonly"/>
 					</div>
 						
 					<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
 					<br/>
 					<div class="paddingPadrao">
 					<label class="labelForm">Autor</label>
-					<input id="livroAutor" type="text" name="livro.autor" value="${livro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
+					<input id="livroAtualizaAutor" type="text" name="livro.autor" value="${livro.autor}" class="letraCinza largura100 altura30 bordaPadrao${comErroAutor}" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">				
 					<label class="labelForm">T&iacute;tulo</label>
-					<input id="livroTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
+					<input id="livroAtualizaTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
 					</div>
 				
 					<div class="paddingPadrao">
 					<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
 					<br/>
-					<input id="livroPaginas" type="text" name="livro.paginas" value="${livro.paginas}" class="letraCinza largura100 altura30 bordaPadrao${comErroPagina}" maxlength="100"/>
+					<input id="livroAtualizaPaginas" type="text" name="livro.paginas" value="${livro.paginas}" class="letraCinza largura100 altura30 bordaPadrao${comErroPagina}" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Edi&ccedil;&atilde;o</label>
 					<br/>
-					<input id="livroEdicao" type="text" name="livro.edicao" value="${livro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao${comErroEdicao}" maxlength="100"/>
+					<input id="livroAtualizaEdicao" type="text" name="livro.edicao" value="${livro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao${comErroEdicao}" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Ano</label>
 					<br/>
-					<input id="livroAno" type="text" name="livro.ano" value="${livro.ano}" class="letraCinza largura100 altura30 bordaPadrao${comErroAno}" maxlength="100"/>
+					<input id="livroAtualizaAno" type="text" name="livro.ano" value="${livro.ano}" class="letraCinza largura100 altura30 bordaPadrao${comErroAno}" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
-					<!-- <div class="msgBorderInterno msgAlerta">
-					<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
-					</div> -->			
 					<label class="labelForm">Pre&ccedil;o</label>
 					<br/>
-					<input id="livroPreco" type="text" name="livro.preco" value="${livro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao${comErroPreco}" maxlength="100"/>
+					<input id="livroAtualizaPreco" type="text" name="livro.preco" value="${livro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao${comErroPreco}" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Link de venda</label>
 					<br/>
-					<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao${comErroLink}" maxlength="100"/>
+					<input id="livroAtualizaLinkVenda" type="text" name="livro.linkVenda" value="${livro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao${comErroLink}" maxlength="100"/>
 					</div>
 						
 				</div>
@@ -450,44 +446,44 @@
 					<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
 					<br/>
 					
-					<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Sinopse</label>
 					<br/>
-					<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livro.sinopse}</textarea>
-					<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
+					<textarea id="livroAtualizaSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livro.sinopse}</textarea>
+					<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterAtualizaLivro">1000</span> caracteres.</span>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Editora</label>
 					<br/>
-					<input id="livroEditora" type="text" name="livro.editora" value="${livro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaEditora" type="text" name="livro.editora" value="${livro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>			
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">ISBN</label>
 					<br/>
-					<input id="livroIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>			
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Assunto</label>
 					<br/>
-					<input id="livroAssunto" type="text" name="livro.assunto" value="${livro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaAssunto" type="text" name="livro.assunto" value="${livro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Idioma</label>
 					<br/>
-					<input id="livroIdioma" type="text" name="livro.idioma" value="${livro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaIdioma" type="text" name="livro.idioma" value="${livro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">C&oacute;digo de barras</label>
 					<br/>
-					<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaCodigoBarra" type="text" name="livro.codigoBarra" value="${livro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>					
 							
 					<div class="paddingPadrao">
