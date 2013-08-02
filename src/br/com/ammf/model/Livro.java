@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.ammf.utils.DataUtils;
 
@@ -43,6 +44,10 @@ public class Livro implements Serializable {
 	private String codigoBarra;
 	private BigDecimal preco;
 	private Calendar postagem;
+	
+	@Transient
+	private long timePostagem;
+	
 	private String linkVenda;
 	
 	public long getId() {
@@ -156,6 +161,14 @@ public class Livro implements Serializable {
 	
 	public void setLinkVenda(String linkVenda) {
 		this.linkVenda = linkVenda;
+	}
+	
+	public long getTimePostagem() {
+		return timePostagem;
+	}
+	
+	public void setTimePostagem(long timePostagem) {
+		this.timePostagem = timePostagem;
 	}
 	
 	public String getDataFormatada(){

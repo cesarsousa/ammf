@@ -367,7 +367,8 @@
 			
 			<form id="formAtualizaLivro" action="<c:url value="/livro/adm/atualizar"/>" enctype="multipart/form-data" method="post">
 				<input type="hidden" name="ctxImagemLivro" value="${imagem}">
-				<input type="hidden" name="livro.uuid" value="${livro.uuid}">		
+				<input type="hidden" name="livro.uuid" value="${livro.uuid}">
+				<input type="hidden" name="livro.timePostagem" value="${livro.timePostagem}">		
 				
 				<div class="cartao campoObrigatorio">
 					<div class="paddingPadrao">				

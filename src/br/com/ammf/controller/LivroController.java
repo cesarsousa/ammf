@@ -1,5 +1,6 @@
 package br.com.ammf.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
@@ -41,6 +42,7 @@ public class LivroController {
 			
 			if(validado){			
 				livro.setPostagem(DataUtils.getNow());
+				livro.setTimePostagem(livro.getPostagem().getTimeInMillis());
 				if(imagemLivro != null){
 					imagemService.salvarFotoLivro(imagemLivro, livro);
 				}
@@ -67,13 +69,14 @@ public class LivroController {
 			
 			if(validado){
 				/*if(imagemLivro != null){
-				imagemService.salvarFotoLivro(imagemLivro, livro);
-			}*/
-			livro.setPostagem(livroRepository.getPostagem(livro.getUuid()));	
-			livroRepository.atualizar(livro);
-			
-			// notificar clientes cliente e adm.
-			result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
+					imagemService.salvarFotoLivro(imagemLivro, livro);
+				}*/
+				
+				
+				livroRepository.atualizar(livro);
+				
+				// notificar clientes cliente e adm.
+				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
 			}
 			
 			result.forwardTo(LojaController.class).lojaAdmin();

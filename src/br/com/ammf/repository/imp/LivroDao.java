@@ -37,9 +37,16 @@ public class LivroDao implements LivroRepository {
 
 	@Override
 	public void atualizar(Livro livro) {
+		Calendar dataPostagem = getDataPostagemOriginal(livro.getUuid());
+		
 		Transaction transaction = session.beginTransaction();
 		session.update(livro);
 		transaction.commit();		
+	}	
+
+	private Calendar getDataPostagemOriginal(String uuid) {
+		String sql = "select postagem from Livro where uuid = '?'";
+		return (Calendar) session.createQuery(sql.replace("?", uuid));		
 	}
 
 	@Override
@@ -63,6 +70,7 @@ public class LivroDao implements LivroRepository {
 		Criteria criteria = session.createCriteria(Livro.class);
 		criteria.add(Restrictions.eq("uuid", uuid));
 		Livro livro = (Livro) criteria.uniqueResult();
-		return livro.getPostagem();
+		Calendar postagem = livro.getPostagem();
+		return postagem;
 	}	
 }
