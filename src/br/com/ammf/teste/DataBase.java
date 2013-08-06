@@ -1,6 +1,7 @@
 package br.com.ammf.teste;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.mail.Session;
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ public class DataBase {
 		texto.setConteudo("Os milhares de males que surgem do nascimento de alguém podem ser removidos por meio da prática.");
 		texto.setLocal(Local.INDEX);
 		texto.setTitulo("sem titulo");
-		texto.setPostagem(Calendar.getInstance());
+		texto.setPostagem(new Date());
 		
 		textoRepository.cadastrar(texto);
 		

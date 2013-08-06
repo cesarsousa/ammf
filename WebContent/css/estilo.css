@@ -246,8 +246,8 @@ textarea {
 	 
 }
 
-.titulo {
 	font-family: monospace;
+.titulo {
 	font-size: x-large;
 	font-weight: bold;
 	text-shadow: #CCCCCC 0.1em 0.1em 0.2em;
@@ -642,6 +642,8 @@ a:HOVER {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
+	border: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
 }
 
 .cartaoSemBordaBottom{
@@ -1121,9 +1123,18 @@ a:HOVER {
 	width: 300px;
 }
 
+.w500px{
+	width: 500px;
+}
+
 .fotoLivro {
 	width: 100px;
 	height: 150px;
+	box-shadow: 5px 5px 5px #8B8484;
+	border: 1px solid #CCCCCC;
+}
+
+.destaqueFoto{
 	box-shadow: 5px 5px 5px #8B8484;
 	border: 1px solid #CCCCCC;
 }
@@ -1504,14 +1515,16 @@ table.tabLivro thead  tr td{
 	text-align: left;
 	color: #ffffff;
 	font-size: large;
+	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 
 .msgAlerta {
 	background-color: #CFB848;
 	border-color: #CFB848;
 	text-align: left;
-	color: #000000;
+	color: #FFFFFF;
 	font-size: medium;
+	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 
 .msgInfo {
@@ -1520,14 +1533,17 @@ table.tabLivro thead  tr td{
 	text-align: left;
 	color: #ffffff;
 	font-size: large;
+	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 
 .msgErro {
-	background-color: #f7bdbd;
-	border-color: #f7bdbd;
+	/* background-color: #f7bdbd; */
+	background-color: #ff0000;
+	border-color: #ff0000;
 	text-align: left;
-	text-shadow: #ffffff 0.1em 0.1em 0.2em;
-	color: #ff0000;
+	text-shadow: #000000 0.1em 0.1em 0.2em;
+	/* color: #ff0000; */
+	color: #FFFFFF;
 	font-size: large;
 }
 

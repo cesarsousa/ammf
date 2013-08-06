@@ -72,7 +72,8 @@ $(document).ready(function() {
 		$('#tabDepoimentosCadastrados').slideUp(500);
 	});
 	
-	$('#campoBuscaDepoimento').puts('DIGITE O NOME DA PESSOA');
+	var texto = "Digite parte do nome ou email da pessoa e pressione a tecla ENTER";
+	$('#campoBuscaDepoimento').puts(texto);
 	addRemoveDestaque('#campoBuscaDepoimento');
 	
 	$('#btFecharBuscarDepoimentos').click(function(){

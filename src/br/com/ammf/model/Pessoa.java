@@ -2,6 +2,7 @@ package br.com.ammf.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class Pessoa implements Serializable{
 	private String email;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dataCadastro;
+	private Date dataCadastro;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -80,11 +81,11 @@ public class Pessoa implements Serializable{
 		this.status = status;
 	}
 		
-	public Calendar getDataCadastro() {
+	public Date getDataCadastro() {
 		return dataCadastro;
 	}
 	
-	public void setDataCadastro(Calendar dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 	

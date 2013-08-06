@@ -119,17 +119,19 @@
 		<h2 align="center">Editar Texto</h2>		
 		
 		<form id="formBlogBuscaTexto">
-		<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa sizebtGenerico areaTitulo3 bordaPadrao esquerda" />
-		
-		<span class="info azulClaro" ><label id="labelBuscaTexto"></label></span>
-		
+		<div align="center">
+			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa w500px bordaPadrao" />
+			<p>
+			<span class="info azulClaro" ><label id="labelBuscaTexto"></label></span>
+			</p>
+		</div>
 		</form>
 		</td>
 	</tr>
 	<tr id="resultBuscaTxtBlog">
 		<td>
 			<br/>
-			<table width="100%">
+			<table width="100%" class="card">
 				<thead>
 					<tr>						
 					<td class="headTabelaBlog2">data da postagem</td>

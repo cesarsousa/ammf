@@ -2,6 +2,7 @@ package br.com.ammf.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class Resenha implements Serializable {
 	private String descricao;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar postagem = Calendar.getInstance();	
+	private Date postagem = new Date();	
 	
 	public long getId() {
 		return id;
@@ -76,11 +77,11 @@ public class Resenha implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Calendar getPostagem() {
+	public Date getPostagem() {
 		return postagem;
 	}
 
-	public void setPostagem(Calendar postagem) {
+	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
 	}
 

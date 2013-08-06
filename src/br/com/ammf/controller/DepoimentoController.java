@@ -88,7 +88,7 @@ public class DepoimentoController {
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos de <b>"+ paramConsulta + "</b>");
 		result.include("flagMostrarBusca", true);		
 		result.include("isDepoimentosCadastrados", true);
-		result.include("depoimentosRequest", true);
+		if(depoimentos.size() > 0) result.include("depoimentosRequest", true);
 		result.redirectTo(this).depoimentoAdmin();
 		/*result.use(json()).withoutRoot().from(depoimentos).exclude("id").serialize();*/		
 	}

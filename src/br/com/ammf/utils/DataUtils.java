@@ -2,6 +2,7 @@ package br.com.ammf.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Classe utilitária para manipulação da datas.
@@ -15,18 +16,18 @@ public class DataUtils {
 	 * @param postagem
 	 * @return data no formato dd/MM/yyyy HH:mm:ss.
 	 */
-	public static String getFullString(Calendar postagem) {
+	public static String getFullString(Date postagem) {
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		return spf.format(postagem.getTime());
 	}
-	
-	public static String getString(Calendar postagem, String formato) {
+
+	public static String getString(Date postagem, String formato) {
 		SimpleDateFormat spf = new SimpleDateFormat(formato);
 		return spf.format(postagem.getTime());
 	}
 	
-	public static Calendar getNow(){
-		return Calendar.getInstance();
+	public static Date getDateNow(){
+		return new Date();
 	}
 	
 	public static int getAnoCorrente(){

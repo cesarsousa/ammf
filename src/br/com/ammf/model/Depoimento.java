@@ -2,6 +2,7 @@ package br.com.ammf.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -38,7 +39,7 @@ public class Depoimento implements Serializable{
 	private String conteudo;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar postagem = Calendar.getInstance();
+	private Date postagem = new Date();
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -83,11 +84,11 @@ public class Depoimento implements Serializable{
 		this.conteudo = conteudo;
 	}
 
-	public Calendar getPostagem() {
+	public Date getPostagem() {
 		return postagem;
 	}
 
-	public void setPostagem(Calendar postagem) {
+	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
 	}
 

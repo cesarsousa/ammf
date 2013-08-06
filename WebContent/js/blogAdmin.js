@@ -91,7 +91,7 @@ $(document).ready(function() {
 	$('#blogAreaBusca').hide();	
 	$('#btEdtTextoBlog').click(function(){
 		hideAllBlogFields();
-		var texto = "Titulo do texto";
+		var texto = "Digite parte do título do texto e pressione a tecla ENTER";
 		$('#campoBuscaTxtEdtBlog').puts(texto);
 		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
 		$('#blogAreaBusca').slideDown(500);		
@@ -170,13 +170,12 @@ $(document).ready(function() {
 				for(var i = 0; i< json.length; i++){
 					var nome = json[i].titulo;
 					nome = nome.replace($('#campoBuscaTxtEdtBlog').val(),"<b>" + $('#campoBuscaTxtEdtBlog').val() + "</b>");
-					var conteudo = 	json[i].conteudo.substring(0, 50);		
-					var dataCadastro = getDataFormatada(json[i].postagem.time);
+					var conteudo = 	json[i].conteudo.substring(0, 50);					
 					var linkRemover = $('#contexto').val() + "/blog/remover/" + json[i].uuid;
 					
 					$('#tabEdtTextoBlog').append(
 						'<tr class="zebrado">' +
-						'<td class="headTabelaBlog2Info">' + dataCadastro + '</td>' +
+						'<td class="headTabelaBlog2Info">' + json[i].postagem.$ + '</td>' +
 						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
 						'<td>' +

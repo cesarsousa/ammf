@@ -2,6 +2,7 @@ package br.com.ammf.service.imp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -76,7 +77,7 @@ public class IndexServiceImp implements IndexService{
 		texto.setConfirmado(true);
 		texto.setConteudo("Texto nao disponibilizado.");
 		texto.setLocal(local);
-		texto.setPostagem(Calendar.getInstance());
+		texto.setPostagem(new Date());
 		texto.setTitulo(local.toString());
 		texto.setUuid(UUID.randomUUID().toString());
 		textoRepository.cadastrar(texto);

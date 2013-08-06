@@ -60,7 +60,7 @@ function visualizarTextoBlog(uuid){
 		data:{"uuid" : uuid},
 		success : function(json){		
 			
-			$('#textoblogData').html('').append("postado em " + getDataFormatada(json.postagem.time));
+			$('#textoblogData').html('').append("postado em " + json.postagem.$);
 			$('#textoblogTitulo').html('').append(json.titulo);
 			
 			$('#textoblogConteudo').html('');

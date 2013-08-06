@@ -54,7 +54,7 @@ public class BlogController {
 			boolean validado = validacaoService.blog(texto, result);		
 			if(validado){
 				texto.setLocal(Local.BLOG);
-				texto.setPostagem(DataUtils.getNow());		
+				texto.setPostagem(DataUtils.getDateNow());		
 				textoRepository.cadastrar(texto);
 				emailService.notificarPessoas(Notificacao.TEXTO_NOVO, texto);
 				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
@@ -144,6 +144,7 @@ public class BlogController {
 	@Get("/blog/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		Texto texto = textoRepository.obterPor(uuid);
+		System.out.println("data: " + texto.getDataFormatada());
 		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
 		result.include("emailRequest", true);
 		result.redirectTo(this).blogCliente(true, texto);		

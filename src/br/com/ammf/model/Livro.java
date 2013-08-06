@@ -3,6 +3,7 @@ package br.com.ammf.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -43,11 +44,8 @@ public class Livro implements Serializable {
 	private String idioma;
 	private String codigoBarra;
 	private BigDecimal preco;
-	private Calendar postagem;
-	
-	@Transient
-	private long timePostagem;
-	
+	private Date postagem;
+		
 	private String linkVenda;
 	
 	public long getId() {
@@ -147,11 +145,11 @@ public class Livro implements Serializable {
 		this.preco = preco;
 	}
 	
-	public Calendar getPostagem() {
+	public Date getPostagem() {
 		return postagem;
 	}
 	
-	public void setPostagem(Calendar postagem) {
+	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
 	}
 	
@@ -162,15 +160,7 @@ public class Livro implements Serializable {
 	public void setLinkVenda(String linkVenda) {
 		this.linkVenda = linkVenda;
 	}
-	
-	public long getTimePostagem() {
-		return timePostagem;
-	}
-	
-	public void setTimePostagem(long timePostagem) {
-		this.timePostagem = timePostagem;
-	}
-	
+		
 	public String getDataFormatada(){
 		return DataUtils.getString(postagem, "dd/MM/yyyy");
 	}

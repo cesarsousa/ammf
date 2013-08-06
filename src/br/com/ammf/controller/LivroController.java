@@ -1,6 +1,8 @@
 package br.com.ammf.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
@@ -41,8 +43,7 @@ public class LivroController {
 			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
 			if(validado){			
-				livro.setPostagem(DataUtils.getNow());
-				livro.setTimePostagem(livro.getPostagem().getTimeInMillis());
+				livro.setPostagem(DataUtils.getDateNow());
 				if(imagemLivro != null){
 					imagemService.salvarFotoLivro(imagemLivro, livro);
 				}
@@ -62,7 +63,7 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/atualizar")
-	public void atualizarLivro(UploadedFile imagemLivro, Livro livro){ 
+	public void atualizarLivro(UploadedFile imagemLivro, String dataPostagem, Livro livro){ 
 		try {
 			
 			boolean validado = validacaoService.atualizarLivro(imagemLivro, livro, result);
@@ -73,6 +74,9 @@ public class LivroController {
 				}*/
 				
 				
+				
+				Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
+				livro.setPostagem(postagem);
 				livroRepository.atualizar(livro);
 				
 				// notificar clientes cliente e adm.
@@ -94,7 +98,7 @@ public class LivroController {
 		result.include("livrosSolicitados", livrosSolicitados);
 		result.include("flagBuscarLivro", true);
 		result.include("labelResultadoConsultaLivro", "Total de " + livrosSolicitados.size() + " ocorr&ecirc;ncia(s) para a pesquisa '" + param + "'");
-		if(livrosSolicitados.size() == 0) result.include("buscaSemResultado", "sem ocorr&ecirc;ncias para a pesquisa '" + param + "'");
+		if(livrosSolicitados.size() == 0) result.include("buscaSemResultado", "0 ocorr&ecirc;ncias para a pesquisa <b>'" + param + "'</b>");
 		result.redirectTo(LojaController.class).lojaAdmin();
 	}
 	
@@ -102,6 +106,7 @@ public class LivroController {
 	@Get("/livro/adm/listar")
 	public void listarTodos(){
 		List<Livro> livrosSolicitados = livroRepository.listar();
+		result.include("listagemLivros", true);
 		result.include("livrosSolicitados", livrosSolicitados);
 		result.redirectTo(LojaController.class).lojaAdmin();
 	}

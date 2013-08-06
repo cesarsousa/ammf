@@ -14,7 +14,8 @@ $(document).ready(function() {
 		$('#tabPessoasSolicitadas').slideUp(500);
 		$('#tabCadastrarPessoa').slideUp(500);
 		$('#tabBuscaPessoa').slideDown(500);
-		$('#campoBusca').puts("Digite o nome ou o codigo da pessoa");
+		var texto = "Digite parte do nome ou código da pessoa e pressione a tecla ENTER";
+		$('#campoBusca').puts(texto);
 		addRemoveDestaque("#campoBusca");
 	});	
 	
@@ -34,7 +35,7 @@ $(document).ready(function() {
 					var email = json[i].email;
 					email = email.replace($('#campoBusca').val(),"<b>" + $('#campoBusca').val() + "</b>");
 					
-					var dataCadastro = getDataFormatada(json[i].dataCadastro.time);
+					
 					var urlRemover = $('#contexto').val() + "/pessoa/remover/" + json[i].uuid;
 					var urlConfirmar = $('#contexto').val() + "/pessoa/confirmar/" + json[i].uuid;
 					var linkConfirmar = json[i].status == "PENDENTE" ? '<a href="'+ urlConfirmar + '"><img class="ponteiro" alt="confirmar" src="../image/icone_confirmar.png" width="20px" height="20px" title="confirmar"></a>' : '<img alt="confirmado" src="../image/iconeConfirmarDisabled.png" width="20px" height="20px" title="confirmado">';
@@ -44,7 +45,7 @@ $(document).ready(function() {
 						'<td class="infoTabela">' +  json[i].id + '</td>' +
 						'<td class="infoTabela">' + nome + '</td>' +
 						'<td class="infoTabela">' + email + '</td>' +
-						'<td class="infoTabela">' + dataCadastro + '</td>' +
+						'<td class="infoTabela">' + json[i].dataCadastro.$ + '</td>' +
 						'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
 						'<td class="infoTabela">' + json[i].situacao + '</td>' +
 						'<td align="center">' + linkConfirmar + '<a href="'+ urlRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="remover"></a></td>' +
@@ -54,9 +55,9 @@ $(document).ready(function() {
 				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown(1000);
 				
 				var textoBuscado = $('#campoBusca').val();
-				$('#campoBusca').attr("value", "").focus();
+				$('#campoBusca').attr("value", "");
 				
-				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrencia(s) para a pesquisa: ' + textoBuscado);
+				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrencia(s) para a pesquisa: <b>' + textoBuscado + '</b>');
 								
 			},
 			error : function(){

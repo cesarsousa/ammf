@@ -80,11 +80,15 @@
 	<td colspan="5" align="center" valign="middle"><p class="info azulClaro">Busca de depoimentos pelo nome ou email</p></td>	
 </tr>
 <tr>
-	<td colspan="5">
-		<div align="center">
+	<td colspan="5" style="padding: 20px;">
+		<div align="left">
 		<input id="flagMostrarBusca" type="hidden" value="${flagMostrarBusca}">
 		<form id="formBuscaDepoimento" action="<c:url value="/menu/busca/depoimento" />" method="get">
-				<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa areaTitulo3 bordaPadrao"/>
+		
+		<div align="center">
+		<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
+		</div>
+		
 		</form>
 		</div>
 	</td>

@@ -74,10 +74,12 @@
 	<tr>		
 		<td style="padding: 10px;">
 		<form id="formBuscaPessoa">
-		<input id="campoBusca" type="text" class="fundoLupa areaTitulo3 bordaPadrao"/>
+		<div align="center">
+		<input id="campoBusca" type="text" class="fundoLupa w500px bordaPadrao"/>
+		</div>
 		</form>
-		<p>
-		<label id="labelResultadoConsulta"></label>		
+		<p align="center">
+		<label class="info azulClaro" id="labelResultadoConsulta"></label>		
 		</p>			
 		</td>		
 	</tr>

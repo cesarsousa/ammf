@@ -1,6 +1,7 @@
 package br.com.ammf.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import br.com.ammf.utils.DataUtils;
 
@@ -14,9 +15,9 @@ import br.com.ammf.utils.DataUtils;
 public class Titulo {
 	
 	private String descricao;
-	private Calendar data;
+	private Date data;
 	private String uuid;
-	public Titulo(String descricao, Calendar data, String uuid) {
+	public Titulo(String descricao, Date data, String uuid) {
 		this.descricao = descricao;
 		this.data = data;
 		this.uuid = uuid;

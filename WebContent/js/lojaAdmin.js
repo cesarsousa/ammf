@@ -107,9 +107,15 @@ function configurarCamposAtualizaLivro(){
 	addRemoveDestaque('#livroAtualizaLinkVenda');	
 }
 
+function configurarCamposBuscaLivro(){
+	var texto = "Digite parte do nome do autor ou o título do livro e pressione a tecla ENTER";
+	$('#campoBuscaLivro').puts(texto);
+}
+
 $(document).ready(function() {
 	configurarCamposAddLivro();
 	configurarCamposAtualizaLivro();
+	configurarCamposBuscaLivro();
 	
 	$('#telaAguardeAdmCadastroLivro').hide();
 	$('#tabIconesLivros, #tabBuscaLivro, #tabCadastrarLivro').hide();
@@ -157,7 +163,7 @@ $(document).ready(function() {
 	}
 	$('#abrirBuscarEditarLivro').click(function(){
 		fecharAreasDeLivros();
-		fecharMsgLojaAdmin();
+		fecharMsgLojaAdmin();	
 		$('#tabBuscaLivro').slideDown(500);		
 	});
 	$('#btFecharBuscaLivro').click(function(){
@@ -167,7 +173,6 @@ $(document).ready(function() {
 	$('#btFecharLivrosSolicitados').click(function(){
 		$('#tabLivrosSolicitadas').slideUp(500);		
 	});
-	
 	
 	$('#btFecharAtualizarLivro').click(function(){
 		$('#tabAtualizarLivro').slideUp(500);		

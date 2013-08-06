@@ -107,16 +107,16 @@
 	</tr>
 	<tr>		
 		<td style="padding: 10px;">
-		<span class="info azulClaro">Digite o nome do autor ou do t&iacute;tulo do livro e pressione a tecla <code>ENTER</code> para realizar a consulta.</span>
-		
-		
 		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
-			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa areaTitulo3 bordaPadrao w100"/>
+			
+			<div align="center">
+			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa w500px bordaPadrao"/>
+			</div>
 		</form>
 		
 		<c:if test="${not empty buscaSemResultado}">
 		<div align="center">		
-		<span class="titulo">${buscaSemResultado}</span>
+		<span class="info azulClaro">${buscaSemResultado}</span>
 		</div>
 		</c:if>
 						
@@ -269,6 +269,17 @@
 </table>
 
 <!--  LIVROS SOLICITADOS tabLivrosSolicitadas -->
+<c:if test="${not empty listagemLivros and empty livrosSolicitados}">
+<table id="tabLivrosSolicitadas" class="superFooter bordaLateral">
+	<tr>
+		<td>
+		<div align="center">
+		<h2>N&atilde;o existem livro cadastrados</h2>
+		</div>
+		</td>
+	</tr>
+</table>
+</c:if>
 <c:if test="${not empty livrosSolicitados}">
 <table id="tabLivrosSolicitadas" class="superFooter bordaLateral">
 	<tr>
@@ -366,9 +377,8 @@
 			</p>	
 			
 			<form id="formAtualizaLivro" action="<c:url value="/livro/adm/atualizar"/>" enctype="multipart/form-data" method="post">
-				<input type="hidden" name="ctxImagemLivro" value="${imagem}">
 				<input type="hidden" name="livro.uuid" value="${livro.uuid}">
-				<input type="hidden" name="livro.timePostagem" value="${livro.timePostagem}">		
+				<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${livro.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">		
 				
 				<div class="cartao campoObrigatorio">
 					<div class="paddingPadrao">				
@@ -432,12 +442,13 @@
 						</span>
 					</p>
 					
-					<div class="paddingPadrao bordaPadrao">
+					<div class="paddingPadrao bordaPadrao">						
 						<img src="${imagemLivro}${livro.nomeImagem}" class="fotoLivro">
 						<p>
 						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
 						</p>
 						<div id="divUploadNovaFotoLivro">
+							<input type="hidden" name="livro.nomeImagem" value="${livro.nomeImagem}"/>
 							<input id="inputNovaImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
 						<input id="btRemoverUploadNovaFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
@@ -508,9 +519,9 @@
 	<div align="center">
 		
 		<h2>Cadastro de Livro</h2>    
-		<span class="info azulClaro" >Cadastro de livro. </span>
+		<span class="info azulClaro" >Cadastro de livro</span>
 								
-		<h3 class="paddingTelaAguarde">cadastrando livro.</h3>
+		<h3 class="paddingTelaAguarde">cadastrando livro</h3>
 		
 		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
 		<br />
