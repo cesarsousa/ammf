@@ -6,16 +6,13 @@
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${blogMensagemSucesso} 
 	</div>
-	<!-- <div id="separador"></div> -->
 </c:if>
 
 <c:if test="${not empty blogMensagemErro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		${blogMensagemErro} 
 	</div>
-	<!-- <div id="separador"></div> -->
 </c:if>
-
 <c:if test="${blogErroCadastro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
@@ -103,7 +100,6 @@
 			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
 			</p> 
 		</form>			
-		
 		</td>
 	</tr>		
 </table>
@@ -116,7 +112,7 @@
 		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
 		</div>
 		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Editar Texto</h2>		
+		<h2 align="center">Buscar Texto</h2>		
 		
 		<form id="formBlogBuscaTexto">
 		<div align="center">

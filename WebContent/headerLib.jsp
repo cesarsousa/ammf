@@ -38,6 +38,8 @@
 <script type="text/javascript" src="${javascript}/assinaturaEmail.js"></script>
 <script type="text/javascript" src="${javascript}/lojaCliente.js"></script>
 <script type="text/javascript" src="${javascript}/lojaAdmin.js"></script>
+<script type="text/javascript" src="${javascript}/resenhaAdmin.js"></script>
+
 
 
 </head>

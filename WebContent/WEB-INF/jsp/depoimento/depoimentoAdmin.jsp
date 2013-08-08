@@ -94,7 +94,7 @@
 	</td>
 </tr>
 <tr>	
-	<td colspan="5" align="center" valign="middle"><p id="labelResultadoConsulta" class="info">${labelResultadoConsulta}</p></td>	
+	<td colspan="5" align="center" valign="middle" style="padding-bottom: 10px;"><p id="labelResultadoConsulta" class="info azulClaro">${labelResultadoConsulta}</p></td>	
 </tr>
 </thead>
 </table>

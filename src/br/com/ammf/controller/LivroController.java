@@ -18,7 +18,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @Resource
-public class LivroController {
+public class LivroController {	
 
 	private Result result;
 	private ValidacaoService validacaoService;
@@ -63,18 +63,15 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/atualizar")
-	public void atualizarLivro(UploadedFile imagemLivro, String dataPostagem, Livro livro){ 
+	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro){ 
 		try {
 			
-			boolean validado = validacaoService.atualizarLivro(imagemLivro, livro, result);
+			boolean validado = validacaoService.atualizarLivro(novaImagemLivro, livro, result);
 			
 			if(validado){
-				/*if(imagemLivro != null){
-					imagemService.salvarFotoLivro(imagemLivro, livro);
-				}*/
-				
-				
-				
+				if(novaImagemLivro != null){
+					imagemService.atualizarFotoLivro(novaImagemLivro, livro);
+				}				
 				Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
 				livro.setPostagem(postagem);
 				livroRepository.atualizar(livro);

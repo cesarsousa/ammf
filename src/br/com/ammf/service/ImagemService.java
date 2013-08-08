@@ -10,4 +10,7 @@ public interface ImagemService {
 
 	void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
 
+	void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception; // TODO trocar por arquivo excception
+
+	void removerFoto(String caminhoDaImagem) throws Exception;
 }

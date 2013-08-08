@@ -52,7 +52,8 @@
 			<td>
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">
-			<h2 align="center">INDEX</h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina inicial do site </h2>
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<div class="tamanhoDefault">
@@ -99,7 +100,8 @@
 			<td>
 			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoQuiron" type="button" class="backVermelho button direita" value="fechar">
-			<h2 align="center">QUIRON</h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
 			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
 								
 				<h3>Texto:</h3>
@@ -146,7 +148,8 @@
 			<td>			
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="backVermelho button direita" value="fechar">
-			<h2 align="center">CONFIGURA&Ccedil;&Atilde;O DA CONTA</h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
 				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
@@ -301,7 +304,7 @@
 			<td>
 			<div id="edicaoPsicologia" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharEditarPsicologia" type="button" class="backVermelho button direita" value="fechar">
-						
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">			
 			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">			
 			
 				<table class="tamanhoDefault">
@@ -343,6 +346,7 @@
 			<td>
 			<div id="edicaoEducacao" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharEditarEducacao" type="button" class="backVermelho button direita" value="fechar">
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/educacao/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">
@@ -381,6 +385,7 @@
 			<td>
 			<div id="edicaoCultura" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharEditarCultura" type="button" class="backVermelho button direita" value="fechar">
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/cultura/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">
@@ -419,6 +424,7 @@
 			<td>
 			<div id="edicaoArtesOrientais" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/artesorientais/atualizar" />" method="post" class="paddingPadrao">
 				
 				<div class="tamanhoDefault">
@@ -457,13 +463,13 @@
 				</li>
 				
 				<li>
-				<form action="<c:url value="/blog/editar" />" method="get">
+				<form action="<c:url value="/menu/blog" />" method="get">
 				<input type="submit" value="Blog" class="buttonFooter">
 				</form>
 				</li>
 				
 				<li>
-				<form action="<c:url value="/resenha/editar" />" method="get">
+				<form action="<c:url value="/menu/resenha" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
 				</li>

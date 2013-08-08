@@ -17,8 +17,8 @@ public class ResenhaController {
 	}
 	
 	
-	@Get("/resenha/editar")
-	public void editarResenha(){}
+	@Get("/menu/resenha")
+	public void resenhaAdmin(){}
 	
 	
 	

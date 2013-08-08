@@ -365,7 +365,7 @@
 			<div align="right">
 				<input id="btFecharAtualizarLivro" type="button" value="fechar" class="backVermelho button">
 			</div>	
-			<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<h2 align="center">Atualizar Livro</h2>
 			</td>		
 		</tr>
@@ -449,7 +449,7 @@
 						</p>
 						<div id="divUploadNovaFotoLivro">
 							<input type="hidden" name="livro.nomeImagem" value="${livro.nomeImagem}"/>
-							<input id="inputNovaImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
 						<input id="btRemoverUploadNovaFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
 					</div>			
@@ -499,7 +499,7 @@
 					</div>					
 							
 					<div class="paddingPadrao">
-					<input name="btnAtualizarLivro" type="button" value="Atualizar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
+					<input name="btnAtualizarLivro" type="button" value="Atualizar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.novaImagemLivro.value)"/>
 					</div>
 				</div>			
 			</form>

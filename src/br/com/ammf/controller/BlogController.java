@@ -44,7 +44,7 @@ public class BlogController {
 	}
 	
 	@Restrito
-	@Get("/blog/editar")
+	@Get("/menu/blog")
 	public void blogAdmin(){}
 	
 	@Restrito
