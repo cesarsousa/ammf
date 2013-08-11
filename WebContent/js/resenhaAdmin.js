@@ -30,7 +30,7 @@
 }*/
 
 function hideAllResenhaFields(){
-	$('#tabNovaResenha, #divResenhaBuscarTexto, #telaAguardeAdmResenhaCadastrar').hide();
+	$('#tabNovaResenha, #divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar').hide();
 }
 
 function visualizarTextoParaEdicao(uuid){	
@@ -54,7 +54,9 @@ function visualizarTextoParaEdicao(uuid){
 
 $(document).ready(function() {
 	
-	addRemoveDestaque("");
+	addRemoveDestaque("#resenhaTitulo");
+	addRemoveDestaque("#resenhaAutor");
+	addRemoveDestaque("#textoDescricaoResenha");
 	addRemoveDestaque("#campoBuscaTxtResenha");
 	$('').autoResize();
 	
@@ -68,27 +70,27 @@ $(document).ready(function() {
 		$('#tabNovaResenha').slideDown(500);
 	}
 	$('#btAddNovaResenha').click(function() {
-		hideAllBlogFields();
+		hideAllResenhaFields();
 		$('#tabNovaResenha').slideDown(500);		
 	});
 	$('#btFecharAddResenha').click(function() {
 		$('#tabNovaResenha').slideUp(500);		
 	});	
 
-	/*$('#btBlogCancelNovoTexto').click(function(){
+	$('#btCancelarResenha').click(function(){
 		$('#blogTituloNovoTexto').val('');
 		$('#blogConteudoNovoTexto').val('');
 		$('#blogAutorNovoTexto').val('Alcindo Miguel Martins Filho');
-		$('#divBlogNovoTexto').slideUp(500);		
-	});*/
-	
-	$('#btCadBlogTexto, #btCadEdtTexto').click(function() {		
-		abrirJanelaDeEspera("#divPgBlogAdmin", "#telaAguardeAdmBlogCadastrar");	
+		$('#tabNovaResenha').slideUp(500);		
 	});
+	
+	/*$('#btCadBlogTexto, #btCadEdtTexto').click(function() {		
+		abrirJanelaDeEspera("#divPgBlogAdmin", "#telaAguardeAdmBlogCadastrar");	
+	});*/
 	
 	$('#divResenhaBuscarTexto').hide();	
 	$('#btBuscarResenha').click(function(){
-		hideAllBlogFields();
+		hideAllResenhaFields();
 		var texto = "Digite parte do título da resenha e pressione a tecla ENTER";
 		$('#campoBuscaTxtResenha').puts(texto);
 		$('#labelBuscaResenha').html('');
@@ -101,43 +103,35 @@ $(document).ready(function() {
 		//$('#resultBuscaTxtBlog').slideUp(500);
 		//$('#divBlogEditarTexto').slideUp(500);
 	}); //continuar daki
-	$('#btFecharEdtEdtTextoBlog').click(function() {
-		$('#divBlogEditarTexto').slideUp(500);		
-	});
-	
-	$('#btBlogCancelEdtTexto').click(function(){		
-		$('#divBlogEditarTexto').slideUp(500);		
-	});
-	
-	$('#btBlogExcluirEdtTexto').click(function(){
+		
+	/*$('#btBlogExcluirEdtTexto').click(function(){
 		if(confirmarExclusao()){
 			var action = $('#contexto').val() + "/blog/remover/" + $('#blogEdtUuidTexto').val();
 			$('#formBtBlogExcluirEdtTexto').attr('action', action);
 			$('#formBtBlogExcluirEdtTexto').submit();
 		}
+	});*/
+	
+	$('#btListarResenhas').click(function(){
+		$('#formResenhasListarTodas').submit();
+	});
+	$('#btResenhaFecharTextos').click(function(){		
+		$('#tabListagemResenhas').slideUp(500);
 	});
 	
-	$('#btListarTextosBlog').click(function(){
-		hideAllBlogFields();
-		$('#formBlogListarTodos').submit();
-	});
-	$('#btBlogFecharTextos').click(function(){		
-		$('#divEditarBlogTodosTextos').slideUp(500);
-	});
 	
 	
-	
-	$('#formBlogEditarTexto').submit(function(event){		
+	/*$('#formBlogEditarTexto').submit(function(event){		
 		if($('#blogEdtTituloTexto').val()== "" || $('#blogEdtAutorTexto').val()== "" || $('#blogEdtConteudoTexto').val()== ""){
 			event.preventDefault();
 			alert("Por favor digite o titulo, autor e o conteudo do texto antes de confirmar atualizacao !");
 		}		
-	});	
+	});	*/
 	
-	$('#sizeSmallBlogNovo, #sizeMediumBlogNovo, #sizeLargeBlogNovo, #sizeXLargeBlogNovo, #sizeXxLargeBlogNovo').click(function(){
+	$('#sizeSmallResenha, #sizeMediumResenha, #sizeLargeResenha, #sizeXLargeResenha, #sizeXxLargeResenha').click(function(){
 		var idOrigem = this.id;
-		var origem = idOrigem.replace("BlogNovo","");
-		alterarTamanhoTexto(origem, '#blogConteudoNovoTexto');			
+		var origem = idOrigem.replace("Resenha","");
+		alterarTamanhoTexto(origem, '#textoDescricaoResenha');			
 	});
 	$('#sizeSmallAreaBlogNovo, #sizeMediumAreaBlogNovo, #sizeLargeAreaBlogNovo, #sizeXLargeAreaBlogNovo, #sizeXxLargeAreaBlogNovo').click(function(){
 		var idOrigem = this.id;
@@ -156,7 +150,7 @@ $(document).ready(function() {
 		alterarTamanhoAreaTexto(origem, '#blogEdtConteudoTexto');
 	});
 	
-	$('#formBlogBuscaTexto').submit(function(event){
+	/*$('#formBlogBuscaTexto').submit(function(event){
 		event.preventDefault();
 		$('#resultBuscaTxtBlog').slideUp(500);
 		$.ajax({
@@ -196,5 +190,5 @@ $(document).ready(function() {
 			}
 		});	
 		
-	});	
+	});	*/
 });

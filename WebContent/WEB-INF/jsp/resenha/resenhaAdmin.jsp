@@ -43,17 +43,14 @@
 		<img id="btBuscarResenha" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
+		<img id="btListarResenhas" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li>	
 </ul>
 </td>
 </tr>
 </table>
 </div>
-
-<!-- submit via javascript -->
-<%-- <form id="formBlogListarTodos" action="<c:url value="/blog/listar" />" method="get"></form>
- --%>
+ 
 <div class="separador"></div>
 
 <!-- ADICIONAR UMA NOVA RESENHA -->
@@ -71,24 +68,20 @@
 			<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post" class="paddingPadrao">				
 								
 				<h3>T&iacute;tulo :</h3>
-				<input id="" type="text" class="areaTitulo bordaPadrao corAzul" name="" />
+				<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 					
 				<h3>Autor :</h3>
-				<input id="" type="text" class="areaTitulo bordaPadrao" name="" />	
+				<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
 								
 				<h3>Coment&aacute;rio:</h3>
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">						
-						<span id="sizeSmallResenhaNovo" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumResenhaNovo" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeResenhaNovo" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeResenhaNovo" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeResenhaNovo" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
-				<textarea id="textoComentarioResenha" class="areaTexto bordaPadrao" rows="20" name=""></textarea>		
+				<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto:</label>
+					<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
+					<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
+					<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
+					<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
+					<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
+				</p>				
+				<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.autor}</textarea>		
 				
 				<p>
 				<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
@@ -107,11 +100,11 @@
 			<input id="btFecharEdtResenha" type="button" value="fechar" class="backVermelho button">
 			</div>
 			<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-			<h2 align="center">Buscar Resenha</h2>
+			<h2 align="center">Buscar Resenha</h2>			
 			
-			<form id="formResenhaBuscaTexto">
+			<form id="formResenhaBuscaTexto" action="<c:url value="resenha/listar"></c:url>" method="get">
 			<div align="center">
-				<input id="campoBuscaTxtResenha" type="text" class="fundoLupa w500px bordaPadrao" />
+				<input id="campoBuscaTxtResenha" type="text" name="parametro" class="fundoLupa w500px bordaPadrao" />
 				<p>
 				<span class="info azulClaro" ><label id="labelBuscaResenha"></label></span>
 				</p>
@@ -120,132 +113,57 @@
 			</td>
 		</tr>		
 	</table>
-
-<!-- RESULTADO DA BUSCA DE TEXTO PELO TITULO -->
-<div id="resultBuscaTxtBlog">	
-	<table class="tamanhoDefault">
-		<tr>
-			<td colspan="3">
-			<ul>
-			<li><span class="info azulClaro" >Clique no t&iacute;tulo do texto para editar</span></li>
-			</ul>
-			</td>			
-		</tr>
-		<tr>
-			<td>
-			<div class="cartao" >							
-				<table width="100%">
-					<thead>
-						<tr>						
-						<td class="headTabelaBlog2">data da postagem</td>
-						<td class="headTabelaBlog1">t&iacute;tulo</td>
-						<td class="headTabelaBlog1">Conte&uacute;do</td>
-						<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
-						</tr>
-					</thead>
-						
-					<tbody id="tabEdtTextoBlog">						
-					</tbody>
-					
-				</table>				
-			</div>
-			</td>
-		</tr>
-		<tr>
-		<td class="paddingPadrao"><div class="separador"></div></td>
-		</tr>
-	</table>
-</div>
-
-<!-- EDITAR UM TEXTO -->
-<a name="editarTextoBlog"></a>
-<div id="divBlogEditarTexto">	
-	<table class="tamanhoDefault">
-		<tr>
-		<td><label class="h1">Editar Texto</label></td>
-		</tr>
-		<tr>
-			<td>
-			
-			<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post" class="paddingPadrao">
-				<div class="cartao tamanhoEdicaoIndex" >
-				<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
-								
-				<h3>T&iacute;tulo :</h3>
-				<input id="blogEdtTituloTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
-					
-				<h3>Autor :</h3>
-				<input id="blogEdtAutorTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor"/>	
-								
-				<h3>Texto:</h3>
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">						
-						<span id="sizeSmallBlogEdit" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumBlogEdit" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeBlogEdit" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeBlogEdit" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeBlogEdit" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
-				<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
-				
-				<p>
-				<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
-				<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
-				<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
-				</p>
-				
-				</div>
-			</form>
-			<form id="formBtBlogExcluirEdtTexto" method="get"></form>			
-			</td>
-		</tr>
-		<tr>
-		<td class="paddingPadrao"><div class="separador"></div></td>
-		</tr>
-	</table>
-</div>
 	
 </div> <!-- div center -->
 
 <!-- LISTAR TODOS OS TEXTOS -->
-<input id="flagAdmBlogListar" type="hidden" value="${flagAdmBlogListar}" />
-<c:if test="${not empty textosBlog}">
-<div id="divEditarBlogTodosTextos">
-<div align="center">
-<table class="tamanhoDefault">
+<!-- submit via javascript -->
+<form id="formResenhasListarTodas" action="<c:url value="/resenha/listar" />" method="get"></form>
+<table id="tabListagemResenhas" class="fullSize">	
 	<tr>
-		<td><label class="h1">Listar todos os textos</label></td>
+	<td>
+	<div align="right">		
+	<input id="btResenhaFecharTextos" type="button" value="fechar" class="backVermelho button">
+	</div>
+	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
+	<c:if test="${empty resenhas}">
+	<h3 align="center">N&atilde;o existem resenhas cadastrados</h3>
+	</c:if>
+	<c:if test="${not empty resenhas}">
+	<h3 align="center">Resenhas Cadastradas.</h3>
+	<table class="display dataTable cardViewText superFooter bordaLateral">
+		<thead align="left">
+			<tr>
+				<th class="metadado">Autor</th>
+				<th class="metadado">T&iacute;tulo</th>
+				<th class="metadado">Texto</th>
+				<th class="metadado" style="width: 160px;">Postagem</th>
+				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
+			</tr>
+		</thead>
+		<tbody>
+	 		<c:forEach items="${resenhas}" var="resenha">
+				<tr class="zebrado">
+					<td class="infoTabela">${resenha.autor}</td>
+					<td class="infoTabela metadado">${resenha.titulo}</td>
+					<td class="infoTabela">
+						<c:set var="origem"	value="${resenha.conteudo}"/>
+						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+					<td class="infoTabela" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
+					<td class="infoTabelaData" style="width: 80px;">
+						<a href="<c:url value="/resenha/editar/${texto.uuid}" />" >
+							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
+						<a href="<c:url value="/resenha/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" >
+							<img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+						</td>
+				</tr>			
+			</c:forEach>		
+		</tbody>			
+	</table>
+	</c:if>	
+	</td>
 	</tr>
 </table>
-</div>
-<table class="display" id="example">
-	<thead align="left">
-		<tr>
-			<th class="metadado">Autor</th>
-			<th class="metadado">T&iacute;tulo</th>
-			<th class="metadado">Texto</th>
-			<th class="metadado">Postagem</th>			
-		</tr>
-	</thead>
-	<tbody>
- 		<c:forEach items="${textosBlog}" var="texto">
-			<tr class="zebrado">
-				<td class="infoTabela">${texto.autor}</td>
-				<td class="infoTabela metadado ponteiro">
-				<a class="infoTabela metadado" href="#editarTextoBlog" href="#lerTexto" onclick="visualizarTextoParaEdicao('${texto.uuid}')">${texto.titulo}</a>
-				<td class="infoTabela">
-					<c:set var="origem"	value="${texto.conteudo}"/>
-					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
-			</tr>			
-		</c:forEach>		
-	</tbody>	
-</table>
-</div>
-</c:if>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
