@@ -66,7 +66,12 @@ $(document).ready(function() {
 		$('#divEditarBlogTodosTextos').show();
 	}*/
 	
-	if($('#flagCadastrarResenhaVazia').val()){
+	
+	$('#btCadastrarResenha').click(function() {
+		abrirJanelaDeEspera("#divPgResenhaAdm", "#telaAguardeAdmResenhaCadastrar");
+	});	
+	
+	if($('#resenhaErroCadastro').val()){
 		$('#tabNovaResenha').slideDown(500);
 	}
 	$('#btAddNovaResenha').click(function() {

@@ -12,15 +12,16 @@
 		${resenhaMensagemErro} 
 	</div>
 </c:if>
-<c:if test="${resenhaErroCadastro}">
+<c:if test="${not empty resenhaErroCadastro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
-	${a}${b}${c}</div>
+	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}</div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
+<div id="divPgResenhaAdm">
 <div align="center">
 
 <h2>RESENHA</h2>
@@ -54,7 +55,7 @@
 <div class="separador"></div>
 
 <!-- ADICIONAR UMA NOVA RESENHA -->
-<input id="flagCadastrarResenhaVazia" type="hidden" value="${flagCadastrarResenhaVazia}" >
+<input id="resenhaErroCadastro" type="hidden" value="${resenhaErroCadastro}" >
 	
 	<table id="tabNovaResenha" class="cardViewText">		
 		<tr>
@@ -65,13 +66,13 @@
 			<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 			<h2 align="center">Nova Resenha</h2>
 			
-			<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post" class="paddingPadrao">				
+			<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post">				
 								
 				<h3>T&iacute;tulo :</h3>
-				<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
+				<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao${comErroTitulo} corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 					
 				<h3>Autor :</h3>
-				<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
+				<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao${comErroAutor}" name="resenha.autor" value="${resenha.autor}"/>	
 								
 				<h3>Coment&aacute;rio:</h3>
 				<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto:</label>
@@ -81,7 +82,7 @@
 					<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
 					<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 				</p>				
-				<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.autor}</textarea>		
+				<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao${comErroDescricao}" rows="20" name="resenha.descricao">${resenha.autor}</textarea>		
 				
 				<p>
 				<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
@@ -164,6 +165,21 @@
 	</td>
 	</tr>
 </table>
+</div>
+
+<div id="telaAguardeAdmResenhaCadastrar">
+	<div align="center">
+		
+		<h2>BLOG</h2>    
+		<span class="info azulClaro" >Novo texto sendo cadastrado.</span>
+								
+		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
+		
+		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		<br />
+		<br />			
+	</div>
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

@@ -4,6 +4,7 @@ import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.caelum.vraptor.Result;
@@ -25,6 +26,8 @@ public interface ValidacaoService {
 
 	boolean cadastrarLivro(UploadedFile imagemLivro, Livro livro, Result result);
 
-	boolean atualizarLivro(UploadedFile imagemLivro, Livro livro, Result result);	
+	boolean atualizarLivro(UploadedFile imagemLivro, Livro livro, Result result);
+
+	boolean novaResenha(Resenha resenha, Result result);	
 
 }

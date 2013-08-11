@@ -6,6 +6,7 @@ import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
@@ -285,7 +286,35 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			}
 		}
 		return validado;
-	}	
+	}
+	
+	@Override
+	public boolean novaResenha(Resenha resenha, Result result) {
+		boolean validado = true;
+		
+		if(resenha.getAutor() == null || resenha.getAutor().isEmpty()){
+			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
+			result.include("comErroAutor", "Erro");
+			validado = false;
+		}
+		
+		if(resenha.getTitulo() == null || resenha.getTitulo().isEmpty()){
+			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
+			result.include("comErroTitulo", "Erro");
+			validado = false;
+		}
+		
+		if(resenha.getDescricao() == null || resenha.getDescricao().isEmpty()){
+			result.include("descricaoEmBranco", "A descri&ccedil;&atilde;o deve ser informada<br/>");
+			result.include("comErroDescricao", "Erro");
+			validado = false;
+		}		
+		
+		if(!validado){
+			result.include("resenhaErroCadastro", true);			
+		}
+		return validado;
+	}
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -314,6 +343,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		result.include("comErroAno", "Erro");		
 		return false;
 	}
+
+	
 
 	
 

@@ -31,9 +31,7 @@ public class Resenha implements Serializable {
 	@Column(length=45)
 	private String uuid = UUID.randomUUID().toString();
 			
-	private String tipo;
 	
-	private String genero;
 	
 	private String autor;
 	
@@ -59,6 +57,14 @@ public class Resenha implements Serializable {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+	
+	public String getAutor() {
+		return autor;
+	}
+	
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
 	public String getTitulo() {
