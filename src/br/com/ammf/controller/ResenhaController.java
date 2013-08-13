@@ -1,9 +1,18 @@
 package br.com.ammf.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ResenhaRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -15,14 +24,17 @@ public class ResenhaController {
 	private Result result;
 	private ResenhaRepository resenhaRepository;
 	private ValidacaoService validacaoService;
+	private EmailService emailService;
 	
 	public ResenhaController(
 			Result result, 
 			ResenhaRepository resenhaRepository,
-			ValidacaoService validacaoService) {
+			ValidacaoService validacaoService,
+			EmailService emailService) {
 		this.result = result;
 		this.resenhaRepository = resenhaRepository;
 		this.validacaoService = validacaoService;
+		this.emailService = emailService;
 	}	
 	
 	@Restrito
@@ -32,11 +44,82 @@ public class ResenhaController {
 	@Restrito
 	@Post("/resenha/nova")
 	public void cadastrarResenha(Resenha resenha){
-		if(validacaoService.novaResenha(resenha, result)){
-			
-			result.include("resenhaMensagemSucesso", "Resenha adicionada com sucesso");
+		if(validacaoService.novaResenha(resenha, result)){			
+			resenhaRepository.cadastrar(resenha);
+			// TODO emailService.nova resenha
+			result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 		}
 		result.redirectTo(this).resenhaAdmin();
 	}
+	
+	@Restrito
+	@Get("/resenha/busca")
+	public void buscar(String parametro){
+		List<Texto> resenhas = resenhaRepository.listar(parametro);		
+		if(resenhas.isEmpty()){
+			result.include("flagBuscarResenhas", true);
+			result.include("resultBuscarResenhas", "Sem resultados de resenha para a pesquisa '" + parametro + "'");			
+		}else{
+			result.include("flagListarResenhas", true);
+			result.include("resenhas", resenhas);
+		}
+		
+		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Get("/resenha/listar")
+	public void listar(){
+		List<Texto> resenhas = resenhaRepository.listar();		
+		result.include("flagListarResenhas", true);
+		result.include("resenhas", resenhas);
+		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Get("/resenha/remover/{uuid}")
+	public void remover(String uuid){
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
+		resenhaRepository.deletar(resenha);
+		result.include("resenhaMensagemSucesso", "Resenha removida com sucesso");
+		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Get("/resenha/editar/{uuid}")
+	public void solicitarAtualizacao(String uuid){
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
+		result.include("resenha", resenha);
+		result.include("resenhaEditarCadastro", true);
+		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Post("/resenha/atualizar")
+	public void atualizar(String dataPostagem, Resenha resenha){
+		try {
+			if(validacaoService.atualizarResenha(resenha, result)){
+				Date postagem = DataUtils.getDate(dataPostagem);
+				resenha.setPostagem(postagem);
+				resenhaRepository.atualizar(resenha);
+				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
+			}else{
+				result.include("resenhaErroAtualizarCadastro", true);
+				result.include("resenhaEditarCadastro", true);
+			}
+			result.redirectTo(this).resenhaAdmin();
+		} catch (Exception e) {
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
+			result.redirectTo(this).resenhaAdmin();
+		}		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

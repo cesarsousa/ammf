@@ -28,6 +28,8 @@ public interface ValidacaoService {
 
 	boolean atualizarLivro(UploadedFile imagemLivro, Livro livro, Result result);
 
-	boolean novaResenha(Resenha resenha, Result result);	
+	boolean novaResenha(Resenha resenha, Result result);
+
+	boolean atualizarResenha(Resenha resenha, Result result);	
 
 }

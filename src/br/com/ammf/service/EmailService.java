@@ -4,6 +4,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 
 public interface EmailService {
@@ -14,7 +15,9 @@ public interface EmailService {
 
 	void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException;
 
-	void notificarPessoas(Notificacao notificacao, Texto textoIndex) throws EmailException;
+	void notificarTextoParaPessoas(Notificacao notificacao, Texto textoIndex) throws EmailException;
+
+	void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException;
 
 	void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException;
 

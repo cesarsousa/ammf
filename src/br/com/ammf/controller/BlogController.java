@@ -56,7 +56,7 @@ public class BlogController {
 				texto.setLocal(Local.BLOG);
 				texto.setPostagem(DataUtils.getDateNow());		
 				textoRepository.cadastrar(texto);
-				emailService.notificarPessoas(Notificacao.TEXTO_NOVO, texto);
+				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, texto);
 				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}else{
 				result.include("flagCadastrarBlogVazio", true);
@@ -111,7 +111,7 @@ public class BlogController {
 			textoOriginal.setTitulo(texto.getTitulo());
 			textoOriginal.setConteudo(texto.getConteudo());
 			textoRepository.atualizar(textoOriginal);		
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
 			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
 			result.redirectTo(this).blogAdmin();			
 		} catch (EmailException e) {

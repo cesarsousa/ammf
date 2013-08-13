@@ -862,6 +862,8 @@ a:HOVER {
 	color: gray;
 }
 
+
+
 #menu {
 	margin: 0;
 	padding: 0;
@@ -1583,6 +1585,10 @@ table.tabLivro thead  tr td{
 
 .logout {
 	background-color: red;
+}
+
+.backCinza {
+	background-color: #CCCCCC;
 }
 
 .backAzul {

@@ -6,6 +6,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
@@ -70,7 +71,7 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarPessoas(Notificacao notificacao, Texto texto) throws EmailException {
+	public void notificarTextoParaPessoas(Notificacao notificacao, Texto texto) throws EmailException {
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
 		for(Pessoa pessoa : pessoas){
 			enviarEmailNotificacaoTexto(notificacao, texto, pessoa);
@@ -124,6 +125,12 @@ public class EmailServiceImp implements EmailService {
 				mensagem.getEmail(), 
 				HtmlMensagem.getAssuntoNotificarClienteNovoContato(), 
 				HtmlMensagem.getMensagemNotificarClienteNovoContato(mensagem, administrador.getLinkedin()));		
+	}
+
+	@Override
+	public void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

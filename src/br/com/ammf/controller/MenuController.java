@@ -55,7 +55,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoIndex(texto);
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoIndex());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoQuiron(texto);
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoQuiron());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoQuiron());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Quiron atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoPsicologia(texto);
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoPsicologia());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoPsicologia());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -100,7 +100,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoEducacao(texto);
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoEducacao());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoEducacao());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -115,7 +115,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);		
 			textoRepository.atualizarTextoCultura(texto);
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoCultura());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoCultura());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -130,7 +130,7 @@ public class MenuController {
 		try {
 			validacaoService.verificarCamposPreenchidos(texto);
 			textoRepository.atualizarTextoArtesOrientais(texto);			
-			emailService.notificarPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoArtesOrientais());
+			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoArtesOrientais());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre artes orientais atualizado com sucesso");
 		} catch (EmailException e) {
 			e.printStackTrace();

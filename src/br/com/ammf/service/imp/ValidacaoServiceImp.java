@@ -311,9 +311,16 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}		
 		
 		if(!validado){
-			result.include("resenhaErroCadastro", true);			
+			result.include("resenhaErroCadastro", true);
+			result.include("resenha", resenha);
 		}
 		return validado;
+	}
+	
+	@Override
+	public boolean atualizarResenha(Resenha resenha, Result result) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -343,6 +350,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		result.include("comErroAno", "Erro");		
 		return false;
 	}
+
+	
 
 	
 

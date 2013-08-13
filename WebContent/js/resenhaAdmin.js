@@ -30,7 +30,19 @@
 }*/
 
 function hideAllResenhaFields(){
-	$('#tabNovaResenha, #divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar').hide();
+	$('#tabNovaResenha, #tabEditarResenha, #divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar').hide();
+}
+
+function limparFormCadastroResenha(){
+	$('#resenhaTitulo').val('');
+	$('#resenhaAutor').val('');
+	$('#textoDescricaoResenha').val('');
+	showId(false);
+}
+
+function showId(visualizarId){
+	if(visualizarId) $('#divIdResenha').show();
+	else $('#divIdResenha').hide();	
 }
 
 function visualizarTextoParaEdicao(uuid){	
@@ -58,6 +70,8 @@ $(document).ready(function() {
 	addRemoveDestaque("#resenhaAutor");
 	addRemoveDestaque("#textoDescricaoResenha");
 	addRemoveDestaque("#campoBuscaTxtResenha");
+	var texto = "Digite parte do título da resenha e pressione a tecla ENTER";
+	$('#campoBuscaTxtResenha').puts(texto);
 	$('').autoResize();
 	
 	hideAllResenhaFields();
@@ -73,9 +87,12 @@ $(document).ready(function() {
 	
 	if($('#resenhaErroCadastro').val()){
 		$('#tabNovaResenha').slideDown(500);
+		showId(false);
 	}
 	$('#btAddNovaResenha').click(function() {
 		hideAllResenhaFields();
+		limparFormCadastroResenha();
+		
 		$('#tabNovaResenha').slideDown(500);		
 	});
 	$('#btFecharAddResenha').click(function() {
@@ -83,21 +100,30 @@ $(document).ready(function() {
 	});	
 
 	$('#btCancelarResenha').click(function(){
-		$('#blogTituloNovoTexto').val('');
-		$('#blogConteudoNovoTexto').val('');
-		$('#blogAutorNovoTexto').val('Alcindo Miguel Martins Filho');
-		$('#tabNovaResenha').slideUp(500);		
+		$('#tabNovaResenha').slideUp(500);
+		limparFormCadastroResenha();				
 	});
+	
+	if($('#resenhaEditarCadastro').val()){
+		$('#tabEditarResenha').slideDown(500);		
+		showId(true);
+	}
+	$('#btCancelarEditarResenha').click(function() {
+		$('#tabEditarResenha').slideUp(500);		
+	});
+	
+	
 	
 	/*$('#btCadBlogTexto, #btCadEdtTexto').click(function() {		
 		abrirJanelaDeEspera("#divPgBlogAdmin", "#telaAguardeAdmBlogCadastrar");	
 	});*/
 	
-	$('#divResenhaBuscarTexto').hide();	
+	
+	if($('#flagBuscarResenhas').val()){		
+		$('#divResenhaBuscarTexto').slideDown(500);
+	}
 	$('#btBuscarResenha').click(function(){
-		hideAllResenhaFields();
-		var texto = "Digite parte do título da resenha e pressione a tecla ENTER";
-		$('#campoBuscaTxtResenha').puts(texto);
+		hideAllResenhaFields();		
 		$('#labelBuscaResenha').html('');
 		$('#divResenhaBuscarTexto').slideDown(500);		
 	});	
@@ -117,6 +143,10 @@ $(document).ready(function() {
 		}
 	});*/
 	
+	
+	if($('#flagListarResenhas').val()){		
+		$('#tabListagemResenhas').slideDown(500);
+	}
 	$('#btListarResenhas').click(function(){
 		$('#formResenhasListarTodas').submit();
 	});
@@ -138,22 +168,14 @@ $(document).ready(function() {
 		var origem = idOrigem.replace("Resenha","");
 		alterarTamanhoTexto(origem, '#textoDescricaoResenha');			
 	});
-	$('#sizeSmallAreaBlogNovo, #sizeMediumAreaBlogNovo, #sizeLargeAreaBlogNovo, #sizeXLargeAreaBlogNovo, #sizeXxLargeAreaBlogNovo').click(function(){
-		var idOrigem = this.id;
-		var origem = idOrigem.replace("BlogNovo","");		
-		alterarTamanhoAreaTexto(origem, '#blogConteudoNovoTexto');
-	});
 	
-	$('#sizeSmallBlogEdit, #sizeMediumBlogEdit, #sizeLargeBlogEdit, #sizeXLargeBlogEdit, #sizeXxLargeBlogEdit').click(function(){
+	
+	/*$('#sizeSmallBlogEdit, #sizeMediumBlogEdit, #sizeLargeBlogEdit, #sizeXLargeBlogEdit, #sizeXxLargeBlogEdit').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("BlogEdit","");
 		alterarTamanhoTexto(origem, '#blogEdtConteudoTexto');			
-	});
-	$('#sizeSmallAreaBlogEdit, #sizeMediumAreaBlogEdit, #sizeLargeAreaBlogEdit, #sizeXLargeAreaBlogEdit, #sizeXxLargeAreaBlogEdit').click(function(){
-		var idOrigem = this.id;
-		var origem = idOrigem.replace("BlogEdit","");		
-		alterarTamanhoAreaTexto(origem, '#blogEdtConteudoTexto');
-	});
+	});*/
+
 	
 	/*$('#formBlogBuscaTexto').submit(function(event){
 		event.preventDefault();
