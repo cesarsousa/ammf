@@ -29,15 +29,13 @@ public class Resenha implements Serializable {
 	private long id;
 	
 	@Column(length=45)
-	private String uuid = UUID.randomUUID().toString();
-			
-	
+	private String uuid = UUID.randomUUID().toString();	
 	
 	private String autor;
 	
 	private String titulo;
 	
-	@Lob
+	@Column(length = 2250)
 	private String descricao;
 	
 	@Temporal(TemporalType.TIMESTAMP)

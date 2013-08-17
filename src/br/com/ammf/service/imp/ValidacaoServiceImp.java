@@ -290,8 +290,28 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	@Override
 	public boolean novaResenha(Resenha resenha, Result result) {
-		boolean validado = true;
+		boolean validado = resenha(resenha, result);			
 		
+		if(!validado){
+			result.include("resenhaErroCadastro", true);
+			result.include("resenha", resenha);
+		}
+		return validado;
+	}
+	
+	@Override
+	public boolean atualizarResenha(Resenha resenha, Result result) {
+		boolean validado = resenha(resenha, result);
+		
+		if(!validado){
+			result.include("resenhaErroAtualiza", true);
+			result.include("resenha", resenha);
+		}
+		return validado;
+	}
+	
+	private boolean resenha(Resenha resenha, Result result){
+		boolean validado = true;
 		if(resenha.getAutor() == null || resenha.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
 			result.include("comErroAutor", "Erro");
@@ -305,22 +325,16 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		if(resenha.getDescricao() == null || resenha.getDescricao().isEmpty()){
-			result.include("descricaoEmBranco", "A descri&ccedil;&atilde;o deve ser informada<br/>");
+			result.include("descricaoEmBranco", "O coment&aacute;rio deve ser informado<br/>");
 			result.include("comErroDescricao", "Erro");
 			validado = false;
-		}		
-		
-		if(!validado){
-			result.include("resenhaErroCadastro", true);
-			result.include("resenha", resenha);
+		}else if(resenha.getDescricao().length() > 2250){
+			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 2250 caracteres<br/>");
+			result.include("comErroDescricao", "Erro");
+			validado = false;
 		}
-		return validado;
-	}
-	
-	@Override
-	public boolean atualizarResenha(Resenha resenha, Result result) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return validado;		
 	}
 
 	@Override

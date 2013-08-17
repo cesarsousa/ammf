@@ -129,7 +129,7 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException {
-		// TODO Auto-generated method stub
+		// TODO email notificar resenha
 		
 	}
 

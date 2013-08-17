@@ -33,14 +33,19 @@ function hideAllResenhaFields(){
 	$('#tabNovaResenha, #tabEditarResenha, #divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar').hide();
 }
 
+function removerMensagemResenha(){	
+	$('#divMensagemResenha').html('');
+}
+
 function limparFormCadastroResenha(){
 	$('#resenhaTitulo').val('');
 	$('#resenhaAutor').val('');
 	$('#textoDescricaoResenha').val('');
-	showId(false);
+	
+	showIdResenha(false);
 }
 
-function showId(visualizarId){
+function showIdResenha(visualizarId){
 	if(visualizarId) $('#divIdResenha').show();
 	else $('#divIdResenha').hide();	
 }
@@ -87,10 +92,11 @@ $(document).ready(function() {
 	
 	if($('#resenhaErroCadastro').val()){
 		$('#tabNovaResenha').slideDown(500);
-		showId(false);
+		showIdResenha(false);
 	}
 	$('#btAddNovaResenha').click(function() {
 		hideAllResenhaFields();
+		removerMensagemResenha();
 		limparFormCadastroResenha();
 		
 		$('#tabNovaResenha').slideDown(500);		
@@ -101,15 +107,18 @@ $(document).ready(function() {
 
 	$('#btCancelarResenha').click(function(){
 		$('#tabNovaResenha').slideUp(500);
+		removerMensagemResenha();
 		limparFormCadastroResenha();				
 	});
 	
 	if($('#resenhaEditarCadastro').val()){
+		//$('#tabNovaResenha').slideUp(500);
 		$('#tabEditarResenha').slideDown(500);		
-		showId(true);
+		showIdResenha(true);
 	}
 	$('#btCancelarEditarResenha').click(function() {
-		$('#tabEditarResenha').slideUp(500);		
+		$('#tabEditarResenha').slideUp(500);
+		removerMensagemResenha();
 	});
 	
 	
@@ -152,18 +161,9 @@ $(document).ready(function() {
 	});
 	$('#btResenhaFecharTextos').click(function(){		
 		$('#tabListagemResenhas').slideUp(500);
-	});
+	});	
 	
-	
-	
-	/*$('#formBlogEditarTexto').submit(function(event){		
-		if($('#blogEdtTituloTexto').val()== "" || $('#blogEdtAutorTexto').val()== "" || $('#blogEdtConteudoTexto').val()== ""){
-			event.preventDefault();
-			alert("Por favor digite o titulo, autor e o conteudo do texto antes de confirmar atualizacao !");
-		}		
-	});	*/
-	
-	$('#sizeSmallResenha, #sizeMediumResenha, #sizeLargeResenha, #sizeXLargeResenha, #sizeXxLargeResenha').click(function(){
+	$('#sizeSmallResenha, #sizeMediumResenha, #sizeLargeResenha, #sizeXLargeResenha, #sizeXxLargeResenha').click(function(){		
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Resenha","");
 		alterarTamanhoTexto(origem, '#textoDescricaoResenha');			

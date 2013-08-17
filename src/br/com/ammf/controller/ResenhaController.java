@@ -11,6 +11,7 @@ import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.EmailService;
+import br.com.ammf.service.ResenhaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
@@ -24,16 +25,19 @@ public class ResenhaController {
 	private Result result;
 	private ResenhaRepository resenhaRepository;
 	private ValidacaoService validacaoService;
+	private ResenhaService resenhaService;
 	private EmailService emailService;
 	
 	public ResenhaController(
 			Result result, 
 			ResenhaRepository resenhaRepository,
 			ValidacaoService validacaoService,
+			ResenhaService resenhaService,
 			EmailService emailService) {
 		this.result = result;
 		this.resenhaRepository = resenhaRepository;
 		this.validacaoService = validacaoService;
+		this.resenhaService = resenhaService;
 		this.emailService = emailService;
 	}	
 	
@@ -45,11 +49,30 @@ public class ResenhaController {
 	@Post("/resenha/nova")
 	public void cadastrarResenha(Resenha resenha){
 		if(validacaoService.novaResenha(resenha, result)){			
-			resenhaRepository.cadastrar(resenha);
+			resenhaService.cadastrar(resenha);
 			// TODO emailService.nova resenha
 			result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 		}
 		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Post("/resenha/atualizar")
+	public void atualizar(String dataPostagem, Resenha resenha){
+		try {
+			if(validacaoService.atualizarResenha(resenha, result)){
+				resenhaService.atualizar(resenha, dataPostagem);
+				// TODO emailService.atualiza resenha
+				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
+			}else{
+				result.include("resenhaErroAtualizarCadastro", true);
+				result.include("resenhaEditarCadastro", true);
+			}
+			result.redirectTo(this).resenhaAdmin();
+		} catch (Exception e) {
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
+			result.redirectTo(this).resenhaAdmin();
+		}		
 	}
 	
 	@Restrito
@@ -94,25 +117,7 @@ public class ResenhaController {
 		result.redirectTo(this).resenhaAdmin();
 	}
 	
-	@Restrito
-	@Post("/resenha/atualizar")
-	public void atualizar(String dataPostagem, Resenha resenha){
-		try {
-			if(validacaoService.atualizarResenha(resenha, result)){
-				Date postagem = DataUtils.getDate(dataPostagem);
-				resenha.setPostagem(postagem);
-				resenhaRepository.atualizar(resenha);
-				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
-			}else{
-				result.include("resenhaErroAtualizarCadastro", true);
-				result.include("resenhaEditarCadastro", true);
-			}
-			result.redirectTo(this).resenhaAdmin();
-		} catch (Exception e) {
-			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
-			result.redirectTo(this).resenhaAdmin();
-		}		
-	}
+	
 	
 	
 	

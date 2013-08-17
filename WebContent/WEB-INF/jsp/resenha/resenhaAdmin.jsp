@@ -2,6 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<div id="divMensagemResenha">
 <c:if test="${not empty resenhaMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${resenhaMensagemSucesso} 
@@ -17,6 +18,7 @@
 	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
 	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}</div>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -90,6 +92,9 @@
 		<h2 align="center">Editar Resenha</h2>
 		
 		<form id="formNovaResenha" action="<c:url value="/resenha/atualizar"/>" method="post">				
+			
+			<input type="hidden" name="resenha.uuid" value="${resenha.uuid}"/>
+			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
 			
 			<%@ include file="/resenhaAdminFormulario.jsp" %>		
 			
