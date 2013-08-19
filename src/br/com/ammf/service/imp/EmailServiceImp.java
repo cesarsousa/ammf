@@ -129,7 +129,28 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException {
-		// TODO email notificar resenha
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmailNotificacaoResenha(notificacao, resenha, pessoa);
+		}		
+	}
+
+	private void enviarEmailNotificacaoResenha(Notificacao notificacao,	Resenha resenha, Pessoa pessoa) throws EmailException {
+		String mensagem;
+		if(Notificacao.RESENHA_NOVA == notificacao){
+			mensagem = HtmlMensagem.getMensagemNotificacaoDeResenhaAdicionada(resenha, administrador.getLinkedin(), pessoa);
+		}else if(Notificacao.RESENHA_ATUALIZADA == notificacao){
+			mensagem = HtmlMensagem.getMensagemNotificacaoDeResenhaAtualizada(resenha, administrador.getLinkedin(), pessoa);
+		}else{
+			throw new EmailException("Tipo de notificacao de resenha nao permitida: " + notificacao.toString());
+		}	
+		
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssunto(notificacao, resenha),
+				mensagem);
 		
 	}
 

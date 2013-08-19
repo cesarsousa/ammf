@@ -4,6 +4,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 
 public class HtmlMensagem {
@@ -244,5 +245,30 @@ public class HtmlMensagem {
 			.replace("[MENSAGEM]", mensagem.getConteudo())
 			.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
 			.replace("[LINKEDIN]", linkedin);
+	}	
+	
+	public static String getAssunto(Notificacao notificacao, Resenha resenha) {
+		if(Notificacao.RESENHA_NOVA.equals(notificacao))
+			return getAssuntoResenhaNova().replace("?", resenha.getTitulo());
+		if(Notificacao.RESENHA_ATUALIZADA.equals(notificacao))
+			return getAssuntoResenhaAtualizada().replace("?", resenha.getTitulo());
+		return "Site Quiron";
+	}
+	
+	public static String getAssuntoResenhaNova() {
+		return "Blog Quiron - A resenha ' ? ' foi adicionada";
+	}	
+	public static String getAssuntoResenhaAtualizada() {
+		return "Blog Quiron - A resenha ' ? ' foi atualizada";
+	}
+
+	public static String getMensagemNotificacaoDeResenhaAdicionada(Resenha resenha, String linkedin, Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return "nova resenha adicionada";
+	}
+
+	public static String getMensagemNotificacaoDeResenhaAtualizada(Resenha resenha, String linkedin, Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return "resenha atualizada";
 	}
 }

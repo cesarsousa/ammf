@@ -6,7 +6,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ResenhaRepository;
@@ -48,12 +50,17 @@ public class ResenhaController {
 	@Restrito
 	@Post("/resenha/nova")
 	public void cadastrarResenha(Resenha resenha){
-		if(validacaoService.novaResenha(resenha, result)){			
-			resenhaService.cadastrar(resenha);
-			// TODO emailService.nova resenha
-			result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
-		}
-		result.redirectTo(this).resenhaAdmin();
+		try {
+			if(validacaoService.novaResenha(resenha, result)){			
+				resenhaService.cadastrar(resenha);
+				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
+				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
+			}
+			result.redirectTo(this).resenhaAdmin();			
+		} catch (EmailException e) {
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
+			result.redirectTo(this).resenhaAdmin();
+		}		
 	}
 	
 	@Restrito
@@ -62,7 +69,7 @@ public class ResenhaController {
 		try {
 			if(validacaoService.atualizarResenha(resenha, result)){
 				resenhaService.atualizar(resenha, dataPostagem);
-				// TODO emailService.atualiza resenha
+				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
 			}else{
 				result.include("resenhaErroAtualizarCadastro", true);

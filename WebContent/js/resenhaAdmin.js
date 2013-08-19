@@ -86,7 +86,7 @@ $(document).ready(function() {
 	}*/
 	
 	
-	$('#btCadastrarResenha').click(function() {
+	$('#btCadastrarResenha, #btEditarResenha').click(function() {
 		abrirJanelaDeEspera("#divPgResenhaAdm", "#telaAguardeAdmResenhaCadastrar");
 	});	
 	
