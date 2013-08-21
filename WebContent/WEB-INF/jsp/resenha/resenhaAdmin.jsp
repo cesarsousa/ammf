@@ -188,7 +188,7 @@
 	<div align="center">
 		
 		<h2>BLOG</h2>    
-		<span class="info azulClaro" >Nova resenha sendo cadastrada/atualizada.</span>
+		<span class="info azulClaro" >Resenha sendo cadastrada/atualizada.</span>
 								
 		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
 		
