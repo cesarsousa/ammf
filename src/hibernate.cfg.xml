@@ -16,7 +16,8 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		
-		<!-- entities -->
+		<!-- entities -->				
+		<mapping class="br.com.ammf.model.LogAplicacao" />
 		<mapping class="br.com.ammf.model.Usuario" />
 		<mapping class="br.com.ammf.model.Texto" />
 		<mapping class="br.com.ammf.model.Pessoa" />
