@@ -33,8 +33,9 @@ public class LivroDao implements LivroRepository {
 		}				
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Livro> listar() {
+	public List<Livro> listar(){
 		try{
 			Criteria criteria = session.createCriteria(Livro.class);
 			return criteria.list();
@@ -54,6 +55,7 @@ public class LivroDao implements LivroRepository {
 		}				
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Livro> listarPorAutorTitulo(String param) {
 		try {

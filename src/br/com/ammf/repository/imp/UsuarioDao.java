@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -22,39 +24,59 @@ public class UsuarioDao implements UsuarioRepository{
 
 	@Override
 	public void salvar(Usuario usuario) {
-		Transaction transaction = session.beginTransaction();
-		session.save(usuario);
-		transaction.commit();
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.save(usuario);
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 	@Override
 	public Usuario autenticar(String login, String senha) {
-		Criteria criteria = session.createCriteria(Usuario.class);
-		criteria.add(Restrictions.eq("login", login)).add(Restrictions.eq("senha", senha));
-		return (Usuario) criteria.uniqueResult();
+		try {
+			Criteria criteria = session.createCriteria(Usuario.class);
+			criteria.add(Restrictions.eq("login", login)).add(Restrictions.eq("senha", senha));
+			return (Usuario) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 	@Override
-	public void atualizar(Usuario usuario) {		
-		Transaction transaction = session.beginTransaction();
-		session.update(usuario);
-		transaction.commit();		
+	public void atualizar(Usuario usuario) {
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.update(usuario);
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 	
 	@Override
 	public long getId(String uuid) {
-		Criteria criteria = session.createCriteria(Usuario.class);
-		criteria.add(Restrictions.eq("uuid", uuid));
-		Usuario usuario = (Usuario) criteria.uniqueResult();
-		long id  = usuario.getId();
-		return id;
+		try {
+			Criteria criteria = session.createCriteria(Usuario.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			Usuario usuario = (Usuario) criteria.uniqueResult();
+			long id  = usuario.getId();
+			return id;
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 	@Override
 	public Usuario obterAdministrador() {
-		Criteria criteria = session.createCriteria(Usuario.class);
-		criteria.add(Restrictions.eq("id", 1L));
-		return (Usuario) criteria.uniqueResult();
+		try {
+			Criteria criteria = session.createCriteria(Usuario.class);
+			criteria.add(Restrictions.eq("id", 1L));
+			return (Usuario) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 }

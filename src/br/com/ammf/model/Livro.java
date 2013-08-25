@@ -6,12 +6,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cascade;
 
 import br.com.ammf.utils.DataUtils;
 
@@ -26,6 +31,10 @@ public class Livro implements Serializable {
 	private long id;
 	
 	private String uuid = UUID.randomUUID().toString();
+	
+	
+	@ManyToOne
+	private Categoria categoria;
 	
 	@Column(length=1005)
 	private String sinopse;
@@ -53,6 +62,12 @@ public class Livro implements Serializable {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	public String getUuid() {
 		return uuid;

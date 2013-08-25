@@ -9,6 +9,7 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Livro;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
+import br.com.ammf.service.LivroService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
@@ -23,16 +24,19 @@ public class LivroController {
 	private Result result;
 	private ValidacaoService validacaoService;
 	private ImagemService imagemService;
+	private LivroService livroService;
 	private LivroRepository livroRepository;
 	
 	public LivroController(
 			Result result, 
 			ValidacaoService validacaoService,
 			ImagemService imagemService,
+			LivroService livroService,
 			LivroRepository livroRepository){
 		this.result = result;
 		this.validacaoService = validacaoService;
 		this.imagemService = imagemService;
+		this.livroService = livroService;
 		this.livroRepository = livroRepository;
 	}
 	
@@ -42,13 +46,9 @@ public class LivroController {
 		try {
 			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
-			if(validado){			
-				livro.setPostagem(DataUtils.getDateNow());
-				if(imagemLivro != null){
-					imagemService.salvarFotoLivro(imagemLivro, livro);
-				}
-				livroRepository.cadastrar(livro);
-				
+			if(validado){
+				livroService.cadastrar(imagemLivro, livro);			
+				// verificar relacionamento de livro com categoria
 				// notificar clientes cliente e adm.
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}			
@@ -64,8 +64,7 @@ public class LivroController {
 	@Restrito
 	@Post("/livro/adm/atualizar")
 	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro){ 
-		try {
-			
+		try {			
 			boolean validado = validacaoService.atualizarLivro(novaImagemLivro, livro, result);
 			
 			if(validado){

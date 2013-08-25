@@ -2,6 +2,7 @@ package br.com.ammf.repository;
 
 import java.util.List;
 
+import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.model.Livro;
 
 public interface LivroRepository {
