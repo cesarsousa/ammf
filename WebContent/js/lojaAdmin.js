@@ -1,4 +1,8 @@
 
+function cadastrarNovaCategoria() {
+	alert("ajak para cadastara");
+}
+
 function abrirJanelaDeEsperaCadastroLivro(){
 	$('#mensagensPgLojaAdmin').slideUp(500);
 	abrirJanelaDeEspera('#divPgAdmCadastroCliente', '#telaAguardeAdmCadastroLivro');
@@ -121,6 +125,7 @@ $(document).ready(function() {
 	});
 	$('#ajaxCadastrarCategoria').click(function(){
 		$('#iconeAguardeCadastrarCategoria').slideDown(500);
+		cadastrarNovaCategoria();
 	
 	});
 	
