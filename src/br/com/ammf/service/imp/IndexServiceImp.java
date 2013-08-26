@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Contato;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
@@ -31,7 +33,7 @@ public class IndexServiceImp implements IndexService{
 	}
 
 	@Override
-	public SessaoCliente atualizar(SessaoCliente sessaoCliente) {		
+	public SessaoCliente atualizar(SessaoCliente sessaoCliente) throws Exception {		
 		
 		Texto textoIndex = textoRepository.getTextoIndex();
 		if(textoIndex == null) textoIndex = criarTextoDefault(Local.INDEX);		
@@ -58,8 +60,12 @@ public class IndexServiceImp implements IndexService{
 		return sessaoCliente;
 	}
 
-	private Contato criarDadosDeContato() {
+	private Contato criarDadosDeContato() throws Exception {
 		Usuario administrador = usuarioRepository.obterAdministrador();
+		
+		if(administrador == null){
+			throw new Exception(new IllegalArgumentException("Impossivel definir o administrador na base de dados"));
+		}		
 		
 		String email = administrador.getEmail();
 		String linkedin = administrador.getLinkedin();

@@ -26,8 +26,12 @@ public class IndexController {
 	@Path("/")
 	public void index(){
 		// acesso tradicional pelo navegador
-		sessaoCliente = indexService.atualizar(sessaoCliente);
-	}
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
+	}	
 	
 	@Get("/site")
 	public void site(){
@@ -38,29 +42,58 @@ public class IndexController {
 	
 	@Get("/quiron")
 	public void quiron(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
 	}
 	
 	@Get("/index/psicologia")
 	public void psicologia(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
 	}
 	
 	@Get("/index/educacao")
 	public void educacao(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
 	}
 	
 	@Get("/index/cultura")
 	public void cultura(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
 	}
 	
 	@Get("/index/artesorientais")
 	public void artesOrientais(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
 	}
 	
 	@Get("/termosDeContrato")
 	public void termosDeContrato(){}
+	
+	private void redirecionarParaPgErro(Exception e) {
+		result.include("mensagem", e.getMessage());
+		result.redirectTo(this).erro();
+	}
+	
+	public void erro(){}
+	
+	
 }

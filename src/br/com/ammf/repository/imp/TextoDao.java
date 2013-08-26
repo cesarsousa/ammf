@@ -271,7 +271,7 @@ public class TextoDao implements TextoRepository{
 	@Override
 	public Texto obterUuidUltimaPublicacao() {
 		try {
-			String sql = "select max(id) from Texto";
+			String sql = "select max(id) from Texto where local='BLOG'";
 			Query query = session.createQuery(sql);
 			Long id = (Long) query.uniqueResult();
 			Criteria criteria = session.createCriteria(Texto.class);

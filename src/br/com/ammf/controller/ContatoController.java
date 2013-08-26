@@ -37,9 +37,15 @@ public class ContatoController {
 	
 	@Get("/cliente/contato")
 	public void contatoCliente(){
-		sessaoCliente = indexService.atualizar(sessaoCliente);
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			result.include("mensagem", e.getMessage());
+			result.redirectTo(IndexController.class).erro();
+		}
 	}
 	
+
 	@Post("/contato/email")
 	public void processarContatoDeCliente(Mensagem mensagem){
 		boolean validado = validacaoService.mensagem(mensagem, result);
