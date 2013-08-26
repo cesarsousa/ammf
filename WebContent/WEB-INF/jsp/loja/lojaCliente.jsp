@@ -86,12 +86,7 @@
 				</tr>			
 				</thead>
 				
-				<tbody>			
-				<tr>
-				<td colspan="2">
-				</td>
-				</tr>
-				
+				<tbody>							
 				<tr>
 				<td class="tabTitulo">Sinopse</td>
 				<td class="tabDescricao">${livro.sinopse}</td>

@@ -113,6 +113,18 @@ function configurarCamposBuscaLivro(){
 }
 
 $(document).ready(function() {
+	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
+	$('#btCadastrarCategoria').toggle(function() {
+		$('#divCadastrarCategoria').slideDown(1000);		
+	}, function() {
+		$('#divCadastrarCategoria').slideUp(1000);		
+	});
+	$('#ajaxCadastrarCategoria').click(function(){
+		$('#iconeAguardeCadastrarCategoria').slideDown(500);
+	
+	});
+	
+	
 	configurarCamposAddLivro();
 	configurarCamposAtualizaLivro();
 	configurarCamposBuscaLivro();
