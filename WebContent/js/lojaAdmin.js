@@ -119,9 +119,9 @@ function configurarCamposBuscaLivro(){
 $(document).ready(function() {
 	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
-		$('#divCadastrarCategoria').slideDown(1000);		
+		$('#divCadastrarCategoria').show();		
 	}, function() {
-		$('#divCadastrarCategoria').slideUp(1000);		
+		$('#divCadastrarCategoria').hide();		
 	});
 	$('#ajaxCadastrarCategoria').click(function(){
 		$('#iconeAguardeCadastrarCategoria').slideDown(500);

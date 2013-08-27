@@ -2,7 +2,6 @@ package br.com.ammf.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.com.ammf.controller.IndexController;
 import br.com.ammf.controller.LoginController;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.caelum.vraptor.InterceptionException;

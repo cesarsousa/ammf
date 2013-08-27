@@ -160,9 +160,9 @@
 				</div>
 				
 				<div class="paddingPadrao">				
-				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro">Cadastrar uma nova categoria?</span></label>
+				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 					<div id="divCadastrarCategoria">
-					<div class="paddingPadrao" style="padding-top: 10px;" class="bordaPadrao">
+					<div class="paddingPadrao" style="padding-top: 10px; background: #CCCCCC;" class="bordaPadrao">
 					<br/>
 					<label class="labelForm">Digite a nova categoria</label>					
 					<input id="inputCadastrarCategoria" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
