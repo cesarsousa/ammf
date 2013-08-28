@@ -162,9 +162,8 @@
 				<div class="paddingPadrao">				
 				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 					<div id="divCadastrarCategoria">
-					<div class="paddingPadrao" style="padding-top: 10px; background: #CCCCCC;" class="bordaPadrao">
+					<div class="paddingPadrao corPrincipal" class="bordaPadrao">
 					<br/>
-					<label class="labelForm">Digite a nova categoria</label>					
 					<input id="inputCadastrarCategoria" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
 					<input id="ajaxCadastrarCategoria" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
 					<br/>

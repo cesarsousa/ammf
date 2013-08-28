@@ -119,7 +119,9 @@ function configurarCamposBuscaLivro(){
 $(document).ready(function() {
 	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
-		$('#divCadastrarCategoria').show();		
+		$('#divCadastrarCategoria').show();
+		addRemoveDestaque('#inputCadastrarCategoria');
+		$('#inputCadastrarCategoria').puts("Digite a categoria");
 	}, function() {
 		$('#divCadastrarCategoria').hide();		
 	});
