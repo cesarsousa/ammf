@@ -2,14 +2,6 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<%-- <div id="divAdmMsgCadCliente">
-<c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
-	<div class="msgBorder msgErro ponteiro closeClick">
-	${nomeEmBranco}<br/>${emailEmBranco}	
-	</div>
-</c:if>
-</div> --%>
-
 <div id="mensagensPgLojaAdmin">
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
