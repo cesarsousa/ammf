@@ -10,4 +10,8 @@ public interface LivroService {
 
 	void cadastrar(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
 
+	void cadastrarCategoria(String categoria);
+
+	void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro) throws Exception;
+
 }

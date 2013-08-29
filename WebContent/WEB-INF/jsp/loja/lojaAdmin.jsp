@@ -151,6 +151,11 @@
 				<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao${comErroTitulo}" maxlength="100"/>
 				</div>
 				
+				
+				<div id="msgCadastrarCategoria" class="msgBorderInterno msgAlerta t80 closeClick ponteiro">
+				Categoria adicionada com sucesso
+				</div>
+				
 				<div class="paddingPadrao">				
 				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 					<div id="divCadastrarCategoria">

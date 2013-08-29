@@ -1,41 +1,36 @@
 
-function ajaxCadastar(categoria){
-	$.ajax({
-		type : 'POST',
-		url : $('#contexto').val() + "/categoria/nova",
-		success : function(json){
-			for(var i = 0; i< json.length; i++){				
-				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);				
-				$(ulTabela).append(
-					'<tr>' +
-					'<td class="infoTabela">' + json[i].nome + '</td>' +
-					'<td class="infoTabela">' + json[i].email + '</td>' +
-					'<td class="infoTabela">' + dataCadastro + '</td>' +
-					'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-					'</tr>');						
-			}			
-			
-			if(json.length > 0){
-				$(divTabela).slideDown(1000);
-				$(btFechar).click(function(){
-					$(divTabela).slideUp(1000);		
-				});
-			}
-		},
-		error : function(){
-			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
-		}
-	});	
-}
+
 
 function cadastrarNovaCategoria() {
 	var categoria  = $('#inputCadastrarCategoria').val();
 	if(categoria == "Digite a categoria" || categoria == ""){
 		alert("Digite a categoria");
 	}else{
+		abrirIconeAguarde('#iconeAguardeCadastrarCategoria');
 		ajaxCadastar(categoria);
-	}
-	
+	}	
+}
+
+function ajaxCadastar(categoria){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/livro/categoria/nova",
+		data: {"categoria" : categoria},
+		success : function(json){
+			fecharIconeAguarde('#iconeAguardeCadastrarCategoria');
+			$('#divCadastrarCategoria').slideUp(500);
+			$('#msgCadastrarCategoria').show();
+			
+			listarCategorias();
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
+}
+
+function listarCategorias() {
+	alert("ajax para listar as categorias");
 }
 
 function abrirJanelaDeEsperaCadastroLivro(){
@@ -152,7 +147,7 @@ function configurarCamposBuscaLivro(){
 }
 
 $(document).ready(function() {
-	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
+	$('#msgCadastrarCategoria, #divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
 		$('#divCadastrarCategoria').show();
 		addRemoveDestaque('#inputCadastrarCategoria');
@@ -160,10 +155,8 @@ $(document).ready(function() {
 	}, function() {
 		$('#divCadastrarCategoria').hide();		
 	});
-	$('#ajaxCadastrarCategoria').click(function(){
-		$('#iconeAguardeCadastrarCategoria').slideDown(500);
-		cadastrarNovaCategoria();
-	
+	$('#ajaxCadastrarCategoria').click(function(){		
+		cadastrarNovaCategoria();	
 	});
 	
 	

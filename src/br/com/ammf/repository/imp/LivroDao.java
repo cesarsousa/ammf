@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
+import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
 import br.com.ammf.repository.LivroRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -78,5 +79,17 @@ public class LivroDao implements LivroRepository {
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
+	}
+
+	@Override
+	public void cadastrarCategoria(Categoria categoria) {
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.save(categoria);
+			transaction.commit();			
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
 	}	
 }

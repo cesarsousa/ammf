@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -68,13 +70,7 @@ public class LivroController {
 			boolean validado = validacaoService.atualizarLivro(novaImagemLivro, livro, result);
 			
 			if(validado){
-				if(novaImagemLivro != null){
-					imagemService.atualizarFotoLivro(novaImagemLivro, livro);
-				}				
-				Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
-				livro.setPostagem(postagem);
-				livroRepository.atualizar(livro);
-				
+				livroService.atualizar(novaImagemLivro, dataPostagem, livro);				
 				// notificar clientes cliente e adm.
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
 			}
@@ -115,5 +111,12 @@ public class LivroController {
 		result.include("editarLivro", true);
 		result.include("uuid", uuid);
 		result.redirectTo(LojaController.class).lojaAdmin();
+	}
+	
+	@Restrito
+	@Post("/livro/categoria/nova")
+	public void cadastrarNovaCategoria(String categoria){
+		livroService.cadastrarCategoria(categoria);			
+		result.use(json()).withoutRoot().from(true).serialize();
 	}
 }
