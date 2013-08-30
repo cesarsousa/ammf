@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
@@ -91,5 +92,17 @@ public class LivroDao implements LivroRepository {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Categoria> listarCategorias() {
+		try {
+			Criteria criteria = session.createCriteria(Categoria.class);
+			criteria.addOrder(Order.asc("descricao"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}	
 }

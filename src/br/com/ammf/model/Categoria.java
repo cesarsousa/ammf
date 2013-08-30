@@ -1,6 +1,5 @@
 package br.com.ammf.model;
 
-import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +12,7 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue
-	private long id;
-	
-	
-	@Column(length = 45)
-	private String uuid = UUID.randomUUID().toString();
+	private long id;	
 	
 	@Column(length = 100)
 	private String descricao;
@@ -28,14 +23,6 @@ public class Categoria {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
 	}
 
 	public String getDescricao() {

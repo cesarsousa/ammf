@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
@@ -115,8 +116,26 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/categoria/nova")
-	public void cadastrarNovaCategoria(String categoria){
-		livroService.cadastrarCategoria(categoria);			
-		result.use(json()).withoutRoot().from(true).serialize();
+	public void cadastrarNovaCategoria(String categoria){		
+		try {
+			livroService.cadastrarCategoria(categoria);
+			retornarJson("<div id=\"msgCadastrarCategoria\" class=\"msgBorderInterno msgAlerta t80 closeClick ponteiro\">Categoria adicionada com sucesso</div>");
+		} catch (Exception e) {
+			retornarJson("<div id=\"msgCadastrarCategoria\" class=\"msgBorderInterno msgErro t80 closeClick ponteiro\">Erro! N&atilde;o foi possivel cadastrar a categoria</div>");
+		}		
 	}
+	
+	@Restrito
+	@Get("/livro/categorias")
+	public void listarCategorias(){
+		List<Categoria> categorias =  livroRepository.listarCategorias();
+		result.use(json()).withoutRoot().from(categorias).serialize();
+	}
+
+	private void retornarJson(String mensagem) {
+		result.use(json()).withoutRoot().from(mensagem).serialize();
+		
+	}
+	
+
 }

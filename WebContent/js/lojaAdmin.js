@@ -19,8 +19,7 @@ function ajaxCadastar(categoria){
 		success : function(json){
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoria');
 			$('#divCadastrarCategoria').slideUp(500);
-			$('#msgCadastrarCategoria').show();
-			
+			$('#msgCadastrarCategoria').html('').html(json).show().fadeOut(5000);			
 			listarCategorias();
 		},
 		error : function(){
@@ -30,7 +29,19 @@ function ajaxCadastar(categoria){
 }
 
 function listarCategorias() {
-	alert("ajax para listar as categorias");
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/livro/categorias",
+		success : function(json){
+			$('#comboBoxCategoriasLivro').html('');			
+			for(var i = 0; i < json.length; i++){				
+				$('#comboBoxCategoriasLivro').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+			}					
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
 }
 
 function abrirJanelaDeEsperaCadastroLivro(){
@@ -146,7 +157,7 @@ function configurarCamposBuscaLivro(){
 	$('#campoBuscaLivro').puts(texto);
 }
 
-$(document).ready(function() {
+$(document).ready(function() {	
 	$('#msgCadastrarCategoria, #divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
 		$('#divCadastrarCategoria').show();
@@ -181,6 +192,7 @@ $(document).ready(function() {
 	
 	$('#abrirAddLivro').click(function(){
 		fecharAreasDeLivros();
+		listarCategorias();
 		$('#tabCadastrarLivro').slideDown(500);		
 	});
 	$('#btFecharCadastrarLivro').click(function(){
