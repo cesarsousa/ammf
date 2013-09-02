@@ -157,7 +157,9 @@ function configurarCamposBuscaLivro(){
 	$('#campoBuscaLivro').puts(texto);
 }
 
-$(document).ready(function() {	
+$(document).ready(function() {
+	listarCategorias();
+	
 	$('#msgCadastrarCategoria, #divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
 		$('#divCadastrarCategoria').show();
@@ -191,8 +193,7 @@ $(document).ready(function() {
 	});
 	
 	$('#abrirAddLivro').click(function(){
-		fecharAreasDeLivros();
-		listarCategorias();
+		fecharAreasDeLivros();		
 		$('#tabCadastrarLivro').slideDown(500);		
 	});
 	$('#btFecharCadastrarLivro').click(function(){

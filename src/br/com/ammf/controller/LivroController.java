@@ -26,19 +26,16 @@ public class LivroController {
 
 	private Result result;
 	private ValidacaoService validacaoService;
-	private ImagemService imagemService;
 	private LivroService livroService;
 	private LivroRepository livroRepository;
 	
 	public LivroController(
 			Result result, 
 			ValidacaoService validacaoService,
-			ImagemService imagemService,
 			LivroService livroService,
 			LivroRepository livroRepository){
 		this.result = result;
 		this.validacaoService = validacaoService;
-		this.imagemService = imagemService;
 		this.livroService = livroService;
 		this.livroRepository = livroRepository;
 	}
@@ -77,7 +74,7 @@ public class LivroController {
 			}
 			
 			result.forwardTo(LojaController.class).lojaAdmin();
-		} catch (Exception e) { // TODO trocar email exception verificar exeção de salvar arquivos
+		} catch (Exception e) {
 			e.printStackTrace();
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
@@ -119,7 +116,7 @@ public class LivroController {
 	public void cadastrarNovaCategoria(String categoria){		
 		try {
 			livroService.cadastrarCategoria(categoria);
-			retornarJson("<div id=\"msgCadastrarCategoria\" class=\"msgBorderInterno msgAlerta t80 closeClick ponteiro\">Categoria adicionada com sucesso</div>");
+			retornarJson("<div id=\"msgCadastrarCategoria\" class=\"msgBorderInterno msgSucesso t80 closeClick ponteiro\">Categoria adicionada com sucesso</div>");
 		} catch (Exception e) {
 			retornarJson("<div id=\"msgCadastrarCategoria\" class=\"msgBorderInterno msgErro t80 closeClick ponteiro\">Erro! N&atilde;o foi possivel cadastrar a categoria</div>");
 		}		
