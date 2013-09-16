@@ -64,28 +64,13 @@ ${textoEmBranco}
 					<h2>Novo Depoimento</h2>
 					
 					<label class="labelForm2">Nome:</label>
-					<c:if test="${not empty nomeEmBranco}">		
-					<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-					</c:if>
-					<c:if test="${empty nomeEmBranco}">		
-						<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</c:if>
+					<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
 					<label class="labelForm2">Email:</label>
-					<c:if test="${not empty emailEmBranco}">		
-						<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-					</c:if>
-					<c:if test="${empty emailEmBranco}">		
-						<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</c:if>
+					<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
 					<label class="labelForm2">Depoimento:</label>
-					<c:if test="${not empty textoEmBranco}">		
-						<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadraoErro" rows="5">${novoComentario.conteudo}</textarea>
-					</c:if>
-					<c:if test="${empty textoEmBranco}">		
-						<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
-					</c:if>
+					<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
 					
 					<h3 align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
