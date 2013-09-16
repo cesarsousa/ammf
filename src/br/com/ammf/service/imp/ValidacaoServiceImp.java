@@ -99,22 +99,18 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado = true;
 		if(texto.getTitulo() == null || texto.getTitulo().isEmpty()){
 			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
-			result.include("comErroTitulo", "Erro");
 			validado = false;
 		}
 		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
-			result.include("comErroAutor", "Erro");
 			validado = false;
 		}
 		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
 			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve ser informado");
-			result.include("comErroConteudo", "Erro");
 			validado = false;
 		}
 		if(!validado){
 			result.include("textoBlog", texto);
-			result.include("blogErroCadastro", true);
 		}
 		
 		return validado;
@@ -229,25 +225,21 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado = true;
 		if(livro.getAutor() == null || livro.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
-			result.include("comErroAutor", "Erro");
 			validado = false;
 		}
 		
 		if(livro.getTitulo() == null || livro.getTitulo().isEmpty()){
 			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
-			result.include("comErroTitulo", "Erro");
 			validado = false;
 		}		
 		
 		if(livro.getPaginas() == 0){
 			result.include("paginaEmBranco", "O n&uacute;mero de p&aacute;ginas deve ser informado<br/>");
-			result.include("comErroPagina", "Erro");
 			validado = false;
 		}
 		
 		if(livro.getEdicao() == 0){
 			result.include("edicaoEmBranco", "O n&uacute;mero da edi&ccedil;&atilde;o deve ser informado<br/>");
-			result.include("comErroEdicao", "Erro");
 			validado = false;
 		}		
 		
@@ -265,17 +257,14 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		if(livro.getPreco() == null){
 			result.include("precoEmBranco", "O pre&ccedil;o deve ser informado<br/>");
-			result.include("comErroPreco", "Erro");
 			validado = false;
 		}
 		
 		if(livro.getLinkVenda() == null || livro.getLinkVenda().isEmpty()){
 			result.include("linkEmBranco", "O link de venda do produto deve ser informado<br/>");
-			result.include("comErroLink", "Erro");
 			validado = false;
 		}else if(!ehLinkValido(livro.getLinkVenda())){
 			result.include("linkEmBranco", "O link de venda do produto deve come&ccedil;ar com '<b>http://www.</b>'<br/>");
-			result.include("comErroLink", "Erro");
 			validado = false;
 		}
 			
@@ -314,23 +303,19 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado = true;
 		if(resenha.getAutor() == null || resenha.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
-			result.include("comErroAutor", "Erro");
 			validado = false;
 		}
 		
 		if(resenha.getTitulo() == null || resenha.getTitulo().isEmpty()){
 			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
-			result.include("comErroTitulo", "Erro");
 			validado = false;
 		}
 		
 		if(resenha.getDescricao() == null || resenha.getDescricao().isEmpty()){
 			result.include("descricaoEmBranco", "O coment&aacute;rio deve ser informado<br/>");
-			result.include("comErroDescricao", "Erro");
 			validado = false;
 		}else if(resenha.getDescricao().length() > 2250){
 			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 2250 caracteres<br/>");
-			result.include("comErroDescricao", "Erro");
 			validado = false;
 		}
 		
@@ -361,15 +346,6 @@ public class ValidacaoServiceImp implements ValidacaoService {
 
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
-		result.include("comErroAno", "Erro");		
 		return false;
-	}
-
-	
-
-	
-
-	
-
-	
+	}	
 }

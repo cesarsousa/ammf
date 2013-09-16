@@ -70,10 +70,10 @@
 		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
 			 				
 			<h3>T&iacute;tulo :</h3>
-			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroTitulo} corAzul negrito" name="texto.titulo" value="${textoBlog.titulo}"/>
+			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul negrito" name="texto.titulo" value="${textoBlog.titulo}"/>
 				
 			<h3>Autor :</h3>
-			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao${comErroAutor}" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
+			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
 							
 			<h3>Texto:</h3>												
 			

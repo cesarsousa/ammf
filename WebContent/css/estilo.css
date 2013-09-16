@@ -372,10 +372,13 @@ a:HOVER {
 }
 
 .destaque {
-	border: 2px solid #6CA6CD;
+	/* border: 2px solid #6CA6CD;
+	
+	box-shadow: 2px 2px 2px #8B8484; */
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	box-shadow: 2px 2px 2px #8B8484;
+	border-color: rgba(0, 75, 130, 0.8);
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 75, 130, 0.6);
 }
 
 .destaqueLetraHover:hover {

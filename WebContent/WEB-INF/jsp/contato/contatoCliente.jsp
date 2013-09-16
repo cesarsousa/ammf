@@ -83,28 +83,13 @@
 					<h2>Enviar uma mensagem</h2>
 					
 					<label class="labelForm2">Nome:</label>
-					<c:if test="${not empty nomeEmBranco}">		
-					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-					</c:if>
-					<c:if test="${empty nomeEmBranco}">		
-						<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</c:if>
+					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
 					<label class="labelForm2">Email:</label>
-					<c:if test="${not empty emailEmBranco}">		
-						<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadraoErro" maxlength="100"/>
-					</c:if>
-					<c:if test="${empty emailEmBranco}">		
-						<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</c:if>
+					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
 					<label class="labelForm2">Mensagem:</label>
-					<c:if test="${not empty conteudoEmBranco}">		
-						<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadraoErro" rows="5">${novaMensagem.conteudo}</textarea>
-					</c:if>
-					<c:if test="${empty conteudoEmBranco}">		
-						<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
-					</c:if>
+					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
 					
 					<h3 align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterContato">500</span> caracteres em sua mensagem.
