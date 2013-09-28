@@ -26,6 +26,7 @@
 		<mapping class="br.com.ammf.model.Depoimento" />
 		<mapping class="br.com.ammf.model.Livro" />
 		<mapping class="br.com.ammf.model.Categoria" />
+		<mapping class="br.com.ammf.model.Imagem" />
 		
 	</session-factory>
 </hibernate-configuration>

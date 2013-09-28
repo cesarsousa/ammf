@@ -56,7 +56,7 @@
 				<table width="80%" class="cartao bordaPadrao paddingPadrao ">
 				<tr>
 				<td width="120px"  align="left">
-				<img src="${imagemLivro}/${livro.nomeImagem}" class="fotoLivro">							
+				<img src="${livro.imagem.caminho}" class="fotoLivro">							
 				</td>
 				
 				<td valign="top">
@@ -118,11 +118,7 @@
 				<tr>
 				<td class="tabTitulo">Ano</td>
 				<td class="tabDescricao">${livro.ano}</td>
-				</tr>
-				<tr>
-				<td class="tabTitulo">Assunto</td>
-				<td class="tabDescricao">${livro.assunto}</td>
-				</tr>
+				</tr>				
 				<tr>
 				<td class="tabTitulo">Idioma</td>
 				<td class="tabDescricao">${livro.idioma}</td>

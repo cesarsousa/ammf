@@ -250,13 +250,7 @@
 				<br/>
 				<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 				</div>			
-				
-				<div class="paddingPadrao">
-				<label class="labelForm">Assunto</label>
-				<br/>
-				<input id="livroAssunto" type="text" name="livro.assunto" value="${livroCadastro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-				</div>
-				
+								
 				<div class="paddingPadrao">
 				<label class="labelForm">Idioma</label>
 				<br/>
@@ -326,7 +320,7 @@
 				<tbody>
 					<c:forEach items="${livrosSolicitados}" var="livro">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 50px;"><img src="${imagemLivro}${livro.nomeImagem}" class="icone25"></td>
+							<td class="infoTabela" style="width: 50px;"><img src="${livro.imagem.caminho}" class="icone25"></td>
 							<td class="infoTabela" style="width: 90px;">${livro.id}</td>
 							<td class="infoTabela">${livro.titulo}</td>
 							<td class="infoTabela">${livro.autor}</td>
@@ -453,7 +447,7 @@
 					</p>
 					
 					<div class="paddingPadrao bordaPadrao">						
-						<img src="${imagemLivro}${livro.nomeImagem}" class="fotoLivro">
+						<img src="${livro.imagem.caminho}" class="fotoLivro">
 						<p>
 						<input type="checkbox" value="livroFotoDefault" />
 						<label class="labelForm">N&atilde;o adicionar nenhuma imagem</label><br/>
@@ -462,7 +456,7 @@
 						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
 						</p>
 						<div id="divUploadNovaFotoLivro">
-							<input type="hidden" name="livro.nomeImagem" value="${livro.nomeImagem}"/>
+							<input type="hidden" name="livro.imagem.nome" value="${livro.imagem.nome}"/>
 							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
 						<input id="btRemoverUploadNovaFotoLivro" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
@@ -493,13 +487,7 @@
 					<br/>
 					<input id="livroAtualizaIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>			
-					
-					<div class="paddingPadrao">
-					<label class="labelForm">Assunto</label>
-					<br/>
-					<input id="livroAtualizaAssunto" type="text" name="livro.assunto" value="${livro.assunto}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</div>
-					
+										
 					<div class="paddingPadrao">
 					<label class="labelForm">Idioma</label>
 					<br/>

@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
-
 import org.apache.commons.io.IOUtils;
 
+import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
 import br.com.ammf.service.ImagemService;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
@@ -17,19 +16,15 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class ImagemServiceImp implements ImagemService {
 	
-	private ServletContext context;
 	private String PASTA_IMAGEM_LIVRO;
 	private String NOME_DEFAULT = "/capaLivroDefault.jpg";
 	
-	public ImagemServiceImp(ServletContext context){
-		this.context = context;
-		
+	public ImagemServiceImp(){		
 		//PASTA_IMAGEM_LIVRO = this.context.getRealPath("/");
-		//PASTA_IMAGEM_LIVRO = "C:/ammflivros";
-		PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
+		PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
+		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
 		//PASTA_IMAGEM_LIVRO = "C:/Users/cesarsousa/Documents/GitHub/ammf/WebContent/livro";		
-		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
-		
+		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";		
 	}	
 
 	@Override
@@ -37,18 +32,23 @@ public class ImagemServiceImp implements ImagemService {
 		String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
 		String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
 		File file = new File(caminhoDaImagem);			
-		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));
-		livro.setNomeImagem(nomeLivro);		
+		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
+		livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));		
 	}
 
 	@Override
 	public void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception {
-		String nomeOriginal = livro.getNomeImagem();
-		if (!nomeOriginal.equals(NOME_DEFAULT)){
-			String caminhoDaImagem = PASTA_IMAGEM_LIVRO + livro.getNomeImagem();
-			removerFoto(caminhoDaImagem);				
+		if (!livro.getImagem().getNome().equals(NOME_DEFAULT)){
+			removerFoto(livro.getImagem().getCaminho());				
 		}
 		salvarFotoLivro(imagemLivro, livro);
+	}
+	
+	private Imagem criarImagemLivro(String nomeLivro, String caminhoDaImagem) {
+		Imagem imagem = new Imagem();
+		imagem.setNome(nomeLivro);
+		imagem.setCaminho(caminhoDaImagem);
+		return imagem;
 	}
 
 	@Override

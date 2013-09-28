@@ -273,10 +273,15 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("linkEmBranco", "O link de venda do produto deve ser informado<br/>");
 			result.include("comErroLink", "Erro");
 			validado = false;
-		}else if(!ehLinkValido(livro.getLinkVenda())){
-			result.include("linkEmBranco", "O link de venda do produto deve come&ccedil;ar com '<b>http://www.</b>'<br/>");
-			result.include("comErroLink", "Erro");
-			validado = false;
+		}else{
+			if(livro.getLinkVenda().startsWith("www.")){
+				String novoLink = "http://" + livro.getLinkVenda();
+				livro.setLinkVenda(novoLink);
+			}else if(!livro.getLinkVenda().startsWith("http://www.")){
+				result.include("linkEmBranco", "O link de venda do produto deve come&ccedil;ar com '<b>http://www.</b>'<br/>");
+				result.include("comErroLink", "Erro");
+				validado = false;
+			}
 		}
 			
 		if(imagemLivro != null){
@@ -353,11 +358,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 
 	private boolean ehEmailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");
-	}
-	
-	private boolean ehLinkValido(String link){
-		return link.startsWith("http://www");
-	}
+	}	
 
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
