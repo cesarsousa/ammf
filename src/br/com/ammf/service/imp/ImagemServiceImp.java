@@ -24,10 +24,10 @@ public class ImagemServiceImp implements ImagemService {
 		//PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
 		
 		// notebook
-		PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
+		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
 		                		
 		// pc home windows 7		
-		//PASTA_IMAGEM_LIVRO = "C:/Users/cesarsousa/Documents/GitHub/ammf/WebContent/livro";		
+		PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";		
 		
 		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";		
 	}	
