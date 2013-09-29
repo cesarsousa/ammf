@@ -212,7 +212,7 @@
 				
 				<p>
 					<span class="info azulClaro">
-						Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
+						<b>Os campos abaixo s&atilde;o de preenchimento opcional</b><br/><br/>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
 						Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
 					</span>
 				</p>
@@ -320,7 +320,7 @@
 				<tbody>
 					<c:forEach items="${livrosSolicitados}" var="livro">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 50px;"><img src="${livro.imagem.caminho}" class="icone25"></td>
+							<td class="infoTabela" style="width: 50px;"><img src="${imagemLivro}${livro.imagem.nome}" class="icone25"></td>
 							<td class="infoTabela" style="width: 90px;">${livro.id}</td>
 							<td class="infoTabela">${livro.titulo}</td>
 							<td class="infoTabela">${livro.autor}</td>
@@ -442,12 +442,12 @@
 					
 					<p>
 						<span class="info azulClaro">
-							Os campos abaixo s&atilde;o de preenchimento opcional utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.
+							<b>Os campos abaixo s&atilde;o de preenchimento opcional</b><br/><br/>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.
 						</span>
 					</p>
 					
 					<div class="paddingPadrao bordaPadrao">						
-						<img src="${livro.imagem.caminho}" class="fotoLivro">
+						<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">
 						<p>
 						<input type="checkbox" value="livroFotoDefault" />
 						<label class="labelForm">N&atilde;o adicionar nenhuma imagem</label><br/>

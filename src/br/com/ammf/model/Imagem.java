@@ -1,7 +1,5 @@
 package br.com.ammf.model;
 
-import java.util.UUID;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,9 +10,8 @@ public class Imagem {
 	@Id
 	@GeneratedValue
 	private long id;	
-	private String uuid = UUID.randomUUID().toString();
 	
-	private String nome = "/capaLivroDefault.jpg";
+	private String nome;
 	
 	private String caminho;
 
@@ -25,15 +22,7 @@ public class Imagem {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
+	
 	public String getNome() {
 		return nome;
 	}

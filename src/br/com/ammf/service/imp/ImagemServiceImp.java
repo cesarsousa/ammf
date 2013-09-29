@@ -21,19 +21,28 @@ public class ImagemServiceImp implements ImagemService {
 	
 	public ImagemServiceImp(){		
 		//PASTA_IMAGEM_LIVRO = this.context.getRealPath("/");
-		PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
-		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
+		//PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
+		
+		// notebook
+		PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
+		                		
+		// pc home windows 7		
 		//PASTA_IMAGEM_LIVRO = "C:/Users/cesarsousa/Documents/GitHub/ammf/WebContent/livro";		
+		
 		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";		
 	}	
 
 	@Override
 	public void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
-		String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
-		String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
-		File file = new File(caminhoDaImagem);			
-		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
-		livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));		
+		if(imagemLivro == null){
+			livro.setImagem(criarImagemDefault());
+		}else{
+			String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
+			String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
+			File file = new File(caminhoDaImagem);			
+			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
+			livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));		
+		}
 	}
 
 	@Override
@@ -48,6 +57,13 @@ public class ImagemServiceImp implements ImagemService {
 		Imagem imagem = new Imagem();
 		imagem.setNome(nomeLivro);
 		imagem.setCaminho(caminhoDaImagem);
+		return imagem;
+	}
+	
+	private Imagem criarImagemDefault() {
+		Imagem imagem = new Imagem();
+		imagem.setId(1L);
+		imagem.setNome("/capaLivroDefault.jpg");
 		return imagem;
 	}
 

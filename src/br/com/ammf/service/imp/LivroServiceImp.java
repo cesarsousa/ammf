@@ -28,9 +28,7 @@ public class LivroServiceImp implements LivroService {
 	@Override
 	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
 		livro.setPostagem(DataUtils.getDateNow());
-		if(imagemLivro != null){
-			imagemService.salvarFotoLivro(imagemLivro, livro);
-		}
+		imagemService.salvarFotoLivro(imagemLivro, livro);
 		livroRepository.cadastrar(livro);		
 	}
 
