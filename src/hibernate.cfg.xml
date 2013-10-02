@@ -22,7 +22,6 @@
 		<mapping class="br.com.ammf.model.Texto" />
 		<mapping class="br.com.ammf.model.Pessoa" />
 		<mapping class="br.com.ammf.model.Resenha" />
-		<mapping class="br.com.ammf.model.Opcao" />
 		<mapping class="br.com.ammf.model.Depoimento" />
 		<mapping class="br.com.ammf.model.Livro" />
 		<mapping class="br.com.ammf.model.Categoria" />

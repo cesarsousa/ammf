@@ -7,6 +7,7 @@ import java.util.Date;
 
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
@@ -36,6 +37,7 @@ public class LivroServiceImp implements LivroService {
 	public void cadastrarCategoria(String categoria) {
 		Categoria novaCategoria = new Categoria();
 		novaCategoria.setDescricao(categoria);
+		novaCategoria.setTipoCategoria(TipoCategoria.Livro);
 		livroRepository.cadastrarCategoria(novaCategoria);
 		
 	}

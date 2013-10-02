@@ -2,6 +2,7 @@ package br.com.ammf.repository;
 
 import java.util.List;
 
+import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 
@@ -18,5 +19,7 @@ public interface ResenhaRepository {
 	Resenha obterPorUuid(String uuid);
 
 	void atualizar(Resenha resenha);
+
+	void cadastrarCategoria(Categoria novaCategoria);
 
 }

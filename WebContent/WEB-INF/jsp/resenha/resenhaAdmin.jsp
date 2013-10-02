@@ -152,6 +152,7 @@
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado">Tipo da Resenha</th>
 				<th class="metadado">Autor</th>
 				<th class="metadado">T&iacute;tulo</th>
 				<th class="metadado">Texto</th>
@@ -162,8 +163,9 @@
 		<tbody>
 	 		<c:forEach items="${resenhas}" var="resenha">
 				<tr class="zebrado">
+					<td class="infoTabela metadado">${resenha.categoria.descricao}</td>
 					<td class="infoTabela">${resenha.autor}</td>
-					<td class="infoTabela metadado">${resenha.titulo}</td>
+					<td class="infoTabela">${resenha.titulo}</td>
 					<td class="infoTabela">
 						<c:set var="origem"	value="${resenha.descricao}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>

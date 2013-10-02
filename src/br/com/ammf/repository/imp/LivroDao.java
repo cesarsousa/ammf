@@ -12,6 +12,7 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.LivroRepository;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -94,15 +95,4 @@ public class LivroDao implements LivroRepository {
 		
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Categoria> listarCategorias() {
-		try {
-			Criteria criteria = session.createCriteria(Categoria.class);
-			criteria.addOrder(Order.asc("descricao"));
-			return criteria.list();
-		} catch (Exception e) {
-			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-	}	
 }

@@ -10,6 +10,8 @@ import java.util.List;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.TipoCategoria;
+import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
@@ -22,22 +24,27 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @Resource
-public class LivroController {	
+public class LivroController {
+	
+	//TODO adiconar categoria no editar livro e arumar o check para remover foto.
 
 	private Result result;
 	private ValidacaoService validacaoService;
 	private LivroService livroService;
 	private LivroRepository livroRepository;
+	private CategoriaRepository categoriaRepository;
 	
 	public LivroController(
 			Result result, 
 			ValidacaoService validacaoService,
 			LivroService livroService,
-			LivroRepository livroRepository){
+			LivroRepository livroRepository,
+			CategoriaRepository categoriaRepository){
 		this.result = result;
 		this.validacaoService = validacaoService;
 		this.livroService = livroService;
 		this.livroRepository = livroRepository;
+		this.categoriaRepository = categoriaRepository;
 	}
 	
 	@Restrito
@@ -125,7 +132,7 @@ public class LivroController {
 	@Restrito
 	@Get("/livro/categorias")
 	public void listarCategorias(){
-		List<Categoria> categorias =  livroRepository.listarCategorias();
+		List<Categoria> categorias =  categoriaRepository.listarPorTipo(TipoCategoria.Livro);
 		result.use(json()).withoutRoot().from(categorias).serialize();
 	}
 

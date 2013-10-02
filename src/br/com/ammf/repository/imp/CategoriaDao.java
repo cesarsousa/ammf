@@ -1,10 +1,18 @@
 package br.com.ammf.repository.imp;
 
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -19,9 +27,26 @@ public class CategoriaDao implements CategoriaRepository {
 
 	@Override
 	public void salvar(Categoria categoria) {
-		Transaction transaction = session.beginTransaction();
-		session.save(categoria);
-		transaction.commit();
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.save(categoria);
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Categoria> listarPorTipo(TipoCategoria tipoCategoria) {
+		try {
+			Criteria criteria = session.createCriteria(Categoria.class);
+			criteria.add(Restrictions.eq("tipoCategoria", tipoCategoria));
+			criteria.addOrder(Order.asc("descricao"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 	
 	

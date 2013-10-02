@@ -22,14 +22,17 @@ public class ImagemServiceImp implements ImagemService {
 	public ImagemServiceImp(){		
 		//PASTA_IMAGEM_LIVRO = this.context.getRealPath("/");
 		//PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
+		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
 		
 		// notebook
 		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
 		                		
 		// pc home windows 7		
-		PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";		
+		//PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
 		
-		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";		
+		// pc inpi
+		PASTA_IMAGEM_LIVRO = "C:/Documents and Settings/cjunior/Meus documentos/GitHub/ammf/WebContent/livro";
+				
 	}	
 
 	@Override

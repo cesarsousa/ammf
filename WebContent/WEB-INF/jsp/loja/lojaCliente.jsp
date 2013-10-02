@@ -89,100 +89,64 @@
 				<tbody>
 				<tr>
 					<td >
-					<label class="tabTitulo">Sinopse</label>
+					<label class="tabTitulo" style="font-size: large;">Sinopse</label>
 					<ul>
 					<li><label class="tabDescricao">${livro.sinopse}</label></li>
 					</ul>
 				
-					<label class="tabTitulo">Outras Informa&ccedil;&otilde;es</label>
+					<label class="tabTitulo" style="font-size: large;">Informa&ccedil;&otilde;es Gerais</label>
 					<ul>
 					<li>
 						<label class="tabTitulo">T&iacute;tulo:</label>
 						<label class="tabDescricao">${livro.titulo}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Subt&iacute;tulo:</label>
+						<label class="tabDescricao">${livro.subtitulo}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Editora:</label>
+						<label class="tabDescricao">${livro.editora}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Editora:</label>
+						<label class="tabDescricao">${livro.editora}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">N&ordm; de p&aacute;ginas:</label>
+						<label class="tabDescricao">${livro.paginas}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Edi&ccedil;&atilde;o:</label>
+						<label class="tabDescricao">${livro.edicao}</label>
+					</li>	
+					
+					<li>
+						<label class="tabTitulo">Ano:</label>
+						<label class="tabDescricao">${livro.ano}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Idioma:</label>
+						<label class="tabDescricao">${livro.idioma}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">C&oacute;digo de barras:</label>
+						<label class="tabDescricao">${livro.codigoBarra}</label>
+					</li>
+					
+					<li>
+						<label class="tabTitulo">Pre&ccedil;o:</label>
+						<label class="tabDescricao">${livro.precoFormatado}</label>
 					</li>					
 					
-					</ul>
-					
-					<ul>
-					<li>
-					Subt&iacute;tulo
-					<ul>
-					<li>${livro.subtitulo}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					Editora
-					<ul>
-					<li>${livro.editora}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					ISBN
-					<ul>
-					<li>${livro.isbn}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					N&ordm; de p&aacute;ginas
-					<ul>
-					<li>${livro.paginas}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					Edi&ccedil;&atilde;o
-					<ul>
-					<li>${livro.edicao}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					Ano
-					<ul>
-					<li>${livro.ano}</li>
-					</ul>
-					</li>
 					</ul>			
-					
-					<ul>
-					<li>
-					Idioma
-					<ul>
-					<li>${livro.idioma}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					C&oacute;digo de barras
-					<ul>
-					<li>${livro.codigoBarra}</li>
-					</ul>
-					</li>
-					</ul>
-					
-					<ul>
-					<li>
-					Preco
-					<ul>
-					<li>${livro.precoFormatado}</li>
-					</ul>
-					</li>
-					</ul>
 				</td>
 				</tr>
 				</tbody>

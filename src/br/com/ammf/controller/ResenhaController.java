@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -8,9 +10,12 @@ import javax.swing.JOptionPane;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
+import br.com.ammf.model.TipoCategoria;
+import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ResenhaService;
@@ -26,6 +31,7 @@ public class ResenhaController {
 
 	private Result result;
 	private ResenhaRepository resenhaRepository;
+	private CategoriaRepository categoriaRepository;
 	private ValidacaoService validacaoService;
 	private ResenhaService resenhaService;
 	private EmailService emailService;
@@ -33,11 +39,13 @@ public class ResenhaController {
 	public ResenhaController(
 			Result result, 
 			ResenhaRepository resenhaRepository,
+			CategoriaRepository categoriaRepository,
 			ValidacaoService validacaoService,
 			ResenhaService resenhaService,
 			EmailService emailService) {
 		this.result = result;
 		this.resenhaRepository = resenhaRepository;
+		this.categoriaRepository = categoriaRepository;
 		this.validacaoService = validacaoService;
 		this.resenhaService = resenhaService;
 		this.emailService = emailService;
@@ -122,6 +130,29 @@ public class ResenhaController {
 		result.include("resenha", resenha);
 		result.include("resenhaEditarCadastro", true);
 		result.redirectTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Get("/resenha/categorias")
+	public void listaCategorias(){
+		List<Categoria> categorias =  categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
+		result.use(json()).withoutRoot().from(categorias).serialize();
+	}
+	
+	@Restrito
+	@Post("/resenha/categoria/nova")
+	public void cadastrarNovaCategoria(String categoria){		
+		try {
+			resenhaService.cadastrarCategoria(categoria);
+			retornarJson("<div id=\"msgCadastrarCategoriaResenha\" class=\"msgBorderInterno msgSucesso t80 closeClick ponteiro\">Categoria adicionada com sucesso</div>");
+		} catch (Exception e) {
+			retornarJson("<div id=\"msgCadastrarCategoriaResenha\" class=\"msgBorderInterno msgErro t80 closeClick ponteiro\">Erro! N&atilde;o foi possivel cadastrar a categoria</div>");
+		}		
+	}
+	
+	private void retornarJson(String mensagem) {
+		result.use(json()).withoutRoot().from(mensagem).serialize();
+		
 	}
 	
 	

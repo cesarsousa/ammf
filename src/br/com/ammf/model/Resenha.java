@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +38,9 @@ public class Resenha implements Serializable {
 	
 	@Column(length = 2250)
 	private String descricao;
+	
+	@ManyToOne
+	private Categoria categoria;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date postagem = new Date();	
@@ -87,6 +91,14 @@ public class Resenha implements Serializable {
 
 	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
+	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getDataFormatada(){

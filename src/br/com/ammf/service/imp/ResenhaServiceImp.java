@@ -3,7 +3,9 @@ package br.com.ammf.service.imp;
 import java.text.ParseException;
 import java.util.Date;
 
+import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.utils.DataUtils;
@@ -29,6 +31,15 @@ public class ResenhaServiceImp implements ResenhaService {
 		Date postagem = DataUtils.getDate(dataPostagem);
 		resenha.setPostagem(postagem);
 		resenhaRepository.atualizar(resenha);
+		
+	}
+
+	@Override
+	public void cadastrarCategoria(String categoria) {
+		Categoria novaCategoria = new Categoria();
+		novaCategoria.setDescricao(categoria);
+		novaCategoria.setTipoCategoria(TipoCategoria.Resenha);
+		resenhaRepository.cadastrarCategoria(novaCategoria);
 		
 	}
 	

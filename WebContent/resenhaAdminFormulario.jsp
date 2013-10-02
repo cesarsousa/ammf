@@ -5,6 +5,23 @@
 <input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 </div>
 
+<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
+
+<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
+<div>
+	<div id="divCadastrarCategoriaResenha">
+	<div class="paddingPadrao corPrincipal" class="bordaPadrao">
+	<br/>
+	<input id="inputCadastrarCategoriaResenha" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
+	<input id="ajaxCadastrarCategoriaResenha" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
+	<br/>
+	<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">
+	</div>
+	</div>				
+
+<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
+</div>
+
 <h3>T&iacute;tulo :</h3>
 <input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 

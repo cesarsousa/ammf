@@ -68,8 +68,65 @@ function visualizarTextoParaEdicao(uuid){
 	});*/	
 }
 
+function cadastrarNovaCategoriaResenha() {
+	var categoria  = $('#inputCadastrarCategoriaResenha').val();
+	if(categoria == "Digite a categoria" || categoria == ""){
+		alert("Digite a categoria");
+	}else{
+		abrirIconeAguarde('#iconeAguardeCadastrarCategoriaResenha');
+		ajaxCadastar(categoria);
+	}	
+}
+
+function ajaxCadastar(categoria){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/resenha/categoria/nova",
+		data: {"categoria" : categoria},
+		success : function(json){
+			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaResenha');
+			$('#divCadastrarCategoriaResenha').slideUp(500);
+			$('#msgCadastrarCategoriaResenha').html('').html(json).show().slideUp(5000);			
+			listarCategoriasDeResenha();
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
+}
+
+function listarCategoriasDeResenha() {
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/resenha/categorias",
+		success : function(json){
+			$('#comboBoxCategoriasResenha').html('');			
+			for(var i = 0; i < json.length; i++){				
+				$('#comboBoxCategoriasResenha').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+			}					
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
+}
+
 
 $(document).ready(function() {
+	listarCategoriasDeResenha();
+	
+	$('#msgCadastrarCategoriaResenha, #divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha').hide();
+	$('#btCadastrarCategoriaResenha').toggle(function() {
+		$('#divCadastrarCategoriaResenha').show();
+		addRemoveDestaque('#inputCadastrarCategoriaResenha');
+		$('#inputCadastrarCategoriaResenha').puts("Digite a categoria");
+	}, function() {
+		$('#divCadastrarCategoriaResenha').hide();		
+	});
+	$('#ajaxCadastrarCategoriaResenha').click(function(){		
+		cadastrarNovaCategoriaResenha();	
+	});
+	
 	
 	addRemoveDestaque("#resenhaTitulo");
 	addRemoveDestaque("#resenhaAutor");

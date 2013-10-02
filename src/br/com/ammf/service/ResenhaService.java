@@ -10,4 +10,6 @@ public interface ResenhaService {
 
 	void atualizar(Resenha resenha, String dataPostagem) throws ParseException;
 
+	void cadastrarCategoria(String categoria);
+
 }

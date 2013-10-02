@@ -18,7 +18,5 @@ public interface LivroRepository {
 	Livro obterPorUuid(String uuid);
 
 	void cadastrarCategoria(Categoria categoria);
-
-	List<Categoria> listarCategorias();
 	
 }
