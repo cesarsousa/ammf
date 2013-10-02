@@ -28,6 +28,8 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 public class ResenhaController {
+	
+	// TODO criar resenha clientes.
 
 	private Result result;
 	private ResenhaRepository resenhaRepository;

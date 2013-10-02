@@ -129,7 +129,7 @@
 			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
 			
 			<div id="divIdResenha">				
-			<h3>C&oacute;digo:</h3>
+			<h3>C&oacute;digo da Resenha:</h3>
 			<input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
 			
