@@ -102,7 +102,6 @@
 			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 					
-					
 			<p>
 			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
 			<input id="btCancelarResenha" type="button" value="cancelar" class="button">				

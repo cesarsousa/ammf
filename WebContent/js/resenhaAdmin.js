@@ -208,7 +208,12 @@ $(document).ready(function() {
 		$('#labelBuscaResenha').html('');
 		//$('#resultBuscaTxtBlog').slideUp(500);
 		//$('#divBlogEditarTexto').slideUp(500);
-	}); //continuar daki
+	});
+	
+	$('#btFecharEditarResenha').click(function() {
+		$('#tabEditarResenha').slideUp(500);
+	});
+	
 		
 	/*$('#btBlogExcluirEdtTexto').click(function(){
 		if(confirmarExclusao()){
