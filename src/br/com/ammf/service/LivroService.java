@@ -12,6 +12,6 @@ public interface LivroService {
 
 	void cadastrarCategoria(String categoria);
 
-	void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro) throws Exception;
+	void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws Exception;
 
 }

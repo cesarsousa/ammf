@@ -28,10 +28,10 @@ public class ImagemServiceImp implements ImagemService {
 		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
 		                		
 		// pc home windows 7		
-		//PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
+		PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
 		
 		// pc inpi
-		PASTA_IMAGEM_LIVRO = "C:/Documents and Settings/cjunior/Meus documentos/GitHub/ammf/WebContent/livro";
+		//PASTA_IMAGEM_LIVRO = "C:/Documents and Settings/cjunior/Meus documentos/GitHub/ammf/WebContent/livro";
 				
 	}	
 
@@ -63,10 +63,11 @@ public class ImagemServiceImp implements ImagemService {
 		return imagem;
 	}
 	
-	private Imagem criarImagemDefault() {
+	@Override
+	public Imagem criarImagemDefault() {
 		Imagem imagem = new Imagem();
 		imagem.setId(1L);
-		imagem.setNome("/capaLivroDefault.jpg");
+		imagem.setNome(NOME_DEFAULT);
 		return imagem;
 	}
 

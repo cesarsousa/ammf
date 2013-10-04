@@ -101,7 +101,8 @@
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-					
+			<br/>
+			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</span>		
 			<p>
 			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
 			<input id="btCancelarResenha" type="button" value="cancelar" class="button">				
@@ -134,6 +135,9 @@
 			
 			<div id="msgCadastrarCategoriaResenhaEdt" class="paddindPadrao"></div>
 			
+			<br/>
+			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
+			<br/>			
 			<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
 			<div>
 				<div id="divCadastrarCategoriaResenhaEdt">
@@ -164,8 +168,8 @@
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-				
-						
+			<br/>
+			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</span>	
 			<p>
 			<input id="btEditarResenha" type="submit" value="atualizar" class="buttonCadastrar">
 			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="button">				

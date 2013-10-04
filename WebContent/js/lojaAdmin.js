@@ -7,20 +7,31 @@ function cadastrarNovaCategoria() {
 		alert("Digite a categoria");
 	}else{
 		abrirIconeAguarde('#iconeAguardeCadastrarCategoria');
-		ajaxCadastar(categoria);
+		ajaxLivroCadastrar(categoria);
 	}	
 }
 
-function ajaxCadastar(categoria){
+function cadastrarNovaCategoriaEdt() {
+	var categoria  = $('#inputCadastrarCategoriaEdt').val();
+	if(categoria == "Digite a categoria" || categoria == ""){
+		alert("Digite a categoria");
+	}else{
+		abrirIconeAguarde('#iconeAguardeCadastrarCategoriaEdt');
+		ajaxLivroCadastrar(categoria);		
+	}	
+}
+
+function ajaxLivroCadastrar(categoria){
 	$.ajax({
 		type : 'POST',
 		url : $('#contexto').val() + "/livro/categoria/nova",
 		data: {"categoria" : categoria},
 		success : function(json){
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoria');
-			$('#divCadastrarCategoria').slideUp(500);
-			$('#msgCadastrarCategoria').html('').html(json).show().slideUp(5000);			
-			listarCategorias();
+			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaEdt');
+			$('#divCadastrarCategoria, #divCadastrarCategoriaEdt').slideUp(500);
+			$('#msgCadastrarCategoria, #msgCadastrarCategoriaEdt').html('').html(json).show().slideUp(5000);			
+			listarCategoriasDeLivro();
 		},
 		error : function(){
 			ajaxErroPadrao();		
@@ -33,9 +44,9 @@ function listarCategoriasDeLivro() {
 		type : 'GET',
 		url : $('#contexto').val() + "/livro/categorias",
 		success : function(json){
-			$('#comboBoxCategoriasLivro').html('');			
+			$('#comboBoxCategoriasLivro, #comboBoxCategoriasLivroEdt').html('');			
 			for(var i = 0; i < json.length; i++){				
-				$('#comboBoxCategoriasLivro').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+				$('#comboBoxCategoriasLivro, #comboBoxCategoriasLivroEdt').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
 			}					
 		},
 		error : function(){
@@ -172,6 +183,17 @@ $(document).ready(function() {
 		cadastrarNovaCategoria();	
 	});
 	
+	$('#msgCadastrarCategoriaEdt, #divCadastrarCategoriaEdt, #iconeAguardeCadastrarCategoriaEdt').hide();
+	$('#btCadastrarCategoriaEdt').toggle(function() {
+		$('#divCadastrarCategoriaEdt').show();
+		addRemoveDestaque('#inputCadastrarCategoriaEdt');
+		$('#inputCadastrarCategoriaEdt').puts("Digite a categoria");
+	}, function() {
+		$('#divCadastrarCategoriaEdt').hide();		
+	});
+	$('#ajaxCadastrarCategoriaEdt').click(function(){		
+		cadastrarNovaCategoriaEdt();	
+	});	
 	
 	configurarCamposAddLivro();
 	configurarCamposAtualizaLivro();

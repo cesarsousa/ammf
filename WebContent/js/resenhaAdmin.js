@@ -67,7 +67,7 @@ function cadastrarNovaCategoriaResenha() {
 		alert("Digite a categoria");
 	}else{
 		abrirIconeAguarde('#iconeAguardeCadastrarCategoriaResenha');
-		ajaxCadastar(categoria);
+		ajaxResenhaCadastrar(categoria);
 	}	
 }
 
@@ -77,7 +77,7 @@ function cadastrarNovaCategoriaResenhaEdt() {
 		alert("Digite a categoria");
 	}else{
 		abrirIconeAguarde('#iconeAguardeCadastrarCategoriaResenhaEdt');
-		ajaxCadastar(categoria);
+		ajaxResenhaCadastrar(categoria);
 		
 		/*
 		 * fazer prepend da categoria atual
@@ -85,7 +85,7 @@ function cadastrarNovaCategoriaResenhaEdt() {
 	}	
 }
 
-function ajaxCadastar(categoria){
+function ajaxResenhaCadastrar(categoria){
 	$.ajax({
 		type : 'POST',
 		url : $('#contexto').val() + "/resenha/categoria/nova",
@@ -150,6 +150,20 @@ $(document).ready(function() {
 	addRemoveDestaque("#resenhaTitulo");
 	addRemoveDestaque("#resenhaAutor");
 	addRemoveDestaque("#textoDescricaoResenha");
+	
+	addRemoveDestaque("#resenhaTituloEdt");
+	addRemoveDestaque("#resenhaAutorEdt");
+	addRemoveDestaque("#textoDescricaoResenhaEdt");
+	
+	$('#textoDescricaoResenha').keyup(function() {		
+		limitarCaracteres('#textoDescricaoResenha', '#contadorCaracterResenha', 2250);
+	});
+	
+	$('#textoDescricaoResenhaEdt').keyup(function() {		
+		limitarCaracteres('#textoDescricaoResenhaEdt', '#contadorCaracterResenhaEdt', 2250);
+	});
+	
+	
 	addRemoveDestaque("#campoBuscaTxtResenha");
 	var texto = "Digite parte do título da resenha e pressione a tecla ENTER";
 	$('#campoBuscaTxtResenha').puts(texto);

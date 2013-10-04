@@ -187,10 +187,7 @@
 				<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 				</div>
 				
-				<div class="paddingPadrao">
-				<!-- <div class="msgBorderInterno msgAlerta">
-				<b>Pre&ccedil;o:... </b> Deixar o pre&ccedil;o em branco implica em disponibilizar o produto com valor de R$ 0,00.
-				</div> -->			
+				<div class="paddingPadrao">						
 				<label class="labelForm">Pre&ccedil;o</label>
 				<br/>
 				<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
@@ -401,6 +398,26 @@
 					<label class="labelForm">T&iacute;tulo</label>
 					<input id="livroAtualizaTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
+					
+					<div id="msgCadastrarCategoriaEdt" class="paddindPadrao"></div>
+					
+					<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere a categoria para '${livro.categoria.descricao}' ou selecione uma nova categoria.</label>
+					<br/>
+					
+					<div class="paddingPadrao">				
+					<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoriaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
+						<div id="divCadastrarCategoriaEdt">
+						<div class="paddingPadrao corPrincipal" class="bordaPadrao">
+						<br/>
+						<input id="inputCadastrarCategoriaEdt" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
+						<input id="ajaxCadastrarCategoriaEdt" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
+						<br/>
+						<img id="iconeAguardeCadastrarCategoriaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">
+						</div>
+						</div>				
+					
+					<select id="comboBoxCategoriasLivroEdt" name="livro.categoria.id" class="letraCinza largura100 altura30 bordaPadrao"></select>
+					</div>
 				
 					<div class="paddingPadrao">
 					<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
@@ -448,15 +465,21 @@
 					
 					<div class="paddingPadrao bordaPadrao">						
 						<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">
+						
 						<p>
-						<input type="checkbox" value="livroFotoDefault" />
-						<label class="labelForm">N&atilde;o adicionar nenhuma imagem</label><br/>
+						<label class="inline">
+						<span class="labelForm">Remover e n&atilde;o adicionar nenhuma imagem</span>
+						<input type="checkbox" value="true" name="removerImagemLivroEdt"/>						
+						</label>
+						
 						</p>
 						<p>
 						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
 						</p>
 						<div id="divUploadNovaFotoLivro">
 							<input type="hidden" name="livro.imagem.nome" value="${livro.imagem.nome}"/>
+							<input type="hidden" name="livro.imagem.id" value="${livro.imagem.id}"/>
+							<input type="hidden" name="livro.imagem.caminho" value="${livro.imagem.caminho}"/>
 							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
 						<input id="btRemoverUploadNovaFotoLivro" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>

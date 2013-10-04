@@ -54,9 +54,8 @@ public class LivroController {
 			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
 			if(validado){
-				livroService.cadastrar(imagemLivro, livro);			
-				// verificar relacionamento de livro com categoria
-				// notificar clientes cliente e adm.
+				livroService.cadastrar(imagemLivro, livro);				
+				// notificar clientes cliente.
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}			
 			
@@ -70,12 +69,12 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/atualizar")
-	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro){ 
+	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagemLivroEdt){ 
 		try {			
 			boolean validado = validacaoService.atualizarLivro(novaImagemLivro, livro, result);
 			
 			if(validado){
-				livroService.atualizar(novaImagemLivro, dataPostagem, livro);				
+				livroService.atualizar(novaImagemLivro, dataPostagem, livro, removerImagemLivroEdt);				
 				// notificar clientes cliente e adm.
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
 			}

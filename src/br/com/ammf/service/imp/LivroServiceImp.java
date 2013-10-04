@@ -8,6 +8,7 @@ import java.util.Date;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.TipoCategoria;
+import br.com.ammf.repository.ImagemRepository;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
@@ -20,10 +21,12 @@ public class LivroServiceImp implements LivroService {
 	
 	private ImagemService imagemService;
 	private LivroRepository livroRepository;
+	private ImagemRepository imagemRepository;
 
-	public LivroServiceImp(ImagemService imagemService, LivroRepository livroRepository) {
+	public LivroServiceImp(ImagemService imagemService, LivroRepository livroRepository, ImagemRepository imagemRepository) {
 		this.imagemService = imagemService;
 		this.livroRepository = livroRepository;
+		this.imagemRepository = imagemRepository;
 	}
 
 	@Override
@@ -43,14 +46,18 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro) throws Exception {
-		if(novaImagemLivro != null){
+	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws Exception {
+		if(removerImagem){
+			imagemService.removerFoto(livro.getImagem().getCaminho());
+			// TODO não pode remover antes atualizar
+			imagemRepository.remover(livro.getImagem());
+			livro.setImagem(imagemService.criarImagemDefault());
+		}else if(novaImagemLivro != null){
 			imagemService.atualizarFotoLivro(novaImagemLivro, livro);
 		}				
 		Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
 		livro.setPostagem(postagem);
-		livroRepository.atualizar(livro);
-		
+		livroRepository.atualizar(livro);		
 	}
 
 }
