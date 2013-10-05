@@ -1,5 +1,6 @@
 package br.com.ammf.utils;
 
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
@@ -249,18 +250,11 @@ public class HtmlMensagem {
 	
 	public static String getAssunto(Notificacao notificacao, Resenha resenha) {
 		if(Notificacao.RESENHA_NOVA.equals(notificacao))
-			return getAssuntoResenhaNova().replace("?", resenha.getTitulo());
+			return "Blog Quiron - Nova resenha ' ? ' foi adicionada".replace("?", resenha.getTitulo());
 		if(Notificacao.RESENHA_ATUALIZADA.equals(notificacao))
-			return getAssuntoResenhaAtualizada().replace("?", resenha.getTitulo());
+			return "Blog Quiron - A resenha ' ? ' foi atualizada".replace("?", resenha.getTitulo());
 		return "Site Quiron";
-	}
-	
-	public static String getAssuntoResenhaNova() {
-		return "Blog Quiron - A resenha ' ? ' foi adicionada";
 	}	
-	public static String getAssuntoResenhaAtualizada() {
-		return "Blog Quiron - A resenha ' ? ' foi atualizada";
-	}
 
 	public static String getMensagemNotificacaoDeResenhaAdicionada(Resenha resenha, String linkedin, Pessoa pessoa) {
 		// TODO Auto-generated method stub
@@ -270,5 +264,23 @@ public class HtmlMensagem {
 	public static String getMensagemNotificacaoDeResenhaAtualizada(Resenha resenha, String linkedin, Pessoa pessoa) {
 		// TODO Auto-generated method stub
 		return "resenha atualizada";
+	}
+
+	public static String getAssunto(Notificacao notificacao, Livro livro) {
+		if(Notificacao.LIVRO_NOVO.equals(notificacao))
+			return "Blog Quiron - '?' , Novo livro adicionado".replace("?", livro.getTitulo());
+		if(Notificacao.LIVRO_ATUALIZADO.equals(notificacao))
+			return "Blog Quiron - O livro ' ? ' foi atualizado".replace("?", livro.getTitulo());
+		return "Site Quiron";
+	}
+
+	public static String getMensagemNotificacaoDeLivroAdicionado(Livro livro, String linkedin, Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return "Novo livro '?' adicionado".replace("?", livro.getTitulo());
+	}
+
+	public static String getMensagemNotificacaoDeLivroAtualizado(Livro livro, String linkedin, Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return "O livro '?' foi adicionado".replace("?", livro.getTitulo());
 	}
 }

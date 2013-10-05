@@ -10,9 +10,11 @@ import java.util.List;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.LivroRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
 import br.com.ammf.service.ValidacaoService;
@@ -26,23 +28,24 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 @Resource
 public class LivroController {
 	
-	//TODO adiconar categoria no editar livro e arumar o check para remover foto.
-
 	private Result result;
 	private ValidacaoService validacaoService;
 	private LivroService livroService;
+	private EmailService emailService;
 	private LivroRepository livroRepository;
 	private CategoriaRepository categoriaRepository;
 	
 	public LivroController(
 			Result result, 
 			ValidacaoService validacaoService,
+			EmailService emailService,
 			LivroService livroService,
 			LivroRepository livroRepository,
 			CategoriaRepository categoriaRepository){
 		this.result = result;
 		this.validacaoService = validacaoService;
 		this.livroService = livroService;
+		this.emailService = emailService;
 		this.livroRepository = livroRepository;
 		this.categoriaRepository = categoriaRepository;
 	}
@@ -55,7 +58,7 @@ public class LivroController {
 			
 			if(validado){
 				livroService.cadastrar(imagemLivro, livro);				
-				// notificar clientes cliente.
+				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}			
 			
@@ -75,7 +78,7 @@ public class LivroController {
 			
 			if(validado){
 				livroService.atualizar(novaImagemLivro, dataPostagem, livro, removerImagemLivroEdt);				
-				// notificar clientes cliente e adm.
+				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_ATUALIZADO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
 			}
 			

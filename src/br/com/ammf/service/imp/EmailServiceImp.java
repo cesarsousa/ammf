@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
@@ -150,8 +151,33 @@ public class EmailServiceImp implements EmailService {
 				administrador.getSenha(), 
 				pessoa.getEmail(),
 				HtmlMensagem.getAssunto(notificacao, resenha),
-				mensagem);
+				mensagem);		
+	}
+
+	@Override
+	public void notificarLivroParaPessoas(Notificacao notificacao, Livro livro) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmailNotificacaoLivro(notificacao, livro, pessoa);
+		}		
+	}
+
+	private void enviarEmailNotificacaoLivro(Notificacao notificacao, Livro livro, Pessoa pessoa) throws EmailException {
+		String mensagem;
+		if(Notificacao.LIVRO_NOVO == notificacao){
+			mensagem = HtmlMensagem.getMensagemNotificacaoDeLivroAdicionado(livro, administrador.getLinkedin(), pessoa);
+		}else if(Notificacao.LIVRO_ATUALIZADO == notificacao){
+			mensagem = HtmlMensagem.getMensagemNotificacaoDeLivroAtualizado(livro, administrador.getLinkedin(), pessoa);
+		}else{
+			throw new EmailException("Tipo de notificacao de livro nao permitida: " + notificacao.toString());
+		}	
 		
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssunto(notificacao, livro),
+				mensagem);		
 	}
 
 }

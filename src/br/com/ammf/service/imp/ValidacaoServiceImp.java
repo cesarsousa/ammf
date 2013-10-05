@@ -151,10 +151,10 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	@Override
 	public boolean usuario(Usuario usuario, Result result) {
 		boolean resultado = true;
-		if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
+		/*if(usuario.getUuid() == null || usuario.getUuid().isEmpty()){
 			result.include("usuarioUuidBranco", "N&atilde;o foi poss&iacute;vel definir o uuid do usu&aacute;rio");
 			resultado = false;
-		}
+		}*/
 		
 		if(usuario.getNome() == null || usuario.getNome().isEmpty()){
 			result.include("usuarioNomeBranco", "O nome deve ser informado");

@@ -1,6 +1,7 @@
 package br.com.ammf.service;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
@@ -22,5 +23,7 @@ public interface EmailService {
 	void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException;
 
 	void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException;
+
+	void notificarLivroParaPessoas(Notificacao livroNovo, Livro livro) throws EmailException;
 
 }

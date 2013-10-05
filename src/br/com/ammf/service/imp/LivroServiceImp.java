@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.lowagie.text.Image;
+
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.ImagemRepository;
@@ -47,17 +50,40 @@ public class LivroServiceImp implements LivroService {
 
 	@Override
 	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws Exception {
-		if(removerImagem){
-			imagemService.removerFoto(livro.getImagem().getCaminho());
-			// TODO não pode remover antes atualizar
-			imagemRepository.remover(livro.getImagem());
-			livro.setImagem(imagemService.criarImagemDefault());
-		}else if(novaImagemLivro != null){
-			imagemService.atualizarFotoLivro(novaImagemLivro, livro);
-		}				
-		Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
-		livro.setPostagem(postagem);
-		livroRepository.atualizar(livro);		
+		/*try {
+			if(removerImagem){
+				imagemService.removerFoto(livro.getImagem().getCaminho());
+				imagemService.setImagemDefault(livro.getImagem());
+			}else if(novaImagemLivro != null){
+				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
+			}				
+			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
+			livro.setPostagem(postagem);
+			livroRepository.atualizar(livro);
+			
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}*/
+		
+		try {
+			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
+			livro.setPostagem(postagem);
+			
+			if(removerImagem){
+				Imagem imagem = livro.getImagem();
+				imagemService.removerFoto(imagem.getCaminho());
+				livro.setImagem(imagemService.criarImagemDefault());				
+				livroRepository.atualizar(livro);
+				imagemRepository.remover(imagem);
+			}else if(novaImagemLivro != null){
+				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
+				livroRepository.atualizar(livro);
+			}			
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+		
+				
 	}
 
 }

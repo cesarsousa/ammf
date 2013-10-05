@@ -544,10 +544,9 @@
 	<div align="center">
 		
 		<h2>Cadastro de Livro</h2>    
-		<span class="info azulClaro" >Cadastro de livro</span>
-								
-		<h3 class="paddingTelaAguarde">cadastrando livro</h3>
-		
+		<span class="info azulClaro" >Cadastro/atualização de livro, neste momento estamos notificando as pessoas sobre o livro</span>
+		<h3>Esta opera&ccedil;&atilde;o pode levar alguns segundos...</h3>
+				
 		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
 		<br />
 		<br />			

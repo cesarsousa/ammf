@@ -88,7 +88,7 @@ function verificarExtensao(formulario, arquivo) {
 } 
 
 function fecharAreasDeLivros(){
-	$('#tabBuscaLivro, #tabCadastrarLivro, #tabLivrosSolicitadas').slideUp(500);
+	$('#tabBuscaLivro, #tabCadastrarLivro, #tabLivrosSolicitadas, #tabAtualizarLivro').slideUp(500);
 }
 
 function fecharMsgLojaAdmin(){

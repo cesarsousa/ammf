@@ -21,7 +21,7 @@
 	<div align="center" class="subMenu2Rodape">
 			<a href="<c:url value="/"/>">Home</a>
 			<a href="<c:url value="/blog/cliente" />">Blog</a>
-			<a href="<c:url value=""/>">Resenhas</a>
+			<a href="<c:url value="/resenha/cliente" />">Resenhas</a>
 			<a href="<c:url value=""/>">Consultas</a>
 			<a href="<c:url value=""/>">Calendario</a>
 			<a href="<c:url value=""/>">Links</a>

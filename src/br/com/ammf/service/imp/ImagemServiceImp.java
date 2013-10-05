@@ -70,6 +70,12 @@ public class ImagemServiceImp implements ImagemService {
 		imagem.setNome(NOME_DEFAULT);
 		return imagem;
 	}
+	
+	@Override
+	public void setImagemDefault(Imagem imagem) {
+		imagem.setCaminho(null);
+		imagem.setNome(NOME_DEFAULT);		
+	}
 
 	@Override
 	public void removerFoto(String caminhoDaImagem) throws Exception {
@@ -84,5 +90,7 @@ public class ImagemServiceImp implements ImagemService {
 		}
 		
 	}
+
+	
 
 }

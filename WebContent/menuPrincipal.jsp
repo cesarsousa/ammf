@@ -47,7 +47,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/resenha/cliente" />" method="get">
 					<input type="submit" value="Resenhas" class="buttonFooter">
 					</form>
 					</li>

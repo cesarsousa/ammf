@@ -157,6 +157,9 @@ public class ResenhaController {
 		
 	}
 	
+	@Get("/resenha/cliente")
+	public void resenhaCliente(){}
+	
 	
 	
 	
