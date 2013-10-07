@@ -39,8 +39,7 @@
 <script type="text/javascript" src="${javascript}/lojaCliente.js"></script>
 <script type="text/javascript" src="${javascript}/lojaAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/resenhaAdmin.js"></script>
-
-
+<script type="text/javascript" src="${javascript}/resenhaCliente.js"></script>
 
 </head>
 <body>

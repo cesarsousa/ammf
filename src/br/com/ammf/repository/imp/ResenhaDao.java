@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
@@ -49,9 +50,9 @@ public class ResenhaDao implements ResenhaRepository {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Texto> listar() {
+	public List<Resenha> listar() {
 		try {
-			return session.createCriteria(Resenha.class).list();
+			return session.createCriteria(Resenha.class).addOrder(Order.desc("postagem")).list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -100,6 +101,18 @@ public class ResenhaDao implements ResenhaRepository {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 		
+	}
+
+	@Override
+	public List<Resenha> listarTop3() {
+		try {			
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.addOrder(Order.desc("postagem"));
+			criteria.setMaxResults(3);
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 }

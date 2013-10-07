@@ -469,6 +469,10 @@ a:HOVER {
 	background-color: #B22222;
 }
 
+.hideTd {
+	display: none;
+}
+
 .depsCadAll {	
 	color: #FFFFFF;
 	padding: 5px;

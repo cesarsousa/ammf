@@ -14,7 +14,7 @@
 </p>
 </div>
 
-<div align="center">
+<%-- <div align="center">
 <div id="ultimaPublicacao" class="cardViewText">	
 	<c:choose>
 		<c:when test="${empty ultimaPublicacao}">
@@ -37,11 +37,23 @@
 		</c:otherwise>
 	</c:choose>
 </div>
+</div> --%>
+
+
+<div id="divResenhasTop3" align="center">
+	<c:forEach items="${resenhas}" var="resenha">
+	<div class="cardViewText">
+		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
+		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
+		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
+		<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>	
+	</div>
+	<br/>
+	</c:forEach>
 </div>
 
 
-
-<div id="divTodosTextos">
+<div id="divTodasAsResenhas">
 
 <h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
 
@@ -50,25 +62,14 @@
 <table class="display dataTable">
 	<thead align="left">
 		<tr>
-			<th class="metadado">Autor</th>
+			<th class="metadado">Tipo da resenha</th>
 			<th class="metadado">T&iacute;tulo</th>
-			<th class="metadado">Texto</th>
-			<th class="metadado">Postagem</th>			
+			<th class="metadado">Coment&aacute;rio</th>
+			<th class="metadado">Data de Postagem</th>			
 		</tr>
 	</thead>
-	<tbody>
- 		<c:forEach items="${textosBlog}" var="texto">
-			<tr class="zebrado">
-				<td class="infoTabela">${texto.autor}</td>
-				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
-				</td>
-				<td class="infoTabela">
-					<c:set var="origem"	value="${texto.conteudo}"/>
-					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
-			</tr>			
-		</c:forEach>		
+	<tbody id="bodyResenhasCliente">
+ 				
 	</tbody>
 	<tfoot>
 		<tr>
@@ -80,7 +81,7 @@
 </div>
 </div>
 
-<a name="irTopo"></a>
+<!-- <a name="irTopo"></a>
 <a name="lerTexto"></a>
 <table id="textoModoLeitura"  width="100%">	
 	<tbody>
@@ -101,15 +102,16 @@
 			</th>			
 		</tr>		
 	</tfoot>
-</table>
+</table> -->
+
 </div> 
 
 <br/><br/>
 
-<input id="emailRequest" type="hidden" value="${emailRequest}" />
+<%-- <input id="emailRequest" type="hidden" value="${emailRequest}" /> --%>
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<span id="btVisualizarTodos" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores.</span>
+		<span id="btVisualizarOutrasResenhas" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores.</span>
 	</div>
 </div>
 

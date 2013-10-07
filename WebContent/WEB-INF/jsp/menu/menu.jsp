@@ -16,7 +16,7 @@
 <c:if test="${not empty sessaoUsuario.notificacoes}">
 	<div class="msgBorder msgAlerta">
 	<c:forEach items="${sessaoUsuario.notificacoes}" var="notificacao">
-		${notificacao}
+		${notificacao}<br/>
 	</c:forEach>
 	</div>
 </c:if>

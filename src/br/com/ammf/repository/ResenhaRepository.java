@@ -12,7 +12,7 @@ public interface ResenhaRepository {
 	
 	List<Texto> listar(String parametro);
 
-	List<Texto> listar();
+	List<Resenha> listar();
 
 	void deletar(Resenha resenha);
 
@@ -21,5 +21,7 @@ public interface ResenhaRepository {
 	void atualizar(Resenha resenha);
 
 	void cadastrarCategoria(Categoria novaCategoria);
+
+	List<Resenha> listarTop3();
 
 }

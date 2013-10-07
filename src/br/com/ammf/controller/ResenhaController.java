@@ -110,7 +110,7 @@ public class ResenhaController {
 	@Restrito
 	@Get("/resenha/listar")
 	public void listar(){
-		List<Texto> resenhas = resenhaRepository.listar();		
+		List<Resenha> resenhas = resenhaRepository.listar();		
 		result.include("flagListarResenhas", true);
 		result.include("resenhas", resenhas);
 		result.redirectTo(this).resenhaAdmin();
@@ -158,10 +158,20 @@ public class ResenhaController {
 	}
 	
 	@Get("/resenha/cliente")
-	public void resenhaCliente(){}
+	public void resenhaCliente(){
+		List<Resenha> resenhas = resenhaRepository.listarTop3();
+		result.include("resenhas", resenhas);
+		
+	}
 	
 	
+	//TODO não listar por ajax senão da pau...
 	
+	@Get("/resenha/cliente/listar")
+	public void listarResenhasParaCliente(){
+		List<Resenha> resenhas =  resenhaRepository.listar();
+		result.use(json()).withoutRoot().from(resenhas).include("categoria").serialize();
+	}
 	
 	
 	
