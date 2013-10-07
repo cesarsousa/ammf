@@ -53,6 +53,7 @@
 </div>
 
 
+<input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
 <div id="divTodasAsResenhas">
 
 <h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
@@ -67,9 +68,23 @@
 			<th class="metadado">Coment&aacute;rio</th>
 			<th class="metadado">Data de Postagem</th>			
 		</tr>
+		
 	</thead>
-	<tbody id="bodyResenhasCliente">
- 				
+	<tbody>
+		<c:forEach items="${resenhasRequest}" var="resenha">
+			<tr class="zebrado">
+				<td class="infoTabela">${resenha.categoria.descricao}</td>
+				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
+					<a id="${resenha.uuid}" class="infoTabela metadado" onclick="javascript:visualizarTextoResenha(this);"><b>${resenha.titulo}</b></a></td>
+				<td class="infoTabela" title="clique no titulo para ler texto completo">					
+					<c:set var="origemResenha"	value="${resenha.descricao}"/>
+					<c:out value="${fn:substring(origemResenha,0,30)}"/>...</td>
+				<td class="infoTabela"><b>${resenha.dataFormatada}</b></td>
+			</tr>
+			<tr>
+				<td colspan="4" id="resenha${resenha.uuid}" class="hideTd infoTabela titulo bordaPadrao paddingPadrao"><p class="infoTabela metadado">${resenha.titulo}<p>${resenha.descricao}</td>
+			</tr>
+ 		</c:forEach>		
 	</tbody>
 	<tfoot>
 		<tr>
@@ -108,10 +123,12 @@
 
 <br/><br/>
 
+
 <%-- <input id="emailRequest" type="hidden" value="${emailRequest}" /> --%>
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<span id="btVisualizarOutrasResenhas" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores.</span>
+		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
+		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar ultimas publica&ccedil;&otilde;es</a>
 	</div>
 </div>
 

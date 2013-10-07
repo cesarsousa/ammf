@@ -79,17 +79,27 @@ function ajaxListarResenhasCliente() {
 
 $(document).ready(function() {
 	
-	$('#divTodasAsResenhas').hide();
+	/*$('#divTodasAsResenhas').hide();
+	$('#btVisualizarUltimasResenhas').hide();
+	$('#btVisualizarOutrasResenhas').show;*/
+		
+	if($('#flagResenhasRequest').val()){		
+		$('#divResenhasTop3, #btVisualizarOutrasResenhas').hide();		
+		$('#divTodasAsResenhas, #btVisualizarUltimasResenhas').show;
+	}else{
+		$('#divTodasAsResenhas, #btVisualizarUltimasResenhas').hide();
+		$('#divResenhasTop3, #btVisualizarOutrasResenhas').show;
+	}
 	
-	$('#btVisualizarOutrasResenhas').toggle(function() {
+	/*$('#btVisualizarOutrasResenhas').toggle(function() {
 		$('#divResenhasTop3').slideUp(500);
-		ajaxListarResenhasCliente();
+		//ajaxListarResenhasCliente();
 		$('#divTodasAsResenhas').slideDown(500);
-		/*if($('#emailRequest').val()){
+		if($('#emailRequest').val()){
 			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
 		}else{
 			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&atilde;o');
-		}*/
+		}
 		$('#btVisualizarOutrasResenhas').html('').append('Visualizar ultimas publica&ccedil;&atilde;os');
 		
 	}, function() {
@@ -97,6 +107,6 @@ $(document).ready(function() {
 		$('#divResenhasTop3').slideDown(500);
 		$('#divTodasAsResenhas').slideUp(500);
 		$('#btVisualizarOutrasResenhas').html('').append('Visualizar resenhas anteriores');
-	});	
+	});	*/
 			
 });

@@ -95,7 +95,7 @@ $(document).ready(function() {
 		if($('#emailRequest').val()){
 			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
 		}else{
-			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&atilde;o');
+			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&otilde;es');
 		}
 		
 	}, function() {

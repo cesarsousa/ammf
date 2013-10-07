@@ -163,21 +163,12 @@ public class ResenhaController {
 		result.include("resenhas", resenhas);
 		
 	}
-	
-	
-	//TODO não listar por ajax senão da pau...
-	
-	@Get("/resenha/cliente/listar")
-	public void listarResenhasParaCliente(){
+		
+	@Get("/resenha/cliente/listarTodas")
+	public void listarTodasResenhasParaCliente(){
 		List<Resenha> resenhas =  resenhaRepository.listar();
-		result.use(json()).withoutRoot().from(resenhas).include("categoria").serialize();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+		result.include("resenhasRequest", resenhas);
+		result.include("flagResenhasRequest", true);
+		result.redirectTo(this).resenhaCliente();		
+	}	
 }
