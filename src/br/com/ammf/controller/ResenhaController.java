@@ -60,7 +60,7 @@ public class ResenhaController {
 	public void cadastrarResenha(Resenha resenha){
 		try {
 			if(validacaoService.novaResenha(resenha, result)){			
-				resenhaService.cadastrar(resenha);
+				resenhaService.cadastrar(resenha);				
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 			}
@@ -168,6 +168,21 @@ public class ResenhaController {
 		result.include("resenhasRequest", resenhas);
 		result.include("flagResenhasRequest", true);
 		result.redirectTo(this).resenhaCliente();		
+	}
+	
+	
+	/**
+	 * Recebe a requisicao de leitura do link de email e redireciona para blog cliente.
+	 * @param uuid
+	 */
+	@Get("/resenha/cliente/lertexto/{uuid}")
+	public void lerTextoNaIntegra(String uuid){
+		JOptionPane.showMessageDialog(null, "fazer isto");
+		/*Texto texto = textoRepository.obterPor(uuid);
+		System.out.println("data: " + texto.getDataFormatada());
+		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
+		result.include("emailRequest", true);
+		result.redirectTo(this).blogCliente(true, texto);	*/	
 	}
 	
 	

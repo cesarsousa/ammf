@@ -250,20 +250,46 @@ public class HtmlMensagem {
 	
 	public static String getAssunto(Notificacao notificacao, Resenha resenha) {
 		if(Notificacao.RESENHA_NOVA.equals(notificacao))
-			return "Blog Quiron - Nova resenha ' ? ' foi adicionada".replace("?", resenha.getTitulo());
+			return "Site Quiron - Nova resenha ' ? ' foi adicionada".replace("?", resenha.getTitulo());
 		if(Notificacao.RESENHA_ATUALIZADA.equals(notificacao))
-			return "Blog Quiron - A resenha ' ? ' foi atualizada".replace("?", resenha.getTitulo());
+			return "Site Quiron - A resenha ' ? ' foi atualizada".replace("?", resenha.getTitulo());
 		return "Site Quiron";
 	}	
 
 	public static String getMensagemNotificacaoDeResenhaAdicionada(Resenha resenha, String linkedin, Pessoa pessoa) {
-		// TODO Auto-generated method stub
-		return "nova resenha adicionada";
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "resenha_notificacar_clientes_resenha_adicionada.html");
+		
+		return mensagem
+				.replace("[INICIORESENHA]", "Adicionei uma")
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
+				.replace("[CATEGORIARESENHA]", resenha.getCategoria().getDescricao())
+				.replace("[TITULORESENHA]", resenha.getTitulo())
+				.replace("[LINKLERRESENHA]", getLinkLerResenha(resenha))				
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
+				.replace("[LINKREMOVERNOTIFICACAO]", Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
+				.replace("[LINKEDIN]", linkedin)
+				.replace("[EMAIL]", pessoa.getEmail());
 	}
 
+	
+
 	public static String getMensagemNotificacaoDeResenhaAtualizada(Resenha resenha, String linkedin, Pessoa pessoa) {
-		// TODO Auto-generated method stub
-		return "resenha atualizada";
+String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "resenha_notificacar_clientes_resenha_adicionada.html");
+		
+		return mensagem
+				.replace("[INICIORESENHA]", "Fiz uma atualiza&ccedil;&atilde;o na")
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
+				.replace("[CATEGORIARESENHA]", resenha.getCategoria().getDescricao())
+				.replace("[TITULORESENHA]", resenha.getTitulo())
+				.replace("[LINKLERRESENHA]", getLinkLerResenha(resenha))				
+				.replace("[WEBSITE_CONTATO]", Link.WEB_SITE_CONTATO)
+				.replace("[LINKREMOVERNOTIFICACAO]", Link.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
+				.replace("[LINKEDIN]", linkedin)
+				.replace("[EMAIL]", pessoa.getEmail());
+	}
+	
+	private static String getLinkLerResenha(Resenha resenha) {
+		return Link.LER_RESENHA_INTEGRA.replace("uuid", resenha.getUuid());
 	}
 
 	public static String getAssunto(Notificacao notificacao, Livro livro) {

@@ -10,6 +10,8 @@ public interface CategoriaRepository {
 	void salvar(Categoria categoria);
 	
 	List<Categoria> listarPorTipo(TipoCategoria tipoCategoria);
+
+	Categoria obterPor(long id);
 	
 
 }

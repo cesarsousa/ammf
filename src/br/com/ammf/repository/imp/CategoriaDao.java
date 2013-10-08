@@ -48,6 +48,17 @@ public class CategoriaDao implements CategoriaRepository {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
+	@Override
+	public Categoria obterPor(long id) {
+		try {
+			Criteria criteria = session.createCriteria(Categoria.class);
+			criteria.add(Restrictions.eq("id", id));
+			return (Categoria) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
 	
 	
 

@@ -9,6 +9,8 @@ public class Link {
 	public static final String REMOVER_EMAIL = DOMINIO + "/pessoa/remover/email/uuid";
 
 	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
+	
+	public static final String LER_RESENHA_INTEGRA = DOMINIO + "/resenha/cliente/lertexto/uuid";
 
 	public static final String WEB_SITE_LOGIN = DOMINIO + "/login";
 	
@@ -20,7 +22,7 @@ public class Link {
 
 	public static final String TEXTO_QUIRON = DOMINIO + "/quiron";
 
-	public static final String TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";
+	public static final String TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";	
 
 	public static final String TEXTOS_PRINCIPAIS = DOMINIO + "/index/";
 
