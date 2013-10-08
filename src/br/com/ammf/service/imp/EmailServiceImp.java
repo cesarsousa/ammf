@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
@@ -178,6 +179,12 @@ public class EmailServiceImp implements EmailService {
 				pessoa.getEmail(),
 				HtmlMensagem.getAssunto(notificacao, livro),
 				mensagem);		
+	}
+
+	@Override
+	public void notificarLinkParaPessoas(Notificacao linkNovo, Link link) throws EmailException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

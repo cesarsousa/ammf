@@ -229,6 +229,9 @@
 				<input id="campoContaLinkedin" type="text" class="areaTitulo bordaPadrao" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
 				</p>
 				
+				<p>http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364</p>
+				<p>http://www.linkedin.com/pub/cesar-sousa-junior/66/583/a43</p>
+				
 				<hr style="width: 100%; border: 1px dashed #CCCCCC;" />			
 					
 				<h3>Dados de localiza&ccedil;&atilde;o e configura&ccedil;&atilde;o do Google Maps</h3>
@@ -487,7 +490,7 @@
 				</li>
 				
 				<li>
-				<form>
+				<form action="<c:url value="/menu/link" />" method="get" >
 				<input type="submit" value="Links" class="buttonFooter">
 				</form>
 				</li>

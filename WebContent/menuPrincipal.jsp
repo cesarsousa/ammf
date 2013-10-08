@@ -65,7 +65,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/link/cliente" />" method="get">
 					<input type="submit" value="Links" class="buttonFooter">
 					</form>
 					</li>

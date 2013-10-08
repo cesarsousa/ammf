@@ -1442,7 +1442,7 @@ table.tabLivro thead  tr td{
 }
 
 .infoTabelaData{
-	width: 160px;
+	/* width: 160px; */
 	padding: 5px;
 	font-size: small;	
 }

@@ -1,12 +1,9 @@
 package br.com.ammf.service.imp;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.lowagie.text.Image;
-
+import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
@@ -33,10 +30,15 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
-		livro.setPostagem(DataUtils.getDateNow());
-		imagemService.salvarFotoLivro(imagemLivro, livro);
-		livroRepository.cadastrar(livro);		
+	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws CadastroException {
+		try {
+			livro.setPostagem(DataUtils.getDateNow());
+			imagemService.salvarFotoLivro(imagemLivro, livro);
+			livroRepository.cadastrar(livro);			
+		} catch (Exception e) {
+			throw new CadastroException(e.getMessage());
+		}
+			
 	}
 
 	@Override
@@ -49,21 +51,8 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws Exception {
-		/*try {
-			if(removerImagem){
-				imagemService.removerFoto(livro.getImagem().getCaminho());
-				imagemService.setImagemDefault(livro.getImagem());
-			}else if(novaImagemLivro != null){
-				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
-			}				
-			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
-			livro.setPostagem(postagem);
-			livroRepository.atualizar(livro);
-			
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}*/
+	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws CadastroException {
+		
 		
 		try {
 			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
@@ -80,7 +69,7 @@ public class LivroServiceImp implements LivroService {
 				livroRepository.atualizar(livro);
 			}			
 		} catch (Exception e) {
-			throw new Exception(e.getMessage());
+			throw new CadastroException(e.getMessage());
 		}
 		
 				

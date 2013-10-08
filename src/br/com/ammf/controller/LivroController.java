@@ -2,11 +2,10 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
+import br.com.ammf.exception.CadastroException;
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
@@ -15,10 +14,8 @@ import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.EmailService;
-import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -60,12 +57,16 @@ public class LivroController {
 				livroService.cadastrar(imagemLivro, livro);				
 				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
-			}			
+			}
 			
 			result.forwardTo(LojaController.class).lojaAdmin();
-		} catch (Exception e) { // TODO trocar email exception verificar exeção de salvar arquivos
-			e.printStackTrace();
-			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar o cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
+		} catch (CadastroException cadastroException) {
+			cadastroException.printStackTrace();
+			result.include("msgErroLojaAdm", "Erro Durante cadastramento do livro '" + livro.getTitulo() + "'. Verifique se o livro foi cadastrado com sucesso.<br/>Mensagem de Erro: " + cadastroException.getMensagem() + ".");
+			result.redirectTo(LojaController.class).lojaAdmin();
+		} catch (EmailException emailException){
+			emailException.printStackTrace();
+			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel notificar clientes por email referente ao cadastramento do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + emailException.getMensagem() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}
 	}
@@ -83,9 +84,13 @@ public class LivroController {
 			}
 			
 			result.forwardTo(LojaController.class).lojaAdmin();
-		} catch (Exception e) {
-			e.printStackTrace();
-			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + e.toString() + ".");
+		} catch (CadastroException cadastroException) {
+			cadastroException.printStackTrace();
+			result.include("msgErroLojaAdm", "Erro Durante a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'. Verifique se o livro foi atualizado com sucesso.<br/>Mensagem de Erro: " + cadastroException.toString() + ".");
+			result.redirectTo(LojaController.class).lojaAdmin();
+		} catch (EmailException emailException) {
+			emailException.printStackTrace();
+			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel notificar clientes por email referente a atualiza&ccedil;&atilde;o do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + emailException.getMensagem() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}		
 	}

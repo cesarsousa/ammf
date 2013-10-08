@@ -36,11 +36,11 @@ public class ErroRepository extends RuntimeException {
 		LogAplicacaoRepository logRepository = new LogAplicacaoDao();
 		LogAplicacao logAplicacao = new LogAplicacao();
 		
-		logAplicacao.setAplicacao("Contrato");
+		logAplicacao.setAplicacao("Ammf");
 		logAplicacao.setData(new Date());
 		logAplicacao.setDescricaoErro(mensagemErro);
-		logAplicacao.setIp("192.168.0.1");
-		logAplicacao.setLogin("cascao");
+		logAplicacao.setIp("");
+		logAplicacao.setLogin("");
 		
 		logRepository.salvar(logAplicacao);
 	}

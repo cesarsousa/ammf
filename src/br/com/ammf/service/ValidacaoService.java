@@ -1,6 +1,7 @@
 package br.com.ammf.service;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
@@ -30,6 +31,8 @@ public interface ValidacaoService {
 
 	boolean novaResenha(Resenha resenha, Result result);
 
-	boolean atualizarResenha(Resenha resenha, Result result);	
+	boolean atualizarResenha(Resenha resenha, Result result);
+
+	boolean cadastrarLink(Link link, Result result);	
 
 }

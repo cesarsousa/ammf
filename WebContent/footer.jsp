@@ -24,7 +24,7 @@
 			<a href="<c:url value="/resenha/cliente" />">Resenhas</a>
 			<a href="<c:url value=""/>">Consultas</a>
 			<a href="<c:url value=""/>">Calendario</a>
-			<a href="<c:url value=""/>">Links</a>
+			<a href="<c:url value="/link/cliente" />">Links</a>
 			<a href="<c:url value="/cliente/depoimentos"/>">Depoimentos</a>
 			<a href="<c:url value=""/>">Cursos</a>
 			<a href="<c:url value="/cliente/cadastro"/>">Cadastro</a>
@@ -33,7 +33,6 @@
 			<a href="<c:url value=""/>">FAQ</a>
 	</div>
 	
-		
 </div>
 <div style="width: 100%; background-color: #000000"> 
 	<div align="center" style="padding-bottom: 10px;">

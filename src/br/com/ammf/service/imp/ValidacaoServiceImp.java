@@ -1,8 +1,11 @@
 package br.com.ammf.service.imp;
 
+import java.util.Date;
+
 import org.apache.tomcat.util.digester.SetRootRule;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
@@ -328,6 +331,38 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		return validado;		
 	}
+	
+	@Override
+	public boolean cadastrarLink(Link link, Result result) {
+		boolean validado = true;
+		
+		link.setPostagem(new Date());
+		
+		if(link.getUrl() == null || link.getUrl().isEmpty()){
+			result.include("urlEmBranco", "A URL do link deve ser informada<br/>");
+			validado = false;
+		}else{
+			if(link.getUrl().startsWith("www.")){
+				String novoLink = "http://" + link.getUrl();
+				link.setUrl(novoLink);
+			}else if(!link.getUrl().startsWith("http://www.")){
+				result.include("urlEmBranco", "A URL do link deve come&ccedil;ar com '<b>http://www.</b>' ou '<b>www.</b>'<br/>");
+				validado = false;
+			}
+		}
+				
+		if(link.getDescricao() == null || link.getDescricao().isEmpty()){
+			result.include("descricaoEmBranco", "A descri&ccedil;&atilde;o do link deve ser informada<br/>");
+			validado = false;
+		}
+				
+		if(!validado){
+			result.include("flagLinkErroCadastro", true);
+			result.include("link", link);
+		}		
+		
+		return validado;
+	}
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -350,5 +385,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
 		return false;
-	}	
+	}
+
+		
 }
