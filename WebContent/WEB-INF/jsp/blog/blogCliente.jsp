@@ -87,9 +87,9 @@
  		<tr align="center">
 			<td>
 			<div class="cardViewText">
-			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar">&ldquo; titulo &ldquo;</p>
-			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito">postado em 01/01/2012 12:00:00</p>			
-			<p id="textoblogConteudo" class="textoConteudoBlog">conteudo</p>
+			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
+			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
+			<p id="textoblogConteudo" class="textoConteudoBlog"></p>
 			</div>
 			</td>		
 		</tr>		
@@ -105,14 +105,14 @@
 </div> 
 
 <br/><br/>
-
+<c:if test="${not empty ultimaPublicacao or not empty textosBlog}">
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
 		<span id="btVisualizarTodos" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar textos anteriores.</span>
 	</div>
 </div>
-
+</c:if>
 <%-- <div id="telaAguardeCadastroDepoimento">
 	<div align="center">
 		

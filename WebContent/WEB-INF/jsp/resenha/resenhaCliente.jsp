@@ -41,15 +41,24 @@
 
 
 <div id="divResenhasTop3" align="center">
-	<c:forEach items="${resenhas}" var="resenha">
-	<div class="cardViewText">
-		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
-		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
-		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-		<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>	
-	</div>
-	<br/>
-	</c:forEach>
+	<c:choose>
+		<c:when test="${not empty resenhas}">
+			<c:forEach items="${resenhas}" var="resenha">
+				<div class="cardViewText">
+					<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
+					<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
+					<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
+					<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>	
+				</div>
+				<br/>
+			</c:forEach>			
+		</c:when>
+		<c:otherwise>
+			<div class="cardViewText">
+			<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhuma resenha ainda.</p>
+			</div>
+		</c:otherwise>
+	</c:choose>
 </div>
 
 
@@ -75,15 +84,12 @@
 			<tr class="zebrado">
 				<td class="infoTabela">${resenha.categoria.descricao}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-					<a id="${resenha.uuid}" class="infoTabela metadado" onclick="javascript:visualizarTextoResenha(this);"><b>${resenha.titulo}</b></a></td>
+				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 				<td class="infoTabela" title="clique no titulo para ler texto completo">					
 					<c:set var="origemResenha"	value="${resenha.descricao}"/>
 					<c:out value="${fn:substring(origemResenha,0,30)}"/>...</td>
 				<td class="infoTabela"><b>${resenha.dataFormatada}</b></td>
-			</tr>
-			<tr>
-				<td colspan="4" id="resenha${resenha.uuid}" class="hideTd infoTabela titulo bordaPadrao paddingPadrao"><p class="infoTabela metadado">${resenha.titulo}<p>${resenha.descricao}</td>
-			</tr>
+			</tr>			
  		</c:forEach>		
 	</tbody>
 	<tfoot>
@@ -96,16 +102,17 @@
 </div>
 </div>
 
-<!-- <a name="irTopo"></a>
+<a name="irTopo"></a>
 <a name="lerTexto"></a>
-<table id="textoModoLeitura"  width="100%">	
+<table id="resenhaModoLeitura"  width="100%">	
 	<tbody>
  		<tr align="center">
 			<td>
 			<div class="cardViewText">
-			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar">&ldquo; titulo &ldquo;</p>
-			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito">postado em 01/01/2012 12:00:00</p>			
-			<p id="textoblogConteudo" class="textoConteudoBlog">conteudo</p>
+				<h3><span id="resenhaCategoria"></span> -  <span id="resenhaTitulo"></span></h3>					
+				<p id="resenhaConteudo" class="titulo">&ldquo; ${resenha.descricao} &ldquo;</p>
+				<p id="resenhaAutor" class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
+				<p id="resenhaData" class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>
 			</div>
 			</td>		
 		</tr>		
@@ -117,7 +124,7 @@
 			</th>			
 		</tr>		
 	</tfoot>
-</table> -->
+</table>
 
 </div> 
 
@@ -125,26 +132,15 @@
 
 
 <%-- <input id="emailRequest" type="hidden" value="${emailRequest}" /> --%>
+<c:if test="${not empty resenhas or not empty resenhasRequest}">
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
 		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
 		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar ultimas publica&ccedil;&otilde;es</a>
 	</div>
 </div>
+</c:if>
 
-<%-- <div id="telaAguardeCadastroDepoimento">
-	<div align="center">
-		
-		<h2>Depoimentos</h2>
-		<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
-
-		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento esta sendo processado.</h3>
-		
-		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>			
-		<br />
-		<br />			
-	</div>
-</div> --%>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

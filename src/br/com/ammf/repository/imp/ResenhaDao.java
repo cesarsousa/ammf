@@ -115,4 +115,15 @@ public class ResenhaDao implements ResenhaRepository {
 		}
 	}
 
+	@Override
+	public Resenha obterPor(String uuid) {
+		try {			
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			return (Resenha) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
 }

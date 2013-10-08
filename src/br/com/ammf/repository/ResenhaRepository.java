@@ -24,4 +24,6 @@ public interface ResenhaRepository {
 
 	List<Resenha> listarTop3();
 
+	Resenha obterPor(String uuid);
+
 }

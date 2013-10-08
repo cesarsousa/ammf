@@ -28,9 +28,7 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 public class ResenhaController {
-	
-	// TODO criar resenha clientes.
-
+		
 	private Result result;
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
@@ -170,5 +168,12 @@ public class ResenhaController {
 		result.include("resenhasRequest", resenhas);
 		result.include("flagResenhasRequest", true);
 		result.redirectTo(this).resenhaCliente();		
-	}	
+	}
+	
+	
+	@Get("/resenha/cliente/texto")
+	public void clienteVisualizarTexto(String uuid){		
+		Resenha resenha = resenhaRepository.obterPor(uuid);
+		result.use(json()).withoutRoot().from(resenha).exclude("id").include("categoria").serialize();
+	}
 }
