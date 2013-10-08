@@ -101,7 +101,7 @@
 					</li>
 					
 					<li>
-					<form>
+					<form action="<c:url value="/cliente/faq" />" method="get">
 					<input type="submit" value="FAQ" class="buttonFooter">
 					</form>
 					</li>

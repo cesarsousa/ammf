@@ -18,22 +18,13 @@
 			<div class="cardViewText">
 			<ul style="list-style: none;">
 		
-		
-		
 			<c:forEach items="${links}" var="link">
 				<li class="paddingPadrao">			
 					<a class="textoAutorDepoimento azulClaro" href="${link.url}" target="_blank">${link.url}</a>
 					<ul style="list-style: none;">
-						<li><span class="textoConteudoDepoimento">&ldquo; ${link.descricao} &ldquo;</span></li>
+						<li><span class="textoPostagemDepoimento negrito" style="font-size: x-large;">&ldquo; ${link.descricao} &ldquo;</span></li>
+						<li><span class="textoConteudoDepoimento">postado em ${link.dataFormatada}</span></li>
 					</ul>
-					
-					
-					
-					
-					
-					<%-- <p class="textoPostagemDepoimento negrito">postado em ${link.dataFormatada}</p> --%>
-					
-						
 				</li>
 			</c:forEach>
 				
