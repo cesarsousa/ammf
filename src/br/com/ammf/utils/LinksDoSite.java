@@ -12,7 +12,9 @@ public class LinksDoSite {
 	
 	public static final String LER_RESENHA_INTEGRA = DOMINIO + "/resenha/cliente/lertexto/uuid";
 	
-	public static final String LER_LIVRO_INTEGRA = "/loja/cliente/livro/uuid";
+	public static final String LER_LIVRO_INTEGRA = DOMINIO + "/loja/cliente/livro/uuid";
+	
+	public static final String LER_LINKS_UTEIS = DOMINIO + "/link/cliente";
 
 	public static final String WEB_SITE_LOGIN = DOMINIO + "/login";
 	

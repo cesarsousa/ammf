@@ -27,6 +27,6 @@ public interface EmailService {
 
 	void notificarLivroParaPessoas(Notificacao livroNovo, Livro livro) throws EmailException;
 
-	void notificarLinkParaPessoas(Notificacao linkNovo, Link link) throws EmailException;
+	void notificarLinkParaPessoas(Link link) throws EmailException;
 
 }

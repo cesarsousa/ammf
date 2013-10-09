@@ -182,8 +182,22 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarLinkParaPessoas(Notificacao linkNovo, Link link) throws EmailException {
-		// TODO Auto-generated method stub
+	public void notificarLinkParaPessoas(Link link) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmailNotificacaoLink(link, pessoa);
+		}		
+	}
+
+	private void enviarEmailNotificacaoLink(Link link, Pessoa pessoa) throws EmailException {
+		String mensagem = HtmlMensagem.getMensagemNotificacaoDeLink(link, administrador.getLinkedin(), pessoa);	
+		
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				HtmlMensagem.getAssuntoLink(),
+				mensagem);
 		
 	}
 

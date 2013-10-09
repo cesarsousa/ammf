@@ -6,7 +6,7 @@
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
-		${autorEmBranco}${tituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${precoEmBranco}${fotoInvalida}${linkEmBranco}
+		${autorEmBranco}${tituloEmBranco}${subtituloEmBranco}${paginaEmBranco}${edicaoEmBranco}${anoEmBranco}${precoEmBranco}${fotoInvalida}${linkEmBranco}
 	</div>
 </c:if>
 <c:if test="${not empty msgErroLojaAdm}">
@@ -151,6 +151,13 @@
 				<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 				</div>
 				
+				<div class="paddingPadrao">
+				<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+				<br/>
+				
+				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				</div>
+				
 				<div id="msgCadastrarCategoria" class="paddindPadrao"></div>
 				
 				<div class="paddingPadrao">				
@@ -220,14 +227,7 @@
 						<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 					</div>
 					<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-				</div>			
-				
-				<div class="paddingPadrao">
-				<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
-				<br/>
-				
-				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-				</div>
+				</div>		
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Sinopse</label>
@@ -399,6 +399,13 @@
 					<input id="livroAtualizaTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
+					<div class="paddingPadrao">
+					<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+					<br/>
+					
+					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
+					
 					<div id="msgCadastrarCategoriaEdt" class="paddindPadrao"></div>
 					
 					<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere a categoria para '${livro.categoria.descricao}' ou selecione uma nova categoria.</label>
@@ -483,14 +490,7 @@
 							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro" style="background-color: #CCCCCC; width: 100%"/>
 						</div>
 						<input id="btRemoverUploadNovaFotoLivro" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-					</div>			
-					
-					<div class="paddingPadrao">
-					<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
-					<br/>
-					
-					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
-					</div>
+					</div>				
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Sinopse</label>

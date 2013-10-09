@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.ammf.utils.DataUtils;
 
@@ -47,8 +49,11 @@ public class Livro implements Serializable {
 	private String idioma;
 	private String codigoBarra;
 	private BigDecimal preco;
-	private Date postagem;		
 	private String linkVenda;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date postagem;		
+	
 	
 	public long getId() {
 		return id;

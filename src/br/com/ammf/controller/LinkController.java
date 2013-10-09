@@ -48,7 +48,7 @@ public class LinkController {
 			
 			if(validado){
 				linkRepository.cadastrar(link);			
-				emailService.notificarLinkParaPessoas(Notificacao.LINK_NOVO, link);
+				emailService.notificarLinkParaPessoas(link);
 				result.include("linkMensagemSucesso", "O link cadastrado com sucesso");
 			}
 			

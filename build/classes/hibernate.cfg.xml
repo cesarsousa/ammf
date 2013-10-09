@@ -27,6 +27,7 @@
 		<mapping class="br.com.ammf.model.Categoria" />
 		<mapping class="br.com.ammf.model.Imagem" />
 		<mapping class="br.com.ammf.model.Link" />
+		<mapping class="br.com.ammf.model.Faq" />
 		
 	</session-factory>
 </hibernate-configuration>

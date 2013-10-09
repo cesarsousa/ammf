@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.tomcat.util.digester.SetRootRule;
 
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
@@ -234,7 +235,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(livro.getTitulo() == null || livro.getTitulo().isEmpty()){
 			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");
 			validado = false;
-		}		
+		}
+		
+		if(livro.getSubtitulo() == null || livro.getSubtitulo().isEmpty()){
+			result.include("subtituloEmBranco", "O subt&iacute;tulo deve ser informado<br/>");
+			validado = false;
+		}
 		
 		if(livro.getPaginas() == 0){
 			result.include("paginaEmBranco", "O n&uacute;mero de p&aacute;ginas deve ser informado<br/>");
@@ -363,6 +369,35 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		return validado;
 	}
+	
+	@Override
+	public boolean cadastrarFaq(Faq faq, Result result) {
+		boolean validado = true;
+		
+		faq.setPostagem(new Date());
+		
+		if(faq.getNome() == null || faq.getNome().isEmpty()){
+			result.include("nomeEmBranco", "O seu nome deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(faq.getEmail() == null || faq.getEmail().isEmpty()){
+			result.include("emailEmBranco", "O seu email deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(faq.getPergunta() == null || faq.getPergunta().isEmpty()){
+			result.include("perguntaEmBranco", "A sua pergunta deve ser informada<br/>");
+			validado = false;
+		}
+		
+		if(!validado){
+			result.include("flagFaqErroCadastro", true);
+			result.include("faq", faq);
+		}		
+		
+		return validado;
+	}
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto) {		
@@ -385,7 +420,5 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
 		return false;
-	}
-
-		
+	}		
 }

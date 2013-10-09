@@ -20,9 +20,9 @@
 		
 			<c:forEach items="${links}" var="link">
 				<li class="paddingPadrao">			
-					<a class="textoAutorDepoimento azulClaro" href="${link.url}" target="_blank">${link.url}</a>
+					<a class="textoAutorDepoimento azulClaro" style="font-size: medium;" href="${link.url}" target="_blank">${link.url}</a>
 					<ul style="list-style: none;">
-						<li><span class="textoPostagemDepoimento negrito" style="font-size: x-large;">&ldquo; ${link.descricao} &ldquo;</span></li>
+						<li><span class="textoPostagemDepoimento negrito" style="font-size: large;">&ldquo; ${link.descricao} &ldquo;</span></li>
 						<li><span class="textoConteudoDepoimento">postado em ${link.dataFormatada}</span></li>
 					</ul>
 				</li>

@@ -4,6 +4,8 @@ import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
@@ -141,6 +143,20 @@ public class LivroController {
 	public void listarCategorias(){
 		List<Categoria> categorias =  categoriaRepository.listarPorTipo(TipoCategoria.Livro);
 		result.use(json()).withoutRoot().from(categorias).serialize();
+	}
+	
+	/**
+	 * Recebe a requisicao de leitura do link de email e redireciona para blog cliente.
+	 * @param uuid
+	 */
+	@Get("/loja/cliente/livro/{uuid}")
+	public void lerTextoNaIntegra(String uuid){
+		JOptionPane.showMessageDialog(null, "fazer isto");
+		/*Texto texto = textoRepository.obterPor(uuid);
+		System.out.println("data: " + texto.getDataFormatada());
+		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
+		result.include("emailRequest", true);
+		result.redirectTo(this).blogCliente(true, texto);	*/	
 	}
 
 	private void retornarJson(String mensagem) {

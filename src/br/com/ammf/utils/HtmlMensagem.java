@@ -1,5 +1,6 @@
 package br.com.ammf.utils;
 
+import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
@@ -251,12 +252,12 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "livro_notificar_clientes.html");
 		
 		return mensagem
-				.replace("[INICIORESENHA]", "Disponibilizei um novo")
+				.replace("[INICIOLIVRO]", "Disponibilizei um novo")
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[AUTORLIVRO]", livro.getAutor())
 				.replace("[TITULOLIVRO]", livro.getTitulo())
 				.replace("[SUBTITULOLIVRO]", livro.getSubtitulo())				
-				.replace("[LINKLERRESENHA]", getLinkLerLivro(livro.getUuid()))				
+				.replace("[LINKLERLIVRO]", getLinkLerLivro(livro.getUuid()))				
 				.replace("[WEBSITE_CONTATO]", LinksDoSite.WEB_SITE_CONTATO)
 				.replace("[LINKREMOVERNOTIFICACAO]", LinksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
 				.replace("[LINKEDIN]", linkedin)
@@ -267,12 +268,12 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "livro_notificar_clientes.html");
 		
 		return mensagem
-				.replace("[INICIORESENHA]", "Atualizei algumas informa&ccedil;&otilde;es do")
+				.replace("[INICIOLIVRO]", "Atualizei algumas informa&ccedil;&otilde;es do")
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
 				.replace("[AUTORLIVRO]", livro.getAutor())
 				.replace("[TITULOLIVRO]", livro.getTitulo())
 				.replace("[SUBTITULOLIVRO]", livro.getSubtitulo())				
-				.replace("[LINKLERRESENHA]", getLinkLerLivro(livro.getUuid()))				
+				.replace("[LINKLERLIVRO]", getLinkLerLivro(livro.getUuid()))				
 				.replace("[WEBSITE_CONTATO]", LinksDoSite.WEB_SITE_CONTATO)
 				.replace("[LINKREMOVERNOTIFICACAO]", LinksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
 				.replace("[LINKEDIN]", linkedin)
@@ -281,5 +282,22 @@ public class HtmlMensagem {
 	
 	private static String getLinkLerLivro(String uuid) {
 		return LinksDoSite.LER_LIVRO_INTEGRA.replace("uuid", uuid);
+	}
+
+	public static String getAssuntoLink() {
+		return "Blog Quiron - Novo link adicionado";
+	}
+
+	public static String getMensagemNotificacaoDeLink(Link link, String linkedin, Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "link_notificar_clientes.html");
+		
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
+				.replace("[DESCRICAOLINK]", link.getDescricao())
+				.replace("[LINKLERLINKS]", LinksDoSite.LER_LINKS_UTEIS)				
+				.replace("[WEBSITE_CONTATO]", LinksDoSite.WEB_SITE_CONTATO)
+				.replace("[LINKREMOVERNOTIFICACAO]", LinksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
+				.replace("[LINKEDIN]", linkedin)
+				.replace("[EMAIL]", pessoa.getEmail());
 	}
 }
