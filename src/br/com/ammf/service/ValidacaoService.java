@@ -1,5 +1,7 @@
 package br.com.ammf.service;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -16,7 +18,7 @@ public interface ValidacaoService {
 	
 	void verificarCamposPreenchidos(Texto texto);
 	
-	boolean pessoa(Pessoa pessoa, Result result);
+	boolean pessoa(boolean aceiteCadastro, Pessoa pessoa, Result result);
 
 	boolean usuario(Usuario usuario, Result result);	
 

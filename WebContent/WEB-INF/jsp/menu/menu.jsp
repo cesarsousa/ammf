@@ -526,7 +526,7 @@
 				</li>
 				
 				<li>
-				<form>
+				<form action="<c:url value="/menu/faq" />" method="get" >
 				<input type="submit" value="FAQ" class="buttonFooter">
 				</form>
 				</li>

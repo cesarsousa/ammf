@@ -1,4 +1,10 @@
 
+function limparFormFaq(){
+	$("#cadastroFaqNome").val('');
+	$("#cadastroFaqEmail").val('');
+	$("#cadastroFaqPergunta").val('');
+}
+
 $(document).ready(function() {
 	
 	addRemoveDestaque("#cadastroFaqNome");
@@ -16,6 +22,7 @@ $(document).ready(function() {
 	$('#divNovaPergunta').hide();	
 	
 	$('#btNovaPergunta').toggle(function() {
+		limparFormFaq();
 		$('#divNovaPergunta').slideDown(1000);
 	}, function() {
 		$('#divNovaPergunta').slideUp(1000);

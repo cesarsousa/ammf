@@ -42,6 +42,7 @@
 <script type="text/javascript" src="${javascript}/resenhaCliente.js"></script>
 <script type="text/javascript" src="${javascript}/linkAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/faqCliente.js"></script>
+<script type="text/javascript" src="${javascript}/faqAdmin.js"></script>
 
 </head>
 <body>

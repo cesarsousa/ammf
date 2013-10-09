@@ -28,6 +28,7 @@ public class Faq {
 	private String email;
 	private String pergunta;
 	private String resposta;
+	private boolean publica;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date postagem;	
@@ -86,7 +87,15 @@ public class Faq {
 
 	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
-	}	
+	}
+	
+	public boolean isPublica() {
+		return publica;
+	}
+	
+	public void setPublica(boolean publica) {
+		this.publica = publica;
+	}
 	
 	public String getDataFormatada(){
 		return DataUtils.getString(postagem, "dd/MM/yyyy");

@@ -120,11 +120,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		return validado;
 	}
 	
-	public boolean pessoa(Pessoa pessoa, Result result) {
+	public boolean pessoa(boolean aceiteCadastro, Pessoa pessoa, Result result) {
 		/*pessoa.setNome(pessoa.getNome().trim());
 		pessoa.setEmail(pessoa.getEmail().trim());*/
 		
 		boolean validada = true;
+		boolean emailCadastrado = false;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado");
 			validada = false;
@@ -136,7 +137,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido");
 			validada = false;
 		}else{
-			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
+			emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
 				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site");
 				result.include("emailJaCadastrado", true);
@@ -144,7 +145,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 				//result.include("opcaoCadastro", true); // ??
 				validada = false;
 			}
-		}		
+		}
+		
+		if (!aceiteCadastro && !emailCadastrado) {
+			result.include("aceiteEmBranco", "O termo de aceite de cadastro deve ser confirmado");
+			validada = false;
+		}
 		
 		if(!validada){
 			result.include("pessoaCadastro", pessoa);
@@ -375,6 +381,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado = true;
 		
 		faq.setPostagem(new Date());
+		faq.setPublica(false);
 		
 		if(faq.getNome() == null || faq.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O seu nome deve ser informado<br/>");
@@ -383,6 +390,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		if(faq.getEmail() == null || faq.getEmail().isEmpty()){
 			result.include("emailEmBranco", "O seu email deve ser informado<br/>");
+			validado = false;
+		}else if(!ehEmailValido(faq.getEmail())){
+			result.include("emailEmBranco", "O seu email est&aacute; com formato inv&aacute;lido<br/>");
 			validado = false;
 		}
 		

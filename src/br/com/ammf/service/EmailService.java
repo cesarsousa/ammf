@@ -1,6 +1,7 @@
 package br.com.ammf.service;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
@@ -28,5 +29,7 @@ public interface EmailService {
 	void notificarLivroParaPessoas(Notificacao livroNovo, Livro livro) throws EmailException;
 
 	void notificarLinkParaPessoas(Link link) throws EmailException;
+
+	void notificarNovaFaqParaAdmin(Faq faq) throws EmailException;
 
 }

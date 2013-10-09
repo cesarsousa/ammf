@@ -3,11 +3,9 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<c:if test="${empty flagErroDepoimento}">
-<input id="flagErroDepoimento" type="hidden" value="false" />
-</c:if>
-<c:if test="${not empty flagErroDepoimento}">
-<input id="flagErroDepoimento" type="hidden" value="true" />
+<c:if test="${not empty msgErroFaq}">
+<div class="msgBorder msgErro closeClick">${msgErroFaq}</div>
+<br/>
 </c:if>
 
 <c:if test="${not empty msgSucessoFaq}">
@@ -36,17 +34,20 @@ ${perguntaEmBranco}
 	<p>
 	<span class="info azulClaro" >Perguntas mais frequentes da área de sa&uacute;de ou sobre qualquer outro assunto. </span>
 	</p>
-
-	<%-- <div id="divDepoimentosCadastrados">
-		<c:forEach items="${depoimentos}" var="depoimento">
-		<div class="cardViewText">					
-			<p class="textoConteudoDepoimento">&ldquo; ${depoimento.conteudo} &ldquo;</p>
-			<p class="textoAutorDepoimento azulClaro">${depoimento.autor}</p>
-			<p class="textoPostagemDepoimento negrito">postado em ${depoimento.dataFormatada}</p>	
+	
+	<c:if test="${not empty perguntas}">
+	<div id="divDepoimentosCadastrados">
+		<c:forEach items="${perguntas}" var="faq">
+		<div class="cardViewText">
+			<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>					
+			<p class="textoConteudoDepoimento">&ldquo; ${faq.pergunta} &ldquo;</p>
+			<p class="textoAutorDepoimento azulClaro">${faq.resposta}</p>
+				
 		</div>
 		<br/>
 		</c:forEach>
-	</div> --%>
+	</div>
+	</c:if>
 	
 	<input id="flagFaqErroCadastro" type="hidden" value="${flagFaqErroCadastro}" />
 
@@ -65,6 +66,10 @@ ${perguntaEmBranco}
 					
 					<h2>Qual A Sua Pergunta ?</h2>
 					
+					<p>
+					<span class="info azulClaro" >Seu nome e seu email n&atilde;o ser&atilde;o revelados no site.</span>
+					</p>
+					
 					<label class="labelForm2">Nome</label>
 					<input id="cadastroFaqNome" type="text" name="faq.nome" value="${faq.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
@@ -75,8 +80,18 @@ ${perguntaEmBranco}
 					<textarea id="cadastroFaqPergunta" name="faq.pergunta" class="letraCinza largura90 bordaPadrao" rows="5">${faq.pergunta}</textarea>
 					
 					<h3 align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua mensagem.
+					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.
 					</h3>
+					
+					<label class="labelForm2"><input type="checkbox" name="faq.resposta" />Deixar esta pergunta publica</label>
+					<p>
+					<span class="info azulClaro" >
+					Marcar a pergunta como p&uacute;blica significa que quando respondida, 
+					a pergunta será divulgada no site. Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o 
+					associados a pergunta. Deste modo quando outras pessoas tiverem uma pergunta parecida 
+					poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia.
+					</span>
+					</p>
 					
 					<h3 align="right">
 					<input id="btnClienteCadastrarFaq" type="submit" value="Publicar Depoimento"  class="button direita"/>
@@ -95,7 +110,7 @@ ${perguntaEmBranco}
 		<h2>FAQ (Perguntas Frequentes)</h2>
 		<span class="info azulClaro" >Perguntas mais frequentes da área de sa&uacute;de ou sobre qualquer outro assunto. </span>
 
-		<h3 class="paddingTelaAguarde">Sua pergunta esta sendo enviada.</h3>
+		<h3 class="paddingTelaAguarde">Sua pergunta est&aacute; sendo enviada.</h3>
 		
 		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>			
 		<br />

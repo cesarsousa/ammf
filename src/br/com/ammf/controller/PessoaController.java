@@ -53,7 +53,7 @@ public class PessoaController {
 	@Post("/menu/cadastrar")
 	public void cadastrar(Pessoa pessoa){
 				
-		boolean validado = validacaoService.pessoa(pessoa, result);
+		boolean validado = validacaoService.pessoa(true, pessoa, result);
 		if(validado){			
 			try {
 				pessoaService.cadastrarComoAdm(pessoa);
@@ -166,8 +166,8 @@ public class PessoaController {
 	public void cadastroCliente(){}
 	
 	@Post("/cliente/cadastrar")
-	public void cadastrarCliente(Pessoa pessoa){
-		boolean validado = validacaoService.pessoa(pessoa, result);
+	public void cadastrarCliente(Pessoa pessoa, boolean aceiteCadastro){
+		boolean validado = validacaoService.pessoa(aceiteCadastro, pessoa, result);
 		if(validado){
 			try {				
 				pessoaService.cadastrarComoCliente(pessoa);

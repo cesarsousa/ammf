@@ -10,6 +10,7 @@ import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.DepoimentoRepository;
+import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
@@ -24,14 +25,17 @@ public class MenuServiceImp implements MenuService{
 	private TextoRepository textoRepository;
 	private PessoaRepository pessoaRepository;
 	private DepoimentoRepository depoimentoRepository;
+	private FaqRepository faqRepository;
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository,
-			DepoimentoRepository depoimentoRepository){
+			DepoimentoRepository depoimentoRepository,
+			FaqRepository faqRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.depoimentoRepository = depoimentoRepository;
+		this.faqRepository = faqRepository;
 	}
 
 	@Override
@@ -54,8 +58,14 @@ public class MenuServiceImp implements MenuService{
 			notificacoes.add("<b>Depoimento:</b> "+ totalDepoimentosPendentes + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
-		if(pessoaRepository.totalCadastrosPendentes() > 0){
-			notificacoes.add("<b>Cadastro:</b> " + pessoaRepository.totalCadastrosPendentes() + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
+		int totalCadastrosPendentes = pessoaRepository.totalCadastrosPendentes();
+		if( totalCadastrosPendentes > 0){
+			notificacoes.add("<b>Cadastro:</b> " + totalCadastrosPendentes + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
+		}
+		
+		int totalPerguntasSemResposta = faqRepository.totalPerguntasSemRespostas();
+		if( totalPerguntasSemResposta > 0){
+			notificacoes.add("<b>FAQ:</b> " + totalPerguntasSemResposta + " pergunta(s) pendente(s) resposta");
 		}
 		return notificacoes;
 	}

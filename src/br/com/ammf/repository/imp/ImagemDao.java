@@ -12,7 +12,7 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class ImagemDao implements ImagemRepository {
 	
-private Session session;
+	private Session session;
 	
 	public ImagemDao(Session session){
 		this.session = session;

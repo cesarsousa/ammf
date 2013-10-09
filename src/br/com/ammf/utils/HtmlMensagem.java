@@ -1,5 +1,6 @@
 package br.com.ammf.utils;
 
+import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
@@ -299,5 +300,21 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", LinksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))
 				.replace("[LINKEDIN]", linkedin)
 				.replace("[EMAIL]", pessoa.getEmail());
+	}
+
+	public static String getAssuntoNovoFaqParaAdmin(String nomeDoCliente) {
+		return "Nova pergunta postada no FAQ do site: nome do cliente - " + nomeDoCliente;
+	}
+
+	public static String getMensagemNotificacaoDeLink(Faq faq, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "faq_notificar_adm_recebimento_nova_pergunta.html");
+		
+		return mensagem
+				.replace("[ID]", String.valueOf(faq.getId()))
+				.replace("[NOME]", faq.getNome())
+				.replace("[EMAIL]", faq.getEmail())				
+				.replace("[POSTAGEM]", faq.getDataFormatada())
+				.replace("[PERGUNTA]", faq.getPergunta())
+				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);		
 	}
 }

@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Mensagem;
@@ -198,6 +199,17 @@ public class EmailServiceImp implements EmailService {
 				pessoa.getEmail(),
 				HtmlMensagem.getAssuntoLink(),
 				mensagem);
+		
+	}
+
+	@Override
+	public void notificarNovaFaqParaAdmin(Faq faq) throws EmailException {
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				faq.getEmail(),
+				HtmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
+				HtmlMensagem.getMensagemNotificacaoDeLink(faq, administrador.getLinkedin()));
 		
 	}
 
