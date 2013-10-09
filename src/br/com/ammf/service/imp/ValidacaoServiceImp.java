@@ -381,7 +381,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado = true;
 		
 		faq.setPostagem(new Date());
-		faq.setPublica(false);
+		
 		
 		if(faq.getNome() == null || faq.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O seu nome deve ser informado<br/>");

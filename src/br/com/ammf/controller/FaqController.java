@@ -7,9 +7,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
-import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
-import br.com.ammf.model.Status;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;
@@ -44,21 +42,21 @@ public class FaqController {
 	@Restrito
 	@Get("/adm/faq/todas")
 	public void visualizarTodosAsFaqs(){
-		List<Faq> faqs = null;
+		List<Faq> faqs = faqRepositoty.listar();
 		setFaqsToView(faqs, "corCinza", "Visualiza&ccedil;&atilde;o de todas as perguntas cadastradas", "isFaqTodas");	
 	}
 	
 	@Restrito
 	@Get("/adm/faq/respondidas")
 	public void visualizarTodosAsFaqsRespondidas(){
-		List<Faq> faqs = null;
+		List<Faq> faqs = faqRepositoty.listarRespondidas();
 		setFaqsToView(faqs, "corVerde", "Visualiza&ccedil;&atilde;o de todas as perguntas respondidas", "isFaqRespondidas");	
 	}
 	
 	@Restrito
 	@Get("/adm/faq/pendentes")
 	public void visualizarTodosAsFaqsNaoRespondidas(){
-		List<Faq> faqs = null;
+		List<Faq> faqs = faqRepositoty.listarNaoRespondiddas();
 		setFaqsToView(faqs, "corVermelho", "Visualiza&ccedil;&atilde;o de todas as perguntas não respondidas", "isFaqNaoRespondidas");	
 	}
 
@@ -67,6 +65,7 @@ public class FaqController {
 		result.include("backgroundTitulo", backgroundTitulo);
 		result.include("tituloFaqsSolicitadas", tituloFaq);
 		result.include(flagIcone, true);
+		result.include("requestFaqs", true);		
 		result.redirectTo(this).faqAdmin();
 	}	
 	

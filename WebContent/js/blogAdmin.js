@@ -54,8 +54,6 @@ function visualizarTextoParaEdicao(uuid){
 
 $(document).ready(function() {
 	
-	var janelaHtml = $('#contexto').val() + "/telaAguarde.html";	
-	
 	addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
 	addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
 	$('#blogConteudoNovoTexto').autoResize();

@@ -83,7 +83,7 @@ ${perguntaEmBranco}
 					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.
 					</h3>
 					
-					<label class="labelForm2"><input type="checkbox" name="faq.resposta" />Deixar esta pergunta publica</label>
+					<label class="labelForm2"><input type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
 					<p>
 					<span class="info azulClaro" >
 					Marcar a pergunta como p&uacute;blica significa que quando respondida, 

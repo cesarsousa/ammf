@@ -1,8 +1,23 @@
 
+function visualizarFaqParaEdicao(uuid){
+	alert("fazer ajax para editar " + uuid);
+}
 
 $(document).ready(function() {
 	
 	$('#telaAguardeAdmResponderFaq').hide();
+		
+	$('#btFaqNaoRespodidas').click(function (){
+		$('#formFaqNaoRespondidas').submit();
+	});
+	
+	$('#btFaqRespodidas').click(function (){
+		$('#formFaqRespondidas').submit();
+	});
+	
+	$('#btFaqTodas').click(function (){
+		$('#formFaqTodas').submit();
+	});
 	
 	addRemoveDestaque("#cadastroFaqNome");	
 	
@@ -20,5 +35,8 @@ $(document).ready(function() {
 		$('#').slideUp(500);
 		abrirJanelaDeEspera("#divPgAdmFaq", "#telaAguardeAdmResponderFaq");
 	});	
+	
+	
+	$('#smoothFaq').smoothScroll();
 		
 });

@@ -97,7 +97,18 @@ public class Faq {
 		this.publica = publica;
 	}
 	
+	public String getVisibilidade(){
+		return publica ? "Publica" : "Particular";
+	}
+	
+	public boolean getRespondida(){
+		if(resposta == null || resposta.isEmpty()){
+			return false;
+		}
+		return true;
+	}
+	
 	public String getDataFormatada(){
-		return DataUtils.getString(postagem, "dd/MM/yyyy");
+		return DataUtils.getString(postagem, "dd/MM/yyyy HH:mm:ss");
 	}
 }

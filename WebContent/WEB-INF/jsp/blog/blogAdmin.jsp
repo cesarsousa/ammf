@@ -231,7 +231,7 @@
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
 					<td class="infoTabela" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
-						<a id="linkPadrao" class="ponteiro" href="#editarTextoBlog" onclick="visualizarTextoParaEdicao('${texto.uuid}')"><img class="ponteiro icone" alt="editar" src="../image/iconeEditarHover.png" title="editar este texto"></a>
+						<a id="linkPadrao" class="ponteiro" href="#editarTextoBlog" onclick="visualizarTextoParaEdicao('${texto.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
 						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
 						</td>
 				</tr>			

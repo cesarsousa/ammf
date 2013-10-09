@@ -1,8 +1,11 @@
 package br.com.ammf.repository.imp;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.DBException;
@@ -35,9 +38,48 @@ public class FaqDao implements FaqRepository{
 
 	@Override
 	public int totalPerguntasSemRespostas() {
-		Criteria criteria = session.createCriteria(Faq.class);
-		criteria.add(Restrictions.isNull("resposta"));
-		return criteria.list().size();
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.isNull("resposta"));
+			return criteria.list().size();			
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}		
+	}
+
+	@Override
+	public List<Faq> listar() {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.addOrder(Order.desc("postagem"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public List<Faq> listarRespondidas() {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.isNotNull("resposta"));
+			criteria.addOrder(Order.desc("postagem"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public List<Faq> listarNaoRespondiddas() {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.isNull("resposta"));
+			criteria.addOrder(Order.desc("postagem"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}	
 
 }
