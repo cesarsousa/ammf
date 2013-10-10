@@ -17,4 +17,8 @@ public interface FaqRepository {
 
 	List<Faq> listarNaoRespondiddas();
 
+	Faq obter(String uuid);
+
+	void atualizar(Faq faq);
+
 }

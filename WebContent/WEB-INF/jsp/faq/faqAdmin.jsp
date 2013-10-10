@@ -2,6 +2,9 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<c:if test="${not empty msgErroFaq}">
+	<div class="msgBorder msgErro ponteiro closeClick">${msgErroFaq}</div>
+</c:if>
 <c:if test="${not empty msgFaq}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">${msgFaq}</div>
 </c:if>
@@ -12,23 +15,6 @@
 <div id="divPgAdmFaq" align="center">
 
 <h2>FAQ (Perguntas Frequentes)</h2>
-
-<!-- Barra de Icones
-<div align="center" class="divMenuOpcao">
-<table class="menuOpcao">
-<tr>
-<td>
-<ul class="itemMenuOpcao">
-	<li>Menu Principal</li>
-	<li>Busca</li>
-	<li>Cadastrados</li>
-	<li>Confirmados</li>
-	<li>Pendentes</li>	
-</ul>
-</td>
-</tr>
-</table>
-</div> -->
 
 <!-- Barra de Icones -->
 
@@ -42,9 +28,6 @@
 			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 		</form>
 	</li>
-	<%-- <li>
-		<img id="" alt="buscar" title="buscar" src="${imagem}/lupa.png" width="50" height="50" class="ponteiro esquerda">
-	</li> --%>
 	<li>
 		<img id="btFaqNaoRespodidas" alt="Não respondidas" title="Não respondidas" src="${imagem}/iconeInterrogacao.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
@@ -61,40 +44,6 @@
 </div>
 
 <div class="separador"></div>
-
-<%-- <table id="tabBuscaDepoimento" class="grid fullSize">
-<thead>
-<tr>	
-	<td colspan="5">
-	<div align="right">
-	<input id="btFecharBuscarDepoimentos" type="button" value="fechar" class="backVermelho button">
-	</div>
-	<img src="${imagem}/iconeComentarioBuscar.png" class="icone50 esquerda">
-	<h2 align="center">Buscar Depoimento</h2>
-	</td>	
-</tr>
-<tr>	
-	<td colspan="5" align="center" valign="middle"><p class="info azulClaro">Busca de depoimentos pelo nome ou email</p></td>	
-</tr>
-<tr>
-	<td colspan="5" style="padding: 20px;">
-		<div align="left">
-		<input id="flagMostrarBusca" type="hidden" value="${flagMostrarBusca}">
-		<form id="formBuscaDepoimento" action="<c:url value="/menu/busca/depoimento" />" method="get">
-		
-		<div align="center">
-		<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
-		</div>
-		
-		</form>
-		</div>
-	</td>
-</tr>
-<tr>	
-	<td colspan="5" align="center" valign="middle" style="padding-bottom: 10px;"><p id="labelResultadoConsulta" class="info azulClaro">${labelResultadoConsulta}</p></td>	
-</tr>
-</thead>
-</table> --%>
 
 <form id="formFaqNaoRespondidas" action="<c:url value="/adm/faq/pendentes" />" method="get"></form>
 <form id="formFaqRespondidas" action="<c:url value="/adm/faq/respondidas" />" method="get"></form>
@@ -147,11 +96,19 @@
 					<td class="infoTabela">${faq.email}</td>
 					<td class="infoTabelaConteudo">${faq.pergunta}</td>					
 					<td class="infoTabela">${faq.resposta}</td>
-					<td class="infoTabelaConteudo">${faq.visibilidade}</td>
+					<td class="infoTabelaConteudo ${faq.visibilidade}">${faq.visibilidade}</td>
 					<td class="infoTabelaData">${faq.dataFormatada}</td>
 					<td class="infoTabelaData" style="width: 80px;">
-						<a id="smoothFaq" class="ponteiro" href="#ancoraEditarFaq" onclick="visualizarFaqParaEdicao('${faq.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
-					</td>
+						<c:choose>
+							<c:when test="${not faq.respondida}">
+								<a id="smoothFaq" class="ponteiro" href="#ancoraEditarFaq" onclick="visualizarFaqParaEdicao('${faq.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
+							</c:when>
+							<c:otherwise>
+								<img class="icone" alt="esta pergunta ja foi respondida" src="${imagem}/iconeEditar.png" title="esta pergunta ja foi respondida">
+							</c:otherwise>
+						</c:choose>
+						
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -165,58 +122,44 @@
 </table>
 </c:if>
 
-<a name="ancoraEditarFaq"></a>
-<div class="fullSize">
-<table id="tabEditarFaq" width="700px;">		
+<div id="tabEditarFaq" class="fullSize">
+<table width="700px;">		
 	<tr>
 		<td>
+		<a name="ancoraEditarFaq"></a>
 		<div align="right" class="paddingPadrao">
 		<input id="btFecharTabEditarFaq" type="button" value="fechar" class="backVermelho button">
 		</div>
-		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
-		<h2 align="center">Nova Resenha</h2>
+		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">		
+		<h2 align="center">FAQ (Perguntas Frequentes) - Resposta</h2>
 		
-		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post">			
+			<div id="msgResultadoRespostaFaq"></div>
+		
+			<input id="faqUuid" type="hidden"/>			
 
-			<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
+			<h3 id="faqAutor" ></h3>
+			<h4 id="faqPostagem"></h4>
+			<h4 >Visibilidade da pergunta: <span id="faqVisibilidade"></span></h4>
+			<p id="faqPergunta" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 			
-			<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
-			<div>
-				<div id="divCadastrarCategoriaResenha">
-				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
-				<input id="inputCadastrarCategoriaResenha" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-				<input id="ajaxCadastrarCategoriaResenha" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
-				<br/>
-				<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-				</div>
-				</div>				
 			
-			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
-			</div>
-			
-			<h3>T&iacute;tulo :</h3>
-			<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
-			
-				
-			<h3>Autor :</h3>
-			<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
-			
-			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
-				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
-				<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
-				<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
-				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
-				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
+			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto da resposta:</label>
+				<span id="sizeSmallFaq" style="font-size: small;" class="ponteiro" >A</span>
+				<span id="sizeMediumFaq" style="font-size: medium;" class="ponteiro" >A</span>
+				<span id="sizeLargeFaq" style="font-size: large;" class="ponteiro" >A</span>
+				<span id="sizeXLargeFaq" style="font-size: x-large;" class="ponteiro" >A</span>
+				<span id="sizeXxLargeFaq" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
-			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
-			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
+			<h3>Digite a resposta para a pergunta.</h3>				
+			<textarea id="areaRespostaFaq" class="areaTexto bordaPadrao" rows="10"></textarea>		
 			<br/>
-			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</span>		
+			<span class="info azulClaro">Sua resposta pode conter até <span id="contadorCaracterFaq">2000</span> caracteres.</span>		
 			<p>
-			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
-			<input id="btCancelarResenha" type="button" value="cancelar" class="button">				
+			<input id="btResponderFaq" type="submit" value="Enviar Resposta" class="buttonCadastrar">
+			<input id="btRemoverFaq" type="button" value="Excluir Pergunta" class="backVermelho button">
+			<input id="btCancelarFaq" type="button" value="Cancelar" class="button direita">
+							
 			</p>
-		</form>			
 		</td>
 	</tr>
 </table>

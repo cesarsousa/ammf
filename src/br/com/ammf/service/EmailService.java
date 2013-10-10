@@ -32,4 +32,6 @@ public interface EmailService {
 
 	void notificarNovaFaqParaAdmin(Faq faq) throws EmailException;
 
+	void notificarRespostaFaqParaCliente(Faq faq) throws EmailException;
+
 }

@@ -38,6 +38,6 @@ public interface ValidacaoService {
 
 	boolean cadastrarLink(Link link, Result result);
 
-	boolean cadastrarFaq(Faq faq, Result result);	
+	boolean cadastrarFaq(Faq faq, Result result);
 
 }

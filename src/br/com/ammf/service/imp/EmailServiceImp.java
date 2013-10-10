@@ -213,4 +213,15 @@ public class EmailServiceImp implements EmailService {
 		
 	}
 
+	@Override
+	public void notificarRespostaFaqParaCliente(Faq faq) throws EmailException {
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				faq.getEmail(),
+				HtmlMensagem.getAssuntoRespostaFaqParaCliente(),
+				HtmlMensagem.getMensagemRespostaFaqParaCliente(faq, administrador.getLinkedin()));
+		
+	}
+
 }

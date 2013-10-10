@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
+
 import java.util.List;
 
 import br.com.ammf.exception.DBException;
@@ -67,12 +69,67 @@ public class FaqController {
 		result.include(flagIcone, true);
 		result.include("requestFaqs", true);		
 		result.redirectTo(this).faqAdmin();
-	}	
+	}
+	
+	@Restrito
+	@Get("/adm/faq/editar")
+	public void editarFaq(String uuid){
+		Faq faq = faqRepositoty.obter(uuid);
+		result.use(json()).withoutRoot().from(faq).exclude("id").serialize();
+	}
+	
+	@Restrito
+	@Post("/adm/faq/resposta")
+	public void responderFaq(String uuid, String resposta){
+		String resultado = "Pergunta respondida com sucesso";
+		if(resposta == null || resposta.isEmpty()){
+			resultado = "Erro! Digite a resposta da pergunta";
+		}else{
+			if(uuid.isEmpty()){
+				resultado = "Erro! uuid não definido";
+			}else{
+				Faq faq = faqRepositoty.obter(uuid);
+				if(faq.getRespondida()){
+					resultado = "Aviso! A pergunta já foi respondida";
+				}else{
+					faq.setResposta(resposta);
+					faqRepositoty.atualizar(faq);
+					
+					try {
+						emailService.notificarRespostaFaqParaCliente(faq);
+					} catch (EmailException emailException) {
+						resultado = "Erro! Notificação por email para o cliente não enviada. Descrição do erro: " + emailException.getMessage();
+						result.use(json()).from(resultado).serialize();
+					}
+					
+					resultado = "Pergunta respondida com sucesso";
+				}
+				
+			}
+		}
+		result.use(json()).from(resultado).serialize();
+	}
+	
+	
 	
 	@Get("/cliente/faq")
-	public void faqCliente(){
-				
+	public void faqCliente(){}
+	
+	@Get("/cliente/faq/{uuid}")
+	public void faqClienteLer(String uuid){
+		Faq faq = faqRepositoty.obter(uuid);
+		if(faq == null){
+			result.include("faqRemovida", true);
+		}else if(!faq.isPublica()){
+			result.include("faqPrivada", true);
+		}else{
+			result.include("faq", faq);
+		}
+		
+		result.include("faqEmailRequest", true);		
+		result.redirectTo(this).faqCliente();
 	}
+	
 	
 	@Post("/cliente/faq/pergunta")
 	public void novaPergunta(Faq faq){
@@ -94,7 +151,4 @@ public class FaqController {
 		}
 		
 	}
-	
-	
-
 }

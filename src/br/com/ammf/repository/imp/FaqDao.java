@@ -80,6 +80,29 @@ public class FaqDao implements FaqRepository{
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
+	}
+
+	@Override
+	public Faq obter(String uuid) {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			return (Faq) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public void atualizar(Faq faq) {
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.update(faq);
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
 	}	
 
 }

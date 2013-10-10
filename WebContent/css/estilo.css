@@ -1414,6 +1414,14 @@ table.tabLivro thead  tr td{
 	color: red;
 }
 
+.Publica {
+	color: green;
+}
+
+.Particular {
+	color: red;
+}
+
 .centralizado {
 	text-align: center;
 }
@@ -1551,7 +1559,7 @@ table.tabLivro thead  tr td{
 	border-color: #CFB848;
 	text-align: left;
 	color: #FFFFFF;
-	font-size: medium;
+	font-size: large;
 	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 

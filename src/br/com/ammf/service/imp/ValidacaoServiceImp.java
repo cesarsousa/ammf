@@ -417,7 +417,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
 			texto.setConteudo("conteudo");
 		}		
-	}
+	}	
 	
 	private boolean ehGmail(String email) {
 		return email.endsWith("@gmail.com");
@@ -430,5 +430,5 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
 		return false;
-	}		
+	}			
 }

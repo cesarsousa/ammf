@@ -35,13 +35,33 @@ ${perguntaEmBranco}
 	<span class="info azulClaro" >Perguntas mais frequentes da área de sa&uacute;de ou sobre qualquer outro assunto. </span>
 	</p>
 	
+	<c:if test="${faqEmailRequest}">	
+		<div class="cardViewText">
+			<c:choose>
+			<c:when test="${faqRemovida}">
+				<p class="textoAutorBlog azulClaro fonteGrande centralizar">A pergunta solicitada foi removida do site.</p>
+			</c:when>
+			<c:when test="${faqPrivada}">
+				<p class="textoAutorBlog azulClaro fonteGrande centralizar">A pergunta solicitada n&atilde;o &eacute; p&uacute;blica.</p>
+			</c:when>			
+			<c:otherwise>
+				<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>
+				<p class="textoAutorDepoimento azulClaro">&ldquo; ${faq.pergunta} &ldquo;</p>					
+				<p class="textoConteudoDepoimento">${faq.resposta}</p>
+			</c:otherwise>
+			</c:choose>					
+		</div>
+		
+		<br/><br/>	
+	</c:if>
+	
 	<c:if test="${not empty perguntas}">
 	<div id="divDepoimentosCadastrados">
 		<c:forEach items="${perguntas}" var="faq">
 		<div class="cardViewText">
-			<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>					
-			<p class="textoConteudoDepoimento">&ldquo; ${faq.pergunta} &ldquo;</p>
-			<p class="textoAutorDepoimento azulClaro">${faq.resposta}</p>
+			<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>
+				<p class="textoAutorDepoimento azulClaro">&ldquo; ${faq.pergunta} &ldquo;</p>					
+				<p class="textoConteudoDepoimento">${faq.resposta}</p>
 				
 		</div>
 		<br/>

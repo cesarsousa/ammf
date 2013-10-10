@@ -286,7 +286,7 @@ public class HtmlMensagem {
 	}
 
 	public static String getAssuntoLink() {
-		return "Blog Quiron - Novo link adicionado";
+		return "Site Quiron - Novo link adicionado";
 	}
 
 	public static String getMensagemNotificacaoDeLink(Link link, String linkedin, Pessoa pessoa) {
@@ -316,5 +316,37 @@ public class HtmlMensagem {
 				.replace("[POSTAGEM]", faq.getDataFormatada())
 				.replace("[PERGUNTA]", faq.getPergunta())
 				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);		
+	}
+
+	public static String getAssuntoRespostaFaqParaCliente() {
+		return "Site Quiron FAQ - Sua Pergunta foi respondida";
+	}
+
+	public static String getMensagemRespostaFaqParaCliente(Faq faq, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "faq_notificar_resposta_cliente.html");
+		
+		String resposta;
+		String visibilidade;
+		String linkLerFaq;
+		if(faq.isPublica()){
+			resposta = "Ao cadastrar sua pergunta voc&ecirc; optou deix&aacute;-la como p&uacute;blica. Utilize o link abaixo para acessar o FAQ so site e ler sua resposta.";
+			visibilidade = "<span style=\"color: green;\">publica</span>";
+			linkLerFaq = LinksDoSite.WEB_SITE_FAQ_CLIENTE_RESPOSTA.replace("uuid", faq.getUuid());			
+		}else{
+			resposta = faq.getResposta();
+			visibilidade = "<span style=\"color: red;\">particular</span>";
+			linkLerFaq = LinksDoSite.WEB_SITE_FAQ_CLIENTE;
+		}
+		
+		return mensagem
+				.replace("[NOMEDOCLIENTE]", faq.getNome())
+				.replace("[DATAFAQ]", faq.getDataFormatada())
+				.replace("[PERGUNTAFAQ]", faq.getPergunta())				
+				.replace("[RESPOSTAFAQFAQ]", resposta)
+				.replace("[VISIBILIDADEFAQ]", visibilidade)
+				.replace("[WEBSITE_CONTATO]", LinksDoSite.WEB_SITE_CONTATO)
+				.replace("[EMAIL]", faq.getEmail())	
+				.replace("[LINKEDIN]", linkedin)				
+				.replace("[LINKFAQ]", linkLerFaq);		
 	}
 }
