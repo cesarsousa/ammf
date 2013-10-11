@@ -340,6 +340,7 @@ a:HOVER {
 	background-image: url("../image/lupa2.png");
 	background-repeat: no-repeat;
 	padding-left: 35px;
+	height: 22px;
 }
 
 .labelForm {
@@ -759,6 +760,10 @@ a:HOVER {
 
 .fonteGrande {
 	font-size: x-large;	
+}
+
+.fonteMedia {
+	font-size: medium;
 }
 
 .fonteSuperGrande {

@@ -21,4 +21,6 @@ public interface FaqRepository {
 
 	void atualizar(Faq faq);
 
+	void deletar(String uuid);
+
 }

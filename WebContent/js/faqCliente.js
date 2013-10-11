@@ -5,6 +5,13 @@ function limparFormFaq(){
 	$("#cadastroFaqPergunta").val('');
 }
 
+function visualizarRespostaFaq(elemento){
+	$('.hideTd').slideUp(500);
+	var uuid = elemento.id;
+	var idResposta = "#faqResposta?".replace("?",uuid); 
+	$(idResposta).slideDown(500);
+}
+
 $(document).ready(function() {
 	
 	addRemoveDestaque("#cadastroFaqNome");

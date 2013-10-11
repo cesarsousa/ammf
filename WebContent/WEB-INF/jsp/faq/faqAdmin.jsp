@@ -50,11 +50,11 @@
 <form id="formFaqTodas" action="<c:url value="/adm/faq/todas" />" method="get"></form>
 
 <c:if test="${not empty requestFaqs}">
-<table id="" class="fullSize" >
+<table id="tabFaqsSolicitadas" class="fullSize" >
 	<tr>
 	<td>
 	<div align="right">
-		<input id="btFecharDepoimentosSolicitados" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharFaqsSolicitadas" type="button" value="fechar" class="backVermelho button">
 	</div>
 	
 	<c:if test="${isFaqNaoRespondidas}">
@@ -89,7 +89,7 @@
 				</tr>
 			</thead>
 			
-			<tbody id="resultBuscaDepoimento">
+			<tbody>
 				<c:forEach items="${faqs}" var="faq">
 					<tr class="zebrado">
 					<td class="infoTabela">${faq.nome}</td>
@@ -107,6 +107,7 @@
 								<img class="icone" alt="esta pergunta ja foi respondida" src="${imagem}/iconeEditar.png" title="esta pergunta ja foi respondida">
 							</c:otherwise>
 						</c:choose>
+								<a href="<c:url value="/adm/faq/excluir/${faq.uuid}/${flagRedirect}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 						
 						</td>
 					</tr>
@@ -142,7 +143,9 @@
 			<h4 >Visibilidade da pergunta: <span id="faqVisibilidade"></span></h4>
 			<p id="faqPergunta" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 			
+			<div id="faqRespondida"></div>
 			
+			<div id="divCamposParaResposta">
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto da resposta:</label>
 				<span id="sizeSmallFaq" style="font-size: small;" class="ponteiro" >A</span>
 				<span id="sizeMediumFaq" style="font-size: medium;" class="ponteiro" >A</span>
@@ -150,6 +153,9 @@
 				<span id="sizeXLargeFaq" style="font-size: x-large;" class="ponteiro" >A</span>
 				<span id="sizeXxLargeFaq" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
+			
+			<h4>Aten&ccedil;&acirc;o! Ao responder uma pergunta com visibilidade p&uacute;blica <b>NÃO</b> mencione o nome da pessoa, evitando assim a exposi&ccedil;&atilde;o da mesma no FAQ do site.</h4>
+			
 			<h3>Digite a resposta para a pergunta.</h3>				
 			<textarea id="areaRespostaFaq" class="areaTexto bordaPadrao" rows="10"></textarea>		
 			<br/>
@@ -158,8 +164,8 @@
 			<input id="btResponderFaq" type="submit" value="Enviar Resposta" class="buttonCadastrar">
 			<input id="btRemoverFaq" type="button" value="Excluir Pergunta" class="backVermelho button">
 			<input id="btCancelarFaq" type="button" value="Cancelar" class="button direita">
-							
 			</p>
+			</div>
 		</td>
 	</tr>
 </table>

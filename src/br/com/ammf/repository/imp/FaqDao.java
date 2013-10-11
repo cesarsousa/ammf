@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.repository.FaqRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -102,6 +103,21 @@ public class FaqDao implements FaqRepository{
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}	
+		
+	}
+
+	@Override
+	public void deletar(String uuid) {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			Faq faq = (Faq) criteria.uniqueResult();
+			Transaction transaction = session.beginTransaction();
+			session.delete(faq);
+			transaction.commit();	
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 		
 	}	
 

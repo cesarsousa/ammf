@@ -43,121 +43,186 @@
 		</li>
 	</ul>
 	<div class="tab1 tabsContent">
-		<div class="paddingPadrao">		
+		<div class="paddingPadrao">
 			
-			<c:choose>			
-			<c:when test="${empty livrosPublicados}">
-				<h3>N&atilde;o existem livros publicados a serem exibidos.</h3>
-			</c:when>
-			<c:otherwise>
-				<h3>LIVROS PUBLICADOS</h3>
+			<div align="center">
+			<div style="width: 1000px; text-align: left;" >
+				<div id="btLivroBuscaPersonalizada" class="ponteiro destaqueImage">
+				<img class="icone" src="${imagem}/lupa.png" alt="busca personalizada" title="busca personalizada">		
+				<span class="fonteGrande">Busca Personalizada</span>
+				</div>				
+				<div id="livroBuscaPersonalizada">
+					<div align="right">
+						<input id="btFecharLivroBuscaPersonalizada" type="button" value="fechar busca" class="backVermelho button">
+					</div>
+					
+					<form id="formBuscaLivro" action="<c:url value="/cliente/livro/busca" />" method="get">
+						<div align="center">
+						
+						<div style="width: 550px; text-align: left;">
+							
+							<p class="info azulClaro">Escolha um tipo da busca</p>
+							
+							<p>							
+							<label>
+							<input type="radio" name="livroTipoBusca" />
+							Autor do livro
+							</label>
+							
+							<label>
+							<input type="radio" name="livroTipoBusca" />
+							Nome do livro
+							</label>
+							
+							<label>
+							<input type="radio" name="livroTipoBusca" checked="checked"/>
+							Nome e autor do livro
+							</label>
+							</p>
+						</div>
+						
+						<input id="campoBuscaLivro" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
+						</div>
+					</form>
+					
+					<br/>				
 				
-				<c:forEach items="${livrosPublicados}" var="livro">					
-				<table width="80%" class="cartao bordaPadrao paddingPadrao ">
-				<tr>
-				<td width="120px"  align="left">
-				<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">							
-				</td>
-				
-				<td valign="top">
-				<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
-				<p class="autor" >${livro.autor}</p>
-				<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
-				</td>
-				
-				<td valign="bottom">		
-				<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
-				<div align="right">
-					<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
-					<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
-					<a href="${livro.linkVenda}" target="_blank">
-					<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
-					</a>
+				<hr class="hrClass" />
 				</div>
 				
-				</td>		
-				</tr>
 				
-				<tr><td colspan="3">			
-				<table id="tabInfoLivro${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
-				<thead>
-				<tr>
-				<td colspan="2"><input id="btFecharInfoLivro${livro.uuid}" onclick="fecharInformacaoProduto(this)" type="button" class="button" value="fechar informações sobre o produto"/></td>			
-				</tr>			
-				</thead>
+				<div id="btLivrosPublicados" class="ponteiro destaqueImage"  style="padding-top: 20px;">
+				<img class="icone" src="${imagem}/iconeLivro.png" alt="livros publicados" title="livros publicados">	
+				<span class="fonteGrande">Livros Publicados</span>
+				</div>
+				<div id="tabLivrosPublicados">
+				<div align="right">
+					<input id="btFecharTabLivrosPublicados" type="button" value="fechar busca" class="backVermelho button">
+				</div>
+				<c:choose>			
+					<c:when test="${empty livrosPublicados}">
+					
+					<p class="textoAutorBlog azulClaro fonteGrande centralizar">N&atilde;o existem livros publicados a serem exibidos.</p>
 				
-				<tbody>
-				<tr>
-					<td >
-					<label class="tabTitulo" style="font-size: large;">Sinopse</label>
-					<ul>
-					<li><label class="tabDescricao">${livro.sinopse}</label></li>
-					</ul>
+					</c:when>
+					<c:otherwise>
+						
+						<p class="textoAutorBlog azulClaro fonteGrande centralizar">Livros publicados.</p>
+										
+						<c:forEach items="${livrosPublicados}" var="livro">
+						<div align="center">					
+						<table width="80%" class="cartao bordaPadrao paddingPadrao ">
+						<tr>
+						<td width="120px"  align="left">
+						<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">							
+						</td>
+						
+						<td valign="top">
+						<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
+						<p class="autor" >${livro.autor}</p>
+						<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
+						</td>
+						
+						<td valign="bottom">		
+						<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
+						<div align="right">
+							<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
+							<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
+							<a href="${livro.linkVenda}" target="_blank">
+							<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
+							</a>
+						</div>
+						
+						</td>		
+						</tr>
+						
+						<tr><td colspan="3">			
+						<table id="tabInfoLivro${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
+						<thead>
+						<tr>
+						<td colspan="2"><input id="btFecharInfoLivro${livro.uuid}" onclick="fecharInformacaoProduto(this)" type="button" class="button" value="fechar informações sobre o produto"/></td>			
+						</tr>			
+						</thead>
+						
+						<tbody>
+						<tr>
+							<td >
+							<label class="tabTitulo" style="font-size: large;">Sinopse</label>
+							<ul>
+							<li><label class="tabDescricao">${livro.sinopse}</label></li>
+							</ul>
+						
+							<label class="tabTitulo" style="font-size: large;">Informa&ccedil;&otilde;es Gerais</label>
+							<ul>
+							<li>
+								<label class="tabTitulo">T&iacute;tulo:</label>
+								<label class="tabDescricao">${livro.titulo}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Subt&iacute;tulo:</label>
+								<label class="tabDescricao">${livro.subtitulo}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Editora:</label>
+								<label class="tabDescricao">${livro.editora}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Editora:</label>
+								<label class="tabDescricao">${livro.editora}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">N&ordm; de p&aacute;ginas:</label>
+								<label class="tabDescricao">${livro.paginas}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Edi&ccedil;&atilde;o:</label>
+								<label class="tabDescricao">${livro.edicao}</label>
+							</li>	
+							
+							<li>
+								<label class="tabTitulo">Ano:</label>
+								<label class="tabDescricao">${livro.ano}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Idioma:</label>
+								<label class="tabDescricao">${livro.idioma}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">C&oacute;digo de barras:</label>
+								<label class="tabDescricao">${livro.codigoBarra}</label>
+							</li>
+							
+							<li>
+								<label class="tabTitulo">Pre&ccedil;o:</label>
+								<label class="tabDescricao">${livro.precoFormatado}</label>
+							</li>					
+							
+							</ul>			
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						
+						</td></tr>			
+						</table>
+						</div>
+						<br/>
+						</c:forEach>
+					</c:otherwise>
+					</c:choose>
+				</div>	
 				
-					<label class="tabTitulo" style="font-size: large;">Informa&ccedil;&otilde;es Gerais</label>
-					<ul>
-					<li>
-						<label class="tabTitulo">T&iacute;tulo:</label>
-						<label class="tabDescricao">${livro.titulo}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Subt&iacute;tulo:</label>
-						<label class="tabDescricao">${livro.subtitulo}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Editora:</label>
-						<label class="tabDescricao">${livro.editora}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Editora:</label>
-						<label class="tabDescricao">${livro.editora}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">N&ordm; de p&aacute;ginas:</label>
-						<label class="tabDescricao">${livro.paginas}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Edi&ccedil;&atilde;o:</label>
-						<label class="tabDescricao">${livro.edicao}</label>
-					</li>	
-					
-					<li>
-						<label class="tabTitulo">Ano:</label>
-						<label class="tabDescricao">${livro.ano}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Idioma:</label>
-						<label class="tabDescricao">${livro.idioma}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">C&oacute;digo de barras:</label>
-						<label class="tabDescricao">${livro.codigoBarra}</label>
-					</li>
-					
-					<li>
-						<label class="tabTitulo">Pre&ccedil;o:</label>
-						<label class="tabDescricao">${livro.precoFormatado}</label>
-					</li>					
-					
-					</ul>			
-				</td>
-				</tr>
-				</tbody>
-				</table>
 				
-				</td></tr>			
-				</table>
-				<br/>
-				</c:forEach>
-			</c:otherwise>
-			</c:choose>
+				
+			</div>			
+			</div>		
 		
 		</div>
 	</div>

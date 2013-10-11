@@ -15,7 +15,28 @@ function fecharInformacaoProduto(elemento){
 
 $(document).ready(function() {
 	
-	$('#telaAguardeLojaCliente').hide();
+	$('#telaAguardeLojaCliente, #livroBuscaPersonalizada, #tabLivrosPublicados').hide();
+	
+	$('#btLivroBuscaPersonalizada').click(function (){
+		$('#livroBuscaPersonalizada').slideDown(500);
+	});
+	
+	addRemoveDestaque('#campoBuscaLivro');
+	$('#campoBuscaLivro').puts('Digite parte do nome e pressione a tecla ENTER');
+	
+	$('#btFecharLivroBuscaPersonalizada').click(function (){
+		$('#livroBuscaPersonalizada').slideUp(500);
+	});
+	
+	$('#btLivrosPublicados').click(function (){
+		$('#tabLivrosPublicados').slideDown(500);
+	});
+	
+	$('#btFecharTabLivrosPublicados').click(function (){
+		$('#tabLivrosPublicados').slideUp(500);
+	});
+	
+	
 	
 	// Programacao das abas
 	$('div.htmltabs div.tabsContent').hide();

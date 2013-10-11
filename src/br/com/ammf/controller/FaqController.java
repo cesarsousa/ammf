@@ -45,29 +45,30 @@ public class FaqController {
 	@Get("/adm/faq/todas")
 	public void visualizarTodosAsFaqs(){
 		List<Faq> faqs = faqRepositoty.listar();
-		setFaqsToView(faqs, "corCinza", "Visualiza&ccedil;&atilde;o de todas as perguntas cadastradas", "isFaqTodas");	
+		setFaqsToView(faqs, "corCinza", "Visualiza&ccedil;&atilde;o de todas as perguntas cadastradas", "isFaqTodas", 1);	
 	}
 	
 	@Restrito
 	@Get("/adm/faq/respondidas")
 	public void visualizarTodosAsFaqsRespondidas(){
 		List<Faq> faqs = faqRepositoty.listarRespondidas();
-		setFaqsToView(faqs, "corVerde", "Visualiza&ccedil;&atilde;o de todas as perguntas respondidas", "isFaqRespondidas");	
+		setFaqsToView(faqs, "corVerde", "Visualiza&ccedil;&atilde;o de todas as perguntas respondidas", "isFaqRespondidas", 2);	
 	}
 	
 	@Restrito
 	@Get("/adm/faq/pendentes")
 	public void visualizarTodosAsFaqsNaoRespondidas(){
 		List<Faq> faqs = faqRepositoty.listarNaoRespondiddas();
-		setFaqsToView(faqs, "corVermelho", "Visualiza&ccedil;&atilde;o de todas as perguntas não respondidas", "isFaqNaoRespondidas");	
+		setFaqsToView(faqs, "corVermelho", "Visualiza&ccedil;&atilde;o de todas as perguntas não respondidas", "isFaqNaoRespondidas", 3);	
 	}
 
-	private void setFaqsToView(List<Faq> faqs, String backgroundTitulo, String tituloFaq, String flagIcone) {
+	private void setFaqsToView(List<Faq> faqs, String backgroundTitulo, String tituloFaq, String flagIcone, int flagRedirect) {
 		result.include("faqs", faqs);
 		result.include("backgroundTitulo", backgroundTitulo);
 		result.include("tituloFaqsSolicitadas", tituloFaq);
 		result.include(flagIcone, true);
-		result.include("requestFaqs", true);		
+		result.include("requestFaqs", true);
+		result.include("flagRedirect", flagRedirect);
 		result.redirectTo(this).faqAdmin();
 	}
 	
@@ -103,17 +104,34 @@ public class FaqController {
 					}
 					
 					resultado = "Pergunta respondida com sucesso";
-				}
-				
+				}				
 			}
 		}
 		result.use(json()).from(resultado).serialize();
 	}
 	
+	@Restrito
+	@Get("/adm/faq/excluir/{uuid}/{flagRedirect}")
+	public void excluirFaq(String uuid, int flagRedirect){
+		faqRepositoty.deletar(uuid);
+		result.include("msgFaq", "Pergunta removida com sucesso");
+		
+		if(flagRedirect == 3){
+			visualizarTodosAsFaqsNaoRespondidas();
+		}else if (flagRedirect == 2){
+			visualizarTodosAsFaqsRespondidas();
+		}else{
+			visualizarTodosAsFaqs();
+		}
+	}
+	
 	
 	
 	@Get("/cliente/faq")
-	public void faqCliente(){}
+	public void faqCliente(){
+		List<Faq> faqs = faqRepositoty.listarRespondidas();
+		result.include("faqs", faqs);
+	}
 	
 	@Get("/cliente/faq/{uuid}")
 	public void faqClienteLer(String uuid){

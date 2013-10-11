@@ -55,18 +55,26 @@ ${perguntaEmBranco}
 		<br/><br/>	
 	</c:if>
 	
-	<c:if test="${not empty perguntas}">
-	<div id="divDepoimentosCadastrados">
-		<c:forEach items="${perguntas}" var="faq">
+	<c:if test="${not empty faqs}">
+	<div id="divFaqsCadastrados">
 		<div class="cardViewText">
-			<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>
-				<p class="textoAutorDepoimento azulClaro">&ldquo; ${faq.pergunta} &ldquo;</p>					
-				<p class="textoConteudoDepoimento">${faq.resposta}</p>
-				
-		</div>
-		<br/>
+		<ul class="listaSimples">
+		<c:forEach items="${faqs}" var="faq">
+		
+			<li>
+			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
+				<ul id="faqResposta${faq.uuid}" class="listaSimples hideTd">
+					<li><p class="textoConteudoDepoimento">${faq.resposta}</p></li>
+					<li><p class="textoPostagemDepoimento negrito">postada em ${faq.dataFormatada}</p></li>
+					<li><hr class="hrClass" /></li>				
+				</ul>			
+			</li>
+					
 		</c:forEach>
+		</ul>
+		</div>
 	</div>
+	<br/><br/>
 	</c:if>
 	
 	<input id="flagFaqErroCadastro" type="hidden" value="${flagFaqErroCadastro}" />
