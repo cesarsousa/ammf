@@ -151,18 +151,12 @@ public class LivroController {
 	 */
 	@Get("/loja/cliente/livro/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		JOptionPane.showMessageDialog(null, "fazer isto");
-		/*Texto texto = textoRepository.obterPor(uuid);
-		System.out.println("data: " + texto.getDataFormatada());
-		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
-		result.include("emailRequest", true);
-		result.redirectTo(this).blogCliente(true, texto);	*/	
+		// TODO continuar daki...
+		
 	}
 
 	private void retornarJson(String mensagem) {
 		result.use(json()).withoutRoot().from(mensagem).serialize();
-		
-	}
-	
+	}	
 
 }
