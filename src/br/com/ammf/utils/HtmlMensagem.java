@@ -306,8 +306,15 @@ public class HtmlMensagem {
 		return "Nova pergunta postada no FAQ do site: nome do cliente - " + nomeDoCliente;
 	}
 
-	public static String getMensagemNotificacaoDeLink(Faq faq, String linkedin) {
+	public static String getMensagemNotificacaoDeFaqParaAdmin(Faq faq, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "faq_notificar_adm_recebimento_nova_pergunta.html");
+		
+		String visibilidade;
+		if(faq.isPublica()){
+			visibilidade = "<span style=\"color: green;\">publica</span>";
+		}else{
+			visibilidade = "<span style=\"color: red;\">particular</span>";
+		}
 		
 		return mensagem
 				.replace("[ID]", String.valueOf(faq.getId()))
@@ -315,6 +322,7 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", faq.getEmail())				
 				.replace("[POSTAGEM]", faq.getDataFormatada())
 				.replace("[PERGUNTA]", faq.getPergunta())
+				.replace("[VISIBILIDADEFAQ]", visibilidade)
 				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);		
 	}
 

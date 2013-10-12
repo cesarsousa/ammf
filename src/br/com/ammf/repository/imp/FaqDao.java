@@ -82,6 +82,19 @@ public class FaqDao implements FaqRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+	
+	@Override
+	public List<Faq> listarRespondidasParaCliente() {
+		try {
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.isNotNull("resposta"));
+			criteria.add(Restrictions.eq("publica", true));
+			criteria.addOrder(Order.desc("postagem"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}	
 
 	@Override
 	public Faq obter(String uuid) {
@@ -119,6 +132,8 @@ public class FaqDao implements FaqRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 		
-	}	
+	}
+
+	
 
 }

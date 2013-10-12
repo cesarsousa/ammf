@@ -129,7 +129,7 @@ public class FaqController {
 	
 	@Get("/cliente/faq")
 	public void faqCliente(){
-		List<Faq> faqs = faqRepositoty.listarRespondidas();
+		List<Faq> faqs = faqRepositoty.listarRespondidasParaCliente();
 		result.include("faqs", faqs);
 	}
 	

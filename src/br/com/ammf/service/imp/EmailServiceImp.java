@@ -209,7 +209,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getSenha(), 
 				faq.getEmail(),
 				HtmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
-				HtmlMensagem.getMensagemNotificacaoDeLink(faq, administrador.getLinkedin()));
+				HtmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));
 		
 	}
 

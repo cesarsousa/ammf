@@ -40,6 +40,7 @@ $(document).ready(function() {
 		abrirJanelaDeEspera("#divPgFaqCliente", "#telaAguardeCadastroFaq");
 	});
 	
+	
 	// codigos daqui para cima
 	if($('#flagFaqErroCadastro').val() == "true"){
 		$('#divNovaPergunta').show();		

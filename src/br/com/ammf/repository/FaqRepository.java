@@ -16,11 +16,15 @@ public interface FaqRepository {
 	List<Faq> listarRespondidas();
 
 	List<Faq> listarNaoRespondiddas();
+	
+	List<Faq> listarRespondidasParaCliente();
 
 	Faq obter(String uuid);
 
 	void atualizar(Faq faq);
 
 	void deletar(String uuid);
+
+	
 
 }

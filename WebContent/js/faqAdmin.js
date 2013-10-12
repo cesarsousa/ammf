@@ -43,7 +43,8 @@ function ajaxResponderFaq(){
 		type : 'POST',
 		url : $('#contexto').val() + "/adm/faq/resposta",
 		data: {"uuid" : $('#faqUuid').val(), "resposta" : $('#areaRespostaFaq').val()},
-		success : function(json){		
+		success : function(json){
+			$('#telaAguardeAdmResponderFaq').slideUp(500);
 			var resultado = json.string;
 			$('#msgResultadoRespostaFaq').html('').removeAttr('class').slideUp();
 			
@@ -102,6 +103,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btResponderFaq').click(function (){
+		$('#telaAguardeAdmResponderFaq').slideDown(500);
 		ajaxResponderFaq();
 	});
 	

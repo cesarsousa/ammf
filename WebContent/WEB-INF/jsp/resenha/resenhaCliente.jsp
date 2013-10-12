@@ -39,10 +39,25 @@
 </div>
 </div> --%>
 
+<c:if test="${not empty resenha}">
+	<div class="fullSize" align="center">
+		<div style="width: 1000px">
+		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
+		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
+		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
+		<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>
+		</div>	
+	</div>
+	<br/><br/>
+</c:if>
+
 
 <div id="divResenhasTop3" align="center">
 	<c:choose>
 		<c:when test="${not empty resenhas}">
+		
+		<h3 style="padding-left: 10px; text-align: center;">&Uacute;ltimas resenhas publicadas.</h3>
+				
 			<c:forEach items="${resenhas}" var="resenha">
 				<div class="cardViewText">
 					<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					

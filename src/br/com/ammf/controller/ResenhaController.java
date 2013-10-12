@@ -177,12 +177,11 @@ public class ResenhaController {
 	 */
 	@Get("/resenha/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		JOptionPane.showMessageDialog(null, "fazer isto");
-		/*Texto texto = textoRepository.obterPor(uuid);
-		System.out.println("data: " + texto.getDataFormatada());
-		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
-		result.include("emailRequest", true);
-		result.redirectTo(this).blogCliente(true, texto);	*/	
+		Resenha resenha = resenhaRepository.obterPor(uuid);
+		result.include("resenha", resenha);
+		
+		result.redirectTo(this).resenhaCliente();
+		
 	}
 	
 	

@@ -65,7 +65,7 @@ ${perguntaEmBranco}
 			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
 				<ul id="faqResposta${faq.uuid}" class="listaSimples hideTd">
 					<li><p class="textoConteudoDepoimento">${faq.resposta}</p></li>
-					<li><p class="textoPostagemDepoimento negrito">postada em ${faq.dataFormatada}</p></li>
+					<li><p class="textoPostagemDepoimento negrito">Pergunta postada em ${faq.dataFormatada}</p></li>
 					<li><hr class="hrClass" /></li>				
 				</ul>			
 			</li>
@@ -111,16 +111,18 @@ ${perguntaEmBranco}
 					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.
 					</h3>
 					
-					<label class="labelForm2"><input type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
 					<p>
 					<span class="info azulClaro" >
 					Marcar a pergunta como p&uacute;blica significa que quando respondida, 
 					a pergunta será divulgada no site. Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o 
 					associados a pergunta. Deste modo quando outras pessoas tiverem uma pergunta parecida 
-					poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia.
+					poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia. Certifique-se de n&atilde;o 
+					utilizar informa&ccedil;&otilde;es pessoas em perguntas p&uacute;blicas.
 					</span>
 					</p>
 					
+					<label class="labelForm2"><input id="checkPerguntaPublica" type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
+								
 					<h3 align="right">
 					<input id="btnClienteCadastrarFaq" type="submit" value="Publicar Depoimento"  class="button direita"/>
 					</h3>					

@@ -141,11 +141,27 @@
 			<h3 id="faqAutor" ></h3>
 			<h4 id="faqPostagem"></h4>
 			<h4 >Visibilidade da pergunta: <span id="faqVisibilidade"></span></h4>
-			<p id="faqPergunta" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 			
+			<h3>Pergunta.</h3>	
+			<p id="faqPergunta" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
+					
 			<div id="faqRespondida"></div>
 			
+			<div id="telaAguardeAdmResponderFaq">
+				<div align="center">							
+					<h3 class="paddingTelaAguarde">Respondendo a pergunta de <span id="admNomeDoClienteFaq"></span>.</h3>
+					<span class="info azulClaro">Enviando notifica&ccedil;&atilde;o por email, esta opera&ccedil;&atilde;o pode levar alguns segundos.</span>
+					<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+					<br />
+					<br />			
+				</div>
+			</div>
+			
 			<div id="divCamposParaResposta">
+			
+			<div class="msgBorder msgAlerta ponteiro closeClick">Aten&ccedil;&atilde;o! Ao responder uma pergunta com visibilidade p&uacute;blica <b>NÃO</b> mencione o nome da pessoa, evitando assim a exposi&ccedil;&atilde;o da mesma no FAQ do site.</div>
+			
+			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto da resposta:</label>
 				<span id="sizeSmallFaq" style="font-size: small;" class="ponteiro" >A</span>
 				<span id="sizeMediumFaq" style="font-size: medium;" class="ponteiro" >A</span>
@@ -154,7 +170,6 @@
 				<span id="sizeXxLargeFaq" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
 			
-			<h4>Aten&ccedil;&acirc;o! Ao responder uma pergunta com visibilidade p&uacute;blica <b>NÃO</b> mencione o nome da pessoa, evitando assim a exposi&ccedil;&atilde;o da mesma no FAQ do site.</h4>
 			
 			<h3>Digite a resposta para a pergunta.</h3>				
 			<textarea id="areaRespostaFaq" class="areaTexto bordaPadrao" rows="10"></textarea>		
@@ -172,22 +187,6 @@
 </div>
 
 </div> <!-- centralizacao -->
-
-<div id="telaAguardeAdmResponderFaq">
-	<div align="center">
-		
-		<h2>FAQ (Perguntas Frequentes)</h2>    
-		<span class="info azulClaro" >Resposta de perguntas dos usu&aacute;rios do site. </span>
-								
-		<h3 class="paddingTelaAguarde">Respondendo a pergunta de <span id="admNomeDoClienteFaq"></span>.</h3>
-		
-		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email, esta opera&ccedil;&atilde;o pode levar alguns segundos.</h3>
-		
-		<div class="paddingTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
-		<br />
-		<br />			
-	</div>
-</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

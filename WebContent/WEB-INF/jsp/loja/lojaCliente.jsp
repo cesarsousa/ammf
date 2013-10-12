@@ -31,27 +31,29 @@
 				Livros
 			</a>
 		</li>
-		<li class="tab2">
+		<!-- <li class="tab2">
 			<a class="tab2 tab">
 				Textos
 			</a>
-		</li>
-		<li class="tab3">
+		</li> -->
+		<!-- <li class="tab3">
 			<a class="tab3 tab">
 				Cursos
 			</a>
-		</li>
+		</li> -->
 	</ul>
 	<div class="tab1 tabsContent">
 		<div class="paddingPadrao">
 			
 			<div align="center">
 			<div style="width: 1000px; text-align: left;" >
-				<div id="btLivroBuscaPersonalizada" class="ponteiro destaqueImage">
+				
+				<%-- <div id="btLivroBuscaPersonalizada" class="ponteiro destaqueImage">
 				<img class="icone" src="${imagem}/lupa.png" alt="busca personalizada" title="busca personalizada">		
 				<span class="fonteGrande">Busca Personalizada</span>
-				</div>				
-				<div id="livroBuscaPersonalizada">
+				</div> --%>				
+				
+				<%-- <div id="livroBuscaPersonalizada">
 					<div align="right">
 						<input id="btFecharLivroBuscaPersonalizada" type="button" value="fechar busca" class="backVermelho button">
 					</div>
@@ -88,17 +90,17 @@
 					<br/>				
 				
 				<hr class="hrClass" />
-				</div>
+				</div> --%>
 				
-				
-				<div id="btLivrosPublicados" class="ponteiro destaqueImage"  style="padding-top: 20px;">
+				<%-- id="btLivrosPublicados" --%>
+				<div class="ponteiro"  style="padding-top: 20px;">
 				<img class="icone" src="${imagem}/iconeLivro.png" alt="livros publicados" title="livros publicados">	
-				<span class="fonteGrande">Livros Publicados</span>
+				<span class="fonteGrande">Estante Virtual</span>
 				</div>
-				<div id="tabLivrosPublicados">
-				<div align="right">
+				<div> <!-- id="tabLivrosPublicados" -->
+				<!-- <div align="right">
 					<input id="btFecharTabLivrosPublicados" type="button" value="fechar busca" class="backVermelho button">
-				</div>
+				</div> -->
 				<c:choose>			
 					<c:when test="${empty livrosPublicados}">
 					
@@ -107,7 +109,7 @@
 					</c:when>
 					<c:otherwise>
 						
-						<p class="textoAutorBlog azulClaro fonteGrande centralizar">Livros publicados.</p>
+						<p class="textoAutorBlog azulClaro fonteGrande centralizar">Livros publicados para a venda.<br/>Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro. </p>
 										
 						<c:forEach items="${livrosPublicados}" var="livro">
 						<div align="center">					
@@ -230,7 +232,7 @@
 	
 	
 	<!-- tab 2 -->
-	<div class="tab2 tabsContent">
+	<%-- <div class="tab2 tabsContent">
 		<div>
 			<c:choose>			
 			<c:when test="${empty textosPagos}">
@@ -241,10 +243,10 @@
 			</c:otherwise>
 			</c:choose>
 		</div>
-	</div>
+	</div> --%>
 	
 	<!-- tab 3 -->
-	<div class="tab3 tabsContent">
+	<%-- <div class="tab3 tabsContent">
 		<div>
 			<c:choose>			
 			<c:when test="${empty cursos}">
@@ -255,7 +257,7 @@
 			</c:otherwise>
 			</c:choose>
 		</div>
-	</div>
+	</div> --%>
 	
 </div><!-- htmltabs ends here-->	
 </div>	
