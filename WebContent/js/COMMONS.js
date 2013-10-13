@@ -185,6 +185,10 @@ function confirmarExclusao(){
 	return confirm("Tem certeza que deseja remover este registro?");	
 }
 
+function emConstrucao(){
+	alert("pagina em desenvolvimento...");
+}
+
 
 $(document).ready(function() {
 	

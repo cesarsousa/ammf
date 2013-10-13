@@ -181,6 +181,7 @@
 			<input id="btCancelarFaq" type="button" value="Cancelar" class="button direita">
 			</p>
 			</div>
+			<br/><br/>
 		</td>
 	</tr>
 </table>

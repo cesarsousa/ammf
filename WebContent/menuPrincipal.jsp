@@ -33,7 +33,7 @@
 
 	<div align="center">
 		<div id="menuLink">
-				<ul id="menuRodape">
+				<ul id="menuRodape" align="center">
 					<li>
 					<form action="<c:url value="/" />">
 					<input type="submit" value="Home" class="buttonFooter">
@@ -52,7 +52,7 @@
 					</form>
 					</li>
 					
-					<li>
+					<!-- <li>
 					<form>
 					<input type="submit" value="Consultas" class="buttonFooter">
 					</form>
@@ -62,7 +62,7 @@
 					<form>
 					<input type="submit" value="Calendario" class="buttonFooter">
 					</form>
-					</li>
+					</li> -->
 					
 					<li>
 					<form action="<c:url value="/link/cliente" />" method="get">
@@ -76,11 +76,11 @@
 					</form>
 					</li>
 					
-					<li>
+					<!-- <li>
 					<form>
 					<input type="submit" value="Cursos" class="buttonFooter">
 					</form>
-					</li>
+					</li> -->
 					
 					<li>
 					<form action="<c:url value="/cliente/cadastro" />" method="get">

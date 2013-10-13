@@ -22,11 +22,11 @@
 			<a href="<c:url value="/"/>">Home</a>
 			<a href="<c:url value="/blog/cliente" />">Blog</a>
 			<a href="<c:url value="/resenha/cliente" />">Resenhas</a>
-			<a href="<c:url value=""/>">Consultas</a>
-			<a href="<c:url value=""/>">Calendario</a>
+			<%-- <a href="<c:url value=""/>">Consultas</a>
+			<a href="<c:url value=""/>">Calendario</a> --%>
 			<a href="<c:url value="/link/cliente" />">Links</a>
 			<a href="<c:url value="/cliente/depoimentos"/>">Depoimentos</a>
-			<a href="<c:url value=""/>">Cursos</a>
+			<%-- <a href="<c:url value=""/>">Cursos</a> --%>
 			<a href="<c:url value="/cliente/cadastro"/>">Cadastro</a>
 			<a href="<c:url value="/cliente/contato"/>">Contato</a>
 			<a href="<c:url value="/cliente/loja"/>">Loja Virtual</a>

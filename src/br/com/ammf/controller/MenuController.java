@@ -10,6 +10,7 @@ import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -44,7 +45,7 @@ public class MenuController {
 		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
 	}
 	
-	@Post("/menu/adm")
+	@Path("/menu/adm")
 	public void menuAdministrador(){
 		result.redirectTo(this).menu();		
 	}	

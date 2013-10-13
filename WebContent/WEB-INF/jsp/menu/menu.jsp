@@ -39,6 +39,17 @@
 			</td>
 		</tr>				
 	</table>
+	
+	<table class="tamanhoDefault">
+	<tr>
+	<td>
+	
+	<a href="<c:url value="/menu/adm" ></c:url>">
+	<img id="btMenuRefresh" alt="atualizar pagina" title="atualizar pagina" src="${imagem}/iconeRefresh.png" class="icone50 ponteiro esquerda">
+	</a>
+	</td>
+	</tr>
+	</table>
 
 	<!-- EDITAR CONTEUDO INDEX -->
 	<table class="tamanhoDefault">
@@ -479,13 +490,13 @@
 				
 				<li>
 				<form>
-				<input type="submit" value="Consultas" class="buttonFooter">
+				<input type="submit" value="Consultas" class="buttonFooter emDesenv">
 				</form>
 				</li>
 				
 				<li>
 				<form>
-				<input type="submit" value="Calendario" class="buttonFooter">
+				<input type="submit" value="Calendario" class="buttonFooter emDesenv">
 				</form>
 				</li>
 				
@@ -503,7 +514,7 @@
 				
 				<li>
 				<form>
-				<input type="submit" value="Cursos" class="buttonFooter">
+				<input type="submit" value="Cursos" class="buttonFooter emDesenv">
 				</form>
 				</li>
 				

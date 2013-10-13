@@ -167,4 +167,9 @@ $(document).ready(function() {
 		var origem = idOrigem.replace("Quiron","");		
 		alterarTamanhoAreaTexto(origem, '#campoConteudoQuiron');
 	});
+	
+	$('.emDesenv').click(function(){
+		alert("pagina em desenvolvimento...");
+	});
+	
 });
