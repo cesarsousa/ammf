@@ -22,7 +22,7 @@ public class ImagemServiceImp implements ImagemService {
 	private File pastaImagens;
 	
 	private String PASTA_IMAGEM_LIVRO;
-	private String NOME_DEFAULT = "/capaLivroDefault.jpg";
+	private String NOME_DEFAULT = "capaLivroDefault.jpg";
 	
 	public ImagemServiceImp(ServletContext context){		
 		PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
@@ -44,9 +44,9 @@ public class ImagemServiceImp implements ImagemService {
 	}	
 
 	@Override
-	public void salvarFotoLivro(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
+	public void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
 		if(imagemLivro == null){
-			livro.setImagem(criarImagemDefault());
+			livro.setImagem(null);
 		}else{
 			
 			File destino = new File(pastaImagens, "livro" + livro.getUuid() + ".jpg");
@@ -66,10 +66,19 @@ public class ImagemServiceImp implements ImagemService {
 
 	@Override
 	public void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception {
-		if (!livro.getImagem().getNome().equals(NOME_DEFAULT)){
+		if (livro.getImagem().getNome() != null && !livro.getImagem().getNome().equals(NOME_DEFAULT)){
 			removerFoto(livro.getImagem().getCaminho());				
 		}
-		salvarFotoLivro(null, imagemLivro, livro);
+		
+		File destino = new File(pastaImagens, "livro" + livro.getUuid() + ".jpg");
+		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));
+		
+		if(livro.getImagem().getNome() != null && livro.getImagem().getNome().equals(NOME_DEFAULT)){
+			livro.setImagem(criarImagemLivro("livro" + livro.getUuid() + ".jpg", destino.getAbsolutePath()));
+		}else{
+			livro.getImagem().setCaminho(destino.getAbsolutePath());
+			livro.getImagem().setNome("livro" + livro.getUuid() + ".jpg");
+		}		
 	}
 	
 	private Imagem criarImagemLivro(String nomeLivro, String caminhoDaImagem) {
@@ -79,13 +88,13 @@ public class ImagemServiceImp implements ImagemService {
 		return imagem;
 	}
 	
-	@Override
+	/*@Override
 	public Imagem criarImagemDefault() {
 		Imagem imagem = new Imagem();
 		imagem.setId(1L);
 		imagem.setNome(NOME_DEFAULT);
-		return imagem;
-	}
+		return null;
+	}*/
 	
 	@Override
 	public void setImagemDefault(Imagem imagem) {
@@ -95,23 +104,31 @@ public class ImagemServiceImp implements ImagemService {
 
 	@Override
 	public void removerFoto(String caminhoDaImagem) throws Exception {
-		File file = new File(caminhoDaImagem);
-		try {
-			if (!file.exists()) {
-				throw new FileNotFoundException("Arquivo não encontrado: " + file.getAbsolutePath());
+		if(caminhoDaImagem != null){		
+			File file = new File(caminhoDaImagem);
+			try {
+				if (!file.exists()) {
+					throw new FileNotFoundException("Arquivo não encontrado: " + file.getAbsolutePath());
+				}
+				file.delete();
+			} catch (Exception e) {
+				throw new Exception("Erro ao tentar deletar arquivo: "	+ file.getAbsolutePath());
 			}
-			file.delete();
-		} catch (Exception e) {
-			throw new Exception("Erro ao tentar deletar arquivo: "	+ file.getAbsolutePath());
 		}
-		
 	}
 
 	@Override
 	public File visualizarImagemLivro(String uuid) {
-		return new File(pastaImagens, "livro" + uuid + ".jpg") ;
+		File foto = new File(pastaImagens, "livro" + uuid + ".jpg");
+		if(!foto.exists()){
+			foto = new File(pastaImagens, "capaLivroDefault.jpg"); 
+		}				
+		return foto;
 	}
 
-	
+	@Override
+	public String getNomeLivroDefault() {
+		return NOME_DEFAULT;
+	}
 
 }

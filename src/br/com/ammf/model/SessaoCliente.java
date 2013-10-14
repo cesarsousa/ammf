@@ -76,4 +76,8 @@ public class SessaoCliente implements Serializable {
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
+
+	public boolean isLogado() {
+		return true;
+	}
 }

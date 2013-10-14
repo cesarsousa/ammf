@@ -31,17 +31,43 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void cadastrar(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws CadastroException {
+	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws CadastroException {
 		try {
 			livro.setPostagem(DataUtils.getDateNow());
-			imagemService.salvarFotoLivro(ctxImagemLivro, imagemLivro, livro);
+			imagemService.salvarFotoLivro(imagemLivro, livro);
 			livroRepository.cadastrar(livro);			
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());
-		}
-			
+		}			
 	}
-
+	
+	@Override
+	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws CadastroException {
+		try {
+			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
+			livro.setPostagem(postagem);
+			
+			if(removerImagem && !livro.getImagem().getNome().equals(imagemService.getNomeLivroDefault())){
+				Imagem imagem = livro.getImagem();
+				imagemService.removerFoto(imagem.getCaminho());
+				livro.setImagem(null);				
+				livroRepository.atualizar(livro);
+				imagemRepository.remover(imagem);
+			}else if(novaImagemLivro != null){
+				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
+				livroRepository.atualizar(livro);
+			}			
+		} catch (Exception e) {
+			throw new CadastroException(e.getMessage());
+		}				
+	}
+	
+	@Override
+	public void removerLivro(String uuid) throws Exception {
+		imagemService.removerFoto(livroRepository.remover(uuid));
+		
+	}
+	
 	@Override
 	public void cadastrarCategoria(String categoria) {
 		Categoria novaCategoria = new Categoria();
@@ -52,33 +78,10 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws CadastroException {
-		
-		
-		try {
-			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
-			livro.setPostagem(postagem);
-			
-			if(removerImagem){
-				Imagem imagem = livro.getImagem();
-				imagemService.removerFoto(imagem.getCaminho());
-				livro.setImagem(imagemService.criarImagemDefault());				
-				livroRepository.atualizar(livro);
-				imagemRepository.remover(imagem);
-			}else if(novaImagemLivro != null){
-				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
-				livroRepository.atualizar(livro);
-			}			
-		} catch (Exception e) {
-			throw new CadastroException(e.getMessage());
-		}
-		
-				
-	}
-
-	@Override
 	public File visualizarImagemLivro(String uuid) {
 		return imagemService.visualizarImagemLivro(uuid);
 	}
+
+	
 
 }

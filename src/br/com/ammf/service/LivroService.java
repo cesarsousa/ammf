@@ -8,12 +8,14 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface LivroService {
 
-	void cadastrar(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws CadastroException;
+	void cadastrar(UploadedFile imagemLivro, Livro livro) throws CadastroException;
 
 	void cadastrarCategoria(String categoria);
 
 	void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws CadastroException;
 
 	File visualizarImagemLivro(String uuid);
+
+	void removerLivro(String uuid) throws Exception;
 
 }

@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.LivroRepository;
@@ -89,6 +90,28 @@ public class LivroDao implements LivroRepository {
 			Transaction transaction = session.beginTransaction();
 			session.save(categoria);
 			transaction.commit();			
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
+	}
+
+	@Override
+	public String remover(String uuid) {
+		try {
+			String caminhoDaImagem = null;
+			Criteria criteria = session.createCriteria(Livro.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			Livro livro = (Livro) criteria.uniqueResult();
+			
+			if(livro.getImagem() != null){
+				caminhoDaImagem = livro.getImagem().getCaminho();
+			}			
+			
+			Transaction transaction = session.beginTransaction();
+			session.delete(livro);
+			transaction.commit();
+			return caminhoDaImagem;
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

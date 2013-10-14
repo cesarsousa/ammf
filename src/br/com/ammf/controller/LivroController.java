@@ -5,8 +5,6 @@ import static br.com.caelum.vraptor.view.Results.json;
 import java.io.File;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
@@ -57,7 +55,7 @@ public class LivroController {
 			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
 			if(validado){
-				livroService.cadastrar(ctxImagemLivro, imagemLivro, livro);				
+				livroService.cadastrar(imagemLivro, livro);				
 				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}
@@ -126,6 +124,20 @@ public class LivroController {
 		result.include("editarLivro", true);
 		result.include("uuid", uuid);
 		result.redirectTo(LojaController.class).lojaAdmin();
+	}
+	
+	@Restrito
+	@Get("/livro/adm/remover/{uuid}")
+	public void removerLivro(String uuid){		
+		try {
+			livroService.removerLivro(uuid);
+			result.include("msgLojaAdm", "O livro foi removido com sucesso.");				
+			result.redirectTo(LojaController.class).lojaAdmin();
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.include("msgErroLojaAdm", "Erro Durante a remo&ccedil;&atilde;o do livro.<br/>Mensagem de Erro: " + e.getMessage() + ".");
+			result.redirectTo(LojaController.class).lojaAdmin();
+		}
 	}
 	
 	@Restrito

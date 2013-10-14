@@ -178,10 +178,8 @@ public class ResenhaController {
 	@Get("/resenha/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		Resenha resenha = resenhaRepository.obterPor(uuid);
-		result.include("resenha", resenha);
-		
-		result.redirectTo(this).resenhaCliente();
-		
+		result.include("resenha", resenha);		
+		result.redirectTo(this).resenhaCliente();		
 	}
 	
 	

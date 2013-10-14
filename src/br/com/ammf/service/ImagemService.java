@@ -10,16 +10,18 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ImagemService {
 
-	void salvarFotoLivro(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
+	void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
 
 	void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception;
 	
 	void removerFoto(String caminhoDaImagem) throws Exception;
 
-	Imagem criarImagemDefault();
+	/*Imagem criarImagemDefault();*/
 
 	void setImagemDefault(Imagem imagem);
 
 	File visualizarImagemLivro(String uuid);
+
+	String getNomeLivroDefault();
 	
 }

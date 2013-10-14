@@ -470,8 +470,9 @@
 						</span>
 					</p>
 					
-					<div class="paddingPadrao bordaPadrao">						
-						<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">
+					<div class="paddingPadrao bordaPadrao">					
+											
+						<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
 						
 						<p>
 						<label class="inline">
