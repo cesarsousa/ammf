@@ -1,5 +1,6 @@
 package br.com.ammf.service;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -9,7 +10,7 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ImagemService {
 
-	void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
+	void salvarFotoLivro(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException;
 
 	void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception;
 	
@@ -18,5 +19,7 @@ public interface ImagemService {
 	Imagem criarImagemDefault();
 
 	void setImagemDefault(Imagem imagem);
+
+	File visualizarImagemLivro(String uuid);
 	
 }

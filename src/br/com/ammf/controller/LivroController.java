@@ -2,6 +2,7 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
+import java.io.File;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -51,12 +52,12 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/cadastrar")
-	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro){
+	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro, String ctxImagemLivro){
 		try {
 			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
 			
 			if(validado){
-				livroService.cadastrar(imagemLivro, livro);				
+				livroService.cadastrar(ctxImagemLivro, imagemLivro, livro);				
 				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}
@@ -153,6 +154,11 @@ public class LivroController {
 	public void lerTextoNaIntegra(String uuid){
 		// TODO continuar daki...
 		
+	}
+	
+	@Get("/loja/visualizador/{uuid}")
+	public File downloadImagemLivro(String uuid){
+		return livroService.visualizarImagemLivro(uuid);
 	}
 
 	private void retornarJson(String mensagem) {

@@ -81,13 +81,13 @@
 					
 					<h2>Enviar uma mensagem</h2>
 					
-					<label class="labelForm2">Nome:</label>
+					<label class="labelForm2">Nome</label>
 					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
-					<label class="labelForm2">Email:</label>
+					<label class="labelForm2">Email</label>
 					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					
-					<label class="labelForm2">Mensagem:</label>
+					<label class="labelForm2">Mensagem</label>
 					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
 					
 					<h3 align="right">

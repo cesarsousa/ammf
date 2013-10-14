@@ -113,10 +113,11 @@
 										
 						<c:forEach items="${livrosPublicados}" var="livro">
 						<div align="center">					
-						<table width="80%" class="cartao bordaPadrao paddingPadrao ">
+						<table style="width: 80%;" class="cartao bordaPadrao paddingPadrao ">
 						<tr>
-						<td width="120px"  align="left">
-						<img src="${imagemLivro}${livro.imagem.nome}" class="fotoLivro">							
+						<td width="120px"  align="left">				
+						
+						<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
 						</td>
 						
 						<td valign="top">

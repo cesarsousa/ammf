@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 
 import br.com.ammf.model.Imagem;
@@ -16,11 +19,16 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class ImagemServiceImp implements ImagemService {
 	
+	private File pastaImagens;
+	
 	private String PASTA_IMAGEM_LIVRO;
 	private String NOME_DEFAULT = "/capaLivroDefault.jpg";
 	
-	public ImagemServiceImp(){		
-		//PASTA_IMAGEM_LIVRO = this.context.getRealPath("/");
+	public ImagemServiceImp(ServletContext context){		
+		PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+		pastaImagens = new File(PASTA_IMAGEM_LIVRO);
+		pastaImagens.mkdir();
+		
 		//PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
 		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
 		
@@ -28,7 +36,7 @@ public class ImagemServiceImp implements ImagemService {
 		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
 		                		
 		// pc home windows 7		
-		PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
+		//PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
 		
 		// pc inpi
 		//PASTA_IMAGEM_LIVRO = "C:/Documents and Settings/cjunior/Meus documentos/GitHub/ammf/WebContent/livro";
@@ -36,15 +44,23 @@ public class ImagemServiceImp implements ImagemService {
 	}	
 
 	@Override
-	public void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
+	public void salvarFotoLivro(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
 		if(imagemLivro == null){
 			livro.setImagem(criarImagemDefault());
 		}else{
-			String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
-			String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
+			
+			File destino = new File(pastaImagens, "livro" + livro.getUuid() + ".jpg");
+			
+			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));	
+			
+			livro.setImagem(criarImagemLivro("livro" + livro.getUuid() + ".jpg", destino.getAbsolutePath()));
+			
+			/*String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
+			//String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
+			String caminhoDaImagem = ctxImagemLivro + nomeLivro;
 			File file = new File(caminhoDaImagem);			
 			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
-			livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));		
+			livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));*/		
 		}
 	}
 
@@ -53,7 +69,7 @@ public class ImagemServiceImp implements ImagemService {
 		if (!livro.getImagem().getNome().equals(NOME_DEFAULT)){
 			removerFoto(livro.getImagem().getCaminho());				
 		}
-		salvarFotoLivro(imagemLivro, livro);
+		salvarFotoLivro(null, imagemLivro, livro);
 	}
 	
 	private Imagem criarImagemLivro(String nomeLivro, String caminhoDaImagem) {
@@ -89,6 +105,11 @@ public class ImagemServiceImp implements ImagemService {
 			throw new Exception("Erro ao tentar deletar arquivo: "	+ file.getAbsolutePath());
 		}
 		
+	}
+
+	@Override
+	public File visualizarImagemLivro(String uuid) {
+		return new File(pastaImagens, "livro" + uuid + ".jpg") ;
 	}
 
 	

@@ -136,7 +136,7 @@
 		</p>	
 		
 		<form id="formCadLivro" action="<c:url value="/livro/adm/cadastrar"/>" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="ctxImagemLivro" value="${imagem}">	 
+			<input type="hidden" name="ctxImagemLivro" value="${imagem}/livro">	 
 			
 			<div class="cartao campoObrigatorio">		
 				<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
@@ -317,7 +317,7 @@
 				<tbody>
 					<c:forEach items="${livrosSolicitados}" var="livro">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 50px;"><img src="${imagemLivro}${livro.imagem.nome}" class="icone25"></td>
+							<td class="infoTabela" style="width: 50px;"><img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="icone25"></td>
 							<td class="infoTabela" style="width: 90px;">${livro.id}</td>
 							<td class="infoTabela">${livro.titulo}</td>
 							<td class="infoTabela">${livro.autor}</td>

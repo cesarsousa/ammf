@@ -533,6 +533,7 @@ a:HOVER {
 	border-radius: 1px;
 	color: #ffffff;
 	padding-top: 10px;
+	
 }
 
 #linkein{
@@ -719,6 +720,17 @@ a:HOVER {
 	padding: 10px;
 	font-weight: bold;
 	color: #8B8484;
+}
+
+.btMenuCliente{
+	padding: 10px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-family:  arial, tahoma, verdana;
+	font-weight: bold;
+}
+.btMenuCliente:hover{
+	color: #A2B5CD;
 }
 
 .buttonFooter {

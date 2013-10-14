@@ -1,5 +1,6 @@
 package br.com.ammf.service.imp;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -30,10 +31,10 @@ public class LivroServiceImp implements LivroService {
 	}
 
 	@Override
-	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws CadastroException {
+	public void cadastrar(String ctxImagemLivro, UploadedFile imagemLivro, Livro livro) throws CadastroException {
 		try {
 			livro.setPostagem(DataUtils.getDateNow());
-			imagemService.salvarFotoLivro(imagemLivro, livro);
+			imagemService.salvarFotoLivro(ctxImagemLivro, imagemLivro, livro);
 			livroRepository.cadastrar(livro);			
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());
@@ -73,6 +74,11 @@ public class LivroServiceImp implements LivroService {
 		}
 		
 				
+	}
+
+	@Override
+	public File visualizarImagemLivro(String uuid) {
+		return imagemService.visualizarImagemLivro(uuid);
 	}
 
 }
