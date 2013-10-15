@@ -12,6 +12,8 @@ public class SessaoCliente implements Serializable {
 
 	private static final long serialVersionUID = -443208623326199685L;
 	
+	private Pessoa pessoa;
+	
 	private Texto textoIndex;
 	
 	private List<Paragrafo> textoPsicologia;
@@ -76,8 +78,24 @@ public class SessaoCliente implements Serializable {
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	public void login(Pessoa pessoa){
+		this.pessoa = pessoa;
+	}
+	
+	public void logout(){
+		this.pessoa = null;
+	}
 
 	public boolean isLogado() {
-		return true;
+		return pessoa != null;
 	}
 }

@@ -6,7 +6,15 @@
 
 <div align="center">
 
-<h1>${mensagem}</h1>
+<div class="separador"></div>
+
+<h1>P&aacute;gina n&atilde;o encontrada.</h1>
+
+<h2>Lamentamos, mas n&atilde;o foi poss&iacute;vel encontrar as informa&ccedil;&otilde;es que voc&ecirc; solicitou.</h2>
+
+<form action="<c:url value="/" ></c:url>">
+	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
+</form>
 
 </div>
 

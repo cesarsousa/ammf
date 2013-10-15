@@ -7,19 +7,19 @@
 		<td align="center">
 			<ul id="menu">
 				<li>
-					<img class="imgMenuPrincipal" src="${imagem}/icone_home.png"/>
+					<img class="imgMenuPrincipal clarear" src="${imagem}/icone_home.png"/>
 					<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
-					<img class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>
+					<img class="imgMenuPrincipal clarear" src="${imagem}/iconePsicologiaHover.png"/>
 					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
 				<li>
-					<img class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>
+					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeEducacaoHover.png"/>
 					<a id="linkEducacao" href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
 				<li>
-					<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>
+					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeCulturaHover.png"/>
 					<a id="linkCultura" href="<c:url value="/index/cultura"/>">Cultura</a></li>
 				<li>
-					<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>
+					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeOrientalHover.png"/>
 					<a id="linkOrientais" href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
 			</ul>
 		</td>
