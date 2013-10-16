@@ -3,6 +3,7 @@
 <!-- javascript desta pagina esta em index.js -->
 
 <form id="formimglinkHome" action="<c:url value="/"/>" method="get"></form>
+<form id="formimglinkTerapeuta" action="<c:url value="/index/terapeuta"/>" method="get"></form>
 <form id="formimglinkPsicologia" action="<c:url value="/index/psicologia"/>" method="get"></form>
 <form id="formimglinkEducacao" action="<c:url value="/index/educacao"/>" method="get"></form>
 <form id="formimglinkCultura" action="<c:url value="/index/cultura"/>" method="get"></form>
@@ -17,6 +18,9 @@
 				<li>
 					<img id="imglinkHome" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/icone_home.png"/>
 					<a href="<c:url value="/"/>">Home</a></li>	
+				<li>
+					<img id="imglinkTerapeuta" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.jpg"/>
+					<a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a></li>
 				<li>
 					<img id="imglinkPsicologia" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/>
 					<a href="<c:url value="/index/psicologia"/>">Psicologia</a></li>

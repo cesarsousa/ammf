@@ -7,7 +7,7 @@
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
+<%@ include file="/headerSiteAdmin.jsp" %>
 
 <div id="divPgAdmCadastroCliente" align="center">
 

@@ -22,7 +22,7 @@
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
+<%@ include file="/headerSiteAdmin.jsp" %>
 
 <div id="divPgMenu" align="center">
 
@@ -45,7 +45,7 @@
 	<td>
 	
 	<a href="<c:url value="/menu/adm" ></c:url>">
-	<img id="btMenuRefresh" alt="atualizar pagina" title="atualizar pagina" src="${imagem}/iconeRefresh.png" class="icone50 ponteiro esquerda">
+	<img id="btMenuRefresh" alt="atualizar pagina" title="atualizar pagina" src="${imagem}/iconeRefresh.png" class="icone50 ponteiro esquerda clarear">
 	</a>
 	</td>
 	</tr>

@@ -27,7 +27,7 @@ public class IndexController {
 	public void index(){
 		// acesso tradicional pelo navegador
 		try {
-			sessaoCliente = indexService.atualizar(sessaoCliente);
+			sessaoCliente = indexService.atualizar(sessaoCliente);			
 		} catch (Exception e) {
 			redirecionarParaPgErro(e);
 		}

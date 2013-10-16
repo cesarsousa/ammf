@@ -12,10 +12,6 @@
 
 <h2>Lamentamos, mas n&atilde;o foi poss&iacute;vel encontrar as informa&ccedil;&otilde;es que voc&ecirc; solicitou.</h2>
 
-<form action="<c:url value="/" ></c:url>">
-	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
-</form>
-
 </div>
 
 </div> <!-- main -->

@@ -2,12 +2,8 @@
 <br/>
 <div id="header1">
 	<div align="center">
-		<div id="mainCardHeader" class="ponteiro">
-			<%-- <div>
-				<img src="${imagem}/owner.jpg">
-			</div> --%>
-		</div>
-	</div>
+		<div id="mainCardHeader" class="ponteiro clarear"></div>
+	</div>	
 </div>
 
 <div id="divQuemSou" align="center">
@@ -54,7 +50,7 @@
 		<li>Atendimento online</li>
 		</ul>
 		
-		<h2 class="descricaoTextoIndex">Áreas de tratamento</h2>
+		<h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
 		<ul class="azulClaro">
 		<li>Relacionamento</li>
 		<li>Ansiedade</li>
@@ -69,7 +65,7 @@
 		</ul>
 		
 		<div align="center">
-			<img id="btFecharQuemSou" src="${imagem}/setaCima.png" class="ponteiro clarear">
+			<img id="btFecharQuemSou" src="${imagem}/seta.jpg" class="ponteiro clarear icone100">
 		</div>
 		
 	</div>

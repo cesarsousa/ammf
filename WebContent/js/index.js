@@ -7,7 +7,7 @@ function submitFormulario(elemento){
 
 $(document).ready(function() {   
     
-    $('#imglinkHome, #imglinkPsicologia, #imglinkEducacao, #imglinkCultura, #imglinkOrientais').click(function(){
+    $('#imglinkHome, #imglinkTerapeuta, #imglinkPsicologia, #imglinkEducacao, #imglinkCultura, #imglinkOrientais').click(function(){
     	var idFormulario = "#form" + this.id;
     	$(idFormulario).submit();
     });

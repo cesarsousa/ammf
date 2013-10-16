@@ -54,7 +54,7 @@ jQuery.fn.smoothScroll = function(){
 // comando para desabilitar link durante envio de email
 // $("a").click(function() { return false; });
 function ajaxErroPadrao() {
-	alert("Servidor não esta disponível no momento, por favor tente mais tarde!");
+	//alert("Servidor não esta disponível no momento, por favor tente mais tarde!");
 }
 
 function abrirIconeAguarde(elemento) {

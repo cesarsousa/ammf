@@ -93,7 +93,7 @@
 				</div> --%>
 				
 				<%-- id="btLivrosPublicados" --%>
-				<div class="ponteiro"  style="padding-top: 20px;">
+				<div class="paddingPadrao">
 				<img class="icone" src="${imagem}/iconeLivro.png" alt="livros publicados" title="livros publicados">	
 				<span class="fonteGrande">Estante Virtual</span>
 				</div>
