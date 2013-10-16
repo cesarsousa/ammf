@@ -19,7 +19,7 @@
 </div>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSiteAdmin.jsp" %>
+<%@ include file="/headerSite.jsp" %>
 
 <div id="divPgAdmCadastroCliente" align="center">
 

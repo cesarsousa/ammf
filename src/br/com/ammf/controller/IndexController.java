@@ -85,6 +85,15 @@ public class IndexController {
 		}
 	}
 	
+	@Get("/index/terapeuta")
+	public void terapeuta(){
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+		} catch (Exception e) {
+			redirecionarParaPgErro(e);
+		}
+	}
+	
 	@Get("/termosDeContrato")
 	public void termosDeContrato(){}
 	

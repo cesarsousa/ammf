@@ -46,7 +46,7 @@
 		</table>	
 	</div>
 	
-	<div id="mapaGeoLocalizacao">${sessaoCliente.contato.localizacao}</div>	
+	<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>	
 	
 	<div class="cartaoSemBordaTop tamanhoEdicaoIndex bordaPadrao" align="left">
 	<hr class="hrClass">
