@@ -17,5 +17,10 @@ $(document).ready(function() {
 			function(){$('#divQuemSou').slideDown(500);},
 			function(){$('#divQuemSou').slideUp(500);}
 	);	
+    
+    
+    $('#btFecharQuemSou').click(function(){
+    	$('#divQuemSou').slideUp(500);
+    });
    
 });

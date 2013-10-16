@@ -67,5 +67,10 @@
 		<li>Falar em público</li>
 		<li>Talentos e pontos fortes</li>
 		</ul>
+		
+		<div align="center">
+			<img id="btFecharQuemSou" src="${imagem}/setaCima.png" class="ponteiro clarear">
+		</div>
+		
 	</div>
 </div>
