@@ -753,7 +753,14 @@ a:HOVER {
 	font-weight: bold;
 	padding: 5px;
 	text-align: center;
-} 
+}
+
+.tituloPagina{
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	font-size: 40px;
+	font-style: italic;
+}
 
 .backCinza{
 	background-color: #4F4F4F;

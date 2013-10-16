@@ -7,7 +7,7 @@
 
 <div align="center">
 
-	<h2>LINKS &Uacute;TEIS </h2>
+	<h2 class="tituloPagina">LINKS &Uacute;TEIS </h2>
 
 	<p>
 	<span class="info azulClaro" >Aqui voc&ecirc; vai encontrar links &uacute;teis.</span>

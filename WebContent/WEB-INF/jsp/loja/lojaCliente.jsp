@@ -20,7 +20,7 @@
 
 <%@ include file="/menuPrincipal.jsp" %>
 
-<h2>Loja Virtual</h2>
+<h2 class="tituloPagina">Loja Virtual</h2>
 
 <div class="mainContainer">
 <div class="htmltabs">

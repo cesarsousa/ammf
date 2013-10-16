@@ -31,7 +31,7 @@ ${textoEmBranco}
 
 <div id="divPgDepoimentoCliente" align="center">
 
-	<h2>Depoimentos</h2>
+	<h2 class="tituloPagina">Depoimentos</h2>
 
 	<p>
 	<span class="info azulClaro" >Deixe sua opini&atilde;o sobre o site ou sobre qualquer outro assunto. </span>

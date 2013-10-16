@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<!-- javascript desta pagina esta em index.js -->
+
+<form id="formimglinkHome" action="<c:url value="/"/>" method="get"></form>
+<form id="formimglinkPsicologia" action="<c:url value="/index/psicologia"/>" method="get"></form>
+<form id="formimglinkEducacao" action="<c:url value="/index/educacao"/>" method="get"></form>
+<form id="formimglinkCultura" action="<c:url value="/index/cultura"/>" method="get"></form>
+<form id="formimglinkOrientais" action="<c:url value="/index/artesorientais"/>" method="get"></form>
+
 <br/>
 <div align="center">
 <table id="tabMenuPrincipal">
@@ -7,20 +15,20 @@
 		<td align="center">
 			<ul id="menu">
 				<li>
-					<img class="imgMenuPrincipal clarear" src="${imagem}/icone_home.png"/>
+					<img id="imglinkHome" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/icone_home.png"/>
 					<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
-					<img class="imgMenuPrincipal clarear" src="${imagem}/iconePsicologiaHover.png"/>
-					<a id="linkPsicologia" href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
+					<img id="imglinkPsicologia" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/>
+					<a href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
 				<li>
-					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeEducacaoHover.png"/>
-					<a id="linkEducacao" href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
+					<img id="imglinkEducacao" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeEducacaoHover.png"/>
+					<a href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
 				<li>
-					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeCulturaHover.png"/>
-					<a id="linkCultura" href="<c:url value="/index/cultura"/>">Cultura</a></li>
+					<img id="imglinkCultura" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeCulturaHover.png"/>
+					<a href="<c:url value="/index/cultura"/>">Cultura</a></li>
 				<li>
-					<img class="imgMenuPrincipal clarear" src="${imagem}/iconeOrientalHover.png"/>
-					<a id="linkOrientais" href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
+					<img id="imglinkOrientais" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeOrientalHover.png"/>
+					<a href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
 			</ul>
 		</td>
 	</tr>

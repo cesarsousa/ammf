@@ -5,9 +5,9 @@
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 
-<div id="" align="center">
+<div align="center">
 
-<h2>Resenhas</h2>
+<h2 class="tituloPagina">Resenhas</h2>
 
 <p>
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>

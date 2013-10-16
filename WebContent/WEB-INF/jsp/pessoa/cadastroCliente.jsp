@@ -28,7 +28,7 @@
 
 <%@ include file="/menuPrincipal.jsp" %>
 
-<h2>Cadastro de Pessoa</h2>
+<h2 class="tituloPagina">Cadastro de Pessoas</h2>
 
 
 

@@ -7,7 +7,7 @@
 
 <div id="" align="center">
 
-<h2>Blog do Miguel</h2>
+<h2 class="tituloPagina">Blog do Miguel</h2>
 
 <p>
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>

@@ -22,20 +22,21 @@
 
 <%@ include file="/menuPrincipal.jsp" %>
 
-<h2>Contato</h2>
+<h2 class="tituloPagina">Contato</h2>
 
 	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
 		<table width="100%">
 		<tr>
 		<td width="110px" align="left" >
 		<div align="left">		
-			<img src="${imagem}/owner.jpg" class="destaqueFoto">
+			<img src="${imagem}/fotoViewConsultorio.jpg" class="destaqueFoto" width="400">
 		</div>
 		</td>
 		<td align="right">
-		<div align="center">
+		<div align="center" class="paddingPadrao">
 		<c:if test="${sessaoCliente.contato.mostrarMapa}">
-			<h3>Meu consult&oacute;rio est&aacute; localizado no endere&ccedil;o ${sessaoCliente.contato.endereco}</h3>	
+			<h3>Meu consult&oacute;rio est&aacute; localizado no endere&ccedil;o</h3>
+			<h3>${sessaoCliente.contato.endereco}</h3>	
 			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
 			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">
 		</c:if>
@@ -49,7 +50,7 @@
 	
 	<div class="cartaoSemBordaTop tamanhoEdicaoIndex bordaPadrao" align="left">
 	<hr class="hrClass">
-	<h3 align="left">Utilize os canais de contato abaixo para falar comigo de segunda a sexta das 08:00 &agrave;s 20:00.</h3>
+	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda a sexta das 08:00 &agrave;s 20:00.</h3>
 	<p>
 	<span class="info azulClaro negrito">Telefone: ${sessaoCliente.contato.telefone}</span>
 	</p>

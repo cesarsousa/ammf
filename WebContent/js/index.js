@@ -7,9 +7,15 @@ function submitFormulario(elemento){
 
 $(document).ready(function() {   
     
-    addRemoveOpacidade('#linkPsicologia', '#imagemPsicologia');
-    addRemoveOpacidade('#linkEducacao', '#imagemEducacao');
-    addRemoveOpacidade('#linkCultura', '#imagemCultura');
-    addRemoveOpacidade('#linkOrientais', '#imagemOrientais');
+    $('#imglinkHome, #imglinkPsicologia, #imglinkEducacao, #imglinkCultura, #imglinkOrientais').click(function(){
+    	var idFormulario = "#form" + this.id;
+    	$(idFormulario).submit();
+    });
+    
+    $('#divQuemSou').hide();
+    $('#mainCardHeader').toggle(
+			function(){$('#divQuemSou').slideDown(500);},
+			function(){$('#divQuemSou').slideUp(500);}
+	);	
    
 });
