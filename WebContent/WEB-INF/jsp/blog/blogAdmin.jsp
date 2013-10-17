@@ -57,7 +57,7 @@
 <div class="separador"></div>
 
 <!-- ADICIONAR UM NOVO TEXTO -->
-<input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" >
+<input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" />
 <table id="tdNovoBlog" class="cardViewText">		
 	<tr>
 		<td >
@@ -143,59 +143,63 @@
 			</table>			
 		</td>
 	</tr>
-	
-	<tr id="divBlogEditarTexto">
-	<td>
-		<!-- AREA DE EDICAO DE UM TEXTO -->
-		<hr class="hrClass">
-		<a name="editarTextoBlog"></a>
-		
-		<div align="right">
-		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
-		</div>
-		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Edi&ccedil;&atilde;o de Texto</h2>
-		<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post">
-							
-			<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" />				
-							
-			<h3>T&iacute;tulo :</h3>
-			<input id="blogEdtTituloTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" />
-				
-			<h3>Autor :</h3>
-			<input id="blogEdtAutorTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor"/>	
-							
-			<h3>Texto:</h3>
-			
-			<table width="100%">
-				<tr>
-				<td><span id="sizeSmallBlogEdit" style="font-size: small;" class="ponteiro" >A</span></td>
-				<td><span id="sizeMediumBlogEdit" style="font-size: medium;" class="ponteiro" >A</span></td>
-				<td><span id="sizeLargeBlogEdit" style="font-size: large;" class="ponteiro" >A</span></td>
-				<td><span id="sizeXLargeBlogEdit" style="font-size: x-large;" class="ponteiro" >A</span></td>
-				<td><span id="sizeXxLargeBlogEdit" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-				
-				<td><span id="sizeSmallAreaBlogEdit" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-				<td><span id="sizeMediumAreaBlogEdit" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-				<td><span id="sizeLargeAreaBlogEdit" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-				<td><span id="sizeXLargeAreaBlogEdit" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-				<td><span id="sizeXxLargeAreaBlogEdit" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-				</tr>				
-			</table>				
-						
-			<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo"></textarea>		
-			
-			<p>
-			<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
-			<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
-			<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
-			</p>
-						
-		</form>
-		<form id="formBtBlogExcluirEdtTexto" method="get"></form>			
-	</td>
-	</tr>		
 </table>
+
+
+<input id="flagAbrirEdicaoTexto" type="hidden" value="${flagAbrirEdicaoTexto}" />
+<div id="divBlogEditarTexto" class="cardViewText">
+	<!-- AREA DE EDICAO DE UM TEXTO -->
+	<div align="right">
+		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
+	</div>
+
+	<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
+	<h2 align="center">Edi&ccedil;&atilde;o de Texto</h2>
+		
+	<form id="formBlogEditarTexto" action="<c:url value="/blog/atualiza"/>" method="post">
+							
+		<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" value="${texto.uuid}"/>				
+						
+		<h3>T&iacute;tulo :</h3>
+		<input id="blogEdtTituloTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" value="${texto.titulo}"/>
+			
+		<h3>Autor :</h3>
+		<input id="blogEdtAutorTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${texto.autor}"/>	
+						
+		<h3>Texto:</h3>
+		
+		<table width="100%">
+			<tr>
+			<td><span id="sizeSmallBlogEdit" style="font-size: small;" class="ponteiro" >A</span></td>
+			<td><span id="sizeMediumBlogEdit" style="font-size: medium;" class="ponteiro" >A</span></td>
+			<td><span id="sizeLargeBlogEdit" style="font-size: large;" class="ponteiro" >A</span></td>
+			<td><span id="sizeXLargeBlogEdit" style="font-size: x-large;" class="ponteiro" >A</span></td>
+			<td><span id="sizeXxLargeBlogEdit" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+			
+			<td><span id="sizeSmallAreaBlogEdit" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+			<td><span id="sizeMediumAreaBlogEdit" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+			<td><span id="sizeLargeAreaBlogEdit" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+			<td><span id="sizeXLargeAreaBlogEdit" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+			<td><span id="sizeXxLargeAreaBlogEdit" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+			</tr>				
+		</table>				
+					
+		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">
+		${texto.conteudo}
+		</textarea>		
+		
+		<p>
+		<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
+		<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
+		<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
+		</p>
+					
+	</form>
+	<form id="formBtBlogExcluirEdtTexto" method="get"></form>
+
+</div><!-- fechar abrirEdicaoTexto -->
+
+
 
 <!-- LISTAR TODOS OS TEXTOS -->
 <input id="flagTextosblog" type="hidden" value="${flagTextosblog}">
@@ -231,9 +235,9 @@
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
 					<td class="infoTabela" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
-						<a id="linkPadrao" class="ponteiro" href="#editarTextoBlog" onclick="visualizarTextoParaEdicao('${texto.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
+						<a href="<c:url value="/blog/editar/${texto.uuid}" />"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
 						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
-						</td>
+					</td>
 				</tr>			
 			</c:forEach>		
 		</tbody>			

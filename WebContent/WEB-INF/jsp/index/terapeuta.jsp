@@ -30,49 +30,75 @@
 			</div>
 			</td>
 			<td class="paddingPadrao">
-			<h3>
-			Alcindo Martins Filho é Psicólogo (CRP 05/35489),  
-			especialista no tratamento de síndrome do pânico, estresse, ansiedade, depressão, fobias, traumas, 
-			estresse pós traumático, burn out, problemas de relacionamento, luto em função de morte ou separação 
-			entre outros.
-			</h3>				
+			<h2>Alcindo Miguel Martins Filho.</h2>
+			<h3>Psic&oacute;logo, Psicoterapeuta e Psicanalista, Acupunturista e Professor.</h3>						
 			</td>
 		</tr>
 		</table>
+		
+		<h3>
+		Psic&oacute;logo (CRP 05/35489), com gradua&ccedil;&atilde;o em Ci&ecirc;ncias Sociais e 
+		tamb&eacute;m em Psicologia, e com especializa&ccedil;&otilde;es e forma&ccedil;&otilde;es complementares.			
+		</h3>
 	
 		<h3>
-		Sua experiência vai além da psicologia clínica, 
-		inclui a literatura a mais de 10 anos. Atua também como Coaching no desenvolvimento de profissionais, 
-		conflitos no trabalho, líderes e atletas de alto desempenho.
-		</h3>	
-	
+		Tem uma dur&aacute;vel, intensa e variada experi&ecirc;ncia no tratamento de diferentes 
+		e diversas dificuldades existenciais, psicol&oacute;gicas e/ou psiq&aacute;tricas. 
+		</h3>
 		
+		<h3>
+		Sua experi&ecirc;ncia vai al&eacute;m da Psicologia Cl&iacute;nica e da Psican&aacute;lise, 
+		atuando tamb&eacute;m como Coaching no desenvolvimento de estudantes, profissionais, 
+		conflitos no trabalho e rela&ccedil;&otilde;es de lideran&ccedil;a, al&eacute;m de atuar com 
+		Terapias Alternativas e Criatividade se necess&aacute;rio. 
+		</h3>
+		
+		<h3>
+		Como sua forma&ccedil;&atilde;o atravessa as Ci&ecirc;ncias Sociais, sua pr&aacute;tica em Psicologia 
+		possui uma forte sensibilidade em rela&ccedil;&atilde;o as diversidades e dificuldades s&oacute;cio culturais 
+		e de fluxo econ&ocirc;mico dentro de uma postura e posi&ccedil;&atilde;o Existencialista.
+		</h3>
+		
+		<h4>
+		Formação b&aacute;sica em Ci&ecirc;ncias Sociais e Psicologia.
+		</h4>
+		<h4>
+		Especializa&ccedil;&otilde;es em Pedagogia e Acupuntura.
+		</h4>	
+		<h4>
+		Forma&ccedil;&otilde;es em Psican&aacute;lise, Terapia Ericsoniana e Administra&ccedil;&atilde;o.
+		</h4>
+		<h4>
+		Cursos e pr&aacute;ticas em Psicologia Cognitiva, Qi Gong e Terapias Alternativas.
+		</h4>
+		<h4>
+		Mestrado em Letras.
+		</h4>
+		<h4>
+		Doutorado em Literatura Comparada.
+		</h4>
 	
-		<h4>Formado em psicologia pela universidade tal</h4>
-		<h4>Pós graduado em psicologia pela universidade tal</h4>
-		<h4>Mestre em psicologia pela universidade tal</h4>
-		<h4>Doutor em psicologia pela universidade tal</h4>
-	
-		<h2 class="descricaoTextoIndex">Áreas de Atuação</h2>
+		<h2 class="descricaoTextoIndex">Áreas de Atua&ccedil;&atilde;o</h2>
 		<ul class="azulClaro">
+		<li>Psican&aacute;lise</li>
 		<li>Psicoterapia</li>
-		<li>Hipnose</li>
-		<li>Acupuntura</li>
-		<li>Atendimento online</li>
+		<li>Psicologia Cl&iacute;nica</li>
+		<li>An&aacute;lise S&oacute;cio Cultural</li>
+		<li>Terapias Alternativas</li>
+		<li>Literaturas</li>
 		</ul>
 		
 		<h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
 		<ul class="azulClaro">
-		<li>Relacionamento</li>
-		<li>Ansiedade</li>
-		<li>Depressão</li>
-		<li>Transtorno do pânico ou síndrome do pânico</li>
-		<li>Transtorno bipolar</li>
-		<li>Fobia</li>
-		<li>Transtorno obsessivo compulsivo (T.O.C)</li>
-		<li>Sexualidade</li>
-		<li>Falar em público</li>
-		<li>Talentos e pontos fortes</li>
+		<li>Individual</li>
+		<li>Casais</li>
+		<li>Fam&iacute;lias</li>
+		<li>Da Adolesc&ecirc;ncia &agrave; Terceira idade</li>
+		<li>Coaching Educacional e Profissional</li>
+		<li>Talentos e Criatividade</li>
+		<li>Sexualidade e Afetividade</li>
+		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
+		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
 		</ul>
 		
 		<%-- <div align="center">

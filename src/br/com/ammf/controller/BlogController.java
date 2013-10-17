@@ -102,6 +102,16 @@ public class BlogController {
 	}
 	
 	@Restrito
+	@Get("/blog/editar/{uuid}")
+	public void buscarParaEditarTexto(String uuid){
+		Texto texto = textoRepository.obterPor(uuid);
+		
+		result.include("texto", texto);
+		result.include("flagAbrirEdicaoTexto", true);
+		result.redirectTo(this).blogAdmin();		
+	}
+	
+	@Restrito
 	@Post("/blog/atualiza")
 	public void atualizarTexto(Texto texto){
 		

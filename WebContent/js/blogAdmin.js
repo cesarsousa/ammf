@@ -33,7 +33,8 @@ function hideAllBlogFields(){
 	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar').hide();
 }
 
-function visualizarTextoParaEdicao(uuid){	
+/*function visualizarTextoParaEdicao(uuid){
+	alert("aqui");
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + "/blog/visualizar/" + uuid,
@@ -49,7 +50,7 @@ function visualizarTextoParaEdicao(uuid){
 			alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
 		}
 	});	
-}
+}*/
 
 
 $(document).ready(function() {
@@ -74,6 +75,10 @@ $(document).ready(function() {
 	$('#btFecharAddTextoBlog').click(function() {
 		$('#tdNovoBlog').slideUp(500);		
 	});	
+	
+	if($('#flagAbrirEdicaoTexto').val()){
+		$('#divBlogEditarTexto').show();
+	}	
 
 	$('#btBlogCancelNovoTexto').click(function(){
 		$('#blogTituloNovoTexto').val('');
@@ -170,6 +175,7 @@ $(document).ready(function() {
 					nome = nome.replace($('#campoBuscaTxtEdtBlog').val(),"<b>" + $('#campoBuscaTxtEdtBlog').val() + "</b>");
 					var conteudo = 	json[i].conteudo.substring(0, 50);					
 					var linkRemover = $('#contexto').val() + "/blog/remover/" + json[i].uuid;
+					var linkEditar = $('#contexto').val() + "/blog/editar/" + json[i].uuid;
 					
 					$('#tabEdtTextoBlog').append(
 						'<tr class="zebrado">' +
@@ -177,7 +183,7 @@ $(document).ready(function() {
 						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
 						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
 						'<td>' +
-							'<a id="linkPadrao" class="ponteiro" onclick="visualizarTextoParaEdicao(\'' + json[i].uuid + '\')"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
+							'<a href="'+ linkEditar + '"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
 							'<a href="'+ linkRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
 					     	'</td>' +
 						'</tr>');					
