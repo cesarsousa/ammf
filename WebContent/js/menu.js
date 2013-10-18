@@ -29,11 +29,15 @@ function configurarCamposEdicaoPrincipal(elementoAbertura, elementoFechamento, t
 
 $(document).ready(function() {	
 	
-	hidenCamposEdicaoPrincipal();
+	hidenCamposEdicaoPrincipal();			  
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
-		$('#conteudoIndex').slideDown(1000);		
+		$('#conteudoIndex').slideDown(1000);
+		limitarCaracteres('#campoFraseIndex', '#contadorCaracterShiva', 899);
+		$('#campoFraseIndex').keyup(function() {		
+			limitarCaracteres('#campoFraseIndex', '#contadorCaracterShiva', 899);		  
+		});		
 	});
 	$('#btFecharConteudoIndex').click(function(){
 		$('#conteudoIndex').slideUp(1000);		
@@ -41,7 +45,11 @@ $(document).ready(function() {
 	
 	$('#conteudoCampoQuiron').hide();
 	$('#btAbrirConteudoQuiron').click(function(){
-		$('#conteudoCampoQuiron').slideDown(1000);		
+		$('#conteudoCampoQuiron').slideDown(1000);
+		limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);
+		$('#campoConteudoQuiron').keyup(function() {		
+			limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);		  
+		});	
 	});
 	$('#btFecharConteudoQuiron').click(function(){
 		$('#conteudoCampoQuiron').slideUp(1000);		
@@ -60,6 +68,10 @@ $(document).ready(function() {
 	$('#btAbrirConteudoConta').click(function(){
 		$('#conteudoConta').slideDown(1000);		
 	});
+	
+	addRemoveDestaque('#campoAutorFraseIndex');
+	addRemoveDestaque('#campoFraseIndex');	
+	addRemoveDestaque('#campoConteudoQuiron');
 	
 	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco, #areaLocalizacaoMapa');
 	/*$('#campoContaTelefone').mask("(99)9999-9999");*/
@@ -94,31 +106,34 @@ $(document).ready(function() {
 		
 	$('#btFecharConteudoConta').click(function(){
 		$('#conteudoConta').slideUp(1000);		
-	});
-	
-	addRemoveDestaque('#campoAutorFraseIndex');
-	addRemoveDestaque('#campoFraseIndex');
-	$('textarea#campoFraseIndex').autoResize();
+	});	
 	
 	addRemoveDestaque('#campoTextoPsicologia');
 	//$('textarea#campoTextoPsicologia').autoResize();
 	
 	addRemoveDestaque('#campoTextoEducacao');
-	$('textarea#campoTextoEducacao').autoResize();
+	//$('textarea#campoTextoEducacao').autoResize();
 	
 	addRemoveDestaque('#campoTextoCultura');
-	$('textarea#campoTextoCultura').autoResize();
+	//$('textarea#campoTextoCultura').autoResize();
 	
 	addRemoveDestaque('#campoTextoArtesOrientais');
-	$('textarea#campoTextoArtesOrientais').autoResize();
-	
-	
+	//$('textarea#campoTextoArtesOrientais').autoResize();	
 	
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
 	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');
 	configurarCamposEdicaoPrincipal('#linkEditarOrientais', '#btFecharEditarArtesOrientais', '#tabArtesOrientais');
+	
+	$('#campoTextoPsicologia, #campoTextoEducacao, #campoTextoCultura, #campoTextoArtesOrientais').keyup(function() {
+		var origem  = this.id.replace("campoTexto", "");
+		var contadorDeTexto = "#contadorCaracter" + origem;
 		
+		limitarCaracteres("#" + this.id, contadorDeTexto, 3000);		  
+	});
+		
+	// TAMANHA DE FONTE
+	
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Index","");		
@@ -156,10 +171,12 @@ $(document).ready(function() {
 		alterarTamanhoTexto(origem, '#campoTextoArtesOrientais');
 	});
 	
-	$('#sizeSmallAreaPsicologia, #sizeMediumAreaPsicologia, #sizeLargeAreaPsicologia, #sizeXLargeAreaPsicologia, #sizeXxLargeAreaPsicologia').click(function(){
+	// AREA DE TEXTO
+	
+	$('#sizeSmallAreaIndex, #sizeMediumAreaIndex, #sizeLargeAreaIndex, #sizeXLargeAreaIndex, #sizeXxLargeAreaIndex').click(function(){
 		var idOrigem = this.id;
-		var origem = idOrigem.replace("Psicologia","");		
-		alterarTamanhoAreaTexto(origem, '#campoTextoPsicologia');
+		var origem = idOrigem.replace("Index","");		
+		alterarTamanhoAreaTexto(origem, '#campoFraseIndex');
 	});
 	
 	$('#sizeSmallAreaQuiron, #sizeMediumAreaQuiron, #sizeLargeAreaQuiron, #sizeXLargeAreaQuiron, #sizeXxLargeAreaQuiron').click(function(){
@@ -168,6 +185,30 @@ $(document).ready(function() {
 		alterarTamanhoAreaTexto(origem, '#campoConteudoQuiron');
 	});
 	
+	$('#sizeSmallAreaPsicologia, #sizeMediumAreaPsicologia, #sizeLargeAreaPsicologia, #sizeXLargeAreaPsicologia, #sizeXxLargeAreaPsicologia').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("Psicologia","");		
+		alterarTamanhoAreaTexto(origem, '#campoTextoPsicologia');
+	});
+	
+	$('#sizeSmallAreaEducacao, #sizeMediumAreaEducacao, #sizeLargeAreaEducacao, #sizeXLargeAreaEducacao, #sizeXxLargeAreaEducacao').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("Educacao","");		
+		alterarTamanhoAreaTexto(origem, '#campoTextoEducacao');
+	});
+	
+	$('#sizeSmallAreaCultura, #sizeMediumAreaCultura, #sizeLargeAreaCultura, #sizeXLargeAreaCultura, #sizeXxLargeCultura').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("Cultura","");		
+		alterarTamanhoAreaTexto(origem, '#campoTextoCultura');
+	});
+	
+	$('#sizeSmallAreaArtesOrientais, #sizeMediumArtesOrientais, #sizeLargeAreaArtesOrientais, #sizeXLargeAreaArtesOrientais, #sizeXxLargeAreaArtesOrientais').click(function(){
+		var idOrigem = this.id;
+		var origem = idOrigem.replace("ArtesOrientais","");		
+		alterarTamanhoAreaTexto(origem, '#campoTextoArtesOrientais');
+	});
+		
 	$('.emDesenv').click(function(){
 		alert("pagina em desenvolvimento...");
 	});

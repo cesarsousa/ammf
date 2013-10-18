@@ -1145,6 +1145,16 @@ a:HOVER {
 	width: 1000px;
 }
 
+.tabEdicao {
+	width: 800px;
+	padding: 10px;
+}
+.tabEdicao span {
+	width: 800px;
+	padding-left: 5px;
+	vertical-align: bottom;
+}
+
 .alturaDefault {
 	height: 50px;
 	vertical-align: middle;

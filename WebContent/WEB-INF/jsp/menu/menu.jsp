@@ -62,31 +62,36 @@
 		<tr>
 			<td>
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">			
+			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
 			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina inicial do site </h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">
-						<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
-						<span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumIndex" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>				
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">900</span> caracteres na frase sobre Shiva.
+				</h3>
 								
-				<h3>Frase:</h3>
-				<textarea id="campoFraseIndex" class="areaTexto h50 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumIndex" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaIndex" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaIndex" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaIndex" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaIndex" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaIndex" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>							
 				
-				<p>
+				<textarea id="campoFraseIndex" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
+				
 				<h3>Autor:</h3>
 				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
-				</p>
 				
 				<p>
 				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="buttonCadastrar" >			
@@ -111,11 +116,14 @@
 			<td>
 			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoQuiron" type="button" class="backVermelho button direita" value="fechar">
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
 								
-				<h3>Texto:</h3>
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto  Quiron.
+				</h3>
 				
 				<table class="tamanhoDefault">
 					<tr>
@@ -133,7 +141,7 @@
 					</tr>				
 				</table>
 				
-				<textarea id="campoConteudoQuiron" class="areaTexto h500 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
 								
 				<p>
 				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="buttonCadastrar" >			
@@ -159,7 +167,7 @@
 			<td>			
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConta" type="button" class="backVermelho button direita" value="fechar">
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
 			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
@@ -243,11 +251,17 @@
 				<p>http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364</p>
 				<p>http://www.linkedin.com/pub/cesar-sousa-junior/66/583/a43</p>
 				
+				<textarea rows="10" cols="100">
+				<iframe width="1000" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+da+Concei%C3%A7%C3%A3o,+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;aq=0&amp;oq=Rua+da+Concei%C3%A7%C3%A3o+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;sll=-22.894233,-43.12092&amp;sspn=0.008441,0.009645&amp;ie=UTF8&amp;hq=&amp;hnear=R.+da+Concei%C3%A7%C3%A3o,+13+-+Centro,+Niter%C3%B3i+-+Rio+de+Janeiro,+24020-080&amp;t=m&amp;ll=-22.894204,-43.120909&amp;spn=0.027674,0.085831&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+				</textarea>
+				
+				
+				
 				<hr style="width: 100%; border: 1px dashed #CCCCCC;" />			
 					
 				<h3>Dados de localiza&ccedil;&atilde;o e configura&ccedil;&atilde;o do Google Maps</h3>
 				
-				<h3>Endere&ccedil;o:<span class="info azulClaro" > Entre com as informa&ccedil;&otilde;es que voc&ecirc; deseja que os clientes visualizem.</span></h3>
+				<h3>Endere&ccedil;o:<span class="info azulClaro" >Entre com as informa&ccedil;&otilde;es que voc&ecirc; deseja que os clientes visualizem.</span></h3>
 				<c:if test="${not empty usuarioLoginBranco}">
 				<label class="labelFormEndereco">${usuarioLoginBranco}</label>
 				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadraoErro" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
@@ -306,20 +320,24 @@
 	</table>	
 	
 	
-	<table id="tabPsicologia" class="tamanhoDefault">
+	<table id="tabPsicologia" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
+			<input id="btFecharEditarPsicologia" type="button" class="backVermelho button direita" value="fechar">
 			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>			
 			<label class="tituloEdicao"> Psicologia </label>
-			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre psicologia.</span>
+			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre psicologia.</h3>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="edicaoPsicologia" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarPsicologia" type="button" class="backVermelho button direita" value="fechar">
+			<div id="edicaoPsicologia">			
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">			
-			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">			
+			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">
+			
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterPsicologia">3000</span> caracteres no texto sobre psicologia.
+				</h3>	
 			
 				<table class="tamanhoDefault">
 					<tr>
@@ -335,9 +353,9 @@
 					<td><span id="sizeXLargeAreaPsicologia" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
 					<td><span id="sizeXxLargeAreaPsicologia" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					</tr>				
-				</table>
-								
-				<textarea id="campoTextoPsicologia" class="areaTexto h500 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
+				</table>			
+													
+				<textarea id="campoTextoPsicologia" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
 				<p>
 				<input id="brAlterarTxtPsicologia" type="submit" value="atualizar" class="buttonCadastrar">
@@ -348,34 +366,41 @@
 		</tr>
 	</table>
 	
-	<table id="tabEducacao" class="tamanhoDefault">
+	<table id="tabEducacao" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
+			<input id="btFecharEditarEducacao" type="button" class="backVermelho button direita" value="fechar">
 			<img id="imagemEducacao" class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>			
 			<label class="tituloEdicao"> Educa&ccedil;&atilde;o </label>
-			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre educa&ccedil;&atilde;o.</span>
+			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre educa&ccedil;&atilde;o.</h3>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="edicaoEducacao" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarEducacao" type="button" class="backVermelho button direita" value="fechar">
+			<div id="edicaoEducacao">			
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/educacao/atualizar" />" method="post" class="paddingPadrao">
 				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">
-						<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
-						<span id="sizeSmallEducacao" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumEducacao" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeEducacao" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeEducacao" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeEducacao" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
-				
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterEducacao">3000</span> caracteres no texto sobre Educa&ccedil;&atilde;o.
+				</h3>
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallEducacao" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumEducacao" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeEducacao" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeEducacao" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeEducacao" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaEducacao" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaEducacao" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaEducacao" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaEducacao" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaEducacao" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
+								
 				<textarea id="campoTextoEducacao" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoEducacao.conteudo}</textarea>
 				
 				<p>
@@ -387,33 +412,40 @@
 		</tr>
 	</table>
 	
-	<table id="tabCultura" class="tamanhoDefault">
+	<table id="tabCultura" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
+			<input id="btFecharEditarCultura" type="button" class="backVermelho button direita" value="fechar">
 			<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>			
 			<label class="tituloEdicao"> Cultura </label>
-			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre cultura.</span>
+			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre cultura.</h3>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="edicaoCultura" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarCultura" type="button" class="backVermelho button direita" value="fechar">
+			<div id="edicaoCultura">
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/cultura/atualizar" />" method="post" class="paddingPadrao">
+			
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterCultura">3000</span> caracteres no texto sobre cultura.
+				</h3>
 				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">
-						<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
-						<span id="sizeSmallCultura" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumCultura" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeCultura" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeCultura" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeCultura" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallCultura" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumCultura" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeCultura" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeCultura" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeCultura" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaCultura" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaCultura" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaCultura" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaCultura" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaCultura" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
 				
 				<textarea id="campoTextoCultura" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoCultura.conteudo}</textarea>
 				
@@ -426,33 +458,40 @@
 		</tr>
 	</table>
 	
-	<table id="tabArtesOrientais" class="tamanhoDefault">
+	<table id="tabArtesOrientais" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
+			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
 			<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>			
 			<label class="tituloEdicao"> Artes Orientais </label>
-			<span class="info azulClaro" >Altere o texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre artes orientais.</span>
+			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre artes orientais.</h3>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="edicaoArtesOrientais" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
+			<div id="edicaoArtesOrientais">
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/artesorientais/atualizar" />" method="post" class="paddingPadrao">
-				
-				<div class="tamanhoDefault">
-				<div class="areaFormatacao">					
-						<div class="esquerda">
-						<span class="paddingPadrao azulClaro">Tamanho da letra do texto:</span>
-						<span id="sizeSmallArtesOrientais" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumArtesOrientais" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeArtesOrientais" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeArtesOrientais" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeArtesOrientais" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</div>	
-				</div>
-				</div>
+			
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterArtesOrientais">3000</span> caracteres no texto sobre artes orientais.
+				</h3>
+								
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallArtesOrientais" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumArtesOrientais" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeArtesOrientais" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeArtesOrientais" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeArtesOrientais" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaArtesOrientais" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaArtesOrientais" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaArtesOrientais" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaArtesOrientais" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaArtesOrientais" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
 				
 				<textarea id="campoTextoArtesOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
 				
