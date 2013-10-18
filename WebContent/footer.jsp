@@ -9,6 +9,8 @@
 	<div id="espacador"></div>
 	
 	<div align="center" class="subMenuRodape">
+			<a href="<c:url value="/"/>">Home</a>
+			<a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a>	
 			<a href="<c:url value="/index/psicologia"/>">Psicologia</a>
 			<a href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a>
 			<a href="<c:url value="/index/cultura"/>">Cultura</a>

@@ -80,7 +80,7 @@
 <input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
 <div id="divTodasAsResenhas">
 
-<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo<br/>Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
+<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
 
 <div align="center">
 <table style="width: 90%">
@@ -98,10 +98,10 @@
 			<tr class="zebrado">
 				<td class="infoTabela">${resenha.categoria.descricao}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
+					<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 				<td class="infoTabela" title="clique no titulo para ler texto completo">					
 					<c:set var="origemResenha"	value="${resenha.descricao}"/>
-					<c:out value="${fn:substring(origemResenha,0,30)}"/>...</td>
+					<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>
 				<td class="infoTabela"><b>${resenha.dataFormatada}</b></td>
 			</tr>			
  		</c:forEach>		

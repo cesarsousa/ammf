@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
-@Component
+// @Component
 public class SessionCreator implements ComponentFactory<Session>{
 	
 	private final SessionFactory factory;
@@ -18,10 +18,6 @@ public class SessionCreator implements ComponentFactory<Session>{
 	public Session getInstance() {
 		return factory.openSession();
 	}
-	
-	
-	
-	
 	
 	
 	

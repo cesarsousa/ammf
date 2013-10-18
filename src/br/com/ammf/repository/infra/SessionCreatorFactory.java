@@ -6,7 +6,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
-@Component
+// @Component
 public class SessionCreatorFactory implements ComponentFactory<SessionFactory>{
 	
 	public SessionFactory getInstance() {
@@ -15,11 +15,7 @@ public class SessionCreatorFactory implements ComponentFactory<SessionFactory>{
 
 		SessionFactory factory = configuration.buildSessionFactory();
 		return factory;
-	}
-	
-	
-	
-	
+	}	
 	
 
 	/*// anotar a classe com @ApplicationScoped
