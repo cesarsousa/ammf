@@ -248,14 +248,13 @@
 				<input id="campoContaLinkedin" type="text" class="areaTitulo bordaPadrao" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
 				</p>
 				
-				<p>http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364</p>
+				<!-- <p>http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364</p>
 				<p>http://www.linkedin.com/pub/cesar-sousa-junior/66/583/a43</p>
 				
 				<textarea rows="10" cols="100">
 				<iframe width="1000" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+da+Concei%C3%A7%C3%A3o,+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;aq=0&amp;oq=Rua+da+Concei%C3%A7%C3%A3o+13,+Niter%C3%B3i+-+Rio+de+Janeiro&amp;sll=-22.894233,-43.12092&amp;sspn=0.008441,0.009645&amp;ie=UTF8&amp;hq=&amp;hnear=R.+da+Concei%C3%A7%C3%A3o,+13+-+Centro,+Niter%C3%B3i+-+Rio+de+Janeiro,+24020-080&amp;t=m&amp;ll=-22.894204,-43.120909&amp;spn=0.027674,0.085831&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
 				</textarea>
-				
-				
+				 -->				
 				
 				<hr style="width: 100%; border: 1px dashed #CCCCCC;" />			
 					
