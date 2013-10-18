@@ -164,8 +164,10 @@ public class LivroController {
 	 */
 	@Get("/loja/cliente/livro/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		// TODO continuar daki...
-		
+		Livro livro = livroRepository.obterPorUuid(uuid);
+		result.include("livro", livro);
+		result.include("flagRequestLivroEmail", true);
+		result.redirectTo(LojaController.class).lojaCliente();
 	}
 	
 	@Get("/loja/visualizador/{uuid}")

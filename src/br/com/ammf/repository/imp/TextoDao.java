@@ -269,7 +269,7 @@ public class TextoDao implements TextoRepository{
 	}
 
 	@Override
-	public Texto obterUuidUltimaPublicacao() {
+	public Texto obterUltimaPublicacao() {
 		try {
 			String sql = "select max(id) from Texto where local='BLOG'";
 			Query query = session.createQuery(sql);

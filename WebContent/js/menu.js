@@ -34,9 +34,8 @@ $(document).ready(function() {
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
 		$('#conteudoIndex').slideDown(1000);
-		limitarCaracteres('#campoFraseIndex', '#contadorCaracterShiva', 899);
 		$('#campoFraseIndex').keyup(function() {		
-			limitarCaracteres('#campoFraseIndex', '#contadorCaracterShiva', 899);		  
+			limitarCaracteres('#campoFraseIndex', '#contadorCaracterShiva', 600);		  
 		});		
 	});
 	$('#btFecharConteudoIndex').click(function(){
@@ -46,7 +45,6 @@ $(document).ready(function() {
 	$('#conteudoCampoQuiron').hide();
 	$('#btAbrirConteudoQuiron').click(function(){
 		$('#conteudoCampoQuiron').slideDown(1000);
-		limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);
 		$('#campoConteudoQuiron').keyup(function() {		
 			limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);		  
 		});	
@@ -132,7 +130,7 @@ $(document).ready(function() {
 		limitarCaracteres("#" + this.id, contadorDeTexto, 3000);		  
 	});
 		
-	// TAMANHA DE FONTE
+	// TAMANHO DE FONTE
 	
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){
 		var idOrigem = this.id;

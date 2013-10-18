@@ -140,7 +140,7 @@ public class BlogController {
 	@Get("/blog/cliente")
 	public void blogCliente(boolean emailRequest, Texto texto){
 		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
-		Texto ultimaPublicacao = emailRequest ? texto : textoRepository.obterUuidUltimaPublicacao();			
+		Texto ultimaPublicacao = emailRequest ? texto : textoRepository.obterUltimaPublicacao();			
 		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		result.include("ultimaPublicacao", ultimaPublicacao);
 		result.include("paragrafos", paragrafos);

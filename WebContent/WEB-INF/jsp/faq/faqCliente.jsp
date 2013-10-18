@@ -96,7 +96,7 @@ ${perguntaEmBranco}
 				<td  width="50%" >					
 					<div id="divNovaPergunta" style="border-left: 1px solid #CCCCCC; padding: 10px;">
 					
-					<h2>Qual A Sua Pergunta ?</h2>
+					<h2>Qual &eacute; a sua pergunta ?</h2>
 					
 					<p>
 					<span class="info azulClaro" >Seu nome e seu email n&atilde;o ser&atilde;o revelados no site.</span>
@@ -111,19 +111,14 @@ ${perguntaEmBranco}
 					<label class="labelForm2">Pergunta</label>
 					<textarea id="cadastroFaqPergunta" name="faq.pergunta" class="letraCinza largura90 bordaPadrao" rows="5">${faq.pergunta}</textarea>
 					
-					<h3 align="right">
+					<h3 align="right" style="font-size: small;">
 					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.
 					</h3>
 					
-					<p>
-					<span class="info azulClaro" >
-					Marcar a pergunta como p&uacute;blica significa que quando respondida, 
-					a pergunta será divulgada no site. Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o 
-					associados a pergunta. Deste modo quando outras pessoas tiverem uma pergunta parecida 
-					poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia. Certifique-se de n&atilde;o 
-					utilizar informa&ccedil;&otilde;es pessoas em perguntas p&uacute;blicas.
-					</span>
-					</p>
+					<p class="info azulClaro">Marcar a pergunta como p&uacute;blica significa que quando respondida, a pergunta será divulgada no site.</p>
+					<p class="info azulClaro">Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o associados a pergunta.</p>
+					<p class="info azulClaro">Deste modo quando outras pessoas tiverem uma pergunta parecida poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia.</p>
+					<p class="info azulClaro">Certifique-se de n&atilde;o utilizar informa&ccedil;&otilde;es pessoas em perguntas p&uacute;blicas.</p>
 					
 					<label class="labelForm2"><input id="checkPerguntaPublica" type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
 								

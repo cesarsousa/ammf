@@ -80,11 +80,10 @@
 <input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
 <div id="divTodasAsResenhas">
 
-<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
+<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo<br/>Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
 
 <div align="center">
-<div class="cardViewText superFooter bordaLateral">
-<table class="display dataTable">
+<table style="width: 90%">
 	<thead align="left">
 		<tr>
 			<th class="metadado">Tipo da resenha</th>
@@ -114,7 +113,6 @@
 	</tfoot>
 </table>
 <br/>
-</div>
 </div>
 
 <a name="irTopo"></a>

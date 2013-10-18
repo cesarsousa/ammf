@@ -47,7 +47,7 @@ public interface TextoRepository {
 
 	public void atualizar(Texto texto);
 
-	public Texto obterUuidUltimaPublicacao();
+	public Texto obterUltimaPublicacao();
 
 	
 

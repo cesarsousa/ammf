@@ -3,7 +3,19 @@ function abrirInformacaoProduto(elemento){
 	var id = elemento.id;
 	var uuid = id.replace("btInformacaoLivro", "");
 	var tabInfoLivro = "#tabInfoLivro" + uuid;	
+	$(tabInfoLivro).slideDown(500);	
+}
+
+function abrirInformacaoResquestProduto(elemento){
+	var id = elemento.id;
+	var uuid = id.replace("btInformacaoRequestLivro", "");
+	var tabInfoLivro = "#tabInfoRequestLivro" + uuid;	
 	$(tabInfoLivro).slideDown(500);
+	
+	var btFecharInfo = "#btFecharInfoRequestLivro" + uuid;
+	$(btFecharInfo).click(function(){
+		$(tabInfoLivro).slideUp(500);
+	});
 }
 
 function fecharInformacaoProduto(elemento){
@@ -14,6 +26,19 @@ function fecharInformacaoProduto(elemento){
 }
 
 $(document).ready(function() {
+	
+	// Programacao das abas
+	$('div.htmltabs div.tabsContent').hide();
+	$('div.tab1').show();
+	$('div.htmltabs ul.tabs li.tab1 a').addClass('tab-current');
+	$('div.htmltabs ul li a').click(function(){
+	    var thisClass = this.className.slice(0,4);
+	    $('div.htmltabs div.tabsContent').hide();
+	    $('div.' + thisClass).show();
+	    $('div.htmltabs ul.tabs li a').removeClass('tab-current');
+	    $(this).addClass('tab-current');
+	});
+	// Programacao das abas
 	
 	$('#telaAguardeLojaCliente, #livroBuscaPersonalizada, #tabLivrosPublicados').hide();
 	
@@ -34,21 +59,7 @@ $(document).ready(function() {
 	
 	$('#btFecharTabLivrosPublicados').click(function (){
 		$('#tabLivrosPublicados').slideUp(500);
-	});
-	
-	
-	
-	// Programacao das abas
-	$('div.htmltabs div.tabsContent').hide();
-	$('div.tab1').show();
-	$('div.htmltabs ul.tabs li.tab1 a').addClass('tab-current');
-	$('div.htmltabs ul li a').click(function(){
-	    var thisClass = this.className.slice(0,4);
-	    $('div.htmltabs div.tabsContent').hide();
-	    $('div.' + thisClass).show();
-	    $('div.htmltabs ul.tabs li a').removeClass('tab-current');
-	    $(this).addClass('tab-current');
-	});
+	});	
 	
 	$('.modoHidden').hide();
 	
@@ -63,5 +74,10 @@ $(document).ready(function() {
 	$('#btComprarLivro').click(function(){
 		$('#formDownloadBoleto').submit();
 	});
+	
+	if($('#flagRequestLivroEmail').val()){
+		
+	}
+	
 	
 });

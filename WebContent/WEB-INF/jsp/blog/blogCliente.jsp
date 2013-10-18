@@ -39,18 +39,15 @@
 </div>
 </div>
 
-
-
 <div id="divTodosTextos">
 
 <h3 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo, ou utilize o campo 'buscar'. Em seguida basta clicar no t&iacute;tulo para ler o texto na íntegra.</h3>
 
 <div align="center">
-<div class="cardViewText superFooter bordaLateral">
-<table class="display dataTable">
+<div class="superFooter bordaLateral fullSize">
+<table>
 	<thead align="left">
 		<tr>
-			<th class="metadado">Autor</th>
 			<th class="metadado">T&iacute;tulo</th>
 			<th class="metadado">Texto</th>
 			<th class="metadado">Postagem</th>			
@@ -59,14 +56,13 @@
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
 			<tr class="zebrado">
-				<td class="infoTabela">${texto.autor}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
 				</td>
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-				<td class="infoTabela"><b>${texto.dataFormatada}</b></td>
+				<td class="infoTabela">${texto.dataFormatada}</td>
 			</tr>			
 		</c:forEach>		
 	</tbody>

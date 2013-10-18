@@ -69,7 +69,7 @@
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<h3 class="azulClaro">
-					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">900</span> caracteres na frase sobre Shiva.
+					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase sobre Shiva.
 				</h3>
 								
 				<table class="tamanhoDefault">

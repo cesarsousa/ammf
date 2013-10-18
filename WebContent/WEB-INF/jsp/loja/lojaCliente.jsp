@@ -22,6 +22,113 @@
 
 <h2 class="tituloPagina">Loja Virtual</h2>
 
+<div align="center">
+<c:if test="${flagRequestLivroEmail}">
+	<table style="width: 80%;" class="cartao bordaPadrao paddingPadrao ">
+		<tr>
+		<td width="120px"  align="left">				
+		
+		<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
+		</td>
+		
+		<td valign="top">
+		<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
+		<p class="autor" >${livro.autor}</p>
+		<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
+		</td>
+		
+		<td valign="bottom">		
+		<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
+		<div align="right">
+			<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
+			<img id="btInformacaoRequestLivro${livro.uuid}" onclick="abrirInformacaoResquestProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
+			<a href="${livro.linkVenda}" target="_blank">
+			<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
+			</a>
+		</div>
+		
+		</td>		
+		</tr>
+		
+		<tr><td colspan="3">			
+		<table id="tabInfoRequestLivro${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
+		<thead>
+		<tr>
+		<td colspan="2"><input id="btFecharInfoRequestLivro${livro.uuid}" type="button" class="button" value="fechar informações sobre o produto"/></td>			
+		</tr>			
+		</thead>
+		
+		<tbody>
+		<tr>
+			<td >
+			<label class="tabTitulo" style="font-size: large;">Sinopse</label>
+			<ul>
+			<li><label class="tabDescricao">${livro.sinopse}</label></li>
+			</ul>
+		
+			<label class="tabTitulo" style="font-size: large;">Informa&ccedil;&otilde;es Gerais</label>
+			<ul>
+			<li>
+				<label class="tabTitulo">T&iacute;tulo:</label>
+				<label class="tabDescricao">${livro.titulo}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Subt&iacute;tulo:</label>
+				<label class="tabDescricao">${livro.subtitulo}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Editora:</label>
+				<label class="tabDescricao">${livro.editora}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Editora:</label>
+				<label class="tabDescricao">${livro.editora}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">N&ordm; de p&aacute;ginas:</label>
+				<label class="tabDescricao">${livro.paginas}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Edi&ccedil;&atilde;o:</label>
+				<label class="tabDescricao">${livro.edicao}</label>
+			</li>	
+			
+			<li>
+				<label class="tabTitulo">Ano:</label>
+				<label class="tabDescricao">${livro.ano}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Idioma:</label>
+				<label class="tabDescricao">${livro.idioma}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">C&oacute;digo de barras:</label>
+				<label class="tabDescricao">${livro.codigoBarra}</label>
+			</li>
+			
+			<li>
+				<label class="tabTitulo">Pre&ccedil;o:</label>
+				<label class="tabDescricao">${livro.precoFormatado}</label>
+			</li>					
+			
+			</ul>			
+		</td>
+		</tr>
+		</tbody>
+		</table>
+		
+	</td></tr>			
+	</table>
+</c:if>
+</div>
+
 <div class="mainContainer">
 <div class="htmltabs">
 	<!-- The tabs -->
@@ -96,11 +203,14 @@
 				<div class="paddingPadrao">
 				<img class="icone" src="${imagem}/iconeLivro.png" alt="livros publicados" title="livros publicados">	
 				<span class="fonteGrande">Estante Virtual</span>
-				</div>
-				<div> <!-- id="tabLivrosPublicados" -->
+				</div>				
+				
+				<div>				
+				<!-- id="tabLivrosPublicados" -->
 				<!-- <div align="right">
 					<input id="btFecharTabLivrosPublicados" type="button" value="fechar busca" class="backVermelho button">
 				</div> -->
+				
 				<c:choose>			
 					<c:when test="${empty livrosPublicados}">
 					
