@@ -41,11 +41,11 @@
 	<span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
 	</p>	
 	
-	<label class="labelForm">Nome:</label>
+	<label class="labelForm">Nome</label>
 	<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	<br/><br/>
 	
-	<label class="labelForm">Email: <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
+	<label class="labelForm">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
 	<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	
 	<P>

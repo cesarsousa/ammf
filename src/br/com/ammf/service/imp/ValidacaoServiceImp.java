@@ -8,6 +8,7 @@ import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Resenha;
@@ -53,6 +54,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(depoimento.getConteudo() == null || depoimento.getConteudo().isEmpty()){
 			result.include("textoEmBranco", "O depoimento deve ser informado<br/>");
 			validado = false;
+		}else if (depoimento.getConteudo().length() > 500){
+			result.include("textoEmBranco", "O depoimento deve ter at&eacute; 500 caracteres<br/>");
+			validado = false;
 		}
 		
 		if(!validado){
@@ -87,6 +91,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		if(mensagem.getConteudo() == null || mensagem.getConteudo().isEmpty()){
 			result.include("conteudoEmBranco", "A mensagem deve ser informada<br/>");
+			validado = false;
+		}else if (mensagem.getConteudo().length() > 500){
+			result.include("conteudoEmBranco", "O mensagem deve ter at&eacute; 500 caracteres<br/>");
 			validado = false;
 		}
 		
@@ -410,13 +417,29 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 
 	@Override
-	public void verificarCamposPreenchidos(Texto texto) {		
+	public void verificarCamposPreenchidos(Texto texto, Local local, Result result) {		
 		if(texto.getAutor() == null || texto.getAutor().isEmpty()){
 			texto.setAutor("autor");
 		}		
 		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
 			texto.setConteudo("conteudo");
-		}		
+		}else{			
+			switch (local.ordinal()) {
+			case 0:
+				if(texto.getConteudo().length() > 600){
+					result.include("mensagemAviso", "O texto da p&aacute;gina '?1' continha ?2 caracteres e foi recortado em 600 caracteres para ser atualizado".replace("?1", local.toString()).replace("?2", String.valueOf(texto.getConteudo().length())));
+					texto.setConteudo(texto.getConteudo().substring(0, 599));
+					}
+				break;
+
+			default:
+				if(texto.getConteudo().length() > 2999){
+					result.include("mensagemAviso", "O texto da p&aacute;gina '?1' continha ?2 caracteres e foi recortado em 3000 caracteres para ser atualizado".replace("?1", local.toString()).replace("?2", String.valueOf(texto.getConteudo().length())));
+					texto.setConteudo(texto.getConteudo().substring(0, 2999));
+					}
+				break;
+			}
+		}
 	}	
 	
 	private boolean ehGmail(String email) {

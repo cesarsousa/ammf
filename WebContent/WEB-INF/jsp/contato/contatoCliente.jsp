@@ -82,18 +82,24 @@
 					
 					<h2>Enviar uma mensagem</h2>
 					
+					<div class="paddingPadrao">
 					<label class="labelForm2">Nome</label>
 					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
-					<label class="labelForm2">Email</label>
+					<div class="paddingPadrao">
+					<label class="labelForm2">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
 					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
+					<div class="paddingPadrao">
 					<label class="labelForm2">Mensagem</label>
 					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
+					</div>
 					
-					<h3 align="right">
+					<h4 align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterContato">500</span> caracteres em sua mensagem.
-					</h3>
+					</h4>
 					
 					<h3 align="right">
 					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="button direita"/>

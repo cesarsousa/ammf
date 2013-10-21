@@ -12,6 +12,11 @@
 
 <h2>Lamentamos, mas n&atilde;o foi poss&iacute;vel encontrar as informa&ccedil;&otilde;es que voc&ecirc; solicitou.</h2>
 
+<form action="<c:url value="/" ></c:url>">
+    	<input type="submit" value="Clique aqui para ser redirecionada para a pagina principal" class="buttonAzul"/> 
+</form>
+
+
 </div>
 
 </div> <!-- main -->

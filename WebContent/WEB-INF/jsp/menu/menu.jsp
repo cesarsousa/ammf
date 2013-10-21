@@ -1,16 +1,20 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<c:if test="${not empty mensagemErro}">
+	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
+</c:if>
+
+<c:if test="${not empty mensagemAviso}">
+	<div class="msgBorder msgAlerta">${mensagemAviso}</div>
+</c:if>
+
 <c:if test="${not empty mensagem}">
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagem}</div>
 </c:if>
 
 <c:if test="${not empty mensagemMenuSecundario}">		
 	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagemMenuSecundario}</div>
-</c:if>
-	
-<c:if test="${not empty mensagemErro}">
-	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
 </c:if>
 
 <c:if test="${not empty sessaoUsuario.notificacoes}">

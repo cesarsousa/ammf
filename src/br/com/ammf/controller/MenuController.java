@@ -2,6 +2,7 @@ package br.com.ammf.controller;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
@@ -54,7 +55,7 @@ public class MenuController {
 	@Post("/menu/index/atualizar")
 	public void atualizarFrasePrincipal(Texto texto){
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);
+			validacaoService.verificarCamposPreenchidos(texto, Local.INDEX, result);
 			textoRepository.atualizarTextoIndex(texto);
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoIndex());
 			redirecionarParaMenuAdm("mensagem", "Texto da p&aacute;gina principal atualizado com sucesso");
@@ -69,7 +70,7 @@ public class MenuController {
 	@Post("/menu/quiron/atualizar")
 	public void atualizarTextoQuiron(Texto texto){
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);
+			validacaoService.verificarCamposPreenchidos(texto, Local.QUIRON, result);
 			textoRepository.atualizarTextoQuiron(texto);
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoQuiron());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Quiron atualizado com sucesso");
@@ -84,7 +85,7 @@ public class MenuController {
 	@Post("/menu/psicologia/atualizar")
 	public void atualizarTextoPsicologia(Texto texto){				
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);
+			validacaoService.verificarCamposPreenchidos(texto, Local.PSICOLOGIA, result);
 			textoRepository.atualizarTextoPsicologia(texto);
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoPsicologia());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre psicologia atualizado com sucesso");
@@ -99,7 +100,7 @@ public class MenuController {
 	@Post("/menu/educacao/atualizar")
 	public void atualizarTextoEducacao(Texto texto){				
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);
+			validacaoService.verificarCamposPreenchidos(texto, Local.EDUCACAO, result);
 			textoRepository.atualizarTextoEducacao(texto);
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoEducacao());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre Educa&ccedil;&atilde;o atualizado com sucesso");
@@ -114,7 +115,7 @@ public class MenuController {
 	@Post("/menu/cultura/atualizar")
 	public void atualizarTextoCultura(Texto texto){		
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);		
+			validacaoService.verificarCamposPreenchidos(texto, Local.CULTURA, result);		
 			textoRepository.atualizarTextoCultura(texto);
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoCultura());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre cultura atualizado com sucesso");
@@ -129,7 +130,7 @@ public class MenuController {
 	@Post("/menu/artesorientais/atualizar")
 	public void atualizarTextoArtesOrientais(Texto texto){		
 		try {
-			validacaoService.verificarCamposPreenchidos(texto);
+			validacaoService.verificarCamposPreenchidos(texto, Local.ARTESORIENTAIS, result);
 			textoRepository.atualizarTextoArtesOrientais(texto);			
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoRepository.getTextoArtesOrientais());
 			redirecionarParaMenuAdm("mensagem", "Texto sobre artes orientais atualizado com sucesso");

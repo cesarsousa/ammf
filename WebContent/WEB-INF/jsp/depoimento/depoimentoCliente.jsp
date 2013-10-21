@@ -63,18 +63,24 @@ ${textoEmBranco}
 					
 					<h2>Novo Depoimento</h2>
 					
-					<label class="labelForm2">Nome:</label>
+					<div class="paddingPadrao">
+					<label class="labelForm2">Nome</label>
 					<input id="cadastroDepoimentoNome" type="text" name="depoimento.autor" value="${novoComentario.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
-					<label class="labelForm2">Email:</label>
+					<div class="paddingPadrao">
+					<label class="labelForm2">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
 					<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
-					<label class="labelForm2">Depoimento:</label>
+					<div class="paddingPadrao">
+					<label class="labelForm2">Depoimento</label>
 					<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
+					</div>
 					
-					<h3 align="right">
+					<h4 align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
-					</h3>
+					</h4>
 					
 					<h3 align="right">
 					<input id="btnClienteCadastrarDepoimento" type="submit" value="Publicar Depoimento"  class="button direita"/>

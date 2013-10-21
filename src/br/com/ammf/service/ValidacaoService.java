@@ -6,6 +6,7 @@ import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Resenha;
@@ -16,7 +17,7 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ValidacaoService {
 	
-	void verificarCamposPreenchidos(Texto texto);
+	void verificarCamposPreenchidos(Texto texto, Local local, Result result);
 	
 	boolean pessoa(boolean aceiteCadastro, Pessoa pessoa, Result result);
 

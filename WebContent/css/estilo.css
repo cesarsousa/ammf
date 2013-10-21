@@ -761,8 +761,10 @@ a:HOVER {
 }
 
 .tituloPagina{
-	color: white;
+	
+	color: #6CA6CD;
 	text-shadow: black 0.1em 0.1em 0.2em;
+	/* text-shadow: #000 1px -1px 1px, #000 -1px 1px 1px, #000 1px 1px 1px, #000 -1px -1px 1px; */
 	font-size: 40px;
 	font-style: italic;
 }
