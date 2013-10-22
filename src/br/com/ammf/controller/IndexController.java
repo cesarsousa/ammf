@@ -1,5 +1,7 @@
 package br.com.ammf.controller;
 
+import org.apache.log4j.Logger;
+
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Get;
@@ -9,6 +11,8 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 public class IndexController {
+	
+	Logger logger = Logger.getLogger(IndexController.class);
 	
 	private IndexService indexService;
 	private SessaoCliente sessaoCliente;
@@ -97,8 +101,7 @@ public class IndexController {
 	@Get("/termosDeContrato")
 	public void termosDeContrato(){}
 	
-	private void redirecionarParaPgErro(Exception e) {
-		result.include("mensagem", e.getMessage());
+	private void redirecionarParaPgErro(Exception e) {		
 		result.redirectTo(this).erro();
 	}
 	

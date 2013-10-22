@@ -98,7 +98,7 @@
 					<td class="infoTabela">${faq.resposta}</td>
 					<td class="infoTabelaConteudo ${faq.visibilidade}">${faq.visibilidade}</td>
 					<td class="infoTabelaData">${faq.dataFormatada}</td>
-					<td class="infoTabelaData" style="width: 80px;">
+					<td class="infoTabelaData">
 						<c:choose>
 							<c:when test="${not faq.respondida}">
 								<a id="smoothFaq" class="ponteiro" href="#ancoraEditarFaq" onclick="visualizarFaqParaEdicao('${faq.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
