@@ -1,10 +1,10 @@
 
 function hidenCamposEdicaoPrincipal(){
-	$('#tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();
+	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();
 }
 
 function fadeoutCamposEdicaoPrincipal(){
-	$('#tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').fadeOut();
+	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').fadeOut();
 }
 
 function abrirCampoEdicao(elemento){
@@ -118,6 +118,7 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	//$('textarea#campoTextoArtesOrientais').autoResize();	
 	
+	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
 	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');

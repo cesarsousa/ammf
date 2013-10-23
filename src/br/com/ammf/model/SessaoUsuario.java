@@ -14,6 +14,8 @@ public class SessaoUsuario implements Serializable{
 	
 	private Usuario usuario;
 	
+	private Terapeuta terapeuta;
+	
 	private Texto textoIndex;
 	private Texto textoPsicologia;
 	private Texto textoEducacao;
@@ -41,6 +43,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public Usuario getUsuario() {
 		return usuario;
+	}
+	
+	public Terapeuta getTerapeuta() {
+		return terapeuta;
+	}
+	
+	public void setTerapeuta(Terapeuta terapeuta) {
+		this.terapeuta = terapeuta;
 	}
 	
 	public Texto getTextoIndex() {

@@ -313,6 +313,7 @@
 		<tr>
 			<td>
 				<ul id="menu">
+					<li><a id="linkEditarTerapeuta" href="">O Terapeuta</a></li>
 					<li><a id="linkEditarPsicologia" href="">Psicologia</a></li>
 					<li><a id="linkEditarEducacao" href="">Educa&ccedil;&atilde;o</a></li>
 					<li><a id="linkEditarCultura" href="">Cultura</a></li>
@@ -320,8 +321,145 @@
 				</ul>
 			</td>
 		</tr>		
-	</table>	
+	</table>
 	
+	<table id="tabTerapeuta" class="cartao tamanhoEdicaoIndex">
+		<tr>
+			<td>
+			<input id="btFecharEditarTerapeuta" type="button" class="backVermelho button direita" value="fechar">
+			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.jpg"/>			
+			<label class="tituloEdicao"> O Terapeuta </label>
+			<h3>Altera&ccedil;&atilde;o das informa&ccedil;&otilde;es que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre o terapeuta.</h3>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="edicaoPsicologia">			
+			
+			<form action="<c:url value="/usuario/atualizar/terapeuta"/>" method="post" class="paddingPadrao">
+			
+				<table class="largura80">
+				<tr>
+					<td>	
+					<div align="left">		
+						<img src="${imagem}/owner.jpg" class="destaqueFoto">
+					</div>
+					</td>
+					<td>
+					<h2>Alcindo Miguel Martins Filho.</h2>										
+					<input id="edtTituloTerapeuta" type="text" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100" name="terapeuta.titulo" value="${sessaoUsuario.terapeuta.titulo}">
+					</td>
+				</tr>
+				</table>
+				
+				<div>
+				<h3>
+					Texto com informa&ccedil;&otilde;es gerais. (at&eacute; 2000 caracteres).
+				</h3>	
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallTerapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumTerapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeTerapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeTerapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeTerapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaTerapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaTerapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaTerapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaTerapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaTerapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>						
+													
+				<textarea id="edtInfoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.informacao">${sessaoUsuario.terapeuta.informacao}</textarea>
+				<h4>Caracteres restantes: <span id="contadorCaracterInfoTerapeuta"></span></h4>	
+				</div>
+				
+				<div>
+				<h3>
+					Texto com as forma&ccedil;&otilde;es. (at&eacute; 2000 caracteres).
+				</h3>	
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallTerapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumTerapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeTerapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeTerapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeTerapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaTerapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaTerapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaTerapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaTerapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaTerapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>						
+													
+				<textarea id="edtFormacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.formacao">${sessaoUsuario.terapeuta.formacao}</textarea>
+				<h4>Caracteres restantes: <span id="contadorCaracterFormacaoTerapeuta"></span></h4>	
+				</div>
+				
+				<div>
+				<h3>
+					&Aacute;reas de Atua&ccedil;&atilde;o: (at&eacute; 2000 caracteres).
+				</h3>	
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallTerapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumTerapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeTerapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeTerapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeTerapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaTerapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaTerapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaTerapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaTerapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaTerapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>						
+													
+				<textarea id="edtAtuacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.atuacao">${sessaoUsuario.terapeuta.atuacao}</textarea>
+				<h4>Caracteres restantes: <span id="contadorCaracterAtuacaoTerapeuta"></span></h4>	
+				</div>
+				
+				<div>
+				<h3>
+					&Aacute;reas de Tratamento: (at&eacute; 2000 caracteres).
+				</h3>	
+			
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallTerapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumTerapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeTerapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeTerapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeTerapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaTerapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaTerapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaTerapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaTerapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaTerapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>						
+													
+				<textarea id="edtTratamentoerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
+				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta"></span></h4>	
+				</div>
+							
+				<p>
+				<input id="brAlterarDadosTerapeuta" type="submit" value="atualizar" class="buttonCadastrar">
+				</p>
+			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>	
 	
 	<table id="tabPsicologia" class="cartao tamanhoEdicaoIndex">
 		<tr>

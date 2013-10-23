@@ -6,7 +6,7 @@
 	<table width="1000px">
 		<tr>
 		<td width="50%" align="center" valign="middle">
-			<a href="<c:url value="/quiron" />">
+			<a href="<c:url value="/" />">
 			<label id="labelQuironForm" class="labelQuiron esquerda ponteiro">Quiron</label>
 			</a>
 		</td>

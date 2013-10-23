@@ -5,9 +5,15 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="hibernate.connection.username">quironps_user1</property>
+		
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property>
+						
+		<!-- <property name="hibernate.connection.username">quironps_user1</property>
 		<property name="hibernate.connection.password">user1</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/quironps_ammf</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/quironps_ammf</property> -->
+				
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
@@ -26,6 +32,7 @@
 		<mapping class="br.com.ammf.model.Imagem" />
 		<mapping class="br.com.ammf.model.Link" />
 		<mapping class="br.com.ammf.model.Faq" />
+		<mapping class="br.com.ammf.model.Terapeuta" />
 		
 	</session-factory>
 </hibernate-configuration>

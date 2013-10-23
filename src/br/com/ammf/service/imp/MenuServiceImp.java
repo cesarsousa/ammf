@@ -8,10 +8,12 @@ import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Status;
+import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.utils.DataUtils;
@@ -26,20 +28,24 @@ public class MenuServiceImp implements MenuService{
 	private PessoaRepository pessoaRepository;
 	private DepoimentoRepository depoimentoRepository;
 	private FaqRepository faqRepository;
+	private TerapeutaRepository terapeutaRepository; 
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository,
 			DepoimentoRepository depoimentoRepository,
-			FaqRepository faqRepository){
+			FaqRepository faqRepository,
+			TerapeutaRepository terapeutaRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.depoimentoRepository = depoimentoRepository;
 		this.faqRepository = faqRepository;
+		this.terapeutaRepository = terapeutaRepository;
 	}
 
 	@Override
 	public SessaoUsuario atualizar(SessaoUsuario sessaoUsuario) {
+		sessaoUsuario.setTerapeuta(terapeutaRepository.get());		
 		sessaoUsuario.setTextoIndex(textoRepository.getTextoIndex());
 		sessaoUsuario.setTextoPsicologia(textoRepository.getTextoPsicologia());
 		sessaoUsuario.setTextoEducacao(textoRepository.getTextoEducacao());

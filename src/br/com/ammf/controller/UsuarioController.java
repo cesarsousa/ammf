@@ -2,7 +2,9 @@ package br.com.ammf.controller;
 
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.SessaoUsuario;
+import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Post;
@@ -15,16 +17,19 @@ public class UsuarioController {
 	private Result result;
 	private final SessaoUsuario sessaoUsuario;
 	private UsuarioRepository usuarioRepository;
+	private TerapeutaRepository terapeutaRepository;
 	private ValidacaoService validacaoService;
 	
 	public UsuarioController(
 			Result result, 
 			SessaoUsuario sessaoUsuario, 
 			UsuarioRepository usuarioRepository,
+			TerapeutaRepository terapeutaRepository,
 			ValidacaoService validacaoService){
 		this.result = result;
 		this.sessaoUsuario = sessaoUsuario;
 		this.usuarioRepository = usuarioRepository;
+		this.terapeutaRepository = terapeutaRepository;
 		this.validacaoService = validacaoService;
 	}
 	
@@ -47,6 +52,15 @@ public class UsuarioController {
 		}else{
 			redirecionarParaMenuAdm("editarUsuario", "true");
 		}		
+	}
+	
+	@Restrito
+	@Post("/usuario/atualizar/terapeuta")
+	public void atualizarDadosTerapeuta(Terapeuta terapeuta){
+		terapeuta.setId(sessaoUsuario.getTerapeuta().getId());
+		terapeutaRepository.atualizar(terapeuta);
+		sessaoUsuario.setTerapeuta(terapeuta);
+		redirecionarParaMenuAdm("mensagem", "Dados do terapeuta atualizados com sucesso");
 	}
 	
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
