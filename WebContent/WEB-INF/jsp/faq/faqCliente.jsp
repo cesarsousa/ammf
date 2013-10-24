@@ -102,18 +102,24 @@ ${perguntaEmBranco}
 					<span class="info azulClaro" >Seu nome e seu email n&atilde;o ser&atilde;o revelados no site.</span>
 					</p>
 					
+					<div class="paddingPadrao">
 					<label class="labelForm2">Nome</label>
 					<input id="cadastroFaqNome" type="text" name="faq.nome" value="${faq.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
+					<div class="paddingPadrao">
 					<label class="labelForm2">Email</label>
 					<input id="cadastroFaqEmail" type="text" name="faq.email" value="${faq.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					</div>
 					
+					<div class="paddingPadrao">
 					<label class="labelForm2">Pergunta</label>
 					<textarea id="cadastroFaqPergunta" name="faq.pergunta" class="letraCinza largura90 bordaPadrao" rows="5">${faq.pergunta}</textarea>
 					
 					<h3 align="right" style="font-size: small;">
 					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.
 					</h3>
+					</div>
 					
 					<p class="info azulClaro">Marcar a pergunta como p&uacute;blica significa que quando respondida, a pergunta será divulgada no site.</p>
 					<p class="info azulClaro">Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o associados a pergunta.</p>

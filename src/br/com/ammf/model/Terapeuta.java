@@ -3,6 +3,7 @@ package br.com.ammf.model;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,12 +21,16 @@ public class Terapeuta implements Serializable{
 	
 	private String titulo;
 	
+	@Column(length = 3000)
 	private String informacao;
 	
+	@Column(length = 3000)
 	private String formacao;
 	
+	@Column(length = 3000)
 	private String atuacao;
 	
+	@Column(length = 3000)
 	private String tratamento;
 
 	public long getId() {

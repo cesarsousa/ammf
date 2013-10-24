@@ -77,7 +77,7 @@
 	<td>
 		<c:if test="${not empty faqs}">	
 		<table class="display dataTable cardViewText superFooter bordaLateral">
-			<thead id="metadadoBuscaDepoimento">
+			<thead>
 				<tr>
 				<th class="metadado">Nome</th>
 				<th class="metadado">Email</th>
