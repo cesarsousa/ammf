@@ -204,6 +204,8 @@ $(document).ready(function() {
 		"sPaginationType": "full_numbers"
 	});
 	
+	
+	
 	$('.closeClick').click(function(){
 		$(this).fadeOut(1000);
 	});
