@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Status;
-import br.com.ammf.model.Texto;
 
 public interface DepoimentoRepository {
 

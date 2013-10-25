@@ -14,7 +14,6 @@ import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.ammf.service.imp.IndexServiceImp;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;

@@ -1,7 +1,5 @@
 package br.com.ammf.service;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;

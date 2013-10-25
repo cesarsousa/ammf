@@ -42,4 +42,16 @@ public class TerapeutaDao implements TerapeutaRepository {
 		}		
 	}
 
+	@Override
+	public void cadastrar(Terapeuta terapeuta) {
+		try{
+			Transaction transaction = session.beginTransaction();
+			session.save(terapeuta);
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
+	}
+
 }

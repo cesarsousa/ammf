@@ -3,22 +3,13 @@ package br.com.ammf.service.imp;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ammf.exception.EmailException;
-import br.com.ammf.model.Notificacao;
-import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
-import br.com.ammf.model.Status;
-import br.com.ammf.model.Terapeuta;
-import br.com.ammf.model.Texto;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.MenuService;
-import br.com.ammf.utils.DataUtils;
-import br.com.ammf.utils.HtmlMensagem;
-import br.com.ammf.utils.email.Email;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component

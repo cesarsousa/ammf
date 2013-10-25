@@ -1,7 +1,6 @@
 package br.com.ammf.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 

@@ -10,7 +10,6 @@ import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;

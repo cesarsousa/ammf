@@ -1,19 +1,18 @@
 package br.com.ammf.service.imp;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import br.com.ammf.exception.ErroAplicacao;
-import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Contato;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.SessaoCliente;
+import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.IndexService;
@@ -24,17 +23,22 @@ public class IndexServiceImp implements IndexService{
 	
 	private TextoRepository textoRepository;
 	private UsuarioRepository usuarioRepository;
+	private TerapeutaRepository terapeutaRepository;
 	
 	public IndexServiceImp(
 			TextoRepository textoRepository,
-			UsuarioRepository usuarioRepository){
+			UsuarioRepository usuarioRepository,
+			TerapeutaRepository terapeutaRepository){
 		this.textoRepository = textoRepository;
 		this.usuarioRepository = usuarioRepository;
+		this.terapeutaRepository = terapeutaRepository;
 	}
 
 	@Override
 	public SessaoCliente atualizar(SessaoCliente sessaoCliente) throws Exception {		
 		
+		//Terapeuta terapeuta = terapeutaRepository.get();
+		//if(terapeuta == null) terapeuta = new Terapeuta();
 		Texto textoIndex = textoRepository.getTextoIndex();
 		if(textoIndex == null) textoIndex = criarTextoDefault(Local.INDEX);		
 		Texto textoPsicologia = textoRepository.getTextoPsicologia();
@@ -48,6 +52,7 @@ public class IndexServiceImp implements IndexService{
 		Texto textoQuiron = textoRepository.getTextoQuiron();
 		if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
 		
+		//sessaoCliente.setTerapeuta(terapeuta);
 		sessaoCliente.setTextoIndex(textoIndex);
 		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoPsicologia));
 		sessaoCliente.setTextoEducacao(criarListaDeParagrafos(textoEducacao));
@@ -59,6 +64,18 @@ public class IndexServiceImp implements IndexService{
 		
 		return sessaoCliente;
 	}
+
+	/*private Terapeuta criarTerapeuta() {
+		Terapeuta terapeuta = new Terapeuta();
+		terapeuta.setId(1L);
+		terapeuta.setTitulo("Psicologo");
+		terapeuta.setInformacao("Terapeuta e psicologo");
+		terapeuta.setFormacao("Formado em psicologia e literatura");
+		terapeuta.setAtuacao("Psicologia");
+		terapeuta.setTratamento("Adultos");	
+		terapeutaRepository.cadastrar(terapeuta);
+		return terapeuta;
+	}*/
 
 	private Contato criarDadosDeContato() throws Exception {
 		Usuario administrador = usuarioRepository.obterAdministrador();

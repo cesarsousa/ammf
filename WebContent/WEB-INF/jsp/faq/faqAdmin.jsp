@@ -92,10 +92,10 @@
 			<tbody>
 				<c:forEach items="${faqs}" var="faq">
 					<tr class="zebrado">
-					<td class="infoTabela">${faq.nome}</td>
-					<td class="infoTabela">${faq.email}</td>
+					<td class="infoTabelaConteudo">${faq.nome}</td>
+					<td class="infoTabelaConteudo">${faq.email}</td>
 					<td class="infoTabelaConteudo">${faq.pergunta}</td>					
-					<td class="infoTabela">${faq.resposta}</td>
+					<td class="infoTabelaConteudo">${faq.resposta}</td>
 					<td class="infoTabelaConteudo ${faq.visibilidade}">${faq.visibilidade}</td>
 					<td class="infoTabelaData">${faq.dataFormatada}</td>
 					<td class="infoTabelaData">

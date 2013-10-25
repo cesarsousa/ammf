@@ -37,13 +37,13 @@
 		</table>
 		
 		<h3>
-		Psic&oacute;logo (CRP 05/35489), com gradua&ccedil;&atilde;o em Ci&ecirc;ncias Sociais e 
+		Psic&oacute;logo, com gradua&ccedil;&atilde;o em Ci&ecirc;ncias Sociais e 
 		tamb&eacute;m em Psicologia, e com especializa&ccedil;&otilde;es e forma&ccedil;&otilde;es complementares.			
 		</h3>
 	
 		<h3>
 		Tem uma dur&aacute;vel, intensa e variada experi&ecirc;ncia no tratamento de diferentes 
-		e diversas dificuldades existenciais, psicol&oacute;gicas e/ou psiq&aacute;tricas. 
+		e diversas dificuldades existenciais, psicol&oacute;gicas e/ou psiqui&aacute;tricas. 
 		</h3>
 		
 		<h3>
@@ -55,8 +55,8 @@
 		
 		<h3>
 		Como sua forma&ccedil;&atilde;o atravessa as Ci&ecirc;ncias Sociais, sua pr&aacute;tica em Psicologia 
-		possui uma forte sensibilidade em rela&ccedil;&atilde;o as diversidades e dificuldades s&oacute;cio culturais 
-		e de fluxo econ&ocirc;mico dentro de uma postura e posi&ccedil;&atilde;o Existencialista.
+		possui uma forte sensibilidade em rela&ccedil;&atilde;o as diversidades e dificuldades s&oacute;cio-culturais 
+		e de fluxo econ&ocirc;mico dentro de uma postura e posi&ccedil;&atilde;o existencialista.
 		</h3>
 		
 		<h4>
@@ -100,6 +100,42 @@
 		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
 		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
 		</ul>
+		
+		
+		
+		
+		
+		
+		
+		
+		<%-- <h3>${sessaoCliente.terapeuta.informacao}</h3>
+		
+		<h4>${sessaoCliente.terapeuta.formacao}</h4>
+	
+		<h2 class="descricaoTextoIndex">Áreas de Atua&ccedil;&atilde;o</h2>
+		<p class="azulClaro">${sessaoCliente.terapeuta.atuacao}</p> --%>
+		<!-- <ul class="azulClaro">
+		<li>Psican&aacute;lise</li>
+		<li>Psicoterapia</li>
+		<li>Psicologia Cl&iacute;nica</li>
+		<li>An&aacute;lise S&oacute;cio Cultural</li>
+		<li>Terapias Alternativas</li>
+		<li>Literaturas</li>
+		</ul> -->
+		
+		<%-- <h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
+		<p class="azulClaro">${sessaoCliente.terapeuta.tratamento}</p> --%>
+		<!-- <ul class="azulClaro">
+		<li>Individual</li>
+		<li>Casais</li>
+		<li>Fam&iacute;lias</li>
+		<li>Da Adolesc&ecirc;ncia &agrave; Terceira idade</li>
+		<li>Coaching Educacional e Profissional</li>
+		<li>Talentos e Criatividade</li>
+		<li>Sexualidade e Afetividade</li>
+		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
+		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
+		</ul> -->
 		
 		<%-- <div align="center">
 			<img id="btFecharQuemSou" src="${imagem}/seta.jpg" class="ponteiro clarear icone100">

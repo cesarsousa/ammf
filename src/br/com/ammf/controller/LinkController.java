@@ -5,7 +5,6 @@ import java.util.List;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Link;
-import br.com.ammf.model.Notificacao;
 import br.com.ammf.repository.LinkRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;

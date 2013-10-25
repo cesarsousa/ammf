@@ -14,6 +14,8 @@ public class SessaoCliente implements Serializable {
 	
 	private Pessoa pessoa;
 	
+	//private Terapeuta terapeuta;
+	
 	private Texto textoIndex;
 	
 	private List<Paragrafo> textoPsicologia;
@@ -30,6 +32,14 @@ public class SessaoCliente implements Serializable {
 	public void setTextoIndex(Texto textoIndex) {
 		this.textoIndex = textoIndex;
 	}
+	
+	/*public Terapeuta getTerapeuta() {
+		return terapeuta;
+	}
+	
+	public void setTerapeuta(Terapeuta terapeuta) {
+		this.terapeuta = terapeuta;
+	}*/
 	
 	public List<Paragrafo> getTextoPsicologia() {
 		return textoPsicologia;

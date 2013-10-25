@@ -299,6 +299,10 @@ textarea {
 	background-color: #CCCCCC;
 }
 
+.zebrado {
+	border: 1px solid #cccccc;
+}
+
 .zebrado:hover {
 	/* background-color: #ADD8E6; */
 	background-color: #CCCCCC;
@@ -725,6 +729,10 @@ a:HOVER {
 	float: right;
 	font-weight: bold;
 	font-size: small;
+}
+
+.bordaInferior {
+	border-bottom: 1px dashed #CCCCCC;
 }
 
 #labelFooter {

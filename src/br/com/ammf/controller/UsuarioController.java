@@ -57,8 +57,12 @@ public class UsuarioController {
 	@Restrito
 	@Post("/usuario/atualizar/terapeuta")
 	public void atualizarDadosTerapeuta(Terapeuta terapeuta){
-		terapeuta.setId(sessaoUsuario.getTerapeuta().getId());
-		terapeutaRepository.atualizar(terapeuta);
+		terapeuta.setId(1L);
+		if(sessaoUsuario.getTerapeuta() == null){
+			terapeutaRepository.cadastrar(terapeuta);
+		}else{
+			terapeutaRepository.atualizar(terapeuta);
+		}		
 		sessaoUsuario.setTerapeuta(terapeuta);
 		redirecionarParaMenuAdm("mensagem", "Dados do terapeuta atualizados com sucesso");
 	}

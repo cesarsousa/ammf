@@ -2,7 +2,6 @@ package br.com.ammf.repository.imp;
 
 import java.util.List;
 
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,7 +10,6 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
-import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Link;
 import br.com.ammf.repository.LinkRepository;
 import br.com.caelum.vraptor.ioc.Component;

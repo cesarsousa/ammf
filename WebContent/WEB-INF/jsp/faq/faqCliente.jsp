@@ -30,14 +30,6 @@ ${perguntaEmBranco}
 <div id="divPgFaqCliente" align="center">
 
 	<h2 class="tituloPagina">FAQ (Perguntas Frequentes)</h2>
-
-	<p>
-	<span class="info azulClaro" >Perguntas mais frequentes da &aacute;rea de sa&uacute;de ou sobre qualquer outro assunto. </span>
-	</p>
-	
-	<p>
-	<span class="info azulClaro" >Para ler a resposta basta clicar em cima da pergunta desejada. </span>
-	</p>
 	
 	<c:if test="${faqEmailRequest}">	
 		<div class="cardViewText">
@@ -58,6 +50,14 @@ ${perguntaEmBranco}
 		
 		<br/><br/>	
 	</c:if>
+
+	<p>
+	<span class="info azulClaro" >Perguntas mais frequentes da &aacute;rea de sa&uacute;de ou sobre qualquer outro assunto. </span>
+	</p>
+	
+	<p>
+	<span class="info azulClaro" >Para ler a resposta basta clicar em cima da pergunta desejada. </span>
+	</p>	
 	
 	<c:if test="${not empty faqs}">
 	<div id="divFaqsCadastrados">

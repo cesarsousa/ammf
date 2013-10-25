@@ -352,7 +352,7 @@
 				</tr>
 				</table>
 				
-				<div>
+				<div class="bordaInferior">
 				<h3>
 					Texto com informa&ccedil;&otilde;es gerais. (at&eacute; 2000 caracteres).
 				</h3>	
@@ -377,7 +377,7 @@
 				<h4>Caracteres restantes: <span id="contadorCaracterInfoTerapeuta"></span></h4>	
 				</div>
 				
-				<div>
+				<div class="bordaInferior">
 				<h3>
 					Texto com as forma&ccedil;&otilde;es. (at&eacute; 2000 caracteres).
 				</h3>	
@@ -402,7 +402,7 @@
 				<h4>Caracteres restantes: <span id="contadorCaracterFormacaoTerapeuta"></span></h4>	
 				</div>
 				
-				<div>
+				<div class="bordaInferior">
 				<h3>
 					&Aacute;reas de Atua&ccedil;&atilde;o: (at&eacute; 2000 caracteres).
 				</h3>	
@@ -448,7 +448,7 @@
 					</tr>				
 				</table>						
 													
-				<textarea id="edtTratamentoerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
+				<textarea id="edtTratamentoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta"></span></h4>	
 				</div>
 							
@@ -472,7 +472,7 @@
 		</tr>
 		<tr>
 			<td>
-			<div id="edicaoPsicologia">			
+			<div id="edicaoPsicologia">						
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">			
 			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">
 			
@@ -605,6 +605,11 @@
 			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
 			<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>			
 			<label class="tituloEdicao"> Artes Orientais </label>
+			<div class="bordaPadrao" align="center">
+				<h3>LOKAH SAMASTAH SUKHINO BHAVANTHU</h3>
+				<h4 class="azulClaro">"Que todos os seres sejam felizes"</h4>
+			</div>
+			
 			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre artes orientais.</h3>
 			</td>
 		</tr>

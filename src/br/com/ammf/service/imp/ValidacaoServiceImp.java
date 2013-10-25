@@ -2,8 +2,6 @@ package br.com.ammf.service.imp;
 
 import java.util.Date;
 
-import org.apache.tomcat.util.digester.SetRootRule;
-
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -17,7 +15,6 @@ import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
-import br.com.caelum.stella.validation.ValidadorDeDV;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
@@ -33,10 +30,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	@Override
 	public boolean depoimento(Depoimento depoimento, Result result) {
-		/*texto.setAutor(texto.getAutor().trim());
-		texto.setTitulo(texto.getTitulo().trim());
-		texto.setConteudo(texto.getConteudo().trim());*/		
-		
+			
 		boolean validado = true;
 		if(depoimento.getAutor() == null || depoimento.getAutor().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado<br/>");

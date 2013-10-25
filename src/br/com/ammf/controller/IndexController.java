@@ -35,7 +35,9 @@ public class IndexController {
 		} catch (Exception e) {
 			redirecionarParaPgErro(e);
 		}
-	}	
+	}
+	
+	//Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:
 	
 	@Get("/site")
 	public void site(){

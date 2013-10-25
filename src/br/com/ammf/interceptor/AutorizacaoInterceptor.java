@@ -13,8 +13,7 @@ import br.com.caelum.vraptor.resource.ResourceMethod;
 
 @Intercepts
 public class AutorizacaoInterceptor implements Interceptor{
-	
-	private final HttpServletRequest request;
+		
 	private final Result result;
 	private final SessaoUsuario sessaoUsuario;
 	
@@ -23,8 +22,7 @@ public class AutorizacaoInterceptor implements Interceptor{
 			SessaoUsuario sessaoUsuario,
 			HttpServletRequest request){		
 		this.result = result; 
-		this.sessaoUsuario = sessaoUsuario;
-		this.request = request;
+		this.sessaoUsuario = sessaoUsuario;		
 	}
 
 	@Override

@@ -2,11 +2,7 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
-import javax.swing.JOptionPane;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
@@ -20,7 +16,6 @@ import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;

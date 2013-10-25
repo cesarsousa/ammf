@@ -8,4 +8,6 @@ public interface TerapeutaRepository {
 
 	void atualizar(Terapeuta terapeuta);
 
+	void cadastrar(Terapeuta terapeuta);
+
 }

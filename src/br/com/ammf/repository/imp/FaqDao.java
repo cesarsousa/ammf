@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
-import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.repository.FaqRepository;
 import br.com.caelum.vraptor.ioc.Component;

@@ -1,12 +1,6 @@
 package br.com.ammf.controller;
 
-import static br.com.caelum.vraptor.view.Results.json;
-
 import java.util.List;
-
-import javax.swing.JOptionPane;
-
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Depoimento;

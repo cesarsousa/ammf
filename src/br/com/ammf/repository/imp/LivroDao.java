@@ -5,15 +5,12 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
-import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Livro;
-import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.LivroRepository;
 import br.com.caelum.vraptor.ioc.Component;
 
