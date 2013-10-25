@@ -228,12 +228,12 @@
 		<tbody>
 	 		<c:forEach items="${textosBlog}" var="texto">
 				<tr class="zebrado">
-					<td class="infoTabela">${texto.autor}</td>
-					<td class="infoTabela metadado">${texto.titulo}</td>
-					<td class="infoTabela">
+					<td class="infoTabelaConteudo">${texto.autor}</td>
+					<td class="infoTabelaConteudo metadado">${texto.titulo}</td>
+					<td class="infoTabelaConteudo">
 						<c:set var="origem"	value="${texto.conteudo}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-					<td class="infoTabela" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
+					<td class="infoTabelaConteudo" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
 						<a href="<c:url value="/blog/editar/${texto.uuid}" />"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
 						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>

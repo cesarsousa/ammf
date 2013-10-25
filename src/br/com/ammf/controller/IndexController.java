@@ -12,6 +12,12 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class IndexController {
 	
+	// TODO remover transactions dos Daos
+	// TODO adicionar contador no cadastrar e atualizar texto	
+	// TODO adicionar alterar tamanho da textarea de nova e atualizar resenha
+	// TODO terapeuta no banco de dados
+	
+	
 	Logger logger = Logger.getLogger(IndexController.class);
 	
 	private IndexService indexService;

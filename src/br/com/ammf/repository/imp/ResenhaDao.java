@@ -28,9 +28,7 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public void cadastrar(Resenha resenha) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(resenha);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -83,9 +81,7 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public void atualizar(Resenha resenha) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.update(resenha);
-			transaction.commit();		
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

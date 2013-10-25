@@ -27,10 +27,8 @@ public class TextoDao implements TextoRepository{
 
 	@Override
 	public void cadastrar(Texto texto) {
-		try {
-			Transaction transaction = session.beginTransaction();
-			session.save(texto);
-			transaction.commit();
+		try {			
+			session.save(texto);			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -260,9 +258,7 @@ public class TextoDao implements TextoRepository{
 	@Override
 	public void atualizar(Texto texto) {
 		try {
-			Transaction transaction = session.beginTransaction();
-			session.update(texto);
-			transaction.commit();
+			session.update(texto);			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
