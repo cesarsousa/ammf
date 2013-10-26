@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -27,10 +26,8 @@ public class DepoimentoDao implements DepoimentoRepository {
 	@Override
 	public void cadastrar(Depoimento depoimento) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			depoimento.setStatus(Status.PENDENTE);
 			session.save(depoimento);
-			transaction.commit();	
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -43,9 +40,7 @@ public class DepoimentoDao implements DepoimentoRepository {
 			criteria.add(Restrictions.eq("uuid", uuid));
 			Depoimento depoimento = (Depoimento) criteria.uniqueResult();
 			depoimento.setStatus(Status.CONFIRMADO);
-			Transaction transaction = session.beginTransaction();
 			session.update(depoimento);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -57,9 +52,7 @@ public class DepoimentoDao implements DepoimentoRepository {
 			Criteria criteria = session.createCriteria(Depoimento.class);
 			criteria.add(Restrictions.eq("uuid", uuid));
 			Depoimento depoimento = (Depoimento) criteria.uniqueResult();
-			Transaction transaction = session.beginTransaction();
 			session.delete(depoimento);
-			transaction.commit();	
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

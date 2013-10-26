@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -142,9 +141,7 @@ public class TextoDao implements TextoRepository{
 			Texto textoIndex = getTextoIndex();
 			textoIndex.setAutor(texto.getAutor());
 			textoIndex.setConteudo(texto.getConteudo());		
-			Transaction transaction = session.beginTransaction();
 			session.update(textoIndex);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -155,9 +152,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoPsicologia = getTextoPsicologia();
 			textoPsicologia.setConteudo(texto.getConteudo());
-			Transaction transaction = session.beginTransaction();
 			session.update(textoPsicologia);
-			transaction.commit();	
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -168,9 +163,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoEducacao = getTextoEducacao();
 			textoEducacao.setConteudo(texto.getConteudo());
-			Transaction transaction = session.beginTransaction();
 			session.update(textoEducacao);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -181,9 +174,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoCultura = getTextoCultura();
 			textoCultura.setConteudo(texto.getConteudo());
-			Transaction transaction = session.beginTransaction();
 			session.update(textoCultura);
-			transaction.commit();	
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -194,9 +185,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoArtesOrientais = getTextoArtesOrientais();
 			textoArtesOrientais.setConteudo(texto.getConteudo());
-			Transaction transaction = session.beginTransaction();
 			session.update(textoArtesOrientais);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -207,9 +196,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoQuiron = getTextoQuiron();
 			textoQuiron.setConteudo(texto.getConteudo());
-			Transaction transaction = session.beginTransaction();
 			session.update(textoQuiron);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -235,9 +222,7 @@ public class TextoDao implements TextoRepository{
 			criteria.add(Restrictions.eq("uuid", uuid));
 			Texto texto = (Texto) criteria.uniqueResult();
 			texto.setConfirmado(true);
-			Transaction transaction = session.beginTransaction();
 			session.delete(texto);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

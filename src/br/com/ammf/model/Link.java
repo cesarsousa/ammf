@@ -24,8 +24,10 @@ public class Link {
 	@Column(length=45)
 	private String uuid = UUID.randomUUID().toString();
 	
+	@Column(length = 550)
 	private String url;
 	
+	@Column(length = 550)
 	private String descricao;
 	
 	@Temporal(TemporalType.TIMESTAMP)

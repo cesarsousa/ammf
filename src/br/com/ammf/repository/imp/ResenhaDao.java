@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -59,9 +58,7 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public void deletar(Resenha resenha) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.delete(resenha);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -90,9 +87,7 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public void cadastrarCategoria(Categoria novaCategoria) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(novaCategoria);
-			transaction.commit();			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

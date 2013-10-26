@@ -32,7 +32,7 @@ public class Resenha implements Serializable {
 	
 	private String titulo;
 	
-	@Column(length = 2250)
+	@Column(length = 2500)
 	private String descricao;
 	
 	@ManyToOne

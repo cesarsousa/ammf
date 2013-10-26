@@ -54,7 +54,7 @@ ${textoEmBranco}
 			<tr>
 				<td width="50%" align="center" style="padding: 20px;">
 					<div>
-						<span id="btNovoDepoimento" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
+						<span id="btNovoDepoimento" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Deixe voc&ecirc; tamb&eacute;m o seu depoimento aqui.</span>
 					</div>
 				</td>
 			
@@ -96,7 +96,7 @@ ${textoEmBranco}
 <div id="telaAguardeCadastroDepoimento">
 	<div align="center">
 		
-		<h2>Depoimentos</h2>
+		<h2 class="tituloPagina">Depoimentos</h2>
 		<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
 
 		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento esta sendo processado.</h3>

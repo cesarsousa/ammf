@@ -126,7 +126,7 @@
 <tr align="center">
 <td>
 	<p>
-		<span class="info azulClaro">Enviar um convite a uma pessoa.<br/>Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</span>
+		<span class="info azulClaro" style="text-align: left;">Enviar um convite a uma pessoa.<br/>Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</span>
 	</p>
 	<div id="areaLogin">
 	

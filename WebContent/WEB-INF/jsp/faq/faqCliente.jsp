@@ -89,7 +89,7 @@ ${perguntaEmBranco}
 			<tr>
 				<td width="50%" align="center" style="padding: 20px;">
 					<div>
-						<span id="btNovaPergunta" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Fa&ccedil;a voc&ecirc; tamb&eacute;m a sua pergunta aqui.</span>
+						<span id="btNovaPergunta" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Fa&ccedil;a voc&ecirc; tamb&eacute;m a sua pergunta aqui.</span>
 					</div>
 				</td>
 			
@@ -114,7 +114,7 @@ ${perguntaEmBranco}
 					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Pergunta</label>
-					<textarea id="cadastroFaqPergunta" name="faq.pergunta" class="letraCinza largura90 bordaPadrao" rows="5">${faq.pergunta}</textarea>
+					<textarea id="cadastroFaqPergunta" name="faq.pergunta" class="letraCinza largura90 bordaPadrao" rows="7">${faq.pergunta}</textarea>
 					
 					<h3 align="right" style="font-size: small;">
 					Voc&ecirc; pode digitar <span id="contadorCaracterFaq">500</span> caracteres em sua pergunta.

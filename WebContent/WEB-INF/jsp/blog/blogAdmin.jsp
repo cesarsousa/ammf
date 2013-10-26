@@ -94,7 +94,9 @@
 			</table>	
 					
 			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao${comErroConteudo}" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
-			
+			<h4 align="left" class="azulClaro">
+			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">10000</span> caracteres em seu texto.
+			</h4>
 			<p>
 			<input id="btCadBlogTexto" type="submit" value="cadastrar" class="buttonCadastrar">
 			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
@@ -184,9 +186,10 @@
 			</tr>				
 		</table>				
 					
-		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">
-		${texto.conteudo}
-		</textarea>		
+		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${texto.conteudo}</textarea>		
+		<h4 align="left" class="azulClaro">
+		Voc&ecirc; pode digitar <span id="contadorCaracterEdtBlog">10000</span> caracteres em seu texto.
+		</h4>
 		
 		<p>
 		<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
@@ -253,7 +256,7 @@
 	<div align="center">
 		
 		<h2>BLOG</h2>    
-		<span class="info azulClaro" >Novo texto sendo cadastrado.</span>
+		<span class="info azulClaro" >Texto sendo cadastrado ou atualizado.</span>
 								
 		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
 		

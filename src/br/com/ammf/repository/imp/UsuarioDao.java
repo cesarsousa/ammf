@@ -25,9 +25,7 @@ public class UsuarioDao implements UsuarioRepository{
 	@Override
 	public void salvar(Usuario usuario) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(usuario);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -47,9 +45,7 @@ public class UsuarioDao implements UsuarioRepository{
 	@Override
 	public void atualizar(Usuario usuario) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.update(usuario);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

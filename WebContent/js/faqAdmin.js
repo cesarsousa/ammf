@@ -97,7 +97,6 @@ $(document).ready(function() {
 	addRemoveDestaque("#cadastroFaqNome");
 	
 	addRemoveDestaque("#areaRespostaFaq");
-	$('#areaRespostaFaq').autoResize();	
 	$('#areaRespostaFaq').keyup(function() {		
 		limitarCaracteres('#areaRespostaFaq', '#contadorCaracterFaq', 2000);		  
 	});

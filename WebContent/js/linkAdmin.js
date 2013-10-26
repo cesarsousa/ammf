@@ -16,16 +16,20 @@ $(document).ready(function() {
 	}
 	if($('#flagListagemLink').val()){
 		$('#tabListagemLinks').show();
-	}
-	
+	}	
 	
 	addRemoveDestaque('#linkUrl');
+	$('#linkUrl').keyup(function() {		
+		limitarCaracteres('#linkUrl', '#contadorCaracterLinkUrl', 500);
+	});
+	
 	addRemoveDestaque('#linkAreaDescricao');
 	$('#linkAreaDescricao').keyup(function() {		
 		limitarCaracteres('#linkAreaDescricao', '#contadorCaracterLink', 500);
 	});
 	
 	$('#btAddNovoLink').click(function(){
+		hideAllLinkfields();
 		limparFormLink();
 		$('#tabNovoLink').slideDown(500);
 	});
@@ -39,6 +43,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btListarLinks').click(function(){
+		hideAllLinkfields();
 		$('#tabListagemLinks').slideDown(500);
 	});	
 	

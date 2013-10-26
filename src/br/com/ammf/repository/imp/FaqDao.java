@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -27,9 +26,7 @@ public class FaqDao implements FaqRepository{
 	@Override
 	public void cadastrar(Faq faq) throws DBException {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(faq);
-			transaction.commit();
 		} catch (Exception e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 			throw new DBException(this.getClass().getSimpleName(), e);
@@ -109,13 +106,10 @@ public class FaqDao implements FaqRepository{
 	@Override
 	public void atualizar(Faq faq) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.update(faq);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}	
-		
+		}		
 	}
 
 	@Override
@@ -124,15 +118,10 @@ public class FaqDao implements FaqRepository{
 			Criteria criteria = session.createCriteria(Faq.class);
 			criteria.add(Restrictions.eq("uuid", uuid));
 			Faq faq = (Faq) criteria.uniqueResult();
-			Transaction transaction = session.beginTransaction();
 			session.delete(faq);
-			transaction.commit();	
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
+		}		
 	}
-
-	
 
 }

@@ -2,7 +2,6 @@ package br.com.ammf.repository.imp;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
@@ -34,9 +33,7 @@ public class TerapeutaDao implements TerapeutaRepository {
 	@Override
 	public void atualizar(Terapeuta terapeuta) {
 		try{
-			Transaction transaction = session.beginTransaction();
 			session.update(terapeuta);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
@@ -45,9 +42,7 @@ public class TerapeutaDao implements TerapeutaRepository {
 	@Override
 	public void cadastrar(Terapeuta terapeuta) {
 		try{
-			Transaction transaction = session.beginTransaction();
 			session.save(terapeuta);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}	

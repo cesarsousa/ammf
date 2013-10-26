@@ -72,7 +72,10 @@
 		<form id="formNovoLink" action="<c:url value="/link/novo"/>" method="post">			
 						
 			<h3>URL</h3>
-			<input id="linkUrl" type="text" class="areaTitulo bordaPadrao" name="link.url" value="${link.url}" />
+			<textarea id="linkUrl" class="areaTexto bordaPadrao" rows="7" name="link.url">${link.url}</textarea>
+			<br/>
+			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLinkUrl">500</span> caracteres.</span>		
+			
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de descri&ccedil;&atilde;o:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -82,7 +85,7 @@
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 500 caracteres.</h3>				
-			<textarea id="linkAreaDescricao" class="areaTexto bordaPadrao" rows="5" name="link.descricao">${link.descricao}</textarea>		
+			<textarea id="linkAreaDescricao" class="areaTexto bordaPadrao" rows="7" name="link.descricao">${link.descricao}</textarea>		
 			<br/>
 			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLink">500</span> caracteres.</span>		
 			<p>

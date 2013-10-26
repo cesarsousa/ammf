@@ -1,7 +1,6 @@
 package br.com.ammf.repository.imp;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
@@ -21,9 +20,7 @@ public class ImagemDao implements ImagemRepository {
 	@Override
 	public void remover(Imagem imagem) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.delete(imagem);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		

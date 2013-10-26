@@ -26,9 +26,7 @@ public class LivroDao implements LivroRepository {
 	@Override
 	public void cadastrar(Livro livro) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(livro);
-			transaction.commit();			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}				
@@ -48,9 +46,7 @@ public class LivroDao implements LivroRepository {
 	@Override
 	public void atualizar(Livro livro) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.update(livro);
-			transaction.commit();			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}				
@@ -84,13 +80,10 @@ public class LivroDao implements LivroRepository {
 	@Override
 	public void cadastrarCategoria(Categoria categoria) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(categoria);
-			transaction.commit();			
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
+		}		
 	}
 
 	@Override
@@ -105,14 +98,11 @@ public class LivroDao implements LivroRepository {
 				caminhoDaImagem = livro.getImagem().getCaminho();
 			}			
 			
-			Transaction transaction = session.beginTransaction();
 			session.delete(livro);
-			transaction.commit();
 			return caminhoDaImagem;
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
+		}		
 	}
 
 }

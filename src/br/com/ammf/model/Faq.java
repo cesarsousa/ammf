@@ -26,7 +26,11 @@ public class Faq {
 	
 	private String nome;
 	private String email;
+	
+	@Column(length = 500)
 	private String pergunta;
+	
+	@Column(length = 2500)
 	private String resposta;
 	private boolean publica;
 	

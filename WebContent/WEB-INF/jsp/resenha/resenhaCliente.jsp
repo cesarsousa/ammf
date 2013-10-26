@@ -14,31 +14,6 @@
 </p>
 </div>
 
-<%-- <div align="center">
-<div id="ultimaPublicacao" class="cardViewText">	
-	<c:choose>
-		<c:when test="${empty ultimaPublicacao}">
-			<c:choose>
-				<c:when test="${emailRequest}">
-					<p class="textoAutorBlog azulClaro fonteGrande centralizar">A resenha solicitada foi removida deste mural.</p>
-				</c:when>
-				<c:otherwise>
-					<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhuma resenha ainda.</p>
-				</c:otherwise>
-			</c:choose>
-		</c:when>
-		
-		<c:otherwise>
-			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
-			<p class="textoPostagemBlog aEsquerda negrito">postado em ${ultimaPublicacao.dataFormatada}</p>	
-			<c:forEach items="${paragrafos}" var="paragrafo">
-				<p class="textoConteudoBlog">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
-</div>
-</div> --%>
-
 <c:if test="${not empty resenha}">
 	<div class="fullSize" align="center">
 		<div style="width: 1000px">
@@ -80,7 +55,7 @@
 <input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
 <div id="divTodasAsResenhas">
 
-<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta clicar no t&iacute;tulo para ler a resenha na íntegra.</h3>
+<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> a resenha na íntegra.</h3>
 
 <div align="center">
 <table style="width: 90%">
@@ -143,13 +118,11 @@
 
 <br/><br/>
 
-
-<%-- <input id="emailRequest" type="hidden" value="${emailRequest}" /> --%>
 <c:if test="${not empty resenhas or not empty resenhasRequest}">
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
-		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" >Visualizar ultimas publica&ccedil;&otilde;es</a>
+		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Visualizar resenhas anteriores</a>
+		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Visualizar ultimas publica&ccedil;&otilde;es</a>
 	</div>
 </div>
 </c:if>

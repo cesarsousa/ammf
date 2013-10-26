@@ -37,9 +37,7 @@ private final Session session;
 	@Override
 	public void cadastrar(Link link) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(link);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
@@ -51,9 +49,7 @@ private final Session session;
 			Criteria criteria = session.createCriteria(Link.class);
 			criteria.add(Restrictions.eq("uuid", uuid));
 			Link link = (Link) criteria.uniqueResult();
-			Transaction transaction = session.beginTransaction();
 			session.delete(link);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

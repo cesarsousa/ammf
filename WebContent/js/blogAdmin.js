@@ -1,63 +1,22 @@
 
-/*function ajaxGet(url, ulTabela, divTabela, btFechar){
-	$.ajax({
-		type : 'GET',
-		url : $('#contexto').val() + url,
-		success : function(json){
-			$(ulTabela).html('');
-			for(var i = 0; i< json.length; i++){				
-				var dataCadastro = getDataFormatada(json[i].dataCadastro.time);				
-				$(ulTabela).append(
-					'<tr>' +
-					'<td class="infoTabela">' + json[i].nome + '</td>' +
-					'<td class="infoTabela">' + json[i].email + '</td>' +
-					'<td class="infoTabela">' + dataCadastro + '</td>' +
-					'<td class="'+ json[i].status + ' infoTabela">' + json[i].status + '</td>' +
-					'</tr>');						
-			}			
-			
-			if(json.length > 0){
-				$(divTabela).slideDown(1000);
-				$(btFechar).click(function(){
-					$(divTabela).slideUp(1000);		
-				});
-			}
-		},
-		error : function(){
-			alert("Servidor não esta disponível no momento, por favor tente mais tarde!");				
-		}
-	});	
-}*/
-
 function hideAllBlogFields(){
 	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar').hide();
 }
-
-/*function visualizarTextoParaEdicao(uuid){
-	alert("aqui");
-	$.ajax({
-		type : 'GET',
-		url : $('#contexto').val() + "/blog/visualizar/" + uuid,
-		success : function(json){
-			$('#blogEdtUuidTexto').val(json.uuid);
-			$('#blogEdtTituloTexto').val(json.titulo);
-			$('#blogEdtAutorTexto').val(json.autor);
-			$('#blogEdtConteudoTexto').val(json.conteudo);
-			
-			$('#blogAreaBusca, #divBlogEditarTexto').slideDown(500);			
-		},
-		error : function(){
-			alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
-		}
-	});	
-}*/
-
 
 $(document).ready(function() {
 	
 	addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
 	addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
 	$('#blogConteudoNovoTexto').autoResize();
+	$('#blogEdtConteudoTexto').autoResize();
+	
+	$('#blogConteudoNovoTexto').keyup(function() {		
+		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 10000);		  
+	});
+	
+	$('#blogEdtConteudoTexto').keyup(function() {		
+		limitarCaracteres('#blogEdtConteudoTexto', '#contadorCaracterEdtBlog', 10000);		  
+	});
 	
 	hideAllBlogFields();
 	

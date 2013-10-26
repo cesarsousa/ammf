@@ -172,7 +172,7 @@
 			
 			
 			<h3>Digite a resposta para a pergunta.</h3>				
-			<textarea id="areaRespostaFaq" class="areaTexto bordaPadrao" rows="10"></textarea>		
+			<textarea id="areaRespostaFaq" class="areaTexto bordaPadrao" rows="27"></textarea>		
 			<br/>
 			<span class="info azulClaro">Sua resposta pode conter até <span id="contadorCaracterFaq">2000</span> caracteres.</span>		
 			<p>

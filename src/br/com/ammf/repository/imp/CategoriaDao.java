@@ -1,11 +1,9 @@
 package br.com.ammf.repository.imp;
 
-
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -28,9 +26,7 @@ public class CategoriaDao implements CategoriaRepository {
 	@Override
 	public void salvar(Categoria categoria) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(categoria);
-			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
@@ -59,7 +55,4 @@ public class CategoriaDao implements CategoriaRepository {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
-	
-	
-
 }

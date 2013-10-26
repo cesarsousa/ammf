@@ -5,9 +5,11 @@
 <div id="divMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco or not empty aceiteEmBranco}">
 	<div class="msgBorder msgErro">
-	${nomeEmBranco}<br/>${emailEmBranco}<br/>${aceiteEmBranco}
-	<c:if test="${emailJaCadastrado}">
-	<br/>
+	${nomeEmBranco}<br/>${emailEmBranco}<br/>${aceiteEmBranco}	
+	</div>
+</c:if>
+<c:if test="${emailJaCadastrado}">
+	<div class="msgBorder msgAlerta">
 	<span id="btFormNotifClienteEmailJaCadastrado" class="ponteiro negrito" >Entenda como seu email foi cadastrado neste site</span>
 	<div id="divNotifClienteEmailJaCadastrado">
 		<form id="formNotifClienteEmailJaCadastrado" action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
@@ -17,9 +19,8 @@
 			<input class="buttonCadastrar" type="submit" value="Enviar Mensagem" />
 		</form>
 	</div>
-	</c:if>
 	</div>
-</c:if>
+	</c:if>
 </div>
 
 <%@ include file="/headerSite.jsp"%>

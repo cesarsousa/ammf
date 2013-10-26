@@ -6,7 +6,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
@@ -29,9 +28,7 @@ public class PessoaDao implements PessoaRepository {
 	@Override
 	public void cadastrar(Pessoa pessoa) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.save(pessoa);
-			transaction.commit();
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -102,9 +99,7 @@ public class PessoaDao implements PessoaRepository {
 	@Override
 	public void remover(Pessoa pessoa) {
 		try {
-			Transaction transaction = session.beginTransaction();		
 			session.delete(pessoa);
-			transaction.commit();
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -114,9 +109,7 @@ public class PessoaDao implements PessoaRepository {
 	public void confirmar(Pessoa pessoa) {
 		try {
 			pessoa.setStatus(Status.CONFIRMADO);
-			Transaction transaction = session.beginTransaction();
 			session.update(pessoa);
-			transaction.commit();
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -125,10 +118,8 @@ public class PessoaDao implements PessoaRepository {
 	@Override
 	public void ativar(Pessoa pessoa) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			pessoa.setSituacao(Situacao.ATIVO);
 			session.update(pessoa);
-			transaction.commit();		
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -137,9 +128,7 @@ public class PessoaDao implements PessoaRepository {
 	@Override
 	public void atualizar(Pessoa pessoa) {
 		try {
-			Transaction transaction = session.beginTransaction();
 			session.update(pessoa);
-			transaction.commit();
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
