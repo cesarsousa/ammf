@@ -51,12 +51,11 @@ public class LivroServiceImp implements LivroService {
 				Imagem imagem = livro.getImagem();
 				imagemService.removerFoto(imagem.getCaminho());
 				livro.setImagem(null);				
-				livroRepository.atualizar(livro);
 				imagemRepository.remover(imagem);
 			}else if(novaImagemLivro != null){
 				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
-				livroRepository.atualizar(livro);
-			}			
+			}
+			livroRepository.atualizar(livro);
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());
 		}				

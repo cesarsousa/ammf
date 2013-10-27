@@ -24,7 +24,9 @@ public class ImagemServiceImp implements ImagemService {
 	private String NOME_DEFAULT = "capaLivroDefault.jpg";
 	
 	public ImagemServiceImp(ServletContext context){		
-		PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+		PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
+		//PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+				
 		pastaImagens = new File(PASTA_IMAGEM_LIVRO);
 		pastaImagens.mkdir();
 		

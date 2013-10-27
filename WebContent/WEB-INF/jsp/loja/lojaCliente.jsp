@@ -40,24 +40,15 @@
 		<td valign="bottom">		
 		<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
 		<div align="right">
-			<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
-			<img id="btInformacaoRequestLivro${livro.uuid}" onclick="abrirInformacaoResquestProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
-			<a href="${livro.linkVenda}" target="_blank">
-			<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
-			</a>
+			<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>			
 		</div>
 		
 		</td>		
 		</tr>
 		
 		<tr><td colspan="3">			
-		<table id="tabInfoRequestLivro${livro.uuid}" class="tabLivro bordaPadrao modoHidden">
-		<thead>
-		<tr>
-		<td colspan="2"><input id="btFecharInfoRequestLivro${livro.uuid}" type="button" class="button" value="fechar informações sobre o produto"/></td>			
-		</tr>			
-		</thead>
-		
+		<table id="tabInfoRequestLivro${livro.uuid}" class="tabLivro bordaPadrao">
+			
 		<tbody>
 		<tr>
 			<td >
@@ -79,8 +70,8 @@
 			</li>
 			
 			<li>
-				<label class="tabTitulo">Editora:</label>
-				<label class="tabDescricao">${livro.editora}</label>
+				<label class="tabTitulo">G&ecirc;nero:</label>
+				<label class="tabDescricao">${livro.categoria.descricao}</label>
 			</li>
 			
 			<li>
@@ -124,8 +115,19 @@
 		</tbody>
 		</table>
 		
-	</td></tr>			
+	</td>
+	</tr>
+	<tr align="center">
+	<td>
+	<div class="paddingPadrao">
+	<a href="${livro.linkVenda}" target="_blank">
+		<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
+	</a>
+	</div>
+	</td>
+	</tr>			
 	</table>
+	
 </c:if>
 </div>
 
@@ -153,51 +155,7 @@
 		<div class="paddingPadrao">
 			
 			<div align="center">
-			<div style="width: 1000px; text-align: left;" >
-				
-				<%-- <div id="btLivroBuscaPersonalizada" class="ponteiro destaqueImage">
-				<img class="icone" src="${imagem}/lupa.png" alt="busca personalizada" title="busca personalizada">		
-				<span class="fonteGrande">Busca Personalizada</span>
-				</div> --%>				
-				
-				<%-- <div id="livroBuscaPersonalizada">
-					<div align="right">
-						<input id="btFecharLivroBuscaPersonalizada" type="button" value="fechar busca" class="backVermelho button">
-					</div>
-					
-					<form id="formBuscaLivro" action="<c:url value="/cliente/livro/busca" />" method="get">
-						<div align="center">
-						
-						<div style="width: 550px; text-align: left;">
-							
-							<p class="info azulClaro">Escolha um tipo da busca</p>
-							
-							<p>							
-							<label>
-							<input type="radio" name="livroTipoBusca" />
-							Autor do livro
-							</label>
-							
-							<label>
-							<input type="radio" name="livroTipoBusca" />
-							Nome do livro
-							</label>
-							
-							<label>
-							<input type="radio" name="livroTipoBusca" checked="checked"/>
-							Nome e autor do livro
-							</label>
-							</p>
-						</div>
-						
-						<input id="campoBuscaLivro" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
-						</div>
-					</form>
-					
-					<br/>				
-				
-				<hr class="hrClass" />
-				</div> --%>
+			<div style="width: 1000px; text-align: left;" >				
 				
 				<%-- id="btLivrosPublicados" --%>
 				<div class="paddingPadrao">
@@ -225,7 +183,7 @@
 						<div align="center">					
 						<table style="width: 80%;" class="cartao bordaPadrao paddingPadrao ">
 						<tr>
-						<td width="120px"  align="left">				
+						<td width="120px"  align="left" valign="top">				
 						
 						<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
 						</td>
@@ -234,19 +192,15 @@
 						<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
 						<p class="autor" >${livro.autor}</p>
 						<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
-						</td>
 						
-						<td valign="bottom">		
-						<form id="formDownloadBoleto" action="<c:url value="/downloadboleto"></c:url>" method="get"></form>
 						<div align="right">
-							<p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/>
+							<%-- <p class="autor" ><b>Data da Oferta: ${livro.dataFormatada}</b></p><br/> --%>
 							<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
 							<a href="${livro.linkVenda}" target="_blank">
 							<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
 							</a>
 						</div>
-						
-						</td>		
+						</td>
 						</tr>
 						
 						<tr><td colspan="3">			
@@ -278,8 +232,8 @@
 							</li>
 							
 							<li>
-								<label class="tabTitulo">Editora:</label>
-								<label class="tabDescricao">${livro.editora}</label>
+								<label class="tabTitulo">G&ecirc;nero:</label>
+								<label class="tabDescricao">${livro.categoria.descricao}</label>
 							</li>
 							
 							<li>

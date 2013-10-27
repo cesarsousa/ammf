@@ -26,7 +26,9 @@ public class LivroDao implements LivroRepository {
 	@Override
 	public void cadastrar(Livro livro) {
 		try {
-			session.save(livro);
+			Transaction transaction = session.beginTransaction();
+			session.save(livro);			
+			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}				
@@ -46,7 +48,9 @@ public class LivroDao implements LivroRepository {
 	@Override
 	public void atualizar(Livro livro) {
 		try {
+			Transaction transaction = session.beginTransaction();
 			session.update(livro);
+			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}				
