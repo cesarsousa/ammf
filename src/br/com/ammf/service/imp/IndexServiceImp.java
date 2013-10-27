@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import br.com.ammf.model.Contato;
+import br.com.ammf.model.DadosTerapeuta;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.SessaoCliente;
@@ -52,7 +53,7 @@ public class IndexServiceImp implements IndexService{
 		Texto textoQuiron = textoRepository.getTextoQuiron();
 		if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
 		
-		sessaoCliente.setTerapeuta(terapeuta);
+		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);
 		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoPsicologia));
 		sessaoCliente.setTextoEducacao(criarListaDeParagrafos(textoEducacao));

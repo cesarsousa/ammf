@@ -14,7 +14,7 @@ public class SessaoCliente implements Serializable {
 	
 	private Pessoa pessoa;
 	
-	private Terapeuta terapeuta;
+	private DadosTerapeuta terapeuta;	
 	
 	private Texto textoIndex;
 	
@@ -33,11 +33,11 @@ public class SessaoCliente implements Serializable {
 		this.textoIndex = textoIndex;
 	}
 	
-	public Terapeuta getTerapeuta() {
+	public DadosTerapeuta getTerapeuta() {
 		return terapeuta;
 	}
 	
-	public void setTerapeuta(Terapeuta terapeuta) {
+	public void setTerapeuta(DadosTerapeuta terapeuta) {
 		this.terapeuta = terapeuta;
 	}
 	
@@ -108,4 +108,5 @@ public class SessaoCliente implements Serializable {
 	public boolean isLogado() {
 		return pessoa != null;
 	}
+	
 }

@@ -31,7 +31,8 @@
 			</td>
 			<td class="paddingPadrao">
 			<h2>Alcindo Miguel Martins Filho.</h2>
-			<h3>Psic&oacute;logo, Psicoterapeuta e Psicanalista, Acupunturista e Professor.</h3>						
+			<h3>${sessaoCliente.terapeuta.titulo}</h3>
+			<!-- <h3>Psic&oacute;logo, Psicoterapeuta e Psicanalista, Acupunturista e Professor.</h3> -->						
 			</td>
 		</tr>
 		</table>
@@ -100,47 +101,39 @@
 		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
 		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
 		</ul> -->
+				
+		<c:if test="${not empty sessaoCliente.terapeuta.informacoes}">
+		<c:forEach items="${sessaoCliente.terapeuta.informacoes}" var="informacao">
+		<h3>${informacao}</h3>
+		</c:forEach>
+		</c:if>
 		
+		<c:if test="${not empty sessaoCliente.terapeuta.formacoes}">
+		<c:forEach items="${sessaoCliente.terapeuta.formacoes}" var="formacao">
+		<h4>${formacao}</h4>
+		</c:forEach>
+		</c:if>
 		
-		
-		
-		
-		
-		
-		
-		<h3>${sessaoCliente.terapeuta.informacao}</h3>
-		
-		<h4>${sessaoCliente.terapeuta.formacao}</h4>
-	
+		<c:if test="${not empty sessaoCliente.terapeuta.atuacoes}">
 		<h2 class="descricaoTextoIndex">Áreas de Atua&ccedil;&atilde;o</h2>
-		<p class="azulClaro">${sessaoCliente.terapeuta.atuacao}</p>
-		<!-- <ul class="azulClaro">
-		<li>Psican&aacute;lise</li>
-		<li>Psicoterapia</li>
-		<li>Psicologia Cl&iacute;nica</li>
-		<li>An&aacute;lise S&oacute;cio Cultural</li>
-		<li>Terapias Alternativas</li>
-		<li>Literaturas</li>
-		</ul> -->
+		<ul class="azulClaro">
+		<c:forEach items="${sessaoCliente.terapeuta.atuacoes}" var="atuacao">
+			<li>${atuacao}</li>
+		</c:forEach>
+		</ul>
+		<li>
+		</c:if>
 		
+		<c:if test="${not empty sessaoCliente.terapeuta.tratamentos}">
 		<h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
-		<p class="azulClaro">${sessaoCliente.terapeuta.tratamento}</p>
-		<!-- <ul class="azulClaro">
-		<li>Individual</li>
-		<li>Casais</li>
-		<li>Fam&iacute;lias</li>
-		<li>Da Adolesc&ecirc;ncia &agrave; Terceira idade</li>
-		<li>Coaching Educacional e Profissional</li>
-		<li>Talentos e Criatividade</li>
-		<li>Sexualidade e Afetividade</li>
-		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
-		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
-		</ul> -->
-		
-		<%-- <div align="center">
-			<img id="btFecharQuemSou" src="${imagem}/seta.jpg" class="ponteiro clarear icone100">
-		</div> --%>
-		
+		<ul class="azulClaro">
+		<c:forEach items="${sessaoCliente.terapeuta.tratamentos}" var="tratamento">
+			<li>${tratamento}</li>
+		</c:forEach>
+		</ul>
+		<li>
+		</c:if>
+			
 	</div>	
 </div>
 
