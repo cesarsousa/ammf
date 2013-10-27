@@ -37,8 +37,8 @@ public class IndexServiceImp implements IndexService{
 	@Override
 	public SessaoCliente atualizar(SessaoCliente sessaoCliente) throws Exception {		
 		
-		//Terapeuta terapeuta = terapeutaRepository.get();
-		//if(terapeuta == null) terapeuta = new Terapeuta();
+		Terapeuta terapeuta = terapeutaRepository.get();
+		if(terapeuta == null) terapeuta = new Terapeuta();
 		Texto textoIndex = textoRepository.getTextoIndex();
 		if(textoIndex == null) textoIndex = criarTextoDefault(Local.INDEX);		
 		Texto textoPsicologia = textoRepository.getTextoPsicologia();
@@ -52,7 +52,7 @@ public class IndexServiceImp implements IndexService{
 		Texto textoQuiron = textoRepository.getTextoQuiron();
 		if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
 		
-		//sessaoCliente.setTerapeuta(terapeuta);
+		sessaoCliente.setTerapeuta(terapeuta);
 		sessaoCliente.setTextoIndex(textoIndex);
 		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoPsicologia));
 		sessaoCliente.setTextoEducacao(criarListaDeParagrafos(textoEducacao));

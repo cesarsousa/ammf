@@ -124,11 +124,12 @@ $(document).ready(function() {
 	addRemoveDestaque('#campoTextoArtesOrientais');
 	//$('textarea#campoTextoArtesOrientais').autoResize();	
 	
-	//configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
-	$('#linkEditarTerapeuta').click(function() {
-		alert("Esta opção está em desenvolvimento. Por favor aguarde!");
-	});
 	
+	/*$('#linkEditarTerapeuta').click(function() {
+		alert("Esta opção está em desenvolvimento. Por favor aguarde!");
+	});*/
+	
+	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
 	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');

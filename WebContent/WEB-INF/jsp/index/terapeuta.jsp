@@ -36,7 +36,7 @@
 		</tr>
 		</table>
 		
-		<h3>
+		<!-- <h3>
 		Psic&oacute;logo, com gradua&ccedil;&atilde;o em Ci&ecirc;ncias Sociais e 
 		tamb&eacute;m em Psicologia, e com especializa&ccedil;&otilde;es e forma&ccedil;&otilde;es complementares.			
 		</h3>
@@ -99,7 +99,7 @@
 		<li>Sexualidade e Afetividade</li>
 		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
 		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
-		</ul>
+		</ul> -->
 		
 		
 		
@@ -108,12 +108,12 @@
 		
 		
 		
-		<%-- <h3>${sessaoCliente.terapeuta.informacao}</h3>
+		<h3>${sessaoCliente.terapeuta.informacao}</h3>
 		
 		<h4>${sessaoCliente.terapeuta.formacao}</h4>
 	
 		<h2 class="descricaoTextoIndex">Áreas de Atua&ccedil;&atilde;o</h2>
-		<p class="azulClaro">${sessaoCliente.terapeuta.atuacao}</p> --%>
+		<p class="azulClaro">${sessaoCliente.terapeuta.atuacao}</p>
 		<!-- <ul class="azulClaro">
 		<li>Psican&aacute;lise</li>
 		<li>Psicoterapia</li>
@@ -123,8 +123,8 @@
 		<li>Literaturas</li>
 		</ul> -->
 		
-		<%-- <h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
-		<p class="azulClaro">${sessaoCliente.terapeuta.tratamento}</p> --%>
+		<h2 class="descricaoTextoIndex">Áreas de Tratamento</h2>
+		<p class="azulClaro">${sessaoCliente.terapeuta.tratamento}</p>
 		<!-- <ul class="azulClaro">
 		<li>Individual</li>
 		<li>Casais</li>
