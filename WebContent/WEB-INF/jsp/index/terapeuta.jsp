@@ -121,7 +121,6 @@
 			<li>${atuacao}</li>
 		</c:forEach>
 		</ul>
-		<li>
 		</c:if>
 		
 		<c:if test="${not empty sessaoCliente.terapeuta.tratamentos}">
@@ -131,7 +130,6 @@
 			<li>${tratamento}</li>
 		</c:forEach>
 		</ul>
-		<li>
 		</c:if>
 			
 	</div>	

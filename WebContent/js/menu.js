@@ -113,22 +113,10 @@ $(document).ready(function() {
 	addRemoveDestaque('#edtTratamentoTerapeuta');
 	
 	addRemoveDestaque('#campoTextoPsicologia');
-	//$('textarea#campoTextoPsicologia').autoResize();
-	
 	addRemoveDestaque('#campoTextoEducacao');
-	//$('textarea#campoTextoEducacao').autoResize();
-	
 	addRemoveDestaque('#campoTextoCultura');
-	//$('textarea#campoTextoCultura').autoResize();
-	
 	addRemoveDestaque('#campoTextoArtesOrientais');
-	//$('textarea#campoTextoArtesOrientais').autoResize();	
-	
-	
-	/*$('#linkEditarTerapeuta').click(function() {
-		alert("Esta opção está em desenvolvimento. Por favor aguarde!");
-	});*/
-	
+		
 	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
 	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
@@ -150,6 +138,27 @@ $(document).ready(function() {
 	});
 		
 	// TAMANHO DE FONTE
+	
+	/*$('#tabelaTerapeuta tr td span').click(function(){
+		var idOrigem = this.id;
+		
+		var tamanho = idOrigem.replace("Terapeuta","");
+		
+		var tipo = tamanho.substring(tamanho.length - 1, tamanho.length);
+		
+		var area = tamanho.substring(tamanho.length - 5, tamanho.length - 1);
+		
+		var tamanhoFinal = tamanho.substring(0, tamanho.length - 1);
+		
+		alert("tamanho:"+tamanhoFinal+" tipo:"+tipo+" area:"+area);
+		
+		edtInfoTerapeuta
+		edtFormacaoTerapeuta
+		edtAtuacaoTerapeuta
+		edtTratamentoTerapeuta
+		
+		alterarTamanhoTexto(origem, '#campoFraseIndex');
+	});*/
 	
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){
 		var idOrigem = this.id;

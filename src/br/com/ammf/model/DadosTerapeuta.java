@@ -13,10 +13,10 @@ public class DadosTerapeuta {
 
 	public DadosTerapeuta(Terapeuta terapeuta){
 		titulo = terapeuta.getTitulo();
-		informacoes = obterDados(terapeuta.getInformacao());
-		formacoes = obterDados(terapeuta.getFormacao());
-		atuacoes = obterDados(terapeuta.getAtuacao());
-		tratamentos = obterDados(terapeuta.getTratamento());
+		if(terapeuta.getInformacao() != null) informacoes = obterDados(terapeuta.getInformacao(), ".");
+		if(terapeuta.getFormacao() != null) formacoes = obterDados(terapeuta.getFormacao(), ".");
+		if(terapeuta.getAtuacao() != null) atuacoes = obterDados(terapeuta.getAtuacao(), "");
+		if(terapeuta.getTratamento() != null) tratamentos = obterDados(terapeuta.getTratamento(), "");
 	}
 	
 	public String getTitulo() {
@@ -59,11 +59,11 @@ public class DadosTerapeuta {
 		this.tratamentos = tratamentos;
 	}
 	
-	private List<String> obterDados(String dado) {
+	private List<String> obterDados(String dado, String pontoFinal) {
 		List<String> listagem = new ArrayList<String>();
-		String[] dados = dado.split(".");
+		String[] dados = dado.split("\\.");
 		for(String d : dados){
-			listagem.add(d);
+			listagem.add(d + pontoFinal);
 		}		
 		return listagem;
 	}
