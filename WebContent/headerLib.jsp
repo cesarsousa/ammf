@@ -8,6 +8,8 @@
 <title>QUIRON.psc.br</title>
 
 <link href="${css}/estilo.css" rel="stylesheet" type="text/css" />
+<link href="${css}/style.css" rel="stylesheet" type="text/css" />
+<link href="${css}/style.mod.css" rel="stylesheet" type="text/css" />
 <link href="${css}/table.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
 
@@ -43,6 +45,8 @@
 <script type="text/javascript" src="${javascript}/linkAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/faqCliente.js"></script>
 <script type="text/javascript" src="${javascript}/faqAdmin.js"></script>
+<script type="text/javascript" src="${javascript}/script.js"></script>
+<script type="text/javascript" src="${javascript}/wowslider.js"></script>
 
 </head>
 <body>

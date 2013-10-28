@@ -10,11 +10,20 @@
 
 <div align="center">
 
-	<ul id="carouselArtesOrientais">
+	<div id="wowslider-container1">
+	<div class="ws_images"><ul>
+	<li><img src="${imagem}/artesorientais_foto1.jpg" alt="" title="" id="wows1_0"/></li>
+	<li><img src="${imagem}/artesorientais_foto2.jpg" alt="" title="" id="wows1_1"/></li>
+	<li><img src="${imagem}/artesorientais_foto3.jpg" alt="" title="" id="wows1_2"/></li>
+	</ul>
+	</div>
+	</div>
+
+	<%-- <ul id="carouselArtesOrientais">
 		<li><img src="${imagem}/artesorientais_foto1.jpg"></li>
 		<li><img src="${imagem}/artesorientais_foto2.jpg"></li>
 		<li><img src="${imagem}/artesorientais_foto3.jpg"></li>
-	</ul>	
+	</ul>	 --%>
 
 	<div id="espacador"></div>
 	
