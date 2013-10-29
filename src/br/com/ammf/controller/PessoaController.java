@@ -135,10 +135,10 @@ public class PessoaController {
 	@Get("/pessoa/notificar/{uuid}")
 	public void notificarPessoa(String uuid){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
-		try {
+		try {						
+			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);
 			pessoa.setSituacao(Situacao.INATIVO_NOTIFICADO);
 			pessoaRepository.atualizar(pessoa);
-			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);
 			result.include("msgCadastro", "Notifica&ccedil;&atilde;o com solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o de cadastro reenviado para '<b>" + pessoa.getNome() + "</b>.");
 			result.redirectTo(this).cadastroAdmin();
 		} catch (EmailException e) {

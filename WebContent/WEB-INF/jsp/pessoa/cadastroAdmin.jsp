@@ -237,7 +237,7 @@
 		<h2>Cadastro de Pessoa</h2>    
 		<span class="info azulClaro" >Cadastro de pessoas que ir&atilde;o receber as notifica&ccedil;&otilde;es de email sempre que um texto for cadastro ou alterado. </span>
 								
-		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para <span id="admNomeDoCliente"></span> referente ao cadastro.</h3>
+		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para o cliente referente ao cadastro.</h3>
 		
 		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
 		<br />

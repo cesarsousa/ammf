@@ -88,7 +88,6 @@ $(document).ready(function() {
 	
 	$('#btnCadastrarPessoa, #btConfirmarPessoa, #btNotificarPessoa').click(function(){
 		$('#divAdmMsgCadCliente').slideUp(500);
-		$('#admNomeDoCliente').html($('#pessoaNome').val());	
 		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
 	});
 	
