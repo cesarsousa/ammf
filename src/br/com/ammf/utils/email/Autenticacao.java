@@ -5,17 +5,16 @@ import javax.mail.PasswordAuthentication;
 
 public class Autenticacao extends Authenticator {
 	
-	private final String gmail;
+	private final String email;
 	private final String password;
 	
-
-	public Autenticacao(String cetrans, String senha) {
-		this.gmail = cetrans;
+	public Autenticacao(String email, String senha) {
+		this.email = email;
 		this.password = senha;
 	}
 
 	protected PasswordAuthentication getPasswordAuthentication() {		
-		return new PasswordAuthentication(gmail, password);
+		return new PasswordAuthentication(email, password);
 	}
 
 }

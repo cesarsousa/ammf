@@ -2,7 +2,8 @@ package br.com.ammf.utils;
 
 public class LinksDoSite {
 	
-	private static String DOMINIO = "http://localhost:8080/ammf";
+	//private static String DOMINIO = "http://localhost:8080/ammf";
+	private static String DOMINIO = "http://www.quiron.psc.br";
 	
 	public static final String WEB_SITE = DOMINIO;
 

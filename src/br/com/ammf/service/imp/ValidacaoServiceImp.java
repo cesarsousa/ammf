@@ -187,10 +187,11 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}else if (!ehEmailValido(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve possuir um formato v&aacute;lido");
 			resultado = false;
-		}else if (!ehGmail(usuario.getEmail())){
+		}
+		/*else if (!ehGmail(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve deve ser do Gmail (seu_email@gmail.com)");
 			resultado = false;
-		}
+		}*/
 		
 		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()){
 			result.include("usuarioSenhaBranco", "A senha deve ser informada");
@@ -436,9 +437,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 	}	
 	
-	private boolean ehGmail(String email) {
+	/*private boolean ehGmail(String email) {
 		return email.endsWith("@gmail.com");
-	}
+	}*/
 
 	private boolean ehEmailValido(String email) {
 		return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9._-]+\\.[a-z]{2,4}");

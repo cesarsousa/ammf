@@ -154,6 +154,7 @@
 <form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
 
 <!--  PESSOAS SOLICITADAS -->
+<input id="flagVisualizarPessoas" type="hidden" value="${flagVisualizarPessoas}" />
 <c:if test="${visualizarPessoas}">
 <table id="tabPessoasSolicitadas" class="superFooter bordaLateral">
 	<tr>

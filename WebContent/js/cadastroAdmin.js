@@ -96,6 +96,10 @@ $(document).ready(function() {
 	});
 	
 	//*** LISTAGEM DE PESSOAS SOLICITADAS	
+		
+	if($('#flagVisualizarPessoas').val()){
+		$('#tabPessoasSolicitadas').slideDown(500);
+	}
 	
 	$('#iconPessoasCadastradas').click(function() {
 		$('#formListarPessoasCadastradas').submit();

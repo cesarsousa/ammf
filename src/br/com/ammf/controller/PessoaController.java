@@ -112,6 +112,7 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);		
 		pessoaRepository.remover(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
+		result.include("flagVisualizarPessoas", true);
 		result.redirectTo(this).cadastroAdmin();		
 	}
 	
@@ -123,6 +124,7 @@ public class PessoaController {
 			pessoaRepository.confirmar(pessoa);
 			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);			
 			result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
+			result.include("flagVisualizarPessoas", true);
 			result.redirectTo(this).cadastroAdmin();
 			
 		} catch (EmailException e) {
@@ -140,6 +142,7 @@ public class PessoaController {
 			pessoa.setSituacao(Situacao.INATIVO_NOTIFICADO);
 			pessoaRepository.atualizar(pessoa);
 			result.include("msgCadastro", "Notifica&ccedil;&atilde;o com solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o de cadastro reenviado para '<b>" + pessoa.getNome() + "</b>.");
+			result.include("flagVisualizarPessoas", true);
 			result.redirectTo(this).cadastroAdmin();
 		} catch (EmailException e) {
 			e.printStackTrace();
