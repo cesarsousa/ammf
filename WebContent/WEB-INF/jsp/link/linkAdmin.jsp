@@ -41,10 +41,7 @@
 	</li>
 	<li>
 		<img id="btAddNovoLink" alt="adicionar link" title="adicionar link" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
-	</li>
-	<%-- <li>
-		<img id="btBuscarResenha" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
-	</li> --%>
+	</li>	
 	<li>
 		<img id="btListarLinks" alt="listar todos os links" title="listar todos os links" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li> 	
@@ -56,7 +53,7 @@
  
 <div class="separador"></div>
 
-<!-- ADICIONAR UM NOVo LINK -->
+<!-- ADICIONAR UM NOVO LINK  -->
 
 <input id="flagLinkErroCadastro" type="hidden" value="${flagLinkErroCadastro}" />
 
@@ -96,101 +93,10 @@
 		</td>
 	</tr>
 </table>
-
-<%-- <!-- EDITAR UMA RESENHA -->
-<input id="resenhaEditarCadastro" type="hidden" value="${resenhaEditarCadastro}" >
-<table id="tabEditarResenha" class="cardViewText">		
-	<tr>
-		<td>
-		<div align="right">
-		<input id="btFecharEditarResenha" type="button" value="fechar" class="backVermelho button">
-		</div>
-		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
-		<h2 align="center">Editar Resenha</h2>
-		
-		<form id="formNovaResenha" action="<c:url value="/resenha/atualizar"/>" method="post">				
-			
-			<input type="hidden" name="resenha.uuid" value="${resenha.uuid}"/>
-			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
-			
-			<div id="divIdResenha">				
-			<h3>C&oacute;digo da Resenha:</h3>
-			<input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
-			</div>
-			
-			<div id="msgCadastrarCategoriaResenhaEdt" class="paddindPadrao"></div>
-			
-			<br/>
-			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
-			<br/>			
-			<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
-			<div>
-				<div id="divCadastrarCategoriaResenhaEdt">
-				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
-				<input id="inputCadastrarCategoriaResenhaEdt" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-				<input id="ajaxCadastrarCategoriaResenhaEdt" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
-				<br/>
-				<img id="iconeAguardeCadastrarCategoriaResenhaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-				</div>
-				</div>				
-			
-			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
-			</div>
-			
-			<h3>T&iacute;tulo :</h3>
-			<input id="resenhaTituloEdt" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
-			
-				
-			<h3>Autor :</h3>
-			<input id="resenhaAutorEdt" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
-			
-			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
-				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
-				<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
-				<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
-				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
-				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
-			</p>
-			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
-			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			<br/>
-			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</span>	
-			<p>
-			<input id="btEditarResenha" type="submit" value="atualizar" class="buttonCadastrar">
-			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="button">				
-			</p>
-		</form>			
-		</td>
-	</tr>
-</table> --%>
-
-
-<%-- <!-- EDITAR COM CAMPO  DE BUSCA -->
-<input id="flagBuscarResenhas" type="hidden" value="${flagBuscarResenhas}" />	
-<table id="divResenhaBuscarTexto" class="cardViewText">		
-	<tr>
-		<td valign="middle">
-		<div align="right">
-		<input id="btFecharEdtResenha" type="button" value="fechar" class="backVermelho button">
-		</div>
-		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Buscar Resenha</h2>			
-		
-		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
-		<div align="center">
-			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="fundoLupa w500px bordaPadrao" />
-			<p>
-			<span class="info azulClaro" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
-			</p>
-		</div>	
-		</form>
-		</td>
-	</tr>		
-</table> --%>
 	
 </div> <!-- div center -->
 
-<!-- LISTAR TODOS OS TEXTOS -->
+<!-- LISTAR TODOS OS LINKS -->
 
 <input id="flagListagemLink" type="hidden" value="${flagListagemLink}" />
 

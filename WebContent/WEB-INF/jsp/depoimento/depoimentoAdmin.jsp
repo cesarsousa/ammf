@@ -140,11 +140,11 @@
 			<tbody id="resultBuscaDepoimento">
 				<c:forEach items="${depoimentosSolicitados}" var="depoimento">
 					<tr class="zebrado">
-					<td class="infoTabela">${depoimento.autor}</td>
-					<td class="infoTabela">${depoimento.email}</td>
+					<td class="infoTabelaConteudo">${depoimento.autor}</td>
+					<td class="infoTabelaConteudo">${depoimento.email}</td>
 					<td class="infoTabelaConteudo">${depoimento.conteudo}</td>
-					<td class="infoTabelaData">${depoimento.dataFormatada}</td>
-					<td class="infoTabela ${depoimento.status}">${depoimento.status}</td>
+					<td class="infoTabelaConteudo">${depoimento.dataFormatada}</td>
+					<td class="infoTabelaConteudo ${depoimento.status}">${depoimento.status}</td>
 					<td class="infoTabela" align="center" style="width: 100px">
 						<c:choose>
 							<c:when test="${depoimento.pendente}">

@@ -102,7 +102,7 @@ public class ResenhaController {
 	
 	@Restrito
 	@Get("/resenha/listar")
-	public void listar(){
+	public void listarTodas(){
 		List<Resenha> resenhas = resenhaRepository.listar();		
 		result.include("flagListarResenhas", true);
 		result.include("resenhas", resenhas);
@@ -115,7 +115,7 @@ public class ResenhaController {
 		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
 		resenhaRepository.deletar(resenha);
 		result.include("resenhaMensagemSucesso", "Resenha removida com sucesso");
-		result.redirectTo(this).resenhaAdmin();
+		result.redirectTo(this).listarTodas();
 	}
 	
 	@Restrito

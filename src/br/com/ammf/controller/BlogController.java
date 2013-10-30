@@ -96,8 +96,8 @@ public class BlogController {
 	@Get("/blog/remover/{uuid}")
 	public void removerTexto(String uuid){
 		textoRepository.deletar(uuid);		
-		result.include("blogMensagemSucesso", "O texto foi removido com sucesso.");
-		result.redirectTo(this).blogAdmin();		
+		result.include("blogMensagemSucesso", "O texto foi removido com sucesso.");		
+		result.redirectTo(this).listarTodos();		
 	}
 	
 	@Restrito
