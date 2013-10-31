@@ -752,3 +752,7 @@
 <div id="footer">
 <%@ include file="/footerADM.jsp" %>
 </div>
+
+<div id="notificacaoSalvaAutomativa" class='ut-sticky hidden'>
+<p>Salvando o texto...</p>
+</div> 

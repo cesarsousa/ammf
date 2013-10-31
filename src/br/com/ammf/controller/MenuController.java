@@ -1,5 +1,6 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Local;
@@ -78,7 +79,17 @@ public class MenuController {
 			result.include("mensagem", "Texto sobre Quiron atualizado com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Quiron.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
-	}	
+	}
+	
+	@Restrito
+	@Post("/menu/quiron/post")
+	public void salvaAutomaticaTextoquiron(String texto){
+		Texto textoSessao = sessaoUsuario.getTextoQuiron();
+		textoSessao.setConteudo(texto);
+		textoRepository.atualizarTextoQuiron(textoSessao);
+		sessaoUsuario.setTextoQuiron(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
 	
 	@Restrito
 	@Post("/menu/psicologia/atualizar")
@@ -93,6 +104,13 @@ public class MenuController {
 			result.include("mensagem", "Texto sobre psicologia atualizado com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Psicologia.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}		
+	}
+	
+	@Restrito
+	@Post("/menu/psicologia/post")
+	public void salvaAutomaticaTextoPsicologia(String texto){
+		
+		result.use(json()).withoutRoot().from(true).serialize();
 	}
 	
 	@Restrito

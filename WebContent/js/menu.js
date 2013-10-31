@@ -1,4 +1,19 @@
 
+function ajaxSalvaAutomatica(idElemento, url){	
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + url,
+		data:{"texto" : $(idElemento).val()},
+		success : function(json){			
+			$('#notificacaoSalvaAutomativa').show().fadeOut(5000);
+		},
+		error : function(){
+			alert("Atencao! Nao foi possivel realizar a salva automatica, Utilize o botao atualizar para salvar o texto.");			
+		}
+	});	
+}
+
+
 function hidenCamposEdicaoPrincipal(){
 	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();
 }
@@ -42,16 +57,26 @@ $(document).ready(function() {
 		$('#conteudoIndex').slideUp(1000);		
 	});
 	
+	var timer;
+	var caracteresDigitado = 0;
 	$('#conteudoCampoQuiron').hide();
 	$('#btAbrirConteudoQuiron').click(function(){
 		$('#conteudoCampoQuiron').slideDown(1000);
 		$('#campoConteudoQuiron').keyup(function() {		
-			limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);		  
+			limitarCaracteres('#campoConteudoQuiron', '#contadorCaracterQuiron', 3000);
+					
+			caracteresDigitado++;
+			if(caracteresDigitado == 100){				
+				caracteresDigitado = 0;
+				ajaxSalvaAutomatica("#campoConteudoQuiron", "/menu/quiron/post");
+			}			
 		});	
 	});
 	$('#btFecharConteudoQuiron').click(function(){
 		$('#conteudoCampoQuiron').slideUp(1000);		
 	});
+	
+	
 	
 	$('#btAtualizarTextoIndex, #btAtualizarTextoQuiron, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
 		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		

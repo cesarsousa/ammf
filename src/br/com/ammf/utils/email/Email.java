@@ -20,35 +20,27 @@ import br.com.ammf.exception.EmailException;
 
 public class Email {	
 	
-	/**
+	/*
 	 * flag de des/ativar envio de email.
 	 */
 	private static boolean emailAtivado = true;
+	
 	/*
 	 * 0 = SMTP servidor Integrator
 	 * 1 = SMTP servidor Google
 	 */
-	private static int SMTP = 0;
-	
-	/*private static Properties props = null;
-	private static Session session = null;*/
-	
-	/*static{
-		props = System.getProperties();
-		props.put("mail.smtp.host", "localhost");
-		props.put("mail.smtp.port", "25");
-		props.put("mail.smtp.auth", "true");
-		session = Session.getInstance(props,
-				new Autenticacao("site@quiron.psc.br","270879cm")
-		);
-	}	*/
-	
+	private static int configurarSmtp(String emailSender) {
+		if(emailSender.endsWith("@gmail.com")) return 1; return 0;		
+	}
+		
 	public static void enviarEmail(
 			String emailSender, 
 			String emailSenderPassword, 
 			String emailReceiver, 
 			String assunto, 
-			String mensagem) throws EmailException {	
+			String mensagem) throws EmailException {
+		
+		int SMTP = configurarSmtp(emailSender);
 		
 		if (emailAtivado) {
 			
@@ -132,5 +124,5 @@ public class Email {
 				throw new EmailException("SMTP nao definido");
 			}						
 		}
-	}	
+	}		
 }
