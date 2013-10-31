@@ -51,6 +51,8 @@ public interface TextoRepository {
 
 	public void travarTextoQuiron(Texto textoSessao);
 
+	public Texto getTextoQuironCliente();
+
 	
 
 }

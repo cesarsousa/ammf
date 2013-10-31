@@ -130,28 +130,38 @@ ul.tabs
 
 
 /* INICIO Efeitos barra notificação salva automatica */
-.ut-sticky
-{
-
-color: white;
-background-color: green;
-text-align: center;
-margin:0 auto;
-border-top: 1px solid #fff;
-height:28px;
-font-size:13px;
-position:fixed;
-bottom:0;
-z-index:999;
-width:100%;
-border-top-left-radius:20px;
-border-top-right-radius:20px;
-display:block;
-font-weight: bold;
-font-family: arial,&quot;Helvetica&quot;;
-font-color:#fff;
+.ut-sticky {
+	text-align: center;
+	margin:0 auto;
+	border-top: 1px solid #fff;
+	height:28px;
+	font-size:13px;
+	position:fixed;
+	bottom:0;
+	z-index:999;
+	width:100%;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	display:block;
+	font-weight: bold;
+	font-family: arial,&quot;Helvetica&quot;;
 }
-.ut-sticky p{line-height:5px; font-size:13px; text-align:center; width:95%; float:left;}
+.ut-sticky p{
+	line-height:5px; 
+	font-size:13px; 
+	text-align:center; 
+	width:95%; 
+	float:left;
+}
+.ut-sticky span{
+	color: white;
+	background: green;
+	font-size:15px; 
+	text-align:center; 
+	width:50%;
+	padding: 10px; 
+	
+}
 /* FIM Efeitos barra notificação salva automatica */
 
 body {

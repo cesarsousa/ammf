@@ -134,6 +134,18 @@ public class TextoDao implements TextoRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+	
+	@Override
+	public Texto getTextoQuironCliente() {
+		try {
+			Criteria criteria = session.createCriteria(Texto.class);
+			criteria.add(Restrictions.eq("local", Local.QUIRON));
+			criteria.add(Restrictions.eq("confirmado", true));
+			return (Texto) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
 
 	@Override
 	public void atualizarTextoIndex(Texto texto) {
@@ -275,6 +287,8 @@ public class TextoDao implements TextoRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
+	
 
 	
 

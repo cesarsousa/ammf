@@ -12,9 +12,6 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class IndexController {
 	
-	// TODO terapeuta no banco de dados
-	
-	
 	Logger logger = Logger.getLogger(IndexController.class);
 	
 	private IndexService indexService;

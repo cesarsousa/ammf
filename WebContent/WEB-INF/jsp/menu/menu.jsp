@@ -145,14 +145,21 @@
 					</tr>				
 				</table>
 				
-				<P>
-				<label class="labelForm2">
-				<input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
-				</P>
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
+						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
+				
 				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
 								
 				<p>
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="buttonCadastrar" >			
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="buttonCadastrar" >			
 				</p>
 			</form>			
 			</div>

@@ -6,7 +6,7 @@
 </div>	
 
 <div id="notificacaoSalvaAutomativa" class='ut-sticky hidden'>
-<p>Salvando o texto...</p>
+<p><span>Salvando o texto...</span></p>
 </div>
 </body>
 </html>

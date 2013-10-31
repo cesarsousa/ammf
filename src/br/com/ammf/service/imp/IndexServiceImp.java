@@ -50,8 +50,8 @@ public class IndexServiceImp implements IndexService{
 		if(textoCultura == null) textoCultura = criarTextoDefault(Local.CULTURA);
 		Texto textoArtesOrientais = textoRepository.getTextoArtesOrientais();
 		if(textoArtesOrientais == null) textoArtesOrientais = criarTextoDefault(Local.ARTESORIENTAIS);		
-		Texto textoQuiron = textoRepository.getTextoQuiron();
-		if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
+		Texto textoQuiron = textoRepository.getTextoQuironCliente();
+		//if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
 		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);
@@ -112,7 +112,7 @@ public class IndexServiceImp implements IndexService{
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
 		if(texto == null){
 			Paragrafo paragrafo = new Paragrafo();
-			paragrafo.setTrechoTexto("Texto nao disponibilizado.");
+			paragrafo.setTrechoTexto("Este texto está sendo atualizado... Logo estará disponível.");
 			paragrafos.add(paragrafo);
 		}else{
 			String textoDividido[] = texto.getConteudo().split("\n");

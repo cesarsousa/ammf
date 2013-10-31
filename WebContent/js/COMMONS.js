@@ -51,6 +51,40 @@ jQuery.fn.smoothScroll = function(){
 		}
 	}
 };
+
+function ajaxSalvaAutomatica(idElemento, url){	
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + url,
+		data:{"texto" : $(idElemento).val()},
+		success : function(json){			
+			$('#notificacaoSalvaAutomativa').show().fadeOut(5000);
+		},
+		error : function(){
+			alert("Atencão! Não foi possível realizar a salva automática do texto, Utilize o botão atualizar para salvar o texto.");			
+		}
+	});	
+}
+
+function travarTextoParaEdicao(elemento){
+	var jqueryId = "#" + elemento.id;
+	if($(jqueryId).is(":checked")){
+		var origem = elemento.id.replace("BtTravarTexto", "");
+		var url = "/menu/" + origem + "/travar";
+		$.ajax({
+			type : 'POST',
+			url : $('#contexto').val() + url,
+			success : function(){
+				$(jqueryId).attr("disabled", "disabled");
+			},
+			error : function(){
+				$(jqueryId).removeAttr("ckecked");
+				alert("Atencao! Nao foi possivel realizar a travar do texto.");				
+			}
+		});	
+	}	
+}
+
 // comando para desabilitar link durante envio de email
 // $("a").click(function() { return false; });
 function ajaxErroPadrao() {
