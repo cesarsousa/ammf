@@ -13,6 +13,22 @@ function ajaxSalvaAutomatica(idElemento, url){
 	});	
 }
 
+function travarTextoParaEdicao(elemento){
+	var jqueryId = "#" + elemento.id;
+	if($(jqueryId).is(":checked")){
+		var origem = elemento.id.replace("BtTravarTexto", "");
+		var url = "/menu/" + origem + "/travar";
+		$.ajax({
+			type : 'POST',
+			url : $('#contexto').val() + url,			
+			error : function(){
+				$(jqueryId).removeAttr("ckecked");
+				alert("Atencao! Nao foi possivel realizar a travar do texto.");				
+			}
+		});	
+	}	
+}
+
 
 function hidenCamposEdicaoPrincipal(){
 	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();

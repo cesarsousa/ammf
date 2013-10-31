@@ -145,6 +145,10 @@
 					</tr>				
 				</table>
 				
+				<P>
+				<label class="labelForm2">
+				<input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+				</P>
 				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
 								
 				<p>

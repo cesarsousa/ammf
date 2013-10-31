@@ -92,6 +92,16 @@ public class MenuController {
 	}
 	
 	@Restrito
+	@Post("/menu/quiron/travar")
+	public void travarTextoquiron(){
+		Texto textoSessao = sessaoUsuario.getTextoQuiron();
+		textoSessao.setConfirmado(false);
+		textoRepository.travarTextoQuiron(textoSessao);
+		sessaoUsuario.setTextoQuiron(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
 	@Post("/menu/psicologia/atualizar")
 	public void atualizarTextoPsicologia(Texto texto){				
 		try {

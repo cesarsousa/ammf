@@ -196,11 +196,23 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoQuiron = getTextoQuiron();
 			textoQuiron.setConteudo(texto.getConteudo());
+			textoQuiron.setConfirmado(true);
 			session.update(textoQuiron);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+	
+	@Override
+	public void travarTextoQuiron(Texto texto) {
+		try {			
+			session.update(texto);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
+	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -263,6 +275,8 @@ public class TextoDao implements TextoRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
+	
 
 	
 }
