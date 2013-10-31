@@ -107,14 +107,19 @@
 		<input id="btFecharDepoimentosSolicitados" type="button" value="fechar" class="backVermelho button">
 	</div>
 	
+	
+	
 	<c:if test="${isDepoimentosCadastrados}">
 		<img src="${imagem}/iconeComentarioTodos.png" class="icone50 esquerda">
+		<c:set var="destino" value="ALL"></c:set>
 	</c:if>
 	<c:if test="${isDepoimentosConfirmados}">
 		<img src="${imagem}/iconeComentarioConfirmados.png" class="icone50 esquerda">
+		<c:set var="destino" value="OK"></c:set>
 	</c:if>
 	<c:if test="${isDepoimentosPendentes}">
 		<img src="${imagem}/iconeComentarioPendentes.png" class="icone50 esquerda">
+		<c:set var="destino" value="NOK"></c:set>
 	</c:if>
 		
 	<div align="center">
@@ -147,14 +152,14 @@
 					<td class="infoTabelaConteudo ${depoimento.status}">${depoimento.status}</td>
 					<td class="infoTabela" align="center" style="width: 100px">
 						<c:choose>
-							<c:when test="${depoimento.pendente}">
-							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
+							<c:when test="${depoimento.pendente}"> 
+							<a href="<c:url value="/menu/depoimentos/confirmar/${depoimento.uuid}/${destino}" />"><img class="icone" alt="aceitar depoimento" title="aceitar depoimento" src="${imagem}/icone_confirmar.png"></a>
 							</c:when>
 							<c:otherwise>
 							<img class="icone" alt="confirmado" title="confirmado" src="${imagem}/iconeConfirmarDisabled.png">
 							</c:otherwise>
 						</c:choose>
-						<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
+						<a href="<c:url value="/menu/depoimentos/excluir/${depoimento.uuid}/${destino}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir depoimento" title="excluir depoimento" src="${imagem}/icone_excluir.png"></a>
 					</td>
 					</tr>
 				</c:forEach>

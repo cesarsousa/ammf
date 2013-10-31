@@ -57,19 +57,35 @@ public class DepoimentoController {
 	}	
 	
 	@Restrito
-	@Get("/menu/depoimentos/confirmar/{uuid}")
-	public void confirmarDepoimento(String uuid){
+	@Get("/menu/depoimentos/confirmar/{uuid}/{destino}")
+	public void confirmarDepoimento(String uuid, String destino){
 		depoimentoRepository.confirmar(uuid);		
 		result.include("msgDepoimento", "Depoimento confirmado com sucesso");
-		result.redirectTo(this).depoimentoAdmin();
+		if(destino.equals("OK")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosConfirmados();
+		}else if(destino.equals("NOK")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosPendentesConfirmacao();
+		}else if(destino.equals("ALL")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosCadastrados();
+		}else{
+			result.redirectTo(this).depoimentoAdmin();
+		}		
 	}
 	
 	@Restrito
-	@Get("/menu/depoimentos/excluir/{uuid}")
-	public void excluirDepoimento(String uuid){
+	@Get("/menu/depoimentos/excluir/{uuid}/{destino}")
+	public void excluirDepoimento(String uuid, String destino){
 		depoimentoRepository.deletar(uuid);
 		result.include("msgDepoimento", "Depoimento exclu&iacute;do com sucesso");
-		result.redirectTo(this).depoimentoAdmin();
+		if(destino.equals("OK")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosConfirmados();
+		}else if(destino.equals("NOK")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosPendentesConfirmacao();
+		}else if(destino.equals("ALL")){
+			result.redirectTo(this).visualizarTodosOsDepoimentosCadastrados();
+		}else{
+			result.redirectTo(this).depoimentoAdmin();
+		}	
 	}
 	
 	@Restrito

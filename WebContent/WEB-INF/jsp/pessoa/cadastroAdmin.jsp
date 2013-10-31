@@ -165,12 +165,15 @@
 		
 		<c:if test="${isPessoasCadastradas}">
 			<img src="${imagem}/usuario_cinza.png" width="50" height="50" class="esquerda">
+			<c:set var="destino" value="ALL"></c:set>
 		</c:if>
 		<c:if test="${isPessoasConfirmadas}">
 			<img src="${imagem}/usuario_verde.png" width="50" height="50" class="esquerda">
+			<c:set var="destino" value="OK"></c:set>
 		</c:if>
 		<c:if test="${isPessoasPendentes}">
 			<img src="${imagem}/usuario_vermelho.png" width="50" height="50" class="esquerda">
+			<c:set var="destino" value="NOK"></c:set>
 		</c:if>	
 		
 		<span class="titulo ${cssCorFonte}">${tituloPessoasSolicitadas}</span>
@@ -203,18 +206,18 @@
 							<td class="infoTabela">${pessoa.situacao}</td>
 							<td>
 								<c:if test="${pessoa.inativa}">							
-									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}" />">
+									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
 										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
 									</a>
 								</c:if>
 																
 								<c:if test="${pessoa.pendente}">
-									<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}" />">
+									<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
 										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
 									</a>
 								</c:if>
 								
-								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}" />">
+								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}/${destino}" />">
 									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir esta pessoa" title="excluir esta pessoa">
 								</a>								
 							</td>

@@ -107,25 +107,43 @@ public class PessoaController {
 	}
 	
 	@Restrito
-	@Get("/pessoa/remover/{uuid}")
-	public void removerPessoa(String uuid){
+	@Get("/pessoa/remover/{uuid}/{destino}")
+	public void removerPessoa(String uuid, String destino){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);		
 		pessoaRepository.remover(pessoa);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
 		result.include("flagVisualizarPessoas", true);
-		result.redirectTo(this).cadastroAdmin();		
+		
+		if(destino.equals("OK")){
+			result.redirectTo(this).listarPessoasConfirmadas();
+		}else if(destino.equals("NOK")){
+			result.redirectTo(this).listarPessoasPendentes();
+		}else if(destino.equals("ALL")){
+			result.redirectTo(this).listarPessoas();
+		}else{
+			result.redirectTo(this).cadastroAdmin();
+		}
 	}
 	
 	@Restrito
-	@Get("/pessoa/confirmar/{uuid}")
-	public void confirmarPessoa(String uuid){
+	@Get("/pessoa/confirmar/{uuid}/{destino}")
+	public void confirmarPessoa(String uuid, String destino){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		try {					
 			pessoaRepository.confirmar(pessoa);
 			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);			
 			result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' confirmado com sucesso.");
 			result.include("flagVisualizarPessoas", true);
-			result.redirectTo(this).cadastroAdmin();
+
+			if(destino.equals("OK")){
+				result.redirectTo(this).listarPessoasConfirmadas();
+			}else if(destino.equals("NOK")){
+				result.redirectTo(this).listarPessoasPendentes();
+			}else if(destino.equals("ALL")){
+				result.redirectTo(this).listarPessoas();
+			}else{
+				result.redirectTo(this).cadastroAdmin();
+			}	
 			
 		} catch (EmailException e) {
 			e.printStackTrace();
@@ -134,8 +152,8 @@ public class PessoaController {
 	}
 	
 	@Restrito
-	@Get("/pessoa/notificar/{uuid}")
-	public void notificarPessoa(String uuid){
+	@Get("/pessoa/notificar/{uuid}/{destino}")
+	public void notificarPessoa(String uuid, String destino){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		try {						
 			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);
@@ -143,7 +161,16 @@ public class PessoaController {
 			pessoaRepository.atualizar(pessoa);
 			result.include("msgCadastro", "Notifica&ccedil;&atilde;o com solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o de cadastro reenviado para '<b>" + pessoa.getNome() + "</b>.");
 			result.include("flagVisualizarPessoas", true);
-			result.redirectTo(this).cadastroAdmin();
+			
+			if(destino.equals("OK")){
+				result.redirectTo(this).listarPessoasConfirmadas();
+			}else if(destino.equals("NOK")){
+				result.redirectTo(this).listarPessoasPendentes();
+			}else if(destino.equals("ALL")){
+				result.redirectTo(this).listarPessoas();
+			}else{
+				result.redirectTo(this).cadastroAdmin();
+			}	
 		} catch (EmailException e) {
 			e.printStackTrace();
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel reenviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");

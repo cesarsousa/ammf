@@ -18,9 +18,7 @@ import javax.mail.internet.MimeMultipart;
 
 import br.com.ammf.exception.EmailException;
 
-public class Email {
-	
-	
+public class Email {	
 	
 	/**
 	 * flag de des/ativar envio de email.
