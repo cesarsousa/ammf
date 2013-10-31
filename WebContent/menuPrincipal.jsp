@@ -19,7 +19,7 @@
 					<img id="imglinkHome" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/icone_home.png"/>
 					<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
-					<img id="imglinkTerapeuta" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.jpg"/>
+					<img id="imglinkTerapeuta" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.png"/>
 					<a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a></li>
 				<li>
 					<img id="imglinkPsicologia" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/>

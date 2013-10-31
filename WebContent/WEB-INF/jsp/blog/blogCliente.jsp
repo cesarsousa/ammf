@@ -61,7 +61,7 @@
 				<td class="infoTabela">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,100)}"/>...</td>
-				<td class="infoTabela">${texto.dataFormatada}</td>
+				<td class="infoTabela">${texto.dataFormatadaSimples}</td>
 			</tr>			
 		</c:forEach>		
 	</tbody>

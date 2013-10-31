@@ -327,7 +327,7 @@
 		<tr>
 			<td>
 			<input id="btFecharEditarTerapeuta" type="button" class="backVermelho button direita" value="fechar">
-			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.jpg"/>			
+			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.png"/>			
 			<label class="tituloEdicao"> O Terapeuta </label>
 			<h3>Altera&ccedil;&atilde;o das informa&ccedil;&otilde;es que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre o terapeuta.</h3>
 			</td>

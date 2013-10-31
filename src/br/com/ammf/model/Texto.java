@@ -112,5 +112,9 @@ public class Texto implements Serializable{
 	public String getDataFormatada(){
 		return DataUtils.getFullString(postagem);
 	}
+	
+	public String getDataFormatadaSimples(){
+		return DataUtils.getString(postagem, "dd/MM/yyyy");
+	}
 		
 }

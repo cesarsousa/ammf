@@ -13,7 +13,7 @@
 
 	<div class="areaFormatacao">	
 		<div class="esquerda">
-			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.jpg"/>
+			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.png"/>
 		</div>
 		<span style="float: left; font-size: xx-large; padding-top: 15px;">O Terapeuta</span>
 	</div>
