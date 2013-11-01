@@ -199,11 +199,11 @@
 					<c:forEach items="${pessoasSolicitadas}" var="pessoa">
 						<tr class="zebrado">
 							<td class="infoTabela" style="width: 90px;">${pessoa.id}</td>
-							<td class="infoTabela">${pessoa.nome}</td>
-							<td class="infoTabela">${pessoa.email}</td>
-							<td class="infoTabela">${pessoa.dataFormatada}</td>
-							<td class="infoTabela ${pessoa.status}">${pessoa.status}</td>
-							<td class="infoTabela">${pessoa.situacao}</td>
+							<td class="infoTabelaConteudo">${pessoa.nome}</td>
+							<td class="infoTabelaConteudo">${pessoa.email}</td>
+							<td class="infoTabelaConteudo">${pessoa.dataFormatada}</td>
+							<td class="infoTabelaConteudo ${pessoa.status}">${pessoa.status}</td>
+							<td class="infoTabelaConteudo ${pessoa.situacao}">${pessoa.situacao}</td>
 							<td>
 								<c:if test="${pessoa.inativa}">							
 									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">

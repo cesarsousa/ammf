@@ -148,10 +148,10 @@
 				<p>				
 				<c:choose>
 					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
-						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
 					</c:when>
 					<c:otherwise>
-						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" name="aceiteCadastro" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
 					</c:otherwise>
 				</c:choose>
 				</p>
@@ -506,11 +506,22 @@
 					<td><span id="sizeXxLargeAreaPsicologia" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					</tr>				
 				</table>			
+				
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoPsicologia.confirmado}">
+						<label class="labelForm2"><input id="psicologiaBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
 													
 				<textarea id="campoTextoPsicologia" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
 				<p>
-				<input id="brAlterarTxtPsicologia" type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="brAlterarTxtPsicologia" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -552,11 +563,22 @@
 					<td><span id="sizeXxLargeAreaEducacao" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					</tr>				
 				</table>
+				
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoEducacao.confirmado}">
+						<label class="labelForm2"><input id="educacaoBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
 								
 				<textarea id="campoTextoEducacao" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoEducacao.conteudo}</textarea>
 				
 				<p>
-				<input id="btAlterarTxtEducacao" type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarTxtEducacao" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -599,10 +621,21 @@
 					</tr>				
 				</table>
 				
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoCultura.confirmado}">
+						<label class="labelForm2"><input id="culturaBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
+				
 				<textarea id="campoTextoCultura" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoCultura.conteudo}</textarea>
 				
 				<p>
-				<input id="btAlterarTxtCultura" type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarTxtCultura" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>
@@ -650,10 +683,21 @@
 					</tr>				
 				</table>
 				
-				<textarea id="campoTextoArtesOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoArtesOrientais.confirmado}">
+						<label class="labelForm2"><input id="artesorientaisBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
+				
+				<textarea id="campoTextoOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
 				
 				<p>
-				<input id="btAlterarArtOriental" type="submit" value="atualizar" class="buttonCadastrar">
+				<input id="btAlterarArtOriental" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
 				</p>
 			</form>			
 			</div>

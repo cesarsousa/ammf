@@ -92,6 +92,18 @@ public class TextoDao implements TextoRepository{
 	}
 	
 	@Override
+	public Texto getTextoCliente(Local local) {
+		try {
+			Criteria criteria = session.createCriteria(Texto.class);
+			criteria.add(Restrictions.eq("local", local));
+			criteria.add(Restrictions.eq("confirmado", true));
+			return (Texto) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+	
+	@Override
 	public Texto getTextoEducacao() {
 		try {
 			Criteria criteria = session.createCriteria(Texto.class);
@@ -133,19 +145,7 @@ public class TextoDao implements TextoRepository{
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
-	}
-	
-	@Override
-	public Texto getTextoQuironCliente() {
-		try {
-			Criteria criteria = session.createCriteria(Texto.class);
-			criteria.add(Restrictions.eq("local", Local.QUIRON));
-			criteria.add(Restrictions.eq("confirmado", true));
-			return (Texto) criteria.uniqueResult();
-		} catch (Exception e) {
-			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-	}
+	}	
 
 	@Override
 	public void atualizarTextoIndex(Texto texto) {
@@ -164,6 +164,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoPsicologia = getTextoPsicologia();
 			textoPsicologia.setConteudo(texto.getConteudo());
+			textoPsicologia.setConfirmado(true);
 			session.update(textoPsicologia);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -175,6 +176,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoEducacao = getTextoEducacao();
 			textoEducacao.setConteudo(texto.getConteudo());
+			textoEducacao.setConfirmado(true);
 			session.update(textoEducacao);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -186,6 +188,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoCultura = getTextoCultura();
 			textoCultura.setConteudo(texto.getConteudo());
+			textoCultura.setConfirmado(true);
 			session.update(textoCultura);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -197,6 +200,7 @@ public class TextoDao implements TextoRepository{
 		try {
 			Texto textoArtesOrientais = getTextoArtesOrientais();
 			textoArtesOrientais.setConteudo(texto.getConteudo());
+			textoArtesOrientais.setConfirmado(true);
 			session.update(textoArtesOrientais);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -213,18 +217,7 @@ public class TextoDao implements TextoRepository{
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
-	}
-	
-	@Override
-	public void travarTextoQuiron(Texto texto) {
-		try {			
-			session.update(texto);
-		} catch (Exception e) {
-			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
-	}
-	
+	}	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -287,10 +280,5 @@ public class TextoDao implements TextoRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
-
-	
-
-	
-
 	
 }

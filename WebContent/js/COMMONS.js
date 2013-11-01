@@ -78,7 +78,6 @@ function travarTextoParaEdicao(elemento){
 				$(jqueryId).attr("disabled", "disabled");
 			},
 			error : function(){
-				$(jqueryId).removeAttr("ckecked");
 				alert("Atencao! Nao foi possivel realizar a travar do texto.");				
 			}
 		});	

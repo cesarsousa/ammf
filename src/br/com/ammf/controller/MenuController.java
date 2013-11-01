@@ -93,10 +93,10 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/quiron/travar")
-	public void travarTextoquiron(){
+	public void travarTextoQuiron(){
 		Texto textoSessao = sessaoUsuario.getTextoQuiron();
 		textoSessao.setConfirmado(false);
-		textoRepository.travarTextoQuiron(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoQuiron(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
@@ -117,9 +117,22 @@ public class MenuController {
 	}
 	
 	@Restrito
-	@Post("/menu/psicologia/post")
+	@Post("/menu/Psicologia/post")
 	public void salvaAutomaticaTextoPsicologia(String texto){
-		
+		Texto textoSessao = sessaoUsuario.getTextoPsicologia();
+		textoSessao.setConteudo(texto);
+		textoRepository.atualizarTextoPsicologia(textoSessao);
+		sessaoUsuario.setTextoPsicologia(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/menu/psicologia/travar")
+	public void travarTextoPsicologia(){
+		Texto textoSessao = sessaoUsuario.getTextoPsicologia();
+		textoSessao.setConfirmado(false);		
+		textoRepository.atualizar(textoSessao);
+		sessaoUsuario.setTextoPsicologia(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
 	
@@ -139,6 +152,26 @@ public class MenuController {
 	}
 	
 	@Restrito
+	@Post("/menu/Educacao/post")
+	public void salvaAutomaticaTextoEducacao(String texto){
+		Texto textoSessao = sessaoUsuario.getTextoEducacao();
+		textoSessao.setConteudo(texto);
+		textoRepository.atualizarTextoEducacao(textoSessao);
+		sessaoUsuario.setTextoEducacao(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/menu/educacao/travar")
+	public void travarTextoEducacao(){
+		Texto textoSessao = sessaoUsuario.getTextoEducacao();
+		textoSessao.setConfirmado(false);		
+		textoRepository.atualizar(textoSessao);
+		sessaoUsuario.setTextoEducacao(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
 	@Post("/menu/cultura/atualizar")
 	public void atualizarTextoCultura(Texto texto){		
 		try {
@@ -154,6 +187,26 @@ public class MenuController {
 	}
 	
 	@Restrito
+	@Post("/menu/Cultura/post")
+	public void salvaAutomaticaTextoCultura(String texto){
+		Texto textoSessao = sessaoUsuario.getTextoCultura();
+		textoSessao.setConteudo(texto);
+		textoRepository.atualizarTextoCultura(textoSessao);
+		sessaoUsuario.setTextoCultura(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/menu/cultura/travar")
+	public void travarTextoCultura(){
+		Texto textoSessao = sessaoUsuario.getTextoCultura();
+		textoSessao.setConfirmado(false);		
+		textoRepository.atualizar(textoSessao);
+		sessaoUsuario.setTextoCultura(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
 	@Post("/menu/artesorientais/atualizar")
 	public void atualizarTextoArtesOrientais(Texto texto){		
 		try {
@@ -166,6 +219,26 @@ public class MenuController {
 			result.include("mensagem", "Texto sobre artes orientais atualizado com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Artes Orientais.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}		
+	}
+	
+	@Restrito
+	@Post("/menu/Orientais/post")
+	public void salvaAutomaticaTextoArtesOrientais(String texto){
+		Texto textoSessao = sessaoUsuario.getTextoArtesOrientais();
+		textoSessao.setConteudo(texto);
+		textoRepository.atualizarTextoArtesOrientais(textoSessao);
+		sessaoUsuario.setTextoArtesOrientais(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/menu/artesorientais/travar")
+	public void travarTextoArtesOrientais(){
+		Texto textoSessao = sessaoUsuario.getTextoArtesOrientais();
+		textoSessao.setConfirmado(false);		
+		textoRepository.atualizar(textoSessao);
+		sessaoUsuario.setTextoArtesOrientais(textoSessao);		
+		result.use(json()).withoutRoot().from(true).serialize();
 	}
 
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {

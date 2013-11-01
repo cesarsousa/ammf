@@ -49,10 +49,7 @@ public interface TextoRepository {
 
 	public Texto obterUltimaPublicacao();
 
-	public void travarTextoQuiron(Texto textoSessao);
-
-	public Texto getTextoQuironCliente();
-
+	public Texto getTextoCliente(Local local);
 	
 
 }

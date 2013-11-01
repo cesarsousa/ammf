@@ -1525,6 +1525,14 @@ table.tabLivro thead  tr td{
 	color: red;
 }
 
+.ATIVO {
+	color: green;
+}
+
+.INATIVO {
+	color: red;
+}
+
 .Publica {
 	color: green;
 }

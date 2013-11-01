@@ -1,9 +1,7 @@
 package br.com.ammf.service.imp;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import br.com.ammf.model.Contato;
 import br.com.ammf.model.DadosTerapeuta;
@@ -41,17 +39,11 @@ public class IndexServiceImp implements IndexService{
 		Terapeuta terapeuta = terapeutaRepository.get();
 		if(terapeuta == null) terapeuta = new Terapeuta();
 		Texto textoIndex = textoRepository.getTextoIndex();
-		if(textoIndex == null) textoIndex = criarTextoDefault(Local.INDEX);		
-		Texto textoPsicologia = textoRepository.getTextoPsicologia();
-		if(textoPsicologia == null) textoPsicologia = criarTextoDefault(Local.PSICOLOGIA);
-		Texto textoEducacao = textoRepository.getTextoEducacao();
-		if(textoEducacao == null) textoEducacao = criarTextoDefault(Local.EDUCACAO);
-		Texto textoCultura = textoRepository.getTextoCultura();
-		if(textoCultura == null) textoCultura = criarTextoDefault(Local.CULTURA);
-		Texto textoArtesOrientais = textoRepository.getTextoArtesOrientais();
-		if(textoArtesOrientais == null) textoArtesOrientais = criarTextoDefault(Local.ARTESORIENTAIS);		
-		Texto textoQuiron = textoRepository.getTextoQuironCliente();
-		//if(textoQuiron == null ) textoQuiron = criarTextoDefault(Local.QUIRON);
+		Texto textoPsicologia = textoRepository.getTextoCliente(Local.PSICOLOGIA);
+		Texto textoEducacao = textoRepository.getTextoCliente(Local.EDUCACAO);
+		Texto textoCultura = textoRepository.getTextoCliente(Local.CULTURA);
+		Texto textoArtesOrientais = textoRepository.getTextoCliente(Local.ARTESORIENTAIS);
+		Texto textoQuiron = textoRepository.getTextoCliente(Local.QUIRON);
 		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);
@@ -95,7 +87,7 @@ public class IndexServiceImp implements IndexService{
 		return contato;
 	}
 
-	private Texto criarTextoDefault(Local local) {
+	/*private Texto criarTextoDefault(Local local) {
 		Texto texto = new Texto();
 		texto.setAutor("Alcindo Miguel Martins Filho");
 		texto.setConfirmado(true);
@@ -106,7 +98,7 @@ public class IndexServiceImp implements IndexService{
 		texto.setUuid(UUID.randomUUID().toString());
 		textoRepository.cadastrar(texto);
 		return texto;
-	}
+	}*/
 
 	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
