@@ -23,7 +23,7 @@
 					<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog.</p>
 				</c:when>
 				<c:otherwise>
-					<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhum texto ainda.</p>
+					<p class="textoAutorBlog azulClaro fonteGrande centralizar">Este texto est&aacute; sendo atualizado... Logo estar&aacute; dispon&iacute;vel.</p>
 				</c:otherwise>
 			</c:choose>
 		</c:when>

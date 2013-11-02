@@ -86,7 +86,7 @@ public class BlogController {
 	@Restrito
 	@Get("/blog/listar")
 	public void listarTodos(){
-		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
+		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem", false);
 		result.include("textosBlog", textosBlog);
 		result.include("flagTextosblog", true);
 		result.redirectTo(this).blogAdmin();
@@ -112,13 +112,13 @@ public class BlogController {
 	
 	@Restrito
 	@Post("/blog/atualiza")
-	public void atualizarTexto(Texto texto){
-		
+	public void atualizarTexto(Texto texto){		
 		try {
 			Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
 			textoOriginal.setAutor(texto.getAutor());
 			textoOriginal.setTitulo(texto.getTitulo());
 			textoOriginal.setConteudo(texto.getConteudo());
+			textoOriginal.setConfirmado(true);
 			textoRepository.atualizar(textoOriginal);		
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
 			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
@@ -130,6 +130,22 @@ public class BlogController {
 		}				
 	}
 	
+	@Post("/blog/travar/{uuid}")
+	public void travarTextoParaEdicao(String uuid){
+		Texto texto = textoRepository.obterPor(uuid);
+		texto.setConfirmado(false);
+		textoRepository.atualizar(texto);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Post("/blog/salvaAutomativa/{uuid}")
+	public void salvaAutomatica(String uuid, String texto){
+		Texto textoSolicitado = textoRepository.obterPor(uuid);
+		textoSolicitado.setConteudo(texto);
+		textoRepository.atualizar(textoSolicitado);		
+		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
 	/**
 	 * 
 	 * @param emailRequest flag para indicar, se <b><code>true</code></b> que a requisicao foi disparada 
@@ -138,7 +154,7 @@ public class BlogController {
 	 */
 	@Get("/blog/cliente")
 	public void blogCliente(boolean emailRequest, Texto texto){
-		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem");
+		List<Texto> textosBlog = textoRepository.listar(Local.BLOG, "postagem", true);
 		Texto ultimaPublicacao = emailRequest ? texto : textoRepository.obterUltimaPublicacao();			
 		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		result.include("ultimaPublicacao", ultimaPublicacao);

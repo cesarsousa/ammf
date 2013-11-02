@@ -84,6 +84,23 @@ function travarTextoParaEdicao(elemento){
 	}	
 }
 
+function travarTextoBlogParaEdicao(elemento){
+	var jqueryId = "#" + elemento.id;
+	if($(jqueryId).is(":checked")){
+		var url = "/blog/travar/" + elemento.id;
+		$.ajax({
+			type : 'POST',
+			url : $('#contexto').val() + url,
+			success : function(){
+				$(jqueryId).attr("disabled", "disabled");
+			},
+			error : function(){
+				alert("Atencao! Nao foi possivel realizar a travar do texto.");				
+			}
+		});	
+	}	
+}
+
 // comando para desabilitar link durante envio de email
 // $("a").click(function() { return false; });
 function ajaxErroPadrao() {

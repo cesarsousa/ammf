@@ -9,7 +9,7 @@ public interface TextoRepository {
 	
 	public void cadastrar(Texto texto);
 
-	public List<Texto> listar(Local local, String orderBy);
+	public List<Texto> listar(Local local, String orderBy, boolean travado);
 
 	public List<Object[]> listarTitulos();
 

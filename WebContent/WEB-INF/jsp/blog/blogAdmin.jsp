@@ -185,6 +185,17 @@
 			<td><span id="sizeXxLargeAreaBlogEdit" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 			</tr>				
 		</table>				
+		
+		<p>				
+		<c:choose>
+			<c:when test="${texto.confirmado}">
+				<label class="labelForm2"><input id="${texto.uuid}" type="checkbox" onclick="javascript: travarTextoBlogParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+			</c:when>
+			<c:otherwise>
+				<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+			</c:otherwise>
+		</c:choose>
+		</p>
 					
 		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${texto.conteudo}</textarea>		
 		<h4 align="left" class="azulClaro">
@@ -192,7 +203,7 @@
 		</h4>
 		
 		<p>
-		<input id="btCadEdtTexto" type="submit" value="confirmar atualização" class="buttonCadastrar">
+		<input id="btCadEdtTexto" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
 		<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
 		<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
 		</p>
@@ -238,7 +249,16 @@
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
 					<td class="infoTabelaConteudo" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
-						<a href="<c:url value="/blog/editar/${texto.uuid}" />"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
+						<a href="<c:url value="/blog/editar/${texto.uuid}" />">
+							<c:choose>
+								<c:when test="${texto.confirmado}">
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto">
+								</c:when>
+								<c:otherwise>
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHoverTrava.png" title="editar este texto">
+								</c:otherwise>
+							</c:choose>					
+						</a>				
 						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			

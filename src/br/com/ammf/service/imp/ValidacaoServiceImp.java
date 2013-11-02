@@ -101,6 +101,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	public boolean blog(Texto texto, Result result) {
+		texto.setConfirmado(true);
 		boolean validado = true;
 		if(texto.getTitulo() == null || texto.getTitulo().isEmpty()){
 			result.include("tituloEmBranco", "O t&iacute;tulo deve ser informado<br/>");

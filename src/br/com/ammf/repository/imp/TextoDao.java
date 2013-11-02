@@ -35,10 +35,11 @@ public class TextoDao implements TextoRepository{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Texto> listar(Local local, String orderBy) {
+	public List<Texto> listar(Local local, String orderBy, boolean travado) {
 		try {
 			Criteria criteria = session.createCriteria(Texto.class);
 			criteria.add(Restrictions.eq("local", local));
+			if(travado) criteria.add(Restrictions.eq("confirmado", true));
 			criteria.addOrder(Order.desc(orderBy));
 			return criteria.list();
 		} catch (Exception e) {
@@ -274,6 +275,7 @@ public class TextoDao implements TextoRepository{
 			Long id = (Long) query.uniqueResult();
 			Criteria criteria = session.createCriteria(Texto.class);
 			criteria.add(Restrictions.eq("id", id));
+			criteria.add(Restrictions.eq("confirmado", true));
 			Texto texto = (Texto) criteria.uniqueResult();
 			return texto;
 		} catch (Exception e) {

@@ -14,8 +14,15 @@ $(document).ready(function() {
 		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 10000);		  
 	});
 	
+	var caracteresTexto = 0;
 	$('#blogEdtConteudoTexto').keyup(function() {		
-		limitarCaracteres('#blogEdtConteudoTexto', '#contadorCaracterEdtBlog', 10000);		  
+		limitarCaracteres('#blogEdtConteudoTexto', '#contadorCaracterEdtBlog', 10000);
+		
+		caracteresTexto++;
+		if(caracteresTexto == 100){				
+			caracteresTexto = 0;
+			ajaxSalvaAutomatica("#blogEdtConteudoTexto", "/blog/salvaAutomativa/" + $('#blogEdtUuidTexto').val());
+		}
 	});
 	
 	hideAllBlogFields();
