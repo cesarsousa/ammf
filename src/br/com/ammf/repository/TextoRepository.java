@@ -50,6 +50,8 @@ public interface TextoRepository {
 	public Texto obterUltimaPublicacao();
 
 	public Texto getTextoCliente(Local local);
+
+	public Texto obterConfirmadoPor(String uuid);
 	
 
 }

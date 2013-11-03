@@ -129,19 +129,19 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validada = true;
 		boolean emailCadastrado = false;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){
-			result.include("nomeEmBranco", "O nome deve ser informado");
+			result.include("nomeEmBranco", "O nome deve ser informado<br/>");
 			validada = false;
 		}
 		if(pessoa.getEmail() == null || pessoa.getEmail().isEmpty()){
-			result.include("emailEmBranco", "O email deve ser informado");
+			result.include("emailEmBranco", "O email deve ser informado<br/>");
 			validada = false;
 		}else if (!ehEmailValido(pessoa.getEmail())){
-			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido");
+			result.include("emailEmBranco", "O email est&aacute; com formato inv&aacute;lido<br/>");
 			validada = false;
 		}else{
 			emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
-				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site");
+				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site<br/>");
 				result.include("emailJaCadastrado", true);
 				System.out.println("aqui");
 				//result.include("opcaoCadastro", true); // ??
@@ -150,7 +150,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		
 		if (!aceiteCadastro && !emailCadastrado) {
-			result.include("aceiteEmBranco", "O termo de aceite de cadastro deve ser confirmado");
+			result.include("aceiteEmBranco", "O termo de aceite de cadastro deve ser confirmado<br/>");
 			validada = false;
 		}
 		

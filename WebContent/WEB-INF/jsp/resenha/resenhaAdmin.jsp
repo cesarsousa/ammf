@@ -228,26 +228,29 @@
 				<th class="metadado">Autor</th>
 				<th class="metadado">T&iacute;tulo</th>
 				<th class="metadado">Texto</th>
-				<th class="metadado" style="width: 160px;">Postagem</th>
-				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
+				<th class="metadado">Postagem</th>
+				<th class="metadado">.</th>
+				<th class="metadado">.</th>			
 			</tr>
 		</thead>
 		<tbody>
 	 		<c:forEach items="${resenhas}" var="resenha">
 				<tr class="zebrado">
-					<td class="infoTabela metadado">${resenha.categoria.descricao}</td>
-					<td class="infoTabela">${resenha.autor}</td>
-					<td class="infoTabela">${resenha.titulo}</td>
-					<td class="infoTabela">
+					<td class="infoTabelaConteudo metadado">${resenha.categoria.descricao}</td>
+					<td class="infoTabelaConteudo">${resenha.autor}</td>
+					<td class="infoTabelaConteudo">${resenha.titulo}</td>
+					<td class="infoTabelaConteudo">
 						<c:set var="origem"	value="${resenha.descricao}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-					<td class="infoTabela" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
+					<td class="infoTabelaConteudo" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
 						<a href="<c:url value="/resenha/editar/${resenha.uuid}" />" >
 							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
+					</td>
+					<td>	
 						<a href="<c:url value="/resenha/remover/${resenha.uuid}" />" onclick="return confirmarExclusao()" >
 							<img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
-						</td>
+					</td>
 				</tr>			
 			</c:forEach>		
 		</tbody>			

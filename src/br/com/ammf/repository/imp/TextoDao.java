@@ -282,5 +282,18 @@ public class TextoDao implements TextoRepository{
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
+	@Override
+	public Texto obterConfirmadoPor(String uuid) {
+		try {
+			Criteria criteria = session.createCriteria(Texto.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			criteria.add(Restrictions.eq("confirmado", true));
+			Texto texto = (Texto) criteria.uniqueResult();
+			return texto;
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
 	
 }

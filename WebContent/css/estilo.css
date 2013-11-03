@@ -240,8 +240,8 @@ textarea {
 	background-image: url("../image/iconeMenuHover.jpg");
 }
 
-#btAddTextoBlog {
-	/* background-image: url("../image/iconeAdd.png"); */
+/* #btAddTextoBlog {
+	background-image: url("../image/iconeAdd.png");
 	background-image: url("../image/iconeAddHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -249,11 +249,11 @@ textarea {
 	height: 50px;
 }
 #btAddTextoBlog:hover{
-	/* background-image: url("../image/iconeAddHover.png"); */
+	background-image: url("../image/iconeAddHover.png");
 }
 
 #btEdtTextoBlog {
-	/* background-image: url("../image/iconeEditar.png"); */
+	background-image: url("../image/iconeEditar.png");
 	background-image: url("../image/iconeEditarHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -261,11 +261,11 @@ textarea {
 	height: 50px;
 }
 #btEdtTextoBlog:hover{
-	/* background-image: url("../image/iconeEditarHover.png"); */
+	background-image: url("../image/iconeEditarHover.png");
 }
 
 #btListarTextosBlog {
-	/* background-image: url("../image/iconeListar.png"); */
+	background-image: url("../image/iconeListar.png");
 	background-image: url("../image/iconeListarHover.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -273,8 +273,8 @@ textarea {
 	height: 50px;
 }
 #btListarTextosBlog:hover{
-	/* background-image: url("../image/iconeListarHover.png"); */
-}
+	background-image: url("../image/iconeListarHover.png");
+} */
 
 .hrClass {
 	width: 99%;
@@ -324,6 +324,11 @@ textarea {
 .icone50{
 	width: 50px;
 	height: 50px;
+}
+.itemMenuOpcao .icone50:hover {
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.50;
+	opacity: 0.50;
 }
 
 .icone100{
@@ -1531,6 +1536,10 @@ table.tabLivro thead  tr td{
 
 .INATIVO {
 	color: red;
+}
+
+.INATIVO_NOTIFICADO {
+	color: blue;
 }
 
 .Publica {

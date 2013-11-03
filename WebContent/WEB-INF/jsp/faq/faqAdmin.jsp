@@ -85,7 +85,8 @@
 				<th class="metadado">Resposta</th>
 				<th class="metadado">Visibilidade</th>
 				<th class="metadado">Postagem</th>
-				<th class="metadado">A&ccedil;&atilde;o</th>				
+				<th class="metadado">.</th>
+				<th class="metadado">.</th>				
 				</tr>
 			</thead>
 			
@@ -107,9 +108,10 @@
 								<img class="icone" alt="esta pergunta ja foi respondida" src="${imagem}/iconeEditar.png" title="esta pergunta ja foi respondida">
 							</c:otherwise>
 						</c:choose>
-								<a href="<c:url value="/adm/faq/excluir/${faq.uuid}/${flagRedirect}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
-						
-						</td>
+					</td>
+					<td>			
+						<a href="<c:url value="/adm/faq/excluir/${faq.uuid}/${flagRedirect}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+					</td>
 					</tr>
 				</c:forEach>
 			</tbody>

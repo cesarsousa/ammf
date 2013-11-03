@@ -20,7 +20,7 @@
 		<c:when test="${empty ultimaPublicacao}">
 			<c:choose>
 				<c:when test="${emailRequest}">
-					<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog.</p>
+					<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog ou est&aacute; sendo atualizado.</p>
 				</c:when>
 				<c:otherwise>
 					<p class="textoAutorBlog azulClaro fonteGrande centralizar">Este texto est&aacute; sendo atualizado... Logo estar&aacute; dispon&iacute;vel.</p>

@@ -5,7 +5,7 @@
 <div id="divMsgCadCliente">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco or not empty aceiteEmBranco}">
 	<div class="msgBorder msgErro">
-	${nomeEmBranco}<br/>${emailEmBranco}<br/>${aceiteEmBranco}	
+	${nomeEmBranco}${emailEmBranco}${aceiteEmBranco}	
 	</div>
 </c:if>
 <c:if test="${emailJaCadastrado}">
@@ -39,7 +39,7 @@
 <form action="<c:url value="/cliente/cadastrar"/>" method="post">	 
 	
 	<p>
-	<span class="info azulClaro" >Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
+	<span id="btNovaPergunta" class="info azulClaro altura30" style="font-size: x-large;">Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
 	</p>	
 	
 	<label class="labelForm">Nome</label>

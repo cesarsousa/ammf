@@ -192,35 +192,53 @@
 					<th class="metadado">Data Cadastro</th>
 					<th class="metadado">Status</th>
 					<th class="metadado">Situa&ccedil;&atilde;o</th>
-					<th class="metadado">A&ccedil;&otilde;es</th>
+					<th class="metadado">.</th>
+					<th class="metadado">.</th>
+					<th class="metadado">.</th>
 					</tr>
 				</thead>					
 				<tbody>
 					<c:forEach items="${pessoasSolicitadas}" var="pessoa">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 90px;">${pessoa.id}</td>
+							<td class="infoTabelaConteudo" style="width: 90px;">${pessoa.id}</td>
 							<td class="infoTabelaConteudo">${pessoa.nome}</td>
 							<td class="infoTabelaConteudo">${pessoa.email}</td>
 							<td class="infoTabelaConteudo">${pessoa.dataFormatada}</td>
 							<td class="infoTabelaConteudo ${pessoa.status}">${pessoa.status}</td>
 							<td class="infoTabelaConteudo ${pessoa.situacao}">${pessoa.situacao}</td>
+							
 							<td>
-								<c:if test="${pessoa.inativa}">							
-									<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
-										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
-									</a>
-								</c:if>
-																
-								<c:if test="${pessoa.pendente}">
-									<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
+								<c:choose>
+									<c:when test="${pessoa.pendente}">
+										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
 										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
-									</a>
-								</c:if>
-								
+										</a>
+									</c:when>
+									<c:otherwise>
+										<img id="btNotificarPessoa" src="${imagem}/iconeConfirmarDisabled.png" class="icone20">
+									</c:otherwise>
+								</c:choose>
+							</td>
+							
+							<td>							
+								<c:choose>
+									<c:when test="${pessoa.inativa}">
+										<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
+										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
+										</a>
+									</c:when>
+									<c:otherwise>
+										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacaoBlack.png" class="icone20">
+									</c:otherwise>
+								</c:choose>
+							</td>
+							
+							<td>							
 								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}/${destino}" />">
 									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir esta pessoa" title="excluir esta pessoa">
 								</a>								
-							</td>
+							</td>							
+							
 						</tr>
 					</c:forEach>						
 				</tbody>
