@@ -27,6 +27,13 @@ $(document).ready(function() {
 	
 	hideAllBlogFields();
 	
+	$('#btAbrirTextoTrava').click(function() {
+		$('#infoTravaTexto').slideDown(500);		
+	});
+	$('#btFecahrTextoTrava').click(function() {
+		$('#infoTravaTexto').slideUp(500);		
+	});	
+		
 	if($('#flagTextosblog').val()){
 		$('#divEditarBlogTodosTextos').show();
 	}

@@ -101,4 +101,8 @@ public class Resenha implements Serializable {
 		return DataUtils.getFullString(postagem);
 	}
 	
+	public String getDataFormatadaSimples(){
+		return DataUtils.getString(postagem, "dd/MM/yyyy");
+	}
+	
 }

@@ -30,10 +30,11 @@
 		
 		<c:otherwise>
 			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
-			<p class="textoPostagemBlog aEsquerda negrito">postado em ${ultimaPublicacao.dataFormatada}</p>	
+				
 			<c:forEach items="${paragrafos}" var="paragrafo">
-				<p class="textoConteudoBlog">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
+				<p class="textoConteudoBlog">${paragrafo.trechoTexto}</p>		
 			</c:forEach>
+			<p class="textoPostagemBlog aEsquerda negrito">... texto postado em ${ultimaPublicacao.dataFormatada}</p>
 		</c:otherwise>
 	</c:choose>
 </div>
@@ -99,7 +100,7 @@
 </div> 
 
 <br/><br/>
-<c:if test="${not empty ultimaPublicacao or not empty textosBlog}">
+<c:if test="${not empty textosBlog}">
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">

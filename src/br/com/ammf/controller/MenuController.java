@@ -86,7 +86,7 @@ public class MenuController {
 	public void salvaAutomaticaTextoquiron(String texto){
 		Texto textoSessao = sessaoUsuario.getTextoQuiron();
 		textoSessao.setConteudo(texto);
-		textoRepository.atualizarTextoQuiron(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoQuiron(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}

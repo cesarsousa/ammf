@@ -385,14 +385,14 @@
 				</table> -->						
 													
 				<textarea id="edtInfoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.informacao">${sessaoUsuario.terapeuta.informacao}</textarea>
-				<h4>Caracteres restantes: <span id="contadorCaracterInfoTerapeuta"></span></h4>	
+				<h4>Caracteres restantes: <span id="contadorCaracterInfoTerapeuta">2000</span></h4>	
 				</div>
 				
 				<div class="bordaInferior">
 				<h3>
 					Texto com as forma&ccedil;&otilde;es. (at&eacute; 2000 caracteres).
-				</h3>	
-			
+				</h3>
+									
 				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
 					<tr>
 					<td><span id="sizeSmall2Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
@@ -410,13 +410,15 @@
 				</table> -->						
 													
 				<textarea id="edtFormacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.formacao">${sessaoUsuario.terapeuta.formacao}</textarea>
-				<h4>Caracteres restantes: <span id="contadorCaracterFormacaoTerapeuta"></span></h4>	
+				<h4>Caracteres restantes: <span id="contadorCaracterFormacaoTerapeuta">2000</span></h4>	
 				</div>
 				
 				<div class="bordaInferior">
 				<h3>
 					&Aacute;reas de Atua&ccedil;&atilde;o: (at&eacute; 2000 caracteres).
-				</h3>	
+				</h3>
+				
+				<span class="info azulClaro">Utilize o caracter ponto '.' para delimitar par&aacute;grafos. <b>Para a &uacute;ltima &Aacute;rea de Atua&ccedil;&atilde;o N&Atilde;O utilize ponto.</b> </span>	
 			
 				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
 					<tr>
@@ -435,14 +437,16 @@
 				</table> -->						
 													
 				<textarea id="edtAtuacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.atuacao">${sessaoUsuario.terapeuta.atuacao}</textarea>
-				<h4>Caracteres restantes: <span id="contadorCaracterAtuacaoTerapeuta"></span></h4>	
+				<h4>Caracteres restantes: <span id="contadorCaracterAtuacaoTerapeuta">2000</span></h4>	
 				</div>
 				
 				<div>
 				<h3>
 					&Aacute;reas de Tratamento: (at&eacute; 2000 caracteres).
-				</h3>	
-			
+				</h3>
+				
+				<span class="info azulClaro">Utilize o caracter ponto '.' para delimitar par&aacute;grafos. <b>Para a &uacute;ltima &Aacute;rea de Tratamento N&Atilde;O utilize ponto.</b> </span>	
+							
 				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
 					<tr>
 					<td><span id="sizeSmall4Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
@@ -460,7 +464,7 @@
 				</table> -->						
 													
 				<textarea id="edtTratamentoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
-				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta"></span></h4>	
+				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta">2000</span></h4>	
 				</div>
 							
 				<p>

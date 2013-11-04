@@ -53,13 +53,13 @@ public class BlogController {
 			boolean validado = validacaoService.blog(texto, result);		
 			if(validado){
 				texto.setLocal(Local.BLOG);
-				texto.setPostagem(DataUtils.getDateNow());		
+				texto.setPostagem(DataUtils.getDateNow());
+				texto.setConfirmado(true);
 				textoRepository.cadastrar(texto);
 				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, texto);
 				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}else{
 				result.include("flagCadastrarBlogVazio", true);
-				result.include("comErro", "Erro");
 			}			
 			result.redirectTo(this).blogAdmin();			
 		} catch (EmailException e) {

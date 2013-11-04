@@ -66,11 +66,11 @@ ${perguntaEmBranco}
 		<c:forEach items="${faqs}" var="faq">
 		
 			<li>
-			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
+			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito destaqueLetraHover ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
 				<ul id="faqResposta${faq.uuid}" class="listaSimples hideTd">
 					<li><p class="textoConteudoDepoimento">${faq.resposta}</p></li>
 					<li><p class="textoPostagemDepoimento negrito">Pergunta postada em ${faq.dataFormatada}</p></li>
-					<li><hr class="hrClass" /></li>				
+					<!-- <li><hr class="hrClass" /></li>	 -->			
 				</ul>			
 			</li>
 					

@@ -13,9 +13,8 @@
 		${blogMensagemErro} 
 	</div>
 </c:if>
-<c:if test="${blogErroCadastro}">
+<c:if test="${flagCadastrarBlogVazio}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
 	${tituloEmBranco}${autorEmBranco}${conteudoEmBranco}</div>
 </c:if>
 
@@ -91,9 +90,31 @@
 				<td><span id="sizeXLargeAreaBlogNovo" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
 				<td><span id="sizeXxLargeAreaBlogNovo" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 				</tr>				
-			</table>	
-					
-			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao${comErroConteudo}" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
+			</table>
+			
+			<div class="paddingPadrao">
+			
+				<span id="btAbrirTextoTrava" class="info AzulClaro destaqueLetraHover ponteiro">Trava para textos novos...</span>
+			
+				<div id="infoTravaTexto" class="hidden">
+				<div class="paddingPadrao">
+				<p>
+				&Eacute; necess&aacute;rio primeiro cadastrar o texto. Para travar este texto, siga os passos abaixo.
+				<p>
+				<ul>
+				<li>Primeiramente pressione o bot&atilde;o cadastrar. </li>
+				<li>Depois de cadastrado voc&ecirc; pode acessar o texto clicando em 'buscar e editar' <img src="${imagem}/iconeEditarHover.png" class="icone20"> e utilize o t&iacute;tulo para realizar a busca.</li>
+				<li>Se preferir utilize a op&ccedil;&atilde;o de 'listar todos os textos' <img src="${imagem}//iconeListarHover.png" class="icone20"> para encontrar o novo texto cadastrado.</li>
+				<li>Ao localizar o texto basta clicar em 'editar este texto' <img src="${imagem}/iconeEditarHover.png" class="icone20"> na listagem exibida.</li>
+				</ul>
+				</div>
+				
+				<span id="btFecahrTextoTrava" class="info AzulClaro destaqueLetraHover ponteiro">Fechar 'Trava para textos novos...'</span>
+				</div>
+						 
+			</div>
+						
+			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
 			<h4 align="left" class="azulClaro">
 			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">10000</span> caracteres em seu texto.
 			</h4>

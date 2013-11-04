@@ -20,7 +20,7 @@
 		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-		<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>
+		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>
 		</div>	
 	</div>
 	<br/><br/>
@@ -38,7 +38,7 @@
 					<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
 					<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 					<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-					<p class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>	
+					<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>	
 				</div>
 				<br/>
 			</c:forEach>			
@@ -64,20 +64,20 @@
 			<th class="metadado">Tipo da resenha</th>
 			<th class="metadado">T&iacute;tulo</th>
 			<th class="metadado">Coment&aacute;rio</th>
-			<th class="metadado">Data de Postagem</th>			
+			<th class="metadado">Postagem</th>			
 		</tr>
 		
 	</thead>
 	<tbody>
 		<c:forEach items="${resenhasRequest}" var="resenha">
 			<tr class="zebrado">
-				<td class="infoTabela">${resenha.categoria.descricao}</td>
+				<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 					<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 				<td class="infoTabela" title="clique no titulo para ler texto completo">					
 					<c:set var="origemResenha"	value="${resenha.descricao}"/>
 					<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>
-				<td class="infoTabela"><b>${resenha.dataFormatada}</b></td>
+				<td class="infoTabela" title="clique no titulo para ler texto completo"><b>${resenha.dataFormatadaSimples}</b></td>
 			</tr>			
  		</c:forEach>		
 	</tbody>
