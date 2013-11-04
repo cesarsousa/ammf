@@ -63,6 +63,21 @@
 	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" class="destaqueLetraHover" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
 	</p>
 	
+	<div align="center">
+	<!-- Posicione esta tag onde você deseja que o widget apareça. -->
+	<div class="g-person" data-href="//plus.google.com/100200384204573066006" data-rel="author"></div>
+	
+	<!-- Posicione esta tag depois da última tag do widget. -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'pt-BR'};
+	
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+	</div>
 	
 	<form action="<c:url value="/contato/email"/>" method="post">		
 		<table width="100%">
@@ -82,13 +97,15 @@
 					
 					<h2>Enviar uma mensagem</h2>
 					
+					<span class="info azulClaro negrito" >N&atilde;o se preocupe seus dados n&atilde;o ser&aacute; divulgado no site</span>
+					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Nome</label>
 					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm2">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
+					<label class="labelForm2">Email </label>
 					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					
