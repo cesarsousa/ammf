@@ -121,7 +121,7 @@ public class MenuController {
 	public void salvaAutomaticaTextoPsicologia(String texto){
 		Texto textoSessao = sessaoUsuario.getTextoPsicologia();
 		textoSessao.setConteudo(texto);
-		textoRepository.atualizarTextoPsicologia(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoPsicologia(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
@@ -156,7 +156,7 @@ public class MenuController {
 	public void salvaAutomaticaTextoEducacao(String texto){
 		Texto textoSessao = sessaoUsuario.getTextoEducacao();
 		textoSessao.setConteudo(texto);
-		textoRepository.atualizarTextoEducacao(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoEducacao(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
@@ -191,7 +191,7 @@ public class MenuController {
 	public void salvaAutomaticaTextoCultura(String texto){
 		Texto textoSessao = sessaoUsuario.getTextoCultura();
 		textoSessao.setConteudo(texto);
-		textoRepository.atualizarTextoCultura(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoCultura(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
@@ -226,7 +226,7 @@ public class MenuController {
 	public void salvaAutomaticaTextoArtesOrientais(String texto){
 		Texto textoSessao = sessaoUsuario.getTextoArtesOrientais();
 		textoSessao.setConteudo(texto);
-		textoRepository.atualizarTextoArtesOrientais(textoSessao);
+		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoArtesOrientais(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
