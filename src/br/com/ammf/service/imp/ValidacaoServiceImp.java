@@ -352,6 +352,11 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		link.setPostagem(new Date());
 		
+		if(link.getTitulo() == null || link.getTitulo().isEmpty()){
+			result.include("linkEmBranco", "O t&iacute;tulo para o link deve ser informada<br/>");
+			validado = false;
+		}
+		
 		if(link.getUrl() == null || link.getUrl().isEmpty()){
 			result.include("urlEmBranco", "A URL do link deve ser informada<br/>");
 			validado = false;
@@ -360,13 +365,20 @@ public class ValidacaoServiceImp implements ValidacaoService {
 				String novoLink = "http://" + link.getUrl();
 				link.setUrl(novoLink);
 			}else if(!link.getUrl().startsWith("http://www.")){
-				result.include("urlEmBranco", "A URL do link deve come&ccedil;ar com '<b>http://www.</b>' ou '<b>www.</b>'<br/>");
+				String novoLink = "http://www." + link.getUrl();
+				link.setUrl(novoLink);
+			}
+			if(link.getUrl().length() > 500){
+				result.include("urlEmBranco", "A URL do link excedeu o tamanho limite de 500 caracteres.<br/>");
 				validado = false;
 			}
 		}
 				
 		if(link.getDescricao() == null || link.getDescricao().isEmpty()){
 			result.include("descricaoEmBranco", "A descri&ccedil;&atilde;o do link deve ser informada<br/>");
+			validado = false;
+		}else if(link.getDescricao().length() > 500){
+			result.include("descricaoEmBranco", "A descri&ccedil;&atilde;o do link excedeu o tamanho limite de 500 caracteres.<br/>");
 			validado = false;
 		}
 				

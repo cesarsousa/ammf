@@ -15,7 +15,6 @@
 </c:if>
 <c:if test="${not empty resenhaErroCadastro or not empty resenhaErroAtualizarCadastro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
 	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}</div>
 </c:if>
 </div>

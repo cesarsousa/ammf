@@ -15,8 +15,7 @@
 </c:if>
 <c:if test="${not empty flagLinkErroCadastro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	Verifique campos obrigat&oacute;rios n&atilde;o preenchidos<br/>
-	${urlEmBranco}${descricaoEmBranco}</div>
+	${linkEmBranco}${urlEmBranco}${descricaoEmBranco}</div>
 </c:if>
 </div>
 
@@ -66,9 +65,13 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Novo Link</h2>
 		
-		<form id="formNovoLink" action="<c:url value="/link/novo"/>" method="post">			
+		<form id="formNovoLink" action="<c:url value="/link/novo"/>" method="post">
+		
+			<h3>T&iacute;tulo do Link: <span class="info azulClaro">Nome simb&oacute;lico para os usu&aacute;rio clicarem para acessarem os links.</span></h3>
+			<input id="linkTitulo" class="areaTexto bordaPadrao" name="link.titulo" value="${link.titulo}" maxlength="254" />
+			<br/>			
 						
-			<h3>URL</h3>
+			<h3>URL: <span class="info azulClaro">Copie e cole a URL do link aqui.</span></h3>
 			<textarea id="linkUrl" class="areaTexto bordaPadrao" rows="7" name="link.url">${link.url}</textarea>
 			<br/>
 			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLinkUrl">500</span> caracteres.</span>		
@@ -116,6 +119,7 @@
 		<thead align="left">
 			<tr>
 				<th class="metadado">Url</th>
+				<th class="metadado">T&iacute;tulo</th>
 				<th class="metadado">Descri&ccedil;&atilde;o</th>				
 				<th class="metadado" style="width: 160px;">Postagem</th>
 				<th class="metadado" style="width: 30px;">Remover</th>			
@@ -125,6 +129,7 @@
 	 		<c:forEach items="${links}" var="link">
 				<tr class="zebrado">
 					<td class="infoTabela metadado">${link.url}</td>
+					<td class="infoTabela">${link.titulo}</td>
 					<td class="infoTabela">${link.descricao}</td>					
 					<td class="infoTabela" style="width: 160px;"><b>${link.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 30px;" align="center">

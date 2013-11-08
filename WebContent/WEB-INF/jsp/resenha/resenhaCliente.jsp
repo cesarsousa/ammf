@@ -12,6 +12,13 @@
 <p>
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>
 </p>
+
+<div class="paddingPadrao bordaPadrao tamanhoDefault" align="center">
+<c:forEach items="${categoriasResenha}" var="categoria">
+<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
+</c:forEach>
+</div>
+
 </div>
 
 <c:if test="${not empty resenha}">
@@ -61,8 +68,8 @@
 <table style="width: 90%">
 	<thead align="left">
 		<tr>
-			<th class="metadado">Tipo da resenha</th>
 			<th class="metadado">T&iacute;tulo</th>
+			<th class="metadado">Tipo da resenha</th>			
 			<th class="metadado">Coment&aacute;rio</th>
 			<th class="metadado">Postagem</th>			
 		</tr>
@@ -71,9 +78,9 @@
 	<tbody>
 		<c:forEach items="${resenhasRequest}" var="resenha">
 			<tr class="zebrado">
-				<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 					<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
+				<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
 				<td class="infoTabela" title="clique no titulo para ler texto completo">					
 					<c:set var="origemResenha"	value="${resenha.descricao}"/>
 					<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>

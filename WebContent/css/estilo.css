@@ -712,6 +712,12 @@ a:HOVER {
 	padding: 10px; 
 }
 
+.categoria {
+	color: #808080;
+	padding: 10px;
+	font-size: large;
+}
+
 .cartao {
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;

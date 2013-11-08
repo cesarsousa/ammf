@@ -152,9 +152,10 @@ public class ResenhaController {
 	
 	@Get("/resenha/cliente")
 	public void resenhaCliente(){
-		List<Resenha> resenhas = resenhaRepository.listarTop3();
+		List<Resenha> resenhas = resenhaRepository.ultimaResenhaPublicada();
+		List<Categoria> categoriasResenha = categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
 		result.include("resenhas", resenhas);
-		
+		result.include("categoriasResenha", categoriasResenha);
 	}
 		
 	@Get("/resenha/cliente/listarTodas")

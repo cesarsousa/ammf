@@ -24,6 +24,8 @@ public class Link {
 	@Column(length=45)
 	private String uuid = UUID.randomUUID().toString();
 	
+	private String titulo;
+	
 	@Column(length = 550)
 	private String url;
 	
@@ -47,6 +49,14 @@ public class Link {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getUrl() {

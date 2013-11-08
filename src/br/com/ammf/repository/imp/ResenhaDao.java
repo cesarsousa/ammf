@@ -95,11 +95,11 @@ public class ResenhaDao implements ResenhaRepository {
 	}
 
 	@Override
-	public List<Resenha> listarTop3() {
+	public List<Resenha> ultimaResenhaPublicada() {
 		try {			
 			Criteria criteria = session.createCriteria(Resenha.class);
 			criteria.addOrder(Order.desc("postagem"));
-			criteria.setMaxResults(3);
+			criteria.setMaxResults(1);
 			return criteria.list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
