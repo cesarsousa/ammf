@@ -36,13 +36,13 @@
     <param-value>UTF-8</param-value>
   </context-param>
   
-  <error-page>
+  <!-- <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/jsp/index/erro.jsp</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
     <location>/WEB-INF/jsp/index/erro.jsp</location>
-  </error-page>
+  </error-page> -->
     
 </web-app>

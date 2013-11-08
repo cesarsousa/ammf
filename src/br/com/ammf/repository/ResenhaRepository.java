@@ -26,4 +26,6 @@ public interface ResenhaRepository {
 
 	Resenha obterPor(String uuid);
 
+	List<Resenha> listarPorCategorias(Long idCategoria);
+
 }

@@ -117,4 +117,11 @@ public class ResenhaDao implements ResenhaRepository {
 		}
 	}
 
+	@Override
+	public List<Resenha> listarPorCategorias(Long idCategoria) {
+		Criteria criteria = session.createCriteria(Resenha.class);
+		criteria.add(Restrictions.eq("categoria.id", idCategoria));
+		return criteria.list();
+	}
+
 }

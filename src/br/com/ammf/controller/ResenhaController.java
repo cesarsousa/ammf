@@ -159,8 +159,13 @@ public class ResenhaController {
 	}
 		
 	@Get("/resenha/cliente/listarTodas")
-	public void listarTodasResenhasParaCliente(){
-		List<Resenha> resenhas =  resenhaRepository.listar();
+	public void listarTodasResenhasParaCliente(Long idCategoria){
+		List<Resenha> resenhas;
+		if(idCategoria == null){
+			resenhas =  resenhaRepository.listar();
+		}else{
+			resenhas =  resenhaRepository.listarPorCategorias(idCategoria);
+		}
 		result.include("resenhasRequest", resenhas);
 		result.include("flagResenhasRequest", true);
 		result.redirectTo(this).resenhaCliente();		
@@ -177,11 +182,15 @@ public class ResenhaController {
 		result.include("resenha", resenha);		
 		result.redirectTo(this).resenhaCliente();		
 	}
-	
-	
+		
 	@Get("/resenha/cliente/texto")
 	public void clienteVisualizarTexto(String uuid){		
 		Resenha resenha = resenhaRepository.obterPor(uuid);
 		result.use(json()).withoutRoot().from(resenha).exclude("id").include("categoria").serialize();
+	}
+	
+	@Get("/resenha/listar/categoria/{id}")
+	public void listarResenhasPorCategoria(long id){
+		listarTodasResenhasParaCliente(id);
 	}
 }

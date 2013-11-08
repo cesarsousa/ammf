@@ -13,9 +13,11 @@
 <span class="info azulClaro" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>
 </p>
 
-<div class="paddingPadrao bordaPadrao tamanhoDefault" align="center">
+<div class="paddingPadrao bordaPadrao tamanhoDefault" style="background-color: #FFFFFF;" align="center">
 <c:forEach items="${categoriasResenha}" var="categoria">
+<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
 <span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
+</a>
 </c:forEach>
 </div>
 
