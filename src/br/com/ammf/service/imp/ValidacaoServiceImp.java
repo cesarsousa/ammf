@@ -113,6 +113,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
 			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve ser informado");
 			validado = false;
+		}else if(texto.getConteudo().length() > 10000){
+			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve possuir no m&aacute;ximo 10000 caracteres");
+			validado = false;
 		}
 		if(!validado){
 			result.include("textoBlog", texto);
@@ -353,7 +356,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		link.setPostagem(new Date());
 		
 		if(link.getTitulo() == null || link.getTitulo().isEmpty()){
-			result.include("linkEmBranco", "O t&iacute;tulo para o link deve ser informada<br/>");
+			result.include("linkEmBranco", "O t&iacute;tulo para o link deve ser informado<br/>");
 			validado = false;
 		}
 		
