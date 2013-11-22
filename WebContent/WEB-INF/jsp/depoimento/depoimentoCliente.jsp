@@ -34,7 +34,7 @@ ${textoEmBranco}
 	<h2 class="tituloPagina">Depoimentos</h2>
 
 	<p>
-	<span class="info azulClaro" >Deixe sua opini&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
+	<span class="info azulClaro letraGrande" >Deixe sua opini&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
 	</p>
 
 	<div id="divDepoimentosCadastrados">
@@ -78,9 +78,9 @@ ${textoEmBranco}
 					<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
 					</div>
 					
-					<h4 align="right">
+					<h3 align="right" style="font-size: small;">
 					Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
-					</h4>
+					</h3>
 					
 					<h3 align="right">
 					<input id="btnClienteCadastrarDepoimento" type="submit" value="Publicar Depoimento"  class="button direita"/>
@@ -97,7 +97,7 @@ ${textoEmBranco}
 	<div align="center">
 		
 		<h2 class="tituloPagina">Depoimentos</h2>
-		<span class="info azulClaro" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
+		<span class="info azulClaro letraGrande" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
 
 		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento esta sendo processado.</h3>
 		

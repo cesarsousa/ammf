@@ -35,10 +35,10 @@ ${perguntaEmBranco}
 		<div class="cardViewText">
 			<c:choose>
 			<c:when test="${faqRemovida}">
-				<p class="textoAutorBlog azulClaro fonteGrande centralizar">A pergunta solicitada foi removida do site.</p>
+				<p class="textoAutorBlog azulClaro letraGrande centralizar">A pergunta solicitada foi removida do site.</p>
 			</c:when>
 			<c:when test="${faqPrivada}">
-				<p class="textoAutorBlog azulClaro fonteGrande centralizar">A pergunta solicitada n&atilde;o &eacute; p&uacute;blica.</p>
+				<p class="textoAutorBlog azulClaro letraGrande centralizar">A pergunta solicitada n&atilde;o &eacute; p&uacute;blica.</p>
 			</c:when>			
 			<c:otherwise>
 				<p class="textoPostagemDepoimento negrito">postado em ${faq.dataFormatada}</p>
@@ -52,11 +52,11 @@ ${perguntaEmBranco}
 	</c:if>
 
 	<p>
-	<span class="info azulClaro" >Perguntas mais frequentes da &aacute;rea de sa&uacute;de ou sobre qualquer outro assunto. </span>
+	<span class="info azulClaro letraGrande" >Perguntas mais frequentes da &aacute;rea de sa&uacute;de ou sobre qualquer outro assunto. </span>
 	</p>
 	
 	<p>
-	<span class="info azulClaro" >Para ler a resposta basta clicar em cima da pergunta desejada. </span>
+	<span class="info azulClaro letraGrande" >Para ler a resposta basta clicar em cima da pergunta desejada. </span>
 	</p>	
 	
 	<c:if test="${not empty faqs}">

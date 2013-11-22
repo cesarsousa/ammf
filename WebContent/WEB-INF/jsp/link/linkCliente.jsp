@@ -10,7 +10,7 @@
 	<h2 class="tituloPagina">LINKS &Uacute;TEIS </h2>
 
 	<p>
-	<span class="info azulClaro" >Aqui voc&ecirc; vai encontrar links &uacute;teis.</span>
+	<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar links &uacute;teis.</span>
 	</p>
 	
 	<c:choose>

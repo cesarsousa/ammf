@@ -24,9 +24,6 @@
 <div id="divPgAdmCadastroCliente" align="center">
 
 <h2>LOJA VIRTUAL - Administra&ccedil;&atilde;o</h2>
-<p>
-<span class="info azulClaro">Gerenciamento da loja virtual</span>
-</p>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
@@ -545,7 +542,7 @@
 	<div align="center">
 		
 		<h2>Cadastro de Livro</h2>    
-		<span class="info azulClaro" >Cadastro/atualização de livro, neste momento estamos notificando as pessoas sobre o livro</span>
+		<span class="info azulClaro letraGrande" >Cadastro/atualização de livro, neste momento estamos notificando as pessoas sobre o livro</span>
 		<h3>Esta opera&ccedil;&atilde;o pode levar alguns segundos...</h3>
 				
 		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			

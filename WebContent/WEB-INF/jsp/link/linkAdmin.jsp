@@ -26,7 +26,6 @@
 <div align="center">
 
 <h2>LINK</h2>
-<span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o links &uacute;teis.</span>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
@@ -150,7 +149,7 @@
 	<div align="center">
 		
 		<h2>LINK</h2>    
-		<span class="info azulClaro" >Link sendo cadastrado/atualizado.</span>
+		<span class="info azulClaro letraGrande" >Link sendo cadastrado/atualizado.</span>
 								
 		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
 		

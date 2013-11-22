@@ -297,7 +297,7 @@
 	<div align="center">
 		
 		<h2>BLOG</h2>    
-		<span class="info azulClaro" >Texto sendo cadastrado ou atualizado.</span>
+		<span class="info azulClaro letraGrande" >Texto sendo cadastrado ou atualizado.</span>
 								
 		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
 		

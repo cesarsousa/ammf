@@ -10,16 +10,23 @@
 <h2 class="tituloPagina">Resenhas</h2>
 
 <p>
-<span class="info azulClaro" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>
+<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>
 </p>
 
+<c:if test="${not empty resenhas}">
 <div class="paddingPadrao bordaPadrao tamanhoDefault" style="background-color: #FFFFFF;" align="center">
+
+<p>
+<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
+</p>
+
 <c:forEach items="${categoriasResenha}" var="categoria">
 <a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
 <span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
 </a>
 </c:forEach>
 </div>
+</c:if>
 
 </div>
 
@@ -130,8 +137,8 @@
 <c:if test="${not empty resenhas or not empty resenhasRequest}">
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Visualizar resenhas anteriores</a>
-		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Visualizar ultimas publica&ccedil;&otilde;es</a>
+		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro letraGrande altura30 destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
+		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro" >Visualizar ultimas publica&ccedil;&otilde;es</a>
 	</div>
 </div>
 </c:if>

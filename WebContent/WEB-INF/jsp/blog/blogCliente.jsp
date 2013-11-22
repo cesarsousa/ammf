@@ -10,7 +10,7 @@
 <h2 class="tituloPagina">Blog do Miguel</h2>
 
 <p>
-<span class="info azulClaro" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
+<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
 </p>
 </div>
 
@@ -104,7 +104,7 @@
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<span id="btVisualizarTodos" class="info azulClaro altura30 xLarge destaqueLetraHover ponteiro" style="font-size: x-large;">Visualizar textos anteriores.</span>
+		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro">Visualizar textos anteriores.</span>
 	</div>
 </div>
 </c:if>

@@ -26,7 +26,6 @@
 <div align="center">
 
 <h2>RESENHA</h2>
-<span class="info azulClaro" >Cadastro, atualiza&ccedil;&atilde;o e remo&ccedil;&atilde;o de resenhas.</span>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
