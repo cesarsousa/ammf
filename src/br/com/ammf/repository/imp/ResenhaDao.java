@@ -123,6 +123,7 @@ public class ResenhaDao implements ResenhaRepository {
 	public List<Resenha> listarPorCategorias(Long idCategoria) {
 		Criteria criteria = session.createCriteria(Resenha.class);
 		criteria.add(Restrictions.eq("categoria.id", idCategoria));
+		criteria.addOrder(Order.desc("postagem"));
 		return criteria.list();
 	}
 

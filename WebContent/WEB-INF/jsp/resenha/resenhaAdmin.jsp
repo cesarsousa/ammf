@@ -15,7 +15,7 @@
 </c:if>
 <c:if test="${not empty resenhaErroCadastro or not empty resenhaErroAtualizarCadastro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}</div>
+	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}${fotoInvalida}</div>
 </c:if>
 </div>
 
@@ -65,7 +65,7 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Nova Resenha</h2>
 		
-		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post">			
+		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
 
 			<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
 			
@@ -99,10 +99,18 @@
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			<br/>
-			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</span>		
+			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</h3>		
+			
+			<div class="paddingPadrao bordaPadrao">
+				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span> </label><br/>
+				<div id="divUploadFotoResenha">
+					<input id="inputImagemResenha" type="file" name="imagemResenha" style="background-color: #CCCCCC; width: 100%"/>
+				</div>
+				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+			</div>
+			
 			<p>
-			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar">
+			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
 			<input id="btCancelarResenha" type="button" value="cancelar" class="button">				
 			</p>
 		</form>			
@@ -222,6 +230,7 @@
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado"></th>
 				<th class="metadado">Tipo da Resenha</th>
 				<th class="metadado">Autor</th>
 				<th class="metadado">T&iacute;tulo</th>
@@ -234,6 +243,7 @@
 		<tbody>
 	 		<c:forEach items="${resenhas}" var="resenha">
 				<tr class="zebrado">
+					<td class="infoTabela"><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone25"></td>
 					<td class="infoTabelaConteudo metadado">${resenha.categoria.descricao}</td>
 					<td class="infoTabelaConteudo">${resenha.autor}</td>
 					<td class="infoTabelaConteudo">${resenha.titulo}</td>

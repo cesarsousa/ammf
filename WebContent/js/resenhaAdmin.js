@@ -135,6 +135,14 @@ $(document).ready(function() {
 		cadastrarNovaCategoriaResenha();	
 	});
 	
+	$('#btRemoverUploadFotoResenha').click(function(){
+		$('#divUploadFotoResenha')
+		.slideUp(500)
+		.html('')
+		.append('<input id="inputImagemResenha" type="file" name="imagemResenha" style="background-color: #CCCCCC; width: 100%"/>')
+		.slideDown(500);
+	});
+	
 	$('#msgCadastrarCategoriaResenhaEdt, #divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
 	$('#btCadastrarCategoriaResenhaEdt').toggle(function() {
 		$('#divCadastrarCategoriaResenhaEdt').show();

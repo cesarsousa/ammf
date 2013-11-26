@@ -21,11 +21,11 @@ public class ImagemServiceImp implements ImagemService {
 	private File pastaImagens;
 	
 	private String PASTA_IMAGEM_LIVRO;
-	private String NOME_DEFAULT = "capaLivroDefault.jpg";
+	private String NOME_DEFAULT = "imagemDefault.jpg";
 	
 	public ImagemServiceImp(ServletContext context){		
-		PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
-		//PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+		//PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
+		PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
 				
 		pastaImagens = new File(PASTA_IMAGEM_LIVRO);
 		pastaImagens.mkdir();
@@ -45,16 +45,15 @@ public class ImagemServiceImp implements ImagemService {
 	}	
 
 	@Override
-	public void salvarFotoLivro(UploadedFile imagemLivro, Livro livro) throws FileNotFoundException, IOException {
-		if(imagemLivro == null){
-			livro.setImagem(null);
-		}else{
-			
-			File destino = new File(pastaImagens, "livro" + livro.getUuid() + ".jpg");
+	public Imagem criarESalvarImagem(UploadedFile imagemLivro, String nomeDaImagem) throws FileNotFoundException, IOException {
+		
+			if(imagemLivro == null) return null;
+		
+			File destino = new File(pastaImagens, nomeDaImagem);
 			
 			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));	
 			
-			livro.setImagem(criarImagemLivro("livro" + livro.getUuid() + ".jpg", destino.getAbsolutePath()));
+			return criarImagem(nomeDaImagem, destino.getAbsolutePath());
 			
 			/*String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
 			//String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
@@ -62,7 +61,7 @@ public class ImagemServiceImp implements ImagemService {
 			File file = new File(caminhoDaImagem);			
 			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
 			livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));*/		
-		}
+		
 	}
 
 	@Override
@@ -75,14 +74,14 @@ public class ImagemServiceImp implements ImagemService {
 		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));
 		
 		if(livro.getImagem().getNome() != null && livro.getImagem().getNome().equals(NOME_DEFAULT)){
-			livro.setImagem(criarImagemLivro("livro" + livro.getUuid() + ".jpg", destino.getAbsolutePath()));
+			livro.setImagem(criarImagem("livro" + livro.getUuid() + ".jpg", destino.getAbsolutePath()));
 		}else{
 			livro.getImagem().setCaminho(destino.getAbsolutePath());
 			livro.getImagem().setNome("livro" + livro.getUuid() + ".jpg");
 		}		
 	}
 	
-	private Imagem criarImagemLivro(String nomeLivro, String caminhoDaImagem) {
+	private Imagem criarImagem(String nomeLivro, String caminhoDaImagem) {
 		Imagem imagem = new Imagem();
 		imagem.setNome(nomeLivro);
 		imagem.setCaminho(caminhoDaImagem);
@@ -122,7 +121,16 @@ public class ImagemServiceImp implements ImagemService {
 	public File visualizarImagemLivro(String uuid) {
 		File foto = new File(pastaImagens, "livro" + uuid + ".jpg");
 		if(!foto.exists()){
-			foto = new File(pastaImagens, "capaLivroDefault.jpg"); 
+			foto = new File(pastaImagens, NOME_DEFAULT); 
+		}				
+		return foto;
+	}
+	
+	@Override
+	public File visualizarImagemResenha(String uuid) {
+		File foto = new File(pastaImagens, "resenha" + uuid + ".jpg");
+		if(!foto.exists()){
+			foto = new File(pastaImagens, NOME_DEFAULT); 
 		}				
 		return foto;
 	}

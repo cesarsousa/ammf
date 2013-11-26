@@ -114,9 +114,9 @@
 					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
 					</div>
 					
-					<h4 align="right">
+					<h3 align="right" class="letraPequena">
 					Voc&ecirc; pode digitar <span id="contadorCaracterContato">500</span> caracteres em sua mensagem.
-					</h4>
+					</h3>
 					
 					<h3 align="right">
 					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="button direita"/>

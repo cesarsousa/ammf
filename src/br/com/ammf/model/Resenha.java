@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,7 +41,10 @@ public class Resenha implements Serializable {
 	private Categoria categoria;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date postagem = new Date();	
+	private Date postagem = new Date();
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Imagem imagem;
 	
 	public long getId() {
 		return id;
@@ -95,6 +100,14 @@ public class Resenha implements Serializable {
 	
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	
+	public Imagem getImagem() {
+		return imagem;
+	}
+	
+	public void setImagem(Imagem imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getDataFormatada(){

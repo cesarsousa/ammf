@@ -1159,6 +1159,10 @@ a:HOVER {
 	font-size: x-large;
 }
 
+.letraPequena{
+	font-size: small;
+}
+
 .tituloEdicao {
 	padding: 5px;
 	/* border-bottom: 5px solid #F60; */

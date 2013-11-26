@@ -1,9 +1,11 @@
 package br.com.ammf.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DadosTerapeuta {
+public class DadosTerapeuta implements Serializable{		
+	private static final long serialVersionUID = -833277830674254230L;
 	
 	private String titulo;
 	private List<String> informacoes = new ArrayList<String>();

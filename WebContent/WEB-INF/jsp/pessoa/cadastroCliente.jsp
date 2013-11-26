@@ -40,17 +40,21 @@
 	
 	<p>
 	<span id="btNovaPergunta" class="info azulClaro altura30" style="font-size: x-large;">Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
-	</p>	
+	</p>
+	
+	<p>
+	<span class="info azulClaro" >N&atilde;o se preocupe, seus dados n&atilde;o ser&aacute; divulgado no site</span>	
+	</p>
 	
 	<label class="labelForm">Nome</label>
 	<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	<br/><br/>
 	
-	<label class="labelForm">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
+	<label class="labelForm">Email</label>
 	<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 	
 	<P>
-	<label class="labelForm2"><input type="checkbox" name="aceiteCadastro" />Declaro que li e concordo com os <a class="info azulClaro" href="<c:url value="/termosDeContrato" />" target="_blank">termos de cadastro</a> deste site.</label>
+	<label class="labelForm2"><input type="checkbox" name="aceiteCadastro" />Declaro que li e concordo com os<a class="info azulClaro" href="<c:url value="/termosDeContrato" />" target="_blank">termos de cadastro</a> deste site.</label>
 	</P>
 		
 	<p>

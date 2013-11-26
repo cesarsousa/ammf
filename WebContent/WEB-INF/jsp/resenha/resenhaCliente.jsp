@@ -10,22 +10,22 @@
 <h2 class="tituloPagina">Resenhas</h2>
 
 <p>
-<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas.</span>
+<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas que leio e assisto.</span>
 </p>
 
 <c:if test="${not empty resenhas}">
-<div class="paddingPadrao bordaPadrao tamanhoDefault" style="background-color: #FFFFFF;" align="center">
-
-<p>
-<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
-</p>
-
-<c:forEach items="${categoriasResenha}" var="categoria">
-<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
-<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
-</a>
-</c:forEach>
-</div>
+	<div class="paddingPadrao bordaPadrao tamanhoDefault" style="background-color: #FFFFFF;" align="center">
+	
+	<p>
+	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
+	</p>
+	
+	<c:forEach items="${categoriasResenha}" var="categoria">
+	<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
+	<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
+	</a>
+	</c:forEach>
+	</div>
 </c:if>
 
 </div>
@@ -69,42 +69,49 @@
 
 
 <input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
+
 <div id="divTodasAsResenhas">
 
-<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> a resenha na íntegra.</h3>
-
-<div align="center">
-<table style="width: 90%">
-	<thead align="left">
-		<tr>
-			<th class="metadado">T&iacute;tulo</th>
-			<th class="metadado">Tipo da resenha</th>			
-			<th class="metadado">Coment&aacute;rio</th>
-			<th class="metadado">Postagem</th>			
-		</tr>
-		
-	</thead>
-	<tbody>
-		<c:forEach items="${resenhasRequest}" var="resenha">
-			<tr class="zebrado">
-				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-					<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
-				<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
-				<td class="infoTabela" title="clique no titulo para ler texto completo">					
-					<c:set var="origemResenha"	value="${resenha.descricao}"/>
-					<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>
-				<td class="infoTabela" title="clique no titulo para ler texto completo"><b>${resenha.dataFormatadaSimples}</b></td>
-			</tr>			
- 		</c:forEach>		
-	</tbody>
-	<tfoot>
-		<tr>
-			<th colspan="4" align="center"><h2>Celebre a Vida !</h2></th>			
-		</tr>		
-	</tfoot>
-</table>
-<br/>
-</div>
+<c:choose>
+	<c:when test="${not empty resenhasRequest}">
+		<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> a resenha na íntegra.</h3>
+		<div align="center">
+		<table style="width: 90%">
+			<thead align="left">
+				<tr>
+					<th class="metadado">T&iacute;tulo</th>
+					<th class="metadado">Tipo da resenha</th>			
+					<th class="metadado">Coment&aacute;rio</th>
+					<th class="metadado">Postagem</th>			
+				</tr>
+				
+			</thead>
+			<tbody>
+				<c:forEach items="${resenhasRequest}" var="resenha">
+					<tr class="zebrado">
+						<td class="infoTabela metadado ponteiro" title="visualizar este texto">
+							<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
+						<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
+						<td class="infoTabela" title="clique no titulo para ler texto completo">					
+							<c:set var="origemResenha"	value="${resenha.descricao}"/>
+							<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>
+						<td class="infoTabela" title="clique no titulo para ler texto completo"><b>${resenha.dataFormatadaSimples}</b></td>
+					</tr>			
+		 		</c:forEach>		
+			</tbody>
+			<tfoot>
+				<tr>
+					<th colspan="4" align="center"><h2>Celebre a Vida !</h2></th>			
+				</tr>		
+			</tfoot>
+		</table>
+		<br/>
+		</div>	
+	</c:when>
+	<c:otherwise>
+		<p align="center" class="info azulClaro letraGrande">N&atilde;o existem resenhas publicadas para a sua solicita&ccedil;&atilde;o</p>
+	</c:otherwise>
+</c:choose>
 
 <a name="irTopo"></a>
 <a name="lerTexto"></a>

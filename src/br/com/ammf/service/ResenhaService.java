@@ -1,15 +1,20 @@
 package br.com.ammf.service;
 
+import java.io.File;
 import java.text.ParseException;
 
+import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Resenha;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ResenhaService {
 	
-	void cadastrar(Resenha resenha);
+	void cadastrar(UploadedFile imagemResenha, Resenha resenha) throws CadastroException;
 
 	void atualizar(Resenha resenha, String dataPostagem) throws ParseException;
 
 	void cadastrarCategoria(String categoria);
+
+	File visualizarImagemResenha(String uuid);
 
 }

@@ -288,7 +288,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			if(livro.getLinkVenda().startsWith("www.")){
 				String novoLink = "http://" + livro.getLinkVenda();
 				livro.setLinkVenda(novoLink);
-			}else if(!livro.getLinkVenda().startsWith("http://www.")){
+			}else if(!livro.getLinkVenda().startsWith("http") && !livro.getLinkVenda().startsWith("https")){
 				result.include("linkEmBranco", "O link de venda do produto deve come&ccedil;ar com '<b>http://www.</b>'<br/>");
 				result.include("comErroLink", "Erro");
 				validado = false;
@@ -297,7 +297,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			
 		if(imagemLivro != null){
 			if(!imagemLivro.getContentType().startsWith("image")){
-				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto.");
+				result.include("fotoInvalida", "O arquivo para a capa do livro deve ser um arquivo de foto no formato .gif, .jpg ou .png.");
 				validado = false;
 			}
 		}
@@ -305,8 +305,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean novaResenha(Resenha resenha, Result result) {
-		boolean validado = resenha(resenha, result);			
+	public boolean novaResenha(UploadedFile imagemResenha, Resenha resenha, Result result) {
+		boolean validado = resenha(imagemResenha, resenha, result);			
 		
 		if(!validado){
 			result.include("resenhaErroCadastro", true);
@@ -317,7 +317,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	
 	@Override
 	public boolean atualizarResenha(Resenha resenha, Result result) {
-		boolean validado = resenha(resenha, result);
+		boolean validado = resenha(null, resenha, result);
 		
 		if(!validado){
 			result.include("resenhaErroAtualiza", true);
@@ -326,7 +326,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		return validado;
 	}
 	
-	private boolean resenha(Resenha resenha, Result result){
+	private boolean resenha(UploadedFile imagemResenha, Resenha resenha, Result result){
 		boolean validado = true;
 		if(resenha.getAutor() == null || resenha.getAutor().isEmpty()){
 			result.include("autorEmBranco", "O nome do autor deve ser informado<br/>");
@@ -344,6 +344,13 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}else if(resenha.getDescricao().length() > 2250){
 			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 2250 caracteres<br/>");
 			validado = false;
+		}
+		
+		if(imagemResenha != null){
+			if(!imagemResenha.getContentType().startsWith("image")){
+				result.include("fotoInvalida", "O arquivo para a apresenta&ccedil;&atilde;o da resenha deve ser um arquivo de foto no formato .gif, .jpg ou .png.");
+				validado = false;
+			}
 		}
 		
 		return validado;		

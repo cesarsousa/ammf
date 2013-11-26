@@ -34,7 +34,7 @@ ${textoEmBranco}
 	<h2 class="tituloPagina">Depoimentos</h2>
 
 	<p>
-	<span class="info azulClaro letraGrande" >Deixe sua opini&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
+	<span class="info azulClaro letraGrande" >O que as pessoas acham a respeito do Miguel.</span>
 	</p>
 
 	<div id="divDepoimentosCadastrados">
@@ -78,7 +78,7 @@ ${textoEmBranco}
 					<textarea id="cadastroDepoimentoTexto" name="depoimento.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novoComentario.conteudo}</textarea>
 					</div>
 					
-					<h3 align="right" style="font-size: small;">
+					<h3 align="right" class="letraPequena">
 					Voc&ecirc; pode digitar <span id="contadorCaracterDepoimento">500</span> caracteres em sua mensagem.
 					</h3>
 					
@@ -94,13 +94,10 @@ ${textoEmBranco}
 </div>
 
 <div id="telaAguardeCadastroDepoimento">
-	<div align="center">
-		
+	<div align="center">		
 		<h2 class="tituloPagina">Depoimentos</h2>
-		<span class="info azulClaro letraGrande" >Deixe sua opni&atilde;o sobre o site ou sobre qualquer outro assunto. </span>
-
+		<span class="info azulClaro letraGrande" >O que as pessoas acham a respeito do Miguel.</span>
 		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento esta sendo processado.</h3>
-		
 		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>			
 		<br />
 		<br />			

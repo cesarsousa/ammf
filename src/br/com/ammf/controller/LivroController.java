@@ -50,16 +50,13 @@ public class LivroController {
 	
 	@Restrito
 	@Post("/livro/adm/cadastrar")
-	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro, String ctxImagemLivro){
-		try {
-			boolean validado = validacaoService.cadastrarLivro(imagemLivro, livro, result);		
-			
-			if(validado){
+	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro){
+		try {			
+			if(validacaoService.cadastrarLivro(imagemLivro, livro, result)){
 				livroService.cadastrar(imagemLivro, livro);				
 				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
-			}
-			
+			}			
 			result.forwardTo(LojaController.class).lojaAdmin();
 		} catch (CadastroException cadastroException) {
 			cadastroException.printStackTrace();

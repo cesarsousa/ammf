@@ -34,7 +34,7 @@ public class LivroServiceImp implements LivroService {
 	public void cadastrar(UploadedFile imagemLivro, Livro livro) throws CadastroException {
 		try {
 			livro.setPostagem(DataUtils.getDateNow());
-			imagemService.salvarFotoLivro(imagemLivro, livro);
+			livro.setImagem(imagemService.criarESalvarImagem(imagemLivro, "livro" + livro.getUuid() + ".jpg"));
 			livroRepository.cadastrar(livro);			
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());

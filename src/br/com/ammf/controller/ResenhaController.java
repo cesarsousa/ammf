@@ -2,8 +2,10 @@ package br.com.ammf.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
+import java.io.File;
 import java.util.List;
 
+import br.com.ammf.exception.CadastroException;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
@@ -20,6 +22,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @Resource
 public class ResenhaController {
@@ -52,14 +55,18 @@ public class ResenhaController {
 	
 	@Restrito
 	@Post("/resenha/nova")
-	public void cadastrarResenha(Resenha resenha){
+	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
 		try {
-			if(validacaoService.novaResenha(resenha, result)){			
-				resenhaService.cadastrar(resenha);				
+			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
+				resenhaService.cadastrar(imagemResenha, resenha);				
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 			}
 			result.redirectTo(this).resenhaAdmin();			
+		} catch (CadastroException cadastroException) {
+			cadastroException.printStackTrace();
+			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + cadastroException.getMensagem() + ".");
+			result.redirectTo(LojaController.class).lojaAdmin();
 		} catch (EmailException e) {
 			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
 			result.redirectTo(this).resenhaAdmin();
@@ -143,6 +150,11 @@ public class ResenhaController {
 		} catch (Exception e) {
 			retornarJson("<div id=\"msgCadastrarCategoriaResenha\" class=\"msgBorderInterno msgErro t80 closeClick ponteiro\">Erro! N&atilde;o foi possivel cadastrar a categoria</div>");
 		}		
+	}
+	
+	@Get("/resenha/visualizador/{uuid}")
+	public File downloadImagemResenha(String uuid){
+		return resenhaService.visualizarImagemResenha(uuid);
 	}
 	
 	private void retornarJson(String mensagem) {
