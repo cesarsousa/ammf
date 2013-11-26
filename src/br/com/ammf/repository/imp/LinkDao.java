@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -23,6 +22,7 @@ private final Session session;
 		this.session = session;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Link> listar() {
 		try {

@@ -44,6 +44,7 @@ public class FaqDao implements FaqRepository{
 		}		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Faq> listar() {
 		try {
@@ -55,6 +56,7 @@ public class FaqDao implements FaqRepository{
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Faq> listarRespondidas() {
 		try {
@@ -67,6 +69,7 @@ public class FaqDao implements FaqRepository{
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Faq> listarNaoRespondiddas() {
 		try {
@@ -79,6 +82,7 @@ public class FaqDao implements FaqRepository{
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Faq> listarRespondidasParaCliente() {
 		try {

@@ -94,6 +94,7 @@ public class ResenhaDao implements ResenhaRepository {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resenha> ultimaResenhaPublicada() {
 		try {			
@@ -117,6 +118,7 @@ public class ResenhaDao implements ResenhaRepository {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resenha> listarPorCategorias(Long idCategoria) {
 		Criteria criteria = session.createCriteria(Resenha.class);

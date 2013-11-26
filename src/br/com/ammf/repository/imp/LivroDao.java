@@ -109,4 +109,28 @@ public class LivroDao implements LivroRepository {
 		}		
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Livro> listarLivrosProprietarios() {
+		try{
+			Criteria criteria = session.createCriteria(Livro.class);
+			criteria.add(Restrictions.eq("autor", "Alcindo Miguel Martins Filho"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Livro> listarLivrosDeTerceiros() {
+		try{
+			Criteria criteria = session.createCriteria(Livro.class);
+			criteria.add(Restrictions.ne("autor", "Alcindo Miguel Martins Filho"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
 }

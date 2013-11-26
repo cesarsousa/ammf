@@ -20,5 +20,9 @@ public interface LivroRepository {
 	void cadastrarCategoria(Categoria categoria);
 
 	String remover(String uuid);
+
+	List<Livro> listarLivrosProprietarios();
+	
+	List<Livro> listarLivrosDeTerceiros();
 	
 }

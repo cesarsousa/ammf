@@ -139,7 +139,7 @@
 				<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
 				<br/>
 				<div class="paddingPadrao">
-				<label class="labelForm">Autor</label>
+				<label class="labelForm">Autor <span class="info azulClaro">no caso de livro propriet&aacute;rio utilize o nome completo<br/>Alcindo Miguel Martins Filho. </span></label>
 				<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 				</div>
 				
@@ -149,7 +149,7 @@
 				</div>
 				
 				<div class="paddingPadrao">
-				<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+				<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
 				<br/>
 				
 				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>

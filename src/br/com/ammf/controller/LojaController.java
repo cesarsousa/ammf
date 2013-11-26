@@ -39,8 +39,11 @@ public class LojaController {
 		
 	@Get("/cliente/loja")
 	public void lojaCliente(){
-		List<Livro> livrosPublicados = livroRepository.listar();
-		result.include("livrosPublicados", livrosPublicados);		
+		List<Livro> livrosPublicados = livroRepository.listarLivrosProprietarios();
+		List<Livro> livrosTerceirosPublicados = livroRepository.listarLivrosDeTerceiros();
+		
+		result.include("livrosPublicados", livrosPublicados);
+		result.include("livrosTerceirosPublicados", livrosTerceirosPublicados);
 	}
 	
 	@Get("/downloadboleto")
