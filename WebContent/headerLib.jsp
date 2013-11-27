@@ -12,6 +12,7 @@
 <link href="${css}/style.mod.css" rel="stylesheet" type="text/css" />
 <link href="${css}/table.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
+<link href="${css}/prettyPhoto.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="${javascript}/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autocomplete.min.js"></script>
@@ -21,6 +22,7 @@
 <script type="text/javascript" src="${javascript}/jquery.infinitecarousel3.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.maskmoney.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.prettyPhoto.js"></script>
 
 <script type="text/javascript" src="${javascript}/COMMONS.js"></script>
 <script type="text/javascript" src="${javascript}/index.js"></script>

@@ -34,7 +34,9 @@
 	<div class="fullSize" align="center">
 		<div style="width: 1000px">
 		
-		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
+		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" rel="prettyPhoto[resenha1]" title="${resenha.titulo}">
+			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
+		</a>	
 		
 		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
@@ -56,7 +58,11 @@
 				<div class="cardViewText">
 					<table>
 					<tr>
-					<td class="paddingPadrao" valign="top"><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro"></td>
+					<td class="paddingPadrao" valign="top">					
+					<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" rel="prettyPhoto[resenha2]" title="${resenha.titulo}">
+						<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
+					</a>				
+					</td>
 					
 					<td class="paddingPadrao">
 					<h2>${resenha.categoria.descricao}</h2>
@@ -137,7 +143,11 @@
 			<div class="cardViewText">
 					<table>
 					<tr>
-					<td class="paddingPadrao" valign="top"><img id="imagemResenhaModoLeitura" class="fotoLivro" /></td>
+					<td class="paddingPadrao" valign="top">
+					<a id="linkPrettyPhotoResenha" rel="prettyPhoto[resenha3]" title="${resenha.titulo}">
+						<img id="imagemResenhaModoLeitura" class="fotoLivro" />
+					</a>					
+					</td>
 					
 					<td class="paddingPadrao">
 					<h2><span id="resenhaCategoria"></span></h2>

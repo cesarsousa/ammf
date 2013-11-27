@@ -42,8 +42,11 @@ function visualizarTextoResenha(uuid){
 		url : $('#contexto').val() + "/resenha/cliente/texto",
 		data:{"uuid" : uuid},
 		success : function(json){		
-			var srcImagem = $('#contexto').val() + "/resenha/visualizador/" + json.uuid;
+			var srcImagem = $('#contexto').val() + "/resenha/visualizador/" + json.uuid;			
+			
 			$('#imagemResenhaModoLeitura').attr("src", srcImagem);
+			$('#linkPrettyPhotoResenha').attr("href", srcImagem);		
+			
 			$('#resenhaData').html('').append("postada em " + json.postagem.$);
 			$('#resenhaTitulo').html('').append(json.titulo);
 			$('#resenhaAutor').html('').append(json.autor);

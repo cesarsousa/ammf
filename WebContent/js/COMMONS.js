@@ -254,7 +254,7 @@ $(document).ready(function() {
 		"sPaginationType": "full_numbers"
 	});
 	
-	
+	$("a[rel^='prettyPhoto']").prettyPhoto();
 	
 	$('.closeClick').click(function(){
 		$(this).fadeOut(1000);
