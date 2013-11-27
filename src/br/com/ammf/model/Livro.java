@@ -34,7 +34,7 @@ public class Livro implements Serializable {
 	
 	@Column(length=1005)
 	private String sinopse;
-	
+		
 	@OneToOne(cascade=CascadeType.ALL)
 	private Imagem imagem;	
 	

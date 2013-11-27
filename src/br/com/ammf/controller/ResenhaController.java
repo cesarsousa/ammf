@@ -55,10 +55,10 @@ public class ResenhaController {
 	
 	@Restrito
 	@Post("/resenha/nova")
-	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
+	public void cadastrarResenha(Resenha resenha){
 		try {
-			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
-				resenhaService.cadastrar(imagemResenha, resenha);				
+			if(validacaoService.novaResenha(null, resenha, result)){			
+				resenhaService.cadastrar(null, resenha);				
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 			}

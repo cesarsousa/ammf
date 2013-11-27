@@ -65,7 +65,7 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Nova Resenha</h2>
 		
-		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
+		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" method="post">			
 
 			<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
 			
@@ -101,13 +101,13 @@
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</h3>		
 			
-			<div class="paddingPadrao bordaPadrao">
+			<!-- <div class="paddingPadrao bordaPadrao">
 				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span> </label><br/>
 				<div id="divUploadFotoResenha">
 					<input id="inputImagemResenha" type="file" name="imagemResenha" style="background-color: #CCCCCC; width: 100%"/>
 				</div>
 				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-			</div>
+			</div> -->
 			
 			<p>
 			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">

@@ -41,9 +41,8 @@ public class ResenhaServiceImp implements ResenhaService {
 	public void cadastrar(UploadedFile imagemResenha, Resenha resenha) throws CadastroException{
 		try {
 			resenha.setPostagem(DataUtils.getDateNow());
-			resenha.setImagem(imagemService.criarESalvarImagem(imagemResenha, "resenha" + resenha.getUuid() + ".jpg"));
+			//resenha.setImagem(imagemService.criarESalvarImagem(imagemResenha, "resenha" + resenha.getUuid() + ".jpg"));
 			resenhaRepository.cadastrar(resenha);
-			resenha.setCategoria(categoriaRepository.obterPor(resenha.getCategoria().getId()));		
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());
 		}		
