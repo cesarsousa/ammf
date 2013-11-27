@@ -43,8 +43,8 @@ public class Resenha implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date postagem = new Date();
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Imagem imagem;
+	/*@OneToOne(cascade=CascadeType.ALL)
+	private Imagem imagem;*/
 	
 	public long getId() {
 		return id;
@@ -102,13 +102,13 @@ public class Resenha implements Serializable {
 		this.categoria = categoria;
 	}
 	
-	public Imagem getImagem() {
+	/*public Imagem getImagem() {
 		return imagem;
 	}
 	
 	public void setImagem(Imagem imagem) {
 		this.imagem = imagem;
-	}
+	}*/
 
 	public String getDataFormatada(){
 		return DataUtils.getFullString(postagem);
