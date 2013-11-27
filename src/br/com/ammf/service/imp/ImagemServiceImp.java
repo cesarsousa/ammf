@@ -11,6 +11,7 @@ import org.apache.commons.io.IOUtils;
 
 import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.service.ImagemService;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
@@ -81,6 +82,24 @@ public class ImagemServiceImp implements ImagemService {
 		}		
 	}
 	
+	@Override
+	public void atualizarFotoResenha(UploadedFile imagemResenha, Resenha resenha) throws Exception {
+		if (resenha.getImagem().getNome() != null && !resenha.getImagem().getNome().equals(NOME_DEFAULT)){
+			removerFoto(resenha.getImagem().getCaminho());				
+		}
+		
+		File destino = new File(pastaImagens, "resenha" + resenha.getUuid() + ".jpg");
+		IOUtils.copy(imagemResenha.getFile(), new FileOutputStream(destino));
+		
+		if(resenha.getImagem().getNome() != null && resenha.getImagem().getNome().equals(NOME_DEFAULT)){
+			resenha.setImagem(criarImagem("resenha" + resenha.getUuid() + ".jpg", destino.getAbsolutePath()));
+		}else{
+			resenha.getImagem().setCaminho(destino.getAbsolutePath());
+			resenha.getImagem().setNome("resenha" + resenha.getUuid() + ".jpg");
+		}
+		
+	}
+	
 	private Imagem criarImagem(String nomeLivro, String caminhoDaImagem) {
 		Imagem imagem = new Imagem();
 		imagem.setNome(nomeLivro);
@@ -139,5 +158,7 @@ public class ImagemServiceImp implements ImagemService {
 	public String getNomeLivroDefault() {
 		return NOME_DEFAULT;
 	}
+
+	
 
 }

@@ -73,9 +73,7 @@ public class LivroController {
 	@Post("/livro/adm/atualizar")
 	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagemLivroEdt){ 
 		try {			
-			boolean validado = validacaoService.atualizarLivro(novaImagemLivro, livro, result);
-			
-			if(validado){
+			if(validacaoService.atualizarLivro(novaImagemLivro, livro, result)){
 				livroService.atualizar(novaImagemLivro, dataPostagem, livro, removerImagemLivroEdt);				
 				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_ATUALIZADO, livro);
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				

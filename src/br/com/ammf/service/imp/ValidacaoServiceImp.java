@@ -316,8 +316,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean atualizarResenha(Resenha resenha, Result result) {
-		boolean validado = resenha(null, resenha, result);
+	public boolean atualizarResenha(UploadedFile novaImagemResenha, Resenha resenha, Result result) {
+		boolean validado = resenha(novaImagemResenha, resenha, result);
 		
 		if(!validado){
 			result.include("resenhaErroAtualiza", true);

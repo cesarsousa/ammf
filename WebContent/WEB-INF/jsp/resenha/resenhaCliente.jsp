@@ -33,6 +33,9 @@
 <c:if test="${not empty resenha}">
 	<div class="fullSize" align="center">
 		<div style="width: 1000px">
+		
+		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
+		
 		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
@@ -51,10 +54,19 @@
 				
 			<c:forEach items="${resenhas}" var="resenha">
 				<div class="cardViewText">
-					<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
+					<table>
+					<tr>
+					<td class="paddingPadrao" valign="top"><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro"></td>
+					
+					<td class="paddingPadrao">
+					<h2>${resenha.categoria.descricao}</h2>
+					<h3>${resenha.titulo}</h3>					
 					<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 					<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
 					<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>	
+					</td>
+					</tr>
+					</table>									
 				</div>
 				<br/>
 			</c:forEach>			
@@ -79,6 +91,7 @@
 		<table style="width: 90%">
 			<thead align="left">
 				<tr>
+					<th class="metadado"></th>
 					<th class="metadado">T&iacute;tulo</th>
 					<th class="metadado">Tipo da resenha</th>			
 					<th class="metadado">Coment&aacute;rio</th>
@@ -88,7 +101,8 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${resenhasRequest}" var="resenha">
-					<tr class="zebrado">
+					<tr class="zebrado">						
+						<td><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone50"></td>
 						<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 							<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 						<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
@@ -119,12 +133,22 @@
 	<tbody>
  		<tr align="center">
 			<td>
+			
 			<div class="cardViewText">
-				<h3><span id="resenhaCategoria"></span> -  <span id="resenhaTitulo"></span></h3>					
-				<p id="resenhaConteudo" class="titulo">&ldquo; ${resenha.descricao} &ldquo;</p>
-				<p id="resenhaAutor" class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-				<p id="resenhaData" class="textoPostagemDepoimento negrito">postado em ${resenha.dataFormatada}</p>
-			</div>
+					<table>
+					<tr>
+					<td class="paddingPadrao" valign="top"><img id="imagemResenhaModoLeitura" class="fotoLivro" /></td>
+					
+					<td class="paddingPadrao">
+					<h2><span id="resenhaCategoria"></span></h2>
+					<h3><span id="resenhaTitulo"></span></h3>					
+					<p id="resenhaConteudo" class="titulo"></p>
+					<p id="resenhaAutor" class="textoAutorDepoimento azulClaro"></p>
+					<p id="resenhaData" class="textoPostagemDepoimento negrito"></p>	
+					</td>
+					</tr>
+					</table>									
+				</div>		
 			</td>		
 		</tr>		
 	</tbody>

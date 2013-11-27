@@ -129,7 +129,7 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Editar Resenha</h2>
 		
-		<form id="formNovaResenha" action="<c:url value="/resenha/atualizar"/>" method="post">				
+		<form id="formNovaResenha" action="<c:url value="/resenha/atualizar"/>" enctype="multipart/form-data" method="post">				
 			
 			<input type="hidden" name="resenha.uuid" value="${resenha.uuid}"/>
 			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
@@ -174,10 +174,34 @@
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			<br/>
-			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</span>	
+			
+			<h3 class="letraPequena">Descri&ccedil;&atilde;o do coment&aacute;rio. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</h3>	
+			
+			<div class="paddingPadrao bordaPadrao">					
+											
+				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
+				
+				<p>
+				<label class="inline">
+				<span class="labelForm">Remover e n&atilde;o adicionar nenhuma imagem</span>
+				<input type="checkbox" value="true" name="removerImagemResenhaEdt"/>						
+				</label>
+				
+				</p>
+				<p>
+				<label class="labelForm">Selecionar nova imagem de apresenta&ccedil;&atilde;o da resenha </label><br/>
+				</p>
+				<div id="divUploadNovaFotoResenha">
+					<input type="hidden" name="resenha.imagem.nome" value="${resenha.imagem.nome}"/>
+					<input type="hidden" name="resenha.imagem.id" value="${resenha.imagem.id}"/>
+					<input type="hidden" name="resenha.imagem.caminho" value="${resenha.imagem.caminho}"/>
+					<input id="inputNovaImagemResenha" type="file" name="novaImagemResenha" style="background-color: #CCCCCC; width: 100%"/>
+				</div>
+				<input id="btRemoverUploadNovaFotoResenha" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+			</div>			
+			
 			<p>
-			<input id="btEditarResenha" type="submit" value="atualizar" class="buttonCadastrar">
+			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="buttonCadastrar">
 			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="button">				
 			</p>
 		</form>			

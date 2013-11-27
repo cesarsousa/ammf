@@ -6,9 +6,11 @@ import java.util.Date;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
+import br.com.ammf.repository.ImagemRepository;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.ResenhaService;
@@ -21,14 +23,17 @@ public class ResenhaServiceImp implements ResenhaService {
 	
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
+	private ImagemRepository imagemRepository;
 	private ImagemService imagemService;
 	
 	public ResenhaServiceImp(
 			ResenhaRepository resenhaRepository, 
 			CategoriaRepository categoriaRepository,
+			ImagemRepository imagemRepository,
 			ImagemService imagemService){
 		this.resenhaRepository = resenhaRepository;
 		this.categoriaRepository = categoriaRepository;
+		this.imagemRepository = imagemRepository;
 		this.imagemService = imagemService;
 	}
 
@@ -41,16 +46,29 @@ public class ResenhaServiceImp implements ResenhaService {
 			resenha.setCategoria(categoriaRepository.obterPor(resenha.getCategoria().getId()));		
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());
-		}
-		
+		}		
 	}
 
 	@Override
-	public void atualizar(Resenha resenha, String dataPostagem) throws ParseException {
-		Date postagem = DataUtils.getDate(dataPostagem);
-		resenha.setPostagem(postagem);
-		resenhaRepository.atualizar(resenha);
-		resenha.setCategoria(categoriaRepository.obterPor(resenha.getCategoria().getId()));
+	public void atualizar(UploadedFile novaImagemResenha, Resenha resenha, String dataPostagem, boolean removerImagem) throws CadastroException {
+		try {
+			Date postagem = DataUtils.getDate(dataPostagem);
+			resenha.setPostagem(postagem);
+			resenha.setCategoria(categoriaRepository.obterPor(resenha.getCategoria().getId()));
+			
+			if(removerImagem && !resenha.getImagem().getNome().equals(imagemService.getNomeLivroDefault())){
+				Imagem imagem = resenha.getImagem();
+				imagemService.removerFoto(imagem.getCaminho());
+				resenha.setImagem(null);				
+				imagemRepository.remover(imagem);
+			}else if(novaImagemResenha != null){
+				imagemService.atualizarFotoResenha(novaImagemResenha, resenha);
+			}
+			
+			resenhaRepository.atualizar(resenha);
+		} catch (Exception e) {
+			throw new CadastroException(e.getMessage());
+		}		
 	}
 
 	@Override
@@ -58,8 +76,7 @@ public class ResenhaServiceImp implements ResenhaService {
 		Categoria novaCategoria = new Categoria();
 		novaCategoria.setDescricao(categoria);
 		novaCategoria.setTipoCategoria(TipoCategoria.Resenha);
-		resenhaRepository.cadastrarCategoria(novaCategoria);
-		
+		resenhaRepository.cadastrarCategoria(novaCategoria);		
 	}
 
 	@Override

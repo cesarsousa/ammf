@@ -1,7 +1,6 @@
 package br.com.ammf.service.imp;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.com.ammf.exception.CadastroException;
@@ -44,7 +43,7 @@ public class LivroServiceImp implements LivroService {
 	@Override
 	public void atualizar(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagem) throws CadastroException {
 		try {
-			Date postagem = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dataPostagem);
+			Date postagem = DataUtils.getDate(dataPostagem);
 			livro.setPostagem(postagem);
 			
 			if(removerImagem && !livro.getImagem().getNome().equals(imagemService.getNomeLivroDefault())){
@@ -55,6 +54,7 @@ public class LivroServiceImp implements LivroService {
 			}else if(novaImagemLivro != null){
 				imagemService.atualizarFotoLivro(novaImagemLivro, livro);
 			}
+			
 			livroRepository.atualizar(livro);
 		} catch (Exception e) {
 			throw new CadastroException(e.getMessage());

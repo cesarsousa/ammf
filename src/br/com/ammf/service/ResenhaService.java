@@ -11,7 +11,7 @@ public interface ResenhaService {
 	
 	void cadastrar(UploadedFile imagemResenha, Resenha resenha) throws CadastroException;
 
-	void atualizar(Resenha resenha, String dataPostagem) throws ParseException;
+	void atualizar(UploadedFile novaImagemResenha, Resenha resenha, String dataPostagem, boolean removerImagem) throws CadastroException;
 
 	void cadastrarCategoria(String categoria);
 

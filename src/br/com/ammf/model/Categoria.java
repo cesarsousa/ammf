@@ -1,5 +1,7 @@
 package br.com.ammf.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,8 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categoria")
-public class Categoria {
-	
+public class Categoria implements Serializable {
+	private static final long serialVersionUID = -5050132824473899515L;
+
 	@Id
 	@GeneratedValue
 	private long id;	

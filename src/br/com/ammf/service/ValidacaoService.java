@@ -33,7 +33,7 @@ public interface ValidacaoService {
 
 	boolean novaResenha(UploadedFile imagemResenha, Resenha resenha, Result result);
 
-	boolean atualizarResenha(Resenha resenha, Result result);
+	boolean atualizarResenha(UploadedFile novaImagemResenha, Resenha resenha, Result result);
 
 	boolean cadastrarLink(Link link, Result result);
 

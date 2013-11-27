@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Resenha;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ImagemService {
@@ -13,6 +14,8 @@ public interface ImagemService {
 	Imagem criarESalvarImagem(UploadedFile imagemLivro, String nomeDaImagem) throws FileNotFoundException, IOException;
 
 	void atualizarFotoLivro(UploadedFile imagemLivro, Livro livro) throws Exception;
+	
+	void atualizarFotoResenha(UploadedFile novaImagemResenha, Resenha resenha) throws Exception;
 	
 	void removerFoto(String caminhoDaImagem) throws Exception;
 
@@ -22,7 +25,7 @@ public interface ImagemService {
 	
 	File visualizarImagemResenha(String uuid);
 
-	String getNomeLivroDefault();
+	String getNomeLivroDefault();	
 
 	/*Imagem criarImagemDefault();*/
 	

@@ -62,7 +62,7 @@ public class ResenhaController {
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 			}
-			result.redirectTo(this).resenhaAdmin();			
+			result.forwardTo(this).resenhaAdmin();			
 		} catch (CadastroException cadastroException) {
 			cadastroException.printStackTrace();
 			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + cadastroException.getMensagem() + ".");
@@ -75,17 +75,17 @@ public class ResenhaController {
 	
 	@Restrito
 	@Post("/resenha/atualizar")
-	public void atualizar(String dataPostagem, Resenha resenha){
+	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt){
 		try {
-			if(validacaoService.atualizarResenha(resenha, result)){
-				resenhaService.atualizar(resenha, dataPostagem);
+			if(validacaoService.atualizarResenha(novaImagemResenha, resenha, result)){
+				resenhaService.atualizar(novaImagemResenha, resenha, dataPostagem, removerImagemResenhaEdt);
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
 			}else{
 				result.include("resenhaErroAtualizarCadastro", true);
 				result.include("resenhaEditarCadastro", true);
 			}
-			result.redirectTo(this).resenhaAdmin();
+			result.forwardTo(this).resenhaAdmin();
 		} catch (Exception e) {
 			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
 			result.redirectTo(this).resenhaAdmin();

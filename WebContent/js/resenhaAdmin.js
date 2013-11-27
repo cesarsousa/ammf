@@ -143,6 +143,14 @@ $(document).ready(function() {
 		.slideDown(500);
 	});
 	
+	$('#btRemoverUploadNovaFotoResenha').click(function(){
+		$('#divUploadNovaFotoResenha')
+		.slideUp(500)
+		.html('')
+		.append('<input id="inputNovaImagemResenha" type="file" name="novaImagemResenha" style="background-color: #CCCCCC; width: 100%"/>')
+		.slideDown(500);
+	});
+	
 	$('#msgCadastrarCategoriaResenhaEdt, #divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
 	$('#btCadastrarCategoriaResenhaEdt').toggle(function() {
 		$('#divCadastrarCategoriaResenhaEdt').show();
