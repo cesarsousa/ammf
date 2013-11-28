@@ -213,7 +213,7 @@ public class PessoaController {
 		}
 	}
 	
-	@Get("/pessoa/remover/email/{uuid}")
+	@Get("/pessoa/removerAssinaturaEmail/{uuid}")
 	public void removerAssinaturaEmail(String uuid){		
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		if(pessoa == null){

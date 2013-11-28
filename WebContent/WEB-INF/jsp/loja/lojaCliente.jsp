@@ -196,7 +196,7 @@
 						</td>
 						
 						<td valign="middle">						
-							<div align="center">
+							<div align="right">
 							<p>
 							<p>
 							<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">
@@ -326,7 +326,7 @@
 						</td>
 						
 						<td valign="middle">						
-							<div align="center">
+							<div align="right">
 							<p>
 							<p>
 							<img id="btInformacaoLivro${livro.uuid}" onclick="abrirInformacaoProduto(this);" class="ponteiro destaqueImage" src="${imagem}/iconeInformacoes.jpg">

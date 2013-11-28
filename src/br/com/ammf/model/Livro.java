@@ -203,6 +203,10 @@ public class Livro implements Serializable {
 		return DataUtils.getString(postagem, "dd/MM/yyyy");
 	}
 	
+	public String getDataFormatadaCompleta(){
+		return DataUtils.getFullString(postagem);
+	}
+	
 	public String getPrecoFormatado(){		
 		return preco == null ? "0,00" : this.preco.toString();
 	}

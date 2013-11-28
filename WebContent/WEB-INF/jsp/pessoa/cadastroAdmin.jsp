@@ -122,22 +122,21 @@
 
 <tr align="center">
 <td>
-	<p>
-		<span class="info azulClaro" style="text-align: left;">Enviar um convite a uma pessoa.<br/>Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</span>
-	</p>
+	<p class="info azulClaro letraGrande">Enviar um convite a uma pessoa.</p>
+	<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
 	<div id="areaLogin">
 	
 	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
 		
-		<label class="labelForm">Nome:</label>
+		<label class="labelForm">Nome</label>
 		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
 		<br/><br/>	
 		
-		<label class="labelForm">Email:</label>
+		<label class="labelForm">Email</label>
 		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
 		<br/><br/>
 		
-		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>	
+		<input id="btnCadastrarPessoa" type="submit" value="Enviar convite"  class="buttonCadastrar direita"/>	
 	</form>
 	</div>
 </td>

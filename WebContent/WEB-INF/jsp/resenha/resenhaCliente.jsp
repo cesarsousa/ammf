@@ -31,20 +31,26 @@
 </div>
 
 <c:if test="${not empty resenha}">
-	<div class="fullSize" align="center">
-		<div style="width: 1000px">
-		
+	<br/>
+	<div class="fullSize paddingPadrao" align="left">		
+		<table>
+		<tr>
+		<td class="paddingPadrao" valign="top">					
 		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" rel="prettyPhoto[resenha1]" title="${resenha.titulo}">
 			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
-		</a>	
+		</a>				
+		</td>
 		
-		<h3>${resenha.categoria.descricao} -  ${resenha.titulo}</h3>					
+		<td class="paddingPadrao">
+		<h2>${resenha.categoria.descricao}</h2>
+		<h3>${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>
-		</div>	
+		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>	
+		</td>
+		</tr>
+		</table>	
 	</div>
-	<br/><br/>
 </c:if>
 
 
@@ -52,7 +58,7 @@
 	<c:choose>
 		<c:when test="${not empty resenhas}">
 		
-		<h3 style="padding-left: 10px; text-align: center;">&Uacute;ltimas resenhas publicadas.</h3>
+		<h3 style="padding-left: 10px; text-align: center;">&Uacute;ltima resenha publicada.</h3>
 				
 			<c:forEach items="${resenhas}" var="resenha">
 				<div class="cardViewText">

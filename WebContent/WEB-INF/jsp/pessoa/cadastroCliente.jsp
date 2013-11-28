@@ -43,7 +43,7 @@
 	</p>
 	
 	<p>
-	<span class="info azulClaro" >N&atilde;o se preocupe, seus dados n&atilde;o ser&aacute; divulgado no site</span>	
+	<span class="info azulClaro" >N&atilde;o se preocupe, seus dados n&atilde;o ser&atilde;o divulgados no site.</span>	
 	</p>
 	
 	<label class="labelForm">Nome</label>

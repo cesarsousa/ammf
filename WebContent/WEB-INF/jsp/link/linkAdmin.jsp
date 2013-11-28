@@ -127,10 +127,10 @@
 		<tbody>
 	 		<c:forEach items="${links}" var="link">
 				<tr class="zebrado">
-					<td class="infoTabela metadado">${link.url}</td>
-					<td class="infoTabela">${link.titulo}</td>
-					<td class="infoTabela">${link.descricao}</td>					
-					<td class="infoTabela" style="width: 160px;"><b>${link.dataFormatada}</b></td>
+					<td class="infoTabelaConteudo metadado">${link.url}</td>
+					<td class="infoTabelaConteudo">${link.titulo}</td>
+					<td class="infoTabelaConteudo">${link.descricao}</td>					
+					<td class="infoTabelaConteudo" style="width: 160px;">${link.dataFormatada}</td>
 					<td class="infoTabelaData" style="width: 30px;" align="center">
 						<a href="<c:url value="/link/remover/${link.uuid}"/>" onclick="return confirmarExclusao()" >
 							<img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>

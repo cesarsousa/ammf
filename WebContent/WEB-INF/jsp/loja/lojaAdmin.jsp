@@ -304,7 +304,7 @@
 					<th class="metadado">Autor</th>
 					<th class="metadado">Categoria</th>
 					<th class="metadado" style="width: 90px;">Ano</th>
-					<th class="metadado" style="width: 150px;">Pre&ccedil;o</th>
+					<th class="metadado" style="width: 150px;">Pre&ccedil;o (R$)</th>
 					<th class="metadado" style="width: 150px;">Postagem</th>
 					<th class="metadado">A&ccedil;&otilde;es</th>
 					</tr>
@@ -312,13 +312,13 @@
 				<tbody>
 					<c:forEach items="${livrosSolicitados}" var="livro">
 						<tr class="zebrado">
-							<td class="infoTabela" style="width: 50px;"><img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="icone25"></td>
-							<td class="infoTabela">${livro.titulo}</td>
-							<td class="infoTabela">${livro.autor}</td>
-							<td class="infoTabela">${livro.categoria.descricao}</td>
-							<td class="infoTabela" style="width: 90px;">${livro.ano}</td>
-							<td class="infoTabela" style="width: 150px;">${livro.precoFormatado}</td>
-							<td class="infoTabela" style="width: 150px;">${livro.dataFormatada}</td>
+							<td class="infoTabelaConteudo" style="width: 50px;"><img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="icone25"></td>
+							<td class="infoTabelaConteudo">${livro.titulo}</td>
+							<td class="infoTabelaConteudo">${livro.autor}</td>
+							<td class="infoTabelaConteudo">${livro.categoria.descricao}</td>
+							<td class="infoTabelaConteudo" style="width: 90px;">${livro.ano}</td>
+							<td class="infoTabelaConteudo" style="width: 150px;">${livro.precoFormatado}</td>
+							<td class="infoTabelaConteudo" style="width: 150px;">${livro.dataFormatadaCompleta}</td>
 							<td>															
 								<a href="<c:url value="/livro/adm/editar/${livro.uuid}" />">
 									<img src="${imagem}/iconeEditarHover.png" class="icone20 ponteiro" alt="editar livro" title="editar livro">
@@ -394,7 +394,7 @@
 					</div>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm">Subt&iacute;tulo: <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+					<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
 					<br/>
 					
 					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>

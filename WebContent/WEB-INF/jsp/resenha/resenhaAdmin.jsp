@@ -69,7 +69,7 @@
 
 			<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
 			
-			<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
+			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
 			<div>
 				<div id="divCadastrarCategoriaResenha">
 				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
@@ -83,11 +83,11 @@
 			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
 			</div>
 			
-			<h3>T&iacute;tulo :</h3>
+			<h3>T&iacute;tulo</h3>
 			<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 			
 				
-			<h3>Autor :</h3>
+			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
 			<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
@@ -97,7 +97,7 @@
 				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
-			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
+			<h3>Coment&aacute;rio com at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</h3>		
 			
@@ -135,7 +135,7 @@
 			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
 			
 			<div id="divIdResenha">				
-			<h3>C&oacute;digo da Resenha:</h3>
+			<h3>C&oacute;digo da Resenha</h3>
 			<input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
 			
@@ -144,7 +144,7 @@
 			<br/>
 			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
 			<br/>			
-			<h3>Tipo da Resenha: <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
+			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
 			<div>
 				<div id="divCadastrarCategoriaResenhaEdt">
 				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
@@ -158,11 +158,11 @@
 			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
 			</div>
 			
-			<h3>T&iacute;tulo :</h3>
+			<h3>T&iacute;tulo</h3>
 			<input id="resenhaTituloEdt" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 			
 				
-			<h3>Autor :</h3>
+			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3></h3>
 			<input id="resenhaAutorEdt" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
@@ -172,7 +172,7 @@
 				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
-			<h3>Coment&aacute;rio: at&eacute; 2250 caracteres.</h3>				
+			<h3>Coment&aacute;rio com at&eacute; 2250 caracteres.</h3>				
 			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			
 			<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</h3>	

@@ -6,7 +6,7 @@ public class LinksDoSite {
 	
 	public static final String WEB_SITE = DOMINIO;
 
-	public static final String REMOVER_EMAIL = DOMINIO + "/pessoa/remover/email/uuid";
+	public static final String REMOVER_EMAIL = DOMINIO + "/pessoa/removerAssinaturaEmail/uuid";
 
 	public static final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
 	

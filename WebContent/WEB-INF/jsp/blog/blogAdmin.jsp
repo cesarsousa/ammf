@@ -268,7 +268,7 @@
 					<td class="infoTabelaConteudo">
 						<c:set var="origem"	value="${texto.conteudo}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
-					<td class="infoTabelaConteudo" style="width: 160px;"><b>${texto.dataFormatada}</b></td>
+					<td class="infoTabelaConteudo" style="width: 160px;">${texto.dataFormatada}</td>
 					<td class="infoTabelaData" style="width: 80px;">
 						<a href="<c:url value="/blog/editar/${texto.uuid}" />">
 							<c:choose>

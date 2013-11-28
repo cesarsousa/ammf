@@ -30,19 +30,7 @@ public class ImagemServiceImp implements ImagemService {
 				
 		pastaImagens = new File(PASTA_IMAGEM_LIVRO);
 		pastaImagens.mkdir();
-		
-		//PASTA_IMAGEM_LIVRO = "C:/ammf/imagem";
-		//PASTA_IMAGEM_LIVRO = "/home/cesarsousa/workspacejuno/ammf/WebContent/livro";
-		
-		// notebook
-		//PASTA_IMAGEM_LIVRO = "C:/Users/cesar/Documents/GitHub/ammf/WebContent/livro";		
-		                		
-		// pc home windows 7		
-		//PASTA_IMAGEM_LIVRO = "C:/Users/CesarSousa/Documents/GitHub/ammf/WebContent/livro";
-		
-		// pc inpi
-		//PASTA_IMAGEM_LIVRO = "C:/Documents and Settings/cjunior/Meus documentos/GitHub/ammf/WebContent/livro";
-				
+						
 	}	
 
 	@Override
@@ -54,15 +42,7 @@ public class ImagemServiceImp implements ImagemService {
 			
 			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));	
 			
-			return criarImagem(nomeDaImagem, destino.getAbsolutePath());
-			
-			/*String nomeLivro = "/livro" + livro.getUuid() + ".jpg";			
-			//String caminhoDaImagem = PASTA_IMAGEM_LIVRO + nomeLivro;
-			String caminhoDaImagem = ctxImagemLivro + nomeLivro;
-			File file = new File(caminhoDaImagem);			
-			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(file));		
-			livro.setImagem(criarImagemLivro(nomeLivro, caminhoDaImagem));*/		
-		
+			return criarImagem(nomeDaImagem, destino.getAbsolutePath());		
 	}
 
 	@Override
