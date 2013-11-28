@@ -28,7 +28,10 @@
 		<tr>
 		<td width="120px"  align="left">				
 		
-		<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
+		<a href="<c:url value="/loja/visualizador/${livro.uuid}" />" rel="prettyPhoto[livroRequest]" title="${resenha.titulo}">
+			<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
+		</a>						
+		
 		</td>
 		
 		<td valign="top">
@@ -181,8 +184,9 @@
 						<table style="width: 80%; border-bottom: 1px solid #CCCCCC;" class="paddingPadrao ">
 						<tr>
 						<td width="120px"  align="left" valign="top">				
-						
-						<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
+							<a href="<c:url value="/loja/visualizador/${livro.uuid}" />" rel="prettyPhoto[livrosMiguel]" title="${resenha.titulo}">
+								<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
+							</a>
 						</td>
 						
 						<td valign="top">
@@ -310,8 +314,9 @@
 						<table style="width: 80%; border-bottom: 1px solid #CCCCCC;" class="paddingPadrao ">
 						<tr>
 						<td width="120px"  align="left" valign="top">				
-						
-						<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">							
+							<a href="<c:url value="/loja/visualizador/${livro.uuid}" />" rel="prettyPhoto[livrosOutros]" title="${resenha.titulo}">
+								<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
+							</a>													
 						</td>
 						
 						<td valign="top">

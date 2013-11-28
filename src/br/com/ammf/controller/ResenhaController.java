@@ -55,18 +55,17 @@ public class ResenhaController {
 	
 	@Restrito
 	@Post("/resenha/nova")
-	public void cadastrarResenha(Resenha resenha){
+	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
 		try {
-			if(validacaoService.novaResenha(null, resenha, result)){			
-				resenhaService.cadastrar(null, resenha);				
+			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
+				resenhaService.cadastrar(imagemResenha, resenha);				
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 			}
 			result.forwardTo(this).resenhaAdmin();			
-		} catch (CadastroException cadastroException) {
-			cadastroException.printStackTrace();
-			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + cadastroException.getMensagem() + ".");
-			result.redirectTo(LojaController.class).lojaAdmin();
+		} catch (CadastroException e) {
+			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).resenhaAdmin();
 		} catch (EmailException e) {
 			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
 			result.redirectTo(this).resenhaAdmin();
@@ -85,9 +84,12 @@ public class ResenhaController {
 				result.include("resenhaErroAtualizarCadastro", true);
 				result.include("resenhaEditarCadastro", true);
 			}
-			result.forwardTo(this).resenhaAdmin();
-		} catch (Exception e) {
-			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
+			result.forwardTo(this).resenhaAdmin();			
+		} catch (CadastroException e) {
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMensagem());
+			result.redirectTo(this).resenhaAdmin();
+		} catch (EmailException e) {
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMensagem());
 			result.redirectTo(this).resenhaAdmin();
 		}		
 	}

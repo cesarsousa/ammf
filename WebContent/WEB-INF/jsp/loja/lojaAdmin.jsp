@@ -229,7 +229,7 @@
 				<label class="labelForm">Sinopse</label>
 				<br/>
 				<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livroCadastro.sinopse}</textarea>
-				<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</span>
+				<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</h3>
 				</div>
 				
 				<div class="paddingPadrao">
@@ -491,7 +491,7 @@
 					<label class="labelForm">Sinopse</label>
 					<br/>
 					<textarea id="livroAtualizaSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livro.sinopse}</textarea>
-					<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterAtualizaLivro">1000</span> caracteres.</span>
+					<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterAtualizaLivro">1000</span> caracteres.</h3>
 					</div>
 					
 					<div class="paddingPadrao">
