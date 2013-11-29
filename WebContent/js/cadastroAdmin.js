@@ -57,7 +57,7 @@ $(document).ready(function() {
 				var textoBuscado = $('#campoBusca').val();
 				$('#campoBusca').attr("value", "");
 				
-				$('#labelResultadoConsulta').html('').html(json.length + ' ocorrencia(s) para a pesquisa: <b>' + textoBuscado + '</b>');
+				$('#labelResultadoConsulta').html('').html(json.length + ' ocorr&ecirc;ncia(s) para a pesquisa: <b>' + textoBuscado + '</b>');
 								
 			},
 			error : function(){

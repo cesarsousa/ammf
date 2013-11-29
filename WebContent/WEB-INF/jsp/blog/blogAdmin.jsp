@@ -140,8 +140,9 @@
 		<form id="formBlogBuscaTexto">
 		<div align="center">
 			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa w500px bordaPadrao" />
+			<input type="submit" class="buttonCadastrar" value="Pesquisar">
 			<p>
-			<span class="info azulClaro" ><label id="labelBuscaTexto"></label></span>
+			<span class="info letraGrande" ><label id="labelBuscaTexto"></label></span>
 			</p>
 		</div>
 		</form>

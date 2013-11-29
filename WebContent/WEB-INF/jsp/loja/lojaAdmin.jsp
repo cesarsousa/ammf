@@ -23,7 +23,7 @@
 
 <div id="divPgAdmCadastroCliente" align="center">
 
-<h2>LOJA VIRTUAL - Administra&ccedil;&atilde;o</h2>
+<h2>LOJA VIRTUAL</h2>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
@@ -91,21 +91,21 @@
 		<input id="btFecharBuscaLivro" type="button" value="fechar" class="backVermelho button">
 		</div>
 		<img alt="left" src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Buscar e editar livro</h2>
+		<h2 align="center">Buscar livro</h2>
 		</td>
 	</tr>
 	<tr>		
 		<td style="padding: 10px;">
 		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
-			
 			<div align="center">
 			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa w500px bordaPadrao"/>
+			<input type="submit" class="buttonCadastrar" value="Pesquisar">
 			</div>
 		</form>
 		
 		<c:if test="${not empty buscaSemResultado}">
 		<div align="center">		
-		<span class="info azulClaro">${buscaSemResultado}</span>
+		<span class="info letraGrande">${buscaSemResultado}</span>
 		</div>
 		</c:if>
 						

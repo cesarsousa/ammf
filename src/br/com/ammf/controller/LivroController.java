@@ -97,8 +97,8 @@ public class LivroController {
 		List<Livro> livrosSolicitados = livroRepository.listarPorAutorTitulo(param);
 		result.include("livrosSolicitados", livrosSolicitados);
 		result.include("flagBuscarLivro", true);
-		result.include("labelResultadoConsultaLivro", "Total de " + livrosSolicitados.size() + " ocorr&ecirc;ncia(s) para a pesquisa '" + param + "'");
-		if(livrosSolicitados.size() == 0) result.include("buscaSemResultado", "0 ocorr&ecirc;ncias para a pesquisa <b>'" + param + "'</b>");
+		result.include("labelResultadoConsultaLivro", "Total de " + livrosSolicitados.size() + " ocorr&ecirc;ncia(s) para a pesquisa: <b>" + param + "</b>");
+		if(livrosSolicitados.size() == 0) result.include("buscaSemResultado", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + param + "</b>");
 		result.redirectTo(LojaController.class).lojaAdmin();
 	}
 	

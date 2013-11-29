@@ -93,8 +93,8 @@ public class DepoimentoController {
 	public void listarDepoimentos(String paramConsulta){
 		List<Depoimento> depoimentos = depoimentoRepository.listarPorNomeEEmail(paramConsulta);
 		result.include("depoimentosSolicitados", depoimentos);
-		result.include("backgroundTitulo", "corCinza");
-		result.include("labelResultadoConsulta", depoimentos.size() + " resultados para a busca '<b>" + paramConsulta + "</b>'");
+		result.include("backgroundTitulo", "corCinza");		
+		result.include("labelResultadoConsulta", depoimentos.size() + " ocorr&ecirc;ncia(s) para a pesquisa: <b>" + paramConsulta + "</b>");
 		result.include("tituloDepoimentosSolicitados", "Visualiza&ccedil;&atilde;o de todos os depoimentos de <b>"+ paramConsulta + "</b>");
 		result.include("flagMostrarBusca", true);		
 		result.include("isDepoimentosCadastrados", true);

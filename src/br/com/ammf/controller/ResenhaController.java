@@ -99,8 +99,8 @@ public class ResenhaController {
 	public void buscar(String parametro){
 		List<Texto> resenhas = resenhaRepository.listar(parametro);		
 		if(resenhas.isEmpty()){
-			result.include("flagBuscarResenhas", true);
-			result.include("resultBuscarResenhas", "Sem resultados de resenha para a pesquisa '" + parametro + "'");			
+			result.include("flagBuscarResenhas", true);			
+			result.include("resultBuscarResenhas", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + parametro + "</b>");			
 		}else{
 			result.include("flagListarResenhas", true);
 			result.include("resenhas", resenhas);

@@ -73,10 +73,11 @@
 		<form id="formBuscaPessoa">
 		<div align="center">
 		<input id="campoBusca" type="text" class="fundoLupa w500px bordaPadrao"/>
+		<input type="submit" class="buttonCadastrar" value="Pesquisar">
 		</div>
-		</form>
+		</form> 
 		<p align="center">
-		<label class="info azulClaro" id="labelResultadoConsulta"></label>		
+		<label class="info letraGrande" id="labelResultadoConsulta"></label>		
 		</p>			
 		</td>		
 	</tr>

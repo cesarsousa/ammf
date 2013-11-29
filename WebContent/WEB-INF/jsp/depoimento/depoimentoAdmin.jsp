@@ -65,7 +65,7 @@
 
 <div class="separador"></div>
 
-<table id="tabBuscaDepoimento" class="grid fullSize">
+<table id="tabBuscaDepoimento" class="cardViewText">
 <thead>
 <tr>	
 	<td colspan="5">
@@ -76,25 +76,21 @@
 	<h2 align="center">Buscar Depoimento</h2>
 	</td>	
 </tr>
-<tr>	
-	<td colspan="5" align="center" valign="middle"><p class="info azulClaro">Busca de depoimentos pelo nome ou email</p></td>	
-</tr>
 <tr>
 	<td colspan="5" style="padding: 20px;">
 		<div align="left">
 		<input id="flagMostrarBusca" type="hidden" value="${flagMostrarBusca}">
 		<form id="formBuscaDepoimento" action="<c:url value="/menu/busca/depoimento" />" method="get">
-		
-		<div align="center">
-		<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
-		</div>
-		
+			<div align="center">
+			<input id="campoBuscaDepoimento" type="text" name="paramConsulta" class="fundoLupa w500px bordaPadrao"/>
+			<input type="submit" class="buttonCadastrar" value="Pesquisar">
+			</div>
 		</form>
 		</div>
 	</td>
 </tr>
 <tr>	
-	<td colspan="5" align="center" valign="middle" style="padding-bottom: 10px;"><p id="labelResultadoConsulta" class="info azulClaro">${labelResultadoConsulta}</p></td>	
+	<td colspan="5" align="center" valign="middle" style="padding-bottom: 10px;"><p id="labelResultadoConsulta" class="info letraGrande">${labelResultadoConsulta}</p></td>	
 </tr>
 </thead>
 </table>

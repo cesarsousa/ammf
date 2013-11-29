@@ -227,8 +227,9 @@
 		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
 		<div align="center">
 			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="fundoLupa w500px bordaPadrao" />
+			<input type="submit" class="buttonCadastrar" value="Pesquisar">
 			<p>
-			<span class="info azulClaro" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
+			<span class="info letraGrande" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
 			</p>
 		</div>	
 		</form>
