@@ -3,6 +3,7 @@ package br.com.ammf.repository.imp;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -126,6 +127,21 @@ public class FaqDao implements FaqRepository{
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
+	}
+
+	@Override
+	public Faq obterUltimaPublicacao() {
+		try {
+			String sql = "select max(id) from Faq where publica=1";
+			Query query = session.createQuery(sql);
+			Long id = (Long) query.uniqueResult();
+			Criteria criteria = session.createCriteria(Faq.class);
+			criteria.add(Restrictions.eq("id", id));
+			Faq faq = (Faq) criteria.uniqueResult();
+			return faq;
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 }

@@ -25,4 +25,6 @@ public interface DepoimentoRepository {
 
 	public List<Depoimento> listarPorNomeEEmail(String paramConsulta);
 
+	public Depoimento obterUltimaPublicacao();
+
 }

@@ -12,4 +12,6 @@ public interface LinkRepository {
 
 	void remover(String uuid);
 
+	Link obterUltimaPublicacao();
+
 }

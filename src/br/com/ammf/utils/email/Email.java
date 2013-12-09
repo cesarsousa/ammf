@@ -23,7 +23,7 @@ public class Email {
 	/*
 	 * flag de des/ativar envio de email.
 	 */
-	private static boolean emailAtivado = true;
+	private static boolean emailAtivado = false;
 	
 	/*
 	 * 0 = SMTP servidor Integrator

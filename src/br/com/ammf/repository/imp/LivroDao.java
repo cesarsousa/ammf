@@ -3,6 +3,7 @@ package br.com.ammf.repository.imp;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -130,6 +131,21 @@ public class LivroDao implements LivroRepository {
 			return criteria.list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public Livro obterUltimaPublicacao() {
+		try {
+			String sql = "select max(id) from Livro";
+			Query query = session.createQuery(sql);
+			Long id = (Long) query.uniqueResult();
+			Criteria criteria = session.createCriteria(Livro.class);
+			criteria.add(Restrictions.eq("id", id));
+			Livro livro = (Livro) criteria.uniqueResult();
+			return livro;
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
 

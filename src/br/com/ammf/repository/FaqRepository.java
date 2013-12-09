@@ -25,6 +25,8 @@ public interface FaqRepository {
 
 	void deletar(String uuid);
 
+	Faq obterUltimaPublicacao();
+
 	
 
 }

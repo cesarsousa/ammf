@@ -3,6 +3,7 @@ package br.com.ammf.repository.imp;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -125,6 +126,21 @@ public class ResenhaDao implements ResenhaRepository {
 		criteria.add(Restrictions.eq("categoria.id", idCategoria));
 		criteria.addOrder(Order.desc("postagem"));
 		return criteria.list();
+	}
+
+	@Override
+	public Resenha obterUltimaPublicacao() {
+		try {
+			String sql = "select max(id) from Resenha";
+			Query query = session.createQuery(sql);
+			Long id = (Long) query.uniqueResult();
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("id", id));
+			Resenha resenha = (Resenha) criteria.uniqueResult();
+			return resenha;
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 }

@@ -31,13 +31,12 @@ public class IndexController {
 	public void index(){
 		// acesso tradicional pelo navegador
 		try {
-			sessaoCliente = indexService.atualizar(sessaoCliente);			
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+			indexService.atualizarNews(result);			
 		} catch (Exception e) {
 			redirecionarParaPgErro(e);
 		}
-	}
-	
-	//Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:
+	}	
 	
 	@Get("/site")
 	public void site(){

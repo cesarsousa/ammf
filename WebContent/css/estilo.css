@@ -519,7 +519,11 @@ a:HOVER {
 }
 
 .fundoAzulClaro{
-	background-color: #87CEEB;
+	background-color: #66A3C2;
+}
+
+.fundoAzulClaro h4{
+	text-align: left;
 }
 
 .fundoVerde{
@@ -724,7 +728,7 @@ a:HOVER {
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
 	border: 1px solid #CCCCCC;
-	background-color: #FFFFFF;
+	/* background-color: #FFFFFF; */
 }
 
 .cartaoSemBordaBottom{

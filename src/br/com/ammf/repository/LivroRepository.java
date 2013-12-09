@@ -24,5 +24,7 @@ public interface LivroRepository {
 	List<Livro> listarLivrosProprietarios();
 	
 	List<Livro> listarLivrosDeTerceiros();
+
+	Livro obterUltimaPublicacao();
 	
 }

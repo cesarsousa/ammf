@@ -5,16 +5,27 @@ import java.util.List;
 
 import br.com.ammf.model.Contato;
 import br.com.ammf.model.DadosTerapeuta;
+import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Faq;
+import br.com.ammf.model.Link;
+import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Paragrafo;
+import br.com.ammf.model.Resenha;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.DepoimentoRepository;
+import br.com.ammf.repository.FaqRepository;
+import br.com.ammf.repository.LinkRepository;
+import br.com.ammf.repository.LivroRepository;
+import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.IndexService;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -22,14 +33,29 @@ public class IndexServiceImp implements IndexService{
 	
 	private TextoRepository textoRepository;
 	private UsuarioRepository usuarioRepository;
+	private ResenhaRepository resenhaRepository;
+	private LinkRepository linkRepository;
+	private DepoimentoRepository depoimentoRepository;
+	private LivroRepository livroRepository;
+	private FaqRepository faqRepository;
 	private TerapeutaRepository terapeutaRepository;
 	
 	public IndexServiceImp(
 			TextoRepository textoRepository,
 			UsuarioRepository usuarioRepository,
+			ResenhaRepository resenhaRepository,
+			LinkRepository linkRepository,
+			DepoimentoRepository depoimentoRepository,
+			LivroRepository livroRepository,
+			FaqRepository faqRepository,
 			TerapeutaRepository terapeutaRepository){
-		this.textoRepository = textoRepository;
+		this.textoRepository = textoRepository;		
 		this.usuarioRepository = usuarioRepository;
+		this.resenhaRepository = resenhaRepository;
+		this.linkRepository = linkRepository;
+		this.depoimentoRepository = depoimentoRepository;
+		this.livroRepository = livroRepository;
+		this.faqRepository = faqRepository;
 		this.terapeutaRepository = terapeutaRepository;
 	}
 
@@ -57,19 +83,7 @@ public class IndexServiceImp implements IndexService{
 		
 		return sessaoCliente;
 	}
-
-	/*private Terapeuta criarTerapeuta() {
-		Terapeuta terapeuta = new Terapeuta();
-		terapeuta.setId(1L);
-		terapeuta.setTitulo("Psicologo");
-		terapeuta.setInformacao("Terapeuta e psicologo");
-		terapeuta.setFormacao("Formado em psicologia e literatura");
-		terapeuta.setAtuacao("Psicologia");
-		terapeuta.setTratamento("Adultos");	
-		terapeutaRepository.cadastrar(terapeuta);
-		return terapeuta;
-	}*/
-
+	
 	private Contato criarDadosDeContato() throws Exception {
 		Usuario administrador = usuarioRepository.obterAdministrador();
 		
@@ -87,19 +101,6 @@ public class IndexServiceImp implements IndexService{
 		return contato;
 	}
 
-	/*private Texto criarTextoDefault(Local local) {
-		Texto texto = new Texto();
-		texto.setAutor("Alcindo Miguel Martins Filho");
-		texto.setConfirmado(true);
-		texto.setConteudo("Texto nao disponibilizado.");
-		texto.setLocal(local);
-		texto.setPostagem(new Date());
-		texto.setTitulo(local.toString());
-		texto.setUuid(UUID.randomUUID().toString());
-		textoRepository.cadastrar(texto);
-		return texto;
-	}*/
-
 	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
 		if(texto == null){
@@ -115,6 +116,59 @@ public class IndexServiceImp implements IndexService{
 			}
 		}
 		return paragrafos;
+	}
+
+	@Override
+	public void atualizarNews(Result result) {	
+		
+		boolean existeNews = false;
+		
+		Texto blog = textoRepository.obterUltimaPublicacao();
+		if(blog != null){
+			String blogNews = "Novo texto adicionado em " + blog.getDataFormatada() + " - " + blog.getTitulo().toUpperCase();
+			result.include("blogNews", blogNews);
+			existeNews = true;
+		}
+		
+		Resenha resenha = resenhaRepository.obterUltimaPublicacao();
+		if(resenha != null){
+			String resenhaNews = "Nova resenha adicionada em " + resenha.getDataFormatada() + " - " + resenha.getTitulo().toUpperCase();
+			result.include("resenhaNews", resenhaNews);
+			existeNews = true;
+		}
+		
+		Link link = linkRepository.obterUltimaPublicacao();
+		if(link != null){
+			String linkNews = "Novo link adicionado em " + link.getDataFormatada() + " - " + link.getTitulo().toUpperCase();
+			result.include("linkNews", linkNews);
+			existeNews = true;
+		}
+		
+		Depoimento depoimento = depoimentoRepository.obterUltimaPublicacao();
+		if(depoimento != null && !depoimento.isPendente()){
+			String depoimentoNews = "Novo depoimento adicionado em " + depoimento.getDataFormatada() + " por " + depoimento.getAutor().toUpperCase();
+			result.include("depoimentoNews", depoimentoNews);
+			existeNews = true;
+		}
+		
+		Livro livro = livroRepository.obterUltimaPublicacao();
+		if(livro != null){
+			String lojaNews = "Novo livro adicionado em " + livro.getDataFormatada() + " - " + livro.getTitulo().toUpperCase();
+			result.include("lojaNews", lojaNews);
+			existeNews = true;
+		}
+		
+		Faq faq = faqRepository.obterUltimaPublicacao();
+		if(faq != null && faq.isPublica() && faq.getRespondida()){
+			String faqNews = "Nova pergunta adicionada em " + faq.getDataFormatada() + " - " + faq.getPergunta().toUpperCase();
+			result.include("faqNews", faqNews);
+			existeNews = true;
+		}
+		
+		if(existeNews){
+			result.include("news", true);
+		}
+		
 	}
 
 }

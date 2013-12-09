@@ -28,4 +28,6 @@ public interface ResenhaRepository {
 
 	List<Resenha> listarPorCategorias(Long idCategoria);
 
+	Resenha obterUltimaPublicacao();
+
 }
