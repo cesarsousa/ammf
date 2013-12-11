@@ -11,5 +11,13 @@ $(document).ready(function() {
     	var idFormulario = "#form" + this.id;
     	$(idFormulario).submit();
     });
+    
+    $('#ultimasNovidades').hide();
+	$("#gatilhoNews").hover(function(){
+        $('#ultimasNovidades').slideDown(500);
+    },
+    function(){
+    	$('#ultimasNovidades').slideUp(500);
+    });
       
 });

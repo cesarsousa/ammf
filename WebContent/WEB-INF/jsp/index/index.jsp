@@ -40,32 +40,42 @@
 	<br/>
 	
 	<c:if test="${not empty news}">
-	<div class="fundoAzulClaro cartao tamanhoDefault paddingPadrao">
-		<h3 style="color: #000000">Ultimas Novidades...</h3>
+	<div class="paddingPadrao" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC;">
+		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
+		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro">Ultimas Novidades...</span>
 			
-			<c:if test="${not empty blogNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/blog/cliente" />">${blogNews}</a></h4>				
-			</c:if>
-		
-			<c:if test="${not empty resenhaNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/resenha/cliente" />">${resenhaNews}</a></h4>
-			</c:if>
-		
-			<c:if test="${not empty linkNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/link/cliente" />">${linkNews}</a></h4>
-			</c:if>
-		
-			<c:if test="${not empty depoimentoNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/cliente/depoimentos" />">${depoimentoNews}</a></h4>
-			</c:if>
-		
-			<c:if test="${not empty lojaNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/cliente/loja" />">${lojaNews}</a></h4>
-			</c:if>
-		
-			<c:if test="${not empty faqNews}">
-				<h4 class="cinzaEscuro"><a href="<c:url value="/cliente/faq" />">${faqNews}</a></h4>
-			</c:if>					
+			<ul id="ultimasNovidades">
+				<c:if test="${not empty blogNews}">
+					<li><h3>${blogNews}</h3>
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></li></ul></li>			 				
+				</c:if>
+			
+				<c:if test="${not empty resenhaNews}">
+					<li><h3>${resenhaNews}</h3>
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></li></ul></li>
+				</c:if>
+			
+				<c:if test="${not empty linkNews}">
+					<li><h3>${linkNews}</h3>				
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></li></ul></li>
+				</c:if>
+			
+				<c:if test="${not empty depoimentoNews}">
+					<li><h3>${depoimentoNews}</h3>
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a></li></ul></li>
+				</c:if>
+			
+				<c:if test="${not empty lojaNews}">
+					<li><h3>${lojaNews}</h3>
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a></li></ul></li>
+				</c:if>
+			
+				<c:if test="${not empty faqNews}">
+					<li><h3>${faqNews}</h3>
+						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a></li></ul></li>
+				</c:if>
+			</ul>
+		</div>					
 	</div>	
 	</c:if>
 	
@@ -74,7 +84,6 @@
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<br/>
 
 <div id="footer">
 <%@ include file="/footer.jsp" %>

@@ -125,43 +125,43 @@ public class IndexServiceImp implements IndexService{
 		
 		Texto blog = textoRepository.obterUltimaPublicacao();
 		if(blog != null){
-			String blogNews = "Novo texto adicionado em " + blog.getDataFormatada() + " - " + blog.getTitulo().toUpperCase();
-			result.include("blogNews", blogNews);
+			result.include("blogNews", "Novo texto adicionado em " + blog.getDataFormatada() + " ");
+			result.include("blogNewsTitulo", blog.getTitulo().toUpperCase());
 			existeNews = true;
 		}
 		
 		Resenha resenha = resenhaRepository.obterUltimaPublicacao();
 		if(resenha != null){
-			String resenhaNews = "Nova resenha adicionada em " + resenha.getDataFormatada() + " - " + resenha.getTitulo().toUpperCase();
-			result.include("resenhaNews", resenhaNews);
+			result.include("resenhaNews", "Nova resenha adicionada em " + resenha.getDataFormatada() + " ");
+			result.include("resenhaNewsTitulo", resenha.getTitulo().toUpperCase());
 			existeNews = true;
 		}
 		
 		Link link = linkRepository.obterUltimaPublicacao();
 		if(link != null){
-			String linkNews = "Novo link adicionado em " + link.getDataFormatada() + " - " + link.getTitulo().toUpperCase();
-			result.include("linkNews", linkNews);
+			result.include("linkNews", "Novo link adicionado em " + link.getDataFormatada() + " ");
+			result.include("linkNewsTitulo", link.getTitulo().toUpperCase());
 			existeNews = true;
 		}
 		
 		Depoimento depoimento = depoimentoRepository.obterUltimaPublicacao();
 		if(depoimento != null && !depoimento.isPendente()){
-			String depoimentoNews = "Novo depoimento adicionado em " + depoimento.getDataFormatada() + " por " + depoimento.getAutor().toUpperCase();
-			result.include("depoimentoNews", depoimentoNews);
+			result.include("depoimentoNews", "Novo depoimento adicionado em " + depoimento.getDataFormatada() + " ");
+			result.include("depoimentoNewsTitulo", "por " + depoimento.getAutor().toUpperCase());
 			existeNews = true;
 		}
 		
 		Livro livro = livroRepository.obterUltimaPublicacao();
 		if(livro != null){
-			String lojaNews = "Novo livro adicionado em " + livro.getDataFormatada() + " - " + livro.getTitulo().toUpperCase();
-			result.include("lojaNews", lojaNews);
+			result.include("lojaNews", "Novo livro adicionado em " + livro.getDataFormatada() + " ");
+			result.include("lojaNewsTitulo", livro.getTitulo().toUpperCase());
 			existeNews = true;
 		}
 		
 		Faq faq = faqRepository.obterUltimaPublicacao();
 		if(faq != null && faq.isPublica() && faq.getRespondida()){
-			String faqNews = "Nova pergunta adicionada em " + faq.getDataFormatada() + " - " + faq.getPergunta().toUpperCase();
-			result.include("faqNews", faqNews);
+			result.include("faqNews", "Nova pergunta adicionada em " + faq.getDataFormatada() + " - ");
+			result.include("faqNewsTitulo", faq.getPergunta().toUpperCase());
 			existeNews = true;
 		}
 		

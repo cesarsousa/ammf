@@ -14,7 +14,7 @@
 </p>
 
 <c:if test="${not empty resenhas}">
-	<div class="paddingPadrao bordaPadrao tamanhoDefault" style="background-color: #FFFFFF;" align="center">
+	<div class="paddingPadrao" style="background-color: #FFFFFF; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;" align="center">
 	
 	<p>
 	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
