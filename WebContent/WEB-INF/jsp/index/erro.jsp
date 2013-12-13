@@ -14,7 +14,7 @@
 <h1 align="center">P&aacute;gina n&atilde;o encontrada.</h1>
 
 <h2><span style="font-size: 80px; text-align: left;">:(</span><br/>Lamentamos, mas n&atilde;o foi poss&iacute;vel encontrar as informa&ccedil;&otilde;es que voc&ecirc; solicitou.</h2>
-
+<h3>${msgErro}</h3>
 <div align="center">
 <form action="<c:url value="/" ></c:url>">
     	<input type="submit" value="Clique aqui para ser redirecionado para a pagina principal" class="buttonAzul"/> 

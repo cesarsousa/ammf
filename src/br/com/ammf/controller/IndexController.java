@@ -102,8 +102,9 @@ public class IndexController {
 	@Get("/termosDeContrato")
 	public void termosDeContrato(){}
 	
-	private void redirecionarParaPgErro(Exception e) {		
-		result.redirectTo(this).erro();
+	private void redirecionarParaPgErro(Exception e) {
+		result.include("msgErro", e.getMessage());
+		result.redirectTo(this).erro();		
 	}
 	
 	public void erro(){}
