@@ -12,12 +12,12 @@ $(document).ready(function() {
     	$(idFormulario).submit();
     });
     
-    $('#ultimasNovidades').hide();
+    /*$('#ultimasNovidades').hide();
 	$("#gatilhoNews").hover(function(){
         $('#ultimasNovidades').slideDown(500);
     },
     function(){
     	$('#ultimasNovidades').slideUp(500);
-    });
+    });*/
       
 });
