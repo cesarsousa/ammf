@@ -160,7 +160,7 @@ public class IndexServiceImp implements IndexService{
 		
 		Faq faq = faqRepository.obterUltimaPublicacao();
 		if(faq != null && faq.isPublica() && faq.getRespondida()){
-			result.include("faqNews", "Nova pergunta adicionada em " + faq.getDataFormatada() + " - ");
+			result.include("faqNews", "Nova pergunta adicionada em " + faq.getDataFormatada() + " ");
 			result.include("faqNewsTitulo", faq.getPergunta().toUpperCase());
 			existeNews = true;
 		}
