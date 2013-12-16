@@ -153,7 +153,7 @@ public class IndexServiceImp implements IndexService{
 		
 		Livro livro = livroRepository.obterUltimaPublicacao();
 		if(livro != null){
-			result.include("lojaNews", "Novo livro adicionado em " + livro.getDataFormatada() + " ");
+			result.include("lojaNews", "Novo livro adicionado em " + livro.getDataFormatadaCompleta() + " ");
 			result.include("lojaNewsTitulo", livro.getTitulo().toUpperCase());
 			existeNews = true;
 		}
