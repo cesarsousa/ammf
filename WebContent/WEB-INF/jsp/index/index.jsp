@@ -42,7 +42,8 @@
 	<c:if test="${not empty news}">
 	<div class="paddingPadrao" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC;">
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
-		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro">Ultimas Novidades...</span>
+		
+		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande">Ultimas Novidades...</span>
 			
 			<ul id="ultimasNovidades">
 				<c:if test="${not empty blogNews}">
