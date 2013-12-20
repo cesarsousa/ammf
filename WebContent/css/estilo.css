@@ -13,11 +13,11 @@ body > #wrap {
 }
  
 #main {/* overflow:auto; */
-	padding-bottom: 60px;}  /* deve ter a mesma altura do rodapé */
+	padding-bottom: 60px;}  /* deve ter a mesma altura do rodapÃ© */
  
 #footer {
 	position: relative;
-	margin-top: -60px; /* valor negativo da altura do rodapé */
+	margin-top: -60px; /* valor negativo da altura do rodapÃ© */
 	height: 60px;
 	clear:both;}
  
@@ -33,20 +33,20 @@ body:before {
 
 /* QUIRON PAGE inicio */
 #fundo-externo {
-    overflow: hidden; /* para que n�o tenha rolagem se a imagem de fundo for maior que a tela */
+    overflow: hidden; /* para que nï¿½o tenha rolagem se a imagem de fundo for maior que a tela */
     width: 100%;
     height: 100%;
     position: relative; /* criamos um contexto para posicionamento */
 }
  
 #fundo {
-    position: fixed; /* posi��o fixa para que a poss�vel rolagem da tela n�o revele espa�os em branco */
+    position: fixed; /* posiï¿½ï¿½o fixa para que a possï¿½vel rolagem da tela nï¿½o revele espaï¿½os em branco */
     width: 100%;
     height: 100%;
 }
  
 #fundo img {
-    width: 100%; /* com isso imagem ocupar� toda a largura da tela. Se colocarmos height: 100% tamb�m, a imagem ir� distorcer */
+    width: 100%; /* com isso imagem ocuparï¿½ toda a largura da tela. Se colocarmos height: 100% tambï¿½m, a imagem irï¿½ distorcer */
     position: absolute;
 }
 
@@ -57,8 +57,8 @@ body:before {
     width: 560px;
     padding: 20px;
     margin-left: -300px; /* por causa do posicionamento absoluto temos que usar margem negativa para centralizar o site */
-    background: #FFF; /* fundo branco para navegadores que n�o suportam rgba */
-    background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transpar�ncia */
+    background: #FFF; /* fundo branco para navegadores que nï¿½o suportam rgba */
+    background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transparï¿½ncia */
 }
 /* QUIRON PAGE fim */
 
@@ -129,8 +129,9 @@ ul.tabs
 /* TAB effect fim */
 
 
-/* INICIO Efeitos barra notificação salva automatica */
+/* INICIO Efeitos barra notificacao salva automatica */
 .ut-sticky {
+	/* background: green; */
 	text-align: center;
 	margin:0 auto;
 	border-top: 1px solid #fff;
@@ -155,14 +156,21 @@ ul.tabs
 }
 .ut-sticky span{
 	color: white;
-	background: green;
+	/* background: green; */
 	font-size:15px; 
 	text-align:center; 
-	width:50%;
-	padding: 10px; 
+	width:100%;
+	padding: 5px; 
 	
 }
-/* FIM Efeitos barra notificação salva automatica */
+
+.fundoVerde {
+	background: green;
+}
+.fundoVermelho {
+	background: red;
+}
+/* FIM Efeitos barra notificacao salva automatica */
 
 body {
 	background-color: #F8F8FF;	

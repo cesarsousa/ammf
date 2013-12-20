@@ -30,7 +30,13 @@ function ajaxLivroCadastrar(categoria){
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoria');
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaEdt');
 			$('#divCadastrarCategoria, #divCadastrarCategoriaEdt').slideUp(500);
-			$('#msgCadastrarCategoria, #msgCadastrarCategoriaEdt').html('').html(json).show().slideUp(5000);			
+			
+			if(json == "sucesso"){
+				notificarSalvaDeCategoria();
+			}else if(json == "erro"){
+				notificarNaoSalvaDeCategoria();
+			}
+			
 			listarCategoriasDeLivro();
 		},
 		error : function(){
@@ -171,7 +177,7 @@ function configurarCamposBuscaLivro(){
 $(document).ready(function() {
 	listarCategoriasDeLivro();
 	
-	$('#msgCadastrarCategoria, #divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
+	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
 		$('#divCadastrarCategoria').show();
 		addRemoveDestaque('#inputCadastrarCategoria');
@@ -183,7 +189,7 @@ $(document).ready(function() {
 		cadastrarNovaCategoria();	
 	});
 	
-	$('#msgCadastrarCategoriaEdt, #divCadastrarCategoriaEdt, #iconeAguardeCadastrarCategoriaEdt').hide();
+	$('#divCadastrarCategoriaEdt, #iconeAguardeCadastrarCategoriaEdt').hide();
 	$('#btCadastrarCategoriaEdt').toggle(function() {
 		$('#divCadastrarCategoriaEdt').show();
 		addRemoveDestaque('#inputCadastrarCategoriaEdt');

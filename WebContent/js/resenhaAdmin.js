@@ -94,7 +94,13 @@ function ajaxResenhaCadastrar(categoria){
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaResenha');
 			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaResenhaEdt');
 			$('#divCadastrarCategoriaResenha, #divCadastrarCategoriaResenhaEdt').slideUp(500);
-			$('#msgCadastrarCategoriaResenha, #msgCadastrarCategoriaResenhaEdt').html('').html(json).show().slideUp(5000);			
+			
+			if(json == "sucesso"){
+				notificarSalvaDeCategoria();
+			}else if(json == "erro"){
+				notificarNaoSalvaDeCategoria();
+			}
+			
 			listarCategoriasDeResenha();
 		},
 		error : function(){
@@ -123,7 +129,7 @@ function listarCategoriasDeResenha() {
 $(document).ready(function() {
 	listarCategoriasDeResenha();
 	
-	$('#msgCadastrarCategoriaResenha, #divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha').hide();
+	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha').hide();
 	$('#btCadastrarCategoriaResenha').toggle(function() {
 		$('#divCadastrarCategoriaResenha').show();
 		addRemoveDestaque('#inputCadastrarCategoriaResenha');
@@ -151,7 +157,7 @@ $(document).ready(function() {
 		.slideDown(500);
 	});
 	
-	$('#msgCadastrarCategoriaResenhaEdt, #divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
+	$('#divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
 	$('#btCadastrarCategoriaResenhaEdt').toggle(function() {
 		$('#divCadastrarCategoriaResenhaEdt').show();
 		addRemoveDestaque('#inputCadastrarCategoriaResenhaEdt');

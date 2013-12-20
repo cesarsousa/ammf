@@ -52,6 +52,16 @@ jQuery.fn.smoothScroll = function(){
 	}
 };
 
+function notificarSalvaDeCategoria(){
+	$('#notificacaoSalvaCategoria').show().fadeOut(6000);
+}
+
+function notificarNaoSalvaDeCategoria(){
+	$('#notificacaoNaoSalvaCategoria').show().fadeOut(6000);
+}
+
+
+
 function ajaxSalvaAutomatica(idElemento, url){	
 	$.ajax({
 		type : 'POST',

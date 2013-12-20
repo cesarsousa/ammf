@@ -1,7 +1,6 @@
 package br.com.ammf.service.imp;
 
 import java.io.File;
-import java.text.ParseException;
 import java.util.Date;
 
 import br.com.ammf.exception.CadastroException;

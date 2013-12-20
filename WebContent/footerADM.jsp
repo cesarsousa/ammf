@@ -5,8 +5,17 @@
 	<label id="labelFooter">&copy; 2012 - Alcindo Miguel Martins Filho - Todos os Direitos Reservados</label>
 </div>	
 
-<div id="notificacaoSalvaAutomativa" class='ut-sticky hidden'>
-<p><span>Salvando o texto...</span></p>
+<div id="notificacaoSalvaAutomativa" class='ut-sticky fundoVerde hidden'>
+	<p><span>Salvando o texto...</span></p>
 </div>
+
+<div id="notificacaoSalvaCategoria" class='ut-sticky fundoVerde hidden'>
+	<p><span>Categoria cadastrada com sucesso</span></p>
+</div>
+
+<div id="notificacaoNaoSalvaCategoria" class='ut-sticky fundoVermelho hidden'>
+	<p><span>Erro! categoria n&atilde;o cadastrada</span></p>
+</div>
+
 </body>
 </html>

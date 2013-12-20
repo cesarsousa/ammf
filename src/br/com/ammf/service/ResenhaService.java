@@ -1,7 +1,6 @@
 package br.com.ammf.service;
 
 import java.io.File;
-import java.text.ParseException;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Resenha;

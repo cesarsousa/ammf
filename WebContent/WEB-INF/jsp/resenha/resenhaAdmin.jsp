@@ -66,8 +66,6 @@
 		<h2 align="center">Nova Resenha</h2>
 		
 		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
-
-			<div id="msgCadastrarCategoriaResenha" class="paddindPadrao"></div>
 			
 			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
 			<div>
@@ -138,8 +136,6 @@
 			<h3>C&oacute;digo da Resenha</h3>
 			<input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
-			
-			<div id="msgCadastrarCategoriaResenhaEdt" class="paddindPadrao"></div>
 			
 			<br/>
 			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>

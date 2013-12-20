@@ -154,8 +154,6 @@
 				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 				</div>
 				
-				<div id="msgCadastrarCategoria" class="paddindPadrao"></div>
-				
 				<div class="paddingPadrao">				
 				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 					<div id="divCadastrarCategoria">
@@ -399,8 +397,6 @@
 					
 					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
-					
-					<div id="msgCadastrarCategoriaEdt" class="paddindPadrao"></div>
 					
 					<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere a categoria para '${livro.categoria.descricao}' ou selecione uma nova categoria.</label>
 					<br/>

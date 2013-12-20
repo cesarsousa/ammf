@@ -148,9 +148,9 @@ public class ResenhaController {
 	public void cadastrarNovaCategoria(String categoria){		
 		try {
 			resenhaService.cadastrarCategoria(categoria);
-			retornarJson("<div id=\"msgCadastrarCategoriaResenha\" class=\"msgBorderInterno msgSucesso t80 closeClick ponteiro\">Categoria adicionada com sucesso</div>");
+			retornarJson("sucesso");
 		} catch (Exception e) {
-			retornarJson("<div id=\"msgCadastrarCategoriaResenha\" class=\"msgBorderInterno msgErro t80 closeClick ponteiro\">Erro! N&atilde;o foi possivel cadastrar a categoria</div>");
+			retornarJson("erro");
 		}		
 	}
 	
