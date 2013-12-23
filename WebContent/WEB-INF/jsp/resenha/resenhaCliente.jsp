@@ -14,7 +14,7 @@
 </p>
 
 <c:if test="${not empty resenhas}">
-	<div class="paddingPadrao" style="background-color: #FFFFFF; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;" align="center">
+	<div class="paddingPadrao cardViewText" style="text-align: center;">
 	
 	<p>
 	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
@@ -32,10 +32,11 @@
 
 <c:if test="${not empty resenha}">
 	<br/>
-	<div class="fullSize paddingPadrao" align="left">		
+	<div align="center">
+	<div class="cardViewText paddingPadrao" align="left">		
 		<table>
 		<tr>
-		<td class="paddingPadrao" valign="top">					
+		<td valign="top">					
 		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" rel="prettyPhoto[resenha1]" title="${resenha.titulo}">
 			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
 		</a>				
@@ -51,9 +52,10 @@
 		</tr>
 		</table>	
 	</div>
+	</div>
 </c:if>
 
-
+<c:if test="${empty resenha}">
 <div id="divResenhasTop3" align="center">
 	<c:choose>
 		<c:when test="${not empty resenhas}">
@@ -90,7 +92,7 @@
 		</c:otherwise>
 	</c:choose>
 </div>
-
+</c:if>
 
 <input id="flagResenhasRequest" type="hidden" value="${flagResenhasRequest}"/>
 

@@ -157,7 +157,7 @@ public class LivroController {
 	 * Recebe a requisicao de leitura do link de email e redireciona para blog cliente.
 	 * @param uuid
 	 */
-	@Get("/loja/cliente/livro/{uuid}")
+	@Get("/loja/cliente/verlivro/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		Livro livro = livroRepository.obterPorUuid(uuid);
 		result.include("livro", livro);

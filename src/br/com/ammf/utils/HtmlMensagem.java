@@ -83,18 +83,19 @@ public class HtmlMensagem {
 	}	
 	
 	public static String getAssunto(Notificacao notificacao, Texto texto) {
+		String local = Local.BLOG == texto.getLocal() ? "Blog" : "Site";
 		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
-			return getAssuntoTextoAtualizado().replace("?", texto.getTitulo());
+			return getAssuntoTextoAtualizado(local).replace("?", texto.getTitulo());
 		if(Notificacao.TEXTO_NOVO.equals(notificacao))
-			return getAssuntoTextoCadastrado().replace("?", texto.getTitulo());
+			return getAssuntoTextoCadastrado(local).replace("?", texto.getTitulo());
 		return "Site Quiron";
 	}
 	
-	public static String getAssuntoTextoCadastrado() {
-		return "Blog Quiron - O texto ' ? ' foi adicionado";
+	private static String getAssuntoTextoCadastrado(String local) {
+		return local + " Quiron - O texto ' ? ' foi adicionado";
 	}	
-	public static String getAssuntoTextoAtualizado() {
-		return "Blog Quiron - O texto ' ? ' foi atualizado";
+	private static String getAssuntoTextoAtualizado(String local) {
+		return local + " Quiron - O texto ' ? ' foi atualizado";
 	}
 
 	public static String getMensagemNotificacaoDeTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
@@ -243,10 +244,10 @@ public class HtmlMensagem {
 
 	public static String getAssunto(Notificacao notificacao, Livro livro) {
 		if(Notificacao.LIVRO_NOVO.equals(notificacao))
-			return "Blog Quiron - '?' , Novo livro adicionado".replace("?", livro.getTitulo());
+			return "Site Quiron - Loja Virtual. - '?' , Novo livro adicionado".replace("?", livro.getTitulo());
 		if(Notificacao.LIVRO_ATUALIZADO.equals(notificacao))
-			return "Blog Quiron - O livro ' ? ' foi atualizado".replace("?", livro.getTitulo());
-		return "Site Quiron";
+			return "Site Quiron - Loja Virtual - O livro ' ? ' foi atualizado".replace("?", livro.getTitulo());
+		return "Site Quiron - Loja Virtual";
 	}
 
 	public static String getMensagemNotificacaoDeLivroAdicionado(Livro livro, String linkedin, Pessoa pessoa) {

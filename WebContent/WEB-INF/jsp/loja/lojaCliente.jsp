@@ -24,7 +24,7 @@
 
 <div align="center">
 <c:if test="${flagRequestLivroEmail}">
-	<table style="width: 80%;" class="cartao bordaPadrao paddingPadrao ">
+	<table class="cardViewText bordaPadrao paddingPadrao ">
 		<tr>
 		<td width="120px"  align="left">				
 		
@@ -121,8 +121,9 @@
 	</td>
 	</tr>
 	<tr align="center">
-	<td>
+	<td colspan="3" align="right">
 	<div class="paddingPadrao">
+	<span class="fonteGrande">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</span>
 	<a href="${livro.linkVenda}" target="_blank">
 		<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
 	</a>
@@ -131,9 +132,17 @@
 	</tr>			
 	</table>
 	
+	<br/><br/>
+	
+	<div class="superFooter" align="center">
+		<div style="width: 1000px; text-align: left; padding: 20px;">
+			<a href="<c:url value="/cliente/loja" />" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro" >Ir para a loja virtual</a>
+		</div>
+	</div>	
 </c:if>
 </div>
 
+<c:if test="${empty flagRequestLivroEmail}">
 <div class="mainContainer">
 <div class="htmltabs">
 	<!-- The tabs -->
@@ -460,7 +469,8 @@
 	</div> --%>
 	
 </div><!-- htmltabs ends here-->	
-</div>	
+</div>
+</c:if>	
 	
 </div> <!-- centralizacao -->
 
