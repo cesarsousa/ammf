@@ -15,7 +15,6 @@
 
 <c:if test="${not empty flagFaqErroCadastro}">
 <div class="msgBorder msgErro closeClick">
-<b>Verifique erros de preenchimento no envio de sua pergunta no final da p&aacute;gina<br/></b> 
 ${nomeEmBranco}
 ${emailEmBranco}
 ${perguntaEmBranco}
@@ -66,7 +65,7 @@ ${perguntaEmBranco}
 		<c:forEach items="${faqs}" var="faq">
 		
 			<li>
-			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito destaqueLetraHover ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
+			<p id="${faq.uuid}" class="fonteMedia azulClaro negrito letraGrande destaqueLetraHover ponteiro" onclick="javascript: visualizarRespostaFaq(this);">&ldquo; ${faq.pergunta} &ldquo;</p>
 				<ul id="faqResposta${faq.uuid}" class="listaSimples hideTd">
 					<li><p class="textoConteudoDepoimento">${faq.resposta}</p></li>
 					<li><p class="textoPostagemDepoimento negrito">Pergunta postada em ${faq.dataFormatada}</p></li>

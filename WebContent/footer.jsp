@@ -41,16 +41,22 @@
 	
 	<table id="tabRedesSociais" style="width: 1000px;">
 		<tr>
-			<td width="550px" class="pad10" align="left">
-			<span  class="azulClaro">Compartilhe em suas redes sociais preferidas</span>
+			<td class="pad10" align="left">
+			<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande">Compartilhe em suas redes sociais preferidas</span>
 			</td>
-			<td width="150px" align="right">
+		</tr>
+		<tr>	
+			<td align="left">
 			<div id="padRedeSocial" class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 			</td>
-			<td width="150px" align="right">
+		</tr>
+		<tr>
+			<td align="left">
 			<div id="padRedeSocial" class="g-plusone" data-size="medium"></div>
 			</td>
-			<td width="150px" align="right">
+		</tr>
+		<tr>	
+			<td align="left">
 			<a id="padRedeSocial" href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
 			</td>
 		</tr>
