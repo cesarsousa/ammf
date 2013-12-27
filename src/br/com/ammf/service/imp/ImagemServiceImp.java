@@ -12,21 +12,29 @@ import org.apache.commons.io.IOUtils;
 import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
-public class ImagemServiceImp implements ImagemService {
+public class ImagemServiceImp implements ImagemService {	
 	
 	private File pastaImagens;
 	
 	private String PASTA_IMAGEM_LIVRO;
 	private String NOME_DEFAULT = "imagemDefault.jpg";
 	
-	public ImagemServiceImp(ServletContext context){		
-		//PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
-		PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+	public ImagemServiceImp(ServletContext context, UsuarioRepository usuarioRepository){
+		
+		Usuario administrador = usuarioRepository.obterAdministrador();
+		
+		if(administrador.getEmail().endsWith("@gmail.com")){
+			PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
+		}else{
+			PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
+		}
 				
 		pastaImagens = new File(PASTA_IMAGEM_LIVRO);
 		pastaImagens.mkdir();

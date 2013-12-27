@@ -18,7 +18,7 @@
 	</div>
 </div>
 
-<div style="padding: 10px; background-color: #DDDDDD">	
+<div style="padding: 10px; background-color: #CCCCCC">	
 	
 	<div align="center" class="subMenu2Rodape">
 			<a href="<c:url value="/"/>">Home</a>
@@ -36,7 +36,7 @@
 	</div>
 	
 </div>
-<div style="width: 100%; background-color: #000000"> 
+<div style="width: 100%; background-color: #DDDDDD"> 
 	<div align="center" style="padding-bottom: 10px;">
 	
 	<table id="tabRedesSociais" style="width: 1000px;">
@@ -45,18 +45,18 @@
 			<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande">Compartilhe em suas redes sociais preferidas</span>
 			</td>
 		</tr>
-		<tr>	
-			<td align="left">
-			<div id="padRedeSocial" class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-			</td>
-		</tr>
 		<tr>
-			<td align="left">
+			<td align="left" class="paddingPadrao">
 			<div id="padRedeSocial" class="g-plusone" data-size="medium"></div>
 			</td>
 		</tr>
 		<tr>	
-			<td align="left">
+			<td align="left" class="paddingPadrao">
+			<div id="padRedeSocial" class="fb-like" data-href="http://www.alcindomiguel.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+			</td>
+		</tr>
+		<tr>	
+			<td align="left" class="paddingPadrao">
 			<a id="padRedeSocial" href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
 			</td>
 		</tr>

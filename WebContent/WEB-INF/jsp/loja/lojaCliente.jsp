@@ -121,9 +121,9 @@
 	</td>
 	</tr>
 	<tr align="center">
-	<td colspan="3" align="right">
+	<td colspan="3" align="center">
 	<div class="paddingPadrao">
-	<span class="fonteGrande">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</span>
+	<p class="fonteGrande">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</p>
 	<a href="${livro.linkVenda}" target="_blank">
 		<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
 	</a>
