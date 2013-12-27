@@ -4,45 +4,47 @@
 <h2>Celebre a Vida !</h2>
 </div> -->
 
-<div style="padding: 10px; background-color: #CCCCCC">
-		
-	<div id="espacador"></div>
-	
-	<div align="center" class="subMenuRodape">
-			<a href="<c:url value="/"/>">Home</a>
-			<a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a>	
-			<a href="<c:url value="/index/psicologia"/>">Psicologia</a>
-			<a href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a>
-			<a href="<c:url value="/index/cultura"/>">Cultura</a>
-			<a href="<c:url value="/index/artesorientais"/>">Artes Orientais</a>
-	</div>
-</div>
-
-<div style="padding: 10px; background-color: #CCCCCC">	
-	
-	<div align="center" class="subMenu2Rodape">
-			<a href="<c:url value="/"/>">Home</a>
-			<a href="<c:url value="/blog/cliente" />">Blog</a>
-			<a href="<c:url value="/resenha/cliente" />">Resenhas</a>
-			<%-- <a href="<c:url value=""/>">Consultas</a>
-			<a href="<c:url value=""/>">Calendario</a> --%>
-			<a href="<c:url value="/link/cliente" />">Links</a>
-			<a href="<c:url value="/cliente/depoimentos"/>">Depoimentos</a>
-			<%-- <a href="<c:url value=""/>">Cursos</a> --%>
-			<a href="<c:url value="/cliente/cadastro"/>">Cadastro</a>
-			<a href="<c:url value="/cliente/contato"/>">Contato</a>
-			<a href="<c:url value="/cliente/loja"/>">Loja Virtual</a>
-			<a href="<c:url value="/cliente/faq"/>">FAQ</a>
-	</div>
-	
-</div>
 <div style="width: 100%; background-color: #DDDDDD"> 
 	<div align="center" style="padding-bottom: 10px;">
 	
 	<table id="tabRedesSociais" style="width: 1000px;">
 		<tr>
+		<td width="34%" valign="top">
+		<div align="left">
+		<ul>
+			<li><a href="<c:url value="/"/>">Home</a></li>
+			<li><a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a></li>
+			<li><a href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
+			<li><a href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
+			<li><a href="<c:url value="/index/cultura"/>">Cultura</a></li>
+			<li><a href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
+		</ul>
+		</div>
+		</td>
+		
+		<td width="33%" valign="top">
+		<div align="left">
+		<ul>			
+			<li><a href="<c:url value="/blog/cliente" />">Blog</a></li>
+			<li><a href="<c:url value="/resenha/cliente" />">Resenhas</a></li>
+			<%-- <a href="<c:url value=""/>">Consultas</a>
+			<a href="<c:url value=""/>">Calendario</a> --%>
+			<li><a href="<c:url value="/link/cliente" />">Links</a></li>
+			<li><a href="<c:url value="/cliente/depoimentos"/>">Depoimentos</a></li>
+			<%-- <a href="<c:url value=""/>">Cursos</a> --%>
+			<li><a href="<c:url value="/cliente/cadastro"/>">Cadastro</a></li>
+			<li><a href="<c:url value="/cliente/contato"/>">Contato</a></li>
+			<li><a href="<c:url value="/cliente/loja"/>">Loja Virtual</a></li>
+			<li><a href="<c:url value="/cliente/faq"/>">FAQ</a></li>
+		</ul>
+		</div>
+		</td>
+		
+		<td width="33%" style="border-left: 1px dashed #FFFFFF;">
+		<table>
+		<tr>
 			<td class="pad10" align="left">
-			<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande">Compartilhe em suas redes sociais preferidas</span>
+			<span id="btVisualizarTodos" class="info azulClaro altura30 letra">Compartilhe em suas redes sociais preferidas</span>
 			</td>
 		</tr>
 		<tr>
@@ -59,6 +61,14 @@
 			<td align="left" class="paddingPadrao">
 			<a id="padRedeSocial" href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
 			</td>
+		</tr>
+		</table>
+		
+		</td>
+		
+		
+		
+		
 		</tr>
 	</table>
 	
