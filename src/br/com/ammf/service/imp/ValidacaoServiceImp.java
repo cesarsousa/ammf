@@ -2,6 +2,7 @@ package br.com.ammf.service.imp;
 
 import java.util.Date;
 
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -10,6 +11,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
@@ -432,6 +434,34 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		
 		return validado;
 	}
+	
+	@Override
+	public boolean cadastrarComentario(Comentario comentario, Result result) {
+		boolean validado = true;
+		
+		comentario.setPostagem(DataUtils.getDateNow());
+		comentario.setStatus(Status.PENDENTE);
+		
+		if(comentario.getNome() == null || comentario.getNome().isEmpty()){
+			result.include("nomeEmBranco", "O seu nome deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(comentario.getEmail() == null || comentario.getEmail().isEmpty()){
+			result.include("emailEmBranco", "O seu email deve ser informado<br/>");
+			validado = false;
+		}else if(!ehEmailValido(comentario.getEmail())){
+			result.include("emailEmBranco", "O seu email est&aacute; com formato inv&aacute;lido<br/>");
+			validado = false;
+		}
+		
+		if(comentario.getConteudo() == null || comentario.getConteudo().isEmpty()){
+			result.include("conteudoEmBranco", "O coment&aacute;rio deve ser informado<br/>");
+			validado = false;
+		}
+			
+		return validado;
+	}	
 
 	@Override
 	public void verificarCamposPreenchidos(Texto texto, Local local, Result result) {		
@@ -470,5 +500,6 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
 		return false;
-	}			
+	}
+			
 }

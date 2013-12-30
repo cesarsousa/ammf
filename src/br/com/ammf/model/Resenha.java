@@ -111,11 +111,11 @@ public class Resenha implements Serializable {
 	}
 
 	public String getDataFormatada(){
-		return DataUtils.getFullString(postagem);
+		return DataUtils.getStringDataHora(postagem);
 	}
 	
 	public String getDataFormatadaSimples(){
-		return DataUtils.getString(postagem, "dd/MM/yyyy");
+		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
 	
 }

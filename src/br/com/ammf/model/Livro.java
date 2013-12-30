@@ -200,11 +200,11 @@ public class Livro implements Serializable {
 	}
 		
 	public String getDataFormatada(){
-		return DataUtils.getString(postagem, "dd/MM/yyyy");
+		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
 	
 	public String getDataFormatadaCompleta(){
-		return DataUtils.getFullString(postagem);
+		return DataUtils.getStringDataHora(postagem);
 	}
 	
 	public String getPrecoFormatado(){		

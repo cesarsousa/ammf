@@ -6,15 +6,16 @@ import java.util.List;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.BlogService;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
-import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -27,6 +28,7 @@ public class BlogController {
 	private IndexService indexService;
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
+	private BlogService blogService;
 	private TextoRepository textoRepository;
 	
 	public BlogController(
@@ -34,11 +36,13 @@ public class BlogController {
 			IndexService indexService,
 			ValidacaoService validacaoService,
 			EmailService emailService,
+			BlogService blogService,
 			TextoRepository textoRepository){
 		this.result = result;
 		this.indexService = indexService;
 		this.validacaoService = validacaoService;
 		this.emailService = emailService;
+		this.blogService = blogService;
 		this.textoRepository = textoRepository;
 	}
 	
@@ -50,12 +54,8 @@ public class BlogController {
 	@Post("/blog/novo")
 	public void cadastrar(Texto texto){
 		try {
-			boolean validado = validacaoService.blog(texto, result);		
-			if(validado){
-				texto.setLocal(Local.BLOG);
-				texto.setPostagem(DataUtils.getDateNow());
-				texto.setConfirmado(true);
-				textoRepository.cadastrar(texto);
+			if(validacaoService.blog(texto, result)){
+				blogService.cadastrarTexto(texto);
 				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, texto);
 				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
 			}else{
@@ -103,8 +103,7 @@ public class BlogController {
 	@Restrito
 	@Get("/blog/editar/{uuid}")
 	public void buscarParaEditarTexto(String uuid){
-		Texto texto = textoRepository.obterPor(uuid);
-		
+		Texto texto = textoRepository.obterPor(uuid);		
 		result.include("texto", texto);
 		result.include("flagAbrirEdicaoTexto", true);
 		result.redirectTo(this).blogAdmin();		
@@ -114,12 +113,7 @@ public class BlogController {
 	@Post("/blog/atualiza")
 	public void atualizarTexto(Texto texto){		
 		try {
-			Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
-			textoOriginal.setAutor(texto.getAutor());
-			textoOriginal.setTitulo(texto.getTitulo());
-			textoOriginal.setConteudo(texto.getConteudo());
-			textoOriginal.setConfirmado(true);
-			textoRepository.atualizar(textoOriginal);		
+			Texto textoOriginal = blogService.atualizarTexto(texto);		
 			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
 			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
 			result.redirectTo(this).blogAdmin();			
@@ -130,6 +124,7 @@ public class BlogController {
 		}				
 	}
 	
+	@Restrito
 	@Post("/blog/travar/{uuid}")
 	public void travarTextoParaEdicao(String uuid){
 		Texto texto = textoRepository.obterPor(uuid);
@@ -138,6 +133,7 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
 	
+	@Restrito
 	@Post("/blog/salvaAutomativa/{uuid}")
 	public void salvaAutomatica(String uuid, String texto){
 		Texto textoSolicitado = textoRepository.obterPor(uuid);
@@ -160,8 +156,8 @@ public class BlogController {
 		result.include("ultimaPublicacao", ultimaPublicacao);
 		result.include("paragrafos", paragrafos);
 		result.include("textosBlog", textosBlog);		
-	}	
-	
+	}
+
 	/**
 	 * Recebe a requisicao de leitura do link de email e redireciona para blog cliente.
 	 * @param uuid
@@ -177,7 +173,31 @@ public class BlogController {
 	@Get("/blog/cliente/texto")
 	public void clienteVisualizarTexto(String uuid){		
 		Texto texto = textoRepository.obterPor(uuid);
-		result.use(json()).withoutRoot().from(texto).exclude("id", "local") .serialize();
+		result.use(json()).withoutRoot().from(texto).exclude("id", "local").serialize();
 	}
+	
+	@Post("/blog/cliente/comentario/principal")
+	public void clienteCadastraComentario(String uuidTexto, Comentario comentario){
+		if(validacaoService.cadastrarComentario(comentario, result)){
+			blogService.cadastrarComentario(uuidTexto, comentario);
+			emailService.notificarNovoComentario(uuidTexto, comentario);
+			result.include("msgIndex", "<b>" + comentario.getNome() + "</b>, seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
+			result.redirectTo(IndexController.class).index();			
+		}else{
+			result.include("erroComentarioPrincipal", true);
+			result.include("comentario", comentario);
+			result.forwardTo(this).blogCliente(false, null);
+		}		
+	}
+	
+	@Get("/blog/cliente/texto/comentarios")
+	public void obtercomentariosDeTexto(String uuid){
+		Texto texto = textoRepository.obterPor(uuid);
+		List<Comentario> comentarios = texto.getComentariosConfirmados();
+		result.use(json()).from(comentarios).exclude("id", "status").serialize();
+	}
+			
+		
+	
 
 }

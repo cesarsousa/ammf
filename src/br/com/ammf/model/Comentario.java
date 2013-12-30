@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,23 +19,23 @@ import javax.persistence.TemporalType;
 import br.com.ammf.utils.DataUtils;
 
 @Entity
-@Table(name="depoimento")
-public class Depoimento implements Serializable{
-
+@Table(name = "comentario")
+public class Comentario implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue
 	private long id;
 	
-	@Column(length=45)
+	@Column(length = 45)
 	private String uuid = UUID.randomUUID().toString();
 	
-	private String autor;
+	private String nome;
 	
 	private String email;
 	
-	@Lob
+	@Column(length = 1000)
 	private String conteudo;
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,7 +43,10 @@ public class Depoimento implements Serializable{
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
-
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Texto texto;	
+	
 	public long getId() {
 		return id;
 	}
@@ -59,20 +63,20 @@ public class Depoimento implements Serializable{
 		this.uuid = uuid;
 	}
 
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	public String getNome() {
+		return nome;
 	}
 	
 	public String getEmail() {
 		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getConteudo() {
@@ -98,12 +102,21 @@ public class Depoimento implements Serializable{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
-	public String getDataFormatada(){
+
+	public Texto getTexto() {
+		return texto;
+	}
+
+	public void setTexto(Texto texto) {
+		this.texto = texto;
+	}
+
+	public String getDataHora(){
 		return DataUtils.getStringDataHora(postagem);
 	}
 	
-	public boolean isPendente(){
-		return Status.PENDENTE == this.status;
-	}
+	public String getData(){
+		return DataUtils.getStringData(postagem);
+	}	
+
 }

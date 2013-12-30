@@ -1,6 +1,7 @@
 package br.com.ammf.service;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -33,5 +34,8 @@ public interface EmailService {
 	void notificarNovaFaqParaAdmin(Faq faq) throws EmailException;
 
 	void notificarRespostaFaqParaCliente(Faq faq) throws EmailException;
+
+	void notificarNovoComentario(String uuidTexto, Comentario comentario);
+
 
 }

@@ -4,6 +4,7 @@ function visualizarTextoBlog(uuid){
 		type : 'GET',
 		url : $('#contexto').val() + "/blog/cliente/texto",
 		data:{"uuid" : uuid},
+		async: false,
 		success : function(json){		
 			
 			$('#textoblogData').html('').append("postado em " + json.postagem.$);
@@ -13,27 +14,127 @@ function visualizarTextoBlog(uuid){
 			var paragrafos = json.conteudo.split(".");
 			for(var i = 0; i < paragrafos.length; i++){
 				$('#textoblogConteudo').append("<p>" + paragrafos[i] + "</p>");
-			}							
+			}			
+			
+			$.ajax({
+				type : 'GET',
+				url : $('#contexto').val() + "/blog/cliente/texto/comentarios",
+				data:{"uuid" : uuid},
+				async: false,
+				success : function(json){
+					
+					if(json.list.length > 0){
+						
+						$('#divVisualizarComentários').show();
+						$('#divComentariosBlog').html('');
+						for(var i = 0; i < json.list.length; i++){
+							$('#divComentariosBlog').append(
+							'<div>' +
+							'<ul style="list-style: none;">' +
+							'<li><p class="azulClaro negrito" style="font-size: large;">' + json.list[i].nome + '</p></li>' +
+							'<li>' +
+								'<ul style="list-style: none;">' +
+									'<li><p class="textoConteudoBlog">' + json.list[i].conteudo + '</p></li>' +
+									'<li><p class="textoPostagemBlog aEsquerda negrito">... postado em ' + json.list[i].postagem.$ + '</p></li>' +
+								'</ul>' +						
+							'</li>' +									
+							'</ul>' +
+							'</div>');
+						}						
+						
+					}else{
+						$('#divVisualizarComentários').hide();
+					}
+					
+				},
+				error : function(){
+					alert("Não foi possível carregar os comentários desse texto!");				
+				}
+			});		
 			
 			$('#textoModoLeitura').slideDown(1000);
-			/*$(btFechar).click(function(){
-				$(divTabela).slideUp(1000);		
-			});*/
+			
 		},
 		error : function(){
 			alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
 		}
-	});
-	
-	/*$('#textoblogTitulo').html(' ').append(titulo);
-	$('#textoblogConteudo').html(' ').append(conteudo);
-	$('#textoblogData').html(' ').append(postagem);
-	$('#textoModoLeitura').slideDown(500);*/
+	});	
+}
+
+function limparFormComentarioBlog(){
+	$("#comentarTextoNome").val('');
+	$("#comentarTextoEmail").val('');
+	$("#comentarTextoConteudo").val('');
+}
+
+function limparFormComentarioBlogPrincipal(){
+	$("#comentarTextoNomePrincipal").val('');
+	$("#comentarTextoEmailPrincipal").val('');
+	$("#comentarTextoConteudoPrincipal").val('');
 }
 
 $(document).ready(function() {
 	
+	addRemoveDestaque("#comentarTextoNome");
+	addRemoveDestaque("#comentarTextoEmail");
+	addRemoveDestaque("#comentarTextoConteudo");
+	
+	addRemoveDestaque("#comentarTextoNomePrincipal");
+	addRemoveDestaque("#comentarTextoEmailPrincipal");
+	addRemoveDestaque("#comentarTextoConteudoPrincipal");
+	
+	$('#comentarTextoConteudoPrincipal').keyup(function() {		
+		limitarCaracteres('#comentarTextoConteudoPrincipal', '#contadorCaracterComentarTextoConteudoPrincipal', 999);		  
+	});	
+	
+	$('#comentarTextoConteudo').keyup(function() {		
+		limitarCaracteres('#comentarTextoConteudo', '#contadorCaracterComentarTextoConteudo', 999);		  
+	});
+	
 	$('#divTodosTextos').hide();
+	$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog').hide();
+	
+	if($('#erroComentarioPrincipal').val() == "true"){
+		$('#divNovoComentarioBlogPrincipal').show();		
+	}
+	
+	$('#btNovoComentarioBlogPrincipal').toggle(function() {
+		limparFormComentarioBlogPrincipal();
+		$('#divNovoComentarioBlogPrincipal').slideDown(1000);
+		$('#imgNovoComentarioBlogPrincipal').text('-');
+	}, function() {
+		$('#divNovoComentarioBlogPrincipal').slideUp(1000);
+		$('#imgNovoComentarioBlogPrincipal').text('+');
+	});
+	
+	$('#btdivComentariosTextoPrincipal').toggle(function() {
+		limparFormComentarioBlogPrincipal();
+		$('#divComentariosTextoPrincipal').slideDown(1000);
+		$('#imgdivComentariosTextoPrincipal').text('-');
+	}, function() {
+		$('#divComentariosTextoPrincipal').slideUp(1000);
+		$('#imgdivComentariosTextoPrincipal').text('+');
+	});	
+	
+	$('#btNovoComentarioBlog').toggle(function() {
+		limparFormComentarioBlog();
+		$('#divNovoComentarioBlog').slideDown(1000);
+		$('#imgNovoComentarioBlog').text('-');
+	}, function() {
+		$('#divNovoComentarioBlog').slideUp(1000);
+		$('#imgNovoComentarioBlog').text('+');
+	});
+	
+	$('#btdivComentariosBlog').toggle(function() {
+		limparFormComentarioBlogPrincipal();
+		$('#divComentariosBlog').slideDown(1000);
+		$('#imgdivComentariosBlog').text('-');
+	}, function() {
+		$('#divComentariosBlog').slideUp(1000);
+		$('#imgdivComentariosBlog').text('+');
+	});	
+	
+	
 	
 	$('#btVisualizarTodos').toggle(function() {
 		$('#ultimaPublicacao').slideUp(500);
@@ -41,7 +142,7 @@ $(document).ready(function() {
 		if($('#emailRequest').val()){
 			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
 		}else{
-			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&otilde;es');
+			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&atilde;o');
 		}
 		
 	}, function() {

@@ -1,9 +1,12 @@
 package br.com.ammf.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,6 +48,9 @@ public class Texto implements Serializable{
 	private Date postagem = new Date();
 	
 	private boolean confirmado;
+	
+	@OneToMany(mappedBy = "texto", cascade = CascadeType.REMOVE)
+	private List<Comentario> comentarios;
 
 	public long getId() {
 		return id;
@@ -109,12 +116,33 @@ public class Texto implements Serializable{
 		this.confirmado = confirmado;
 	}
 	
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+	
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
+	
+	public List<Comentario> getComentariosConfirmados() {
+		List<Comentario> todos = comentarios;
+		List<Comentario> confirmados = new ArrayList<Comentario>();
+		
+		for(Comentario comentario : todos){
+			if (Status.CONFIRMADO == comentario.getStatus()) {
+				confirmados.add(comentario);
+			}
+		}	
+		
+		return confirmados;
+	}
+	
 	public String getDataFormatada(){
-		return DataUtils.getFullString(postagem);
+		return DataUtils.getStringDataHora(postagem);
 	}
 	
 	public String getDataFormatadaSimples(){
-		return DataUtils.getString(postagem, "dd/MM/yyyy");
+		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
 		
 }

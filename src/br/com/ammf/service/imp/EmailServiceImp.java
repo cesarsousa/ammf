@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -198,8 +199,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getSenha(), 
 				pessoa.getEmail(),
 				HtmlMensagem.getAssuntoLink(),
-				mensagem);
-		
+				mensagem);		
 	}
 
 	@Override
@@ -209,8 +209,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getSenha(), 
 				administrador.getEmail(),
 				HtmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
-				HtmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));
-		
+				HtmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));		
 	}
 
 	@Override
@@ -220,8 +219,12 @@ public class EmailServiceImp implements EmailService {
 				administrador.getSenha(), 
 				faq.getEmail(),
 				HtmlMensagem.getAssuntoRespostaFaqParaCliente(),
-				HtmlMensagem.getMensagemRespostaFaqParaCliente(faq, administrador.getLinkedin()));
-		
+				HtmlMensagem.getMensagemRespostaFaqParaCliente(faq, administrador.getLinkedin()));		
+	}
+
+	@Override
+	public void notificarNovoComentario(String uuidTexto, Comentario comentario) {
+		// TODO notificação de novo comentário recebido		
 	}
 
 }

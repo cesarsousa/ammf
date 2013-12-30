@@ -1,0 +1,51 @@
+package br.com.ammf.service.imp;
+
+import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Local;
+import br.com.ammf.model.Texto;
+import br.com.ammf.repository.ComentarioRepository;
+import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.service.BlogService;
+import br.com.ammf.utils.DataUtils;
+import br.com.caelum.vraptor.ioc.Component;
+
+@Component
+public class BlogServiceImp implements BlogService {
+	
+	private TextoRepository textoRepository;
+	private ComentarioRepository comentarioRepository;
+	
+	public BlogServiceImp(
+			TextoRepository textoRepository,
+			ComentarioRepository comentarioRepository){
+		this.textoRepository = textoRepository;
+		this.comentarioRepository = comentarioRepository;
+	}
+
+	@Override
+	public void cadastrarTexto(Texto texto) {
+		texto.setLocal(Local.BLOG);
+		texto.setPostagem(DataUtils.getDateNow());
+		texto.setConfirmado(true);
+		textoRepository.cadastrar(texto);		
+	}
+
+	@Override
+	public Texto atualizarTexto(Texto texto) {
+		Texto textoOriginal = textoRepository.obterPor(texto.getUuid());
+		textoOriginal.setAutor(texto.getAutor());
+		textoOriginal.setTitulo(texto.getTitulo());
+		textoOriginal.setConteudo(texto.getConteudo());
+		textoOriginal.setConfirmado(true);
+		textoRepository.atualizar(textoOriginal);
+		return textoOriginal;
+	}
+
+	@Override
+	public void cadastrarComentario(String uuidTexto, Comentario comentario) {
+		Texto texto = textoRepository.obterPor(uuidTexto);
+		comentario.setTexto(texto);
+		comentarioRepository.cadastrar(comentario);		
+	}
+
+}

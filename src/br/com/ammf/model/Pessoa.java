@@ -97,7 +97,7 @@ public class Pessoa implements Serializable{
 	}
 	
 	public String getDataFormatada(){
-		return DataUtils.getFullString(dataCadastro);
+		return DataUtils.getStringDataHora(dataCadastro);
 	}
 	
 	public boolean isPendente(){

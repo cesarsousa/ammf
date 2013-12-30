@@ -44,13 +44,13 @@ public class ImagemServiceImp implements ImagemService {
 	@Override
 	public Imagem criarESalvarImagem(UploadedFile imagemLivro, String nomeDaImagem) throws FileNotFoundException, IOException {
 		
-			if(imagemLivro == null) return null;
+		if(imagemLivro == null) return null;
+	
+		File destino = new File(pastaImagens, nomeDaImagem);
 		
-			File destino = new File(pastaImagens, nomeDaImagem);
-			
-			IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));	
-			
-			return criarImagem(nomeDaImagem, destino.getAbsolutePath());		
+		IOUtils.copy(imagemLivro.getFile(), new FileOutputStream(destino));	
+		
+		return criarImagem(nomeDaImagem, destino.getAbsolutePath());		
 	}
 
 	@Override

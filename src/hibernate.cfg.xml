@@ -44,6 +44,7 @@
 		<mapping class="br.com.ammf.model.Link" />
 		<mapping class="br.com.ammf.model.Faq" />
 		<mapping class="br.com.ammf.model.Terapeuta" />
+		<mapping class="br.com.ammf.model.Comentario" />		
 		
 	</session-factory>
 </hibernate-configuration>

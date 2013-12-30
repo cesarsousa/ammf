@@ -113,6 +113,6 @@ public class Faq {
 	}
 	
 	public String getDataFormatada(){
-		return DataUtils.getString(postagem, "dd/MM/yyyy HH:mm:ss");
+		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy HH:mm:ss");
 	}
 }

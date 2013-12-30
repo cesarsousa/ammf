@@ -17,12 +17,28 @@ public class DataUtils {
 	 * @param postagem
 	 * @return data no formato dd/MM/yyyy HH:mm:ss.
 	 */
-	public static String getFullString(Date postagem) {
+	public static String getStringDataHora(Date postagem) {
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		return spf.format(postagem.getTime());
 	}
-
-	public static String getString(Date postagem, String formato) {
+	
+	/**
+	 * Converte um objeto para uma representação em formato string.
+	 * @param postagem
+	 * @return data no formato dd/MM/yyyy.
+	 */
+	public static String getStringData(Date postagem) {
+		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
+		return spf.format(postagem.getTime());
+	}
+	
+	/**
+	 * Converte um objeto para uma representação em formato string.
+	 * @param postagem
+	 * @param formato formato da data.
+	 * @return
+	 */
+	public static String getStringFormato(Date postagem, String formato) {
 		SimpleDateFormat spf = new SimpleDateFormat(formato);
 		return spf.format(postagem.getTime());
 	}
@@ -39,8 +55,8 @@ public class DataUtils {
 	/**
 	 * 
 	 * @param data Representacao de uma data no formato dd/MM/yyyy HH:mm:ss
-	 * @return
-	 * @throws ParseException
+	 * @return Um objeto do tipo <code>Date</code>
+	 * @throws ParseException Caso a String data não esteja no formato 'dd/MM/yyyy HH:mm:ss'.
 	 */
 	public static Date getDate(String data) throws ParseException{
 		return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(data);

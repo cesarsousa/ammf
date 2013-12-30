@@ -84,7 +84,7 @@ public class Link {
 	}
 
 	public String getDataFormatada(){
-		return DataUtils.getFullString(postagem);
+		return DataUtils.getStringDataHora(postagem);
 	}
 
 }
