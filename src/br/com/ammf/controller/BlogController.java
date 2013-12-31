@@ -176,12 +176,25 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(texto).exclude("id", "local").serialize();
 	}
 	
+	@Post("/blog/cliente/comentario")
+	public void clienteCadastraComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo){
+		String resultado = validacaoService.cadastrarComentario(uuidTextoBlog, comentarioNome, comentarioEmail, comentarioConteudo);
+		
+		if(resultado.equals("OK")){
+			Comentario comentario = blogService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo);
+			blogService.cadastrarComentario(uuidTextoBlog, comentario);
+			emailService.notificarNovoComentario(uuidTextoBlog, comentario);
+		}
+		
+		result.use(json()).withoutRoot().from(resultado).serialize();
+	}
+	
 	@Post("/blog/cliente/comentario/principal")
 	public void clienteCadastraComentario(String uuidTexto, Comentario comentario){
 		if(validacaoService.cadastrarComentario(comentario, result)){
 			blogService.cadastrarComentario(uuidTexto, comentario);
 			emailService.notificarNovoComentario(uuidTexto, comentario);
-			result.include("msgIndex", "<b>" + comentario.getNome() + "</b>, seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
+			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
 			result.redirectTo(IndexController.class).index();			
 		}else{
 			result.include("erroComentarioPrincipal", true);
@@ -194,7 +207,7 @@ public class BlogController {
 	public void obtercomentariosDeTexto(String uuid){
 		Texto texto = textoRepository.obterPor(uuid);
 		List<Comentario> comentarios = texto.getComentariosConfirmados();
-		result.use(json()).from(comentarios).exclude("id", "status").serialize();
+		result.use(json()).from(comentarios).exclude("id", "status", "email").serialize();
 	}
 			
 		

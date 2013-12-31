@@ -2,6 +2,7 @@ package br.com.ammf.service.imp;
 
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.TextoRepository;
@@ -47,5 +48,21 @@ public class BlogServiceImp implements BlogService {
 		comentario.setTexto(texto);
 		comentarioRepository.cadastrar(comentario);		
 	}
+
+	@Override
+	public Comentario obterComentario(
+			String comentarioNome, 
+			String comentarioEmail,
+			String comentarioConteudo) {		
+		
+		Comentario comentario = new Comentario();
+		comentario.setPostagem(DataUtils.getDateNow());
+		comentario.setStatus(Status.PENDENTE);
+		comentario.setNome(comentarioNome);
+		comentario.setEmail(comentarioEmail);
+		comentario.setConteudo(comentarioConteudo);	
+		
+		return comentario;
+	}	
 
 }

@@ -10,5 +10,7 @@ public interface BlogService {
 	Texto atualizarTexto(Texto texto);
 
 	void cadastrarComentario(String uuidTexto, Comentario comentario);
+	
+	Comentario obterComentario(String comentarioNome, String comentarioEmail, String comentarioConteudo);
 
 }

@@ -1,12 +1,38 @@
 
+function cadastrarComentario(){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/blog/cliente/comentario",
+		data:{
+			"uuidTextoBlog" : $('#uuidTextoBlog').val(),
+			"comentarioNome" : $('#comentarTextoNome').val(),
+			"comentarioEmail" : $('#comentarTextoEmail').val(),
+			"comentarioConteudo" : $('#comentarTextoConteudo').val(),			
+			},
+		success : function(json){
+			
+			if(json == "OK"){
+				$('#formBlogComentado').submit();
+			}else{
+				$('#msgErroBlogCliente').html(json).slideDown(500);
+				$('html, body').animate({scrollTop:0}, 'slow');
+			}			
+		},
+		error : function(){
+			alert("Erro :( Não foi possível cadastrar o seu comentários!");				
+		}
+	});
+	
+}
+
 function visualizarTextoBlog(uuid){	
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + "/blog/cliente/texto",
 		data:{"uuid" : uuid},
 		async: false,
-		success : function(json){		
-			
+		success : function(json){			
+			$('#uuidTextoBlog').val(json.uuid);
 			$('#textoblogData').html('').append("postado em " + json.postagem.$);
 			$('#textoblogTitulo').html('').append(json.titulo);
 			
@@ -92,7 +118,7 @@ $(document).ready(function() {
 	});
 	
 	$('#divTodosTextos').hide();
-	$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog').hide();
+	$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog, #msgErroBlogCliente').hide();
 	
 	if($('#erroComentarioPrincipal').val() == "true"){
 		$('#divNovoComentarioBlogPrincipal').show();		
@@ -134,7 +160,10 @@ $(document).ready(function() {
 		$('#imgdivComentariosBlog').text('+');
 	});	
 	
-	
+
+	$('#btnClienteComentarTexto').click(function(){
+		cadastrarComentario();
+	});
 	
 	$('#btVisualizarTodos').toggle(function() {
 		$('#ultimaPublicacao').slideUp(500);

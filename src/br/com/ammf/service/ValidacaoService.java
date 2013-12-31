@@ -42,4 +42,6 @@ public interface ValidacaoService {
 
 	boolean cadastrarComentario(Comentario comentario, Result result);
 
+	String cadastrarComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo);	
+
 }

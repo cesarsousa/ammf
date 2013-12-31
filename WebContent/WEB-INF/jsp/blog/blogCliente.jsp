@@ -11,11 +11,14 @@ ${conteudoEmBranco}
 </div>
 <br/>
 </c:if>
+<div id="msgErroBlogCliente" class="msgBorder msgErro closeClick"></div>
 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
+<form id="formBlogComentado" method="get" action="<c:url value="/site/blog/comentado"></c:url>"></form>
+
 
 <div id="" align="center">
 
@@ -175,6 +178,7 @@ ${conteudoEmBranco}
  		<tr align="center">
 			<td>
 			<div class="cardViewText">
+			<input id="uuidTextoBlog" type="hidden" />
 			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
 			<p id="textoblogConteudo" class="textoConteudoBlog"></p>
@@ -193,7 +197,6 @@ ${conteudoEmBranco}
 					<span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
 					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
 				</div>
-				<form action="<c:url value="/"/>" method="post">		
 					<table width="1000px">
 						<tr>
 							<td width="100%" align="left" style="padding: 20px;">						
@@ -204,17 +207,17 @@ ${conteudoEmBranco}
 																
 									<div class="paddingPadrao">
 									<label class="labelForm2">Nome</label>
-									<input id="comentarTextoNome" type="text" name="comentario.nome" value="${comentario.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+									<input id="comentarTextoNome" type="text" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 									</div>
 									
 									<div class="paddingPadrao">
 									<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
-									<input id="comentarTextoEmail" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+									<input id="comentarTextoEmail" type="text" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 									</div>
 									
 									<div class="paddingPadrao">
 									<label class="labelForm2">Coment&aacute;rio </label>
-									<textarea id="comentarTextoConteudo" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9">${comentario.conteudo}</textarea>
+									<textarea id="comentarTextoConteudo" class="letraCinza largura90 bordaPadrao" rows="9"></textarea>
 									
 									<h3 align="right" style="font-size: small;">
 									Voc&ecirc; pode digitar <span id="contadorCaracterComentarTextoConteudo">1000</span> caracteres em sua pergunta.
@@ -226,13 +229,12 @@ ${conteudoEmBranco}
 									<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 												
 									<h3 align="right">
-									<input id="btnClienteComentarTexto" type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+									<input id="btnClienteComentarTexto" type="button" value="Enviar comentário"  class="buttonCadastrar direita"/>
 									</h3>					
 								</div>
 							</td>			
 						</tr>		
 					</table>		
-				</form>
 			</div>
 			</div>		
 			

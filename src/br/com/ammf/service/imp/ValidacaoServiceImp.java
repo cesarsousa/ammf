@@ -461,6 +461,43 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 			
 		return validado;
+	}
+	
+	@Override
+	public String cadastrarComentario(
+			String uuidTextoBlog,
+			String comentarioNome, 
+			String comentarioEmail,
+			String comentarioConteudo) {
+		
+		StringBuilder sb = new StringBuilder();
+		boolean validado =  true;
+		
+		if(uuidTextoBlog == null || uuidTextoBlog.isEmpty()){
+			sb.append("N&atilde;o foi poss&iacute;vel cadastrar o seu coment&aacute;rio. Identifica&ccedil;&atilde;o do texto n&atilde;o encontrada.");
+			return sb.toString();
+		}
+		
+		if(comentarioNome == null || comentarioNome.isEmpty()){
+			sb.append("O seu nome deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(comentarioEmail == null || comentarioEmail.isEmpty()){
+			sb.append("O seu email deve ser informado<br/>");
+			validado = false;
+		}else if(!ehEmailValido(comentarioEmail)){
+			sb.append("O seu email est&aacute; com formato inv&aacute;lido<br/>");
+			validado = false;
+		}
+		
+		if(comentarioConteudo == null || comentarioConteudo.isEmpty()){
+			sb.append("O coment&aacute;rio deve ser informado<br/>");
+			validado = false;
+		}
+		
+		if(validado) return "OK";
+		return sb.toString();
 	}	
 
 	@Override
@@ -501,5 +538,9 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		result.include("anoEmBranco", mensagem);
 		return false;
 	}
+
+	
+
+	
 			
 }

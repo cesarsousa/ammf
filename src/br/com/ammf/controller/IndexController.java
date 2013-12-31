@@ -45,6 +45,13 @@ public class IndexController {
 		result.redirectTo(this).index();
 	}
 	
+	@Get("/site/blog/comentado")
+	public void site(String nomeDoCliente){	
+		// acesso pelo cliente apos comentario de blog via ajax
+		result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
+		result.redirectTo(this).index();
+	}
+	
 	@Get("/quiron")
 	public void quiron(){
 		try {
