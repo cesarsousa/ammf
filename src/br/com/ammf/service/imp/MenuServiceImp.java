@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.model.SessaoUsuario;
+import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
@@ -19,19 +20,22 @@ public class MenuServiceImp implements MenuService{
 	private PessoaRepository pessoaRepository;
 	private DepoimentoRepository depoimentoRepository;
 	private FaqRepository faqRepository;
-	private TerapeutaRepository terapeutaRepository; 
+	private TerapeutaRepository terapeutaRepository;
+	private ComentarioRepository comentarioRepository;
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository,
 			DepoimentoRepository depoimentoRepository,
 			FaqRepository faqRepository,
-			TerapeutaRepository terapeutaRepository){
+			TerapeutaRepository terapeutaRepository,
+			ComentarioRepository comentarioRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.depoimentoRepository = depoimentoRepository;
 		this.faqRepository = faqRepository;
 		this.terapeutaRepository = terapeutaRepository;
+		this.comentarioRepository = comentarioRepository;
 	}
 
 	@Override
@@ -49,6 +53,11 @@ public class MenuServiceImp implements MenuService{
 		
 	private List<String> atualizarListaDeNotificacoes() {
 		List<String> notificacoes = new ArrayList<String>();
+		
+		int totalComentariosBlogPendentes = comentarioRepository.getTotalComentariosBlogPendentes();
+		if(totalComentariosBlogPendentes > 0){
+			notificacoes.add("<b>Blog:</b> "+ totalComentariosBlogPendentes + " coment&aacute;rio(s) pendente(s) confirma&ccedil;&atilde;o");
+		}
 		
 		int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
 		if(totalDepoimentosPendentes > 0){

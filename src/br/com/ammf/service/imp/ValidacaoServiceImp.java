@@ -436,11 +436,12 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
-	public boolean cadastrarComentario(Comentario comentario, Result result) {
+	public boolean cadastrarComentario(Comentario comentario, Local local, Result result) {
 		boolean validado = true;
 		
 		comentario.setPostagem(DataUtils.getDateNow());
 		comentario.setStatus(Status.PENDENTE);
+		comentario.setLocal(local);
 		
 		if(comentario.getNome() == null || comentario.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O seu nome deve ser informado<br/>");

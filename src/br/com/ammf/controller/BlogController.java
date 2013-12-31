@@ -10,7 +10,9 @@ import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
+import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.BlogService;
 import br.com.ammf.service.EmailService;
@@ -30,6 +32,7 @@ public class BlogController {
 	private EmailService emailService;
 	private BlogService blogService;
 	private TextoRepository textoRepository;
+	private ComentarioRepository comentarioRepository;	
 	
 	public BlogController(
 			Result result, 
@@ -37,13 +40,15 @@ public class BlogController {
 			ValidacaoService validacaoService,
 			EmailService emailService,
 			BlogService blogService,
-			TextoRepository textoRepository){
+			TextoRepository textoRepository,
+			ComentarioRepository comentarioRepository){
 		this.result = result;
 		this.indexService = indexService;
 		this.validacaoService = validacaoService;
 		this.emailService = emailService;
 		this.blogService = blogService;
 		this.textoRepository = textoRepository;
+		this.comentarioRepository = comentarioRepository;
 	}
 	
 	@Restrito
@@ -142,6 +147,16 @@ public class BlogController {
 		result.use(json()).withoutRoot().from(true).serialize();
 	}
 	
+	@Restrito
+	@Get("/blog/comentarios/{status}")
+	public void visualizarTodosOsComentarios(Status status){
+		blogService.configurarVisualizacaoParaVisualizacaoComentarios(status, result);
+		result.include("comentariosBlog", comentarioRepository.listar(status));
+		result.include("flagComentariosBlog", true);
+		result.forwardTo(this).blogAdmin();
+		
+	}
+	
 	/**
 	 * 
 	 * @param emailRequest flag para indicar, se <b><code>true</code></b> que a requisicao foi disparada 
@@ -181,7 +196,7 @@ public class BlogController {
 		String resultado = validacaoService.cadastrarComentario(uuidTextoBlog, comentarioNome, comentarioEmail, comentarioConteudo);
 		
 		if(resultado.equals("OK")){
-			Comentario comentario = blogService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo);
+			Comentario comentario = blogService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo, Local.BLOG);
 			blogService.cadastrarComentario(uuidTextoBlog, comentario);
 			emailService.notificarNovoComentario(uuidTextoBlog, comentario);
 		}
@@ -191,7 +206,7 @@ public class BlogController {
 	
 	@Post("/blog/cliente/comentario/principal")
 	public void clienteCadastraComentario(String uuidTexto, Comentario comentario){
-		if(validacaoService.cadastrarComentario(comentario, result)){
+		if(validacaoService.cadastrarComentario(comentario, Local.BLOG, result)){
 			blogService.cadastrarComentario(uuidTexto, comentario);
 			emailService.notificarNovoComentario(uuidTexto, comentario);
 			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");

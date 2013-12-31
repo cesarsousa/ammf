@@ -1564,6 +1564,10 @@ table.tabLivro thead  tr td{
 	padding: 10px;
 } */
 
+.TODOS{
+	color: gray;
+}
+
 .CONFIRMADO {
 	color: green;
 }

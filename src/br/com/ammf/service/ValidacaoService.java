@@ -40,7 +40,7 @@ public interface ValidacaoService {
 
 	boolean cadastrarFaq(Faq faq, Result result);
 
-	boolean cadastrarComentario(Comentario comentario, Result result);
+	boolean cadastrarComentario(Comentario comentario, Local local, Result result);
 
 	String cadastrarComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo);	
 

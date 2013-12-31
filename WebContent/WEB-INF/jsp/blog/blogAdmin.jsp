@@ -43,7 +43,20 @@
 	</li>
 	<li>
 		<img id="btListarTextosBlog" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
-	</li>	
+	</li>
+	<li>
+		<img id="btVerComentarios" alt="visualizar comentários" title="visualizar comentários" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosConfirmados" alt="comentários confirmados" title="comentários confirmados" src="${imagem}/iconeComentarioConfirmados.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosPendentes" alt="comentários pendentes" title="comentários pendentes" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	
+	
+	
+		
 </ul>
 </td>
 </tr>
@@ -52,6 +65,9 @@
 
 <!-- submit via javascript -->
 <form id="formBlogListarTodos" action="<c:url value="/blog/listar" />" method="get"></form>
+<form id="formVerComentariosBlog" action="<c:url value="/blog/comentarios/TODOS" />" method="get"></form>
+<form id="formVerComentariosBlogConfirmados" action="<c:url value="/blog/comentarios/CONFIRMADO" />" method="get"></form>
+<form id="formVerComentariosBlogPendentes" action="<c:url value="/blog/comentarios/PENDENTE" />" method="get"></form>
 
 <div class="separador"></div>
 
@@ -291,6 +307,62 @@
 	</td>
 	</tr>
 </table>
+
+<!-- LISTAR TODOS OS COMENTARIOS -->
+<input id="flagComentariosBlog" type="hidden" value="${flagComentariosBlog}">
+<table id="tabComentariosAdmin" class="fullSize">	
+	<tr>
+	<td>
+	<div align="right">		
+	<input id="btFecharComentarios" type="button" value="fechar" class="backVermelho button">
+	</div>
+	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
+	<c:if test="${empty comentariosBlog}">
+	<h3 align="center">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
+	</c:if>
+	<c:if test="${not empty comentariosBlog}">
+	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
+	<table class="display dataTable cardViewText superFooter bordaLateral">
+		<thead align="left">
+			<tr>
+				<th class="metadado">Nome</th>
+				<th class="metadado">Email</th>
+				<th class="metadado">Conte&uacute;do</th>
+				<th class="metadado" style="width: 160px;">Postagem</th>
+				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
+			</tr>
+		</thead>
+		<tbody>
+	 		<c:forEach items="${comentariosBlog}" var="comentario">
+				<tr class="zebrado">
+					<td class="infoTabelaConteudo">${comentario.nome}</td>
+					<td class="infoTabelaConteudo metadado">${comentario.email}</td>
+					<td class="infoTabelaConteudo">
+						<c:set var="origem"	value="${comentario.conteudo}"/>
+						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+					<td class="infoTabelaConteudo" style="width: 160px;">${comentario.dataHora}</td>
+					<td class="infoTabelaData" style="width: 80px;">
+						<%-- <a href="<c:url value="/blog/editar/${comentario.uuid}" />">
+							<c:choose>
+								<c:when test="${texto.confirmado}">
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto">
+								</c:when>
+								<c:otherwise>
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHoverTrava.png" title="editar este texto">
+								</c:otherwise>
+							</c:choose>					
+						</a> --%>				
+						<a href="<c:url value="/blog/remover/${comentario.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+					</td>
+				</tr>			
+			</c:forEach>		
+		</tbody>			
+	</table>
+	</c:if>	
+	</td>
+	</tr>
+</table>
+
 
 </div> <!-- div center -->
 

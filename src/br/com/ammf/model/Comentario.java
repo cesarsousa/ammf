@@ -44,6 +44,9 @@ public class Comentario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	
+	@Enumerated(EnumType.STRING)
+	private Local local;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Texto texto;	
 	
@@ -101,6 +104,14 @@ public class Comentario implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	
+	public Local getLocal() {
+		return local;
+	}
+	
+	public void setLocal(Local local) {
+		this.local = local;
 	}
 
 	public Texto getTexto() {

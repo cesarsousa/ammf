@@ -8,6 +8,7 @@ import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.BlogService;
 import br.com.ammf.utils.DataUtils;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -53,16 +54,36 @@ public class BlogServiceImp implements BlogService {
 	public Comentario obterComentario(
 			String comentarioNome, 
 			String comentarioEmail,
-			String comentarioConteudo) {		
+			String comentarioConteudo,
+			Local local) {		
 		
 		Comentario comentario = new Comentario();
 		comentario.setPostagem(DataUtils.getDateNow());
 		comentario.setStatus(Status.PENDENTE);
+		comentario.setLocal(local);
 		comentario.setNome(comentarioNome);
 		comentario.setEmail(comentarioEmail);
 		comentario.setConteudo(comentarioConteudo);	
 		
 		return comentario;
+	}
+
+	@Override
+	public void configurarVisualizacaoParaVisualizacaoComentarios(Status status, Result result) {
+		if(Status.TODOS == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos todos os coment&aacute;rios");
+			result.include("iconeVerComentarios", "iconeComentarioTodos.png");			
+		}
+		if(Status.CONFIRMADO == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos coment&aacute;rios confirmados");
+			result.include("iconeVerComentarios", "iconeComentarioConfirmados.png");
+		}
+		if(Status.PENDENTE == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos coment&aacute;rios pendentes");
+			result.include("iconeVerComentarios", "iconeComentarioPendentes.png");
+		}
+		result.include("cssCorTitulo", status.toString());
+		
 	}	
 
 }

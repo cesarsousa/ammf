@@ -1,10 +1,15 @@
 package br.com.ammf.repository.imp;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Status;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -24,6 +29,31 @@ private final Session session;
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
+	}
+
+	@Override
+	public int getTotalComentariosBlogPendentes() {
+		try {
+			Criteria criteria = session.createCriteria(Comentario.class);
+			criteria.add(Restrictions.eq("status", Status.PENDENTE));
+			return criteria.list().size();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Comentario> listar(Status status) {
+		try {
+			Criteria criteria = session.createCriteria(Comentario.class);
+			if(status != Status.TODOS){
+				criteria.add(Restrictions.eq("status", status));
+			}			
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
 	}
 
 }
