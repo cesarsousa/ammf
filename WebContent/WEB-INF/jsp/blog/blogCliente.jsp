@@ -61,18 +61,16 @@ ${conteudoEmBranco}
 				
 				<div id="divComentariosTextoPrincipal">
 				<c:forEach items="${ultimaPublicacao.comentariosConfirmados}" var="comentarioTextoPrincipal">
-					<div>
-						<ul style="list-style: none;">
-						<li><p class="azulClaro negrito" style="font-size: large;">${comentarioTextoPrincipal.nome}</p></li>
-						<li>
-							<ul style="list-style: none;">
-								<li><p class="textoConteudoBlog">${comentarioTextoPrincipal.conteudo}</p></li>
-								<li><p class="textoPostagemBlog aEsquerda negrito">... postado em ${comentarioTextoPrincipal.dataHora}</p></li>
-							</ul>						
-						</li>									
-						</ul>
-					
-					</div>
+					<table>
+					<tr>
+					<td valign="top"><img src="${imagem}/usuario_cinza.png" class="icone50 ponteiro esquerda"></td>
+					<td valign="top">
+						<p class="azulClaro negrito" style="font-size: large;">${comentarioTextoPrincipal.nome}</p>
+						<p class="textoConteudoBlog">${comentarioTextoPrincipal.conteudo}</p>
+						<p class="textoPostagemBlog aEsquerda negrito">... postado em ${comentarioTextoPrincipal.dataHora}</p>
+					</td>					
+					</tr>
+					</table>				
 				</c:forEach>
 				</div>
 				

@@ -53,19 +53,23 @@ function visualizarTextoBlog(uuid){
 						
 						$('#divVisualizarComentários').show();
 						$('#divComentariosBlog').html('');
+						
+						var contextoDasImagens = $('#imageContexto').val();
+						
 						for(var i = 0; i < json.list.length; i++){
+							
+							var urlDaImagem = contextoDasImagens + "/usuario_cinza.png";
 							$('#divComentariosBlog').append(
-							'<div>' +
-							'<ul style="list-style: none;">' +
-							'<li><p class="azulClaro negrito" style="font-size: large;">' + json.list[i].nome + '</p></li>' +
-							'<li>' +
-								'<ul style="list-style: none;">' +
-									'<li><p class="textoConteudoBlog">' + json.list[i].conteudo + '</p></li>' +
-									'<li><p class="textoPostagemBlog aEsquerda negrito">... postado em ' + json.list[i].postagem.$ + '</p></li>' +
-								'</ul>' +						
-							'</li>' +									
-							'</ul>' +
-							'</div>');
+							'<table>' +
+							'<tr>' +
+							'<td valign="top"><img src="' + urlDaImagem + '" class="icone50 ponteiro esquerda"></td>' +
+							'<td valign="top">' +
+								'<p class="azulClaro negrito" style="font-size: large;">' + json.list[i].nome + '</p>' +
+								'<p class="textoConteudoBlog">' + json.list[i].conteudo + '</p>' +
+								'<p class="textoPostagemBlog aEsquerda negrito">... postado em ' + json.list[i].postagem.$ + '</p>' +
+							'</td>' +					
+							'</tr>' +
+							'</table>');
 						}						
 						
 					}else{
