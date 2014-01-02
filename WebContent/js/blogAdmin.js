@@ -1,6 +1,30 @@
 
 function hideAllBlogFields(){
-	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar, #tabComentariosAdmin').hide();
+	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar, #tabComentariosAdmin, #divTextoView').hide();
+}
+
+function abrirTextoView(uuid){
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/blog/busca/texto/view",
+		data:{"uuid" : uuid},
+		success : function(json){
+			$('#divTextoView').slideUp(500);
+			$('#textoTituloView').text(json.titulo);
+			$('#textoDataView').text(json.postagem.$);
+			
+			$('#textoConteudoView').html('');
+			var paragrafos = json.conteudo.split(".");
+			for(var i = 0; i < paragrafos.length; i++){
+				$('#textoConteudoView').append("<p>" + paragrafos[i] + ".</p>");
+			}	
+						
+			$('#divTextoView').slideDown(500);							
+		},
+		error : function(){
+			alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
+		}
+	});	
 }
 
 $(document).ready(function() {
@@ -133,6 +157,13 @@ $(document).ready(function() {
 		$('#tabComentariosAdmin').slideUp(500);
 	});
 	
+	$('#btFecharTextoView').click(function(){		
+		$('#divTextoView').slideUp(500);
+		$('#textoTituloView').text('');
+		$('#textoDataView').text('');
+		$('#textoConteudoView').text('');
+	});
+	
 	$('#sizeSmallBlogNovo, #sizeMediumBlogNovo, #sizeLargeBlogNovo, #sizeXLargeBlogNovo, #sizeXxLargeBlogNovo').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("BlogNovo","");
@@ -154,6 +185,8 @@ $(document).ready(function() {
 		var origem = idOrigem.replace("BlogEdit","");		
 		alterarTamanhoAreaTexto(origem, '#blogEdtConteudoTexto');
 	});
+	
+	$('#goTextoView').smoothScroll();
 	
 	$('#formBlogBuscaTexto').submit(function(event){
 		event.preventDefault();

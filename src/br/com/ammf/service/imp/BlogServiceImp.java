@@ -83,6 +83,7 @@ public class BlogServiceImp implements BlogService {
 			result.include("iconeVerComentarios", "iconeComentarioPendentes.png");
 		}
 		result.include("cssCorTitulo", status.toString());
+		result.include("flagTitulo", status.toString());
 		
 	}	
 

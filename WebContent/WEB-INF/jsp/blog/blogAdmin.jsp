@@ -318,16 +318,18 @@
 	</div>
 	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
 	<c:if test="${empty comentariosBlog}">
-	<h3 align="center">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
+	<h3 align="center" class="${cssCorTitulo}">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
 	</c:if>
 	<c:if test="${not empty comentariosBlog}">
 	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado">Texto refer&ecirc;ncia</th>
 				<th class="metadado">Nome</th>
 				<th class="metadado">Email</th>
 				<th class="metadado">Conte&uacute;do</th>
+				<th class="metadado">Situa&ccedil;&atilde;o</th>
 				<th class="metadado" style="width: 160px;">Postagem</th>
 				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
 			</tr>
@@ -335,24 +337,30 @@
 		<tbody>
 	 		<c:forEach items="${comentariosBlog}" var="comentario">
 				<tr class="zebrado">
+					<td class="infoTabelaConteudo metadado ponteiro" title="visualizar este texto">
+						<a id="goTextoView" class="infoTabela metadado" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
+					</td>
 					<td class="infoTabelaConteudo">${comentario.nome}</td>
-					<td class="infoTabelaConteudo metadado">${comentario.email}</td>
-					<td class="infoTabelaConteudo">
-						<c:set var="origem"	value="${comentario.conteudo}"/>
-						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+					<td class="infoTabelaConteudo">${comentario.email}</td>
+					<td class="infoTabelaConteudo">${comentario.conteudo}
+						<%-- <c:set var="origem"	value="${comentario.conteudo}"/>
+						<c:out value="${fn:substring(origem,0,50)}"/>... --%>
+					</td>
+					<td class="infoTabelaConteudo ${comentario.status}">${comentario.status}</td>
 					<td class="infoTabelaConteudo" style="width: 160px;">${comentario.dataHora}</td>
-					<td class="infoTabelaData" style="width: 80px;">
-						<%-- <a href="<c:url value="/blog/editar/${comentario.uuid}" />">
-							<c:choose>
-								<c:when test="${texto.confirmado}">
-									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto">
-								</c:when>
-								<c:otherwise>
-									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHoverTrava.png" title="editar este texto">
-								</c:otherwise>
-							</c:choose>					
-						</a> --%>				
-						<a href="<c:url value="/blog/remover/${comentario.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+					<td class="infoTabelaData" style="width: 80px;">						
+						<c:choose>
+							<c:when test="${comentario.confirmado}">
+								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="editar este texto">
+							</c:when>
+							<c:otherwise>
+								<a href="<c:url value="/blog/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
+								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="editar este texto">
+								</a>
+							</c:otherwise>
+						</c:choose>					
+										
+						<a href="<c:url value="/blog/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		
@@ -362,6 +370,17 @@
 	</td>
 	</tr>
 </table>
+
+
+<a name="lerTextoView"></a>
+<div id="divTextoView" class="fullSize paddingPadrao">
+	<div class="cardViewText">
+		<input id="btFecharTextoView" type="button" value="fechar" class="backVermelho button direita">
+		<p id="textoTituloView" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
+		<p id="textoDataView" class="textoPostagemBlog aEsquerda negrito"></p>			
+		<p id="textoConteudoView" class="textoConteudoBlog"></p>
+	</div>
+</div>
 
 
 </div> <!-- div center -->

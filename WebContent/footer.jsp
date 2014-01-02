@@ -4,7 +4,7 @@
 <h2>Celebre a Vida !</h2>
 </div> -->
 
-<div style="width: 100%; background-color: #DDDDDD"> 
+<div style="width: 100%;" class="degradeFooter">  
 	<div align="center" style="padding-bottom: 10px;">
 	
 	<table id="tabRedesSociais" style="width: 1000px;">

@@ -30,6 +30,26 @@ private final Session session;
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}		
 	}
+	
+	@Override
+	public void atualizar(Comentario comentario) {
+		try {
+			session.update(comentario);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
+	}
+
+	@Override
+	public void deletar(Comentario comentario) {
+		try {
+			session.delete(comentario);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
+	}
 
 	@Override
 	public int getTotalComentariosBlogPendentes() {
@@ -55,5 +75,16 @@ private final Session session;
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
+	@Override
+	public Comentario obterPor(String uuid) {
+		try {
+			Criteria criteria = session.createCriteria(Comentario.class);
+			criteria.add(Restrictions.eq("uuid", uuid));
+			return (Comentario) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}	
 
 }

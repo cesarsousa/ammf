@@ -47,7 +47,7 @@ public class Comentario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Local local;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Texto texto;	
 	
 	public long getId() {
@@ -120,6 +120,10 @@ public class Comentario implements Serializable {
 
 	public void setTexto(Texto texto) {
 		this.texto = texto;
+	}
+	
+	public boolean isConfirmado(){
+		return Status.CONFIRMADO == this.status;
 	}
 
 	public String getDataHora(){

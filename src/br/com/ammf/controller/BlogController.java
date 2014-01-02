@@ -82,6 +82,13 @@ public class BlogController {
 	}
 	
 	@Restrito
+	@Get("/blog/busca/texto/view")
+	public void buscarTexto(String uuid){		
+		Texto texto = textoRepository.obterPor(uuid);		
+		result.use(json()).withoutRoot().from(texto).exclude("id", "autor", "local").serialize();		
+	}	
+	
+	@Restrito
 	@Get("/blog/visualizar/{uuid}")
 	public void visualizarTextoEdicao(String uuid){
 		Texto texto = textoRepository.obterPor(uuid);
@@ -155,6 +162,23 @@ public class BlogController {
 		result.include("flagComentariosBlog", true);
 		result.forwardTo(this).blogAdmin();
 		
+	}
+	
+	@Restrito
+	@Get("/blog/comentario/confirmar/{uuid}/{status}")
+	public void confirmarComentario(String uuid, Status status){
+		Comentario comentario = comentarioRepository.obterPor(uuid);
+		comentario.setStatus(Status.CONFIRMADO);
+		comentarioRepository.atualizar(comentario);
+		result.forwardTo(this).visualizarTodosOsComentarios(status);
+	}
+	
+	@Restrito
+	@Get("/blog/comentario/remover/{uuid}/{status}")
+	public void removerComentario(String uuid, Status status){
+		Comentario comentario = comentarioRepository.obterPor(uuid);
+		comentarioRepository.deletar(comentario);
+		result.forwardTo(this).visualizarTodosOsComentarios(status);
 	}
 	
 	/**
