@@ -19,28 +19,26 @@ import javax.mail.internet.MimeMultipart;
 import br.com.ammf.exception.EmailException;
 
 public class Email {	
-	
-	/*
-	 * flag de des/ativar envio de email.
-	 */
-	private static boolean emailAtivado = true;
-	
-	/*
-	 * 0 = SMTP servidor Integrator
-	 * 1 = SMTP servidor Google
-	 */
-	private static int configurarSmtp(String emailSender) {
-		if(emailSender.endsWith("@gmail.com")) return 1; return 0;		
-	}
 		
-	public static void enviarEmail(
+	private boolean emailAtivado;
+	private int SMTP;
+	
+	public Email(boolean emailAtivado, String email) {
+		this.emailAtivado = emailAtivado;
+		
+		/*
+		 * 0 = SMTP servidor Integrator
+		 * 1 = SMTP servidor Google
+		 */
+		this.SMTP = email.endsWith("@gmail.com") ? 1 : 0;
+	}	
+		
+	public void enviarEmail(
 			String emailSender, 
 			String emailSenderPassword, 
 			String emailReceiver, 
 			String assunto, 
-			String mensagem) throws EmailException {
-		
-		int SMTP = configurarSmtp(emailSender);
+			String mensagem) throws EmailException {		
 		
 		if (emailAtivado) {
 			

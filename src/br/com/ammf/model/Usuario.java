@@ -29,6 +29,8 @@ public class Usuario implements Serializable{
 	
 	private String email;
 	
+	private String emailNotificacao;
+	
 	private String linkedin;
 	
 	private String endereco;
@@ -39,6 +41,8 @@ public class Usuario implements Serializable{
 	private String telefone;
 	
 	private boolean mostrarMapa;
+	
+	private boolean emailAtivado;
 	
 	public long getId() {
 		return id;
@@ -88,6 +92,14 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 	
+	public String getEmailNotificacao() {
+		return emailNotificacao;
+	}
+	
+	public void setEmailNotificacao(String emailNotificacao) {
+		this.emailNotificacao = emailNotificacao;
+	}
+	
 	public String getLinkedin() {
 		return linkedin;
 	}
@@ -126,5 +138,13 @@ public class Usuario implements Serializable{
 	
 	public void setMostrarMapa(boolean mostrarMapa) {
 		this.mostrarMapa = mostrarMapa;
+	}
+	
+	public boolean isEmailAtivado() {
+		return emailAtivado;
+	}
+	
+	public void setEmailAtivado(boolean emailAtivado) {
+		this.emailAtivado = emailAtivado;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -28,17 +29,20 @@ public class EmailServiceImp implements EmailService {
 	private UsuarioRepository usuarioRepository;
 	private PessoaRepository pessoaRepository;
 	private Usuario administrador;
+	private Email email;
 	
 	public EmailServiceImp(UsuarioRepository usuarioRepository, PessoaRepository pessoaRepository){
 		this.usuarioRepository = usuarioRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.administrador = this.usuarioRepository.obterAdministrador();
+		this.email = new Email(administrador.isEmailAtivado(), administrador.getEmail());
+		
 	}
 
 	@Override
 	public void notificarNovoCadastroFeitoPeloCliente(Pessoa pessoa) throws EmailException {					
 		// Notificar o cliente do recebimento e cadastramento.
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(), 
@@ -46,17 +50,17 @@ public class EmailServiceImp implements EmailService {
 				HtmlMensagem.getMensagemNotificarClienteRecebimentoCadastro(pessoa, administrador.getLinkedin()));
 		
 		// Notificar o administrador do novo cadatro
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
-				administrador.getEmail(), 
+				administrador.getEmailNotificacao(), 
 				HtmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
 				HtmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
 	}
 
 	@Override
 	public void notificarNovoCadastroFeitoPeloAdm(Pessoa pessoa) throws EmailException {		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -66,7 +70,7 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException {		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -92,7 +96,7 @@ public class EmailServiceImp implements EmailService {
 			throw new EmailException("Tipo de notificacao de texto nao permitida: " + notificacao.toString());
 		}
 		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -102,7 +106,7 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException {
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -115,15 +119,15 @@ public class EmailServiceImp implements EmailService {
 	public void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException {		
 		
 		// notificar o administrador no novo contato enviado
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
-				administrador.getEmail(), 
+				administrador.getEmailNotificacao(), 
 				HtmlMensagem.getAssuntoNotificarAdmNovoContato(mensagem.getNome()), 
 				HtmlMensagem.getMensagemNotificarAdmNovoContato(mensagem));
 		
 		// notificar o cliente do contato enviado
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				mensagem.getEmail(), 
@@ -149,7 +153,7 @@ public class EmailServiceImp implements EmailService {
 			throw new EmailException("Tipo de notificacao de resenha nao permitida: " + notificacao.toString());
 		}	
 		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -175,7 +179,7 @@ public class EmailServiceImp implements EmailService {
 			throw new EmailException("Tipo de notificacao de livro nao permitida: " + notificacao.toString());
 		}	
 		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -194,7 +198,7 @@ public class EmailServiceImp implements EmailService {
 	private void enviarEmailNotificacaoLink(Link link, Pessoa pessoa) throws EmailException {
 		String mensagem = HtmlMensagem.getMensagemNotificacaoDeLink(link, administrador.getLinkedin(), pessoa);	
 		
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
@@ -204,17 +208,17 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void notificarNovaFaqParaAdmin(Faq faq) throws EmailException {
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
-				administrador.getEmail(),
+				administrador.getEmailNotificacao(),
 				HtmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
 				HtmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));		
 	}
 
 	@Override
 	public void notificarRespostaFaqParaCliente(Faq faq) throws EmailException {
-		Email.enviarEmail(
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				faq.getEmail(),
@@ -223,13 +227,24 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarAdminNovoComentario(Texto texto, Comentario comentario) throws EmailException {
-		Email.enviarEmail(
+	public void notificarNovoComentarioParaAdmin(Texto texto, Comentario comentario) throws EmailException {
+		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
-				administrador.getEmail(),
+				administrador.getEmailNotificacao(),
 				HtmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo()),
 				HtmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario));	
+	}
+
+	@Override
+	public void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException {
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				administrador.getEmailNotificacao(),
+				HtmlMensagem.getAssuntoNotificarDepoimentoAdmin(),
+				HtmlMensagem.getMensagemNotificarDepoimentoAdmin(depoimento));	
+		
 	}
 
 }

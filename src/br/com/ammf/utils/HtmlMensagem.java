@@ -1,6 +1,7 @@
 package br.com.ammf.utils;
 
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -373,6 +374,21 @@ public class HtmlMensagem {
 				.replace("[POSTAGEM]", comentario.getDataHora())
 				.replace("[COMENTARIO]", comentario.getConteudo())
 				.replace("[TITULOTEXTO]", tituloTexto)
+				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);
+	}
+	
+	public static String getAssuntoNotificarDepoimentoAdmin() {
+		return "Site Quiron - Novo depoimento cadastrado";
+	}
+
+	public static String getMensagemNotificarDepoimentoAdmin(Depoimento depoimento) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "depoimento_notificar_adm_recebimento_novo_depoimento.html");
+				
+		return mensagem
+				.replace("[NOME]", depoimento.getAutor())
+				.replace("[EMAIL]", depoimento.getEmail())				
+				.replace("[POSTAGEM]", depoimento.getDataFormatada())
+				.replace("[DEPOIMENTO]", depoimento.getConteudo())
 				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);
 	}
 }

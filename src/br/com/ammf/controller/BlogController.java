@@ -5,6 +5,8 @@ import static br.com.caelum.vraptor.view.Results.json;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
@@ -223,9 +225,9 @@ public class BlogController {
 			Comentario comentario = blogService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo, Local.BLOG);
 			blogService.cadastrarComentario(uuidTextoBlog, comentario);
 			try {
-				emailService.notificarAdminNovoComentario(texto, comentario);
+				emailService.notificarNovoComentarioParaAdmin(texto, comentario);
 			} catch (EmailException e) {
-				e.printStackTrace();
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 			}
 		}
 		
@@ -238,9 +240,9 @@ public class BlogController {
 			Texto texto = textoRepository.obterPor(uuidTexto);
 			blogService.cadastrarComentario(uuidTexto, comentario);
 			try {
-				emailService.notificarAdminNovoComentario(texto, comentario);
+				emailService.notificarNovoComentarioParaAdmin(texto, comentario);
 			} catch (EmailException e) {
-				e.printStackTrace();
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 			}
 			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
 			result.redirectTo(IndexController.class).index();			

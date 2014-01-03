@@ -193,6 +193,15 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("usuarioErroEmail", "O email deve possuir um formato v&aacute;lido");
 			resultado = false;
 		}
+		
+		if(usuario.getEmailNotificacao() == null || usuario.getEmailNotificacao().isEmpty()){
+			result.include("usuarioErroEmailNotificacao", "O email para notifica&ccedil;&atilde;o deve ser informado");
+			resultado = false;
+		}else if (!ehEmailValido(usuario.getEmailNotificacao())){
+			result.include("usuarioErroEmailNotificacao", "O email para notifica&ccedil;&atilde;o deve possuir um formato v&aacute;lido");
+			resultado = false;
+		}
+		
 		/*else if (!ehGmail(usuario.getEmail())){
 			result.include("usuarioErroEmail", "O email deve deve ser do Gmail (seu_email@gmail.com)");
 			resultado = false;

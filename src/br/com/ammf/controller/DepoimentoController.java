@@ -2,10 +2,14 @@ package br.com.ammf.controller;
 
 import java.util.List;
 
+import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.DepoimentoRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -19,15 +23,18 @@ public class DepoimentoController {
 	private Result result;
 	private DepoimentoRepository depoimentoRepository;
 	private ValidacaoService validacaoService;
+	private EmailService emailService;
 	
 	public DepoimentoController(
 			Result result,
 			DepoimentoRepository depoimentoRepository,
 			ValidacaoService validacaoService,
-			PessoaService pessoaService){
+			PessoaService pessoaService,
+			EmailService emailService){
 		this.result = result;
 		this.depoimentoRepository = depoimentoRepository;
 		this.validacaoService = validacaoService;
+		this.emailService = emailService;
 	}
 	
 	@Get("/cliente/depoimentos")
@@ -41,7 +48,11 @@ public class DepoimentoController {
 		boolean validado = validacaoService.depoimento(depoimento, result);		
 		if(validado){
 			depoimentoRepository.cadastrar(depoimento);
-			// TODO notificar admin novo depoimento cadastrado
+			try {
+				emailService.notificarNovoDepoimentoParaAdmin(depoimento);
+			} catch (EmailException e) {
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+			}
 			result.include("msgDepoimento", depoimento.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, por&eacute;m aguarda confirma&ccedil;&atilde;o");
 		}else{
 			result.include("msgErroDepoimento", true);

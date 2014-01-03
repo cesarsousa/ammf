@@ -220,7 +220,7 @@
 				<h3>Email:</h3>
 				<div class="msgBorderInterno msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
-				&Eacute; obrigat&oacute;rio o uso de um email do Google (<i>seu_email@gmail.com</i>) para o funcionamento correto do site.
+				&Eacute; obrigat&oacute;rio o uso de um email fornecido pelo servidor (<i>site@quiron.psc.br</i>) para o funcionamento correto do site.
 				</div>
 				<p>
 				<c:if test="${not empty usuarioErroEmail}">				
@@ -230,7 +230,40 @@
 				<c:if test="${empty usuarioErroEmail}">
 				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
 				</c:if>
-				</p>				
+				</p>
+				
+				
+				<h3>Email de notifica&ccedil;&atilde;o:</h3>
+				<table>
+				<tr>
+				<td valign="top" align="left">
+					<c:choose>
+						<c:when test="${sessaoUsuario.usuario.emailAtivado}">
+							<input type="checkbox" name="usuario.emailAtivado" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="usuario.emailAtivado" />
+						</c:otherwise>
+					</c:choose>				
+				</td>
+				<td valign="top" align="left"><h3 class="info azulClaro">Ativar o envio de email pelo site para os clientes e para o administrador dos eventos ocorridos no sistema.</h3></td>
+				</tr>
+				</table>
+				<div class="msgBorderInterno msgAlerta t100">
+				<b>Aten&ccedil;&atilde;o !</b><br/>
+				&Eacute; obrigat&oacute;rio o uso de um email para o recebimento das notifica&ccedil;&otilde;es disparadas pelo site.
+				</div>
+				<p>
+				<c:if test="${not empty usuarioErroEmailNotificacao}">				
+				<label class="labelFormErro">${usuarioErroEmailNotificacao}</label>
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				</c:if>				
+				<c:if test="${empty usuarioErroEmailNotificacao}">
+				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				</c:if>
+				</p>
+				
+								
 								
 				<h3>Senha:
 				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
@@ -238,7 +271,7 @@
 				</h3>				
 				<div class="msgBorderInterno msgAlerta t100">				
 				<b>Lembrete !</b><br/>
-				&Eacute; obrigat&oacute;rio que a senha seja a mesma do gmail cadastrado no site.				
+				&Eacute; obrigat&oacute;rio que a senha seja a mesma do email cadastrado no servidor do site no site (<i>270879cm</i>).				
 				</div>
 				
 				<c:if test="${not empty usuarioSenhaBranco}">				
