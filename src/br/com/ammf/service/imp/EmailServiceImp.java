@@ -223,8 +223,13 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarNovoComentario(String uuidTexto, Comentario comentario) {
-		// TODO notificação de novo comentário recebido		
+	public void notificarAdminNovoComentario(Texto texto, Comentario comentario) throws EmailException {
+		Email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				administrador.getEmail(),
+				HtmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo()),
+				HtmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario));	
 	}
 
 }

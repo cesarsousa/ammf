@@ -218,11 +218,15 @@ public class BlogController {
 	@Post("/blog/cliente/comentario")
 	public void clienteCadastraComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo){
 		String resultado = validacaoService.cadastrarComentario(uuidTextoBlog, comentarioNome, comentarioEmail, comentarioConteudo);
-		
+		Texto texto = textoRepository.obterPor(uuidTextoBlog);
 		if(resultado.equals("OK")){
 			Comentario comentario = blogService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo, Local.BLOG);
 			blogService.cadastrarComentario(uuidTextoBlog, comentario);
-			emailService.notificarNovoComentario(uuidTextoBlog, comentario);
+			try {
+				emailService.notificarAdminNovoComentario(texto, comentario);
+			} catch (EmailException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		result.use(json()).withoutRoot().from(resultado).serialize();
@@ -231,8 +235,13 @@ public class BlogController {
 	@Post("/blog/cliente/comentario/principal")
 	public void clienteCadastraComentario(String uuidTexto, Comentario comentario){
 		if(validacaoService.cadastrarComentario(comentario, Local.BLOG, result)){
+			Texto texto = textoRepository.obterPor(uuidTexto);
 			blogService.cadastrarComentario(uuidTexto, comentario);
-			emailService.notificarNovoComentario(uuidTexto, comentario);
+			try {
+				emailService.notificarAdminNovoComentario(texto, comentario);
+			} catch (EmailException e) {
+				e.printStackTrace();
+			}
 			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
 			result.redirectTo(IndexController.class).index();			
 		}else{

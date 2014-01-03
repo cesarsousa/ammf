@@ -41,6 +41,7 @@ public class DepoimentoController {
 		boolean validado = validacaoService.depoimento(depoimento, result);		
 		if(validado){
 			depoimentoRepository.cadastrar(depoimento);
+			// TODO notificar admin novo depoimento cadastrado
 			result.include("msgDepoimento", depoimento.getAutor().toUpperCase() + " seu depoimento foi recebido com sucesso, por&eacute;m aguarda confirma&ccedil;&atilde;o");
 		}else{
 			result.include("msgErroDepoimento", true);

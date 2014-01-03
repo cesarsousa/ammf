@@ -1,5 +1,6 @@
 package br.com.ammf.utils;
 
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -357,5 +358,21 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", faq.getEmail())	
 				.replace("[LINKEDIN]", linkedin)				
 				.replace("[LINKFAQ]", linkLerFaq);		
+	}
+
+	public static String getAssuntoNotificarComentarioAdmin(String tituloTexto) {
+		return "Site Quiron Blog - Novo comentário sobre texto cadastrado";
+	}
+
+	public static String getMensagemNotificarComentarioAdmin(String tituloTexto, Comentario comentario) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "comentario_notificar_adm_recebimento_novo_comentario.html");
+				
+		return mensagem
+				.replace("[NOME]", comentario.getNome())
+				.replace("[EMAIL]", comentario.getEmail())				
+				.replace("[POSTAGEM]", comentario.getDataHora())
+				.replace("[COMENTARIO]", comentario.getConteudo())
+				.replace("[TITULOTEXTO]", tituloTexto)
+				.replace("[WEBSITE_LOGIN_ADM]", LinksDoSite.WEB_SITE_LOGIN);
 	}
 }

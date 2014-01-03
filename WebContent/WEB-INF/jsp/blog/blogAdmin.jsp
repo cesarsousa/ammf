@@ -53,9 +53,6 @@
 	<li>
 		<img id="btVerComentariosPendentes" alt="comentários pendentes" title="comentários pendentes" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
-	
-	
-	
 		
 </ul>
 </td>
@@ -337,8 +334,8 @@
 		<tbody>
 	 		<c:forEach items="${comentariosBlog}" var="comentario">
 				<tr class="zebrado">
-					<td class="infoTabelaConteudo metadado ponteiro" title="visualizar este texto">
-						<a id="goTextoView" class="infoTabela metadado" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
+					<td class="infoTabelaConteudo ponteiro" title="visualizar este texto">
+						<a id="goTextoView" class="infoTabela azulClaro letraMedia" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
 					</td>
 					<td class="infoTabelaConteudo">${comentario.nome}</td>
 					<td class="infoTabelaConteudo">${comentario.email}</td>
@@ -376,6 +373,8 @@
 <div id="divTextoView" class="fullSize paddingPadrao">
 	<div class="cardViewText">
 		<input id="btFecharTextoView" type="button" value="fechar" class="backVermelho button direita">
+		<h2>Visualiza&ccedil;&atilde;o de texto referente a um coment&aacute;rio</h2>
+		
 		<p id="textoTituloView" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 		<p id="textoDataView" class="textoPostagemBlog aEsquerda negrito"></p>			
 		<p id="textoConteudoView" class="textoConteudoBlog"></p>

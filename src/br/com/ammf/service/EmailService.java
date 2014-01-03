@@ -35,7 +35,7 @@ public interface EmailService {
 
 	void notificarRespostaFaqParaCliente(Faq faq) throws EmailException;
 
-	void notificarNovoComentario(String uuidTexto, Comentario comentario);
+	void notificarAdminNovoComentario(Texto texto, Comentario comentario) throws EmailException;
 
 
 }
