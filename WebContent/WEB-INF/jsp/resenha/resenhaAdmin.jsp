@@ -373,7 +373,6 @@
 	</tr>
 </table>
 
-
 <a name="lerResenhaView"></a>
 <div id="divResenhaView" class="fullSize paddingPadrao" align="center">
 	<div class="cardViewText">
