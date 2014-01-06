@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ammf.model.Local;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.DepoimentoRepository;
@@ -54,9 +55,14 @@ public class MenuServiceImp implements MenuService{
 	private List<String> atualizarListaDeNotificacoes() {
 		List<String> notificacoes = new ArrayList<String>();
 		
-		int totalComentariosBlogPendentes = comentarioRepository.getTotalComentariosBlogPendentes();
+		int totalComentariosBlogPendentes = comentarioRepository.getTotalComentariosPendentes(Local.BLOG);
 		if(totalComentariosBlogPendentes > 0){
 			notificacoes.add("<b>Blog:</b> "+ totalComentariosBlogPendentes + " coment&aacute;rio(s) pendente(s) confirma&ccedil;&atilde;o");
+		}
+		
+		int totalComentariosResenhaPendentes = comentarioRepository.getTotalComentariosPendentes(Local.RESENHA);
+		if(totalComentariosResenhaPendentes > 0){
+			notificacoes.add("<b>Resenha:</b> "+ totalComentariosResenhaPendentes + " coment&aacute;rio(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
 		int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();

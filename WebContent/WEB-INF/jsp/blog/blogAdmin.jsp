@@ -319,9 +319,11 @@
 	</c:if>
 	<c:if test="${not empty comentariosBlog}">
 	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
+	<p class="info azulClaro letraGrande" align="center">Clique no t&iacute;tulo do texto de refer&ecirc;ncia para visualiz&aacute;-lo</p>
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado">Local</th>
 				<th class="metadado">Texto refer&ecirc;ncia</th>
 				<th class="metadado">Nome</th>
 				<th class="metadado">Email</th>
@@ -334,6 +336,7 @@
 		<tbody>
 	 		<c:forEach items="${comentariosBlog}" var="comentario">
 				<tr class="zebrado">
+					<td class="infoTabelaConteudo"><b>${comentario.local}</b></td>
 					<td class="infoTabelaConteudo ponteiro" title="visualizar este texto">
 						<a id="goTextoView" class="infoTabela azulClaro letraMedia" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
 					</td>
@@ -380,7 +383,6 @@
 		<p id="textoConteudoView" class="textoConteudoBlog"></p>
 	</div>
 </div>
-
 
 </div> <!-- div center -->
 

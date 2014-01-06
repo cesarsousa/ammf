@@ -160,10 +160,9 @@ public class BlogController {
 	@Get("/blog/comentarios/{status}")
 	public void visualizarTodosOsComentarios(Status status){
 		blogService.configurarVisualizacaoParaVisualizacaoComentarios(status, result);
-		result.include("comentariosBlog", comentarioRepository.listar(status));
+		result.include("comentariosBlog", comentarioRepository.listar(status, Local.BLOG));
 		result.include("flagComentariosBlog", true);
 		result.forwardTo(this).blogAdmin();
-		
 	}
 	
 	@Restrito

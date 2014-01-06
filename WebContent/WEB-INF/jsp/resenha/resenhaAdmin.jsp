@@ -45,12 +45,25 @@
 	</li>
 	<li>
 		<img id="btListarResenhas" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenha" alt="visualizar comentários" title="visualizar comentários" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenhaConfirmados" alt="comentários confirmados" title="comentários confirmados" src="${imagem}/iconeComentarioConfirmados.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenhaPendentes" alt="comentários pendentes" title="comentários pendentes" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
 	</li>	
 </ul>
 </td>
 </tr>
 </table>
 </div>
+
+<form id="formVerComentariosResenha" action="<c:url value="/resenha/comentarios/TODOS" />" method="get"></form>
+<form id="formVerComentariosResenhaConfirmados" action="<c:url value="/resenha/comentarios/CONFIRMADO" />" method="get"></form>
+<form id="formVerComentariosResenhaPendentes" action="<c:url value="/resenha/comentarios/PENDENTE" />" method="get"></form>
  
 <div class="separador"></div>
 
@@ -233,7 +246,7 @@
 	</tr>		
 </table>
 	
-</div> <!-- div center -->
+
 
 <!-- LISTAR TODOS OS TEXTOS -->
 <!-- submit via javascript -->
@@ -256,8 +269,8 @@
 			<tr>
 				<th class="metadado"></th>
 				<th class="metadado">Tipo da Resenha</th>
-				<th class="metadado">Autor</th>
 				<th class="metadado">T&iacute;tulo</th>
+				<th class="metadado">Autor</th>
 				<th class="metadado">Texto</th>
 				<th class="metadado">Postagem</th>
 				<th class="metadado">.</th>
@@ -268,9 +281,9 @@
 	 		<c:forEach items="${resenhas}" var="resenha">
 				<tr class="zebrado">
 					<td class="infoTabela"><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone25"></td>
-					<td class="infoTabelaConteudo metadado">${resenha.categoria.descricao}</td>
+					<td class="infoTabelaConteudo metadado">${resenha.categoria.descricao}</td>					
+					<td class="infoTabelaConteudo metadado">${resenha.titulo}</td>
 					<td class="infoTabelaConteudo">${resenha.autor}</td>
-					<td class="infoTabelaConteudo">${resenha.titulo}</td>
 					<td class="infoTabelaConteudo">
 						<c:set var="origem"	value="${resenha.descricao}"/>
 						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
@@ -292,6 +305,90 @@
 	</tr>
 </table>
 </div>
+
+
+<!-- LISTAR TODOS OS COMENTARIOS -->
+<input id="flagComentariosResenha" type="hidden" value="${flagComentariosResenha}">
+<table id="tabComentariosResenhaAdmin" class="fullSize">	
+	<tr>
+	<td>
+	<div align="right">		
+	<input id="btFecharComentariosResenha" type="button" value="fechar" class="backVermelho button">
+	</div>
+	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
+	<c:if test="${empty comentariosResenha}">
+	<h3 align="center" class="${cssCorTitulo}">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
+	</c:if>
+	<c:if test="${not empty comentariosResenha}">
+	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
+	<p class="info azulClaro letraGrande" align="center">Clique na resenha de referência para visualiz&aacute;-la</p>
+	<table class="display dataTable cardViewText superFooter bordaLateral">
+		<thead align="left">
+			<tr>
+				<th class="metadado">Local</th>
+				<th class="metadado">Resenha refer&ecirc;ncia</th>
+				<th class="metadado">Nome</th>
+				<th class="metadado">Email</th>
+				<th class="metadado">Conte&uacute;do</th>
+				<th class="metadado">Situa&ccedil;&atilde;o</th>
+				<th class="metadado" style="width: 160px;">Postagem</th>
+				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
+			</tr>
+		</thead>
+		<tbody>
+	 		<c:forEach items="${comentariosResenha}" var="comentario">
+				<tr class="zebrado">
+					<td class="infoTabelaConteudo"><b>${comentario.local}</b></td>
+					<td class="infoTabelaConteudo ponteiro" title="visualizar este texto">
+						<a id="goTextoView" class="azulClaro letraMedia" href="#lerResenhaView" onclick="abrirResenhaView('${comentario.resenha.uuid}')">${comentario.resenha.titulo}</a>				
+					</td>
+					<td class="infoTabelaConteudo">${comentario.nome}</td>
+					<td class="infoTabelaConteudo">${comentario.email}</td>
+					<td class="infoTabelaConteudo">${comentario.conteudo}
+						<%-- <c:set var="origem"	value="${comentario.conteudo}"/>
+						<c:out value="${fn:substring(origem,0,50)}"/>... --%>
+					</td>
+					<td class="infoTabelaConteudo ${comentario.status}">${comentario.status}</td>
+					<td class="infoTabelaConteudo" style="width: 160px;">${comentario.dataHora}</td>
+					<td class="infoTabelaData" style="width: 80px;">						
+						<c:choose>
+							<c:when test="${comentario.confirmado}">
+								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="editar este texto">
+							</c:when>
+							<c:otherwise>
+								<a href="<c:url value="/resenha/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
+								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="editar este texto">
+								</a>
+							</c:otherwise>
+						</c:choose>					
+										
+						<a href="<c:url value="/resenha/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+					</td>
+				</tr>			
+			</c:forEach>		
+		</tbody>			
+	</table>
+	</c:if>	
+	</td>
+	</tr>
+</table>
+
+
+<a name="lerResenhaView"></a>
+<div id="divResenhaView" class="fullSize paddingPadrao" align="center">
+	<div class="cardViewText">
+		<input id="btFecharResenhaView" type="button" value="fechar" class="backVermelho button direita">
+		<h2>Visualiza&ccedil;&atilde;o de resenha referente a um coment&aacute;rio</h2>
+		<div align="center">
+		<img id="imgResenhaView" class="fotoLivro"/>
+		</div>
+		<p id="resenhaTituloView" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
+		<p id="resenhaDataView" class="textoPostagemBlog aEsquerda negrito"></p>			
+		<p id="resenhaConteudoView" class="textoConteudoBlog"></p>
+	</div>
+</div>
+
+</div> <!-- div center -->
 
 <div id="telaAguardeAdmResenhaCadastrar">
 	<div align="center">

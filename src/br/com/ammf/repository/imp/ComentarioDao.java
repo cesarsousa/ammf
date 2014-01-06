@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -52,10 +53,11 @@ private final Session session;
 	}
 
 	@Override
-	public int getTotalComentariosBlogPendentes() {
+	public int getTotalComentariosPendentes(Local local) {
 		try {
 			Criteria criteria = session.createCriteria(Comentario.class);
 			criteria.add(Restrictions.eq("status", Status.PENDENTE));
+			criteria.add(Restrictions.eq("local", local));
 			return criteria.list().size();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -64,9 +66,10 @@ private final Session session;
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Comentario> listar(Status status) {
+	public List<Comentario> listar(Status status, Local local) {
 		try {
 			Criteria criteria = session.createCriteria(Comentario.class);
+			criteria.add(Restrictions.eq("local", local));
 			if(status != Status.TODOS){
 				criteria.add(Restrictions.eq("status", status));
 			}			

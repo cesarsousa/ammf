@@ -16,9 +16,11 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
+import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
@@ -36,6 +38,7 @@ public class ResenhaController {
 	private Result result;
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
+	private ComentarioRepository comentarioRepository;
 	private ValidacaoService validacaoService;
 	private ResenhaService resenhaService;
 	private EmailService emailService;
@@ -45,6 +48,7 @@ public class ResenhaController {
 			Result result, 
 			ResenhaRepository resenhaRepository,
 			CategoriaRepository categoriaRepository,
+			ComentarioRepository comentarioRepository,
 			ValidacaoService validacaoService,
 			ResenhaService resenhaService,
 			EmailService emailService,
@@ -52,6 +56,7 @@ public class ResenhaController {
 		this.result = result;
 		this.resenhaRepository = resenhaRepository;
 		this.categoriaRepository = categoriaRepository;
+		this.comentarioRepository = comentarioRepository;
 		this.validacaoService = validacaoService;
 		this.resenhaService = resenhaService;
 		this.emailService = emailService;
@@ -162,6 +167,41 @@ public class ResenhaController {
 			retornarJson("erro");
 		}		
 	}
+	
+	@Restrito
+	@Get("/resenha/comentarios/{status}")
+	public void visualizarTodosOsComentarios(Status status){
+		resenhaService.configurarVisualizacaoParaVisualizacaoComentarios(status, result);
+		result.include("comentariosResenha", comentarioRepository.listar(status, Local.RESENHA));
+		result.include("flagComentariosResenha", true);
+		result.forwardTo(this).resenhaAdmin();
+	}
+	
+	@Restrito
+	@Get("/resenha/comentario/confirmar/{uuid}/{status}")
+	public void confirmarComentario(String uuid, Status status){
+		Comentario comentario = comentarioRepository.obterPor(uuid);
+		comentario.setStatus(Status.CONFIRMADO);
+		comentarioRepository.atualizar(comentario);
+		result.forwardTo(this).visualizarTodosOsComentarios(status);
+	}
+	
+	@Restrito
+	@Get("/resenha/comentario/remover/{uuid}/{status}")
+	public void removerComentario(String uuid, Status status){
+		Comentario comentario = comentarioRepository.obterPor(uuid);
+		comentarioRepository.deletar(comentario);
+		result.forwardTo(this).visualizarTodosOsComentarios(status);
+	}
+	
+	@Restrito
+	@Get("/resenha/busca/view")
+	public void buscarTexto(String uuid){		
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);		
+		result.use(json()).withoutRoot().from(resenha).exclude("id").serialize();		
+	}	
+	
+	
 	
 	@Get("/resenha/visualizador/{uuid}")
 	public File downloadImagemResenha(String uuid){

@@ -3,6 +3,7 @@ package br.com.ammf.repository;
 import java.util.List;
 
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Status;
 
 public interface ComentarioRepository {
@@ -11,12 +12,12 @@ public interface ComentarioRepository {
 	
 	void atualizar(Comentario comentario);
 	
-	void deletar(Comentario comentario);
+	void deletar(Comentario comentario);	
 
-	int getTotalComentariosBlogPendentes();
+	List<Comentario> listar(Status status, Local local);
 
-	List<Comentario> listar(Status status);
-
-	Comentario obterPor(String uuid);	
+	Comentario obterPor(String uuid);
+	
+	int getTotalComentariosPendentes(Local local);
 
 }

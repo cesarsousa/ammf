@@ -18,6 +18,7 @@ import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.utils.DataUtils;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -113,6 +114,25 @@ public class ResenhaServiceImp implements ResenhaService {
 		comentario.setConteudo(comentarioConteudo);	
 		
 		return comentario;
+		
+	}
+
+	@Override
+	public void configurarVisualizacaoParaVisualizacaoComentarios(Status status, Result result) {
+		if(Status.TODOS == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos todos os coment&aacute;rios");
+			result.include("iconeVerComentarios", "iconeComentarioTodos.png");			
+		}
+		if(Status.CONFIRMADO == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos coment&aacute;rios confirmados");
+			result.include("iconeVerComentarios", "iconeComentarioConfirmados.png");
+		}
+		if(Status.PENDENTE == status){
+			result.include("tituloVerComentarios", "Visualiza&ccedil;&atilde;o dos coment&aacute;rios pendentes");
+			result.include("iconeVerComentarios", "iconeComentarioPendentes.png");
+		}
+		result.include("cssCorTitulo", status.toString());
+		result.include("flagTitulo", status.toString());
 		
 	}
 	

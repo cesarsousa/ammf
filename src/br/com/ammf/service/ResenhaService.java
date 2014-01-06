@@ -6,6 +6,8 @@ import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Status;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public interface ResenhaService {
@@ -21,5 +23,7 @@ public interface ResenhaService {
 	void cadastrarComentario(String uuidResenha, Comentario comentario);
 
 	Comentario obterComentario(String comentarioNome, String comentarioEmail, String comentarioConteudo, Local resenha);
+
+	void configurarVisualizacaoParaVisualizacaoComentarios(Status status, Result result);
 
 }
