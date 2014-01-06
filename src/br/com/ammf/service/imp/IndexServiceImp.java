@@ -171,4 +171,21 @@ public class IndexServiceImp implements IndexService{
 		
 	}
 
+	@Override
+	public List<Paragrafo> criarListaDeParagrafos(Resenha resenha) {
+		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
+		if(resenha == null){
+			Paragrafo paragrafo = new Paragrafo();
+			paragrafo.setTrechoTexto("Esta resenha está sendo atualizada... Logo estará disponível.");
+			paragrafos.add(paragrafo);
+		}else{
+			String textoDividido[] = resenha.getDescricao().split("\n");
+			for (String trecho : textoDividido) {
+				Paragrafo paragrafo = new Paragrafo();
+				paragrafo.setTrechoTexto(trecho.trim());
+				paragrafos.add(paragrafo);
+			}
+		}
+		return paragrafos;
+	}
 }

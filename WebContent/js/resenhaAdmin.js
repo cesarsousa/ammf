@@ -178,11 +178,11 @@ $(document).ready(function() {
 	addRemoveDestaque("#textoDescricaoResenhaEdt");
 	
 	$('#textoDescricaoResenha').keyup(function() {		
-		limitarCaracteres('#textoDescricaoResenha', '#contadorCaracterResenha', 2250);
+		limitarCaracteres('#textoDescricaoResenha', '#contadorCaracterResenha', 10000);
 	});
 	
 	$('#textoDescricaoResenhaEdt').keyup(function() {		
-		limitarCaracteres('#textoDescricaoResenhaEdt', '#contadorCaracterResenhaEdt', 2250);
+		limitarCaracteres('#textoDescricaoResenhaEdt', '#contadorCaracterResenhaEdt', 10000);
 	});
 	
 	

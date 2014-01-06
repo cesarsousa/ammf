@@ -1,5 +1,5 @@
 
-function cadastrarComentario(){
+function cadastrarComentarioBlog(){
 	$.ajax({
 		type : 'POST',
 		url : $('#contexto').val() + "/blog/cliente/comentario",
@@ -51,7 +51,7 @@ function visualizarTextoBlog(uuid){
 					
 					if(json.list.length > 0){
 						
-						$('#divVisualizarComentários').show();
+						$('#divVisualizarComentarios').show();
 						$('#divComentariosBlog').html('');
 						
 						var contextoDasImagens = $('#imageContexto').val();
@@ -73,7 +73,7 @@ function visualizarTextoBlog(uuid){
 						}						
 						
 					}else{
-						$('#divVisualizarComentários').hide();
+						$('#divVisualizarComentarios').hide();
 					}
 					
 				},
@@ -166,7 +166,7 @@ $(document).ready(function() {
 	
 
 	$('#btnClienteComentarTexto').click(function(){
-		cadastrarComentario();
+		cadastrarComentarioBlog();
 	});
 	
 	$('#btVisualizarTodos').toggle(function() {

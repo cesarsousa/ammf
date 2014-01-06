@@ -37,6 +37,8 @@ public interface EmailService {
 	void notificarRespostaFaqParaCliente(Faq faq) throws EmailException;
 
 	void notificarNovoComentarioParaAdmin(Texto texto, Comentario comentario) throws EmailException;
+	
+	void notificarNovoComentarioParaAdmin(Resenha resenha, Comentario comentario) throws EmailException;
 
 	void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException;
 

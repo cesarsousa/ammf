@@ -361,14 +361,30 @@ public class HtmlMensagem {
 				.replace("[LINKFAQ]", linkLerFaq);		
 	}
 
-	public static String getAssuntoNotificarComentarioAdmin(String tituloTexto) {
-		return "Site Quiron Blog - Novo comentário sobre texto cadastrado";
+	public static String getAssuntoNotificarComentarioAdmin(String tituloTexto, Local local) {
+		String strLocal = "";
+		if(Local.BLOG == local) strLocal = "Blog";
+		if(Local.RESENHA == local) strLocal = "Resenha";
+		return "Site Quiron " +  strLocal + " - Novo comentário sobre texto cadastrado";
 	}
 
-	public static String getMensagemNotificarComentarioAdmin(String tituloTexto, Comentario comentario) {
+	public static String getMensagemNotificarComentarioAdmin(String tituloTexto, Comentario comentario, Local local) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "comentario_notificar_adm_recebimento_novo_comentario.html");
-				
+		String strLocal = "";
+		String strLocal2 = "";
+		if(Local.BLOG == local){
+			strLocal = "no blog";
+			strLocal2 = "ao texto";
+		}
+		if(Local.RESENHA == local){
+			strLocal = "nas resenhas";
+			strLocal2 = "&agrave; resenha";
+		}
+		
+		
 		return mensagem
+				.replace("[LOCAL1]", strLocal)
+				.replace("[LOCAL2]", strLocal2)
 				.replace("[NOME]", comentario.getNome())
 				.replace("[EMAIL]", comentario.getEmail())				
 				.replace("[POSTAGEM]", comentario.getDataHora())

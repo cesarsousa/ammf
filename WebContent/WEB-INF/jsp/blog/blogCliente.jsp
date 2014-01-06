@@ -17,7 +17,7 @@ ${conteudoEmBranco}
 <%@ include file="/menuPrincipal.jsp" %>
 
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
-<form id="formBlogComentado" method="get" action="<c:url value="/site/blog/comentado"></c:url>"></form>
+<form id="formBlogComentado" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 
 <div id="" align="center">
@@ -111,7 +111,7 @@ ${conteudoEmBranco}
 									<textarea id="comentarTextoConteudoPrincipal" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9">${comentario.conteudo}</textarea>
 									
 									<h3 align="right" style="font-size: small;">
-									Voc&ecirc; pode digitar <span id="contadorCaracterComentarTextoConteudoPrincipal">1000</span> caracteres em sua pergunta.
+									Voc&ecirc; pode digitar <span id="contadorCaracterComentarTextoConteudoPrincipal">1000</span> caracteres em seu coment&aacute;rio.
 									</h3>
 									</div>
 									
@@ -128,7 +128,7 @@ ${conteudoEmBranco}
 					</table>		
 				</form>
 			</div>
-				</div>
+			</div>
 			
 		</c:otherwise>
 	</c:choose>
@@ -182,7 +182,7 @@ ${conteudoEmBranco}
 			<p id="textoblogConteudo" class="textoConteudoBlog"></p>
 			
 			
-			<div id="divVisualizarComentários" class="paddingPadrao" align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
+			<div id="divVisualizarComentarios" class="paddingPadrao" align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
 				<span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 				<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
 				
@@ -218,7 +218,7 @@ ${conteudoEmBranco}
 									<textarea id="comentarTextoConteudo" class="letraCinza largura90 bordaPadrao" rows="9"></textarea>
 									
 									<h3 align="right" style="font-size: small;">
-									Voc&ecirc; pode digitar <span id="contadorCaracterComentarTextoConteudo">1000</span> caracteres em sua pergunta.
+									Voc&ecirc; pode digitar <span id="contadorCaracterComentarTextoConteudo">1000</span> caracteres em seu coment&aacute;rio.
 									</h3>
 									</div>
 									
@@ -233,8 +233,8 @@ ${conteudoEmBranco}
 							</td>			
 						</tr>		
 					</table>		
-			</div>
-			</div>		
+				</div>
+				</div>		
 			
 			</td>		
 		</tr>		

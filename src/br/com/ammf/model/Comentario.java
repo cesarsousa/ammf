@@ -48,7 +48,10 @@ public class Comentario implements Serializable {
 	private Local local;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	private Texto texto;	
+	private Texto texto;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Resenha resenha;
 	
 	public long getId() {
 		return id;
@@ -120,6 +123,14 @@ public class Comentario implements Serializable {
 
 	public void setTexto(Texto texto) {
 		this.texto = texto;
+	}
+	
+	public Resenha getResenha() {
+		return resenha;
+	}
+	
+	public void setResenha(Resenha resenha) {
+		this.resenha = resenha;
 	}
 	
 	public boolean isConfirmado(){

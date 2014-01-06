@@ -7,15 +7,21 @@ import java.util.List;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
+import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.EmailService;
+import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -33,6 +39,7 @@ public class ResenhaController {
 	private ValidacaoService validacaoService;
 	private ResenhaService resenhaService;
 	private EmailService emailService;
+	private IndexService indexService;
 	
 	public ResenhaController(
 			Result result, 
@@ -40,13 +47,15 @@ public class ResenhaController {
 			CategoriaRepository categoriaRepository,
 			ValidacaoService validacaoService,
 			ResenhaService resenhaService,
-			EmailService emailService) {
+			EmailService emailService,
+			IndexService indexService) {
 		this.result = result;
 		this.resenhaRepository = resenhaRepository;
 		this.categoriaRepository = categoriaRepository;
 		this.validacaoService = validacaoService;
 		this.resenhaService = resenhaService;
 		this.emailService = emailService;
+		this.indexService = indexService;
 	}	
 	
 	@Restrito
@@ -166,9 +175,11 @@ public class ResenhaController {
 	
 	@Get("/resenha/cliente")
 	public void resenhaCliente(){
-		List<Resenha> resenhas = resenhaRepository.ultimaResenhaPublicada();
+		Resenha ultimaPublicacao = resenhaRepository.ultimaResenhaPublicada();
+		List<Paragrafo> paragrafos = indexService.criarListaDeParagrafos(ultimaPublicacao);		
 		List<Categoria> categoriasResenha = categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
-		result.include("resenhas", resenhas);
+		result.include("ultimaPublicacao", ultimaPublicacao);
+		result.include("paragrafos", paragrafos);
 		result.include("categoriasResenha", categoriasResenha);
 	}
 		
@@ -192,19 +203,62 @@ public class ResenhaController {
 	 */
 	@Get("/resenha/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
-		Resenha resenha = resenhaRepository.obterPor(uuid);
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
 		result.include("resenha", resenha);		
 		result.redirectTo(this).resenhaCliente();		
 	}
 		
 	@Get("/resenha/cliente/texto")
 	public void clienteVisualizarTexto(String uuid){		
-		Resenha resenha = resenhaRepository.obterPor(uuid);
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
 		result.use(json()).withoutRoot().from(resenha).exclude("id").include("categoria").serialize();
 	}
 	
 	@Get("/resenha/listar/categoria/{id}")
 	public void listarResenhasPorCategoria(long id){
 		listarTodasResenhasParaCliente(id);
+	}
+	
+	@Post("/resenha/cliente/comentario/principal")
+	public void clienteCadastraComentario(String uuidResenha, Comentario comentario){
+		if(validacaoService.cadastrarComentario(comentario, Local.RESENHA, result)){
+			Resenha resenha = resenhaRepository.obterPorUuid(uuidResenha);
+			resenhaService.cadastrarComentario(uuidResenha, comentario);			
+			try {
+				emailService.notificarNovoComentarioParaAdmin(resenha, comentario);
+			} catch (EmailException e) {
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+			}
+			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
+			result.redirectTo(IndexController.class).index();			
+		}else{
+			result.include("erroComentarioPrincipal", true);
+			result.include("comentario", comentario);
+			result.forwardTo(this).resenhaCliente();
+		}		
+	}
+	
+	@Get("/resenha/cliente/comentarios")
+	public void obtercomentariosDeTexto(String uuid){
+		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
+		List<Comentario> comentarios = resenha.getComentariosConfirmados();
+		result.use(json()).from(comentarios).exclude("id", "status", "email").serialize();
+	}
+	
+	@Post("/resenha/cliente/novo/comentario")
+	public void clienteCadastraComentario(String uuidResenhaView, String comentarioNome, String comentarioEmail, String comentarioConteudo){
+		String resultado = validacaoService.cadastrarComentario(uuidResenhaView, comentarioNome, comentarioEmail, comentarioConteudo);
+		Resenha resenha = resenhaRepository.obterPorUuid(uuidResenhaView);
+		if(resultado.equals("OK")){
+			Comentario comentario = resenhaService.obterComentario(comentarioNome, comentarioEmail, comentarioConteudo, Local.RESENHA);
+			resenhaService.cadastrarComentario(uuidResenhaView, comentario);
+			try {
+				emailService.notificarNovoComentarioParaAdmin(resenha, comentario);
+			} catch (EmailException e) {
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+			}
+		}
+		
+		result.use(json()).withoutRoot().from(resultado).serialize();
 	}
 }

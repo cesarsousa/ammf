@@ -95,9 +95,9 @@
 				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
-			<h3>Coment&aacute;rio com at&eacute; 2250 caracteres.</h3>				
+			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">2250</span> caracteres.</h3>		
+			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
 			
 			<div class="paddingPadrao bordaPadrao">
 				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span> </label><br/>
@@ -168,10 +168,10 @@
 				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
-			<h3>Coment&aacute;rio com at&eacute; 2250 caracteres.</h3>				
+			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
 			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			
-			<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">2250</span> caracteres.</h3>	
+			<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">10.000</span> caracteres.</h3>	
 			
 			<table class="paddingPadrao bordaPadrao areaTexto">
 				<tr>

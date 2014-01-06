@@ -352,8 +352,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(resenha.getDescricao() == null || resenha.getDescricao().isEmpty()){
 			result.include("descricaoEmBranco", "O coment&aacute;rio deve ser informado<br/>");
 			validado = false;
-		}else if(resenha.getDescricao().length() > 2250){
-			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 2250 caracteres<br/>");
+		}else if(resenha.getDescricao().length() > 10000){
+			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 10.000 caracteres<br/>");
 			validado = false;
 		}
 		
@@ -484,7 +484,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		boolean validado =  true;
 		
 		if(uuidTextoBlog == null || uuidTextoBlog.isEmpty()){
-			sb.append("N&atilde;o foi poss&iacute;vel cadastrar o seu coment&aacute;rio. Identifica&ccedil;&atilde;o do texto n&atilde;o encontrada.");
+			sb.append("N&atilde;o foi poss&iacute;vel cadastrar o seu coment&aacute;rio. Identifica&ccedil;&atilde;o do texto ou da resenha n&atilde;o encontrada.");
 			return sb.toString();
 		}
 		

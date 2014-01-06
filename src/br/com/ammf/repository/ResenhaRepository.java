@@ -22,9 +22,7 @@ public interface ResenhaRepository {
 
 	void cadastrarCategoria(Categoria novaCategoria);
 
-	List<Resenha> ultimaResenhaPublicada();
-
-	Resenha obterPor(String uuid);
+	Resenha ultimaResenhaPublicada();
 
 	List<Resenha> listarPorCategorias(Long idCategoria);
 

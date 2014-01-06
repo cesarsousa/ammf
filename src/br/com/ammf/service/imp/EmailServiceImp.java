@@ -8,6 +8,7 @@ import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Pessoa;
@@ -232,8 +233,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(),
-				HtmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo()),
-				HtmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario));	
+				HtmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo(), Local.BLOG),
+				HtmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario, Local.BLOG));	
 	}
 
 	@Override
@@ -245,6 +246,16 @@ public class EmailServiceImp implements EmailService {
 				HtmlMensagem.getAssuntoNotificarDepoimentoAdmin(),
 				HtmlMensagem.getMensagemNotificarDepoimentoAdmin(depoimento));	
 		
+	}
+
+	@Override
+	public void notificarNovoComentarioParaAdmin(Resenha resenha, Comentario comentario) throws EmailException {
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				administrador.getEmailNotificacao(),
+				HtmlMensagem.getAssuntoNotificarComentarioAdmin(resenha.getTitulo(), Local.RESENHA),
+				HtmlMensagem.getMensagemNotificarComentarioAdmin(resenha.getTitulo(), comentario, Local.RESENHA));		
 	}
 
 }

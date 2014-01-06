@@ -5,10 +5,14 @@ import java.util.Date;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Categoria;
+import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Imagem;
+import br.com.ammf.model.Local;
 import br.com.ammf.model.Resenha;
+import br.com.ammf.model.Status;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
+import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.ImagemRepository;
 import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.service.ImagemService;
@@ -23,16 +27,19 @@ public class ResenhaServiceImp implements ResenhaService {
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
 	private ImagemRepository imagemRepository;
+	private ComentarioRepository comentarioRepository;
 	private ImagemService imagemService;
 	
 	public ResenhaServiceImp(
 			ResenhaRepository resenhaRepository, 
 			CategoriaRepository categoriaRepository,
 			ImagemRepository imagemRepository,
+			ComentarioRepository comentarioRepository,
 			ImagemService imagemService){
 		this.resenhaRepository = resenhaRepository;
 		this.categoriaRepository = categoriaRepository;
 		this.imagemRepository = imagemRepository;
+		this.comentarioRepository = comentarioRepository;
 		this.imagemService = imagemService;
 	}
 
@@ -81,6 +88,32 @@ public class ResenhaServiceImp implements ResenhaService {
 	@Override
 	public File visualizarImagemResenha(String uuid) {
 		return imagemService.visualizarImagemResenha(uuid);
+	}
+
+	@Override
+	public void cadastrarComentario(String uuidResenha, Comentario comentario) {
+		Resenha resenha = resenhaRepository.obterPorUuid(uuidResenha);
+		comentario.setResenha(resenha);
+		comentarioRepository.cadastrar(comentario);		
+	}
+
+	@Override
+	public Comentario obterComentario(
+			String comentarioNome, 
+			String comentarioEmail, 
+			String comentarioConteudo, 
+			Local local) {
+		
+		Comentario comentario = new Comentario();
+		comentario.setPostagem(DataUtils.getDateNow());
+		comentario.setStatus(Status.PENDENTE);
+		comentario.setLocal(local);
+		comentario.setNome(comentarioNome);
+		comentario.setEmail(comentarioEmail);
+		comentario.setConteudo(comentarioConteudo);	
+		
+		return comentario;
+		
 	}
 	
 	

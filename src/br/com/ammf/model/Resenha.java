@@ -1,7 +1,9 @@
 package br.com.ammf.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -10,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -34,7 +37,7 @@ public class Resenha implements Serializable {
 	
 	private String titulo;
 	
-	@Column(length = 2500)
+	@Column(length = 10000)
 	private String descricao;
 	
 	@ManyToOne
@@ -45,6 +48,9 @@ public class Resenha implements Serializable {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Imagem imagem;
+	
+	@OneToMany(mappedBy = "resenha", cascade = CascadeType.REMOVE)
+	private List<Comentario> comentarios;
 	
 	public long getId() {
 		return id;
@@ -108,6 +114,27 @@ public class Resenha implements Serializable {
 	
 	public void setImagem(Imagem imagem) {
 		this.imagem = imagem;
+	}
+	
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+	
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
+	
+	public List<Comentario> getComentariosConfirmados() {
+		List<Comentario> todos = comentarios;
+		List<Comentario> confirmados = new ArrayList<Comentario>();
+		
+		for(Comentario comentario : todos){
+			if (Status.CONFIRMADO == comentario.getStatus()) {
+				confirmados.add(comentario);
+			}
+		}	
+		
+		return confirmados;
 	}
 
 	public String getDataFormatada(){

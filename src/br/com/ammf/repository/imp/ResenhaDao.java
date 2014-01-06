@@ -95,30 +95,18 @@ public class ResenhaDao implements ResenhaRepository {
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Resenha> ultimaResenhaPublicada() {
+	public Resenha ultimaResenhaPublicada() {
 		try {			
 			Criteria criteria = session.createCriteria(Resenha.class);
 			criteria.addOrder(Order.desc("postagem"));
 			criteria.setMaxResults(1);
-			return criteria.list();
-		} catch (Exception e) {
-			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-	}
-
-	@Override
-	public Resenha obterPor(String uuid) {
-		try {			
-			Criteria criteria = session.createCriteria(Resenha.class);
-			criteria.add(Restrictions.eq("uuid", uuid));
 			return (Resenha) criteria.uniqueResult();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resenha> listarPorCategorias(Long idCategoria) {
