@@ -319,11 +319,11 @@
 							<td class="infoTabelaConteudo" style="width: 150px;">${livro.dataFormatadaCompleta}</td>
 							<td>															
 								<a href="<c:url value="/livro/adm/editar/${livro.uuid}" />">
-									<img src="${imagem}/iconeEditarHover.png" class="icone20 ponteiro" alt="editar livro" title="editar livro">
+									<img src="${imagem}/iconeEditarHover.png" class="icone20 ponteiro" alt="editar livro" title="editar">
 								</a>
 								
 								<a href="<c:url value="/livro/adm/remover/${livro.uuid}" />">
-									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir livro" title="excluir livro">
+									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir" title="excluir">
 								</a>								
 							</td>
 						</tr>

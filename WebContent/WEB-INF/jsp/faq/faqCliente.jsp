@@ -128,7 +128,7 @@ ${perguntaEmBranco}
 					<label class="labelForm2"><input id="checkPerguntaPublica" type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
 								
 					<h3 align="right">
-					<input id="btnClienteCadastrarFaq" type="submit" value="Publicar pergunta"  class="button direita"/>
+					<input id="btnClienteCadastrarFaq" type="submit" value="Enviar Pergunta"  class="buttonCadastrar direita"/>
 					</h3>					
 					</div>
 				</td>			

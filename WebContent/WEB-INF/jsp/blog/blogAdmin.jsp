@@ -15,7 +15,9 @@
 </c:if>
 <c:if test="${flagCadastrarBlogVazio}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	${tituloEmBranco}${autorEmBranco}${conteudoEmBranco}</div>
+	${tituloEmBranco}
+	${autorEmBranco}
+	${conteudoEmBranco}</div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
@@ -167,10 +169,10 @@
 			<table width="100%" class="card">
 				<thead>
 					<tr>						
-					<td class="headTabelaBlog2">data da postagem</td>
-					<td class="headTabelaBlog1">t&iacute;tulo</td>
+					<td class="headTabelaBlog2">Data da postagem</td>
+					<td class="headTabelaBlog1">T&iacute;tulo</td>
 					<td class="headTabelaBlog1">Conte&uacute;do</td>
-					<td class="headTabelaBlog1">a&ccedil;&otilde;es</td>						
+					<td class="headTabelaBlog1">A&ccedil;&otilde;es</td>						
 					</tr>
 				</thead>
 					
@@ -287,14 +289,14 @@
 						<a href="<c:url value="/blog/editar/${texto.uuid}" />">
 							<c:choose>
 								<c:when test="${texto.confirmado}">
-									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto">
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar">
 								</c:when>
 								<c:otherwise>
-									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHoverTrava.png" title="editar este texto">
+									<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHoverTrava.png" title="editar">
 								</c:otherwise>
 							</c:choose>					
 						</a>				
-						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+						<a href="<c:url value="/blog/remover/${texto.uuid}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		
@@ -351,16 +353,16 @@
 					<td class="infoTabelaData" style="width: 80px;">						
 						<c:choose>
 							<c:when test="${comentario.confirmado}">
-								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="editar este texto">
+								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="confirmado">
 							</c:when>
 							<c:otherwise>
 								<a href="<c:url value="/blog/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
-								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="editar este texto">
+								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="confirmar">
 								</a>
 							</c:otherwise>
 						</c:choose>					
 										
-						<a href="<c:url value="/blog/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+						<a href="<c:url value="/blog/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		

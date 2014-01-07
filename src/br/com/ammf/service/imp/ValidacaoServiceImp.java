@@ -63,7 +63,6 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			 * e mostrar o form de novo depoimento. 
 			 */
 			result.include("flagErroDepoimento", true);
-			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da p&aacute;gina</b><br/>");
 		}
 		
 		return validado;
@@ -96,7 +95,6 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(!validado){
 			result.include("novaMensagem", mensagem);
 			result.include("msgErroContatoCliente", true);
-			result.include("tituloErro", "<b>Verifique erros de preenchimento no final da p&aacute;gina</b><br/>");
 		}
 		
 		return validado;

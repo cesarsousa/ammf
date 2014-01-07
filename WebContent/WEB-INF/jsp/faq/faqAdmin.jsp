@@ -85,8 +85,7 @@
 				<th class="metadado">Resposta</th>
 				<th class="metadado">Visibilidade</th>
 				<th class="metadado">Postagem</th>
-				<th class="metadado">.</th>
-				<th class="metadado">.</th>				
+				<th class="metadado">A&ccedil;&otilde;es.</th>
 				</tr>
 			</thead>
 			
@@ -102,14 +101,13 @@
 					<td class="infoTabelaData">
 						<c:choose>
 							<c:when test="${not faq.respondida}">
-								<a id="smoothFaq" class="ponteiro" href="#ancoraEditarFaq" onclick="visualizarFaqParaEdicao('${faq.uuid}')"><img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
+								<a id="smoothFaq" class="ponteiro" href="#ancoraEditarFaq" onclick="visualizarFaqParaEdicao('${faq.uuid}')"><img class="ponteiro icone" alt="responder" src="${imagem}/iconeEditarHover.png" title="responder"></a>
 							</c:when>
 							<c:otherwise>
 								<img class="icone" alt="esta pergunta ja foi respondida" src="${imagem}/iconeEditar.png" title="esta pergunta ja foi respondida">
 							</c:otherwise>
 						</c:choose>
-					</td>
-					<td>			
+							
 						<a href="<c:url value="/adm/faq/excluir/${faq.uuid}/${flagRedirect}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 					</tr>

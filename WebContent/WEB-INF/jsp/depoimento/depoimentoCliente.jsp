@@ -17,7 +17,6 @@
 
 <c:if test="${not empty msgErroDepoimento}">
 <div class="msgBorder msgErro closeClick">
-${tituloErro}
 ${nomeEmBranco}
 ${emailEmBranco}
 ${textoEmBranco}
@@ -83,7 +82,7 @@ ${textoEmBranco}
 					</h3>
 					
 					<h3 align="right">
-					<input id="btnClienteCadastrarDepoimento" type="submit" value="Publicar Depoimento"  class="button direita"/>
+					<input id="btnClienteCadastrarDepoimento" type="submit" value="Enviar Depoimento"  class="buttonCadastrar direita"/>
 					</h3>					
 					</div>
 				</td>			
@@ -97,7 +96,7 @@ ${textoEmBranco}
 	<div align="center">		
 		<h2 class="tituloPagina">Depoimentos</h2>
 		<span class="info azulClaro letraGrande" >O que as pessoas acham a respeito do Miguel.</span>
-		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento esta sendo processado.</h3>
+		<h3 class="paddingTelaAguarde"><span id="nomeDoCliente"></span> seu depoimento est&aacute; sendo processado.</h3>
 		<div class="msgBorder msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>			
 		<br />
 		<br />			

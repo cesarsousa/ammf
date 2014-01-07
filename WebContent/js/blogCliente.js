@@ -14,6 +14,7 @@ function cadastrarComentarioBlog(){
 			if(json == "OK"){
 				$('#formBlogComentado').submit();
 			}else{
+				$('#msgErroPadraoBlogCliente').hide();
 				$('#msgErroBlogCliente').html(json).slideDown(500);
 				$('html, body').animate({scrollTop:0}, 'slow');
 			}			

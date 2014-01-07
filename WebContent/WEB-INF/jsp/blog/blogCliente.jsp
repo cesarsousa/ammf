@@ -4,12 +4,11 @@
 <%@ include file="/headerQuiron.jsp" %>
 
 <c:if test="${not empty erroComentarioPrincipal}">
-<div class="msgBorder msgErro closeClick">
-${nomeEmBranco}
-${emailEmBranco}
-${conteudoEmBranco}
-</div>
-<br/>
+	<div id="msgErroPadraoBlogCliente" class="msgBorder msgErro closeClick">
+	${nomeEmBranco}
+	${emailEmBranco}
+	${conteudoEmBranco}
+	</div>
 </c:if>
 <div id="msgErroBlogCliente" class="msgBorder msgErro closeClick"></div>
 

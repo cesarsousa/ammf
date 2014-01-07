@@ -208,7 +208,7 @@
 								<c:choose>
 									<c:when test="${pessoa.pendente}">
 										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
-										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar esta pessoa" title="confirmar esta pessoa">
+										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar" title="confirmar">
 										</a>
 									</c:when>
 									<c:otherwise>
@@ -232,7 +232,7 @@
 							
 							<td>							
 								<a href="<c:url value="/pessoa/remover/${pessoa.uuid}/${destino}" />">
-									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir esta pessoa" title="excluir esta pessoa">
+									<img src="${imagem}/icone_excluir.png" onclick="return confirmarExclusao()" class="icone20 ponteiro" alt="excluir" title="excluir">
 								</a>								
 							</td>							
 							

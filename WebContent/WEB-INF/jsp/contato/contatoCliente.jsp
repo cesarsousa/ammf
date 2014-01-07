@@ -9,7 +9,6 @@
 </c:if>
 <c:if test="${not empty msgErroContatoCliente}">
 	<div id="mensagemErroContato" class="msgBorder msgErro ponteiro closeClick">
-	${tituloErro}
 	${nomeEmBranco}
 	${emailEmBranco}
 	${conteudoEmBranco}
@@ -119,8 +118,8 @@
 					</h3>
 					
 					<h3 align="right">
-					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="button direita"/>
-					</h3>					
+					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="buttonCadastrar direita"/>
+					</h3>
 					</div>
 				</td>			
 			</tr>		

@@ -273,8 +273,7 @@
 				<th class="metadado">Autor</th>
 				<th class="metadado">Texto</th>
 				<th class="metadado">Postagem</th>
-				<th class="metadado">.</th>
-				<th class="metadado">.</th>			
+				<th class="metadado">A&ccedil;&atilde;o</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -290,11 +289,9 @@
 					<td class="infoTabelaConteudo" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
 						<a href="<c:url value="/resenha/editar/${resenha.uuid}" />" >
-							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar este texto"></a>
-					</td>
-					<td>	
+							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
 						<a href="<c:url value="/resenha/remover/${resenha.uuid}" />" onclick="return confirmarExclusao()" >
-							<img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+							<img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		
@@ -353,16 +350,16 @@
 					<td class="infoTabelaData" style="width: 80px;">						
 						<c:choose>
 							<c:when test="${comentario.confirmado}">
-								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="editar este texto">
+								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="confirmado">
 							</c:when>
 							<c:otherwise>
 								<a href="<c:url value="/resenha/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
-								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="editar este texto">
+								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="confirmar">
 								</a>
 							</c:otherwise>
 						</c:choose>					
 										
-						<a href="<c:url value="/resenha/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir texto" title="excluir texto" src="${imagem}/icone_excluir.png"></a>
+						<a href="<c:url value="/resenha/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		

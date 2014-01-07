@@ -58,7 +58,7 @@
 	</P>
 		
 	<p>
-	<input id="btnClienteCadastrar" type="submit" value="Cadastrar"  class="button direita tamanhoPadrao"/>
+	<input id="btnClienteCadastrar" type="submit" value="Cadastrar"  class="buttonCadastrar direita tamanhoPadrao"/>
 	</p>
 	
 	<br/>
