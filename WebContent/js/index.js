@@ -12,6 +12,23 @@ $(document).ready(function() {
     	$(idFormulario).submit();
     });
     
+    
+    // fixar o menu durante a rolagem da pagina
+    //
+    //var nav = $('.nav-total');
+    //
+    //$(window).scroll(function () {
+    //    if ($(this).scrollTop() > 100) {
+    //        nav.addClass("f-nav");
+    //    } else {
+    //        nav.removeClass("f-nav");
+    //    }
+    //});
+    
+    // fixar o menu durante a rolagem da pagina
+
+
+    
     /*$('#ultimasNovidades').hide();
 	$("#gatilhoNews").hover(function(){
         $('#ultimasNovidades').slideDown(500);

@@ -54,7 +54,7 @@
 <form id="formClienteLojaVirtual" action="<c:url value="/cliente/loja" />" method="get"></form>
 <form id="formClienteFaq" action="<c:url value="/cliente/faq" />" method="get"></form>
 
-<div align="center">
+<div align="center" class="nav-total">
 	<div class="separador"></div>
 	
 		<div align="center">
