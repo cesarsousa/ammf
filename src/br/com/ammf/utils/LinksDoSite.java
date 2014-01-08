@@ -2,7 +2,7 @@ package br.com.ammf.utils;
 
 public class LinksDoSite {	
 	
-	private static String DOMINIO = (true) ? "http://www.quiron.psc.br" : "http://localhost:8080/ammf";
+	private static String DOMINIO = (false) ? "http://www.quiron.psc.br" : "http://localhost:8080/ammf";
 	
 	public static final String WEB_SITE = DOMINIO;
 

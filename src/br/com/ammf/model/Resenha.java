@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -49,7 +50,7 @@ public class Resenha implements Serializable {
 	@OneToOne(cascade=CascadeType.ALL)
 	private Imagem imagem;
 	
-	@OneToMany(mappedBy = "resenha", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "resenha", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Comentario> comentarios;
 	
 	public long getId() {

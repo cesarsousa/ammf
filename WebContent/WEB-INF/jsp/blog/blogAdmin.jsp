@@ -339,8 +339,8 @@
 	 		<c:forEach items="${comentariosBlog}" var="comentario">
 				<tr class="zebrado">
 					<td class="infoTabelaConteudo"><b>${comentario.local}</b></td>
-					<td class="infoTabelaConteudo ponteiro" title="visualizar este texto">
-						<a id="goTextoView" class="infoTabela azulClaro letraMedia" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
+					<td class="infoTabelaConteudo ponteiro" title="visualizar texto">
+						<a id="goTextoView" class="azulClaro letraMedia" href="#lerTextoView" onclick="abrirTextoView('${comentario.texto.uuid}')">${comentario.texto.titulo}</a>				
 					</td>
 					<td class="infoTabelaConteudo">${comentario.nome}</td>
 					<td class="infoTabelaConteudo">${comentario.email}</td>

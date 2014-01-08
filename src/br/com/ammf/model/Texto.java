@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -49,7 +50,7 @@ public class Texto implements Serializable{
 	
 	private boolean confirmado;
 	
-	@OneToMany(mappedBy = "texto", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "texto", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Comentario> comentarios;
 
 	public long getId() {

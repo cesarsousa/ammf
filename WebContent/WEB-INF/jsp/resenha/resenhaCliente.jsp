@@ -61,7 +61,9 @@ ${conteudoEmBranco}
 		<h3>${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>	
+		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>
+		
+		<p class="info azulClaro">Para comentar esta resenha selecione <b>Visualizar resenhas anteriores</b>, em seguida na listagem apresentada clique no t&iacute;tulo da resenha e selecione <b>+ Comentar esta resenha</b>.</p>	
 		</td>
 		</tr>
 		</table>	
