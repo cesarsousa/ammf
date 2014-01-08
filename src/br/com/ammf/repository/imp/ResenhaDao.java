@@ -50,7 +50,9 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public List<Resenha> listar() {
 		try {
-			return session.createCriteria(Resenha.class).addOrder(Order.desc("postagem")).list();
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.addOrder(Order.desc("postagem"));			
+			return criteria.list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -110,10 +112,15 @@ public class ResenhaDao implements ResenhaRepository {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resenha> listarPorCategorias(Long idCategoria) {
-		Criteria criteria = session.createCriteria(Resenha.class);
-		criteria.add(Restrictions.eq("categoria.id", idCategoria));
-		criteria.addOrder(Order.desc("postagem"));
-		return criteria.list();
+		try {			
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("categoria.id", idCategoria));
+			criteria.addOrder(Order.desc("postagem"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
 	}
 
 	@Override

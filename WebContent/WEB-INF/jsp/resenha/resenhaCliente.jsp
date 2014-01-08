@@ -11,6 +11,14 @@ ${conteudoEmBranco}
 </div>
 <br/>
 </c:if>
+<c:if test="${not empty erroComentarioRequest}">
+<div class="msgBorder msgErro closeClick">
+${nomeEmBranco}
+${emailEmBranco}
+${conteudoEmBranco}
+</div>
+<br/>
+</c:if>
 <div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick"></div>
 
 <%@ include file="/headerSite.jsp" %>
@@ -61,13 +69,85 @@ ${conteudoEmBranco}
 		<h3>${resenha.titulo}</h3>					
 		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
-		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>
-		
-		<p class="info azulClaro">Para comentar esta resenha selecione <b>Visualizar resenhas anteriores</b>, em seguida na listagem apresentada clique no t&iacute;tulo da resenha e selecione <b>+ Comentar esta resenha</b>.</p>	
+		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>		
 		</td>
 		</tr>
 		</table>	
 	</div>
+	
+	<c:if test="${not empty resenha.comentariosConfirmados}">			
+		<div class="cardViewText paddingPadrao">
+		<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
+		
+		<div id="divComentariosResenhaEmail">
+		<c:forEach items="${resenha.comentariosConfirmados}" var="comentarioConfirmado">
+			<table>
+			<tr>
+			<td valign="top"><img src="${imagem}/usuario_cinza.png" class="icone50 ponteiro esquerda"></td>
+			<td valign="top">
+				<p class="azulClaro negrito" style="font-size: large;">${comentarioConfirmado.nome}</p>
+				<p class="textoConteudoBlog">${comentarioConfirmado.conteudo}</p>
+				<p class="textoPostagemBlog aEsquerda negrito">... postado em ${comentarioConfirmado.dataHora}</p>
+			</td>					
+			</tr>
+			</table>				
+		</c:forEach>
+		</div>						
+		</div>						
+	</c:if>
+	
+	<!-- Adicionar um comentario para o texto -->
+	<div  align="left" class="cardViewText paddingPadrao">
+		
+		<div>
+			<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
+		</div>
+		
+		<table width="1000px">
+			<tr>
+				<td width="100%" align="left" style="padding: 20px;">								
+							
+					<div align="left">
+						<form action="<c:url value="/resenha/Cliente/comentar/viaemail"></c:url>" method="post"> 
+						<input type="hidden" name="uuidResenhaEmail" value="${resenha.uuid}">								
+						
+						<p class="info azulClaro">Todos os campos s&atilde;o de preenchimento obrigat&oacute;rio.</p>
+													
+						<div class="paddingPadrao">
+						<label class="labelForm2">Nome</label>
+						<input id="comentarResenhaEmailNome" type="text" name="comentario.nome" value="${comentario.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+						</div>
+						
+						<div class="paddingPadrao">
+						<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+						<input id="comentarResenhaEmailEmail" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+						</div>
+						
+						<div class="paddingPadrao">
+						<label class="labelForm2">Coment&aacute;rio </label>
+						<textarea id="comentarResenhaEmailConteudo" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9">${comentario.conteudo}</textarea>
+						
+						<h3 align="right" style="font-size: small;">
+						Voc&ecirc; pode digitar <span id="contadorCaracterComentarResenhaEmailConteudo">1000</span> caracteres em seu coment&aacute;rio.
+						</h3>
+						</div>
+						
+						<p class="info azulClaro">Todos os coment&aacute;rio ser&atilde;o analisados antes de publicados no site.</p>
+						<p class="info azulClaro">Evite utilizar nome de pessoas de forma ofensiva de qualquer tipo.</p>
+						<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
+									
+						<h3 align="right">
+						<input id="btCadastrarComentarioResenhaEmail" type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+						</h3>
+						</form>					
+					</div>
+				</td>			
+			</tr>		
+		</table>		
+	</div>	
+	
 	</div>
 </c:if>
 

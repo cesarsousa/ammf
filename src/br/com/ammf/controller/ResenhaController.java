@@ -278,6 +278,28 @@ public class ResenhaController {
 		}		
 	}
 	
+	@Post("/resenha/Cliente/comentar/viaemail")
+	public void clienteCadastraComentarioViaEmailRequest(String uuidResenhaEmail, Comentario comentario){
+		if(validacaoService.cadastrarComentario(comentario, Local.RESENHA, result)){
+			Resenha resenha = resenhaRepository.obterPorUuid(uuidResenhaEmail);
+			resenhaService.cadastrarComentario(uuidResenhaEmail, comentario);			
+			try {
+				emailService.notificarNovoComentarioParaAdmin(resenha, comentario);
+			} catch (EmailException e) {
+				throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+			}
+			result.include("msgIndex", "Seu coment&aacute;rio foi recebido com sucesso e aguarde confirma&ccedil;&atilde;o para publica&ccedil;&atilde;o no site");
+			result.redirectTo(IndexController.class).index();			
+		}else{
+			result.include("erroComentarioRequest", true);
+			result.include("resenha", resenhaRepository.obterPorUuid(uuidResenhaEmail));
+			result.forwardTo(this).resenhaCliente();
+		}		
+	}
+	
+	
+	
+	
 	@Get("/resenha/cliente/comentarios")
 	public void obtercomentariosDeTexto(String uuid){
 		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
