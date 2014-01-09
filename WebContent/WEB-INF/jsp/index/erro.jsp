@@ -16,9 +16,24 @@
 <h2><span style="font-size: 80px; text-align: left;">:(</span><br/>Lamentamos, mas n&atilde;o foi poss&iacute;vel encontrar as informa&ccedil;&otilde;es que voc&ecirc; solicitou.</h2>
 <h3>${msgErro}</h3>
 <div align="center">
-<form action="<c:url value="/" ></c:url>">
+	<form action="<c:url value="/" ></c:url>">
     	<input type="submit" value="Clique aqui para ser redirecionado para a pagina principal" class="buttonAzul"/> 
-</form>
+	</form>
+
+	<c:if test="${RESENHA}">
+	<h3>A resenha solicitada foi removida do site.</h3>
+	<form action="<c:url value="/resenha/cliente"></c:url>" method="get">
+	    <input type="submit" value="Clique aqui para visualizar outras resenhas" class="buttonCadastrar"/> 
+	</form>
+	</c:if>
+	
+	<c:if test="${BLOG}">
+	<h3>O texto solicitado foi removido do site.</h3>
+	<form action="<c:url value="/blog/cliente"></c:url>" method="get">
+	    <input type="submit" value="Clique aqui para vicualizar outros textos" class="buttonCadastrar"/> 
+	</form>
+	</c:if>
+
 </div>
 
 </div>

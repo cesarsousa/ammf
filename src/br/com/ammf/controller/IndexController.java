@@ -2,6 +2,7 @@ package br.com.ammf.controller;
 
 import org.apache.log4j.Logger;
 
+import br.com.ammf.model.Local;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Get;
@@ -108,6 +109,11 @@ public class IndexController {
 	
 	@Get("/termosDeContrato")
 	public void termosDeContrato(){}
+	
+	public void redirecionarParaPgErro(Local local) {
+		result.include(local.toString(), true);
+		result.redirectTo(this).erro();		
+	}
 	
 	private void redirecionarParaPgErro(Exception e) {
 		result.include("msgErro", e.getMessage());

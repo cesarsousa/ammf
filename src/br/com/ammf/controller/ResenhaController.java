@@ -244,8 +244,12 @@ public class ResenhaController {
 	@Get("/resenha/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
-		result.include("resenha", resenha);		
-		result.redirectTo(this).resenhaCliente();		
+		if(resenha == null){
+			result.redirectTo(IndexController.class).redirecionarParaPgErro(Local.RESENHA);
+		}else{
+			result.include("resenha", resenha);
+			result.redirectTo(this).resenhaCliente();
+		}
 	}
 		
 	@Get("/resenha/cliente/texto")
@@ -295,10 +299,7 @@ public class ResenhaController {
 			result.include("resenha", resenhaRepository.obterPorUuid(uuidResenhaEmail));
 			result.forwardTo(this).resenhaCliente();
 		}		
-	}
-	
-	
-	
+	}	
 	
 	@Get("/resenha/cliente/comentarios")
 	public void obtercomentariosDeTexto(String uuid){

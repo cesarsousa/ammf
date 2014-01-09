@@ -4,7 +4,7 @@
 <%@ include file="/headerQuiron.jsp" %>
 
 <c:if test="${not empty erroComentarioPrincipal}">
-<div class="msgBorder msgErro closeClick">
+<div class="msgBorder msgErro closeClick ponteiro">
 ${nomeEmBranco}
 ${emailEmBranco}
 ${conteudoEmBranco}
@@ -12,14 +12,14 @@ ${conteudoEmBranco}
 <br/>
 </c:if>
 <c:if test="${not empty erroComentarioRequest}">
-<div class="msgBorder msgErro closeClick">
+<div class="msgBorder msgErro closeClick ponteiro">
 ${nomeEmBranco}
 ${emailEmBranco}
 ${conteudoEmBranco}
 </div>
 <br/>
 </c:if>
-<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick"></div>
+<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>

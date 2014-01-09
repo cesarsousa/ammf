@@ -123,7 +123,8 @@ $(document).ready(function() {
 	});
 	
 	$('#divTodosTextos').hide();
-	$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog, #msgErroBlogCliente').hide();
+	//$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog, #msgErroBlogCliente').hide();
+	$('#msgErroBlogCliente').hide();
 	
 	if($('#erroComentarioPrincipal').val() == "true"){
 		$('#divNovoComentarioBlogPrincipal').show();		

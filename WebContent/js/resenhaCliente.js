@@ -82,7 +82,7 @@ function cadastrarComentarioResenhaEmail(){
 			}			
 		},
 		error : function(){
-			alert("Erro :( Não foi possível cadastrar o seu comentários!");				
+			alert("Erro :( Não foi possível cadastrar o seu comentário. Servidor indisponível!");				
 		}
 	});
 	
@@ -174,7 +174,8 @@ function limparFormComentarioResenha(){
 }
 
 function hideResenhafields(){
-	$('#divComentariosResenhaPrincipal, #divNovoComentarioResenhaPrincipal, #divComentariosResenha, #divNovoComentarioResenha, #msgErroResenhaCliente').hide();
+	//$('#divComentariosResenhaPrincipal, #divNovoComentarioResenhaPrincipal, #divComentariosResenha, #divNovoComentarioResenha, #msgErroResenhaCliente').hide();
+	$('#msgErroResenhaCliente').hide();
 }
 
 $(document).ready(function() {
@@ -188,6 +189,10 @@ $(document).ready(function() {
 	addRemoveDestaque("#comentarResenhaNomePrincipal");
 	addRemoveDestaque("#comentarResenhaEmailPrincipal");
 	addRemoveDestaque("#comentarResenhaConteudoPrincipal");
+	
+	addRemoveDestaque("#comentarResenhaEmailNome");
+	addRemoveDestaque("#comentarResenhaEmailEmail");
+	addRemoveDestaque("#comentarResenhaEmailConteudo");
 		
 	if($('#flagResenhasRequest').val()){		
 		$('#divResenhasTop3, #btVisualizarOutrasResenhas').hide();		
@@ -246,17 +251,7 @@ $(document).ready(function() {
 	$('#btClienteComentarResenha').click(function(){
 		cadastrarComentarioResenha();
 	});
-	
-	$('#btCadastrarComentarioResenhaEmail').click(function(){
-		alert("teste");
-		cadastrarComentarioResenhaEmail();
-	});
-	
-	
-	
-	
-	
-	
+		
 	$('#resenhaModoLeitura').hide();
 	$('#goTopo').smoothScroll();
 			

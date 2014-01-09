@@ -188,4 +188,6 @@ public class IndexServiceImp implements IndexService{
 		}
 		return paragrafos;
 	}
+
+	
 }

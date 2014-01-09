@@ -205,9 +205,13 @@ public class BlogController {
 	@Get("/blog/cliente/lertexto/{uuid}")
 	public void lerTextoNaIntegra(String uuid){
 		Texto texto = textoRepository.obterConfirmadoPor(uuid);
-		// flag para informar o jsp da resquisicao via email e configurar String de acordo.
-		result.include("emailRequest", true);
-		result.redirectTo(this).blogCliente(true, texto);		
+		if(texto == null){
+			result.redirectTo(IndexController.class).redirecionarParaPgErro(Local.BLOG);
+		}else{
+			// flag para informar o jsp da resquisicao via email e configurar String de acordo.
+			result.include("emailRequest", true);
+			result.redirectTo(this).blogCliente(true, texto);		
+		}		
 	}
 	
 	@Get("/blog/cliente/texto")
