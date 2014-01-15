@@ -43,7 +43,7 @@
 	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
 		
-		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande">Ultimas Novidades...</span>
+		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> Ultimas Novidades...</span>
 			
 			<ul id="ultimasNovidades">
 				<c:if test="${not empty blogNews}">
