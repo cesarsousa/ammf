@@ -31,12 +31,14 @@ public class EmailServiceImp implements EmailService {
 	private PessoaRepository pessoaRepository;
 	private Usuario administrador;
 	private Email email;
+	private HtmlMensagem htmlMensagem;
 	
 	public EmailServiceImp(UsuarioRepository usuarioRepository, PessoaRepository pessoaRepository){
 		this.usuarioRepository = usuarioRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.administrador = this.usuarioRepository.obterAdministrador();
 		this.email = new Email(administrador.isEmailAtivado(), administrador.getEmail());
+		this.htmlMensagem = new HtmlMensagem(administrador.getEmail());
 		
 	}
 
@@ -47,16 +49,16 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(), 
-				HtmlMensagem.getAssuntoNotificarClienteRecebimentoCadastro(), 
-				HtmlMensagem.getMensagemNotificarClienteRecebimentoCadastro(pessoa, administrador.getLinkedin()));
+				htmlMensagem.getAssuntoNotificarClienteRecebimentoCadastro(), 
+				htmlMensagem.getMensagemNotificarClienteRecebimentoCadastro(pessoa, administrador.getLinkedin()));
 		
 		// Notificar o administrador do novo cadatro
 		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(), 
-				HtmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
-				HtmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
+				htmlMensagem.getAssuntoNotificarAdmRecebimentoCadastro(pessoa.getNome()), 
+				htmlMensagem.getMensagemNotificarAdmRecebimentoCadastro(pessoa));
 	}
 
 	@Override
@@ -65,8 +67,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoCadastroPessoaPeloAdm(),
-				HtmlMensagem.getMensagemCadastroPessoaPeloAdm(pessoa, administrador.getLinkedin()));
+				htmlMensagem.getAssuntoCadastroPessoaPeloAdm(),
+				htmlMensagem.getMensagemCadastroPessoaPeloAdm(pessoa, administrador.getLinkedin()));
 	}
 
 	@Override
@@ -75,8 +77,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoSolicitacaoParaConfirmacaoCadastro(),
-				HtmlMensagem.getMensagemSolicitacaoParaConfirmacaoCadastro(pessoa, administrador.getLinkedin()));
+				htmlMensagem.getAssuntoSolicitacaoParaConfirmacaoCadastro(),
+				htmlMensagem.getMensagemSolicitacaoParaConfirmacaoCadastro(pessoa, administrador.getLinkedin()));
 	}
 
 	@Override
@@ -90,9 +92,9 @@ public class EmailServiceImp implements EmailService {
 	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
 		String mensagem;
 		if(Notificacao.TEXTO_ATUALIZADO == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeTextoAtualizado(texto, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeTextoAtualizado(texto, administrador.getLinkedin(), pessoa);
 		}else if(Notificacao.TEXTO_NOVO == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeTextoAdicionado(texto, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeTextoAdicionado(texto, administrador.getLinkedin(), pessoa);
 		}else{
 			throw new EmailException("Tipo de notificacao de texto nao permitida: " + notificacao.toString());
 		}
@@ -101,7 +103,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssunto(notificacao, texto),
+				htmlMensagem.getAssunto(notificacao, texto),
 				mensagem);
 	}
 
@@ -111,8 +113,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoEsclarecimentoCadastro(),
-				HtmlMensagem.getMensagemEsclarecimentoCadastro(pessoa, administrador.getLinkedin()));
+				htmlMensagem.getAssuntoEsclarecimentoCadastro(),
+				htmlMensagem.getMensagemEsclarecimentoCadastro(pessoa, administrador.getLinkedin()));
 		
 	}
 
@@ -124,16 +126,16 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(), 
-				HtmlMensagem.getAssuntoNotificarAdmNovoContato(mensagem.getNome()), 
-				HtmlMensagem.getMensagemNotificarAdmNovoContato(mensagem));
+				htmlMensagem.getAssuntoNotificarAdmNovoContato(mensagem.getNome()), 
+				htmlMensagem.getMensagemNotificarAdmNovoContato(mensagem));
 		
 		// notificar o cliente do contato enviado
 		email.enviarEmail(
 				administrador.getEmail(), 
 				administrador.getSenha(), 
 				mensagem.getEmail(), 
-				HtmlMensagem.getAssuntoNotificarClienteNovoContato(), 
-				HtmlMensagem.getMensagemNotificarClienteNovoContato(mensagem, administrador.getLinkedin()));		
+				htmlMensagem.getAssuntoNotificarClienteNovoContato(), 
+				htmlMensagem.getMensagemNotificarClienteNovoContato(mensagem, administrador.getLinkedin()));		
 	}
 
 	@Override
@@ -147,9 +149,9 @@ public class EmailServiceImp implements EmailService {
 	private void enviarEmailNotificacaoResenha(Notificacao notificacao,	Resenha resenha, Pessoa pessoa) throws EmailException {
 		String mensagem;
 		if(Notificacao.RESENHA_NOVA == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeResenhaAdicionada(resenha, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeResenhaAdicionada(resenha, administrador.getLinkedin(), pessoa);
 		}else if(Notificacao.RESENHA_ATUALIZADA == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeResenhaAtualizada(resenha, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeResenhaAtualizada(resenha, administrador.getLinkedin(), pessoa);
 		}else{
 			throw new EmailException("Tipo de notificacao de resenha nao permitida: " + notificacao.toString());
 		}	
@@ -158,7 +160,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssunto(notificacao, resenha),
+				htmlMensagem.getAssunto(notificacao, resenha),
 				mensagem);		
 	}
 
@@ -173,9 +175,9 @@ public class EmailServiceImp implements EmailService {
 	private void enviarEmailNotificacaoLivro(Notificacao notificacao, Livro livro, Pessoa pessoa) throws EmailException {
 		String mensagem;
 		if(Notificacao.LIVRO_NOVO == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeLivroAdicionado(livro, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeLivroAdicionado(livro, administrador.getLinkedin(), pessoa);
 		}else if(Notificacao.LIVRO_ATUALIZADO == notificacao){
-			mensagem = HtmlMensagem.getMensagemNotificacaoDeLivroAtualizado(livro, administrador.getLinkedin(), pessoa);
+			mensagem = htmlMensagem.getMensagemNotificacaoDeLivroAtualizado(livro, administrador.getLinkedin(), pessoa);
 		}else{
 			throw new EmailException("Tipo de notificacao de livro nao permitida: " + notificacao.toString());
 		}	
@@ -184,7 +186,7 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssunto(notificacao, livro),
+				htmlMensagem.getAssunto(notificacao, livro),
 				mensagem);		
 	}
 
@@ -197,13 +199,13 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	private void enviarEmailNotificacaoLink(Link link, Pessoa pessoa) throws EmailException {
-		String mensagem = HtmlMensagem.getMensagemNotificacaoDeLink(link, administrador.getLinkedin(), pessoa);	
+		String mensagem = htmlMensagem.getMensagemNotificacaoDeLink(link, administrador.getLinkedin(), pessoa);	
 		
 		email.enviarEmail(
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				pessoa.getEmail(),
-				HtmlMensagem.getAssuntoLink(),
+				htmlMensagem.getAssuntoLink(),
 				mensagem);		
 	}
 
@@ -213,8 +215,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(),
-				HtmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
-				HtmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));		
+				htmlMensagem.getAssuntoNovoFaqParaAdmin(faq.getNome()),
+				htmlMensagem.getMensagemNotificacaoDeFaqParaAdmin(faq, administrador.getLinkedin()));		
 	}
 
 	@Override
@@ -223,8 +225,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				faq.getEmail(),
-				HtmlMensagem.getAssuntoRespostaFaqParaCliente(),
-				HtmlMensagem.getMensagemRespostaFaqParaCliente(faq, administrador.getLinkedin()));		
+				htmlMensagem.getAssuntoRespostaFaqParaCliente(),
+				htmlMensagem.getMensagemRespostaFaqParaCliente(faq, administrador.getLinkedin()));		
 	}
 
 	@Override
@@ -233,8 +235,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(),
-				HtmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo(), Local.BLOG),
-				HtmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario, Local.BLOG));	
+				htmlMensagem.getAssuntoNotificarComentarioAdmin(texto.getTitulo(), Local.BLOG),
+				htmlMensagem.getMensagemNotificarComentarioAdmin(texto.getTitulo(), comentario, Local.BLOG));	
 	}
 
 	@Override
@@ -243,8 +245,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(),
-				HtmlMensagem.getAssuntoNotificarDepoimentoAdmin(),
-				HtmlMensagem.getMensagemNotificarDepoimentoAdmin(depoimento));	
+				htmlMensagem.getAssuntoNotificarDepoimentoAdmin(),
+				htmlMensagem.getMensagemNotificarDepoimentoAdmin(depoimento));	
 		
 	}
 
@@ -254,8 +256,8 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmail(),
 				administrador.getSenha(), 
 				administrador.getEmailNotificacao(),
-				HtmlMensagem.getAssuntoNotificarComentarioAdmin(resenha.getTitulo(), Local.RESENHA),
-				HtmlMensagem.getMensagemNotificarComentarioAdmin(resenha.getTitulo(), comentario, Local.RESENHA));		
+				htmlMensagem.getAssuntoNotificarComentarioAdmin(resenha.getTitulo(), Local.RESENHA),
+				htmlMensagem.getMensagemNotificarComentarioAdmin(resenha.getTitulo(), comentario, Local.RESENHA));		
 	}
 
 }
