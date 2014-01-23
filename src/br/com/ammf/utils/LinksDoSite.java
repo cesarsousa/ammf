@@ -2,14 +2,20 @@ package br.com.ammf.utils;
 
 public class LinksDoSite {
 	
-	private String DOMINIO;
+	//private String DOMINIO = "http://localhost:8080/ammf";
+	private String DOMINIO = "http://www.quiron.psc.br";
 	
 	public LinksDoSite(String email){
-		if(email.endsWith("@gmail.com")){
+		
+		//DOMINIO = "http://localhost:8080/ammf";
+		
+		//DOMINIO = "http://www.quiron.psc.br";
+		
+		/*if(email.endsWith("@gmail.com")){
 			DOMINIO = "http://localhost:8080/ammf";
 		}else{
 			DOMINIO = "http://www.quiron.psc.br";
-		}
+		}*/
 	}	
 	
 	public final String WEB_SITE = DOMINIO;
