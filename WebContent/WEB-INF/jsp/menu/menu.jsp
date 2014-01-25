@@ -818,6 +818,12 @@
 				<input type="submit" value="FAQ" class="buttonFooter">
 				</form>
 				</li>
+				
+				<li>
+				<form action="<c:url value="/menu/erroAplicacao" />" method="get" >
+				<input type="submit" value="ERRO" class="buttonFooter">
+				</form>
+				</li>
 			</ul>		
 				
 		</div>

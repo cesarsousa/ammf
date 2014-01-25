@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.ammf.utils.DataUtils;
+
 @Entity
 @Table(name = "logAplicacao")
 public class LogAplicacao implements Serializable {
@@ -83,5 +85,9 @@ public class LogAplicacao implements Serializable {
 
 	public void setDescricaoErro(String descricaoErro) {
 		this.descricaoErro = descricaoErro;
+	}
+	
+	public String getDataHora(){
+		return DataUtils.getStringDataHora(data);
 	}
 }

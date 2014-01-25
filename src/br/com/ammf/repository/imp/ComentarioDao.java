@@ -17,7 +17,7 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class ComentarioDao implements ComentarioRepository{
 	
-private final Session session;
+	private final Session session;
 	
 	public ComentarioDao(Session session){
 		this.session = session;
