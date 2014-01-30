@@ -99,6 +99,7 @@ public class FaqController {
 					try {
 						emailService.notificarRespostaFaqParaCliente(faq);
 					} catch (EmailException emailException) {
+						new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + emailException.getMensagem()));
 						resultado = "Erro! Notificação por email para o cliente não enviada. Descrição do erro: " + emailException.getMessage();
 						result.use(json()).from(resultado).serialize();
 					}
@@ -163,7 +164,7 @@ public class FaqController {
 			result.include("msgErroFaq", "Erro! N&atilde;o foi poss&iacute;vel regsitrar sua pergunta, por favor tente novamente dentro de alguns instantes.<br/>Atenciosamente site Quiron.");
 			result.redirectTo(this).faqCliente();
 		} catch (EmailException e) {
-			new ErroAplicacao(new Excecao("Notificacao de email novo FAQ: tabela faq: ID: " + faq.getId(), e));
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			result.include("msgSucessoFaq", faq.getNome() + "<br/>Sua pergunta foi registrada com sucesso.<br/>Aguarde que em breve voc&ecirc; ser&aacute; notificado pelo seu email da resposta.");
 			result.redirectTo(this).faqCliente();
 		}

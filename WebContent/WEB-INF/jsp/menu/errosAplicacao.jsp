@@ -7,6 +7,41 @@
 <div id="divPgAdmFaq" align="center">
 
 <h2>Erros da Aplica&ccedil;&atilde;o</h2>
+
+<div align="center" class="divMenuOpcao">
+<table class="menuOpcao">
+<tr>
+<td>
+<ul class="itemMenuOpcao">
+	<li class="itemMenuPrincipal">
+		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
+		</form>
+	</li>
+	<%-- <li>
+		<img id="btAddNovaResenha" alt="adicionar texto" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btBuscarResenha" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btListarResenhas" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenha" alt="visualizar comentários" title="visualizar comentários" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenhaConfirmados" alt="comentários confirmados" title="comentários confirmados" src="${imagem}/iconeComentarioConfirmados.png" width="50" height="50" class="ponteiro esquerda">
+	</li>
+	<li>
+		<img id="btVerComentariosResenhaPendentes" alt="comentários pendentes" title="comentários pendentes" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
+	</li> --%>	
+</ul>
+</td>
+</tr>
+</table>
+</div>
+
 <div class="separador"></div>
 
 <c:if test="${not empty errosAplicacao}">	

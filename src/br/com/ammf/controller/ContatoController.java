@@ -1,6 +1,8 @@
 package br.com.ammf.controller;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.EmailService;
@@ -58,7 +60,7 @@ public class ContatoController {
 			}
 			result.redirectTo(this).contatoCliente();
 		} catch (EmailException e) {
-			e.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar sua mensagem .<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;&atilde;o e desculpem-nos o transtorno.");
 			result.redirectTo(IndexController.class).index();
 		}		

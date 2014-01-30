@@ -7,6 +7,8 @@ import java.util.List;
 
 import br.com.ammf.exception.DBException;
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Situacao;
@@ -57,7 +59,7 @@ public class PessoaController {
 				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
 				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 			} catch (EmailException e) {				
-				e.printStackTrace();
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 			} 		
 		}else{
@@ -146,7 +148,7 @@ public class PessoaController {
 			}	
 			
 		} catch (EmailException e) {
-			e.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
 	}
@@ -172,7 +174,7 @@ public class PessoaController {
 				result.redirectTo(this).cadastroAdmin();
 			}	
 		} catch (EmailException e) {
-			e.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel reenviar o email de solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}
 	}
@@ -205,7 +207,7 @@ public class PessoaController {
 				result.include("msgErroCadastro", "Opps! Ocorreu um erro inexperado, infelizmente n&atilde;o foi poss&iacute;vel realizar o seu cadastro.<br/>Por favor tente novamente mais tarde.");
 				redirecionarParaCadastroCliente();
 			} catch (EmailException e) {				
-				e.printStackTrace();
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 				redirecionarParaIndex(pessoa);
 			}
 		}else{			
@@ -249,6 +251,7 @@ public class PessoaController {
 				result.include("msgIndex", "Uma mensagem foi enviada para <b>" + email + "</b> contendo as informa&ccedil;&otilde;es sobre o cadastramento do email.");
 				result.redirectTo(IndexController.class).index();
 			} catch (EmailException e) {
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 				result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar a mensagem solicitada para <b>" + email + "</b>.<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;o e desculpem-nos o transtorno.");
 				result.redirectTo(IndexController.class).index();
 			}			

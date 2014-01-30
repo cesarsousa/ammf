@@ -7,6 +7,8 @@ import java.util.List;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
@@ -62,9 +64,8 @@ public class LivroController {
 			cadastroException.printStackTrace();
 			result.include("msgErroLojaAdm", "Erro Durante cadastramento do livro '" + livro.getTitulo() + "'. Verifique se o livro foi cadastrado com sucesso.<br/>Mensagem de Erro: " + cadastroException.getMensagem() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
-		} catch (EmailException emailException){
-			emailException.printStackTrace();
-			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel notificar clientes por email referente ao cadastramento do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + emailException.getMensagem() + ".");
+		} catch (EmailException e){
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}
 	}
@@ -85,7 +86,7 @@ public class LivroController {
 			result.include("msgErroLojaAdm", "Erro Durante a atualiza&ccedil;&atilde;o do cadastro do livro '" + livro.getTitulo() + "'. Verifique se o livro foi atualizado com sucesso.<br/>Mensagem de Erro: " + cadastroException.toString() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		} catch (EmailException emailException) {
-			emailException.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + emailException.getMensagem()));
 			result.include("msgErroLojaAdm", "N&atilde;o foi poss&iacute;vel notificar clientes por email referente a atualiza&ccedil;&atilde;o do livro '" + livro.getTitulo() + "'.<br/>Mensagem de Erro: " + emailException.getMensagem() + ".");
 			result.redirectTo(LojaController.class).lojaAdmin();
 		}		

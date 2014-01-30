@@ -3,6 +3,8 @@ package br.com.ammf.controller;
 import java.util.List;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Link;
 import br.com.ammf.repository.LinkRepository;
@@ -53,7 +55,7 @@ public class LinkController {
 			
 			result.forwardTo(this).linkAdmin();
 		}  catch (EmailException emailException){
-			emailException.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + emailException.getMensagem()));
 			result.include("linkMensagemErro", "N&atilde;o foi poss&iacute;vel notificar clientes por email referente ao cadastramento do link.<br/>Mensagem de Erro: " + emailException.getMensagem() + ".");
 			result.forwardTo(this).linkAdmin();
 		}

@@ -9,7 +9,7 @@
 	</div>
 </c:if>
 <c:if test="${not empty resenhaMensagemErro}">
-	<div class="msgBorder msgSucesso ponteiro closeClick">
+	<div class="msgBorder msgErro ponteiro closeClick">
 		${resenhaMensagemErro} 
 	</div>
 </c:if>
