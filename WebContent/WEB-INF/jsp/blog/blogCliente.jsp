@@ -31,7 +31,7 @@
 <div align="center">
 	<c:choose>		
 		<c:when test="${empty ultimaPublicacao}">
-			<div id="ultimaPublicacao" class="cardViewText">
+			<div class="cardViewText">
 			<c:choose>
 				<c:when test="${emailRequest}">
 					<p class="textoAutorBlog azulClaro fonteGrande centralizar">O texto solicitado foi removido deste blog ou est&aacute; sendo atualizado.</p>
@@ -44,17 +44,19 @@
 		</c:when>
 		
 		<c:otherwise>
-			<div id="ultimaPublicacao" class="cardViewText">
+		<div id="ultimaPublicacao">
+			<div class="cardViewText paddingPadrao">
 			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
 				
 			<c:forEach items="${paragrafos}" var="paragrafo">
 				<p class="textoConteudoBlog">${paragrafo.trechoTexto}</p>		
 			</c:forEach>
 			<p class="textoPostagemBlog aEsquerda negrito">... texto postado em ${ultimaPublicacao.dataFormatada}</p>
+			</div>
 			
 			<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 			
-				<div class="paddingPadrao" align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
+				<div class="cardViewText paddingPadrao" align="left">
 				<span id="imgdivComentariosTextoPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 				<span id="btdivComentariosTextoPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
 				
@@ -78,7 +80,7 @@
 			</c:if>			
 			
 			<!-- Adicionar um comentario para o texto -->
-			<div  align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
+			<div  align="left" class="cardViewText paddingPadrao">
 				
 				<div class="paddingPadrao">
 					<span id="imgNovoComentarioBlogPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
@@ -127,8 +129,7 @@
 					</table>		
 				</form>
 			</div>
-			</div>
-			
+		</div>		
 		</c:otherwise>
 	</c:choose>
 </div>
@@ -174,14 +175,14 @@
 	<tbody>
  		<tr align="center">
 			<td>
-			<div class="cardViewText">
-			<input id="uuidTextoBlog" type="hidden" />
-			<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
-			<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
-			<p id="textoblogConteudo" class="textoConteudoBlog"></p>
+			<div class="cardViewText paddingPadrao">
+				<input id="uuidTextoBlog" type="hidden" />
+				<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
+				<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
+				<p id="textoblogConteudo" class="textoConteudoBlog"></p>
+			</div>
 			
-			
-			<div id="divVisualizarComentarios" class="paddingPadrao" align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
+			<div id="divVisualizarComentarios" class="cardViewText paddingPadrao" align="left">
 				<span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 				<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
 				
@@ -189,7 +190,7 @@
 			</div>					
 			
 			<!-- Adicionar um comentario para o texto -->
-			<div class="paddingPadrao" align="left" style="border-top: 1px solid #CCCCCC; border-width: 100%;">
+			<div class="cardViewText paddingPadrao" align="left">
 				<div>
 					<span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
 					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
@@ -233,7 +234,6 @@
 						</tr>		
 					</table>		
 				</div>
-				</div>		
 			
 			</td>		
 		</tr>		

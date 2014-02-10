@@ -13,7 +13,7 @@ import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
-import br.com.ammf.repository.LogAplicacaoRepository;
+import br.com.ammf.repository.ErroAplicacaoRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
@@ -33,7 +33,7 @@ public class MenuController {
 	private EmailService emailService;
 	private SessaoUsuario sessaoUsuario;	
 	private TextoRepository textoRepository;
-	private LogAplicacaoRepository logAplicacaoRepository;
+	private ErroAplicacaoRepository erroAplicacaoRepository;
 	
 	public MenuController(
 			Result result,
@@ -41,15 +41,15 @@ public class MenuController {
 			ValidacaoService validacaoService,
 			SessaoUsuario sessaoUsuario,
 			EmailService emailService,
-			TextoRepository textoRepository,
-			LogAplicacaoRepository logAplicacaoRepository){
+			TextoRepository textoRepository,			
+			ErroAplicacaoRepository erroAplicacaoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
 		this.emailService = emailService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
-		this.logAplicacaoRepository = logAplicacaoRepository;
+		this.erroAplicacaoRepository = erroAplicacaoRepository;
 	}
 	
 	@Restrito
@@ -255,7 +255,7 @@ public class MenuController {
 	@Restrito
 	@Get("/menu/erroAplicacao")
 	public void errosAplicacao(){
-		List<LogAplicacao> errosAplicacao = logAplicacaoRepository.listar();
+		List<LogAplicacao> errosAplicacao = erroAplicacaoRepository.listar();
 		result.include("errosAplicacao", errosAplicacao);		
 	}
 

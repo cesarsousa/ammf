@@ -36,17 +36,19 @@ ${conteudoEmBranco}
 </p>
 
 <c:if test="${not empty ultimaPublicacao}">
-	<div class="paddingPadrao cardViewText" style="text-align: center;">
+	<div id="divTiposCategoriasResenha" class="paddingPadrao cardViewText" style="text-align: center;">
 	
 	<p>
 	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
 	</p>
 	
-	<c:forEach items="${categoriasResenha}" var="categoria">
-	<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
-	<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
-	</a>
-	</c:forEach>
+	<div id="divCategoriasResenha">
+		<c:forEach items="${categoriasResenha}" var="categoria">
+		<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
+		<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
+		</a>
+		</c:forEach>
+	</div>
 	</div>
 </c:if>
 
@@ -407,7 +409,7 @@ ${conteudoEmBranco}
 	<tfoot>		
 		<tr>
 			<th colspan="4" align="center">
-				<h2><a id="goTopo" href="#irTopo">ler outras resenhas</a></h2>
+				<h2><a id="goTopo" href="#irTopo" class="info azulClaro letraGrande altura30 destaqueLetraHover ponteiro">ler outras resenhas</a></h2>
 			</th>			
 		</tr>		
 	</tfoot>
@@ -421,7 +423,7 @@ ${conteudoEmBranco}
 <div class="superFooter" align="center">
 	<div style="width: 1000px; text-align: left; padding: 20px;">
 		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro letraGrande altura30 destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
-		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro" >Visualizar ultimas publica&ccedil;&otilde;es</a>
+		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro" >Visualizar ultima publica&ccedil;&atilde;o</a>
 	</div>
 </div>
 </c:if>

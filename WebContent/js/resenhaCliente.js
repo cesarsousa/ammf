@@ -240,6 +240,13 @@ $(document).ready(function() {
 		$('#sinalNovoComentarioResenha').text('+');
 	});
 	
+	$('#divCategoriasResenha').hide();
+	$('#divTiposCategoriasResenha').hover(function() {
+		$('#divCategoriasResenha').slideDown();
+	}, function() {
+		$('#divCategoriasResenha').slideUp();
+	});	
+	
 	$('#comentarNovaResenhaConteudo').keyup(function() {		
 		limitarCaracteres('#comentarNovaResenhaConteudo', '#contadorCaracterComentarNovaResenhaConteudo', 999);		  
 	});

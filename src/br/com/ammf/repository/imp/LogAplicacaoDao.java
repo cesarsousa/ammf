@@ -1,12 +1,8 @@
 package br.com.ammf.repository.imp;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Order;
 
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.model.LogAplicacao;
@@ -36,14 +32,6 @@ public class LogAplicacaoDao implements LogAplicacaoRepository {
 		} finally {
 			session.close();
 		}		
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<LogAplicacao> listar() {
-		Criteria criteria = session.createCriteria(LogAplicacao.class);
-		criteria.addOrder(Order.desc("id"));
-		return criteria.list();
-	}
+	}	
 
 }
