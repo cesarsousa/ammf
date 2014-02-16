@@ -28,9 +28,9 @@
 		<tr>
 		<td width="120px"  align="left">				
 		
-		<a href="<c:url value="/loja/visualizador/${livro.uuid}" />" rel="prettyPhoto[livroRequest]" title="${resenha.titulo}">
-			<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
-		</a>						
+			<a href="<c:url value="/loja/visualizador/${livro.uuid}" />" rel="prettyPhoto[livroRequest]" title="${resenha.titulo}">
+				<img src="<c:url value="/loja/visualizador/${livro.uuid}" />" class="fotoLivro">
+			</a>						
 		
 		</td>
 		
@@ -124,6 +124,11 @@
 	<td colspan="3" align="center">
 	<div class="paddingPadrao">
 	<p class="fonteGrande">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</p>
+	<br/>
+	<span class="info azulClaro">Aten&ccedil;&atilde;o! os pre&ccedil;os mostrados no site s&atilde;o valores sugeridos, pode
+	haver diferen&ccedil;a em rela&ccedil;&atilde;o ao pre&ccedil;o oficial publicado no link de venda do livro.
+	</span>
+	
 	<a href="${livro.linkVenda}" target="_blank">
 		<img id="btComprarLivro${livro.uuid}" class="ponteiro destaqueImage" src="${imagem}/iconeComprar.jpg">
 	</a>
@@ -185,6 +190,11 @@
 						<p class="textoAutorBlog azulClaro fonteGrande centralizar">Livros publicados de Alcindo Miguel Martins Filho.</p>
 						<p align="center">
 						<span class="info">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</span>
+						<br/>
+						<span class="info azulClaro">Aten&ccedil;&atilde;o! os pre&ccedil;os mostrados no site s&atilde;o valores sugeridos, pode
+						haver diferen&ccedil;a em rela&ccedil;&atilde;o ao pre&ccedil;o oficial publicado no link de venda do livro.
+						</span>
+						
 						</p>
 						<div class="separador"></div>
 										
@@ -315,6 +325,10 @@
 						<p class="textoAutorBlog azulClaro fonteGrande centralizar">Livros publicados de outros autores.</p>
 						<p align="center">
 						<span class="info">Ao clicar em 'Comprar' voc&ecirc; ser&aacute; redirecionado para o site de venda do livro.</span>
+						<br/>
+						<span class="info azulClaro">Aten&ccedil;&atilde;o! os pre&ccedil;os mostrados no site s&atilde;o valores sugeridos, pode
+						haver diferen&ccedil;a em rela&ccedil;&atilde;o ao pre&ccedil;o oficial publicado no link de venda do livro.
+						</span>
 						</p>
 						<div class="separador"></div>
 										

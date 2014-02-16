@@ -1,6 +1,12 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<c:if test="${not empty erroConfConta}">
+	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">
+	Verifique dado(s) obrigat&oacute;rio(s) de configura&ccedil;&atilde;o da conta n&atilde;o preenchido(s)
+	</div>
+</c:if>
+
 <c:if test="${not empty mensagemErro}">
 	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
 </c:if>

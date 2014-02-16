@@ -50,6 +50,7 @@ public class UsuarioController {
 			sessaoUsuario.login(usuario);
 			redirecionarParaMenuAdm("mensagem", "Dados de conta de administrador atualizados com sucesso");
 		}else{
+			result.include("erroConfConta", true);
 			redirecionarParaMenuAdm("editarUsuario", "true");
 		}		
 	}
