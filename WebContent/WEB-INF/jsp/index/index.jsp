@@ -48,32 +48,32 @@
 			<ul id="ultimasNovidades">
 				<c:if test="${not empty blogNews}">
 					<li><h3>${blogNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></li></ul></li>			 				
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></li></ul></li>			 				
 				</c:if>
 			
 				<c:if test="${not empty resenhaNews}">
 					<li><h3>${resenhaNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></li></ul></li>
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></li></ul></li>
 				</c:if>
 			
 				<c:if test="${not empty linkNews}">
 					<li><h3>${linkNews}</h3>				
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></li></ul></li>
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></li></ul></li>
 				</c:if>
 			
 				<c:if test="${not empty depoimentoNews}">
 					<li><h3>${depoimentoNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a></li></ul></li>
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a></li></ul></li>
 				</c:if>
 			
 				<c:if test="${not empty lojaNews}">
 					<li><h3>${lojaNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a></li></ul></li>
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a></li></ul></li>
 				</c:if>
 			
 				<c:if test="${not empty faqNews}">
 					<li><h3>${faqNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela metadado" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a></li></ul></li>
+						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a></li></ul></li>
 				</c:if>
 			</ul>
 		</div>					
