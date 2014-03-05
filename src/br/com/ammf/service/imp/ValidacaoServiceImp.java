@@ -119,6 +119,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}
 		if(!validado){
 			result.include("textoBlog", texto);
+			result.include("uuidNovoBlog", texto.getUuid());
+			
 		}
 		
 		return validado;

@@ -3,6 +3,19 @@ function hideAllBlogFields(){
 	$('#tdNovoBlog, #blogAreaBusca, #resultBuscaTxtBlog, #divBlogEditarTexto, #divEditarBlogTodosTextos, #telaAguardeAdmBlogCadastrar, #tabComentariosAdmin, #divTextoView').hide();
 }
 
+function ajaxAtualizarTextoBlog(uuid, url, conteudo){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + url,
+		data:{
+			"uuid" : uuid,
+			"conteudo" : conteudo},		
+		error : function(){
+			alert("Servidor nao esta disponivel no momento, nao foi possivel atualizar '" + conteudo + "'");				
+		}
+	});	
+}
+
 function abrirTextoView(uuid){
 	$.ajax({
 		type : 'GET',
@@ -34,8 +47,15 @@ $(document).ready(function() {
 	$('#blogConteudoNovoTexto').autoResize();
 	$('#blogEdtConteudoTexto').autoResize();
 	
+	var caracteresNovoTexto = 0;
 	$('#blogConteudoNovoTexto').keyup(function() {		
-		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 10000);		  
+		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 10000);
+		
+		caracteresNovoTexto++;
+		if(caracteresNovoTexto == 100){				
+			caracteresNovoTexto = 0;
+			ajaxSalvaAutomatica("#blogConteudoNovoTexto", "/blog/salvaAutomativa/" + $('#uuidNovoBlog').val());
+		}
 	});
 	
 	var caracteresTexto = 0;
@@ -65,13 +85,36 @@ $(document).ready(function() {
 	if($('#flagCadastrarBlogVazio').val()){
 		$('#tdNovoBlog').slideDown(500);
 	}
-	$('#btAddTextoBlog').click(function() {
+	if($('#flagCadastrarNovoBlog').val()){
+		$('#tdNovoBlog').slideDown(500);
+	}
+	/*$('#btAddTextoBlog').click(function() {
 		hideAllBlogFields();
 		$('#tdNovoBlog').slideDown(500);		
 	});
 	$('#btFecharAddTextoBlog').click(function() {
 		$('#tdNovoBlog').slideUp(500);		
+	});*/	
+	$('#btAddTextoBlog').click(function() {
+		$('#formBlogNovoTexto').submit();		
+	});
+	
+	$('#blogTituloNovoTexto').blur(function(){
+		ajaxAtualizarTextoBlog($('#uuidNovoBlog').val(), '/blog/novo/titulo', $('#blogTituloNovoTexto').val());
+	});
+	
+	$('#blogAutorNovoTexto').blur(function(){
+		ajaxAtualizarTextoBlog($('#uuidNovoBlog').val(), '/blog/novo/autor', $('#blogAutorNovoTexto').val());
+	});
+	
+	$('#blogEdtTituloTexto').blur(function(){
+		ajaxAtualizarTextoBlog($('#blogEdtUuidTexto').val(), '/blog/novo/titulo', $('#blogEdtTituloTexto').val());
+	});
+	
+	$('#blogEdtAutorTexto').blur(function(){
+		ajaxAtualizarTextoBlog($('#blogEdtUuidTexto').val(), '/blog/novo/autor', $('#blogEdtAutorTexto').val());
 	});	
+	
 	
 	if($('#flagAbrirEdicaoTexto').val()){
 		$('#divBlogEditarTexto').show();

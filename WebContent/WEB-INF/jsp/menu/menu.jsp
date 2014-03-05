@@ -223,7 +223,7 @@
 				</c:if>
 				
 				
-				<h3>Email:</h3>
+				<h3>Email de envio: <span class="info azulClaro">utilizado para enviar as notifica&ccedil;&otilde;es aos usu&aacute;rios.</span></h3>
 				<div class="msgBorderInterno msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
 				&Eacute; obrigat&oacute;rio o uso de um email fornecido pelo servidor (<i>site@quiron.psc.br</i>) para o funcionamento correto do site.
@@ -238,8 +238,31 @@
 				</c:if>
 				</p>
 				
+				<h3>Senha:
+				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
+				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
+				</h3>				
+				<div class="msgBorderInterno msgAlerta t100">				
+				<b>Lembrete !</b><br/>
+				&Eacute; obrigat&oacute;rio que a senha seja a mesma do email cadastrado no servidor do site no site (<i>270879cm</i>).				
+				</div>
 				
-				<h3>Email de notifica&ccedil;&atilde;o:</h3>
+				<c:if test="${not empty usuarioSenhaBranco}">				
+				<label class="labelFormErro">${usuarioSenhaBranco}</label>
+				<br/>
+					<p>
+					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadraoErro" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					</p>
+				</c:if>				
+				<c:if test="${empty usuarioSenhaBranco}">
+					<p>
+					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					</p>
+				</c:if>
+				
+				<h3>Email de recebimento: <span class="info azulClaro">utilizado para receber as notifica&ccedil;&otilde;es dos usu&aacute;rios.</span></h3> 	
 				<table>
 				<tr>
 				<td valign="top" align="left">
@@ -267,33 +290,7 @@
 				<c:if test="${empty usuarioErroEmailNotificacao}">
 				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
 				</c:if>
-				</p>
-				
-								
-								
-				<h3>Senha:
-				<label id="checkMostrarSenha" class="info azulClaro ponteiro"> Mostrar Senha</label>
-				<label id="checkOcultarSenha" class="info azulClaro ponteiro"> Ocultar Senha</label>
-				</h3>				
-				<div class="msgBorderInterno msgAlerta t100">				
-				<b>Lembrete !</b><br/>
-				&Eacute; obrigat&oacute;rio que a senha seja a mesma do email cadastrado no servidor do site no site (<i>270879cm</i>).				
-				</div>
-				
-				<c:if test="${not empty usuarioSenhaBranco}">				
-				<label class="labelFormErro">${usuarioSenhaBranco}</label>
-				<br/>
-					<p>
-					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadraoErro" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
-					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
-					</p>
-				</c:if>				
-				<c:if test="${empty usuarioSenhaBranco}">
-					<p>
-					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
-					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
-					</p>
-				</c:if>
+				</p>	
 				
 				<p>
 				<span id="linked">Linked</span> <span id="in">in</span>

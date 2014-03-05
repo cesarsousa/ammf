@@ -57,26 +57,55 @@ public class BlogController {
 	@Get("/menu/blog")
 	public void blogAdmin(){}
 	
+	
+	
 	@Restrito
 	@Post("/blog/novo")
-	public void cadastrar(Texto texto){
-		try {
-			if(validacaoService.blog(texto, result)){
-				blogService.cadastrarTexto(texto);
-				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, texto);
-				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
-			}else{
-				result.include("flagCadastrarBlogVazio", true);
-			}			
-			result.redirectTo(this).blogAdmin();			
-		} catch (EmailException e) {
-			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
-			result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo() + "</i> foi cadastrado com sucesso.");
-			result.include("blogMensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente ao cadastro do texto '" + texto.getTitulo() + "'.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
-			result.redirectTo(this).blogAdmin();		
-		}	
+	public void cadastrar(){
+		Texto texto = new Texto();
+		blogService.cadastrarTexto(texto);
+		result.include("flagCadastrarNovoBlog", true);
+		result.include("uuidNovoBlog", texto.getUuid());
+		result.redirectTo(this).blogAdmin();
 	}
 	
+	@Restrito
+	@Post("/blog/novo/titulo")
+	public void atualizarTitulo(String uuid, String conteudo){
+		Texto texto = textoRepository.obterPor(uuid);
+		texto.setTitulo(conteudo);
+		textoRepository.atualizar(texto);
+		result.use(json()).from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/blog/novo/autor")
+	public void atualizarAutor(String uuid, String conteudo){
+		Texto texto = textoRepository.obterPor(uuid);
+		texto.setAutor(conteudo);
+		textoRepository.atualizar(texto);
+		result.use(json()).from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/blog/novo/confirmar")
+	public void confirmarCadastroTexto(Texto texto) {
+		try {			
+			if (validacaoService.blog(texto, result)) {
+				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, blogService.atualizarTexto(texto));
+				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
+			} else {
+				result.include("flagCadastrarBlogVazio", true);
+			}
+			result.redirectTo(this).blogAdmin();
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName()	+ " | " + e.getMensagem()));
+			result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
+			result.include("blogMensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente ao cadastro do texto '"	+ texto.getTitulo()	+ "'.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).blogAdmin();
+		}
+	}
+
 	@Restrito
 	@Get("/blog/busca/texto")
 	public void listarTextos(String paramConsulta){		

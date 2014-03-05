@@ -13,6 +13,7 @@
 		${blogMensagemErro} 
 	</div>
 </c:if>
+
 <c:if test="${flagCadastrarBlogVazio}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 	${tituloEmBranco}
@@ -72,6 +73,7 @@
 
 <!-- ADICIONAR UM NOVO TEXTO -->
 <input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" />
+<input id="flagCadastrarNovoBlog" type="hidden" value="${flagCadastrarNovoBlog}" />
 <table id="tdNovoBlog" class="cardViewText">		
 	<tr>
 		<td >
@@ -81,13 +83,17 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Novo Texto</h2>
 		
-		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post">				
+		<form id="formBlogNovoTexto" action="<c:url value="/blog/novo"/>" method="post"></form>				
+			
+			<form action="<c:url value="/blog/novo/confirmar"></c:url>" method="post">
+			
+			<input id="uuidNovoBlog" type="hidden" value="${uuidNovoBlog}" name="texto.uuid">
 			 				
 			<h3>T&iacute;tulo :</h3>
 			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul negrito" name="texto.titulo" value="${textoBlog.titulo}"/>
 				
 			<h3>Autor :</h3>
-			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="Alcindo Miguel Martins Filho"/>	
+			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${textoBlog.autor}"/>	
 							
 			<h3>Texto:</h3>												
 			
@@ -106,38 +112,17 @@
 				<td><span id="sizeXxLargeAreaBlogNovo" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 				</tr>				
 			</table>
-			
-			<div class="paddingPadrao">
-			
-				<span id="btAbrirTextoTrava" class="info AzulClaro destaqueLetraHover ponteiro">Trava para textos novos...</span>
-			
-				<div id="infoTravaTexto" class="hidden">
-				<div class="paddingPadrao">
-				<p>
-				&Eacute; necess&aacute;rio primeiro cadastrar o texto. Para travar este texto, siga os passos abaixo.
-				<p>
-				<ul>
-				<li>Primeiramente pressione o bot&atilde;o cadastrar. </li>
-				<li>Depois de cadastrado voc&ecirc; pode acessar o texto clicando em 'buscar e editar' <img src="${imagem}/iconeEditarHover.png" class="icone20"> e utilize o t&iacute;tulo para realizar a busca.</li>
-				<li>Se preferir utilize a op&ccedil;&atilde;o de 'listar todos os textos' <img src="${imagem}//iconeListarHover.png" class="icone20"> para encontrar o novo texto cadastrado.</li>
-				<li>Ao localizar o texto basta clicar em 'editar este texto' <img src="${imagem}/iconeEditarHover.png" class="icone20"> na listagem exibida.</li>
-				</ul>
-				</div>
-				
-				<span id="btFecahrTextoTrava" class="info AzulClaro destaqueLetraHover ponteiro">Fechar 'Trava para textos novos...'</span>
-				</div>
-						 
-			</div>
-						
+									
 			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
 			<h4 align="left" class="azulClaro">
 			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">10000</span> caracteres em seu texto.
 			</h4>
+			
 			<p>
 			<input id="btCadBlogTexto" type="submit" value="cadastrar" class="buttonCadastrar">
-			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">				
-			</p> 
-		</form>			
+			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">
+			</p>
+			</form>
 		</td>
 	</tr>		
 </table>

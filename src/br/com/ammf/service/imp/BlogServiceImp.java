@@ -28,7 +28,7 @@ public class BlogServiceImp implements BlogService {
 	public void cadastrarTexto(Texto texto) {
 		texto.setLocal(Local.BLOG);
 		texto.setPostagem(DataUtils.getDateNow());
-		texto.setConfirmado(true);
+		texto.setConfirmado(false);
 		textoRepository.cadastrar(texto);		
 	}
 

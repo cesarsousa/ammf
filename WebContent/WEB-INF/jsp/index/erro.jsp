@@ -30,7 +30,7 @@
 	<c:if test="${BLOG}">
 	<h3>O texto solicitado foi removido do site.</h3>
 	<form action="<c:url value="/blog/cliente"></c:url>" method="get">
-	    <input type="submit" value="Clique aqui para vicualizar outros textos" class="buttonCadastrar"/> 
+	    <input type="submit" value="Clique aqui para visualizar outros textos" class="buttonCadastrar"/> 
 	</form>
 	</c:if>
 
