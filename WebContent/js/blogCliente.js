@@ -40,7 +40,9 @@ function visualizarTextoBlog(uuid){
 			$('#textoblogConteudo').html('');
 			var paragrafos = json.conteudo.split(".");
 			for(var i = 0; i < paragrafos.length; i++){
-				$('#textoblogConteudo').append("<p>" + paragrafos[i] + "</p>");
+				if(paragrafos[i].length > 0){
+					$('#textoblogConteudo').append("<p>" + paragrafos[i] + ".</p>");
+				}
 			}			
 			
 			$.ajax({
