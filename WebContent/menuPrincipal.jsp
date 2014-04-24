@@ -59,7 +59,7 @@
 	
 		<div align="center">
 		<div id="menuLink" >
-			<label id="btClienteHome" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Home</label>
+			<!-- <label id="btClienteHome" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Home</label> -->
 			<label id="btClienteBlog" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Blog</label>
 			<label id="btClienteResenhas" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Resenhas</label>
 			<label id="btClienteLinks" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Links</label>
