@@ -40,6 +40,60 @@
 	<br/>
 	
 	<c:if test="${not empty news}">
+	<div>
+		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
+		
+		<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> Ultimas Novidades...</span></p>
+			
+			
+			<c:if test="${not empty blogNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Blog</h3><a class="infoTabela azulClaro" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a>
+				</div>
+				<br/>		 				
+			</c:if>			
+			
+			<c:if test="${not empty resenhaNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Resenha</h3><a class="infoTabela azulClaro" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a>
+				</div>
+				<br/>
+			</c:if>
+		
+			<c:if test="${not empty linkNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Link</h3><a class="infoTabela azulClaro" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a>
+				</div>
+				<br/>
+			</c:if>
+		
+			<c:if test="${not empty depoimentoNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Depoimento</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a>
+				</div>
+				<br/>
+			</c:if>
+		
+			<c:if test="${not empty lojaNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Loja Virtual</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a>
+				</div>
+				<br/>
+			</c:if>
+		
+			<c:if test="${not empty faqNews}">
+				<div class="cardViewText paddingPadrao">
+				<h3>Faq</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a>
+				</div>
+				<br/>
+			</c:if>
+			
+		</div>					
+	</div>	
+	</c:if>
+	
+	
+	<%-- <c:if test="${not empty news}">
 	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
 		
@@ -78,7 +132,7 @@
 			</ul>
 		</div>					
 	</div>	
-	</c:if>
+	</c:if> --%>
 	
 </div>
 

@@ -117,60 +117,7 @@ public class IndexServiceImp implements IndexService{
 		}
 		return paragrafos;
 	}
-
-	@Override
-	public void atualizarNews(Result result) {	
-		
-		boolean existeNews = false;
-		
-		Texto blog = textoRepository.obterUltimaPublicacao();
-		if(blog != null){
-			result.include("blogNews", "BLOG. Novo texto adicionado em " + blog.getDataFormatada() + " ");
-			result.include("blogNewsTitulo", blog.getTitulo());
-			existeNews = true;
-		}
-		
-		Resenha resenha = resenhaRepository.obterUltimaPublicacao();
-		if(resenha != null){
-			result.include("resenhaNews", "INFORMAÇÃO. Nova resenha adicionada em " + resenha.getDataFormatada() + " ");
-			result.include("resenhaNewsTitulo", resenha.getTitulo());
-			existeNews = true;
-		}
-		
-		Link link = linkRepository.obterUltimaPublicacao();
-		if(link != null){
-			result.include("linkNews", "UTILITÁRIOS. Novo link adicionado em " + link.getDataFormatada() + " ");
-			result.include("linkNewsTitulo", link.getTitulo());
-			existeNews = true;
-		}
-		
-		Depoimento depoimento = depoimentoRepository.obterUltimaPublicacao();
-		if(depoimento != null && !depoimento.isPendente()){
-			result.include("depoimentoNews", "OPNIÃO. Novo depoimento adicionado em " + depoimento.getDataFormatada() + " ");
-			result.include("depoimentoNewsTitulo", "por " + depoimento.getAutor());
-			existeNews = true;
-		}
-		
-		Livro livro = livroRepository.obterUltimaPublicacao();
-		if(livro != null){
-			result.include("lojaNews", "LOJA VIRTUAL. Novo livro adicionado em " + livro.getDataFormatadaCompleta() + " ");
-			result.include("lojaNewsTitulo", livro.getTitulo());
-			existeNews = true;
-		}
-		
-		Faq faq = faqRepository.obterUltimaPublicacao();
-		if(faq != null && faq.isPublica() && faq.getRespondida()){
-			result.include("faqNews", "FAQ. Nova pergunta adicionada em " + faq.getDataFormatada() + " ");
-			result.include("faqNewsTitulo", faq.getPergunta());
-			existeNews = true;
-		}
-		
-		if(existeNews){
-			result.include("news", true);
-		}
-		
-	}
-
+	
 	@Override
 	public List<Paragrafo> criarListaDeParagrafos(Resenha resenha) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
@@ -189,5 +136,57 @@ public class IndexServiceImp implements IndexService{
 		return paragrafos;
 	}
 
-	
+	@Override
+	public void atualizarNews(Result result) {	
+		
+		boolean existeNews = false;
+		
+		Texto blog = textoRepository.obterUltimaPublicacao();
+		if(blog != null){
+			result.include("blogNews", "Blog");
+			result.include("blogNewsTitulo", blog.getTitulo());
+			existeNews = true;
+		}
+		
+		Resenha resenha = resenhaRepository.obterUltimaPublicacao();
+		if(resenha != null){
+			result.include("resenhaNews", "Resenha");
+			result.include("resenhaNewsTitulo", resenha.getTitulo());
+			existeNews = true;
+		}
+		
+		Link link = linkRepository.obterUltimaPublicacao();
+		if(link != null){
+			result.include("linkNews", "Link");
+			result.include("linkNewsTitulo", link.getTitulo());
+			existeNews = true;
+		}
+		
+		Depoimento depoimento = depoimentoRepository.obterUltimaPublicacao();
+		if(depoimento != null && !depoimento.isPendente()){
+			result.include("depoimentoNews", "Depoimento");
+			result.include("depoimentoNewsTitulo", "por " + depoimento.getAutor());
+			existeNews = true;
+		}
+		
+		Livro livro = livroRepository.obterUltimaPublicacao();
+		if(livro != null){
+			result.include("lojaNews", "Loja Virtual");
+			result.include("lojaNewsTitulo", livro.getTitulo());
+			existeNews = true;
+		}
+		
+		Faq faq = faqRepository.obterUltimaPublicacao();
+		if(faq != null && faq.isPublica() && faq.getRespondida()){
+			result.include("faqNews", "Faq");
+			result.include("faqNewsTitulo", faq.getPergunta());
+			existeNews = true;
+		}
+		
+		if(existeNews){
+			result.include("news", true);
+		}
+		
+	}
+
 }
