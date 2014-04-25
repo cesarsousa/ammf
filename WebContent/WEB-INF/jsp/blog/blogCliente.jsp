@@ -55,7 +55,7 @@
 			</div>
 			
 			<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
-			
+				<br/>
 				<div class="cardViewText paddingPadrao" align="left">
 				<span id="imgdivComentariosTextoPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 				<span id="btdivComentariosTextoPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
@@ -80,6 +80,7 @@
 			</c:if>			
 			
 			<!-- Adicionar um comentario para o texto -->
+			<br/>
 			<div  align="left" class="cardViewText paddingPadrao">
 				
 				<div class="paddingPadrao">
@@ -182,14 +183,18 @@
 				<p id="textoblogConteudo" class="textoConteudoBlog"></p>
 			</div>
 			
-			<div id="divVisualizarComentarios" class="cardViewText paddingPadrao" align="left">
-				<span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-				<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
-				
-				<div id="divComentariosBlog"></div>				
-			</div>					
+			<div id="divVisualizarComentarios">
+				<br/>
+				<div class="cardViewText paddingPadrao" align="left">
+					<span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+					<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
+					
+					<div id="divComentariosBlog"></div>				
+				</div>					
+			</div>
 			
 			<!-- Adicionar um comentario para o texto -->
+			<br/>
 			<div class="cardViewText paddingPadrao" align="left">
 				<div>
 					<span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>

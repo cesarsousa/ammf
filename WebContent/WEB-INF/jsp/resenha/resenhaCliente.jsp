@@ -77,7 +77,8 @@ ${conteudoEmBranco}
 		</table>	
 	</div>
 	
-	<c:if test="${not empty resenha.comentariosConfirmados}">			
+	<c:if test="${not empty resenha.comentariosConfirmados}">
+		<br/>			
 		<div class="cardViewText paddingPadrao">
 		<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
@@ -100,6 +101,7 @@ ${conteudoEmBranco}
 	</c:if>
 	
 	<!-- Adicionar um comentario para o texto -->
+	<br/>
 	<div  align="left" class="cardViewText paddingPadrao">
 		
 		<div>
@@ -175,7 +177,7 @@ ${conteudoEmBranco}
 					
 					<div style="width: 80%">
 					<c:forEach items="${paragrafos}" var="paragrafo">
-						<p class="textoConteudoDepoimento">${paragrafo.trechoTexto}.</p>
+						<p class="textoConteudoDepoimento">${paragrafo.trechoTexto}</p>
 					</c:forEach>
 					</div>
 					
@@ -187,7 +189,8 @@ ${conteudoEmBranco}
 					</table>									
 				</div>
 				
-				<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">			
+				<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
+						<br/>			
 						<div class="cardViewText">
 						<span id="sinalComentariosResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 						<span id="btViewComentariosResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
@@ -210,6 +213,7 @@ ${conteudoEmBranco}
 					</c:if>
 					
 					<!-- Adicionar um comentario para o texto -->
+					<br/>
 					<div  align="left" class="cardViewText">
 						
 						<div>
@@ -339,7 +343,7 @@ ${conteudoEmBranco}
 					<input id="uuidResenhaView" type="hidden" />
 					<h2><span id="resenhaCategoria"></span></h2>
 					<h3><span id="resenhaTitulo"></span></h3>					
-					<p id="resenhaConteudo" class="titulo"></p>
+					<p id="resenhaConteudo" class="textoConteudoDepoimento"></p>
 					<p id="resenhaAutor" class="textoAutorDepoimento azulClaro"></p>
 					<p id="resenhaData" class="textoPostagemDepoimento negrito"></p>					
 					</td>
@@ -347,14 +351,17 @@ ${conteudoEmBranco}
 					</table>									
 				</div>
 				
-				<div id="divVisualizarComentariosResenha" class="cardViewText">
-					<span id="sinalComentariosResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-					<span id="btViewComentariosResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
-					
-					<div id="divComentariosResenha"></div>				
+				<div id="divVisualizarComentariosResenha">
+					<br/>
+					<div class="cardViewText">
+						<span id="sinalComentariosResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+						<span id="btViewComentariosResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>					
+						<div id="divComentariosResenha"></div>				
+					</div>
 				</div>
 					
 				<!-- Adicionar um comentario para o texto -->
+				<br/>
 				<div  align="left" class="cardViewText">
 					
 					<div>

@@ -110,7 +110,9 @@ function visualizarTextoResenha(uuid){
 			$('#resenhaConteudo').html('');
 			var paragrafos = json.descricao.split(".");
 			for(var i = 0; i < paragrafos.length; i++){
-				$('#resenhaConteudo').append("<p>" + paragrafos[i] + "</p>");
+				if(paragrafos[i].length > 0){
+					$('#resenhaConteudo').append("<p>" + paragrafos[i] + ".</p>");
+				}				
 			}
 			
 			$.ajax({
