@@ -43,47 +43,112 @@
 	<div>
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
 		
-		<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> Ultimas Novidades...</span></p>
-			
-			
+		<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> &Uacute;ltimas Publica&ccedil;&otilde;es...</span></p>
+						
 			<c:if test="${not empty blogNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Blog</h3><a class="infoTabela azulClaro" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Blog</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></td>
+				    <td width="80%" class="textoConteudoBlog">${blogNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${blogNewsPostagem}</td>
+				  </tr>
+				</table>			
 				</div>
 				<br/>		 				
 			</c:if>			
 			
 			<c:if test="${not empty resenhaNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Resenha</h3><a class="infoTabela azulClaro" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Resenha</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></td>
+				    <td width="80%" class="textoConteudoBlog">${resenhaNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${resenhaNewsPostagem}</td>
+				  </tr>
+				</table>			
 				</div>
 				<br/>
 			</c:if>
 		
 			<c:if test="${not empty linkNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Link</h3><a class="infoTabela azulClaro" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Link</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></td>
+				    <td width="80%" class="textoConteudoBlog">${linkNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${linkNewsPostagem}</td>
+				  </tr>
+				</table>				
 				</div>
 				<br/>
 			</c:if>
 		
 			<c:if test="${not empty depoimentoNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Depoimento</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Depoimento</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a></td>
+				    <td width="80%" class="textoConteudoBlog">${depoimentoNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${depoimentoNewsPostagem}</td>
+				  </tr>
+				</table>
 				</div>
 				<br/>
 			</c:if>
 		
 			<c:if test="${not empty lojaNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Loja Virtual</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Loja Virtual</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="20%" align="left"><a class="infoTabela azulClaro letraGrande" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a></td>
+				    <td width="80%" class="textoConteudoBlog">${lojaNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${lojaNewsPostagem}</td>
+				  </tr>
+				</table>			
 				</div>
 				<br/>
 			</c:if>
 		
 			<c:if test="${not empty faqNews}">
 				<div class="cardViewText paddingPadrao">
-				<h3>Faq</h3><a class="infoTabela azulClaro" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a>
+				<table width="100%">
+				  <tr>
+				    <td colspan="2" align="center"><h3 class="tituloPagina">Faq</h3></td>
+				  </tr>
+				  <tr>				    
+				    <td width="50%" align="left"><a class="infoTabela azulClaro letraGrande" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a></td>
+				    <td width="50%" class="textoConteudoBlog">${faqNewsConteudo}</td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${faqNewsPostagem}</td>
+				  </tr>
+				</table>
 				</div>
 				<br/>
 			</c:if>

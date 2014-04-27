@@ -145,6 +145,8 @@ public class IndexServiceImp implements IndexService{
 		if(blog != null){
 			result.include("blogNews", "Blog");
 			result.include("blogNewsTitulo", blog.getTitulo());
+			result.include("blogNewsConteudo", obterDescricaoResumida(blog.getConteudo()));
+			result.include("blogNewsPostagem", "postado em " + blog.getDataFormatada());
 			existeNews = true;
 		}
 		
@@ -152,6 +154,8 @@ public class IndexServiceImp implements IndexService{
 		if(resenha != null){
 			result.include("resenhaNews", "Resenha");
 			result.include("resenhaNewsTitulo", resenha.getTitulo());
+			result.include("resenhaNewsConteudo", obterDescricaoResumida(resenha.getDescricao()));
+			result.include("resenhaNewsPostagem", "postada em " + resenha.getDataFormatada());
 			existeNews = true;
 		}
 		
@@ -159,13 +163,17 @@ public class IndexServiceImp implements IndexService{
 		if(link != null){
 			result.include("linkNews", "Link");
 			result.include("linkNewsTitulo", link.getTitulo());
+			result.include("linkNewsConteudo", obterDescricaoResumida(link.getDescricao()));
+			result.include("linkNewsPostagem", "postado em " + link.getDataFormatada());
 			existeNews = true;
 		}
 		
 		Depoimento depoimento = depoimentoRepository.obterUltimaPublicacao();
 		if(depoimento != null && !depoimento.isPendente()){
 			result.include("depoimentoNews", "Depoimento");
-			result.include("depoimentoNewsTitulo", "por " + depoimento.getAutor());
+			result.include("depoimentoNewsTitulo", "por<br/> " + depoimento.getAutor());
+			result.include("depoimentoNewsConteudo", obterDescricaoResumida(depoimento.getConteudo()));
+			result.include("depoimentoNewsPostagem", "postado em " + depoimento.getDataFormatada());
 			existeNews = true;
 		}
 		
@@ -173,6 +181,8 @@ public class IndexServiceImp implements IndexService{
 		if(livro != null){
 			result.include("lojaNews", "Loja Virtual");
 			result.include("lojaNewsTitulo", livro.getTitulo());
+			result.include("lojaNewsConteudo", obterDescricaoResumida(livro.getSinopse()));
+			result.include("lojaNewsPostagem", "postado em " + livro.getDataFormatada());
 			existeNews = true;
 		}
 		
@@ -180,6 +190,8 @@ public class IndexServiceImp implements IndexService{
 		if(faq != null && faq.isPublica() && faq.getRespondida()){
 			result.include("faqNews", "Faq");
 			result.include("faqNewsTitulo", faq.getPergunta());
+			result.include("faqNewsConteudo", obterDescricaoResumida(faq.getResposta()));
+			result.include("faqNewsPostagem", "postado em " + faq.getDataFormatada());
 			existeNews = true;
 		}
 		
@@ -187,6 +199,16 @@ public class IndexServiceImp implements IndexService{
 			result.include("news", true);
 		}
 		
+	}
+
+	private String obterDescricaoResumida(String conteudo) {
+		if(conteudo == null || conteudo.isEmpty()){
+			return "Conte&uacute;do n&atilde;o dispon&iacute;vel";
+		}else if(conteudo.length() > 99){
+			return conteudo.substring(0, 99) + "...";
+		}else{
+			return conteudo;
+		}		
 	}
 
 }

@@ -138,10 +138,18 @@ public class Texto implements Serializable{
 		return confirmados;
 	}
 	
+	/**
+	 * 
+	 * @return data no formato dd/MM/yyyy HH:mm:ss.
+	 */
 	public String getDataFormatada(){
 		return DataUtils.getStringDataHora(postagem);
 	}
 	
+	/**
+	 * 
+	 * @return data no formato dd/MM/yyyy.
+	 */
 	public String getDataFormatadaSimples(){
 		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
