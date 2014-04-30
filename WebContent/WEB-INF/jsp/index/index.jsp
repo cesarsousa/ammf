@@ -48,15 +48,11 @@
 			<c:if test="${not empty blogNews}">
 				<div class="cardViewText paddingPadrao">
 				<table width="100%">
-				  <tr>
-				    <td colspan="2" align="center"><h3 class="tituloPagina">Blog</h3></td>
-				  </tr>
-				  <tr>				    
-				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></td>
-				    <td width="80%" class="textoConteudoBlog">${blogNewsConteudo}</td>
-				  </tr>
-				  <tr>
-				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${blogNewsPostagem}</td>
+				  <tr align="center">
+				    <td><h3 class="tituloPagina">Blog</h3></td>
+				    <td><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></td>
+				    <td class="textoConteudoBlog">${blogNewsConteudo}</td>
+				    <td align="right" class="textoPostagemBlog aDireita negrito">${blogNewsPostagem}</td>
 				  </tr>
 				</table>			
 				</div>
@@ -67,15 +63,21 @@
 				<div class="cardViewText paddingPadrao">
 				<table width="100%">
 				  <tr>
-				    <td colspan="2" align="center"><h3 class="tituloPagina">Resenha</h3></td>
-				  </tr>
-				  <tr>				    
-				    <td width="20%" align="left"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></td>
-				    <td width="80%" class="textoConteudoBlog">${resenhaNewsConteudo}</td>
-				  </tr>
-				  <tr>
-				    <td colspan="2" class="textoPostagemBlog aDireita negrito">${resenhaNewsPostagem}</td>
-				  </tr>
+				    <td align="center"><h3 class="tituloPagina">Resenha</h3></td>
+				  	<td>
+				  		<table style="border-left: 1px solid #cccccc;" width="100%">
+				  			<tr>				    
+						    	<td align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></td>
+						  	</tr>
+						  	<tr>  
+						    	<td align="center" class="textoConteudoBlog">${resenhaNewsConteudo}</td>
+						  	</tr>
+						  	<tr>
+						    	<td align="right" class="textoPostagemBlog aDireita negrito">${resenhaNewsPostagem}</td>
+						  	</tr>
+				  		</table>
+				  	</td>
+				  </tr>				  
 				</table>			
 				</div>
 				<br/>
