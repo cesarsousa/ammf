@@ -250,6 +250,8 @@ public class ResenhaController {
 			result.redirectTo(IndexController.class).redirecionarParaPgErro(Local.RESENHA);
 		}else{
 			result.include("resenha", resenha);
+			List<Paragrafo> paragrafosResenha = indexService.criarListaDeParagrafos(resenha);
+			result.include("paragrafosResenha", paragrafosResenha);
 			result.redirectTo(this).resenhaCliente();
 		}
 	}

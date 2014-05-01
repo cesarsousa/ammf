@@ -68,8 +68,22 @@ ${conteudoEmBranco}
 		
 		<td class="paddingPadrao">
 		<h2>${resenha.categoria.descricao}</h2>
-		<h3>${resenha.titulo}</h3>					
-		<p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p>
+		<h3>${resenha.titulo}</h3>
+		
+			<div style="width: 80%">
+			<c:forEach items="${paragrafosResenha}" var="paragrafoResenha">
+				<p class="textoConteudoDepoimento">${paragrafoResenha.trechoTexto}</p>
+			</c:forEach>
+			</div>					
+		
+		
+		
+		<%-- <p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p> --%>
+		
+		
+		
+		
+		
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
 		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>		
 		</td>
