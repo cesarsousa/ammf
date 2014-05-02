@@ -38,7 +38,14 @@
 	</div>
 	
 	<br/>
-	
+
+	<form id="formBlogNews" action="<c:url value="/blog/cliente" />" method="get"></form>
+	<form id="formResenhaNews" action="<c:url value="/resenha/cliente" />" method="get"></form>
+	<form id="formLinkNews" action="<c:url value="/link/cliente" />" method="get"></form>
+	<form id="formDepoimentoNews" action="<c:url value="/cliente/depoimentos" />" method="get"></form>
+	<form id="formLojaNews" action="<c:url value="/cliente/loja" />" method="get"></form>
+	<form id="formFaqNews" action="<c:url value="/cliente/faq" />" method="get"></form>
+
 	<c:if test="${not empty news}">
 	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
@@ -52,7 +59,7 @@
 				   	<td width="75%"> 
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>
-				    			<td align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></td>
+				    			<td align="center"><p class="azulClaro fonteGrande">${blogNewsTitulo}</p></td>
 				    		</tr>
 				    		<tr>
 				    			<td align="center" class="textoConteudoBlog">${blogNewsConteudo}</td>
@@ -73,7 +80,7 @@
 				  	<td width="75%">
 				  		<table style="border-left: 1px solid #cccccc;" width="100%">
 				  			<tr>				    
-						    	<td align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></td>
+						    	<td align="center"><p class="azulClaro fonteGrande">${resenhaNewsTitulo}</p></td>
 						  	</tr>
 						  	<tr>  
 						    	<td align="center" class="textoConteudoBlog">${resenhaNewsConteudo}</td>
@@ -94,7 +101,7 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></td>
+						    	<td  align="center"><p class="azulClaro fonteGrande">${linkNewsTitulo}</p></td>
 						  	</tr>
 						  	<tr>  
 						    	<td  align="center" class="textoConteudoBlog">${linkNewsConteudo}</td>
@@ -115,7 +122,7 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/link/cliente" />">${depoimentoNewsTitulo}</a></td>
+						    	<td  align="center"><p class="azulClaro fonteGrande">${depoimentoNewsTitulo}</p></td>
 						  	</tr>
 						  	<tr>  
 						    	<td  align="center" class="textoConteudoBlog">${depoimentoNewsConteudo}</td>
@@ -136,7 +143,7 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/link/cliente" />">${lojaNewsTitulo}</a></td>
+						    	<td  align="center"><p class="azulClaro fonteGrande">${lojaNewsTitulo}</p></td>
 						  	</tr>
 						  	<tr>  
 						    	<td  align="center" class="textoConteudoBlog">${lojaNewsConteudo}</td>
@@ -157,7 +164,7 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><a class="infoTabela azulClaro fonteGrande" href="<c:url value="/link/cliente" />">${faqNewsTitulo}</a></td>
+						    	<td  align="center"><p class="azulClaro fonteGrande">${faqNewsTitulo}</p></td>
 						  	</tr>
 						  	<tr>  
 						    	<td  align="center" class="textoConteudoBlog">${faqNewsConteudo}</td>

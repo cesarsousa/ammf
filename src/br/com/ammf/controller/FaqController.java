@@ -124,9 +124,7 @@ public class FaqController {
 		}else{
 			visualizarTodosAsFaqs();
 		}
-	}
-	
-	
+	}	
 	
 	@Get("/cliente/faq")
 	public void faqCliente(){
