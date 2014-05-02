@@ -270,12 +270,11 @@ public class TextoDao implements TextoRepository{
 	@Override
 	public Texto obterUltimaPublicacao() {
 		try {
-			String sql = "select max(id) from Texto where local='BLOG'";
+			String sql = "select max(id) from Texto where local='BLOG' and confirmado is true";
 			Query query = session.createQuery(sql);
 			Long id = (Long) query.uniqueResult();
 			Criteria criteria = session.createCriteria(Texto.class);
 			criteria.add(Restrictions.eq("id", id));
-			criteria.add(Restrictions.eq("confirmado", true));
 			Texto texto = (Texto) criteria.uniqueResult();
 			return texto;
 		} catch (Exception e) {
