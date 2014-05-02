@@ -46,7 +46,7 @@
 			<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> &Uacute;ltimas Publica&ccedil;&otilde;es...</span></p>
 						
 			<c:if test="${not empty blogNews}">
-				<table width="100%" style="border-bottom: 1px solid #cccccc;">
+				<table id="tabBlogNews" width="100%">
 				  <tr align="center">
 				    <td width="25%" align="center"><h3 class="tituloPagina">Blog</h3></td>
 				   	<td width="75%"> 
@@ -67,7 +67,7 @@
 			</c:if>			
 			
 			<c:if test="${not empty resenhaNews}">
-				<table width="100%" style="border-bottom: 1px solid #cccccc;">
+				<table id="tabResenhaNews" width="100%">
 				  <tr>
 				    <td width="25%" align="center"><h3 class="tituloPagina">Resenha</h3></td>
 				  	<td width="75%">
@@ -88,7 +88,7 @@
 			</c:if>
 		
 			<c:if test="${not empty linkNews}">
-				<table width="100%" style="border-bottom: 1px solid #cccccc;">
+				<table id="tabLinkNews" width="100%">
 				  <tr>
 				    <td width="25%" align="center"><h3 class="tituloPagina">Link</h3></td>
 				    <td width="75%">
@@ -109,7 +109,7 @@
 			</c:if>
 		
 			<c:if test="${not empty depoimentoNews}">
-				<table width="100%" style="border-bottom: 1px solid #cccccc;">
+				<table id="tabDepoimentoNews" width="100%">
 				  <tr>
 				    <td width="25%" align="center"><h3 class="tituloPagina">Depoimento</h3></td>
 				    <td width="75%">
@@ -130,7 +130,7 @@
 			</c:if>
 		
 			<c:if test="${not empty lojaNews}">
-				<table width="100%" style="border-bottom: 1px solid #cccccc;">
+				<table id="tabLojaNews" width="100%">
 				  <tr>
 				    <td width="25%" align="center"><h3 class="tituloPagina">Loja Virtual</h3></td>
 				    <td width="75%">
@@ -151,7 +151,7 @@
 			</c:if>
 		
 			<c:if test="${not empty faqNews}">
-				<table width="100%">
+				<table id="tabFaqNews" width="100%">
 				  <tr>
 				    <td width="25%" align="center"><h3 class="tituloPagina">Faq</h3></td>
 				    <td width="75%">

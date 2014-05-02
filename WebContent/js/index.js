@@ -12,6 +12,50 @@ $(document).ready(function() {
     	$(idFormulario).submit();
     });
     
+    $('#tabBlogNews').hover(function() {
+		$('#tabBlogNews').addClass('cartao ponteiro');
+		$('#tabBlogNews').click(function(){
+			alert("submit form");
+		});
+	}, function() {
+		$('#tabBlogNews').removeClass('cartao ponteiro');
+	});	
+    
+    $('#tabResenhaNews').hover(function() {
+		$('#tabResenhaNews').addClass('cartao ponteiro');
+	}, function() {
+		$('#tabResenhaNews').removeClass('cartao ponteiro');
+	});	
+    
+    $('#tabLinkNews').hover(function() {
+		$('#tabLinkNews').addClass('cartao ponteiro');
+	}, function() {
+		$('#tabLinkNews').removeClass('cartao ponteiro');
+	});	
+    
+    $('#tabDepoimentoNews').hover(function() {
+		$('#tabDepoimentoNews').addClass('cartao ponteiro');
+	}, function() {
+		$('#tabDepoimentoNews').removeClass('cartao ponteiro');
+	});	
+    
+    $('#tabLojaNews').hover(function() {
+		$('#tabLojaNews').addClass('cartao ponteiro');
+	}, function() {
+		$('#tabLojaNews').removeClass('cartao ponteiro');
+	});	
+    
+    $('#tabFaqNews').hover(function() {
+		$('#tabFaqNews').addClass('cartao ponteiro');
+	}, function() {
+		$('#tabFaqNews').removeClass('cartao ponteiro');
+	});	
+    
+    
+    
+    
+    
+    
     
     // fixar o menu durante a rolagem da pagina
     //
