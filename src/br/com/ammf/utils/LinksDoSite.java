@@ -1,9 +1,6 @@
 package br.com.ammf.utils;
 
-public class LinksDoSite {
-	
-	//private String DOMINIO = "http://localhost:8080/ammf";
-	private String DOMINIO = "http://www.quiron.psc.br";	
+public class LinksDoSite {	
 		
 	public LinksDoSite(String email){
 		if(email.endsWith("@gmail.com")){
@@ -11,36 +8,68 @@ public class LinksDoSite {
 		}else{
 			DOMINIO = "http://www.quiron.psc.br";
 		}
-	}	
+		
+		WEB_SITE = DOMINIO;
+
+		REMOVER_EMAIL = DOMINIO + "/pessoa/removerAssinaturaEmail/uuid";
+
+		LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
+		
+		LER_RESENHA_INTEGRA = DOMINIO + "/resenha/cliente/lertexto/uuid";
+		
+		LER_LIVRO_INTEGRA = DOMINIO + "/loja/cliente/verlivro/uuid";
+		
+		LER_LINKS_UTEIS = DOMINIO + "/link/cliente";
+
+		WEB_SITE_LOGIN = DOMINIO + "/login";
+		
+		WEB_SITE_CONTATO = DOMINIO + "/cliente/contato";
+
+		ATIVAR_EMAIL = DOMINIO + "/pessoa/ativar/email/uuid";
+
+		TERMOS_CONTRATO = DOMINIO + "/termosDeContrato";
+
+		TEXTO_QUIRON = DOMINIO + "/quiron";
+
+		TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";	
+
+		TEXTOS_PRINCIPAIS = DOMINIO + "/index/";
+
+		WEB_SITE_FAQ_CLIENTE = DOMINIO + "/cliente/faq";
+		
+		WEB_SITE_FAQ_CLIENTE_RESPOSTA = DOMINIO + "/cliente/faq/uuid";
+	}
 	
-	public final String WEB_SITE = DOMINIO;
-
-	public final String REMOVER_EMAIL = DOMINIO + "/pessoa/removerAssinaturaEmail/uuid";
-
-	public final String LER_TEXTO_INTEGRA = DOMINIO + "/blog/cliente/lertexto/uuid";
+	public String DOMINIO;
 	
-	public final String LER_RESENHA_INTEGRA = DOMINIO + "/resenha/cliente/lertexto/uuid";
+	public String WEB_SITE;
+
+	public String REMOVER_EMAIL;
+
+	public String LER_TEXTO_INTEGRA;
 	
-	public final String LER_LIVRO_INTEGRA = DOMINIO + "/loja/cliente/verlivro/uuid";
+	public String LER_RESENHA_INTEGRA;
 	
-	public final String LER_LINKS_UTEIS = DOMINIO + "/link/cliente";
-
-	public final String WEB_SITE_LOGIN = DOMINIO + "/login";
+	public String LER_LIVRO_INTEGRA;
 	
-	public final String WEB_SITE_CONTATO = DOMINIO + "/cliente/contato";
+	public String LER_LINKS_UTEIS;
 
-	public final String ATIVAR_EMAIL = DOMINIO + "/pessoa/ativar/email/uuid";
-
-	public final String TERMOS_CONTRATO = DOMINIO + "/termosDeContrato";
-
-	public final String TEXTO_QUIRON = DOMINIO + "/quiron";
-
-	public final String TEXTO_BLOG = DOMINIO + "/blog/cliente/lertexto/uuid";	
-
-	public final String TEXTOS_PRINCIPAIS = DOMINIO + "/index/";
-
-	public final String WEB_SITE_FAQ_CLIENTE = DOMINIO + "/cliente/faq";
+	public String WEB_SITE_LOGIN;
 	
-	public final String WEB_SITE_FAQ_CLIENTE_RESPOSTA = DOMINIO + "/cliente/faq/uuid";
+	public String WEB_SITE_CONTATO;
+
+	public String ATIVAR_EMAIL;
+
+	public String TERMOS_CONTRATO;
+
+	public String TEXTO_QUIRON;
+
+	public String TEXTO_BLOG;	
+
+	public String TEXTOS_PRINCIPAIS;
+
+	public String WEB_SITE_FAQ_CLIENTE;
+	
+	public String WEB_SITE_FAQ_CLIENTE_RESPOSTA;
 
 }
