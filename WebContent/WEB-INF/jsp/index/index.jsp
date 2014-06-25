@@ -50,7 +50,7 @@
 	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
 		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
 		
-			<div align="center"><img src="${imagem}/icone_noticias.png" /></div>
+			<div align="center"><img class="icone50" src="${imagem}/icone_noticias.png" /><h2>Publica&ccedil;&otilde;es Recentes</h2></div>
 			<%-- 
 			<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> &Uacute;ltimas Publica&ccedil;&otilde;es...</span></p>
 			 --%>			

@@ -116,7 +116,7 @@ ${conteudoEmBranco}
 	
 	<!-- Adicionar um comentario para o texto -->
 	<br/>
-	<div  align="left" class="cardViewText paddingPadrao">
+	<div  align="left" class="cardViewTextNoBackground paddingPadrao">
 		
 		<div>
 			<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>
@@ -228,7 +228,7 @@ ${conteudoEmBranco}
 					
 					<!-- Adicionar um comentario para o texto -->
 					<br/>
-					<div  align="left" class="cardViewText">
+					<div  align="left" class="cardViewTextNoBackground">
 						
 						<div>
 							<span id="sinalNovoComentarioResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
@@ -376,7 +376,7 @@ ${conteudoEmBranco}
 					
 				<!-- Adicionar um comentario para o texto -->
 				<br/>
-				<div  align="left" class="cardViewText">
+				<div  align="left" class="cardViewTextNoBackground">
 					
 					<div>
 						<span id="sinalNovoComentarioResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>

@@ -81,7 +81,7 @@
 			
 			<!-- Adicionar um comentario para o texto -->
 			<br/>
-			<div  align="left" class="cardViewText paddingPadrao">
+			<div  align="left" class="cardViewTextNoBackground paddingPadrao">
 				
 				<div class="paddingPadrao">
 					<span id="imgNovoComentarioBlogPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
@@ -195,7 +195,7 @@
 			
 			<!-- Adicionar um comentario para o texto -->
 			<br/>
-			<div class="cardViewText paddingPadrao" align="left">
+			<div class="cardViewTextNoBackground paddingPadrao" align="left">
 				<div>
 					<span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
 					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
