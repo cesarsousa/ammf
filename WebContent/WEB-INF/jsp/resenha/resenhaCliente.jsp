@@ -29,26 +29,26 @@ ${conteudoEmBranco}
 
 <div align="center">
 
-<h2 class="tituloPagina">Resenhas</h2>
-
-<p>
-<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar minha opni&atilde;o a respeito das coisas que leio e assisto.</span>
-</p>
+<h2 class="tituloPagina">Resenhas</h2>	
 
 <c:if test="${not empty ultimaPublicacao}">
-	<div id="divTiposCategoriasResenha" class="paddingPadrao cardViewText" style="text-align: center;">
+	<div align="center">
+	
+	<div class="paddingPadrao tamanhoDefault" style="text-align: left;">
 	
 	<p>
 	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
 	</p>
 	
-	<div id="divCategoriasResenha">
+	<div>
 		<c:forEach items="${categoriasResenha}" var="categoria">
 		<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
 		<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
 		</a>
 		</c:forEach>
 	</div>
+	</div>
+	
 	</div>
 </c:if>
 
@@ -174,7 +174,11 @@ ${conteudoEmBranco}
 	<c:choose>
 		<c:when test="${not empty ultimaPublicacao}">
 		
-		<h3 style="padding-left: 10px; text-align: center;">&Uacute;ltima resenha publicada.</h3>
+		<div class="tamanhoDefault">
+		<p align="left">
+		<span class="info azulClaro letraGrande" >&Uacute;ltima publica&ccedil;&atilde;o</span>
+		</p>
+		</div>
 				
 				<div class="cardViewText">
 					<table>

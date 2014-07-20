@@ -48,17 +48,18 @@ ${perguntaEmBranco}
 		</div>
 		
 		<br/><br/>	
-	</c:if>
-
+	</c:if>		
+	
+	<c:if test="${not empty faqs}">
+	
 	<p>
 	<span class="info azulClaro letraGrande" >Perguntas mais frequentes da &aacute;rea de sa&uacute;de ou sobre qualquer outro assunto. </span>
 	</p>
 	
 	<p>
 	<span class="info azulClaro letraGrande" >Para ler a resposta basta clicar em cima da pergunta desejada. </span>
-	</p>	
+	</p>
 	
-	<c:if test="${not empty faqs}">
 	<div id="divFaqsCadastrados">
 		<div class="cardViewText">
 		<ul class="listaSimples">
@@ -79,7 +80,15 @@ ${perguntaEmBranco}
 	</div>
 	<br/><br/>
 	</c:if>
+	<c:if test="${empty faqs}">
+		<div class="cardViewText">
+		<p class="textoAutorBlog azulClaro fonteGrande centralizar">Alcindo Miguel n&atilde;o publicou nenhuma pergunta ainda</p>
+		</div>
+		<br/>
+	</c:if>
 	
+	
+		
 	<input id="flagFaqErroCadastro" type="hidden" value="${flagFaqErroCadastro}" />
 
 	<div class="superFooter" align="center">

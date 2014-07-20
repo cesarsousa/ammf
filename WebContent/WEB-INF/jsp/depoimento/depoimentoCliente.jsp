@@ -31,10 +31,13 @@ ${textoEmBranco}
 <div id="divPgDepoimentoCliente" align="center">
 
 	<h2 class="tituloPagina">Depoimentos</h2>
-
-	<p>
-	<span class="info azulClaro letraGrande" >O que as pessoas acham a respeito do Miguel.</span>
-	</p>
+	
+	<c:if test="${empty depoimentos}">
+	<div class="cardViewText">
+	<p class="textoAutorBlog azulClaro fonteGrande centralizar">N&atilde;o foram publicados depoimentos a respeito de Alcindo Miguel.</p>
+	</div>
+	<br/>		
+	</c:if>
 
 	<div id="divDepoimentosCadastrados">
 		<c:forEach items="${depoimentos}" var="depoimento">

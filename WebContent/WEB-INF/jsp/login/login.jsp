@@ -1,7 +1,7 @@
 
-<div class="msgBorder msgInfo">
+<!-- <div class="msgBorder msgInfo">
 ADMINISTRADOR - Acesso ao sistema
-</div>
+</div> -->
 
 <c:if test="${not empty erroLogin}">
 	<div class="msgBorder msgErro ponteiro closeClick">${erroLogin}</div>

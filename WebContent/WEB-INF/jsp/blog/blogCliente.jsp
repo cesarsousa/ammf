@@ -19,13 +19,8 @@
 <form id="formBlogComentado" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 
-<div id="" align="center">
-
-<h2 class="tituloPagina">Blog do Miguel</h2>
-
-<p>
-<span class="info azulClaro letraGrande" >Aqui voc&ecirc; vai encontrar os meus textos e saber um pouco mais sobre o que gosto de escrever e compartilhar com meu p&uacute;blico.</span>
-</p>
+<div align="center">
+	<h2 class="tituloPagina">Blog</h2>
 </div>
 
 <div align="center">
@@ -45,6 +40,13 @@
 		
 		<c:otherwise>
 		<div id="ultimaPublicacao">
+			
+			<div class="tamanhoDefault">
+			<p align="left">
+			<span class="info azulClaro letraGrande" >&Uacute;ltima publica&ccedil;&atilde;o</span>
+			</p>
+			</div>
+			
 			<div class="cardViewText paddingPadrao">
 			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
 				
