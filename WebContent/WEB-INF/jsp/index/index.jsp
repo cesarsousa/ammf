@@ -61,13 +61,11 @@
 				   	<td width="75%"> 
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>
-				    			<td align="center"><p class="azulClaro fonteGrande">${blogNewsTitulo}</p></td>
-				    		</tr>
-				    		<tr>
-				    			<td align="center" class="textoConteudoBlog">${blogNewsConteudo}</td>
-				    		</tr>
-				    		<tr>
-				    			<td align="right" class="textoPostagemBlog aDireita negrito">${blogNewsPostagem}</td>
+				    			<td align="center">
+				    				<p class="azulClaro fonteGrande">${blogNewsTitulo}</p>
+				    				<p class="textoPostagemBlog negrito">${blogNewsPostagem}</p>
+				    				<p class="textoConteudoBlog">${blogNewsConteudo}</p>
+				    			</td>
 				    		</tr>
 				    	</table>
 				  	</td>
@@ -82,14 +80,11 @@
 				  	<td width="75%">
 				  		<table style="border-left: 1px solid #cccccc;" width="100%">
 				  			<tr>				    
-						    	<td align="center"><p class="azulClaro fonteGrande">${resenhaNewsTitulo}</p></td>
-						  	</tr>
-						  	<tr>  
-						    	<td align="center" class="textoConteudoBlog">${resenhaNewsConteudo}</td>
-						  	</tr>
-						  	<tr>
-						    	<td align="right" class="textoPostagemBlog aDireita negrito">${resenhaNewsPostagem}</td>
-						  	</tr>
+						    	<td align="center">
+						    	<p class="azulClaro fonteGrande">${resenhaNewsTitulo}</p>
+						    	<p class="textoPostagemBlog negrito">${resenhaNewsPostagem}</p>
+						    	<p class="textoConteudoBlog">${resenhaNewsConteudo}</p>
+						    </td>
 				  		</table>
 				  	</td>
 				  </tr>				  
@@ -103,13 +98,11 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><p class="azulClaro fonteGrande">${linkNewsTitulo}</p></td>
-						  	</tr>
-						  	<tr>  
-						    	<td  align="center" class="textoConteudoBlog">${linkNewsConteudo}</td>
-						  	</tr>
-						  	<tr>
-						    	<td  align="right" class="textoPostagemBlog aDireita negrito">${linkNewsPostagem}</td>
+						    	<td  align="center">
+						    		<p class="azulClaro fonteGrande">${linkNewsTitulo}</p>
+						    		<p class="textoPostagemBlog negrito">${linkNewsPostagem}</p>
+						    		<p class="textoConteudoBlog">${linkNewsConteudo}</p>
+						    	</td>
 						  	</tr>
 				    	</table>
 				    </td>
@@ -124,14 +117,13 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><p class="azulClaro fonteGrande">${depoimentoNewsTitulo}</p></td>
+						    	<td  align="center">
+						    		<p class="azulClaro fonteGrande">${depoimentoNewsTitulo}</p>
+						    		<p class="textoPostagemBlog negrito">${depoimentoNewsPostagem}</p>
+						    		<p class="textoConteudoBlog">${depoimentoNewsConteudo}</p>
+						    	</td>
 						  	</tr>
-						  	<tr>  
-						    	<td  align="center" class="textoConteudoBlog">${depoimentoNewsConteudo}</td>
-						  	</tr>
-						  	<tr>
-						    	<td  align="right" class="textoPostagemBlog aDireita negrito">${depoimentoNewsPostagem}</td>
-						  	</tr>
+						    	
 				    	</table>
 				    </td>
 				  </tr>				 
@@ -145,13 +137,11 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><p class="azulClaro fonteGrande">${lojaNewsTitulo}</p></td>
-						  	</tr>
-						  	<tr>  
-						    	<td  align="center" class="textoConteudoBlog">${lojaNewsConteudo}</td>
-						  	</tr>
-						  	<tr>
-						    	<td  align="right" class="textoPostagemBlog aDireita negrito">${lojaNewsPostagem}</td>
+						    	<td  align="center">
+						    		<p class="azulClaro fonteGrande">${lojaNewsTitulo}</p>
+						    		<p class="textoPostagemBlog negrito">${lojaNewsPostagem}</p>
+						    		<p class="textoConteudoBlog">${lojaNewsConteudo}</p>
+						    	</td>
 						  	</tr>
 				    	</table>
 				    </td>
@@ -166,13 +156,11 @@
 				    <td width="75%">
 				    	<table style="border-left: 1px solid #cccccc;" width="100%">
 				    		<tr>				    
-						    	<td  align="center"><p class="azulClaro fonteGrande">${faqNewsTitulo}</p></td>
-						  	</tr>
-						  	<tr>  
-						    	<td  align="center" class="textoConteudoBlog">${faqNewsConteudo}</td>
-						  	</tr>
-						  	<tr>
-						    	<td  align="right" class="textoPostagemBlog aDireita negrito">${faqNewsPostagem}</td>
+						    	<td  align="center">
+						    		<p class="azulClaro fonteGrande">${faqNewsTitulo}</p>
+						    		<p class="textoPostagemBlog negrito">${faqNewsPostagem}</p>
+						    		<p class="textoConteudoBlog">${faqNewsConteudo}</p>
+						    	</td>
 						  	</tr>
 				    	</table>
 				    </td>
