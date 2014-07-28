@@ -779,8 +779,9 @@ a:HOVER {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
-	border: 1px solid #CCCCCC;
-	/* background-color: #FFFFFF; */
+}
+.cartao:hover{
+	background-color: #F8F8FF;
 }
 
 .cartaoSemBordaBottom{
