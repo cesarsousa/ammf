@@ -71,7 +71,7 @@ ${textoEmBranco}
 					</div>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm2">Email <span class="info azulClaro" >(n&atilde;o ser&aacute; divulgado no site)</span></label>
+					<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 					<input id="cadastroDepoimentoEmail" type="text" name="depoimento.email" value="${novoComentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
 					</div>
 					

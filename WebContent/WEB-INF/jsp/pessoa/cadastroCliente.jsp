@@ -39,11 +39,11 @@
 <form action="<c:url value="/cliente/cadastrar"/>" method="post">	 
 	
 	<p>
-	<span id="btNovaPergunta" class="info azulClaro altura30" style="font-size: x-large;">Cadastre-se e fique em contato comigo sempre que houver novidades no site. </span>
+	<span id="btNovaPergunta" class="info azulClaro altura30" style="font-size: x-large;">Cadastre-se e fique em contato comigo sempre que houver novidades no site.</span>
 	</p>
 	
 	<p>
-	<span class="info azulClaro" >N&atilde;o se preocupe, seus dados n&atilde;o ser&atilde;o divulgados no site.</span>	
+	<span class="info azulClaro" >N&atilde;o se preocupe, seus dados n&atilde;o ser&atilde;o divulgados no site :)</span>
 	</p>
 	
 	<label class="labelForm">Nome</label>

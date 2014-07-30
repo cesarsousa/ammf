@@ -139,7 +139,7 @@ ${conteudoEmBranco}
 						</div>
 						
 						<div class="paddingPadrao">
-						<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+						<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 						<input id="comentarResenhaEmailEmail" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 						</div>
 						
@@ -255,7 +255,7 @@ ${conteudoEmBranco}
 											</div>
 											
 											<div class="paddingPadrao">
-											<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+											<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 											<input id="comentarResenhaEmailPrincipal" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 											</div>
 											
@@ -401,7 +401,7 @@ ${conteudoEmBranco}
 										</div>
 										
 										<div class="paddingPadrao">
-										<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+										<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 										<input id="comentarNovaResenhaEmail" type="text" name="comentario.email" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 										</div>
 										

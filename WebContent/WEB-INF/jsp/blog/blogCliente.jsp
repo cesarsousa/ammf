@@ -106,7 +106,7 @@
 									</div>
 									
 									<div class="paddingPadrao">
-									<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+									<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 									<input id="comentarTextoEmailPrincipal" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 									</div>
 									
@@ -216,7 +216,7 @@
 									</div>
 									
 									<div class="paddingPadrao">
-									<label class="labelForm2">Email <span class="info azulClaro" >seu email n&atilde;o ser&atilde;o revelados no site.</span></label>
+									<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
 									<input id="comentarTextoEmail" type="text" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
 									</div>
 									

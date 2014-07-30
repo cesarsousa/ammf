@@ -96,7 +96,7 @@
 					
 					<h2>Enviar uma mensagem</h2>
 					
-					<span class="info azulClaro negrito" >N&atilde;o se preocupe seus dados n&atilde;o ser&aacute; divulgado no site</span>
+					<span class="info azulClaro negrito" >N&atilde;o se preocupe seus dados n&atilde;o ser&aacute; divulgado no site :)</span>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Nome</label>

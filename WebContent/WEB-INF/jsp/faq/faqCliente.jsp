@@ -107,7 +107,7 @@ ${perguntaEmBranco}
 					<h2>Qual &eacute; a sua pergunta ?</h2>
 					
 					<p>
-					<span class="info azulClaro" >Seu nome e seu email n&atilde;o ser&atilde;o revelados no site.</span>
+					<span class="info azulClaro" >Seu nome e seu e-mail n&atilde;o ser&atilde;o divulgados no site :)</span>
 					</p>
 					
 					<div class="paddingPadrao">
@@ -129,10 +129,12 @@ ${perguntaEmBranco}
 					</h3>
 					</div>
 					
+					<div align="justify">
 					<p class="info azulClaro">Marcar a pergunta como p&uacute;blica significa que quando respondida, a pergunta será divulgada no site.</p>
 					<p class="info azulClaro">Seu nome e seu email <b>N&atilde;o</b> ser&atilde;o associados a pergunta.</p>
 					<p class="info azulClaro">Deste modo quando outras pessoas tiverem uma pergunta parecida poder&atilde;o utiliz&aacute;-la como refer&ecirc;ncia.</p>
 					<p class="info azulClaro">Certifique-se de n&atilde;o utilizar informa&ccedil;&otilde;es pessoas em perguntas p&uacute;blicas.</p>
+					</div>
 					
 					<label class="labelForm2"><input id="checkPerguntaPublica" type="checkbox" name="faq.publica" />Deixar esta pergunta p&uacute;blica</label>
 								
