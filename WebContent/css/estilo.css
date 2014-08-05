@@ -1349,8 +1349,10 @@ a:HOVER {
 }
 
 .fotoLivro {
-	width: 100px;
-	height: 150px;
+	/* width: 100px;
+	height: 150px; */
+	width: 200px;
+	height: 300px;
 	box-shadow: 5px 5px 5px #8B8484;
 	border: 1px solid #CCCCCC;
 }

@@ -34,7 +34,7 @@
 		
 		</td>
 		
-		<td valign="top">
+		<td valign="top" class="paddingPadrao">
 		<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
 		<p class="autor" >${livro.autor}</p>
 		<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}</p>
@@ -208,7 +208,7 @@
 							</a>
 						</td>
 						
-						<td valign="top">
+						<td valign="top" class="paddingPadrao">
 						<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
 						<p class="autor" >${livro.autor}</p>
 						<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}
@@ -342,7 +342,7 @@
 							</a>													
 						</td>
 						
-						<td valign="top">
+						<td valign="top" class="paddingPadrao">
 						<p class="titulo" >${livro.titulo}<br/><span class="subtitulo" >${livro.subtitulo}</span></p>
 						<p class="autor" >${livro.autor}</p>
 						<p class="fonteSuperGrande titulo azulClaro" >R$ ${livro.precoFormatado}
