@@ -5,12 +5,14 @@ import java.util.List;
 
 import br.com.ammf.model.Local;
 import br.com.ammf.model.SessaoUsuario;
+import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
+import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.MenuService;
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -23,6 +25,7 @@ public class MenuServiceImp implements MenuService{
 	private FaqRepository faqRepository;
 	private TerapeutaRepository terapeutaRepository;
 	private ComentarioRepository comentarioRepository;
+	private UsuarioRepository usuarioRepository;
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
@@ -30,13 +33,15 @@ public class MenuServiceImp implements MenuService{
 			DepoimentoRepository depoimentoRepository,
 			FaqRepository faqRepository,
 			TerapeutaRepository terapeutaRepository,
-			ComentarioRepository comentarioRepository){
+			ComentarioRepository comentarioRepository,
+			UsuarioRepository usuarioRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.depoimentoRepository = depoimentoRepository;
 		this.faqRepository = faqRepository;
 		this.terapeutaRepository = terapeutaRepository;
 		this.comentarioRepository = comentarioRepository;
+		this.usuarioRepository = usuarioRepository;
 	}
 
 	@Override
@@ -54,6 +59,11 @@ public class MenuServiceImp implements MenuService{
 		
 	private List<String> atualizarListaDeNotificacoes() {
 		List<String> notificacoes = new ArrayList<String>();
+		
+		Usuario administrador = this.usuarioRepository.obterAdministrador();
+		if(!administrador.isEmailAtivado()){
+			notificacoes.add("<b>ATEN&Ccedil;&Atilde;O!<br/></b>O envio de e-mail est&aacute; desativado, para ativar acesse '<i>Configura&ccedil;&otilde;es da Conta</i>' e selecione a op&ccedil;&atilde;o '<i>Ativar o envio de email ...</i>' <br/>");
+		}
 		
 		int totalComentariosBlogPendentes = comentarioRepository.getTotalComentariosPendentes(Local.BLOG);
 		if(totalComentariosBlogPendentes > 0){

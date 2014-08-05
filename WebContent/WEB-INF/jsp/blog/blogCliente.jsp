@@ -59,8 +59,9 @@
 			<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 				<br/>
 				<div class="cardViewText paddingPadrao" align="left">
-				<span id="imgdivComentariosTextoPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-				<span id="btdivComentariosTextoPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
+				<!-- <span id="imgdivComentariosTextoPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+				<span id="btdivComentariosTextoPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
+				<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 				
 				<div id="divComentariosTextoPrincipal">
 				<c:forEach items="${ultimaPublicacao.comentariosConfirmados}" var="comentarioTextoPrincipal">
@@ -86,8 +87,9 @@
 			<div  align="left" class="cardViewTextNoBackground paddingPadrao">
 				
 				<div class="paddingPadrao">
-					<span id="imgNovoComentarioBlogPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-					<span id="btNovoComentarioBlogPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
+					<!-- <span id="imgNovoComentarioBlogPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+					<span id="btNovoComentarioBlogPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span> -->					
+					<span class="info azulClaro altura30" style="font-size: x-large;">Comentar este texto</span>
 				</div>
 				
 				<form action="<c:url value="/blog/cliente/comentario/principal"/>" method="post">		
@@ -188,8 +190,9 @@
 			<div id="divVisualizarComentarios">
 				<br/>
 				<div class="cardViewText paddingPadrao" align="left">
-					<span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-					<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
+					<!-- <span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+					<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
+					<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 					
 					<div id="divComentariosBlog"></div>				
 				</div>					
@@ -199,8 +202,9 @@
 			<br/>
 			<div class="cardViewTextNoBackground paddingPadrao" align="left">
 				<div>
-					<span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
+					<!-- <span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span> -->
+					<span class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span>
 				</div>
 					<table width="1000px">
 						<tr>

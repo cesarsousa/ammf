@@ -74,16 +74,10 @@ ${conteudoEmBranco}
 			<c:forEach items="${paragrafosResenha}" var="paragrafoResenha">
 				<p class="textoConteudoDepoimento">${paragrafoResenha.trechoTexto}</p>
 			</c:forEach>
-			</div>					
-		
-		
+			</div>	
 		
 		<%-- <p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p> --%>
-		
-		
-		
-		
-		
+				
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
 		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>		
 		</td>
@@ -94,7 +88,8 @@ ${conteudoEmBranco}
 	<c:if test="${not empty resenha.comentariosConfirmados}">
 		<br/>			
 		<div class="cardViewText paddingPadrao">
-		<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+		<!-- <span class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span> -->
 		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 		
 		<div id="divComentariosResenhaEmail">
@@ -119,7 +114,8 @@ ${conteudoEmBranco}
 	<div  align="left" class="cardViewTextNoBackground paddingPadrao">
 		
 		<div>
-			<span class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+			<!-- <span class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span> -->
 			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 		</div>
 		
@@ -210,8 +206,9 @@ ${conteudoEmBranco}
 				<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 						<br/>			
 						<div class="cardViewText">
-						<span id="sinalComentariosResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-						<span id="btViewComentariosResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>								
+						<!-- <span id="sinalComentariosResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+						<span id="btViewComentariosResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
+						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 						
 						<div id="divComentariosResenhaPrincipal">
 						<c:forEach items="${ultimaPublicacao.comentariosConfirmados}" var="comentarioTextoPrincipal">
@@ -235,8 +232,9 @@ ${conteudoEmBranco}
 					<div  align="left" class="cardViewTextNoBackground">
 						
 						<div>
-							<span id="sinalNovoComentarioResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-							<span id="btNovoComentarioResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span>
+							<!-- <span id="sinalNovoComentarioResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+							<span id="btNovoComentarioResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span> -->
+							<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 						</div>
 						
 						<form action="<c:url value="/resenha/cliente/comentario/principal"/>" method="post">		
@@ -372,8 +370,9 @@ ${conteudoEmBranco}
 				<div id="divVisualizarComentariosResenha">
 					<br/>
 					<div class="cardViewText">
-						<span id="sinalComentariosResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-						<span id="btViewComentariosResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span>					
+						<!-- <span id="sinalComentariosResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
+						<span id="btViewComentariosResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
+						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>					
 						<div id="divComentariosResenha"></div>				
 					</div>
 				</div>
@@ -383,8 +382,9 @@ ${conteudoEmBranco}
 				<div  align="left" class="cardViewTextNoBackground">
 					
 					<div>
-						<span id="sinalNovoComentarioResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-						<span id="btNovoComentarioResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span>
+						<!-- <span id="sinalNovoComentarioResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
+						<span id="btNovoComentarioResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span> -->
+						<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 					</div>
 					
 						<table width="1000px">
