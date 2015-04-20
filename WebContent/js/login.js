@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	
-	var usuario = "Usuário";
+/*	var usuario = "Usuário";
 	$('#usuarioLogin').puts(usuario);	
 		
 	$('#passwordChecker').show();
@@ -21,5 +21,5 @@ $(document).ready(function() {
     
     addRemoveDestaque("#usuarioLogin");
     
-    addRemoveDestaque("#usuarioSenha");
+    addRemoveDestaque("#usuarioSenha");*/
 });

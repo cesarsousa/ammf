@@ -1,10 +1,7 @@
-
-<!-- <div class="msgBorder msgInfo">
-ADMINISTRADOR - Acesso ao sistema
-</div> -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <c:if test="${not empty erroLogin}">
-	<div class="msgBorder msgErro ponteiro closeClick">${erroLogin}</div>
+	<div class="alert alert-danger ponteiro closeClick" role="alert">${erroLogin}</div>
 </c:if>
 
 <%@ include file="/headerLib.jsp" %>
@@ -15,12 +12,13 @@ ADMINISTRADOR - Acesso ao sistema
 <div id="areaLogin">
 
 <form action="<c:url value="/login/autenticacao"></c:url>" method="post">
-	<input id="usuarioLogin" type="text" name="login" class="letraCinza largura100 altura30 bordaPadrao paddingInput" maxlength="100"/>
-	<br/><br/>
-	<input id="passwordChecker" type="text" value="Senha" class="letraCinza largura100 altura30 bordaPadrao paddingInput" maxlength="100"/>
-	<input id="usuarioSenha" type="password" name="senha" class="letraCinza largura100 altura30 bordaPadrao paddingInput" maxlength="100"/>
-	<br/><br/>
-	<input type="submit" value="login"  class="button direita tamanhoPadrao"/>
+
+	<input id="usuarioLogin" type="text" name="login" class="form-control" maxlength="100" placeholder="Usuário"/>
+	<br/>
+	<input id="usuarioSenha" type="password" name="senha" class="form-control" maxlength="100" placeholder="Senha"/>
+	<br/>
+	<input type="submit" value="login"  class="btn btn-success"/>
+	
 </form>
 </div>
 </div>
