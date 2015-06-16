@@ -47,173 +47,69 @@
 	<form id="formFaqNews" action="<c:url value="/cliente/faq" />" method="get"></form>
 
 	<c:if test="${not empty news}">
-	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
-		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
-		
-			<div align="center"><img class="icone50" src="${imagem}/icone_noticias.png" /><h2>Publica&ccedil;&otilde;es Recentes</h2></div>
-			<%-- 
-			<p><span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> &Uacute;ltimas Publica&ccedil;&otilde;es...</span></p>
-			 --%>			
-			<c:if test="${not empty blogNews}">
-				<table id="tabBlogNews" width="100%" class="paddingPadrao">
-				  <tr align="center">
-				    <td width="25%" align="center"><h3 class="tituloPagina">Blog</h3></td>
-				   	<td width="75%"> 
-				    	<table style="border-left: 1px solid #cccccc;" width="100%">
-				    		<tr>
-				    			<td align="center">
-				    				<p class="azulClaro fonteGrande">${blogNewsTitulo}</p>
-				    				<p class="textoPostagemBlog negrito">${blogNewsPostagem}</p>
-				    				<p class="textoConteudoBlog">${blogNewsConteudo}</p>
-				    			</td>
-				    		</tr>
-				    	</table>
-				  	</td>
-				  </tr>
-				</table>			
+		<div id="gatilhoNews">		
+						
+			<c:if test="${not empty blogNews}">			
+				<div class="jumbotron">
+	  				<h1>Blog</h1>
+				  	<h4>${blogNewsPostagem}</h4>
+				  	<h2 class="azulClaro" >${blogNewsTitulo}</h2>
+				  	<h3>${blogNewsConteudo}</h3>
+				  	<a id="tabBlogNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>
+				</div>						
 			</c:if>			
 			
 			<c:if test="${not empty resenhaNews}">
-				<table id="tabResenhaNews" width="100%" class="paddingPadrao">
-				  <tr>
-				    <td width="25%" align="center"><h3 class="tituloPagina">Resenha</h3></td>
-				  	<td width="75%">
-				  		<table style="border-left: 1px solid #cccccc;" width="100%">
-				  			<tr>				    
-						    	<td align="center">
-						    	<p class="azulClaro fonteGrande">${resenhaNewsTitulo}</p>
-						    	<p class="textoPostagemBlog negrito">${resenhaNewsPostagem}</p>
-						    	<p class="textoConteudoBlog">${resenhaNewsConteudo}</p>
-						    </td>
-				  		</table>
-				  	</td>
-				  </tr>				  
-				</table>			
+				<div class="jumbotron">
+	  				<h1>Resenha</h1>
+				  	<h4>${resenhaNewsPostagem}</h4>
+				  	<h2 class="azulClaro" >${resenhaNewsTitulo}</h2>
+				  	<h3>${resenhaNewsConteudo}</h3>
+				  	<a id="tabResenhaNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>
+				</div>							
 			</c:if>
 		
 			<c:if test="${not empty linkNews}">
-				<table id="tabLinkNews" width="100%" class="paddingPadrao">
-				  <tr>
-				    <td width="25%" align="center"><h3 class="tituloPagina">Link</h3></td>
-				    <td width="75%">
-				    	<table style="border-left: 1px solid #cccccc;" width="100%">
-				    		<tr>				    
-						    	<td  align="center">
-						    		<p class="azulClaro fonteGrande">${linkNewsTitulo}</p>
-						    		<p class="textoPostagemBlog negrito">${linkNewsPostagem}</p>
-						    		<p class="textoConteudoBlog">${linkNewsConteudo}</p>
-						    	</td>
-						  	</tr>
-				    	</table>
-				    </td>
-				  </tr>				 
-				</table>				
+				<div class="jumbotron">
+	  				<h1>Links &Uacute;teis</h1>
+				  	<h4>${linkNewsPostagem}</h4>
+				  	<h2 class="azulClaro" >${linkNewsTitulo}</h2>
+				  	<h3>${linkNewsConteudo}</h3>
+				  	<a id="tabLinkNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>
+				</div>
 			</c:if>
 		
 			<c:if test="${not empty depoimentoNews}">
-				<table id="tabDepoimentoNews" width="100%" class="paddingPadrao">
-				  <tr>
-				    <td width="25%" align="center"><h3 class="tituloPagina">Depoimento</h3></td>
-				    <td width="75%">
-				    	<table style="border-left: 1px solid #cccccc;" width="100%">
-				    		<tr>				    
-						    	<td  align="center">
-						    		<p class="azulClaro fonteGrande">${depoimentoNewsTitulo}</p>
-						    		<p class="textoPostagemBlog negrito">${depoimentoNewsPostagem}</p>
-						    		<p class="textoConteudoBlog">${depoimentoNewsConteudo}</p>
-						    	</td>
-						  	</tr>
-						    	
-				    	</table>
-				    </td>
-				  </tr>				 
-				</table>
+				<div class="jumbotron">
+	  				<h1>Depoimento</h1>
+				  	<h4>${depoimentoNewsPostagem}</h4>
+				  	<h2 class="azulClaro" >${depoimentoNewsTitulo}</h2>
+				  	<h3>${depoimentoNewsConteudo}</h3>
+				  	<a id="tabDepoimentoNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>
+				</div>
 			</c:if>
 		
 			<c:if test="${not empty lojaNews}">
-				<table id="tabLojaNews" width="100%" class="paddingPadrao">
-				  <tr>
-				    <td width="25%" align="center"><h3 class="tituloPagina">Loja Virtual</h3></td>
-				    <td width="75%">
-				    	<table style="border-left: 1px solid #cccccc;" width="100%">
-				    		<tr>				    
-						    	<td  align="center">
-						    		<p class="azulClaro fonteGrande">${lojaNewsTitulo}</p>
-						    		<p class="textoPostagemBlog negrito">${lojaNewsPostagem}</p>
-						    		<p class="textoConteudoBlog">${lojaNewsConteudo}</p>
-						    	</td>
-						  	</tr>
-				    	</table>
-				    </td>
-				  </tr>				 
-				</table>
+				<div class="jumbotron">
+	  				<h1>Loja Virtual</h1>
+	  				<h4>${lojaNewsPostagem}</h4>
+				  	<h2 class="azulClaro" >${lojaNewsTitulo}</h2>
+				  	<h3>${lojaNewsConteudo}</h3>
+				  	<a id="tabLojaNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>
+				</div>
 			</c:if>
 		
 			<c:if test="${not empty faqNews}">
-				<table id="tabFaqNews" width="100%" class="paddingPadrao">
-				  <tr>
-				    <td width="25%" align="center"><h3 class="tituloPagina">Faq</h3></td>
-				    <td width="75%">
-				    	<table style="border-left: 1px solid #cccccc;" width="100%">
-				    		<tr>				    
-						    	<td  align="center">
-						    		<p class="azulClaro fonteGrande">${faqNewsTitulo}</p>
-						    		<p class="textoPostagemBlog negrito">${faqNewsPostagem}</p>
-						    		<p class="textoConteudoBlog">${faqNewsConteudo}</p>
-						    	</td>
-						  	</tr>
-				    	</table>
-				    </td>
-				  </tr>				 
-				</table>
+				<div class="jumbotron">
+					<h1>Faq</h1>
+					<h4>${faqNewsPostagem}</h4>
+					<h2 class="azulClaro">${faqNewsTitulo}</h2>
+					<h3>${faqNewsConteudo}</h3>
+					<a id="tabFaqNews" class="btn btn-primary btn-lg" role="button">Saber mais...</a>					
+				</div>
 			</c:if>
-			
 		</div>					
-	</div>	
 	</c:if>
-	
-	
-	<%-- <c:if test="${not empty news}">
-	<div class="paddingPadrao superFooter" style="background-color: #FFFFFF; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
-		<div id="gatilhoNews" class="tamanhoDefault paddingPadrao" align="left">
-		
-		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande"><img src="${imagem}/bandeiraNotificar.jpg"> Ultimas Novidades...</span>
-			
-			<ul id="ultimasNovidades">
-				<c:if test="${not empty blogNews}">
-					<li><h3>${blogNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/blog/cliente" />">${blogNewsTitulo}</a></li></ul></li>			 				
-				</c:if>
-			
-				<c:if test="${not empty resenhaNews}">
-					<li><h3>${resenhaNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/resenha/cliente" />">${resenhaNewsTitulo}</a></li></ul></li>
-				</c:if>
-			
-				<c:if test="${not empty linkNews}">
-					<li><h3>${linkNews}</h3>				
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/link/cliente" />">${linkNewsTitulo}</a></li></ul></li>
-				</c:if>
-			
-				<c:if test="${not empty depoimentoNews}">
-					<li><h3>${depoimentoNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/depoimentos" />">${depoimentoNewsTitulo}</a></li></ul></li>
-				</c:if>
-			
-				<c:if test="${not empty lojaNews}">
-					<li><h3>${lojaNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/loja" />">${lojaNewsTitulo}</a></li></ul></li>
-				</c:if>
-			
-				<c:if test="${not empty faqNews}">
-					<li><h3>${faqNews}</h3>
-						<ul style="list-style: none;"><li><a class="infoTabela azulClaro" href="<c:url value="/cliente/faq" />">${faqNewsTitulo}</a></li></ul></li>
-				</c:if>
-			</ul>
-		</div>					
-	</div>	
-	</c:if> --%>
-	
 </div>
 
 </div> <!-- main -->
