@@ -2,13 +2,15 @@
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
+
+<div class="jumbotron">
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Links</h1></div>
+</div>
 
 <div align="center">
 
-	<h2 class="tituloPagina">Links &Uacute;teis </h2>
-	
 	<c:choose>
 		<c:when test="${not empty links}">
 			<div class="cardViewText">

@@ -103,7 +103,7 @@ public class IndexServiceImp implements IndexService{
 
 	public List<Paragrafo> criarListaDeParagrafos(Texto texto) {
 		List<Paragrafo> paragrafos = new ArrayList<Paragrafo>();
-		if(texto == null){
+		if(texto == null || !texto.isConfirmado()){
 			Paragrafo paragrafo = new Paragrafo();
 			paragrafo.setTrechoTexto("Este texto está sendo atualizado... Logo estará disponível.");
 			paragrafos.add(paragrafo);

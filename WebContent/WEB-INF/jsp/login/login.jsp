@@ -20,6 +20,11 @@
 	<input type="submit" value="login"  class="btn btn-success"/>
 	
 </form>
+
+<br/>
+<a href="<c:url value="/"></c:url>">Ir para o site</a>
+
+
 </div>
 </div>
 

@@ -24,13 +24,14 @@ ${textoEmBranco}
 <br/>
 </c:if>
 
-
+<div class="jumbotron">
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Depoimentos</h1></div>
+</div>
 
 <div id="divPgDepoimentoCliente" align="center">
 
-	<h2 class="tituloPagina">Depoimentos</h2>
 	
 	<c:if test="${empty depoimentos}">
 	<div class="cardViewText">

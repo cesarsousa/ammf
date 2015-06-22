@@ -70,17 +70,17 @@ $(window).load(function() {
 </div>
 
 <div id="conteudoQuiron">
-    <h1>QUIRON</h1>
+    <h1 align="center">QUIRON</h1>
 	    <c:forEach items="${sessaoCliente.textoQuiron}" var="paragrafo">
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${paragrafo.trechoTexto}</p>		
 		</c:forEach>
     <div align="right">
     <form action="<c:url value="/" ></c:url>">
-    	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
+    	<input type="submit" value="AlcindoMiguel.com" class="btn btn-primary"/> 
     </form>
-    <br/>
-    <%@ include file="/footerQuiron.jsp" %>
-    
+    <p>
+    <%@ include file="/footerQuiron.jsp" %>    
+    </p>
     </div>
 </div>
 

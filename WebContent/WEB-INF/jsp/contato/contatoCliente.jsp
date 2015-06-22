@@ -3,25 +3,26 @@
 <%@ include file="/headerQuiron.jsp" %>
 
 <c:if test="${not empty msgContatoCliente}">
-	<div class="msgBorder msgSucesso ponteiro closeClick">
+	<div class="alert alert-success ponteiro closeClick">
 	${msgContatoCliente}
 	</div>
 </c:if>
 <c:if test="${not empty msgErroContatoCliente}">
-	<div id="mensagemErroContato" class="msgBorder msgErro ponteiro closeClick">
+	<div id="mensagemErroContato" class="alert alert-danger ponteiro closeClick">
 	${nomeEmBranco}
 	${emailEmBranco}
 	${conteudoEmBranco}
 	</div>
 </c:if>
 
-<%@ include file="/headerSite.jsp"%>
+<div class="jumbotron">
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Contato</h1></div>
+</div>
+
 
 <div id="divPgContatoCliente" align="center">
-
-<%@ include file="/menuPrincipal.jsp" %>
-
-<h2 class="tituloPagina">Contato</h2>
 
 	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
 		<table width="100%">
@@ -49,7 +50,7 @@
 	
 	<div class="cartaoSemBordaTop tamanhoEdicaoIndex bordaPadrao" align="left">
 	<hr class="hrClass">
-	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda a sexta das 08:00 &agrave;s 20:00.</h3>
+	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda &agrave; sexta das 08:00 &agrave;s 20:00 horas.</h3>
 	<p>
 	<span class="info azulClaro negrito">Telefone: ${sessaoCliente.contato.telefone}</span>
 	</p>
@@ -94,6 +95,15 @@
 				<td  width="50%" >					
 					<div style="border-left: 1px solid #CCCCCC; padding: 10px;">
 					
+					<c:if test="${not empty msgErroContatoCliente}">
+						<div id="mensagemErroContato" class="alert alert-danger ponteiro closeClick">
+						${nomeEmBranco}
+						${emailEmBranco}
+						${conteudoEmBranco}
+						</div>
+					</c:if>
+					
+					
 					<h2>Enviar uma mensagem</h2>
 					
 					<span class="info azulClaro negrito" >N&atilde;o se preocupe seus dados n&atilde;o ser&aacute; divulgado no site :)</span>
@@ -118,8 +128,9 @@
 					</h3>
 					
 					<h3 align="right">
-					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="buttonCadastrar direita"/>
+					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="btn btn-success direita"/>
 					</h3>
+					
 					</div>
 				</td>			
 			</tr>		

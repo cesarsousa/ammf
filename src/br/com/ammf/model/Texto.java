@@ -53,6 +53,14 @@ public class Texto implements Serializable{
 	@OneToMany(mappedBy = "texto", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Comentario> comentarios;
 
+	public Texto(Local local) {
+		this.local = local;
+	}
+
+	public Texto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}

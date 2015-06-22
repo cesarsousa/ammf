@@ -21,15 +21,16 @@ ${conteudoEmBranco}
 </c:if>
 <div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
 
+<div class="jumbotron">
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Resenha</h1></div>
+</div>
 
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
 <form id="formResenhaComentada" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 <div align="center">
-
-<h2 class="tituloPagina">Resenhas</h2>	
 
 <c:if test="${not empty ultimaPublicacao}">
 	<div align="center">

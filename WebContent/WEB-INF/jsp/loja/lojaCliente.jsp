@@ -14,13 +14,13 @@
 	</div>
 </c:if>
 
-<%@ include file="/headerSite.jsp"%>
+<div class="jumbotron">
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Loja Virtual</h1></div>
+</div>
 
 <div id="divPgLojaCliente" align="center">
-
-<%@ include file="/menuPrincipal.jsp" %>
-
-<h2 class="tituloPagina">Loja Virtual</h2>
 
 <div align="center">
 <c:if test="${flagRequestLivroEmail}">
@@ -173,13 +173,7 @@
 			
 			<div align="center">
 			<div style="width: 1000px; text-align: left;" >				
-				
-				<%-- id="btLivrosPublicados" --%>
-				<div class="paddingPadrao">
-				<img class="icone" src="${imagem}/iconeLivro.png" alt="livros publicados" title="livros publicados">	
-				<span class="fonteGrande">Estante Virtual</span>
-				</div>	
-				
+								
 				<div style="width: 100%; background-color: #F8F8FF;" class="cartao paddingPadrao bordaPadrao">
 				<c:choose>			
 					<c:when test="${empty livrosPublicados}">					

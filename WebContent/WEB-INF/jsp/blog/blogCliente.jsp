@@ -12,16 +12,17 @@
 </c:if>
 <div id="msgErroBlogCliente" class="msgBorder msgErro closeClick"></div>
 
-<%@ include file="/headerSite.jsp" %>
-<%@ include file="/menuPrincipal.jsp" %>
-
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
 <form id="formBlogComentado" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 
-<div align="center">
-	<h2 class="tituloPagina">Blog</h2>
+<div class="jumbotron">	
+	<%@ include file="/headerSite.jsp" %>
+	<%@ include file="/menuPrincipal.jsp" %>
+	<div align="center"><h1>Blog</h1></div>
 </div>
+
+
 
 <div align="center">
 	<c:choose>		

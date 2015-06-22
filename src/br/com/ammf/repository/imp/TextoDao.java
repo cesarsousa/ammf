@@ -152,9 +152,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoIndex(Texto texto) {
 		try {
 			Texto textoIndex = getTextoIndex();
+			if(textoIndex == null) textoIndex = new Texto(Local.INDEX);
 			textoIndex.setAutor(texto.getAutor());
 			textoIndex.setConteudo(texto.getConteudo());		
-			session.update(textoIndex);
+			session.saveOrUpdate(textoIndex);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -164,9 +165,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoPsicologia(Texto texto) {
 		try {
 			Texto textoPsicologia = getTextoPsicologia();
+			if(textoPsicologia == null) textoPsicologia = new Texto(Local.PSICOLOGIA);
 			textoPsicologia.setConteudo(texto.getConteudo());
 			textoPsicologia.setConfirmado(true);
-			session.update(textoPsicologia);
+			session.saveOrUpdate(textoPsicologia);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -176,9 +178,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoEducacao(Texto texto) {
 		try {
 			Texto textoEducacao = getTextoEducacao();
+			if(textoEducacao == null) textoEducacao = new Texto(Local.EDUCACAO);
 			textoEducacao.setConteudo(texto.getConteudo());
 			textoEducacao.setConfirmado(true);
-			session.update(textoEducacao);
+			session.saveOrUpdate(textoEducacao);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -188,9 +191,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoCultura(Texto texto) {
 		try {
 			Texto textoCultura = getTextoCultura();
+			if(textoCultura == null) textoCultura = new Texto(Local.CULTURA);
 			textoCultura.setConteudo(texto.getConteudo());
 			textoCultura.setConfirmado(true);
-			session.update(textoCultura);
+			session.saveOrUpdate(textoCultura);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -200,9 +204,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoArtesOrientais(Texto texto) {
 		try {
 			Texto textoArtesOrientais = getTextoArtesOrientais();
+			if(textoArtesOrientais == null) textoArtesOrientais = new Texto(Local.ARTESORIENTAIS);
 			textoArtesOrientais.setConteudo(texto.getConteudo());
 			textoArtesOrientais.setConfirmado(true);
-			session.update(textoArtesOrientais);
+			session.saveOrUpdate(textoArtesOrientais);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
@@ -212,9 +217,10 @@ public class TextoDao implements TextoRepository{
 	public void atualizarTextoQuiron(Texto texto) {
 		try {
 			Texto textoQuiron = getTextoQuiron();
+			if(textoQuiron == null) textoQuiron = new Texto(Local.QUIRON);
 			textoQuiron.setConteudo(texto.getConteudo());
 			textoQuiron.setConfirmado(true);
-			session.update(textoQuiron);
+			session.saveOrUpdate(textoQuiron);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
