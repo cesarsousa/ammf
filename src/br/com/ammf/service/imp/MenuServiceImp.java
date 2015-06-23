@@ -75,20 +75,21 @@ public class MenuServiceImp implements MenuService{
 			notificacoes.add("<b>Resenha:</b> "+ totalComentariosResenhaPendentes + " coment&aacute;rio(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
-		int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
+		/*int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
 		if(totalDepoimentosPendentes > 0){
 			notificacoes.add("<b>Depoimento:</b> "+ totalDepoimentosPendentes + " depoimento(s) pendente(s) confirma&ccedil;&atilde;o");
-		}
+		}*/
 		
 		int totalCadastrosPendentes = pessoaRepository.totalCadastrosPendentes();
 		if( totalCadastrosPendentes > 0){
 			notificacoes.add("<b>Cadastro:</b> " + totalCadastrosPendentes + " pessoa(s) pendente(s) confirma&ccedil;&atilde;o");
 		}
 		
-		int totalPerguntasSemResposta = faqRepository.totalPerguntasSemRespostas();
+		/*int totalPerguntasSemResposta = faqRepository.totalPerguntasSemRespostas();
 		if( totalPerguntasSemResposta > 0){
 			notificacoes.add("<b>FAQ:</b> " + totalPerguntasSemResposta + " pergunta(s) pendente(s) resposta");
-		}
+		}*/
+		
 		return notificacoes;
 	}
 

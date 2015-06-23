@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/logAdmin.jsp" %>
 
@@ -74,7 +75,7 @@
 		<tr>
 			<td>
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoIndex" type="button" class="backVermelho button direita" value="fechar">			
+			<input id="btFecharConteudoIndex" type="button" class="btn btn-danger direita" value="fechar">			
 			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
 			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina inicial do site </h2>
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
@@ -105,8 +106,8 @@
 				<h3>Autor:</h3>
 				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
 				
-				<p>
-				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="buttonCadastrar" >			
+				<p class="paddingPadrao">
+				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="btn btn-success direita" >			
 				</p>
 			</form>			
 			</div>
@@ -127,7 +128,7 @@
 		<tr>
 			<td>
 			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoQuiron" type="button" class="backVermelho button direita" value="fechar">
+			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
@@ -166,8 +167,8 @@
 				
 				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
 								
-				<p>
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="buttonCadastrar" >			
+				<p class="paddingPadrao">
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			
 				</p>
 			</form>			
 			</div>
@@ -189,7 +190,7 @@
 		<tr>
 			<td>			
 			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoConta" type="button" class="backVermelho button direita" value="fechar">
+			<input id="btFecharConteudoConta" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
 			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
@@ -347,8 +348,8 @@
 				<textarea id="areaLocalizacaoMapa" rows="10" class="areaTitulo bordaPadrao" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
 				</div>
 							
-				<p>
-				<input type="submit" value="atualizar" class="buttonCadastrar">				
+				<p class="paddingPadrao">
+				<input type="submit" value="atualizar" class="btn btn-success direita">				
 				</p>
 			</form>			
 			</div>
@@ -356,26 +357,35 @@
 		</tr>
 	</table>
 	
-	<div class="separador"></div>	
+	<div class="separador"></div>
 	
-	<table id="tamanhoDefault" >
-		<tr>
-			<td>
-				<ul id="menu">
-					<li><a id="linkEditarTerapeuta" href="">O Terapeuta</a></li>
-					<li><a id="linkEditarPsicologia" href="">Psicologia</a></li>
-					<li><a id="linkEditarEducacao" href="">Educa&ccedil;&atilde;o</a></li>
-					<li><a id="linkEditarCultura" href="">Cultura</a></li>
-					<li><a id="linkEditarOrientais" href="">Artes Orientais</a></li>
-				</ul>
-			</td>
-		</tr>		
-	</table>
+	<table id="tabMenuPrincipal">
+	<tr>
+		<td align="center">
+			<ul id="menu">
+				<li>
+					<img id="imglinkTerapeuta" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.png"/>
+					<a id="linkEditarTerapeuta" href="">O Terapeuta</a></li>
+				<li>
+					<img id="imglinkPsicologia" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/>
+					<a id="linkEditarPsicologia" href="">Psicologia</a></li>
+				<li>
+					<img id="imglinkEducacao" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeEducacaoHover.png"/>
+					<a id="linkEditarEducacao" href="">Educa&ccedil;&atilde;o</a></li>
+				<li>
+					<img id="imglinkCultura" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeCulturaHover.png"/>
+					<a id="linkEditarCultura" href="">Cultura</a></li>
+				<li>
+					<img id="imglinkOrientais" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeOrientalHover.png"/>
+					<a id="linkEditarOrientais" href="">Artes Orientais</a></li>
+			</ul>
+		</td>
+	</tr>
+</table>	
 	
 	<table id="tabTerapeuta" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
-			<input id="btFecharEditarTerapeuta" type="button" class="backVermelho button direita" value="fechar">
 			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.png"/>			
 			<label class="tituloEdicao"> O Terapeuta </label>
 			<h3>Altera&ccedil;&atilde;o das informa&ccedil;&otilde;es que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre o terapeuta.</h3>
@@ -504,10 +514,12 @@
 				<textarea id="edtTratamentoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta">2000</span></h4>	
 				</div>
-							
-				<p>
-				<input id="brAlterarDadosTerapeuta" type="submit" value="atualizar" class="buttonCadastrar">
+				
+				<p class="paddingPadrao">
+				<input id="brAlterarDadosTerapeuta" type="submit" class="btn btn-success" value="Atualizar">
+				<input id="btFecharEditarTerapeuta" type="button" class="btn btn-default" value="Cancelar">
 				</p>
+				
 			</form>			
 			</div>
 			</td>
@@ -517,7 +529,6 @@
 	<table id="tabPsicologia" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
-			<input id="btFecharEditarPsicologia" type="button" class="backVermelho button direita" value="fechar">
 			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconePsicologiaHover.png"/>			
 			<label class="tituloEdicao"> Psicologia </label>
 			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre psicologia.</h3>
@@ -562,9 +573,11 @@
 													
 				<textarea id="campoTextoPsicologia" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoPsicologia.conteudo}</textarea>
 				
-				<p>
-				<input id="brAlterarTxtPsicologia" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
+				<p class="paddingPadrao">
+				<input id="brAlterarTxtPsicologia" type="submit"  class="btn btn-success" value="atualizar e destravar texto">
+				<input id="btFecharEditarPsicologia" type="button" class="btn btn-default" value="Cancelar">
 				</p>
+			
 			</form>			
 			</div>
 			</td>
@@ -574,7 +587,6 @@
 	<table id="tabEducacao" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
-			<input id="btFecharEditarEducacao" type="button" class="backVermelho button direita" value="fechar">
 			<img id="imagemEducacao" class="imgMenuPrincipal" src="${imagem}/iconeEducacaoHover.png"/>			
 			<label class="tituloEdicao"> Educa&ccedil;&atilde;o </label>
 			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre educa&ccedil;&atilde;o.</h3>
@@ -619,9 +631,11 @@
 								
 				<textarea id="campoTextoEducacao" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoEducacao.conteudo}</textarea>
 				
-				<p>
-				<input id="btAlterarTxtEducacao" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
+				<p class="paddingPadrao">
+				<input id="btAlterarTxtEducacao" type="submit" value="atualizar e destravar texto" class="btn btn-success">
+				<input id="btFecharEditarEducacao" type="button" value="Cancelar" class="btn btn-default">
 				</p>
+				
 			</form>			
 			</div>
 			</td>
@@ -631,7 +645,6 @@
 	<table id="tabCultura" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
-			<input id="btFecharEditarCultura" type="button" class="backVermelho button direita" value="fechar">
 			<img class="imgMenuPrincipal" src="${imagem}/iconeCulturaHover.png"/>			
 			<label class="tituloEdicao"> Cultura </label>
 			<h3>Altera&ccedil;&atilde;o do texto que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina sobre cultura.</h3>
@@ -676,9 +689,11 @@
 				
 				<textarea id="campoTextoCultura" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoCultura.conteudo}</textarea>
 				
-				<p>
-				<input id="btAlterarTxtCultura" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
+				<p class="paddingPadrao">
+				<input id="btAlterarTxtCultura" type="submit" value="atualizar e destravar texto" class="btn btn-success">
+				<input id="btFecharEditarCultura" type="button" value="Cancelar" class="btn btn-default">
 				</p>
+				
 			</form>			
 			</div>
 			</td>
@@ -688,7 +703,6 @@
 	<table id="tabArtesOrientais" class="cartao tamanhoEdicaoIndex">
 		<tr>
 			<td>
-			<input id="btFecharEditarArtesOrientais" type="button" class="backVermelho button direita" value="fechar">
 			<img class="imgMenuPrincipal" src="${imagem}/iconeOrientalHover.png"/>			
 			<label class="tituloEdicao"> Artes Orientais </label>
 			<div class="bordaPadrao" align="center">
@@ -738,9 +752,11 @@
 				
 				<textarea id="campoTextoOrientais" class="areaTexto h200 bordaPadrao" name="texto.conteudo">${sessaoUsuario.textoArtesOrientais.conteudo}</textarea>
 				
-				<p>
-				<input id="btAlterarArtOriental" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
+				<p class="paddingPadrao">
+				<input id="btAlterarArtOriental" type="submit" value="atualizar e destravar texto" class="btn btn-success">
+				<input id="btFecharEditarArtesOrientais" type="button" value="Cancelar" class="btn btn-default">
 				</p>
+				
 			</form>			
 			</div>
 			</td>
@@ -748,10 +764,11 @@
 	</table>
 	
 	<div class="separador"></div>
+		
+	<div align="center">	
 	
-	<div align="center">
 	<div id="menuLink">		
-			<ul id="menuRodape">
+			<ul id="menuRodape" >
 				<li>
 				<form action="<c:url value="/logout/site" />">
 				<input type="submit" value="Site" class="buttonFooter">
@@ -768,7 +785,13 @@
 				<form action="<c:url value="/menu/resenha" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
-				</li>			
+				</li>
+				
+				<li>
+				<form action="<c:url value="/menu/constelacao" />" method="get">
+				<input type="submit" value="Constelação" class="buttonFooter">
+				</form>
+				</li>				
 				
 				<li>
 				<form action="<c:url value="/menu/link" />" method="get" >

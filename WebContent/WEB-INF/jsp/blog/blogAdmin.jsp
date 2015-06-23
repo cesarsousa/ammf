@@ -2,6 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<div align="center">
 <c:if test="${not empty blogMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${blogMensagemSucesso} 
@@ -20,6 +21,7 @@
 	${autorEmBranco}
 	${conteudoEmBranco}</div>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -77,9 +79,7 @@
 <table id="tdNovoBlog" class="cardViewText">		
 	<tr>
 		<td >
-		<div align="right">
-		<input id="btFecharAddTextoBlog" type="button" value="fechar" class="backVermelho button">
-		</div>
+		
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Novo Texto</h2>
 		
@@ -118,9 +118,9 @@
 			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">10000</span> caracteres em seu texto.
 			</h4>
 			
-			<p>
-			<input id="btCadBlogTexto" type="submit" value="cadastrar" class="buttonCadastrar">
-			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="button">
+			<p class="paddingPadrao">
+			<input id="btCadBlogTexto" type="submit" value="cadastrar" class="btn btn-success">
+			<input id="btBlogCancelNovoTexto" type="button" value="cancelar" class="btn btn-default">
 			</p>
 			</form>
 		</td>

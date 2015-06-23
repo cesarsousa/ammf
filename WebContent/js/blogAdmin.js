@@ -88,13 +88,13 @@ $(document).ready(function() {
 	if($('#flagCadastrarNovoBlog').val()){
 		$('#tdNovoBlog').slideDown(500);
 	}
-	/*$('#btAddTextoBlog').click(function() {
+	$('#btAddTextoBlog').click(function() {
 		hideAllBlogFields();
 		$('#tdNovoBlog').slideDown(500);		
 	});
 	$('#btFecharAddTextoBlog').click(function() {
 		$('#tdNovoBlog').slideUp(500);		
-	});*/	
+	});	
 	$('#btAddTextoBlog').click(function() {
 		$('#formBlogNovoTexto').submit();		
 	});
@@ -125,10 +125,7 @@ $(document).ready(function() {
 	}
 
 	$('#btBlogCancelNovoTexto').click(function(){
-		$('#blogTituloNovoTexto').val('');
-		$('#blogConteudoNovoTexto').val('');
-		$('#blogAutorNovoTexto').val('Alcindo Miguel Martins Filho');
-		$('#divBlogNovoTexto').slideUp(500);		
+		$('#tdNovoBlog').slideUp(500);		
 	});
 	
 	$('#btCadBlogTexto, #btCadEdtTexto').click(function() {		

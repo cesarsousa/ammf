@@ -948,11 +948,11 @@ a:HOVER {
 	text-align: justify;
 	width: 1000px;
 	background: none repeat scroll 0 0 #ffffff;
-	border: 1px solid #CCCCCC;
+	/* border: 1px solid #CCCCCC;
 	border-radius: 2px 2px 2px 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	box-shadow: 2px 2px 2px #CCCCCC;
+	box-shadow: 2px 2px 2px #CCCCCC; */
 	padding: 20px;
 }
 
@@ -973,7 +973,7 @@ a:HOVER {
 #menuRodape li {
 	text-align: center;
 	float: left;
-	width: 83px;
+	width: 120px;
 }
 
 #menuRodape a:hover{
