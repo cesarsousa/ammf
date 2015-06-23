@@ -1,6 +1,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
+<div align="center">
 <c:if test="${not empty erroConfConta}">
 	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">
 	Verifique dado(s) obrigat&oacute;rio(s) de configura&ccedil;&atilde;o da conta n&atilde;o preenchido(s)
@@ -30,6 +31,7 @@
 	</c:forEach>
 	</div>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
@@ -766,37 +768,13 @@
 				<form action="<c:url value="/menu/resenha" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Consultas" class="buttonFooter emDesenv">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Calendario" class="buttonFooter emDesenv">
-				</form>
-				</li>
+				</li>			
 				
 				<li>
 				<form action="<c:url value="/menu/link" />" method="get" >
 				<input type="submit" value="Links" class="buttonFooter">
 				</form>
-				</li>
-				
-				<li>
-				<form action="<c:url value="/menu/depoimentos" />" method="get" >
-				<input type="submit" value="Depoimento" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form>
-				<input type="submit" value="Cursos" class="buttonFooter emDesenv">
-				</form>
-				</li>
+				</li>				
 				
 				<li>
 				<form action="<c:url value="/menu/cadastro" />" method="get" >
@@ -804,21 +782,9 @@
 				</form>
 				</li>
 				
-				<!-- <li>
-				<form>
-				<input type="submit" value="Contato" class="buttonFooter">
-				</form>
-				</li> -->
-				
 				<li>
 				<form action="<c:url value="/menu/loja" />" method="get" >
 				<input type="submit" value="Loja Virtual" class="buttonFooter">
-				</form>
-				</li>
-				
-				<li>
-				<form action="<c:url value="/menu/faq" />" method="get" >
-				<input type="submit" value="FAQ" class="buttonFooter">
 				</form>
 				</li>
 				

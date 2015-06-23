@@ -3,20 +3,20 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<c:if test="${not empty msgIndex}">
-	<div class="alert alert-success closeClick ponteiro">${msgIndex}</div>
-	<br/>
-</c:if>
-
-<c:if test="${not empty msgErroIndex}">
-	<div class="alert alert-danger closeClick ponteiro">${msgErroIndex}</div>
-	<br/>
-</c:if>
-
 <div class="jumbotron">
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 </div>
+
+<c:if test="${not empty msgIndex}">
+	<div class="msgBorder msgSucesso closeClick ponteiro">${msgIndex}</div>
+	<br/>
+</c:if>
+
+<c:if test="${not empty msgErroIndex}">
+	<div class="msgBorder msgErro closeClick ponteiro">${msgErroIndex}</div>
+	<br/>
+</c:if>
 
 <div align="center">	
 	<div class="cardPrincipal">
@@ -38,9 +38,7 @@
 <form id="formBlogNews" action="<c:url value="/blog/cliente" />" method="get"></form>
 <form id="formResenhaNews" action="<c:url value="/resenha/cliente" />" method="get"></form>
 <form id="formLinkNews" action="<c:url value="/link/cliente" />" method="get"></form>
-<form id="formDepoimentoNews" action="<c:url value="/cliente/depoimentos" />" method="get"></form>
 <form id="formLojaNews" action="<c:url value="/cliente/loja" />" method="get"></form>
-<form id="formFaqNews" action="<c:url value="/cliente/faq" />" method="get"></form>
 
 <div align="center" class="fundoPadrao">
 <table class="tamanhoDefault">
@@ -50,7 +48,7 @@
 		<div align="center"> 
 		<div id="gatilhoNews" class="jumbotron" align="left">
 			
-			<h1>&Uacute;timas Not&iacute;cias</h1>
+			<h1>&Uacute;timas Publica&ccedil;&otilde;es</h1>
 						
 			<c:if test="${not empty blogNews}">			
 	  				<h2>Blog</h2>				  	

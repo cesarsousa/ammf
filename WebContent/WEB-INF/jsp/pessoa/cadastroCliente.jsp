@@ -8,19 +8,15 @@
 <div align="center"><h1>Cadastro</h1></div>
 </div>
 
-<div id="divPgCadastroCliente" align="center">
-
-<div class="cardViewText" style="text-align: center;">
-<div align="center">
-
-<div id="divMsgCadCliente">
+<div id="divMsgCadCliente" align="center">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco or not empty aceiteEmBranco}">
-	<div class="alert alert-danger">
+	<div class="msgBorder msgErro closeClick ponteiro">
 	${nomeEmBranco}${emailEmBranco}${aceiteEmBranco}	
 	</div>
+	<br>
 </c:if>
 <c:if test="${emailJaCadastrado}">
-	<div class="alert alert-info">
+	<div class="msgBorder msgInfo closeClick ponteiro">
 	<span id="btFormNotifClienteEmailJaCadastrado" class="ponteiro negrito" >Entenda como seu email foi cadastrado neste site</span>
 	<div id="divNotifClienteEmailJaCadastrado">
 		<form id="formNotifClienteEmailJaCadastrado" action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
@@ -32,9 +28,13 @@
 	</div>
 	</div>
 	</c:if>
+	<br>
 </div>
 
+<div id="divPgCadastroCliente" align="center">
 
+<div class="cardViewText" style="text-align: center;">
+<div align="center">
 
 <div  style="width: 50%" >
 <form action="<c:url value="/cliente/cadastrar"/>" method="post">	 

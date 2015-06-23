@@ -5,7 +5,7 @@
 <link rel="icon" type="image/gif" href="${imagem}/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>QUIRON.psc.br</title>
+<title>Alcindo Miguel Martins Filho</title>
 
 <link href="${css}/estilo.css" rel="stylesheet" type="text/css" />
 <link href="${css}/style.css" rel="stylesheet" type="text/css" />
@@ -37,8 +37,6 @@
 <script type="text/javascript" src="${javascript}/blogCliente.js"></script>
 <script type="text/javascript" src="${javascript}/blogAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/cadastroCliente.js"></script>
-<script type="text/javascript" src="${javascript}/depoimentoCliente.js"></script>
-<script type="text/javascript" src="${javascript}/depoimentoAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/contatoCliente.js"></script>
 <script type="text/javascript" src="${javascript}/assinaturaEmail.js"></script>
 <script type="text/javascript" src="${javascript}/lojaCliente.js"></script>
@@ -46,8 +44,6 @@
 <script type="text/javascript" src="${javascript}/resenhaAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/resenhaCliente.js"></script>
 <script type="text/javascript" src="${javascript}/linkAdmin.js"></script>
-<script type="text/javascript" src="${javascript}/faqCliente.js"></script>
-<script type="text/javascript" src="${javascript}/faqAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/script.js"></script>
 <script type="text/javascript" src="${javascript}/wowslider.js"></script>
 

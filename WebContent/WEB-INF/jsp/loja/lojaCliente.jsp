@@ -3,6 +3,13 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
+<div class="jumbotron">
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Loja Virtual</h1></div>
+</div>
+
+<div align="center">
 <c:if test="${not empty msgLojaCliente}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 	${msgLojaCliente}
@@ -13,11 +20,6 @@
 	${msgErroLojaCliente}
 	</div>
 </c:if>
-
-<div class="jumbotron">
-<%@ include file="/headerSite.jsp" %>
-<%@ include file="/menuPrincipal.jsp" %>
-<div align="center"><h1>Loja Virtual</h1></div>
 </div>
 
 <div id="divPgLojaCliente" align="center">

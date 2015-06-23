@@ -3,6 +3,15 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
+<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
+
+<div class="jumbotron">
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center"><h1>Resenha</h1></div>
+</div>
+
+<div align="center">
 <c:if test="${not empty erroComentarioPrincipal}">
 <div class="msgBorder msgErro closeClick ponteiro">
 ${nomeEmBranco}
@@ -19,12 +28,6 @@ ${conteudoEmBranco}
 </div>
 <br/>
 </c:if>
-<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
-
-<div class="jumbotron">
-<%@ include file="/headerSite.jsp" %>
-<%@ include file="/menuPrincipal.jsp" %>
-<div align="center"><h1>Resenha</h1></div>
 </div>
 
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
@@ -154,7 +157,7 @@ ${conteudoEmBranco}
 						<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 									
 						<h3 align="right">
-						<input id="btCadastrarComentarioResenhaEmail" type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+						<input id="btCadastrarComentarioResenhaEmail" type="submit" value="Enviar comentário"  class="btn btn-success direita"/>
 						</h3>
 						</form>					
 					</div>
@@ -272,7 +275,7 @@ ${conteudoEmBranco}
 											<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 														
 											<h3 align="right">
-											<input type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+											<input type="submit" value="Enviar comentário"  class="btn btn-success direita"/>
 											</h3>					
 										</div>
 									</td>			

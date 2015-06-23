@@ -645,8 +645,7 @@ a:HOVER {
 }
 
 #menuLink {
-	width: 1000px;
-	
+	width: 1000px;	
 	background-color: #4F4F4F;
 	border-radius: 1px 1px 1px 1px;
 	-webkit-border-radius: 1px;
@@ -788,7 +787,7 @@ a:HOVER {
 	background-color: #F8F8FF;
 }
 
-.cartaoSemBordaBottom{
+/* .cartaoSemBordaBottom{
 	background-color: #ffffff;
 	border-bottom: none;
 	border-top: 1px solid #CCCCCC;
@@ -798,9 +797,9 @@ a:HOVER {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
-}
+} */
 
-.cartaoSemBordaTop{
+/* .cartaoSemBordaTop{
 	background-color: #ffffff;
 	border-top: none;
 	border-bottom: 1px solid #CCCCCC;
@@ -810,7 +809,7 @@ a:HOVER {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
-}
+} */
 
 .tamanhoEdicaoIndex {
 	width: 1000px;
@@ -1716,7 +1715,7 @@ table.tabLivro thead  tr td{
 
 .msgBorderAdm {
 	border-style: solid;
-	border-width: 2px;
+	border-width: 1px;
 	display: block;
 	font-family: Arial, helvetica, sans-serif;
 	/* border-radius: 5px 5px 5px 5px;
@@ -1732,17 +1731,17 @@ table.tabLivro thead  tr td{
 
 .msgBorder {
 	border-style: solid;
-	border-width: 2px;
+	border-width: 1px;
 	display: block;
 	font-family: Arial, helvetica, sans-serif;
-	/* border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
-	border-radius: 5px; */
-	/* margin: 10px 2px 2px 0; */
+	border-radius: 5px;
+	margin: 10px 2px 2px 0;
 	padding: 15px;
 	text-align: justify;
 	vertical-align: middle;
-	width: 100%;	
+	width: 1000px;	
 }
 
 .msgBorderInterno {
@@ -1768,41 +1767,31 @@ table.tabLivro thead  tr td{
 }
 
 .msgSucesso {
-	background-color: #5D980D;
-	border-color: #5D980D;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
 	text-align: left;
-	color: #ffffff;
-	font-size: large;
-	text-shadow: #000000 0.1em 0.1em 0.2em;
+	color: #3c763d;
 }
 
 .msgAlerta {
-	background-color: #CFB848;
-	border-color: #CFB848;
+	color: #8a6d3b;
+  	background-color: #fcf8e3;
+  	border-color: #faebcc;
 	text-align: left;
-	color: #FFFFFF;
-	font-size: large;
-	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 
 .msgInfo {
-	background-color: #6CA6CD;
-	border-color: #6CA6CD;
+	color: #31708f;
+  	background-color: #d9edf7;
+  	border-color: #bce8f1;
 	text-align: left;
-	color: #ffffff;
-	font-size: large;
-	text-shadow: #000000 0.1em 0.1em 0.2em;
 }
 
 .msgErro {
-	/* background-color: #f7bdbd; */
-	background-color: #ff0000;
-	border-color: #ff0000;
+	color: #a94442;
+ 	background-color: #f2dede;
+ 	border-color: #ebccd1;
 	text-align: left;
-	text-shadow: #000000 0.1em 0.1em 0.2em;
-	/* color: #ff0000; */
-	color: #FFFFFF;
-	font-size: large;
 }
 
 .msgLogout {

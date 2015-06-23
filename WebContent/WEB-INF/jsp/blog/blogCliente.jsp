@@ -3,15 +3,6 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<c:if test="${not empty erroComentarioPrincipal}">
-	<div id="msgErroPadraoBlogCliente" class="msgBorder msgErro closeClick">
-	${nomeEmBranco}
-	${emailEmBranco}
-	${conteudoEmBranco}
-	</div>
-</c:if>
-<div id="msgErroBlogCliente" class="msgBorder msgErro closeClick"></div>
-
 <input type="hidden" id="erroComentarioPrincipal" value="${erroComentarioPrincipal}" />
 <form id="formBlogComentado" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
@@ -22,7 +13,15 @@
 	<div align="center"><h1>Blog</h1></div>
 </div>
 
-
+<div align="center">
+<c:if test="${not empty erroComentarioPrincipal}">
+	<div id="msgErroPadraoBlogCliente" class="msgBorder msgErro ponteiro closeClick">
+	${nomeEmBranco}
+	${emailEmBranco}
+	${conteudoEmBranco}
+	</div>
+</c:if>
+</div>
 
 <div align="center">
 	<c:choose>		
@@ -40,21 +39,14 @@
 		</c:when>
 		
 		<c:otherwise>
-		<div id="ultimaPublicacao">
-			
-			<div class="tamanhoDefault">
-			<p align="left">
-			<span class="info azulClaro letraGrande" >&Uacute;ltima publica&ccedil;&atilde;o</span>
-			</p>
-			</div>
-			
+		<div id="ultimaPublicacao">			
+			<br>						
 			<div class="cardViewText paddingPadrao">
-			<p class="textoAutorBlog azulClaro fonteGrande centralizar">${ultimaPublicacao.titulo}</p>
-				
+			<p class="info azulClaro letraGrande centralizar">${ultimaPublicacao.titulo}</p>
+			<p class="textoPostagemBlog aEsquerda negrito">Texto postado em ${ultimaPublicacao.dataFormatada}</p>	
 			<c:forEach items="${paragrafos}" var="paragrafo">
 				<p class="textoConteudoBlog">${paragrafo.trechoTexto}</p>		
-			</c:forEach>
-			<p class="textoPostagemBlog aEsquerda negrito">... texto postado em ${ultimaPublicacao.dataFormatada}</p>
+			</c:forEach>			
 			</div>
 			
 			<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
@@ -127,7 +119,7 @@
 									<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 												
 									<h3 align="right">
-									<input id="btnClienteComentarTextoPrincipal" type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+									<input id="btnClienteComentarTextoPrincipal" type="submit" value="Enviar comentário"  class="btn btn-success direita"/>
 									</h3>					
 								</div>
 							</td>			
@@ -239,7 +231,7 @@
 									<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 												
 									<h3 align="right">
-									<input id="btnClienteComentarTexto" type="button" value="Enviar comentário"  class="buttonCadastrar direita"/>
+									<input id="btnClienteComentarTexto" type="button" value="Enviar comentário"  class="btn btn-success direita"/>
 									</h3>					
 								</div>
 							</td>			

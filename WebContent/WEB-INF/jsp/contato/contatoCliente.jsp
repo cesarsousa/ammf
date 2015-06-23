@@ -2,29 +2,33 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<c:if test="${not empty msgContatoCliente}">
-	<div class="alert alert-success ponteiro closeClick">
-	${msgContatoCliente}
-	</div>
-</c:if>
-<c:if test="${not empty msgErroContatoCliente}">
-	<div id="mensagemErroContato" class="alert alert-danger ponteiro closeClick">
-	${nomeEmBranco}
-	${emailEmBranco}
-	${conteudoEmBranco}
-	</div>
-</c:if>
-
 <div class="jumbotron">
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 <div align="center"><h1>Contato</h1></div>
 </div>
 
+<div align="center">
+<c:if test="${not empty msgContatoCliente}">
+	<div class="msgBorder msgSucesso ponteiro closeClick">
+	${msgContatoCliente}
+	</div>
+	<br>
+</c:if>
+<c:if test="${not empty msgErroContatoCliente}">
+	<div id="mensagemErroContato" class="msgBorder msgErro ponteiro closeClick">
+	${nomeEmBranco}
+	${emailEmBranco}
+	${conteudoEmBranco}
+	</div>
+	<br>
+</c:if>
+</div>
+
 
 <div id="divPgContatoCliente" align="center">
 
-	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex bordaPadrao">
+	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex">
 		<table width="100%">
 		<tr>
 		<td width="110px" align="left" >
@@ -48,7 +52,7 @@
 	
 	<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>	
 	
-	<div class="cartaoSemBordaTop tamanhoEdicaoIndex bordaPadrao" align="left">
+	<div class="cartaoSemBordaTop tamanhoEdicaoIndex" align="left">
 	<hr class="hrClass">
 	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda &agrave; sexta das 08:00 &agrave;s 20:00 horas.</h3>
 	<p>
