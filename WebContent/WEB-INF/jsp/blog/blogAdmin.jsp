@@ -129,23 +129,30 @@
 
 <!-- EDITAR COM CAMPO DE BUSCA -->
 <table id="blogAreaBusca" class="cardViewText">		
-	<tr>
-		<td  valign="middle">
-		<div align="right">
-		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
-		</div>
-		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Buscar Texto</h2>		
-		
+	<tr>		
+		<td width="80%">		
 		<form id="formBlogBuscaTexto">
-		<div align="center">
-			<input id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa w500px bordaPadrao" />
-			<input type="submit" class="buttonCadastrar" value="Pesquisar">
-			<p>
-			<span class="info letraGrande" ><label id="labelBuscaTexto"></label></span>
-			</p>
-		</div>
+		<div align="center">			
+			 <div class="col-lg-6" align="center">
+			    <div class="input-group">
+			      <input width="100%" id="campoBuscaTxtEdtBlog" type="text" class="form-control fundoLupa w500px bordaPadrao" placeholder="Digite parte do titulo do texto">
+			      <span class="input-group-btn">
+			        <button class="btn btn-success" type="submit">Pesquisar</button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-6 -->			
+		</div>			
 		</form>
+		</td>
+		
+		<td width="20%">	
+		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">		
+		</td>
+	</tr>
+		
+	<tr align="left">
+		<td>		
+			<span><label id="labelBuscaTexto"></label></span>			
 		</td>
 	</tr>
 	<tr id="resultBuscaTxtBlog">
@@ -174,7 +181,7 @@
 <div id="divBlogEditarTexto" class="cardViewText">
 	<!-- AREA DE EDICAO DE UM TEXTO -->
 	<div align="right">
-		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="btn btn-danger button">
 	</div>
 
 	<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
@@ -225,9 +232,9 @@
 		</h4>
 		
 		<p>
-		<input id="btCadEdtTexto" type="submit" value="atualizar e destravar texto" class="buttonCadastrar">
-		<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="button">
-		<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="backVermelho button">
+		<input id="btCadEdtTexto" type="submit" value="atualizar e destravar texto" class="btn btn-success">
+		<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="btn btn-default">
+		<input id="btBlogExcluirEdtTexto" type="button" value="Excluir este texto" class="btn btn-danger">
 		</p>
 					
 	</form>
@@ -243,7 +250,7 @@
 	<tr>
 	<td>
 	<div align="right">		
-	<input id="btBlogFecharTextos" type="button" value="fechar" class="backVermelho button">
+	<input id="btBlogFecharTextos" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
 	<c:if test="${empty textosBlog}">
@@ -298,7 +305,7 @@
 	<tr>
 	<td>
 	<div align="right">		
-	<input id="btFecharComentarios" type="button" value="fechar" class="backVermelho button">
+	<input id="btFecharComentarios" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
 	<c:if test="${empty comentariosBlog}">
@@ -362,7 +369,7 @@
 <a name="lerTextoView"></a>
 <div id="divTextoView" class="fullSize paddingPadrao">
 	<div class="cardViewText">
-		<input id="btFecharTextoView" type="button" value="fechar" class="backVermelho button direita">
+		<input id="btFecharTextoView" type="button" value="fechar" class="btn btn-danger">
 		<h2>Visualiza&ccedil;&atilde;o de texto referente a um coment&aacute;rio</h2>
 		
 		<p id="textoTituloView" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>

@@ -135,8 +135,6 @@ $(document).ready(function() {
 	$('#blogAreaBusca').hide();	
 	$('#btEdtTextoBlog').click(function(){
 		hideAllBlogFields();
-		var texto = "Digite parte do título do texto e pressione a tecla ENTER";
-		$('#campoBuscaTxtEdtBlog').puts(texto);
 		$('#tabEdtTextoBlog, #labelBuscaTexto').html('');
 		$('#blogAreaBusca').slideDown(500);		
 	});	

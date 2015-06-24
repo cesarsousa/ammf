@@ -544,6 +544,11 @@ a:HOVER {
 	border-collapse: collapse;
 }
 
+.fundoAdmin{
+	background-color: #4682B4;
+	color: white;
+}
+
 .superFooter {
 	width: 100%;
 	border-top: 1px solid #CCCCCC;
