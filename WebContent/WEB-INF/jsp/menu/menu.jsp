@@ -78,7 +78,7 @@
 			<input id="btFecharConteudoIndex" type="button" class="btn btn-danger direita" value="fechar">			
 			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
 			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina inicial do site </h2>
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<h3 class="azulClaro">
@@ -131,7 +131,7 @@
 			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
 								
 				<h3 class="azulClaro">
@@ -268,7 +268,7 @@
 				<h3>Email de recebimento: <span class="info azulClaro">utilizado para receber as notifica&ccedil;&otilde;es dos usu&aacute;rios.</span></h3> 	
 				<table>
 				<tr>
-				<td valign="top" align="left">
+				<td align="left">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.emailAtivado}">
 							<input type="checkbox" name="usuario.emailAtivado" checked="checked" />
@@ -278,7 +278,7 @@
 						</c:otherwise>
 					</c:choose>				
 				</td>
-				<td valign="top" align="left"><h3 class="info azulClaro">Ativar o envio de email pelo site para os clientes e para o administrador dos eventos ocorridos no sistema.</h3></td>
+				<td align="left"><h3 class="info azulClaro letraPequena">Ativar o envio de email pelo site para os clientes e para o administrador dos eventos ocorridos no sistema.</h3></td>
 				</tr>
 				</table>
 				<div class="msgBorderInterno msgAlerta t100">
@@ -326,7 +326,7 @@
 				<h3>Google Maps</h3>
 				<table>
 				<tr>
-				<td valign="top" align="left">
+				<td align="left">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.mostrarMapa}">
 							<input id="checkHabilitarMapa" type="checkbox" name="usuario.mostrarMapa" checked="checked" />
@@ -336,7 +336,7 @@
 						</c:otherwise>
 					</c:choose>				
 				</td>
-				<td valign="top" align="left"><h3>Habilitar mapa com a visualiza&ccedil;&atilde;o do endere&ccedil;o na p&aacute;gina de contato do site.</h3></td>
+				<td align="left"><h3 class="info azulClaro letraPequena">Habilitar mapa com a visualiza&ccedil;&atilde;o do endere&ccedil;o na p&aacute;gina de contato do site.</h3></td>
 				</tr>
 				</table>
 				
@@ -537,7 +537,7 @@
 		<tr>
 			<td>
 			<div id="edicaoPsicologia">						
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">			
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">			
 			<form action="<c:url value="/menu/psicologia/atualizar" />" method="post" class="paddingPadrao">
 			
 				<h3 class="azulClaro">
@@ -595,7 +595,7 @@
 		<tr>
 			<td>
 			<div id="edicaoEducacao">			
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/educacao/atualizar" />" method="post" class="paddingPadrao">
 				
 				<h3 class="azulClaro">
@@ -653,7 +653,7 @@
 		<tr>
 			<td>
 			<div id="edicaoCultura">
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/cultura/atualizar" />" method="post" class="paddingPadrao">
 			
 				<h3 class="azulClaro">
@@ -716,7 +716,7 @@
 		<tr>
 			<td>
 			<div id="edicaoArtesOrientais">
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/artesorientais/atualizar" />" method="post" class="paddingPadrao">
 			
 				<h3 class="azulClaro">

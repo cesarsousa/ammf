@@ -47,7 +47,6 @@ $(document).ready(function() {
 	});
 	
 	addRemoveDestaque('#campoBuscaLivro');
-	$('#campoBuscaLivro').puts('Digite parte do nome e pressione a tecla ENTER');
 	
 	$('#btFecharLivroBuscaPersonalizada').click(function (){
 		$('#livroBuscaPersonalizada').slideUp(500);

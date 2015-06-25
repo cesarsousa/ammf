@@ -169,10 +169,6 @@ function configurarCamposAtualizaLivro(){
 	addRemoveDestaque('#livroAtualizaLinkVenda');	
 }
 
-function configurarCamposBuscaLivro(){
-	var texto = "Digite parte do nome do autor ou o título do livro e pressione a tecla ENTER";
-	$('#campoBuscaLivro').puts(texto);
-}
 
 $(document).ready(function() {
 	listarCategoriasDeLivro();
@@ -203,7 +199,7 @@ $(document).ready(function() {
 	
 	configurarCamposAddLivro();
 	configurarCamposAtualizaLivro();
-	configurarCamposBuscaLivro();
+	
 	
 	$('#telaAguardeAdmCadastroLivro').hide();
 	$('#tabIconesLivros, #tabBuscaLivro, #tabCadastrarLivro').hide();
@@ -232,7 +228,7 @@ $(document).ready(function() {
 		$('#divUploadFotoLivro')
 		.slideUp(500)
 		.html('')
-		.append('<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>')
+		.append('<input id="inputImagemLivro" type="file" name="imagemLivro"/>')
 		.slideDown(500);
 	});
 	

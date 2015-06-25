@@ -8,6 +8,7 @@
 <%@ include file="/menuPrincipal.jsp" %>
 </div>
 
+<div align="center">
 <c:if test="${not empty msgIndex}">
 	<div class="msgBorder msgSucesso closeClick ponteiro">${msgIndex}</div>
 	<br/>
@@ -17,6 +18,7 @@
 	<div class="msgBorder msgErro closeClick ponteiro">${msgErroIndex}</div>
 	<br/>
 </c:if>
+</div>
 
 <div align="center">	
 	<div class="cardPrincipal">

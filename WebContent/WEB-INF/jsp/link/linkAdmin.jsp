@@ -2,7 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<div id="divMensagemLink">
+<div id="divMensagemLink" align="center">
 <c:if test="${not empty linkMensagemErro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		${linkMensagemErro} 
@@ -59,7 +59,7 @@
 	<tr>
 		<td>
 		<div align="right">
-		<input id="btFecharAddLink" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharAddLink" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Novo Link</h2>
@@ -87,9 +87,10 @@
 			<textarea id="linkAreaDescricao" class="areaTexto bordaPadrao" rows="7" name="link.descricao">${link.descricao}</textarea>		
 			<br/>
 			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLink">500</span> caracteres.</span>		
-			<p>
-			<input id="btCadastrarLink" type="submit" value="cadastrar" class="buttonCadastrar">
-			<input id="btCancelarLink" type="button" value="cancelar" class="button">				
+			
+			<p class="paddingPadrao">
+			<input id="btCadastrarLink" type="submit" value="cadastrar" class="btn btn-success">
+			<input id="btCancelarLink" type="button" value="cancelar" class="btn btn-default">				
 			</p>
 		</form>			
 		</td>
@@ -106,7 +107,7 @@
 	<tr>
 	<td>
 	<div align="right">		
-	<input id="btFecharListagemLinks" type="button" value="fechar" class="backVermelho button">
+	<input id="btFecharListagemLinks" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
 	<c:if test="${empty links}">

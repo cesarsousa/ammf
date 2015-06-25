@@ -1419,7 +1419,7 @@ table.tabLivro thead  tr td{
 }
 
 .areaTitulo {
-	width: 90%;
+	width: 100%;
 	font-size: medium;
 	font-family: arial;
 	padding: 10px;		
@@ -1486,7 +1486,7 @@ table.tabLivro thead  tr td{
 }
 
 .areaTexto {
-	width: 90%;
+	width: 100%;
 	font-family: arial;
 	color: black;
 	padding: 10px;	
@@ -1747,6 +1747,21 @@ table.tabLivro thead  tr td{
 	text-align: justify;
 	vertical-align: middle;
 	width: 1000px;	
+}
+
+.msgMiniBorder {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	font-family: Arial, helvetica, sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin: 10px 2px 2px 0;
+	padding: 15px;
+	text-align: justify;
+	vertical-align: middle;
+	width: 450px;	
 }
 
 .msgBorderInterno {

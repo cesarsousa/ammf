@@ -9,13 +9,13 @@
 		
 <div class="cardViewText">
 <h2 align="center">Declara&ccedil;&atilde;o dos Termos de contrato</h2>
-<h3>Bem-vindo ao site Quiron!</h3>
+<h3>Bem-vindo ao site!</h3>
 		
 <p class="nivel1">
 1. Relação do usuário com o site.
 </p>
 <p class="nivel2">
-1.1 O uso dos serviços está sujeito aos termos de um contrato entre o usuário e o Portal, onde a expressão 'Portal' significa quiron.psc.br.
+1.1 O uso dos serviços está sujeito aos termos de um contrato entre o usuário e o Portal, onde a expressão 'Portal' significa www.alcindomiguel.com.br.
 </p>
 <p class="nivel1">
 2. Aceitação dos Termos
@@ -154,7 +154,7 @@
 <br/>
 <div align="right">
     <form action="<c:url value="/" ></c:url>">
-    	<input type="submit" value="Ir para o site Quiron" class="buttonAzul"/> 
+    	<input type="submit" value="Ir para o site" class="btn btn-info"/> 
     </form>   
 </div>
 		

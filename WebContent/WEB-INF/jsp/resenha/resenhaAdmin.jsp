@@ -2,7 +2,8 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<div id="divMensagemResenha">
+
+<div id="divMensagemResenha" align="center">
 <c:if test="${not empty resenhaMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${resenhaMensagemSucesso} 
@@ -73,7 +74,7 @@
 	<tr>
 		<td>
 		<div align="right">
-		<input id="btFecharAddResenha" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharAddResenha" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Nova Resenha</h2>
@@ -85,7 +86,7 @@
 				<div id="divCadastrarCategoriaResenha">
 				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
 				<input id="inputCadastrarCategoriaResenha" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-				<input id="ajaxCadastrarCategoriaResenha" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
+				<input id="ajaxCadastrarCategoriaResenha" type="button" class="btn btn-success" value="Cadastrar" class="largura50"/>
 				<br/>
 				<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">
 				</div>
@@ -112,17 +113,25 @@
 			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
 			
-			<div class="paddingPadrao bordaPadrao">
-				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span> </label><br/>
-				<div id="divUploadFotoResenha">
-					<input id="inputImagemResenha" type="file" name="imagemResenha" style="background-color: #CCCCCC; width: 100%"/>
+			<table class="msgBorder msgInfo">
+			<tr align="center">
+			<td>
+				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
+			</td>			
+			<td>
+				<div id="divUploadFotoResenha" align="left">
+					<input id="inputImagemResenha" type="file" name="imagemResenha"/>
 				</div>
-				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-			</div>
+			</td>			
+			<td>
+				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
+			</td>
+			</tr>
+			</table>
 			
-			<p>
-			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="buttonCadastrar" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
-			<input id="btCancelarResenha" type="button" value="cancelar" class="button">				
+			<p class="paddingPadrao">
+			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
+			<input id="btCancelarResenha" type="button" value="cancelar" class="btn btn-default">				
 			</p>
 		</form>			
 		</td>
@@ -228,17 +237,17 @@
 	<tr>
 		<td valign="middle">
 		<div align="right">
-		<input id="btFecharEdtResenha" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharEdtResenha" type="button" value="fechar" class="btn btn-danger">
 		</div>
-		<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Buscar Resenha</h2>			
 		
 		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
 		<div align="center">
 			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="fundoLupa w500px bordaPadrao" />
-			<input type="submit" class="buttonCadastrar" value="Pesquisar">
-			<p>
-			<span class="info letraGrande" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
+			<input type="submit" class="btn btn-success" value="Pesquisar">
+			
+			
+			<p class="paddingPadrao">
+			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
 			</p>
 		</div>	
 		</form>
@@ -256,7 +265,7 @@
 	<tr>
 	<td>
 	<div align="right">		
-	<input id="btResenhaFecharTextos" type="button" value="fechar" class="backVermelho button">
+	<input id="btResenhaFecharTextos" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
 	<c:if test="${empty resenhas}">
@@ -310,7 +319,7 @@
 	<tr>
 	<td>
 	<div align="right">		
-	<input id="btFecharComentariosResenha" type="button" value="fechar" class="backVermelho button">
+	<input id="btFecharComentariosResenha" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
 	<c:if test="${empty comentariosResenha}">

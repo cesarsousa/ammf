@@ -2,10 +2,11 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<div id="divAdmMsgCadCliente">
+<div id="divAdmMsgCadCliente" align="center">
 <c:if test="${not empty nomeEmBranco or not empty emailEmBranco}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-	${nomeEmBranco}<br/>${emailEmBranco}	
+	${nomeEmBranco}
+	${emailEmBranco}	
 	</div>
 </c:if>
 </div>
@@ -33,10 +34,10 @@
 		</form>
 	</li>
 	<li>
-		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
+		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
 	<li>
-		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
+		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
 	<li>
 		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
@@ -57,15 +58,54 @@
 
 <div style="width: 100%">
 
+<!-- CADASTRAR PESSOA -->
+<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
+<table id="tabCadastrarPessoa" class="cardViewText">
+<tr>
+	<td>
+	<div align="right">
+		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="btn btn-danger">
+	</div>	
+	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="esquerda">
+	<h2 align="center">Cadastrar Pessoa</h2>
+	</td>
+</tr>
+
+<tr align="center">
+<td>
+	<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
+	<div id="areaLogin">
+	
+	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
+		
+		<label class="labelForm">Nome</label>
+		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
+		<br/><br/>	
+		
+		<label class="labelForm">Email</label>
+		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
+		<br/><br/>
+		
+		<input id="btnCadastrarPessoa" type="submit" value="Enviar convite"  class="btn btn-success"/>	
+	</form>
+	</div>
+</td>
+</tr>
+</table>
+
+<br/>
+
+<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
+<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
+<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
+
 <!-- CONSULTAR PESSOA -->
-<table id="tabBuscaPessoa" class="cardViewText superFooter bordaLateral">	
+<table id="tabBuscaPessoa" class="cardViewText">	
 	<tr>
 		<td>
 		<div align="right">
-		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="btn btn-danger">
 		</div>
-		<img align="left" src="${imagem}/usuario_lupa.png" width="50" height="50" class="esquerda">
-		<h2 align="center">Consultar Pessoas</h2>
 		</td>
 	</tr>
 	<tr>		
@@ -73,17 +113,17 @@
 		<form id="formBuscaPessoa">
 		<div align="center">
 		<input id="campoBusca" type="text" class="fundoLupa w500px bordaPadrao"/>
-		<input type="submit" class="buttonCadastrar" value="Pesquisar">
+		<input type="submit" class="btn btn-success" value="Pesquisar">
 		</div>
 		</form> 
 		<p align="center">
-		<label class="info letraGrande" id="labelResultadoConsulta"></label>		
+		<label class="info" id="labelResultadoConsulta"></label>		
 		</p>			
 		</td>		
 	</tr>
 	<tr>
-		<td>
-		<div id="conteudoConsultaPessoas" class="cartao">								
+		<td align="center">
+		<div id="conteudoConsultaPessoas" class="">								
 			<table>
 				<thead>
 					<tr>
@@ -106,49 +146,6 @@
 	</tr>	
 </table>
 
-<br/>
-
-<!-- CADASTRAR PESSOA -->
-<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
-<table id="tabCadastrarPessoa" class="cardViewText superFooter bordaLateral">
-<tr>
-	<td>
-	<div align="right">
-		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="backVermelho button">
-	</div>	
-	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="esquerda">
-	<h2 align="center">Cadastrar Pessoa</h2>
-	</td>
-</tr>
-
-<tr align="center">
-<td>
-	<p class="info azulClaro letraGrande">Enviar um convite a uma pessoa.</p>
-	<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro, e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
-	<div id="areaLogin">
-	
-	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
-		
-		<label class="labelForm">Nome</label>
-		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
-		<br/><br/>	
-		
-		<label class="labelForm">Email</label>
-		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
-		<br/><br/>
-		
-		<input id="btnCadastrarPessoa" type="submit" value="Enviar convite"  class="buttonCadastrar direita"/>	
-	</form>
-	</div>
-</td>
-</tr>
-</table>
-
-<br/>
-
-<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
-<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
-<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
 
 <!--  PESSOAS SOLICITADAS -->
 <input id="flagVisualizarPessoas" type="hidden" value="${flagVisualizarPessoas}" />
@@ -157,7 +154,7 @@
 	<tr>
 		<td>
 		<div align="right">
-			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="backVermelho button">
+			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		
 		<c:if test="${isPessoasCadastradas}">
@@ -201,8 +198,8 @@
 							<td class="infoTabelaConteudo">${pessoa.nome}</td>
 							<td class="infoTabelaConteudo">${pessoa.email}</td>
 							<td class="infoTabelaConteudo">${pessoa.dataFormatada}</td>
-							<td class="infoTabelaConteudo ${pessoa.status}">${pessoa.status}</td>
-							<td class="infoTabelaConteudo ${pessoa.situacao}">${pessoa.situacao}</td>
+							<td class="infoTabelaConteudo ${pessoa.status}"><b>${pessoa.status}</b></td>
+							<td class="infoTabelaConteudo ${pessoa.situacao}"><b>${pessoa.situacao}</b></td>
 							
 							<td>
 								<c:choose>

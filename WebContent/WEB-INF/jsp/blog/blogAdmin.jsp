@@ -129,29 +129,27 @@
 
 <!-- EDITAR COM CAMPO DE BUSCA -->
 <table id="blogAreaBusca" class="cardViewText">		
-	<tr>		
-		<td width="80%">		
-		<form id="formBlogBuscaTexto">
-		<div align="center">			
-			 <div class="col-lg-6" align="center">
-			    <div class="input-group">
-			      <input width="100%" id="campoBuscaTxtEdtBlog" type="text" class="form-control fundoLupa w500px bordaPadrao" placeholder="Digite parte do titulo do texto">
-			      <span class="input-group-btn">
-			        <button class="btn btn-success" type="submit">Pesquisar</button>
-			      </span>
-			    </div><!-- /input-group -->
-			  </div><!-- /.col-lg-6 -->			
-		</div>			
-		</form>
-		</td>
 		
-		<td width="20%">	
-		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">		
+	<tr>
+		<td valign="middle">
+		<div align="right">
+		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
+		</div>
+		
+		<form id="formBlogBuscaTexto">
+		<div align="center">
+			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa w500px bordaPadrao">
+			<button class="btn btn-success" type="submit">Pesquisar</button>
+			<p align="center">
+			<span class="info letraGrande" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
+			</p>
+		</div>	
+		</form>
 		</td>
 	</tr>
 		
-	<tr align="left">
-		<td>		
+	<tr>
+		<td align="center">		
 			<span><label id="labelBuscaTexto"></label></span>			
 		</td>
 	</tr>

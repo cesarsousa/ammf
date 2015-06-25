@@ -142,7 +142,7 @@ $(document).ready(function() {
 		$('#divUploadFotoResenha')
 		.slideUp(500)
 		.html('')
-		.append('<input id="inputImagemResenha" type="file" name="imagemResenha" style="background-color: #CCCCCC; width: 100%"/>')
+		.append('<input id="inputImagemResenha" type="file" name="imagemResenha"/>')
 		.slideDown(500);
 	});
 	
@@ -184,8 +184,6 @@ $(document).ready(function() {
 	
 	
 	addRemoveDestaque("#campoBuscaTxtResenha");
-	var texto = "Digite parte do título da resenha e pressione a tecla ENTER";
-	$('#campoBuscaTxtResenha').puts(texto);
 	$('').autoResize();
 	
 	hideAllResenhaFields();

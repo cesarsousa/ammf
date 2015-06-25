@@ -11,18 +11,16 @@ $(document).ready(function() {
 	
 	$('#tabBuscaPessoa').hide();
 	$('#iconBuscaPessoa').click(function() {
-		$('#tabPessoasSolicitadas').slideUp(500);
-		$('#tabCadastrarPessoa').slideUp(500);
-		$('#tabBuscaPessoa').slideDown(500);
-		var texto = "Digite parte do nome ou código da pessoa e pressione a tecla ENTER";
-		$('#campoBusca').puts(texto);
+		$('#tabPessoasSolicitadas').slideUp();
+		$('#tabCadastrarPessoa').slideUp();
+		$('#tabBuscaPessoa').slideDown();
 		addRemoveDestaque("#campoBusca");
 	});	
 	
 	$('#conteudoConsultaPessoas').hide();
 	$('#formBuscaPessoa').submit(function(event){
 		event.preventDefault();
-		$('#conteudoConsultaPessoas').slideUp(500);
+		$('#conteudoConsultaPessoas').slideUp();
 		$.ajax({
 			type : 'GET',
 			url : $('#contexto').val() + "/pessoa/consulta",
@@ -52,7 +50,7 @@ $(document).ready(function() {
 						'</tr>');						
 				}
 				
-				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown(1000);
+				if(json.length > 0) $('#conteudoConsultaPessoas').slideDown();
 				
 				var textoBuscado = $('#campoBusca').val();
 				$('#campoBusca').attr("value", "");
@@ -68,7 +66,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btFecharBuscaPessoa').click(function(){
-		$('#tabBuscaPessoa').slideUp(500);		
+		$('#tabBuscaPessoa').slideUp();		
 	});	
 	
 	//****** CADASTRAR PESSOA
@@ -78,27 +76,27 @@ $(document).ready(function() {
 	
 	$('#tabCadastrarPessoa').hide();
 	if($('#flagCadastroPessoaVazio').val()){
-		$('#tabCadastrarPessoa').slideDown(500);
+		$('#tabCadastrarPessoa').slideDown();
 	}
 	$('#iconAddPessoa').click(function() {
-		$('#tabBuscaPessoa').slideUp(500);
-		$('#tabPessoasSolicitadas').slideUp(500);
-		$('#tabCadastrarPessoa').slideDown(500);		
+		$('#tabBuscaPessoa').slideUp();
+		$('#tabPessoasSolicitadas').slideUp();
+		$('#tabCadastrarPessoa').slideDown();		
 	});
 	
 	$('#btnCadastrarPessoa, #btConfirmarPessoa, #btNotificarPessoa').click(function(){
-		$('#divAdmMsgCadCliente').slideUp(500);
+		$('#divAdmMsgCadCliente').slideUp();
 		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
 	});
 	
 	$('#btFecharCadastrarPessoa').click(function(){
-		$('#tabCadastrarPessoa').slideUp(500);		
+		$('#tabCadastrarPessoa').slideUp();		
 	});
 	
 	//*** LISTAGEM DE PESSOAS SOLICITADAS	
 		
 	if($('#flagVisualizarPessoas').val()){
-		$('#tabPessoasSolicitadas').slideDown(500);
+		$('#tabPessoasSolicitadas').slideDown();
 	}
 	
 	$('#iconPessoasCadastradas').click(function() {
@@ -114,6 +112,6 @@ $(document).ready(function() {
 	});
 	
 	$('#btFecharPessoasSolicitadas').click(function(){
-		$('#tabPessoasSolicitadas').slideUp(500);		
+		$('#tabPessoasSolicitadas').slideUp();		
 	});
 });

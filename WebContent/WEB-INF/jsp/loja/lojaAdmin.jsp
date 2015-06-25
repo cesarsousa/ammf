@@ -2,7 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-<div id="mensagensPgLojaAdmin">
+<div id="mensagensPgLojaAdmin" align="center">
 <c:if test="${not empty msgErroLojaCadastroLivro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
 		<p><b>Verifique campos obrigat&oacute;rios n&atilde;o preenchidos</b></p>
@@ -40,7 +40,7 @@
 	</li>
 	
 	<li>
-		<table id="tabIconesLivros" style="padding: 10px; background: #FFFFFF;" class="bordaPadrao">	
+		<table id="tabIconesLivros">	
 		<tr>
 			<td>
 			<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
@@ -59,19 +59,6 @@
 		</tr>
 		</table>
 	</li>
-	
-	<%-- <li>
-		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-	</li> --%>	
 </ul>
 </td>
 </tr>
@@ -84,14 +71,12 @@
 
 <!-- BUSCAR LIVROS -->
 <input id="flagBuscarLivro" type="hidden" value="${flagBuscarLivro}"  />
-<table id="tabBuscaLivro" class="cardViewText superFooter bordaLateral">	
+<table id="tabBuscaLivro" class="cardViewText">	
 	<tr>
 		<td>
 		<div align="right">
-		<input id="btFecharBuscaLivro" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharBuscaLivro" type="button" value="fechar" class="btn btn-danger">
 		</div>
-		<img alt="left" src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">
-		<h2 align="center">Buscar livro</h2>
 		</td>
 	</tr>
 	<tr>		
@@ -99,13 +84,13 @@
 		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
 			<div align="center">
 			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa w500px bordaPadrao"/>
-			<input type="submit" class="buttonCadastrar" value="Pesquisar">
+			<input type="submit" class="btn btn-success" value="Pesquisar">
 			</div>
 		</form>
 		
 		<c:if test="${not empty buscaSemResultado}">
 		<div align="center">		
-		<span class="info letraGrande">${buscaSemResultado}</span>
+		<span class="info"><b>${buscaSemResultado}</b></span>
 		</div>
 		</c:if>
 						
@@ -114,12 +99,12 @@
 </table>
 
 <!-- CADASTRAR LIVRO -->
-<input id="flagCadastroLivroVazio" type="hidden" value="${flagCadastroLivroVazio}"  /> 
-<table id="tabCadastrarLivro" class="cardViewText superFooter bordaLateral">
+<input id="flagCadastroLivroVazio" type="hidden" value="${flagCadastroLivroVazio}"/> 
+<table id="tabCadastrarLivro" class="cardViewText">
 	<tr>
 		<td>
 		<div align="right">
-			<input id="btFecharCadastrarLivro" type="button" value="fechar" class="backVermelho button">
+			<input id="btFecharCadastrarLivro" type="button" value="fechar" class="btn btn-danger">
 		</div>	
 		<img align="left" src="${imagem}/iconeAddHover.png" width="50" height="50" class="esquerda">
 		<h2 align="center">Cadastrar Livro</h2>
@@ -160,7 +145,7 @@
 					<div class="paddingPadrao corPrincipal" class="bordaPadrao">
 					<br/>
 					<input id="inputCadastrarCategoria" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-					<input id="ajaxCadastrarCategoria" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
+					<input id="ajaxCadastrarCategoria" type="button" class="btn btn-success" value="Cadastrar" class="largura50"/>
 					<br/>
 					<img id="iconeAguardeCadastrarCategoria" src="${imagem}/gif_aguarde.gif" width="100" height="100">
 					</div>
@@ -214,14 +199,26 @@
 						Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
 					</span>
 				</p>
-				
-				<div class="paddingPadrao bordaPadrao">
-					<label class="labelForm">Foto da capa do livro</label><br/>
-					<div id="divUploadFotoLivro">
-						<input id="inputImagemLivro" type="file" name="imagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+								
+				<table class="msgMiniBorder msgInfo">
+					<tr align="center">
+					<td>
+						<label class="labelForm">Foto da capa do livro</label>
+					</td>
+					</tr>
+					<tr>			
+					<td>
+						<div id="divUploadFotoLivro">
+						<input id="inputImagemLivro" type="file" name="imagemLivro"/>
 					</div>
-					<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
-				</div>		
+					</td>
+					</tr>
+					<tr>			
+					<td align="center">
+						<input id="btRemoverUploadFotoLivro" type="button" value="remover foto" class="btn btn-danger"/>
+					</td>
+					</tr>
+				</table>						
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Sinopse</label>
@@ -255,7 +252,7 @@
 				</div>				
 						
 				<div class="paddingPadrao">
-				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
+				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="btn btn-success direita" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
 				</div>
 			</div>			
 		</form>
@@ -280,7 +277,7 @@
 	<tr>
 		<td>
 		<div align="right">
-			<input id="btFecharLivrosSolicitados" type="button" value="fechar" class="backVermelho button">
+			<input id="btFecharLivrosSolicitados" type="button" value="fechar" class="btn btn-danger">
 		</div>
 				
 		<img src="${imagem}/iconeLivro.png" class="icone50 esquerda">
