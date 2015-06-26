@@ -29,7 +29,7 @@ public class PessoaServiceImp implements PessoaService{
 	@Override
 	public void cadastrarComoAdm(Pessoa pessoa) {
 		pessoa.setStatus(Status.CONFIRMADO);
-		pessoa.setSituacao(Situacao.INATIVO);
+		pessoa.setSituacao(Situacao.ATIVO);
 		pessoa.setDataCadastro(DataUtils.getDateNow());
 		pessoaRepository.cadastrar(pessoa);		
 	}

@@ -109,6 +109,7 @@ public class PessoaDao implements PessoaRepository {
 	public void confirmar(Pessoa pessoa) {
 		try {
 			pessoa.setStatus(Status.CONFIRMADO);
+			pessoa.setSituacao(Situacao.ATIVO);
 			session.update(pessoa);
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));

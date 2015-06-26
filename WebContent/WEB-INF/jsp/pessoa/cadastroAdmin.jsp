@@ -11,10 +11,12 @@
 </c:if>
 </div>
 
+<div align="center">
 <c:if test="${not empty msgCadastro}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">${msgCadastro}</div>
 <br/>
 </c:if>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>

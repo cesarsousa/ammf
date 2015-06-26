@@ -42,6 +42,7 @@
 <!-- javascript desta pagina em index.js -->
 
 <form id="formClienteHome" action="<c:url value="/" />"></form>
+<form id="formClienteConstelacao" action="<c:url value="/constelacao/cliente" />" method="get"></form>
 <form id="formClienteBlog" action="<c:url value="/blog/cliente" />" method="get"></form>
 <form id="formClienteResenhas" action="<c:url value="/resenha/cliente" />" method="get"></form>
 <form id="formClienteLinks" action="<c:url value="/link/cliente" />" method="get"></form>
@@ -54,6 +55,7 @@
 	
 		<div align="center">
 		<div id="menuLink" >
+			<label id="btClienteConstelacao" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Constelação</label>
 			<label id="btClienteBlog" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Blog</label>
 			<label id="btClienteResenhas" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Resenhas</label>
 			<label id="btClienteLinks" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Links</label>

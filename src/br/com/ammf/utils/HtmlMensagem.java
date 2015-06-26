@@ -23,7 +23,7 @@ public class HtmlMensagem {
 	private static final String PATH = "./html_mensagem/";	
 		
 	public String getAssuntoNotificarClienteRecebimentoCadastro() {
-		return "Site Quiron - Recebimento de cadastro";
+		return "Site AlcindoMiguel.com - Recebimento de cadastro";
 	}	
 	
 	public String getMensagemNotificarClienteRecebimentoCadastro(Pessoa pessoa, String linkedin) {
@@ -37,7 +37,7 @@ public class HtmlMensagem {
 	
 	
 	public String getAssuntoNotificarAdmRecebimentoCadastro(String nomeDaPessoa) {
-		return "Novo cadastro de cliente realizado: nome - " + nomeDaPessoa;
+		return "Site AlcindoMiguel.com - Cadastro de cliente realizado: nome - " + nomeDaPessoa;
 	}
 		
 	public String getMensagemNotificarAdmRecebimentoCadastro(Pessoa pessoa) {
@@ -51,7 +51,7 @@ public class HtmlMensagem {
 	}	
 	
 	public String getAssuntoCadastroPessoaPeloAdm() {
-		return "Site Quiron - Convite de Cadastramento";
+		return "Site AlcindoMiguel.com - Convite de Cadastramento";
 	}
 		
 	public String getMensagemCadastroPessoaPeloAdm(Pessoa pessoa, String linkedin) {
@@ -71,7 +71,7 @@ public class HtmlMensagem {
 	}
 		
 	public String getAssuntoSolicitacaoParaConfirmacaoCadastro() {
-		return "Site Quiron - Confirmacao de Cadastramento";
+		return "Site AlcindoMiguel.com - Confirmacao de Cadastramento";
 	}	
 	
 	public String getMensagemSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa, String linkedin) {
@@ -93,30 +93,30 @@ public class HtmlMensagem {
 	public String getAssunto(Notificacao notificacao, Texto texto) {
 		String local = Local.BLOG == texto.getLocal() ? "Blog" : "Site";
 		if(Notificacao.TEXTO_ATUALIZADO.equals(notificacao))
-			return getAssuntoTextoAtualizado(local).replace("?", texto.getTitulo());
+			return getAssuntoTextoAtualizado(local).replace("?", texto.getTitulo() == null ? texto.getLocal().toString() : texto.getTitulo());
 		if(Notificacao.TEXTO_NOVO.equals(notificacao))
-			return getAssuntoTextoCadastrado(local).replace("?", texto.getTitulo());
-		return "Site Quiron";
+			return getAssuntoTextoCadastrado(local).replace("?", texto.getTitulo() == null ? texto.getLocal().toString() : texto.getTitulo());
+		return "Site AlcindoMiguel.com";
 	}
 	
 	private String getAssuntoTextoCadastrado(String local) {
-		return local + " Quiron - O texto ' ? ' foi adicionado";
+		return local + " AlcindoMiguel.com - O texto ' ? ' foi adicionado";
 	}	
 	private String getAssuntoTextoAtualizado(String local) {
-		return local + " Quiron - O texto ' ? ' foi atualizado";
+		return local + " AlcindoMiguel.com - O texto ' ? ' foi atualizado";
 	}
 
 	public String getMensagemNotificacaoDeTextoAtualizado(Texto texto, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "texto_notificacar_clientes_texto_atualizado.html");
 		String linkRemoverEmail = linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkLerTexto = getLinkLerTexto(texto);
-		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
+		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina do BLOG do site" : "";
 		String conteudo = texto.getConteudo();		
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		
 		return mensagem
 				.replace("[NOMEDOCLIENTE]", pessoa.getNome())
-				.replace("[TITULOTEXTO]", texto.getTitulo())
+				.replace("[TITULOTEXTO]", texto.getTitulo() == null ? texto.getLocal().toString() : texto.getTitulo())
 				.replace("[COMPLEMENTO]", complemento)
 				.replace("[TRECHOTEXTO]", trechoTexto)
 				.replace("[LINKLERTEXTO]", linkLerTexto)				
@@ -131,7 +131,7 @@ public class HtmlMensagem {
 		String linkRemoverEmail = linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid());
 		String linkLerTexto = getLinkLerTexto(texto);		
 		String conteudo = texto.getConteudo();
-		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site Quiron" : "";
+		String complemento = Local.BLOG == texto.getLocal() ? " na p&aacute;gina de BLOG do site" : "";
 		String trechoTexto = conteudo.length() > 100 ? conteudo.substring(0, 100) : conteudo;		
 		
 		return mensagem
@@ -159,7 +159,7 @@ public class HtmlMensagem {
 	}	
 	
 	public String getAssuntoEsclarecimentoCadastro() {
-		return "Site Quiron - Esclarecimeno sobre cadastro de email no site";
+		return "Site AlcindoMiguel.com - Esclarecimeno sobre cadastro de email no site";
 	}
 
 	public String getMensagemEsclarecimentoCadastro(Pessoa pessoa, String linkedin) {
@@ -180,7 +180,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoNotificarAdmNovoContato(String nomeDaPessoa) {
-		return "Novo contato de cliente de " + nomeDaPessoa + " recebido";
+		return "Site AlcindoMiguel.com - Novo contato de cliente de " + nomeDaPessoa + " recebido";
 	}
 
 	public String getMensagemNotificarAdmNovoContato(Mensagem mensagem) {
@@ -193,7 +193,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoNotificarClienteNovoContato() {
-		return "Site Quiron - Contato recebido com sucesso";
+		return "Site AlcindoMiguel.com - Contato recebido com sucesso";
 	}
 
 	public String getMensagemNotificarClienteNovoContato(Mensagem mensagem, String linkedin) {
@@ -208,10 +208,10 @@ public class HtmlMensagem {
 	
 	public String getAssunto(Notificacao notificacao, Resenha resenha) {
 		if(Notificacao.RESENHA_NOVA.equals(notificacao))
-			return "Site Quiron - Nova resenha ' ? ' foi adicionada".replace("?", resenha.getTitulo());
+			return "Site AlcindoMiguel.com - Nova resenha ' ? ' foi adicionada".replace("?", resenha.getTitulo());
 		if(Notificacao.RESENHA_ATUALIZADA.equals(notificacao))
-			return "Site Quiron - A resenha ' ? ' foi atualizada".replace("?", resenha.getTitulo());
-		return "Site Quiron";
+			return "Site AlcindoMiguel.com - A resenha ' ? ' foi atualizada".replace("?", resenha.getTitulo());
+		return "Site AlcindoMiguel.com";
 	}	
 
 	public String getMensagemNotificacaoDeResenhaAdicionada(Resenha resenha, String linkedin, Pessoa pessoa) {
@@ -252,10 +252,10 @@ public class HtmlMensagem {
 
 	public String getAssunto(Notificacao notificacao, Livro livro) {
 		if(Notificacao.LIVRO_NOVO.equals(notificacao))
-			return "Site Quiron - Loja Virtual. - '?' , Novo livro adicionado".replace("?", livro.getTitulo());
+			return "Site AlcindoMiguel.com - Loja Virtual. - '?' , Novo livro adicionado".replace("?", livro.getTitulo());
 		if(Notificacao.LIVRO_ATUALIZADO.equals(notificacao))
-			return "Site Quiron - Loja Virtual - O livro ' ? ' foi atualizado".replace("?", livro.getTitulo());
-		return "Site Quiron - Loja Virtual";
+			return "Site AlcindoMiguel.com - Loja Virtual - O livro ' ? ' foi atualizado".replace("?", livro.getTitulo());
+		return "Site AlcindoMiguel.com - Loja Virtual";
 	}
 
 	public String getMensagemNotificacaoDeLivroAdicionado(Livro livro, String linkedin, Pessoa pessoa) {
@@ -295,7 +295,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoLink() {
-		return "Site Quiron - Novo link adicionado";
+		return "Site AlcindoMiguel.com - Novo link adicionado";
 	}
 
 	public String getMensagemNotificacaoDeLink(Link link, String linkedin, Pessoa pessoa) {
@@ -312,7 +312,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoNovoFaqParaAdmin(String nomeDoCliente) {
-		return "Nova pergunta postada no FAQ do site: nome do cliente - " + nomeDoCliente;
+		return "Site AlcindoMiguel.com - Nova pergunta postada no FAQ do site: nome do cliente - " + nomeDoCliente;
 	}
 
 	public String getMensagemNotificacaoDeFaqParaAdmin(Faq faq, String linkedin) {
@@ -336,7 +336,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoRespostaFaqParaCliente() {
-		return "Site Quiron FAQ - Sua Pergunta foi respondida";
+		return "Site AlcindoMiguel.com - Sua Pergunta foi respondida";
 	}
 
 	public String getMensagemRespostaFaqParaCliente(Faq faq, String linkedin) {
@@ -371,7 +371,7 @@ public class HtmlMensagem {
 		String strLocal = "";
 		if(Local.BLOG == local) strLocal = "Blog";
 		if(Local.RESENHA == local) strLocal = "Resenha";
-		return "Site Quiron " +  strLocal + " - Novo comentário sobre texto cadastrado";
+		return "Site AlcindoMiguel.com " +  strLocal + " - Novo comentário sobre texto cadastrado";
 	}
 
 	public String getMensagemNotificarComentarioAdmin(String tituloTexto, Comentario comentario, Local local) {
@@ -400,7 +400,7 @@ public class HtmlMensagem {
 	}
 	
 	public String getAssuntoNotificarDepoimentoAdmin() {
-		return "Site Quiron - Novo depoimento cadastrado";
+		return "Site AlcindoMiguel.com - Novo depoimento cadastrado";
 	}
 
 	public String getMensagemNotificarDepoimentoAdmin(Depoimento depoimento) {

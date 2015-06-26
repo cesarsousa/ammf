@@ -174,11 +174,7 @@ ${conteudoEmBranco}
 	<c:choose>
 		<c:when test="${not empty ultimaPublicacao}">
 		
-		<div class="tamanhoDefault">
-		<p align="left">
-		<span class="info azulClaro letraGrande" >&Uacute;ltima publica&ccedil;&atilde;o</span>
-		</p>
-		</div>
+		
 				
 				<div class="cardViewText">
 					<table>

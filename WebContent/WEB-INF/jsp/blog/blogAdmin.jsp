@@ -44,7 +44,7 @@
 		<img id="btAddTextoBlog" alt="adicionar texto" title="adicionar texto" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btEdtTextoBlog" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
+		<img id="btEdtTextoBlog" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeBuscar.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
 		<img id="btListarTextosBlog" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">

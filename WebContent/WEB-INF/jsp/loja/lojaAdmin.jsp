@@ -49,7 +49,7 @@
 			<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 			</td>
 			<td>
-			<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeEditarHover.png" class="icone50 ponteiro esquerda">
+			<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeBuscar.png" class="icone50 ponteiro esquerda">
 			</td>
 			<td>
 			<a href="<c:url value="/livro/adm/listar"/>"> 

@@ -16,7 +16,7 @@
 	<br>
 </c:if>
 <c:if test="${emailJaCadastrado}">
-	<div class="msgBorder msgInfo closeClick ponteiro">
+	<div class="msgBorder msgInfo">
 	<span id="btFormNotifClienteEmailJaCadastrado" class="ponteiro negrito" >Entenda como seu email foi cadastrado neste site</span>
 	<div id="divNotifClienteEmailJaCadastrado">
 		<form id="formNotifClienteEmailJaCadastrado" action="<c:url value="/pessoa/cadastro/esclarecimento" ></c:url>">
