@@ -13,11 +13,11 @@ body > #wrap {
 }
  
 #main {/* overflow:auto; */
-	padding-bottom: 60px;}  /* deve ter a mesma altura do rodapÃƒÂ© */
+	padding-bottom: 60px;}  /* deve ter a mesma altura do rodape */
  
 #footer {
 	position: relative;
-	margin-top: -60px; /* valor negativo da altura do rodapÃƒÂ© */
+	margin-top: -60px; /* valor negativo da altura do rodape */
 	height: 60px;
 	clear:both;}
  
@@ -33,20 +33,20 @@ body:before {
 
 /* QUIRON PAGE inicio */
 #fundo-externo {
-    overflow: hidden; /* para que nÃ¯Â¿Â½o tenha rolagem se a imagem de fundo for maior que a tela */
+    overflow: hidden; /* para que nao tenha rolagem se a imagem de fundo for maior que a tela */
     width: 100%;
     height: 100%;
     position: relative; /* criamos um contexto para posicionamento */
 }
  
 #fundo {
-    position: fixed; /* posiÃ¯Â¿Â½Ã¯Â¿Â½o fixa para que a possÃ¯Â¿Â½vel rolagem da tela nÃ¯Â¿Â½o revele espaÃ¯Â¿Â½os em branco */
+    position: fixed; /* posicao fixa para que a possivel rolagem da tela nao revele espacos em branco */
     width: 100%;
     height: 100%;
 }
  
 #fundo img {
-    width: 100%; /* com isso imagem ocuparÃ¯Â¿Â½ toda a largura da tela. Se colocarmos height: 100% tambÃ¯Â¿Â½m, a imagem irÃ¯Â¿Â½ distorcer */
+    width: 100%; /* com isso imagem ocupara toda a largura da tela. Se colocarmos height: 100% tambem, a imagem ira distorcer */
     position: absolute;
 }
 
@@ -57,8 +57,8 @@ body:before {
     width: 560px;
     padding: 20px;
     margin-left: -300px; /* por causa do posicionamento absoluto temos que usar margem negativa para centralizar o site */
-    background: #FFF; /* fundo branco para navegadores que nÃ¯Â¿Â½o suportam rgba */
-    background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transparÃ¯Â¿Â½ncia */
+    background: #FFF; /* fundo branco para navegadores que nao suportam rgba */
+    background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transparencia */
 }
 /* QUIRON PAGE fim */
 
@@ -178,12 +178,12 @@ ul.tabs
 
 /* INICIO Efeito para fixar o menu durante a rolagem da pagina */
 
-/******classe estÃ¡tica******/
+/******classe estatica******/
 .nav-total  {
 	height:60px;
 	background: url(img/bg-nav.jpg) repeat-x;
 }
-/******classe que serÃ¡ adicionada fazendo flutuar o menu******/
+/******classe que sera adicionada fazendo flutuar o menu******/
 .f-nav  { 
     z-index: 9999; 
 	position: fixed; 
@@ -515,19 +515,67 @@ a:HOVER {
     height: 100px;    
 }
 
-.fundoConstelacao {
-	width: 100%;
-	height: 100%;
-	background: url("../image/fundoConstelacao.jpg") repeat #F8F8FF center;
-	float: right;
-}
-
 #shiva {	
 	width: 501px;
 	height: 501px;
 	background: url("../image/Shiva500.jpg") no-repeat #F8F8FF center;
 	float: right;
 	box-shadow: 2px 2px 2px #8B8484;
+}
+
+.fundoConstelacao {	
+	width: 100%;
+	height: 100%;
+	background: url("../image/fundoConstelacao.jpg");
+	padding: 10px;	
+}
+
+.fundoConstelacaoInvestimento {
+	background-color: #EE6363;
+	padding: 10px;
+	width: 80%;
+	text-align: left;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+
+.fundoConstelacaoData {
+	background-color: #6C7B8B;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+}
+
+.fundoConstelacaoInformacao {
+	background-color: #EE6363;
+	padding: 10px;
+	width: 50%;
+	text-align: left;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+
+.fundoConstelacaoDadosTerapeuta {
+	background-color: #6C7B8B;
+	padding: 10px;
+	width: 40%;
+	text-align: left;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	opacity:0.8;
+	filter:alpha(opacity=80);
 }
 
 #header1 {

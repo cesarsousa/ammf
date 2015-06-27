@@ -68,8 +68,8 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoIndex" class="headerSlide">
-			<span  class="esquerda">Editar conte&uacute;do index</span>
-			<span class="info azulClaro" >Altere o nome do autor e a frase que os usu&aacute;rios ir&atilde;o ler na p&aacute;gina inicial.</span>
+			<span  class="esquerda">Shiva</span>
+			<span class="info azulClaro" >Altere o nome do autor e a frase que os da imagem do Shiva.</span>
 			</td>
 		</tr>
 		<tr>
@@ -121,7 +121,7 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoQuiron" class="headerSlide">
-			<span  class="esquerda">Editar conte&uacute;do quiron</span>
+			<span  class="esquerda">Quiron</span>
 			<span class="info azulClaro" >Altere o conte&uacute;do do texto da p&aacute;gina sobre quiron.</span>
 			</td>
 		</tr>
@@ -350,6 +350,67 @@
 							
 				<p class="paddingPadrao">
 				<input type="submit" value="atualizar" class="btn btn-success direita">				
+				</p>
+			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="separador"></div>
+	
+	<!-- EDITAR CONTEUDO CONSTELACAO -->	
+	<table class="tamanhoDefault">
+		<tr>
+			<td id="btAbrirConteudoQuiron" class="headerSlide">
+			<span  class="esquerda">Constela&ccedil;&otilde;es</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do do texto da p&aacute;gina sobre constela&ccedil;&otilde;es.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
+			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
+			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
+			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
+								
+				<h3 class="azulClaro">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto  Quiron.
+				</h3>
+				
+				<table class="tamanhoDefault">
+					<tr>
+					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumQuiron" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeQuiron" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeQuiron" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeQuiron" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					
+					<td><span id="sizeSmallAreaQuiron" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeMediumAreaQuiron" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeLargeAreaQuiron" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXLargeAreaQuiron" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
+					<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					</tr>				
+				</table>
+				
+				<p>				
+				<c:choose>
+					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
+						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:when>
+					<c:otherwise>
+						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+					</c:otherwise>
+				</c:choose>
+				</p>
+				
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+								
+				<p class="paddingPadrao">
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			
 				</p>
 			</form>			
 			</div>

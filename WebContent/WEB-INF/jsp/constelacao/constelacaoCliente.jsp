@@ -34,6 +34,51 @@ desta natureza são seria efetivo, útil ou capaz de auxiliá-las em suas jornad
 
 <h3 class="paddingPadrao"><b>Colocamos à sua disposição este processo de Psicoterapia e Constelações Familiares, com periodicidade mensal.</b></h3>
 
+<br><br>
+
+<div class="fundoConstelacaoInvestimento">
+<h3><b>Investimento</b></h3>
+<h3><b>- R$ 30 para o ingresso normal do participante cobrado na entrada;</b></h3>
+<h3><b>- R$ 150 para quem for Vivenciar Pessoalmente o processo com um tema, cobrado na saída.</b></h3>
+</div>
+
+<br><br>
+
+<h3><b>Nosso compromisso é de que este trabalho Psicoterápico Sistêmico seja enriquecido por dinâmicas complementares úteis,
+além de ter uma continuidade capaz de atender as diferentes e diversas demandas: Conciência, Relacionamentos, Profissão, Traumas,
+Desafios Pessoais e Outros.</b></h3>
+
+<h3><b>Conto não só com a sua participação e dos seus, mas também com as necessárias críticas, reflexões e contribuições, que em 
+diálogo, tornem nossos encontros e trabalho em comum proveitosos e efetivos nas aberturas que propiciem às nossas existências.</b></h3>
+
+<br><br>
+
+<div class="fundoConstelacaoData">
+<h2>Sábado - 27/06 - das 9:00 às 14:00h</h2>
+<h3>Local: Espaço Gafieira | Rua Men de Sá 79 | Icaraí | Niterói - RJ</h3>
+<h4>Recomendo que a chegada seja, no possível, antecipada</h4>
+</div>
+
+<br><br>
+
+<div align="right">
+<div class="fundoConstelacaoInformacao">
+<h4>Informações</h4>
+<h3>alcindomiguel@gmail.com | (21) 99601 1143</h3>
+</div>
+</div>
+
+<br><br>
+
+<div align="right">
+<div class="fundoConstelacaoDadosTerapeuta">
+<h3>Alcindo Miguel Martins Filho</h3>
+<h4>Psicologia/Psicanálise/MTC/Constelações</h4>
+</div>
+</div>
+
+<br><br>
+
 </div>
 </div>
 
