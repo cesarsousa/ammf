@@ -64,7 +64,7 @@
 	</tr>
 	</table>
 
-	<!-- EDITAR CONTEUDO INDEX -->
+	<!-- EDITAR CONTEUDO SHIVA -->
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoIndex" class="headerSlide">
@@ -77,14 +77,9 @@
 			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoIndex" type="button" class="btn btn-danger direita" value="fechar">			
 			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
-			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina inicial do site </h2>
-			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina do Shiva</h2>
+			
 			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
-				
-				<h3 class="azulClaro">
-					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase sobre Shiva.
-				</h3>
-								
 				<table class="tamanhoDefault">
 					<tr>
 					<td><span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span></td>
@@ -99,9 +94,14 @@
 					<td><span id="sizeXLargeAreaIndex" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
 					<td><span id="sizeXxLargeAreaIndex" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					</tr>				
-				</table>							
+				</table>						
 				
+				<h3>Frase:</h3>
 				<textarea id="campoFraseIndex" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
+								
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase.
+				</h4>
 				
 				<h3>Autor:</h3>
 				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
@@ -131,13 +131,8 @@
 			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
-			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
 			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
 								
-				<h3 class="azulClaro">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto  Quiron.
-				</h3>
-				
 				<table class="tamanhoDefault">
 					<tr>
 					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
@@ -165,7 +160,12 @@
 				</c:choose>
 				</p>
 				
+				
 				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
 								
 				<p class="paddingPadrao">
 				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			
@@ -362,25 +362,22 @@
 	<!-- EDITAR CONTEUDO CONSTELACAO -->	
 	<table class="tamanhoDefault">
 		<tr>
-			<td id="btAbrirConteudoQuiron" class="headerSlide">
+			<td id="btAbrirConteudoConstelacao" class="headerSlide">
 			<span  class="esquerda">Constela&ccedil;&otilde;es</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do do texto da p&aacute;gina sobre constela&ccedil;&otilde;es.</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constela&ccedil;&otilde;es.</span>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
-			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
-			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
-			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
-			<img align="left" src="${imagem}/iconeEditar.png" class="esquerda icone50">
-			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
-								
-				<h3 class="azulClaro">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto  Quiron.
-				</h3>
+			<div id="conteudoCampoConstelacao" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
+			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina Constela&ccedil;&otilde;es</h2>
+			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
+			
+			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
 				
-				<table class="tamanhoDefault">
+				<!-- <table class="tamanhoDefault">
 					<tr>
 					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
 					<td><span id="sizeMediumQuiron" style="font-size: medium;" class="ponteiro" >A</span></td>
@@ -394,9 +391,9 @@
 					<td><span id="sizeXLargeAreaQuiron" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
 					<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					</tr>				
-				</table>
+				</table> -->
 				
-				<p>				
+				<%-- <p>				
 				<c:choose>
 					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
 						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
@@ -405,9 +402,43 @@
 						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
 					</c:otherwise>
 				</c:choose>
-				</p>
+				</p> --%>
 				
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+				<h3>Texto Inicial:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
+				
+				<h3>Forma de Pagamento:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
+				
+				<h3>Texto Final:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
+				
+				<h3>Localiz&ccedil;&atilde;o:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
+				
+				<h3>Informa&ccedil;&otilde;es:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
+				
+				<h3>Dados Pessoais:</h3>
+				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
+				<h4 class="azulClaro" align="right">
+					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+				</h4>
 								
 				<p class="paddingPadrao">
 				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			

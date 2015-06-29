@@ -113,6 +113,16 @@ $(document).ready(function() {
 		$('#conteudoConta').slideUp(1000);		
 	});
 	
+	
+	$('#conteudoCampoConstelacao').hide();
+	$('#btAbrirConteudoConstelacao').click(function(){
+		$('#conteudoCampoConstelacao').slideDown(1000);		
+	});
+	$('#btFecharConteudoConstelacao').click(function(){
+		$('#conteudoCampoConstelacao').slideUp(1000);		
+	});
+	
+	
 	addRemoveDestaque('#edtTituloTerapeuta');
 	addRemoveDestaque('#edtInfoTerapeuta');
 	addRemoveDestaque('#edtFormacaoTerapeuta');

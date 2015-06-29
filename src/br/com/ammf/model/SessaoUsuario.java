@@ -13,8 +13,8 @@ public class SessaoUsuario implements Serializable{
 	private static final long serialVersionUID = -1389291117203881533L;
 	
 	private Usuario usuario;
-	
 	private Terapeuta terapeuta;
+	private Constelacao constelacao;	
 	
 	private Texto textoIndex;
 	private Texto textoPsicologia;
@@ -22,6 +22,7 @@ public class SessaoUsuario implements Serializable{
 	private Texto textoCultura;
 	private Texto textoArtesOrientais;
 	private Texto textoQuiron;
+	
 		
 	private List<String> notificacoes;
 	
@@ -51,6 +52,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public void setTerapeuta(Terapeuta terapeuta) {
 		this.terapeuta = terapeuta;
+	}
+	
+	public Constelacao getConstelacao() {
+		return constelacao;
+	}
+	
+	public void setConstelacao(Constelacao constelacao) {
+		this.constelacao = constelacao;
 	}
 	
 	public Texto getTextoIndex() {

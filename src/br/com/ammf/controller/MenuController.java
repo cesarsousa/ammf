@@ -8,6 +8,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.model.Notificacao;
@@ -110,6 +111,20 @@ public class MenuController {
 		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoQuiron(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Post("/menu/constelacao/atualizar")
+	public void atualizarTextoConstelacao(Constelacao constelacao){
+		//TODO continuar daki constelacao
+		System.out.println(constelacao.getTextoInicial());
+		System.out.println(constelacao.getFormaPagamento());
+		System.out.println(constelacao.getTextoFinal());
+		System.out.println(constelacao.getLocalizacao());
+		System.out.println(constelacao.getInformacao());
+		System.out.println(constelacao.getDadosPessoais());
+		redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");
+		
 	}
 	
 	@Restrito
