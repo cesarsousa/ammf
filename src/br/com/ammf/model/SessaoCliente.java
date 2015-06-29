@@ -18,6 +18,8 @@ public class SessaoCliente implements Serializable {
 	
 	private Texto textoIndex;
 	
+	private Constelacao constelacao;
+	
 	private List<Paragrafo> textoPsicologia;
 	private List<Paragrafo> textoEducacao;
 	private List<Paragrafo> textoCultura;
@@ -95,6 +97,14 @@ public class SessaoCliente implements Serializable {
 	
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
+	}
+	
+	public Constelacao getConstelacao() {
+		return constelacao;
+	}
+	
+	public void setConstelacao(Constelacao constelacao) {
+		this.constelacao = constelacao;
 	}
 	
 	public void login(Pessoa pessoa){

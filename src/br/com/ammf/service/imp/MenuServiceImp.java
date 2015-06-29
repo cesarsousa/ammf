@@ -7,6 +7,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.ComentarioRepository;
+import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
@@ -21,9 +22,10 @@ public class MenuServiceImp implements MenuService{
 	
 	private TextoRepository textoRepository;
 	private PessoaRepository pessoaRepository;
-	private DepoimentoRepository depoimentoRepository;
-	private FaqRepository faqRepository;
+	/*private DepoimentoRepository depoimentoRepository;
+	private FaqRepository faqRepository;*/
 	private TerapeutaRepository terapeutaRepository;
+	private ConstelacaoRepository constelacaoRepository;
 	private ComentarioRepository comentarioRepository;
 	private UsuarioRepository usuarioRepository;
 	
@@ -34,13 +36,15 @@ public class MenuServiceImp implements MenuService{
 			FaqRepository faqRepository,
 			TerapeutaRepository terapeutaRepository,
 			ComentarioRepository comentarioRepository,
+			ConstelacaoRepository constelacaoRepository,
 			UsuarioRepository usuarioRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
-		this.depoimentoRepository = depoimentoRepository;
-		this.faqRepository = faqRepository;
+		/*this.depoimentoRepository = depoimentoRepository;
+		this.faqRepository = faqRepository;*/
 		this.terapeutaRepository = terapeutaRepository;
 		this.comentarioRepository = comentarioRepository;
+		this.constelacaoRepository = constelacaoRepository;
 		this.usuarioRepository = usuarioRepository;
 	}
 
@@ -53,6 +57,7 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoCultura(textoRepository.getTextoCultura());
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		sessaoUsuario.setTextoQuiron(textoRepository.getTextoQuiron());
+		sessaoUsuario.setConstelacao(constelacaoRepository.get());
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		return sessaoUsuario;
 	}	

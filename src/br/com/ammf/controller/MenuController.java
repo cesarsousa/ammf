@@ -14,6 +14,7 @@ import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
+import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.ErroAplicacaoRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
@@ -34,6 +35,7 @@ public class MenuController {
 	private EmailService emailService;
 	private SessaoUsuario sessaoUsuario;	
 	private TextoRepository textoRepository;
+	private ConstelacaoRepository constelacaoRepository;
 	private ErroAplicacaoRepository erroAplicacaoRepository;
 	
 	public MenuController(
@@ -43,6 +45,7 @@ public class MenuController {
 			SessaoUsuario sessaoUsuario,
 			EmailService emailService,
 			TextoRepository textoRepository,			
+			ConstelacaoRepository constelacaoRepository,
 			ErroAplicacaoRepository erroAplicacaoRepository){
 		this.result = result;
 		this.menuService = menuService;
@@ -50,6 +53,7 @@ public class MenuController {
 		this.emailService = emailService;
 		this.sessaoUsuario = sessaoUsuario;
 		this.textoRepository = textoRepository;
+		this.constelacaoRepository = constelacaoRepository;
 		this.erroAplicacaoRepository = erroAplicacaoRepository;
 	}
 	
@@ -116,15 +120,8 @@ public class MenuController {
 	@Restrito
 	@Post("/menu/constelacao/atualizar")
 	public void atualizarTextoConstelacao(Constelacao constelacao){
-		//TODO continuar daki constelacao
-		System.out.println(constelacao.getTextoInicial());
-		System.out.println(constelacao.getFormaPagamento());
-		System.out.println(constelacao.getTextoFinal());
-		System.out.println(constelacao.getLocalizacao());
-		System.out.println(constelacao.getInformacao());
-		System.out.println(constelacao.getDadosPessoais());
-		redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");
-		
+		constelacaoRepository.salvarAtualizar(constelacao);		
+		redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");		
 	}
 	
 	@Restrito

@@ -373,7 +373,6 @@
 			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina Constela&ccedil;&otilde;es</h2>
-			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			
 			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
 				
@@ -422,7 +421,7 @@
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
-				<h3>Localiz&ccedil;&atilde;o:</h3>
+				<h3>Localiza&ccedil;&atilde;o:</h3>
 				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.

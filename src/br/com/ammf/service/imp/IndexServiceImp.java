@@ -3,6 +3,7 @@ package br.com.ammf.service.imp;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Contato;
 import br.com.ammf.model.DadosTerapeuta;
 import br.com.ammf.model.Depoimento;
@@ -16,6 +17,7 @@ import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.LinkRepository;
@@ -39,6 +41,7 @@ public class IndexServiceImp implements IndexService{
 	private LivroRepository livroRepository;
 	private FaqRepository faqRepository;
 	private TerapeutaRepository terapeutaRepository;
+	private ConstelacaoRepository constelacaoRepository;
 	
 	public IndexServiceImp(
 			TextoRepository textoRepository,
@@ -48,7 +51,8 @@ public class IndexServiceImp implements IndexService{
 			DepoimentoRepository depoimentoRepository,
 			LivroRepository livroRepository,
 			FaqRepository faqRepository,
-			TerapeutaRepository terapeutaRepository){
+			TerapeutaRepository terapeutaRepository,
+			ConstelacaoRepository constelacaoRepository){
 		this.textoRepository = textoRepository;		
 		this.usuarioRepository = usuarioRepository;
 		this.resenhaRepository = resenhaRepository;
@@ -57,6 +61,7 @@ public class IndexServiceImp implements IndexService{
 		this.livroRepository = livroRepository;
 		this.faqRepository = faqRepository;
 		this.terapeutaRepository = terapeutaRepository;
+		this.constelacaoRepository = constelacaoRepository;
 	}
 
 	@Override
@@ -64,12 +69,16 @@ public class IndexServiceImp implements IndexService{
 		
 		Terapeuta terapeuta = terapeutaRepository.get();
 		if(terapeuta == null) terapeuta = new Terapeuta();
+		
 		Texto textoIndex = textoRepository.getTextoIndex();
 		Texto textoPsicologia = textoRepository.getTextoCliente(Local.PSICOLOGIA);
 		Texto textoEducacao = textoRepository.getTextoCliente(Local.EDUCACAO);
 		Texto textoCultura = textoRepository.getTextoCliente(Local.CULTURA);
 		Texto textoArtesOrientais = textoRepository.getTextoCliente(Local.ARTESORIENTAIS);
 		Texto textoQuiron = textoRepository.getTextoCliente(Local.QUIRON);
+		
+		Constelacao constelacao = constelacaoRepository.get();
+		if(constelacao == null) constelacao = new Constelacao();
 		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);
@@ -80,6 +89,8 @@ public class IndexServiceImp implements IndexService{
 		sessaoCliente.setTextoQuiron(criarListaDeParagrafos(textoQuiron));
 		
 		sessaoCliente.setContato(criarDadosDeContato());
+		
+		sessaoCliente.setConstelacao(constelacao);
 		
 		return sessaoCliente;
 	}
