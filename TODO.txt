@@ -1,7 +1,0 @@
-Alterar conteudo das mensagens de email
-
-implementar nova regra de cadastro
-
-inserir constelação cliente e admin
-
-inserir enviar email
