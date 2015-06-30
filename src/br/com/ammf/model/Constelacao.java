@@ -2,10 +2,13 @@ package br.com.ammf.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="constelacao")
@@ -17,12 +20,24 @@ public class Constelacao implements Serializable{
 	@GeneratedValue
 	private long id;
 	
+	@Column(length = 3000)
 	private String textoInicial;
+	
+	@Column(length = 3000)
 	private String formaPagamento;
+	
+	@Column(length = 3000)
 	private String textoFinal;
+	
+	@Column(length = 3000)
 	private String localizacao;
+	
+	@Column(length = 3000)
 	private String informacao;
+	
+	@Column(length = 3000)
 	private String dadosPessoais;
+	
 	public long getId() {
 		return id;
 	}

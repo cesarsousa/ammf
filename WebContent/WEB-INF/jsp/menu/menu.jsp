@@ -97,14 +97,14 @@
 				</table>						
 				
 				<h3>Frase:</h3>
-				<textarea id="campoFraseIndex" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
+				<textarea id="campoFraseIndex" class="form-control" rows="10" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
 								
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase.
 				</h4>
 				
 				<h3>Autor:</h3>
-				<input id="campoAutorFraseIndex" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
+				<input id="campoAutorFraseIndex" type="text" class="form-control" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
 				
 				<p class="paddingPadrao">
 				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="btn btn-success direita" >			
@@ -161,7 +161,7 @@
 				</p>
 				
 				
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
 				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
@@ -199,30 +199,30 @@
 								
 				<h3>Nome Completo:</h3>
 				<c:if test="${not empty usuarioNomeBranco}">
-				<label class="labelFormErro">${usuarioNomeBranco}</label>
-				<input id="campoContaNome" type="text" class="areaTitulo bordaPadraoErro" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
+				<p class="labelFormErro">${usuarioNomeBranco}</p>
+				<input id="campoContaNome" type="text" class="form-control" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
 				</c:if>
 				<c:if test="${empty usuarioNomeBranco}">
-				<input id="campoContaNome" type="text" class="areaTitulo bordaPadrao" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
+				<input id="campoContaNome" type="text" class="form-control" name="usuario.nome" value="${sessaoUsuario.usuario.nome}" />
 				</c:if>
 				
 				<h3>Telefone:</h3>
 				<c:if test="${not empty usuarioTelefoneBranco}">
-				<label class="labelFormErro">${usuarioTelefoneBranco}</label>
-				<input id="campoContaTelefone" type="text" class="areaTitulo bordaPadraoErro" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
+				<p class="labelFormErro">${usuarioTelefoneBranco}</p>
+				<input id="campoContaTelefone" type="text" class="form-control" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
 				</c:if>
 				<c:if test="${empty usuarioTelefoneBranco}">
-				<input id="campoContaTelefone" type="text" class="areaTitulo bordaPadrao" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
+				<input id="campoContaTelefone" type="text" class="form-control" name="usuario.telefone" value="${sessaoUsuario.usuario.telefone}" />
 				</c:if>
 				
 				
 				<h3>Login:</h3>
 				<c:if test="${not empty usuarioLoginBranco}">
-				<label class="labelFormErro">${usuarioLoginBranco}</label>
-				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadraoErro" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
+				<p class="labelFormErro">${usuarioLoginBranco}</p>
+				<input id="campoContaLogin" type="text" class="form-control" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
 				</c:if>
 				<c:if test="${empty usuarioLoginBranco}">
-				<input id="campoContaLogin" type="text" class="areaTitulo bordaPadrao" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
+				<input id="campoContaLogin" type="text" class="form-control" name="usuario.login" value="${sessaoUsuario.usuario.login}" />
 				</c:if>
 				
 				
@@ -233,11 +233,12 @@
 				</div>
 				<p>
 				<c:if test="${not empty usuarioErroEmail}">				
-				<label class="labelFormErro">${usuarioErroEmail}</label>
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
+				<p class="labelFormErro">${usuarioErroEmail}</p>
+				
+				<input id="campoContaEmail" type="text" class="form-control" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
 				</c:if>				
 				<c:if test="${empty usuarioErroEmail}">
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
+				<input id="campoContaEmail" type="text" class="form-control" name="usuario.email" value="${sessaoUsuario.usuario.email}" />
 				</c:if>
 				</p>
 				
@@ -251,17 +252,15 @@
 				</div>
 				
 				<c:if test="${not empty usuarioSenhaBranco}">				
-				<label class="labelFormErro">${usuarioSenhaBranco}</label>
-				<br/>
-					<p>
-					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadraoErro" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
-					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
-					</p>
+				<p class="labelFormErro">${usuarioSenhaBranco}</p>
+				<input id="campoContaSenha" type="password" class="form-control" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+				<input id="campoContaSenhaTexto" type="text" class="form-control" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					
 				</c:if>				
 				<c:if test="${empty usuarioSenhaBranco}">
 					<p>
-					<input id="campoContaSenha" type="password" class="areaTitulo2 bordaPadrao" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
-					<input id="campoContaSenhaTexto" type="text" class="areaTitulo2 bordaPadrao" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
+					<input id="campoContaSenha" type="password" class="form-control" name="usuario.senha" value="${sessaoUsuario.usuario.senha}">
+					<input id="campoContaSenhaTexto" type="text" class="form-control" value="${sessaoUsuario.usuario.senha}" readonly="readonly" disabled="disabled">
 					</p>
 				</c:if>
 				
@@ -287,11 +286,11 @@
 				</div>
 				<p>
 				<c:if test="${not empty usuarioErroEmailNotificacao}">				
-				<label class="labelFormErro">${usuarioErroEmailNotificacao}</label>
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadraoErro" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				<p class="labelFormErro">${usuarioErroEmailNotificacao}</p>
+				<input id="campoContaEmail" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
 				</c:if>				
 				<c:if test="${empty usuarioErroEmailNotificacao}">
-				<input id="campoContaEmail" type="text" class="areaTitulo bordaPadrao" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				<input id="campoContaEmail" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
 				</c:if>
 				</p>	
 				
@@ -299,7 +298,7 @@
 				<span id="linked">Linked</span> <span id="in">in</span>
 				</p>
 				<p>
-				<input id="campoContaLinkedin" type="text" class="areaTitulo bordaPadrao" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
+				<input id="campoContaLinkedin" type="text" class="form-control" name="usuario.linkedin" value="${sessaoUsuario.usuario.linkedin}">
 				</p>
 				
 				<!-- <p>http://br.linkedin.com/pub/alcindo-miguel-martins-filho/2b/28b/364</p>
@@ -317,10 +316,10 @@
 				<h3>Endere&ccedil;o:<span class="info azulClaro" >Entre com as informa&ccedil;&otilde;es que voc&ecirc; deseja que os clientes visualizem.</span></h3>
 				<c:if test="${not empty usuarioLoginBranco}">
 				<label class="labelFormEndereco">${usuarioLoginBranco}</label>
-				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadraoErro" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
+				<input id="campoContaEndereco" type="text" class="form-control" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
 				</c:if>
 				<c:if test="${empty usuarioLoginBranco}">
-				<input id="campoContaEndereco" type="text" class="areaTitulo bordaPadrao" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
+				<input id="campoContaEndereco" type="text" class="form-control" name="usuario.endereco" value="${sessaoUsuario.usuario.endereco}" />
 				</c:if>	
 				
 				<h3>Google Maps</h3>
@@ -345,7 +344,7 @@
 				Ao marcar a op&ccedil;&atilde;o de <b>visualiza&ccedil;&atilde;o com Google Maps</b> ser&aacute; habilitado para o usu&aacute;rio o mapa contendo o endere&ccedil;o da empresa. Para desabilitar esta funcionalidade mantenha a op&ccedil;&atilde;o desmarcada.
 				</div>				
 				<h3>Insira o HTML contendo a localiza&ccedil;&atilde;o do endere&ccedil;o.</h3>
-				<textarea id="areaLocalizacaoMapa" rows="10" class="areaTitulo bordaPadrao" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
+				<textarea id="areaLocalizacaoMapa" class="form-control" rows="10" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
 				</div>
 							
 				<p class="paddingPadrao">
@@ -375,72 +374,69 @@
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina Constela&ccedil;&otilde;es</h2>
 			
 			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
-				
-				<!-- <table class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMediumQuiron" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLargeQuiron" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLargeQuiron" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLargeQuiron" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-					
-					<td><span id="sizeSmallAreaQuiron" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumAreaQuiron" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeAreaQuiron" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeAreaQuiron" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table> -->
-				
-				<%-- <p>				
-				<c:choose>
-					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
-						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
-					</c:when>
-					<c:otherwise>
-						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
-					</c:otherwise>
-				</c:choose>
-				</p> --%>
-				
+							
 				<h3>Texto Inicial:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
 				<h3>Forma de Pagamento:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
 				<h3>Texto Final:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
 				<h3>Localiza&ccedil;&atilde;o:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
 				<h3>Informa&ccedil;&otilde;es:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
 				
 				<h3>Dados Pessoais:</h3>
-				<textarea id="campoConteudoQuiron" class="areaTexto h200 bordaPadrao" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
 				<h4 class="azulClaro" align="right">
 					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
 				</h4>
+				
+				<div class="checkbox" align="left">
+				    <label>
+				      <input type="checkbox" name="constelacaoEnviarEmail"> Enviar e-mail da constela&ccedil;&atilde;o para as pessoas.
+				    </label>
+				  </div>
 								
 				<p class="paddingPadrao">
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="btn btn-success direita" >			
 				</p>
 			</form>			
 			</div>
@@ -917,9 +913,9 @@
 
 <div id="telaAguardeMenu">
 	<div align="center">						
-		<h3 class="paddingTelaAguarde">Neste momento o sistema esta notificando as pessoas da altera&ccedil;&atilde;o no texto.
+		<h3 class="paddingTelaAguarde">O sistema est&aacute; realizando as altera&ccedil;&otilde;es solicitadas.
 		<br/>
-		Esta opera&ccedil;&atilde;o pode levar alguns minutos porque v&aacute;rios emails est&atilde;o sendo enviados...</h3>			
+		Esta opera&ccedil;&atilde;o pode levar alguns minutos porque v&aacute;rios emails podem estar sendo enviados...</h3>			
 		
 		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
 		<br />

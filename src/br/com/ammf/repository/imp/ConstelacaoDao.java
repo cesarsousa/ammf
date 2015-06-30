@@ -23,7 +23,9 @@ private Session session;
 		
 		try {
 			Constelacao textosConstelacao  = get();
-			if(textosConstelacao == null) textosConstelacao = new Constelacao();
+			if(textosConstelacao == null){
+				textosConstelacao = new Constelacao();
+			}
 			textosConstelacao.setTextoInicial(constelacao.getTextoInicial());
 			textosConstelacao.setFormaPagamento(constelacao.getFormaPagamento());
 			textosConstelacao.setTextoFinal(constelacao.getTextoFinal());

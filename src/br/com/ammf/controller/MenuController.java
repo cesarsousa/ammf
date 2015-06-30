@@ -119,7 +119,8 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/constelacao/atualizar")
-	public void atualizarTextoConstelacao(Constelacao constelacao){
+	public void atualizarTextoConstelacao(Constelacao constelacao, boolean constelacaoEnviarEmail){
+		System.out.println(constelacaoEnviarEmail);
 		constelacaoRepository.salvarAtualizar(constelacao);		
 		redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");		
 	}

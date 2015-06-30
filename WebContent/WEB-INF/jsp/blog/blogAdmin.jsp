@@ -90,10 +90,10 @@
 			<input id="uuidNovoBlog" type="hidden" value="${uuidNovoBlog}" name="texto.uuid">
 			 				
 			<h3>T&iacute;tulo :</h3>
-			<input id="blogTituloNovoTexto" type="text" class="areaTitulo bordaPadrao corAzul negrito" name="texto.titulo" value="${textoBlog.titulo}"/>
+			<input id="blogTituloNovoTexto" type="text" class="form-control" name="texto.titulo" value="${textoBlog.titulo}"/>
 				
 			<h3>Autor :</h3>
-			<input id="blogAutorNovoTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${textoBlog.autor}"/>	
+			<input id="blogAutorNovoTexto" type="text" class="form-control" name="texto.autor" value="${textoBlog.autor}"/>	
 							
 			<h3>Texto:</h3>												
 			
@@ -113,9 +113,9 @@
 				</tr>				
 			</table>
 									
-			<textarea id="blogConteudoNovoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
+			<textarea id="blogConteudoNovoTexto" class="form-control" rows="20" name="texto.conteudo">${textoBlog.conteudo}</textarea>		
 			<h4 align="left" class="azulClaro">
-			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">10000</span> caracteres em seu texto.
+			Voc&ecirc; pode digitar <span id="contadorCaracterNovoBlog">20000</span> caracteres em seu texto.
 			</h4>
 			
 			<p class="paddingPadrao">
@@ -226,7 +226,7 @@
 					
 		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${texto.conteudo}</textarea>		
 		<h4 align="left" class="azulClaro">
-		Voc&ecirc; pode digitar <span id="contadorCaracterEdtBlog">10000</span> caracteres em seu texto.
+		Voc&ecirc; pode digitar <span id="contadorCaracterEdtBlog">20000</span> caracteres em seu texto.
 		</h4>
 		
 		<p>

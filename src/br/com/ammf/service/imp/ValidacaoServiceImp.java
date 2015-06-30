@@ -2,6 +2,10 @@ package br.com.ammf.service.imp;
 
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
@@ -113,8 +117,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(texto.getConteudo() == null || texto.getConteudo().isEmpty()){
 			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve ser informado");
 			validado = false;
-		}else if(texto.getConteudo().length() > 10000){
-			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve possuir no m&aacute;ximo 10000 caracteres");
+		}else if(texto.getConteudo().length() > 20000){
+			result.include("conteudoEmBranco", "O conte&uacute;do do texto tem " + texto.getConteudo().length() + "caracteres. Deve possuir no m&aacute;ximo 20000 caracteres");
 			validado = false;
 		}
 		if(!validado){
@@ -352,8 +356,8 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(resenha.getDescricao() == null || resenha.getDescricao().isEmpty()){
 			result.include("descricaoEmBranco", "O coment&aacute;rio deve ser informado<br/>");
 			validado = false;
-		}else if(resenha.getDescricao().length() > 10000){
-			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 10.000 caracteres<br/>");
+		}else if(resenha.getDescricao().length() > 20000){
+			result.include("descricaoEmBranco", "O coment&aacute;rio possui " + resenha.getDescricao().length() + " caracteres. Deve ter no m&aacute;ximo 20000 caracteres<br/>");
 			validado = false;
 		}
 		

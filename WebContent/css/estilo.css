@@ -135,12 +135,13 @@ ul.tabs
 	text-align: center;
 	margin:0 auto;
 	border-top: 1px solid #fff;
-	height:28px;
-	font-size:13px;
+	height:30px;
+	font-size:10px;
 	position:fixed;
 	bottom:0;
 	z-index:999;
 	width:100%;
+	padding-top: 10px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
 	display:block;
@@ -496,10 +497,10 @@ a:HOVER {
 }
 
 .destaque {
-	border: 2px solid #6CA6CD;	
-	box-shadow: 2px 2px 2px #8B8484;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	border: 1px solid #6CA6CD;	
+	/* box-shadow: 1px 1px 1px #8B8484; */
+	/* -webkit-border-radius: 5px;*/
+	border-radius: 1px; 
 	/* border-color: rgba(0, 75, 130, 0.8);
    	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 75, 130, 0.6); */
 }

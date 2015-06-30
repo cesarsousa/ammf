@@ -53,11 +53,11 @@ jQuery.fn.smoothScroll = function(){
 };
 
 function notificarSalvaDeCategoria(){
-	$('#notificacaoSalvaCategoria').show().fadeOut(6000);
+	$('#notificacaoSalvaCategoria').fadeIn().fadeOut(6000);
 }
 
 function notificarNaoSalvaDeCategoria(){
-	$('#notificacaoNaoSalvaCategoria').show().fadeOut(6000);
+	$('#notificacaoNaoSalvaCategoria').fadeIn().fadeOut(6000);
 }
 
 
@@ -67,8 +67,8 @@ function ajaxSalvaAutomatica(idElemento, url){
 		type : 'POST',
 		url : $('#contexto').val() + url,
 		data:{"texto" : $(idElemento).val()},
-		success : function(json){			
-			$('#notificacaoSalvaAutomativa').show().fadeOut(5000);
+		success : function(json){
+			$('#notificacaoSalvaAutomativa').fadeIn().fadeOut(5000);
 		},
 		error : function(){
 			alert("Atencão! Não foi possível realizar a salva automática do texto, Utilize o botão atualizar para salvar o texto.");			

@@ -41,15 +41,16 @@ function abrirTextoView(uuid){
 }
 
 $(document).ready(function() {
+	addRemoveDestaque("#campoBuscaTxtEdtBlog");
 	
-	addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
-	addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
-	$('#blogConteudoNovoTexto').autoResize();
-	$('#blogEdtConteudoTexto').autoResize();
+	//addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
+	//addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
+	/*$('#blogConteudoNovoTexto').autoResize();*/
+	/*$('#blogEdtConteudoTexto').autoResize();*/
 	
 	var caracteresNovoTexto = 0;
 	$('#blogConteudoNovoTexto').keyup(function() {		
-		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 10000);
+		limitarCaracteres('#blogConteudoNovoTexto', '#contadorCaracterNovoBlog', 20000);
 		
 		caracteresNovoTexto++;
 		if(caracteresNovoTexto == 100){				
@@ -60,7 +61,7 @@ $(document).ready(function() {
 	
 	var caracteresTexto = 0;
 	$('#blogEdtConteudoTexto').keyup(function() {		
-		limitarCaracteres('#blogEdtConteudoTexto', '#contadorCaracterEdtBlog', 10000);
+		limitarCaracteres('#blogEdtConteudoTexto', '#contadorCaracterEdtBlog', 20000);
 		
 		caracteresTexto++;
 		if(caracteresTexto == 100){				
