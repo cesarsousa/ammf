@@ -128,48 +128,26 @@
 </table>
 
 <!-- EDITAR COM CAMPO DE BUSCA -->
+<input id="flagBuscarBlog" type="hidden" value="${flagBuscarBlog}" />
 <table id="blogAreaBusca" class="cardViewText">		
 		
 	<tr>
 		<td valign="middle">
-		<div align="right">
+		<p align="right">
 		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
-		</div>
+		</p>
 		
-		<form id="formBlogBuscaTexto">
+		<form id="formBlogBuscaTexto" action="<c:url value="/blog/busca/texto"></c:url>" method="get">
 		<div align="center">
-			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" class="fundoLupa w500px bordaPadrao">
+			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo título do texto...">
+			<br>
 			<button class="btn btn-success" type="submit">Pesquisar</button>
-			<p align="center">
-			<span class="info letraGrande" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
+		
+			<p class="paddingPadrao">
+			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarBlog}</label></span>
 			</p>
 		</div>	
 		</form>
-		</td>
-	</tr>
-		
-	<tr>
-		<td align="center">		
-			<span><label id="labelBuscaTexto"></label></span>			
-		</td>
-	</tr>
-	<tr id="resultBuscaTxtBlog">
-		<td>
-			<br/>
-			<table width="100%" class="card">
-				<thead>
-					<tr>						
-					<td class="headTabelaBlog2">Data da postagem</td>
-					<td class="headTabelaBlog1">T&iacute;tulo</td>
-					<td class="headTabelaBlog1">Conte&uacute;do</td>
-					<td class="headTabelaBlog1">A&ccedil;&otilde;es</td>						
-					</tr>
-				</thead>
-					
-				<tbody id="tabEdtTextoBlog">						
-				</tbody>
-				
-			</table>			
 		</td>
 	</tr>
 </table>

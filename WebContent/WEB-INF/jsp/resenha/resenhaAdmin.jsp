@@ -236,15 +236,15 @@
 <table id="divResenhaBuscarTexto" class="cardViewText">		
 	<tr>
 		<td valign="middle">
-		<div align="right">
+		<p align="right">
 		<input id="btFecharEdtResenha" type="button" value="fechar" class="btn btn-danger">
-		</div>
+		</p>
 		
 		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
 		<div align="center">
-			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="fundoLupa w500px bordaPadrao" />
-			<input type="submit" class="btn btn-success" value="Pesquisar">
-			
+			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="form-control" placeholder="Buscar pelo título da resenha..." />
+			<br>
+			<input type="submit" class="btn btn-success" value="Pesquisar">			
 			
 			<p class="paddingPadrao">
 			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>

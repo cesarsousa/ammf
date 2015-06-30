@@ -872,13 +872,7 @@
 				<form action="<c:url value="/menu/resenha" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
-				</li>
-				
-				<li>
-				<form action="<c:url value="/menu/constelacao" />" method="get">
-				<input type="submit" value="Constelação" class="buttonFooter">
-				</form>
-				</li>				
+				</li>							
 				
 				<li>
 				<form action="<c:url value="/menu/link" />" method="get" >

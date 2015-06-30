@@ -118,6 +118,7 @@ public class ResenhaController {
 			result.include("flagBuscarResenhas", true);			
 			result.include("resultBuscarResenhas", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + parametro + "</b>");			
 		}else{
+			result.include("flagBuscarResenhas", true);	
 			result.include("flagListarResenhas", true);
 			result.include("resenhas", resenhas);
 		}

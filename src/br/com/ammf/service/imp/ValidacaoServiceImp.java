@@ -118,7 +118,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			result.include("conteudoEmBranco", "O conte&uacute;do do texto deve ser informado");
 			validado = false;
 		}else if(texto.getConteudo().length() > 20000){
-			result.include("conteudoEmBranco", "O conte&uacute;do do texto tem " + texto.getConteudo().length() + "caracteres. Deve possuir no m&aacute;ximo 20000 caracteres");
+			result.include("conteudoEmBranco", "O conte&uacute;do do texto tem " + texto.getConteudo().length() + " caracteres. Deve possuir no m&aacute;ximo 20000 caracteres");
 			validado = false;
 		}
 		if(!validado){

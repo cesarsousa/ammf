@@ -109,8 +109,17 @@ public class BlogController {
 	@Restrito
 	@Get("/blog/busca/texto")
 	public void listarTextos(String paramConsulta){		
-		List<Texto> textos = textoRepository.listarTitulos(paramConsulta);		
-		result.use(json()).withoutRoot().from(textos).exclude("id", "autor", "local").serialize();		
+		List<Texto> textos = textoRepository.listarTitulos(paramConsulta);
+		if(textos.isEmpty()){
+			result.include("flagBuscarBlog", true);			
+			result.include("resultBuscarBlog", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + paramConsulta + "</b>");			
+		}else{
+			result.include("flagBuscarBlog", true);
+			result.include("flagTextosblog", true);
+			result.include("textosBlog", textos);
+		}
+		result.redirectTo(this).blogAdmin();
+		/*result.use(json()).withoutRoot().from(textos).exclude("id", "autor", "local").serialize();*/		
 	}
 	
 	@Restrito
