@@ -6,7 +6,7 @@ public class LinksDoSite {
 		if(email.endsWith("@gmail.com")){
 			DOMINIO = "http://localhost:8080/ammf";
 		}else{
-			DOMINIO = "http://www.quiron.psc.br";
+			DOMINIO = "http://www.alcindomiguel.br.com";
 		}
 		
 		WEB_SITE = DOMINIO;

@@ -429,7 +429,9 @@ public class HtmlMensagem {
 				.replace("[DATA]", constelacao.getData())
 				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
 				.replace("[INFORMACAO]", constelacao.getLocalizacao())
-				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())
-				.replace("[WEBSITE_LOGIN_ADM]", linksDoSite.WEB_SITE_LOGIN);
+				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
+				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
+				.replace("[LINKEDIN]", linkedin);
 	}
 }
