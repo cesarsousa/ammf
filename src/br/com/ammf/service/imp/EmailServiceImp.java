@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -258,6 +259,27 @@ public class EmailServiceImp implements EmailService {
 				administrador.getEmailNotificacao(),
 				htmlMensagem.getAssuntoNotificarComentarioAdmin(resenha.getTitulo(), Local.RESENHA),
 				htmlMensagem.getMensagemNotificarComentarioAdmin(resenha.getTitulo(), comentario, Local.RESENHA));		
+	}
+
+	@Override
+	public void notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+		for(Pessoa pessoa : pessoas){
+			enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+		}		
+		
+	}
+
+	private void enviarEmailNotificacaoConstelacao(Constelacao constelacao, Pessoa pessoa) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemNotificacaoDe(constelacao, administrador.getLinkedin(), pessoa);	
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				htmlMensagem.getAssuntoConstelacao(constelacao),
+				mensagem);	
+		
 	}
 
 }

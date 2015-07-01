@@ -17,20 +17,20 @@
 <h3>${msgErro}</h3>
 <div align="center">
 	<form action="<c:url value="/" ></c:url>">
-    	<input type="submit" value="Clique aqui para ser redirecionado para a pagina principal" class="buttonAzul"/> 
+    	<input type="submit" value="Clique aqui para ser redirecionado para a pagina principal" class="btn btn-info"/> 
 	</form>
 
 	<c:if test="${RESENHA}">
 	<h3>A resenha solicitada foi removida do site.</h3>
 	<form action="<c:url value="/resenha/cliente"></c:url>" method="get">
-	    <input type="submit" value="Clique aqui para visualizar outras resenhas" class="buttonCadastrar"/> 
+	    <input type="submit" value="Clique aqui para visualizar outras resenhas" class="btn btn-success"/> 
 	</form>
 	</c:if>
 	
 	<c:if test="${BLOG}">
 	<h3>O texto solicitado foi removido do site.</h3>
 	<form action="<c:url value="/blog/cliente"></c:url>" method="get">
-	    <input type="submit" value="Clique aqui para visualizar outros textos" class="buttonCadastrar"/> 
+	    <input type="submit" value="Clique aqui para visualizar outros textos" class="btn btn-success"/> 
 	</form>
 	</c:if>
 

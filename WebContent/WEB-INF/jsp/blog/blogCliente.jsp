@@ -21,6 +21,11 @@
 	${conteudoEmBranco}
 	</div>
 </c:if>
+
+</div>
+
+<div align="center">
+<div id="msgErroBlogCliente" class="alert alert-danger tamanhoDefault" align="left"></div>
 </div>
 
 <div align="center">
@@ -244,7 +249,7 @@
 	</tbody>
 	<tfoot>		
 		<tr>
-			<th colspan="4" align="center">
+			<th colspan="4" align="center" class="paddingPadrao">
 				<h2><a id="goTopo" href="#irTopo">ler outros textos</a></h2>
 			</th>			
 		</tr>		

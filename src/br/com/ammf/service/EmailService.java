@@ -2,6 +2,7 @@ package br.com.ammf.service;
 
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -41,6 +42,8 @@ public interface EmailService {
 	void notificarNovoComentarioParaAdmin(Resenha resenha, Comentario comentario) throws EmailException;
 
 	void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException;
+
+	void notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException;
 
 
 }

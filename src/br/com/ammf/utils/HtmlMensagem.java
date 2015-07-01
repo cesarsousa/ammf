@@ -1,6 +1,7 @@
 package br.com.ammf.utils;
 
 import br.com.ammf.model.Comentario;
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
@@ -411,6 +412,24 @@ public class HtmlMensagem {
 				.replace("[EMAIL]", depoimento.getEmail())				
 				.replace("[POSTAGEM]", depoimento.getDataFormatada())
 				.replace("[DEPOIMENTO]", depoimento.getConteudo())
+				.replace("[WEBSITE_LOGIN_ADM]", linksDoSite.WEB_SITE_LOGIN);
+	}
+
+	public String getAssuntoConstelacao(Constelacao constelacao) {
+		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - " + constelacao.getData().replace("<h3>", "").replace("</h3>", "");
+	}
+
+	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin, Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
+		
+		return mensagem
+				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
+				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
+				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
+				.replace("[DATA]", constelacao.getData())
+				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
+				.replace("[INFORMACAO]", constelacao.getLocalizacao())
+				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())
 				.replace("[WEBSITE_LOGIN_ADM]", linksDoSite.WEB_SITE_LOGIN);
 	}
 }

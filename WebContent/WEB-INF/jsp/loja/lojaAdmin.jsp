@@ -83,8 +83,10 @@
 		<td style="padding: 10px;">
 		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
 			<div align="center">
-			<input id="campoBuscaLivro" type="text" name="param" class="fundoLupa w500px bordaPadrao"/>
+			<input id="campoBuscaLivro" type="text" name="param" class="form-control" placeholder="Buscar por nome de autor ou título..."/>
+			<br>
 			<input type="submit" class="btn btn-success" value="Pesquisar">
+			
 			</div>
 		</form>
 		

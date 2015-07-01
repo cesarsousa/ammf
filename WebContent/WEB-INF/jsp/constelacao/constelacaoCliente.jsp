@@ -30,6 +30,7 @@
 			<br><br>
 		
 			<div class="fundoConstelacaoData">
+			<h3>${sessaoCliente.constelacao.data}</h3>
 			<h3>${sessaoCliente.constelacao.localizacao}</h3>
 			</div>
 		

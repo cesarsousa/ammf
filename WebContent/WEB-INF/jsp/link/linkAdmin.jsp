@@ -67,7 +67,7 @@
 		<form id="formNovoLink" action="<c:url value="/link/novo"/>" method="post">
 		
 			<h3>T&iacute;tulo do Link: <span class="info azulClaro">Nome simb&oacute;lico para os usu&aacute;rio clicarem para acessarem os links.</span></h3>
-			<input id="linkTitulo" class="areaTexto bordaPadrao" name="link.titulo" value="${link.titulo}" maxlength="254" />
+			<input id="linkTitulo" class="form-control" name="link.titulo" value="${link.titulo}" maxlength="254" />
 			<br/>			
 						
 			<h3>URL: <span class="info azulClaro">Copie e cole a URL do link aqui.</span></h3>

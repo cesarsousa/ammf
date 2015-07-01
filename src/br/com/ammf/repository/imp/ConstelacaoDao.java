@@ -29,6 +29,7 @@ private Session session;
 			textosConstelacao.setTextoInicial(constelacao.getTextoInicial());
 			textosConstelacao.setFormaPagamento(constelacao.getFormaPagamento());
 			textosConstelacao.setTextoFinal(constelacao.getTextoFinal());
+			textosConstelacao.setData(constelacao.getData());
 			textosConstelacao.setLocalizacao(constelacao.getLocalizacao());
 			textosConstelacao.setInformacao(constelacao.getInformacao());
 			textosConstelacao.setDadosPessoais(constelacao.getDadosPessoais());

@@ -31,10 +31,6 @@ public class LoginController {
 	@Post("/login/autenticacao")
 	public void autenticacao(String login, String senha){
 		
-		// TODO remover login automatico
-		login = "cesar";
-		senha = "soueununo";
-		
 		Usuario usuario = usuarioRepository.autenticar(login, senha);
 		if(usuario != null){
 			sessaoUsuario.login(usuario);

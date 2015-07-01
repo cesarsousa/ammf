@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<c:if test="${not empty erroLogin}">
-	<div class="alert alert-danger ponteiro closeClick" role="alert">${erroLogin}</div>
-</c:if>
-
 <%@ include file="/headerLib.jsp" %>
 <div class="paddingHeader"></div>
 <%@ include file="/headerSite.jsp" %>
 
 <div align="center">
 <div id="areaLogin">
+
+<c:if test="${not empty erroLogin}">
+	<div class="alert alert-danger ponteiro closeClick" role="alert">${erroLogin}</div>
+</c:if>
 
 <form action="<c:url value="/login/autenticacao"></c:url>" method="post">
 

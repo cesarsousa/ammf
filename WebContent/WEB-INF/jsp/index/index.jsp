@@ -55,7 +55,7 @@
 			
 			<table class="tamanhoDefault">
 				<tr align="center">
-					<td class="paddingPadrao bordaPadrao">
+					<td class="paddingPadrao">
 					<c:if test="${not empty blogNews}">			
 	  				<h2>Blog</h2>				  	
 				  	<h3 class="azulClaro" >${blogNewsTitulo}</h3>
@@ -63,7 +63,7 @@
 					</c:if>	
 					</td>
 					
-					<td class="paddingPadrao bordaPadrao">
+					<td class="paddingPadrao">
 					<c:if test="${not empty resenhaNews}">
 	  				<h2>Resenha</h2>
 				  	<h3 class="azulClaro" >${resenhaNewsTitulo}</h3>
@@ -72,7 +72,7 @@
 					</td>
 				</tr>
 				<tr align="center">
-					<td class="paddingPadrao bordaPadrao">
+					<td class="paddingPadrao">
 					<c:if test="${not empty linkNews}">
 	  				<h2>Links &Uacute;teis</h2>
 				  	<h3 class="azulClaro" >${linkNewsTitulo}</h3>
@@ -80,7 +80,7 @@
 					</c:if>
 					</td>
 					
-					<td class="paddingPadrao bordaPadrao">
+					<td class="paddingPadrao">
 					<c:if test="${not empty lojaNews}">
 	  				<h2>Loja Virtual</h2>
 				  	<h3 class="azulClaro" >${lojaNewsTitulo}</h3>

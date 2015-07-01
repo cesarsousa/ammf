@@ -30,6 +30,9 @@ public class Constelacao implements Serializable{
 	private String textoFinal;
 	
 	@Column(length = 3000)
+	private String data;
+	
+	@Column(length = 3000)
 	private String localizacao;
 	
 	@Column(length = 3000)
@@ -79,5 +82,11 @@ public class Constelacao implements Serializable{
 	}
 	public void setDadosPessoais(String dadosPessoais) {
 		this.dadosPessoais = dadosPessoais;
-	}	
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
 }

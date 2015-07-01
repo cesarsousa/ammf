@@ -15,7 +15,7 @@ function cadastrarComentarioBlog(){
 				$('#formBlogComentado').submit();
 			}else{
 				$('#msgErroPadraoBlogCliente').hide();
-				$('#msgErroBlogCliente').html(json).slideDown(500);
+				$('#msgErroBlogCliente').html(json).show();
 				$('html, body').animate({scrollTop:0}, 'slow');
 			}			
 		},
@@ -108,13 +108,15 @@ function limparFormComentarioBlogPrincipal(){
 
 $(document).ready(function() {
 	
-	addRemoveDestaque("#comentarTextoNome");
+	/*$('#msgErroBlogCliente').hide();*/
+	
+	/*addRemoveDestaque("#comentarTextoNome");
 	addRemoveDestaque("#comentarTextoEmail");
 	addRemoveDestaque("#comentarTextoConteudo");
 	
 	addRemoveDestaque("#comentarTextoNomePrincipal");
 	addRemoveDestaque("#comentarTextoEmailPrincipal");
-	addRemoveDestaque("#comentarTextoConteudoPrincipal");
+	addRemoveDestaque("#comentarTextoConteudoPrincipal");*/
 	
 	$('#comentarTextoConteudoPrincipal').keyup(function() {		
 		limitarCaracteres('#comentarTextoConteudoPrincipal', '#contadorCaracterComentarTextoConteudoPrincipal', 999);		  
