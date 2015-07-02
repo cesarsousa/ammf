@@ -201,29 +201,43 @@
 					<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
 					</td>
 					<td class="paddingPadrao">
+					
 						<p>
-						<label class="inline">
+						<label class="labelForm2">
 						<input type="checkbox" value="true" name="removerImagemResenhaEdt"/>
-						<span class="labelForm">Remover e n&atilde;o adicionar nenhuma imagem</span>
+						Marque esta op&ccedil;&atilde;o para remover e n&atilde;o adicionar nenhuma imagem
 						</label>				
 						</p>
 						<p>
-						<label class="labelForm">Selecionar nova imagem de apresenta&ccedil;&atilde;o da resenha </label><br/>
+						<label class="labelForm">ou</label><br/>
 						</p>
-						<div id="divUploadNovaFotoResenha">
+											
+						<table class="msgBorder msgInfo">
+						<tr align="center">
+						<td>
+							<label class="labelForm">Selecione a nova imagem de apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
+						</td>			
+						<td>
+							<div id="divUploadNovaFotoResenha" >
 							<input type="hidden" name="resenha.imagem.nome" value="${resenha.imagem.nome}"/>
 							<input type="hidden" name="resenha.imagem.id" value="${resenha.imagem.id}"/>
 							<input type="hidden" name="resenha.imagem.caminho" value="${resenha.imagem.caminho}"/>
-							<input id="inputNovaImagemResenha" type="file" name="novaImagemResenha" style="background-color: #CCCCCC; width: 100%"/>
+							<input id="inputNovaImagemResenha" type="file" name="novaImagemResenha" />
 						</div>
-						<input id="btRemoverUploadNovaFotoResenha" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+						</td>			
+						<td>
+							<input id="btRemoverUploadNovaFotoResenha" type="button" value="Selecionar outra foto" class="btn btn-danger ponteiro"/>
+						</td>
+						</tr>
+					</table>				
+						
 					</td>
 				</tr>
 			</table>
 					
 			<p>
-			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="buttonCadastrar">
-			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="button">				
+			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="btn btn-success">
+			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="btn btn-default">				
 			</p>
 		</form>			
 		</td>
