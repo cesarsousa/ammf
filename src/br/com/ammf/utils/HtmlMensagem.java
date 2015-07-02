@@ -416,7 +416,7 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoConstelacao(Constelacao constelacao) {
-		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - " + constelacao.getData().replace("<h3>", "").replace("</h3>", "");
+		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
 	}
 
 	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin, Pessoa pessoa) {

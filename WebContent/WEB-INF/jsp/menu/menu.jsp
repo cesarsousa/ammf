@@ -404,7 +404,7 @@
 				
 				<h3>Data:</h3>
 				<div class="alert alert-warning">
-				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacao.data}</textarea>				
 				<!-- <h4 class="azulClaro" align="right">
