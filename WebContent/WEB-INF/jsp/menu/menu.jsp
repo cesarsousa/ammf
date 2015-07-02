@@ -196,6 +196,18 @@
 			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
 				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
+					
+				<label class="labelForm2 h3">
+					<c:choose>
+						<c:when test="${sessaoUsuario.usuario.administrativo}">
+							<input type="checkbox" name="usuario.administrativo" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="usuario.administrativo" />
+						</c:otherwise>
+					</c:choose>				
+					Perfil Administrativo
+				</label>	
 								
 				<h3>Nome Completo:</h3>
 				<c:if test="${not empty usuarioNomeBranco}">

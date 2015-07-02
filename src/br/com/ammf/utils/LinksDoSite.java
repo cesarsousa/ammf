@@ -2,8 +2,8 @@ package br.com.ammf.utils;
 
 public class LinksDoSite {	
 		
-	public LinksDoSite(String email){
-		if(email.endsWith("@gmail.com")){
+	public LinksDoSite(boolean administrativo){
+		if(administrativo){
 			DOMINIO = "http://localhost:8080/ammf";
 		}else{
 			DOMINIO = "http://www.alcindomiguel.br.com";

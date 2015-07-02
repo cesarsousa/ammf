@@ -25,6 +25,7 @@
 <script type="text/javascript" src="${javascript}/jquery.maskmoney.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.prettyPhoto.js"></script>
 <script type="text/javascript" src="${javascript}/bootstrap.min.js"></script>
+<script type="text/javascript" src="${javascript}/bootstrap-select.js"></script>
 <script type="text/javascript" src="${javascript}/COMMONS.js"></script>
 <script type="text/javascript" src="${javascript}/index.js"></script>
 <script type="text/javascript" src="${javascript}/menu.js"></script>

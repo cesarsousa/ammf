@@ -17,8 +17,8 @@ public class HtmlMensagem {
 	
 	private LinksDoSite linksDoSite;
 	
-	public HtmlMensagem(String email){
-		linksDoSite = new LinksDoSite(email);
+	public HtmlMensagem(boolean administrativo){
+		linksDoSite = new LinksDoSite(administrativo);
 	}
 	
 	private static final String PATH = "./html_mensagem/";	

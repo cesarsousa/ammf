@@ -44,6 +44,8 @@ public class Usuario implements Serializable{
 	
 	private boolean emailAtivado;
 	
+	private boolean administrativo;
+	
 	public long getId() {
 		return id;
 	}
@@ -146,5 +148,13 @@ public class Usuario implements Serializable{
 	
 	public void setEmailAtivado(boolean emailAtivado) {
 		this.emailAtivado = emailAtivado;
+	}
+	
+	public boolean isAdministrativo() {
+		return administrativo;
+	}
+	
+	public void setAdministrativo(boolean administrativo) {
+		this.administrativo = administrativo;
 	}
 }

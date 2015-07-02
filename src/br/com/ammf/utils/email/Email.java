@@ -23,14 +23,14 @@ public class Email {
 	private boolean emailAtivado;
 	private int SMTP;
 	
-	public Email(boolean emailAtivado, String email) {
+	public Email(boolean emailAtivado, boolean administrativo) {
 		this.emailAtivado = emailAtivado;
 		
 		/*
 		 * 0 = SMTP servidor Integrator
 		 * 1 = SMTP servidor Google
 		 */
-		this.SMTP = email.endsWith("@gmail.com") ? 1 : 0;
+		this.SMTP = administrativo ? 1 : 0;
 	}	
 		
 	public void enviarEmail(

@@ -30,7 +30,7 @@ public class ImagemServiceImp implements ImagemService {
 		
 		Usuario administrador = usuarioRepository.obterAdministrador();
 		
-		if(administrador.getEmail().endsWith("@gmail.com")){
+		if(administrador.isAdministrativo()){
 			PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
 		}else{
 			PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";

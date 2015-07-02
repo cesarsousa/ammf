@@ -92,7 +92,7 @@
 				</div>
 				</div>				
 			
-			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
+			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao" ></select>
 			</div>
 			
 			<h3>T&iacute;tulo</h3>

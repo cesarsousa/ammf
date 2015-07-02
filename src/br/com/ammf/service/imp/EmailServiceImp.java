@@ -38,8 +38,8 @@ public class EmailServiceImp implements EmailService {
 		this.usuarioRepository = usuarioRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.administrador = this.usuarioRepository.obterAdministrador();
-		this.email = new Email(administrador.isEmailAtivado(), administrador.getEmail());
-		this.htmlMensagem = new HtmlMensagem(administrador.getEmail());
+		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo());
+		this.htmlMensagem = new HtmlMensagem(administrador.isAdministrativo());
 		
 	}
 
