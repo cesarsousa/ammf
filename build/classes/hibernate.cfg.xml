@@ -45,7 +45,9 @@
 		<mapping class="br.com.ammf.model.Faq" />
 		<mapping class="br.com.ammf.model.Terapeuta" />
 		<mapping class="br.com.ammf.model.Comentario" />
-		<mapping class="br.com.ammf.model.Constelacao" />		
+		<mapping class="br.com.ammf.model.Constelacao" />
+		<mapping class="br.com.ammf.model.Evento" />
+		<mapping class="br.com.ammf.model.Participante" />		
 		
 	</session-factory>
 </hibernate-configuration>

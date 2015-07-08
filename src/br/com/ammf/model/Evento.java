@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.ammf.utils.DataUtils;
-
 @Entity
 @Table(name="evento")
 public class Evento implements Serializable{
@@ -33,13 +31,16 @@ public class Evento implements Serializable{
 	private TipoEvento tipoEvento;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
+	private Date postagem = new Date();
+	
+	@Column(length=255)
+	private String data;
 	
 	@Column(length=255)
 	private String local;
 	
 	@OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	private List<Participante> participante;
+	private List<Participante> participantes;
 	
 	public Evento() {}
 
@@ -58,12 +59,20 @@ public class Evento implements Serializable{
 	public void setTipoEvento(TipoEvento tipoEvento) {
 		this.tipoEvento = tipoEvento;
 	}
+	
+	public void setPostagem(Date postagem) {
+		this.postagem = postagem;
+	}
+	
+	public Date getPostagem() {
+		return postagem;
+	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -75,28 +84,16 @@ public class Evento implements Serializable{
 		this.local = local;
 	}
 
-	public List<Participante> getParticipante() {
-		return participante;
+	public List<Participante> getParticipantes() {
+		return participantes;
 	}
 
-	public void setParticipante(List<Participante> participante) {
-		this.participante = participante;
+	public void setParticipantes(List<Participante> participante) {
+		this.participantes = participante;
 	}
 	
-	/**
-	 * 
-	 * @return data no formato dd/MM/yyyy HH:mm:ss.
-	 */
-	public String getDataFormatada(){
-		return DataUtils.getStringDataHora(data);
+	public int getTotalParticipantes(){
+		return participantes.size();
 	}
 	
-	/**
-	 * 
-	 * @return data no formato dd/MM/yyyy.
-	 */
-	public String getDataFormatadaSimples(){
-		return DataUtils.getStringFormato(data, "dd/MM/yyyy");
-	}
-
 }

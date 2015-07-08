@@ -6,7 +6,7 @@
 <div class="jumbotron">	
 	<%@ include file="/headerSite.jsp" %>
 	<%@ include file="/menuPrincipal.jsp" %>
-	<div align="center"><h1>Piscoterapia & Constela&ccedil;&atilde;o</h1></div>
+	<div align="center"><h1>Constela&ccedil;&otilde;es Sist&ecirc;micas</h1></div>
 </div>
 
 <div class="fundoConstelacao" align="center">

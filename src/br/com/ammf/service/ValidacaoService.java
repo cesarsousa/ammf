@@ -2,6 +2,7 @@ package br.com.ammf.service;
 
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -42,6 +43,8 @@ public interface ValidacaoService {
 
 	boolean cadastrarComentario(Comentario comentario, Local local, Result result);
 
-	String cadastrarComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo);	
+	String cadastrarComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo);
+
+	boolean cadastrarEvento(Evento evento, Result result);	
 
 }

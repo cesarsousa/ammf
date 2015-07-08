@@ -884,6 +884,12 @@
 				</li>
 				
 				<li>
+				<form action="<c:url value="/menu/constelacao" />" method="get">
+				<input type="submit" value="Constelações" class="buttonFooter">
+				</form>
+				</li>
+				
+				<li>
 				<form action="<c:url value="/menu/blog" />" method="get">
 				<input type="submit" value="Blog" class="buttonFooter">
 				</form>

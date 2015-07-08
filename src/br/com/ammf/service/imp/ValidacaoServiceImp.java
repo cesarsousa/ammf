@@ -8,6 +8,7 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -478,6 +479,23 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	@Override
+	public boolean cadastrarEvento(Evento evento, Result result) {
+		boolean validado = true;
+		
+		if(evento.getData() == null){
+			result.include("dataEmBranco", "A data da constelação deve ser informada<br>");
+			validado = false;
+		}
+		
+		if(evento.getLocal() == null || evento.getLocal().isEmpty()){
+			result.include("localEmBranco", "O endereço do local da constelação deve ser informado<br>");
+			validado = false;
+		}		
+		
+		return validado;
+	}
+	
+	@Override
 	public String cadastrarComentario(
 			String uuidTextoBlog,
 			String comentarioNome, 
@@ -551,10 +569,5 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	private boolean setMsgErroAno(Result result, String mensagem) {		
 		result.include("anoEmBranco", mensagem);
 		return false;
-	}
-
-	
-
-	
-			
+	}			
 }
