@@ -23,7 +23,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgResenhaAdm">
+<div id="divPgResenhaAdm" class="paddingPadrao">
 <div align="center">
 
 <h2>RESENHA</h2>
@@ -235,7 +235,7 @@
 				</tr>
 			</table>
 					
-			<p>
+			<p class="paddingPadrao">
 			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="btn btn-success">
 			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="btn btn-default">				
 			</p>
@@ -278,7 +278,7 @@
 <table id="tabListagemResenhas" class="fullSize">	
 	<tr>
 	<td>
-	<div align="right">		
+	<div align="right" class="paddingPadrao">		
 	<input id="btResenhaFecharTextos" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
@@ -332,7 +332,7 @@
 <table id="tabComentariosResenhaAdmin" class="fullSize">	
 	<tr>
 	<td>
-	<div align="right">		
+	<div align="right" class="paddingPadrao">		
 	<input id="btFecharComentariosResenha" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">

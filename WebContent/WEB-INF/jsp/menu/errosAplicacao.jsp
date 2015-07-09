@@ -4,7 +4,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgAdmFaq" align="center">
+<div id="divPgAdmFaq" align="center" class="paddingPadrao">
 
 <h2>Erros da Aplica&ccedil;&atilde;o</h2>
 

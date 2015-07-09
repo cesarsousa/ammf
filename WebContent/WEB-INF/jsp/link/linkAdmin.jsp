@@ -22,7 +22,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgLinkAdm">
+<div id="divPgLinkAdm" class="paddingPadrao">
 <div align="center">
 
 <h2>LINK</h2>
@@ -58,7 +58,7 @@
 <table id="tabNovoLink" class="cardViewText">		
 	<tr>
 		<td>
-		<div align="right">
+		<div align="right" class="paddingPadrao">
 		<input id="btFecharAddLink" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
@@ -106,7 +106,7 @@
 <table id="tabListagemLinks" class="fullSize">	
 	<tr>
 	<td>
-	<div align="right">		
+	<div align="right" class="paddingPadrao">		
 	<input id="btFecharListagemLinks" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">

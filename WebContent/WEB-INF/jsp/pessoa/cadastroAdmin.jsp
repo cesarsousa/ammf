@@ -21,7 +21,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgAdmCadastroCliente" align="center">
+<div id="divPgAdmCadastroCliente" align="center" class="paddingPadrao">
 
 <h2>CADASTRO</h2>
 
@@ -88,7 +88,7 @@
 		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
 		<br/><br/>
 		
-		<input id="btnCadastrarPessoa" type="submit" value="Enviar convite"  class="btn btn-success"/>	
+		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="btn btn-success"/>	
 	</form>
 	</div>
 </td>
@@ -102,60 +102,36 @@
 <form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
 
 <!-- CONSULTAR PESSOA -->
-<table id="tabBuscaPessoa" class="cardViewText">	
+<input id="flagCampoBuscar" type="hidden" value="${flagCampoBuscar}"  />
+<table id="tabBuscaPessoa" class="cardViewText">		
 	<tr>
-		<td>
-		<div align="right">
+		<td valign="middle">
+		<p align="right">
 		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		</td>
-	</tr>
-	<tr>		
-		<td style="padding: 10px;">
-		<form id="formBuscaPessoa">
+		</p>
+		
+		<form action="<c:url value="/pessoa/consulta"></c:url>" method="get">
 		<div align="center">
-		<input id="campoBusca" type="text" class="fundoLupa w500px bordaPadrao"/>
-		<input type="submit" class="btn btn-success" value="Pesquisar">
-		</div>
-		</form> 
-		<p align="center">
-		<label class="info" id="labelResultadoConsulta"></label>		
-		</p>			
-		</td>		
-	</tr>
-	<tr>
-		<td align="center">
-		<div id="conteudoConsultaPessoas" class="">								
-			<table>
-				<thead>
-					<tr>
-					<td class="headTabela">C&oacute;digo</td>
-					<td class="headTabela">Nome</td>
-					<td class="headTabela">Email</td>
-					<td class="headTabela">Data Cadastro</td>
-					<td class="headTabela">Status</td>
-					<td class="headTabela">Situa&ccedil;&atilde;o</td>
-					<td class="w50 headTabela">A&ccedil;&atilde;o</td>
-					</tr>
-				</thead>
-					
-				<tbody id="ulConsultadas">						
-				</tbody>
-				
-			</table>				
-		</div>
+			<input width="100%" id="campoBusca" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo código, nome ou e-mail da pessoa...">
+			<br>
+			<button class="btn btn-success" type="submit">Pesquisar</button>
+		
+			<p class="paddingPadrao">
+			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarPessoa}</label></span>
+			</p>
+		</div>	
+		</form>
 		</td>
-	</tr>	
+	</tr>
 </table>
-
 
 <!--  PESSOAS SOLICITADAS -->
 <input id="flagVisualizarPessoas" type="hidden" value="${flagVisualizarPessoas}" />
 <c:if test="${visualizarPessoas}">
-<table id="tabPessoasSolicitadas" class="superFooter bordaLateral">
+<table id="tabPessoasSolicitadas" class="superFooter">
 	<tr>
 		<td>
-		<div align="right">
+		<div align="right" class="paddingPadrao">
 			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		

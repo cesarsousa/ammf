@@ -21,7 +21,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgAdmCadastroCliente" align="center">
+<div id="divPgAdmCadastroCliente" align="center" class="paddingPadrao">
 
 <h2>LOJA VIRTUAL</h2>
 
@@ -275,10 +275,10 @@
 </table>
 </c:if>
 <c:if test="${not empty livrosSolicitados}">
-<table id="tabLivrosSolicitadas" class="superFooter bordaLateral">
+<table id="tabLivrosSolicitadas" class="superFooter">
 	<tr>
 		<td>
-		<div align="right">
+		<div align="right" class="paddingPadrao">
 			<input id="btFecharLivrosSolicitados" type="button" value="fechar" class="btn btn-danger">
 		</div>
 				

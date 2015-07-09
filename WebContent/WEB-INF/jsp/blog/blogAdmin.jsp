@@ -26,7 +26,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgBlogAdmin" align="center">
+<div id="divPgBlogAdmin" align="center" class="paddingPadrao">
 
 <h2>BLOG</h2>
 
@@ -225,7 +225,7 @@
 <table id="divEditarBlogTodosTextos" class="fullSize">	
 	<tr>
 	<td>
-	<div align="right">		
+	<div align="right" class="paddingPadrao">		
 	<input id="btBlogFecharTextos" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
@@ -277,10 +277,11 @@
 
 <!-- LISTAR TODOS OS COMENTARIOS -->
 <input id="flagComentariosBlog" type="hidden" value="${flagComentariosBlog}">
+<div class="paddingPadrao">
 <table id="tabComentariosAdmin" class="fullSize">	
 	<tr>
 	<td>
-	<div align="right">		
+	<div align="right" class="paddingPadrao">		
 	<input id="btFecharComentarios" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
@@ -340,6 +341,7 @@
 	</td>
 	</tr>
 </table>
+</div>
 
 
 <a name="lerTextoView"></a>

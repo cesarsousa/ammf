@@ -187,8 +187,18 @@ public class PessoaController {
 			pessoas = pessoaRepository.obter(Long.parseLong(paramConsulta));
 		}else{
 			pessoas = pessoaRepository.listarPorNomeEmail(paramConsulta);		
-		}		
-		result.use(json()).withoutRoot().from(pessoas).serialize();		
+		}
+		
+		if(!pessoas.isEmpty()){
+			result.include("pessoasSolicitadas", pessoas);
+			result.include("visualizarPessoas", true);
+			result.include("flagVisualizarPessoas", true);
+			
+		}
+		
+		result.include("resultBuscarPessoa", pessoas.size() +  " ocorrência(s) para a pesquisa: " + paramConsulta);
+		result.include("flagCampoBuscar", true);
+		redirecionarParaCadastroAdmin();		
 	}
 	
 	@Get("/cliente/cadastro")

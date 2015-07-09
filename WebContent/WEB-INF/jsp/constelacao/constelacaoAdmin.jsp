@@ -24,7 +24,7 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerSite.jsp" %>
 
-<div id="divPgConstelacaoAdm">
+<div id="divPgConstelacaoAdm" class="paddingPadrao">
 <div align="center">
 
 <h2>Constela&ccedil;&otilde;es Sist&ecirc;micas</h2>
