@@ -106,15 +106,12 @@
 <table id="tabBuscaPessoa" class="cardViewText">		
 	<tr>
 		<td valign="middle">
-		<p align="right">
-		<input id="btFecharBuscaPessoa" type="button" value="fechar" class="btn btn-danger">
-		</p>
-		
 		<form action="<c:url value="/pessoa/consulta"></c:url>" method="get">
 		<div align="center">
 			<input width="100%" id="campoBusca" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo código, nome ou e-mail da pessoa...">
 			<br>
 			<button class="btn btn-success" type="submit">Pesquisar</button>
+			<input id="btFecharBuscaPessoa" type="button" value="fechar" class="btn btn-danger">
 		
 			<p class="paddingPadrao">
 			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarPessoa}</label></span>

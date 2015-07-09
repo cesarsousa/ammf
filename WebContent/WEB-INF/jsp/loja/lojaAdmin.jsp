@@ -24,6 +24,7 @@
 <div id="divPgAdmCadastroCliente" align="center" class="paddingPadrao">
 
 <h2>LOJA VIRTUAL</h2>
+<h3>Livros</h3>
 
 <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
@@ -35,16 +36,16 @@
 			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
 		</form>
 	</li>
-	<li>
+	<%-- <li>
 		<img id="iconOpcaoLivro" alt="livros" title="livros" src="${imagem}/iconeLivro.png" class="icone50 ponteiro esquerda">
-	</li>
+	</li> --%>
 	
 	<li>
-		<table id="tabIconesLivros">	
+		<table> <!-- id="tabIconesLivros" -->	
 		<tr>
-			<td>
+			<%-- <td>
 			<img id="fecharTabIconesLivros" alt="fechar livros" title="fechar livros" src="${imagem}/iconeCulturaHover.png" class="icone50 ponteiro esquerda">
-			</td>
+			</td> --%>
 			<td>
 			<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 			</td>
@@ -72,13 +73,7 @@
 <!-- BUSCAR LIVROS -->
 <input id="flagBuscarLivro" type="hidden" value="${flagBuscarLivro}"  />
 <table id="tabBuscaLivro" class="cardViewText">	
-	<tr>
-		<td>
-		<div align="right">
-		<input id="btFecharBuscaLivro" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		</td>
-	</tr>
+	
 	<tr>		
 		<td style="padding: 10px;">
 		<form id="formBuscaLivro" action="<c:url value="/livro/adm/busca" />" method="get">
@@ -86,6 +81,7 @@
 			<input id="campoBuscaLivro" type="text" name="param" class="form-control" placeholder="Buscar por nome de autor ou título..."/>
 			<br>
 			<input type="submit" class="btn btn-success" value="Pesquisar">
+			<input id="btFecharBuscaLivro" type="button" value="fechar" class="btn btn-danger">
 			
 			</div>
 		</form>

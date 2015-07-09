@@ -133,15 +133,12 @@
 		
 	<tr>
 		<td valign="middle">
-		<p align="right">
-		<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
-		</p>
-		
 		<form id="formBlogBuscaTexto" action="<c:url value="/blog/busca/texto"></c:url>" method="get">
 		<div align="center">
 			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo título do texto...">
 			<br>
 			<button class="btn btn-success" type="submit">Pesquisar</button>
+			<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
 		
 			<p class="paddingPadrao">
 			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarBlog}</label></span>
