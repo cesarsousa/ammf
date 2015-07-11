@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
+import br.com.ammf.model.Participante;
 import br.com.ammf.model.TipoEvento;
 
 public interface ConstelacaoRepository {
@@ -15,5 +16,11 @@ public interface ConstelacaoRepository {
 	void cadastrar(Evento evento);
 
 	List<Evento> listar(TipoEvento tipoEvento);
+
+	void remover(Evento evento);
+	
+	Evento obter(long id);
+
+	void cadastrar(Participante participante);
 
 }

@@ -122,65 +122,66 @@
 				<br/>
 				<div class="paddingPadrao">
 				<label class="labelForm">Autor <span class="info azulClaro">no caso de livro propriet&aacute;rio utilize o nome completo<br/>Alcindo Miguel Martins Filho. </span></label>
-				<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">				
 				<label class="labelForm">T&iacute;tulo</label>
-				<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroTitulo" type="text" name="livro.titulo" value="${livroCadastro.titulo}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
 				<br/>
 				
-				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">				
 				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 					<div id="divCadastrarCategoria">
-					<div class="paddingPadrao corPrincipal" class="bordaPadrao">
+					<div class="paddingPadrao alert alert-info">
 					<br/>
-					<input id="inputCadastrarCategoria" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
+					<input id="inputCadastrarCategoria" type="text" class="form-control" maxlength="100"/>
+					<br>
 					<input id="ajaxCadastrarCategoria" type="button" class="btn btn-success" value="Cadastrar" class="largura50"/>
 					<br/>
 					<img id="iconeAguardeCadastrarCategoria" src="${imagem}/gif_aguarde.gif" width="100" height="100">
 					</div>
 					</div>				
 				
-				<select id="comboBoxCategoriasLivro" name="livro.categoria.id" class="letraCinza largura100 altura30 bordaPadrao"></select>
+				<select id="comboBoxCategoriasLivro" name="livro.categoria.id" class="form-control"></select>
 				</div>
 				
 			
 				<div class="paddingPadrao">
 				<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
 				<br/>
-				<input id="livroPaginas" type="text" name="livro.paginas" value="${livroCadastro.paginas}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroPaginas" type="text" name="livro.paginas" value="${livroCadastro.paginas}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Edi&ccedil;&atilde;o</label>
 				<br/>
-				<input id="livroEdicao" type="text" name="livro.edicao" value="${livroCadastro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroEdicao" type="text" name="livro.edicao" value="${livroCadastro.edicao}"  class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Ano</label>
 				<br/>
-				<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroAno" type="text" name="livro.ano" value="${livroCadastro.ano}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">						
 				<label class="labelForm">Pre&ccedil;o</label>
 				<br/>
-				<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroPreco" type="text" name="livro.preco" value="${livroCadastro.precoFormatado}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Link de venda</label>
 				<br/>
-				<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroLinkVenda" type="text" name="livro.linkVenda" value="${livroCadastro.linkVenda}" class="form-control" maxlength="100"/>
 				</div>
 					
 			</div>
@@ -221,32 +222,32 @@
 				<div class="paddingPadrao">
 				<label class="labelForm">Sinopse</label>
 				<br/>
-				<textarea id="livroSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livroCadastro.sinopse}</textarea>
+				<textarea id="livroSinopse" name="livro.sinopse" class="form-control" rows="5">${livroCadastro.sinopse}</textarea>
 				<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterLivro">1000</span> caracteres.</h3>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">Editora</label>
 				<br/>
-				<input id="livroEditora" type="text" name="livro.editora" value="${livroCadastro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroEditora" type="text" name="livro.editora" value="${livroCadastro.editora}" class="form-control" maxlength="100"/>
 				</div>			
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">ISBN</label>
 				<br/>
-				<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroIsbn" type="text" name="livro.isbn" value="${livroCadastro.isbn}" class="form-control" maxlength="100"/>
 				</div>			
 								
 				<div class="paddingPadrao">
 				<label class="labelForm">Idioma</label>
 				<br/>
-				<input id="livroIdioma" type="text" name="livro.idioma" value="${livroCadastro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroIdioma" type="text" name="livro.idioma" value="${livroCadastro.idioma}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">
 				<label class="labelForm">C&oacute;digo de barras</label>
 				<br/>
-				<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+				<input id="livroCodigoBarra" type="text" name="livro.codigoBarra" value="${livroCadastro.codigoBarra}" class="form-control" maxlength="100"/>
 				</div>				
 						
 				<div class="paddingPadrao">
@@ -347,7 +348,7 @@
 	</table>
 </c:when>
 <c:otherwise>
-	<table id="tabAtualizarLivro" class="cardViewText superFooter bordaLateral">
+	<table id="tabAtualizarLivro" class="cardViewText superFooter">
 		<tr>
 			<td>
 			<div align="right">
@@ -371,26 +372,26 @@
 				<div class="cartao campoObrigatorio">
 					<div class="paddingPadrao">				
 					<label class="labelForm">C&oacute;digo do livro</label>
-					<input type="text" name="livro.id" value="${livro.id}" class="letraCinza largura100 altura30 bordaPadrao" readonly="readonly"/>
+					<input type="text" name="livro.id" value="${livro.id}" class="form-control" readonly="readonly"/>
 					</div>
 						
 					<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
 					<br/>
 					<div class="paddingPadrao">
 					<label class="labelForm">Autor</label>
-					<input id="livroAtualizaAutor" type="text" name="livro.autor" value="${livro.autor}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaAutor" type="text" name="livro.autor" value="${livro.autor}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">				
 					<label class="labelForm">T&iacute;tulo</label>
-					<input id="livroAtualizaTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaTitulo" type="text" name="livro.titulo" value="${livro.titulo}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
 					<br/>
 					
-					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere a categoria para '${livro.categoria.descricao}' ou selecione uma nova categoria.</label>
@@ -399,46 +400,46 @@
 					<div class="paddingPadrao">				
 					<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoriaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
 						<div id="divCadastrarCategoriaEdt">
-						<div class="paddingPadrao corPrincipal" class="bordaPadrao">
+						<div class="paddingPadrao alert alert-info">
 						<br/>
-						<input id="inputCadastrarCategoriaEdt" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
+						<input id="inputCadastrarCategoriaEdt" type="text" class="form-control" maxlength="100"/>
 						<input id="ajaxCadastrarCategoriaEdt" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
 						<br/>
 						<img id="iconeAguardeCadastrarCategoriaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">
 						</div>
 						</div>				
 					
-					<select id="comboBoxCategoriasLivroEdt" name="livro.categoria.id" class="letraCinza largura100 altura30 bordaPadrao"></select>
+					<select id="comboBoxCategoriasLivroEdt" name="livro.categoria.id" class="form-control"></select>
 					</div>
 				
 					<div class="paddingPadrao">
 					<label class="labelForm">N&uacute;mero de p&aacute;ginas</label>
 					<br/>
-					<input id="livroAtualizaPaginas" type="text" name="livro.paginas" value="${livro.paginas}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaPaginas" type="text" name="livro.paginas" value="${livro.paginas}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Edi&ccedil;&atilde;o</label>
 					<br/>
-					<input id="livroAtualizaEdicao" type="text" name="livro.edicao" value="${livro.edicao}"  class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaEdicao" type="text" name="livro.edicao" value="${livro.edicao}"  class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Ano</label>
 					<br/>
-					<input id="livroAtualizaAno" type="text" name="livro.ano" value="${livro.ano}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaAno" type="text" name="livro.ano" value="${livro.ano}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Pre&ccedil;o</label>
 					<br/>
-					<input id="livroAtualizaPreco" type="text" name="livro.preco" value="${livro.precoFormatado}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaPreco" type="text" name="livro.preco" value="${livro.precoFormatado}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Link de venda</label>
 					<br/>
-					<input id="livroAtualizaLinkVenda" type="text" name="livro.linkVenda" value="${livro.linkVenda}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaLinkVenda" type="text" name="livro.linkVenda" value="${livro.linkVenda}" class="form-control" maxlength="100"/>
 					</div>
 						
 				</div>
@@ -461,56 +462,57 @@
 						
 						<p>
 						<label class="inline">
+						<input type="checkbox" value="true" name="removerImagemLivroEdt"/>	
 						<span class="labelForm">Remover e n&atilde;o adicionar nenhuma imagem</span>
-						<input type="checkbox" value="true" name="removerImagemLivroEdt"/>						
+											
 						</label>
 						
 						</p>
 						<p>
 						<label class="labelForm">Selecionar nova imagem da capa do livro</label><br/>
 						</p>
-						<div id="divUploadNovaFotoLivro">
+						<div id="divUploadNovaFotoLivro" class="alert alert-info">
 							<input type="hidden" name="livro.imagem.nome" value="${livro.imagem.nome}"/>
 							<input type="hidden" name="livro.imagem.id" value="${livro.imagem.id}"/>
 							<input type="hidden" name="livro.imagem.caminho" value="${livro.imagem.caminho}"/>
-							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro" style="background-color: #CCCCCC; width: 100%"/>
+							<input id="inputNovaImagemLivro" type="file" name="novaImagemLivro"/>
 						</div>
-						<input id="btRemoverUploadNovaFotoLivro" type="button" value="Selecionar outra foto" style="background-color: #8B0000; width: 100%; border: none; color: #FFFFFF;" class="ponteiro"/>
+						<input id="btRemoverUploadNovaFotoLivro" type="button" value="Selecionar outra foto" class="btn btn-danger"/>
 					</div>				
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Sinopse</label>
 					<br/>
-					<textarea id="livroAtualizaSinopse" name="livro.sinopse" class="letraCinza largura90 bordaPadrao" rows="5">${livro.sinopse}</textarea>
+					<textarea id="livroAtualizaSinopse" name="livro.sinopse" class="form-control" rows="5">${livro.sinopse}</textarea>
 					<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterAtualizaLivro">1000</span> caracteres.</h3>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">Editora</label>
 					<br/>
-					<input id="livroAtualizaEditora" type="text" name="livro.editora" value="${livro.editora}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaEditora" type="text" name="livro.editora" value="${livro.editora}" class="form-control" maxlength="100"/>
 					</div>			
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">ISBN</label>
 					<br/>
-					<input id="livroAtualizaIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaIsbn" type="text" name="livro.isbn" value="${livro.isbn}" class="form-control" maxlength="100"/>
 					</div>			
 										
 					<div class="paddingPadrao">
 					<label class="labelForm">Idioma</label>
 					<br/>
-					<input id="livroAtualizaIdioma" type="text" name="livro.idioma" value="${livro.idioma}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaIdioma" type="text" name="livro.idioma" value="${livro.idioma}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm">C&oacute;digo de barras</label>
 					<br/>
-					<input id="livroAtualizaCodigoBarra" type="text" name="livro.codigoBarra" value="${livro.codigoBarra}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="livroAtualizaCodigoBarra" type="text" name="livro.codigoBarra" value="${livro.codigoBarra}" class="form-control" maxlength="100"/>
 					</div>					
 							
 					<div class="paddingPadrao">
-					<input name="btnAtualizarLivro" type="button" value="Atualizar"  class="buttonCadastrar direita tamanhoPadrao" onclick="verificarExtensao(this.form, this.form.novaImagemLivro.value)"/>
+					<input name="btnAtualizarLivro" type="button" value="Atualizar"  class="btn btn-success" onclick="verificarExtensao(this.form, this.form.novaImagemLivro.value)"/>
 					</div>
 				</div>			
 			</form>

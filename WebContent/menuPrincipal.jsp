@@ -62,7 +62,12 @@
 			<label id="btClienteCadastro" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Cadastro</label>
 			<label id="btClienteContato" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Contato</label>
 			<label id="btClienteLojaVirtual" class="btMenuCliente" onclick="javascript: submitFormulario(this)">Loja Virtual</label>
-		</div>
+		</div>		
 	</div>
 
 </div>
+
+<div align="center" class="paddingPadrao">
+		<form id="formLogin" action="<c:url value="/login/autenticacao" />" method="post"></form>
+		<button id="btLogin" class="btn btn-success" onclick="javascript: submitFormulario(this)">LOGIN</button>
+		</div>

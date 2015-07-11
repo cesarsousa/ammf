@@ -12,6 +12,8 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
+import br.com.ammf.model.Participante;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -82,6 +84,38 @@ private Session session;
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
+	}
+
+	@Override
+	public void remover(Evento evento) {
+		try {
+			session.delete(evento);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
+	}
+
+	@Override
+	public Evento obter(long id) {
+		try {
+			Criteria criteria = session.createCriteria(Evento.class);
+			criteria.add(Restrictions.eq("id", id));
+			return (Evento) criteria.uniqueResult();	
+		} catch (Exception e) {
+			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
+	}
+
+	@Override
+	public void cadastrar(Participante participante) {
+		try {
+			session.save(participante);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+		
 	}
 
 }

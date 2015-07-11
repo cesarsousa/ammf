@@ -490,8 +490,18 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		if(evento.getLocal() == null || evento.getLocal().isEmpty()){
 			result.include("localEmBranco", "O endereço do local da constelação deve ser informado<br>");
 			validado = false;
-		}		
+		}
 		
+		if(evento.getValorIngresso() == null){
+			result.include("valorIngressoEmBranco", "O valor do ingresso deve ser informado e conter apenas dígitos<br>");
+			validado = false;
+		}
+		
+		if(evento.getValorParticipacao() == null){
+			result.include("valorConstelacaoEmBranco", "O valor para Constelar deve ser informado e conter apenas dígitos<br>");
+			validado = false;
+		}		
+				
 		return validado;
 	}
 	

@@ -142,7 +142,6 @@ function configurarCamposAtualizaLivro(){
 	$("#livroAtualizaPreco").maskMoney({symbol:'R$ ', showSymbol:false, thousands:'', decimal:'.', symbolStay: false});
 	addRemoveDestaque('#livroAtualizaSubtitulo');
 	addRemoveDestaque('#livroAtualizaSinopse');
-	$('#livroAtualizaSinopse').autoResize();
 	$('#livroAtualizaSinopse').keyup(function() {		
 		limitarCaracteres('#livroAtualizaSinopse', '#contadorCaracterAtualizaLivro', 1000);
 	});

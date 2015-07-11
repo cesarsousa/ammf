@@ -17,6 +17,8 @@
 	<div class="msgBorder msgErro ponteiro closeClick">
 	${dataEmBranco}
 	${localEmBranco}
+	${valorIngressoEmBranco}
+	${valorConstelacaoEmBranco}	
 	</div>
 </c:if>
 </div>
@@ -53,7 +55,7 @@
  
 <div class="separador"></div>
 
-<!-- ADICIONAR UM NOVO LINK  -->
+<!-- ADICIONAR UMA NOVA CONSTELAÇÃO  -->
 
 <input id="flagLinkConstelacaoCadastro" type="hidden" value="${flagLinkConstelacaoCadastro}" />
 
@@ -66,14 +68,22 @@
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Cadastrar Constelação</h2>
 		
-		<form action="<c:url value="/constelacao/cadastrar"/>" method="post">
+		<form id="formCadastroConstelacao" action="<c:url value="/constelacao/cadastrar"/>" method="post">
 		
 			<h3>Data:</h3>
-			<input id="eventoData" class="form-control" name="evento.data" value="${evento.data}" maxlength="254" />
+			<input id="constelacaoData" class="form-control" name="evento.data" value="${evento.data}" maxlength="254" />
 			<br/>			
 						
 			<h3>Endereço do local:</h3>
-			<textarea id="eventoLocal" class="form-control" rows="4" name="evento.local">${evento.local}</textarea>
+			<textarea id="constelacaoEndereco" class="form-control" rows="4" name="evento.local">${evento.local}</textarea>
+			<br/>
+			
+			<h3>Valor do Ingresso:</h3>
+			<input id="constelacaoIngresso" class="form-control" name="evento.valorIngresso" value="${evento.valorIngresso}" />
+			<br/>
+			
+			<h3>Valor para Constelar:</h3>
+			<input id="constelacaoConstelar" class="form-control" name="evento.valorParticipacao" value="${evento.valorParticipacao}" />
 			<br/>
 					
 			<p class="paddingPadrao">
@@ -87,7 +97,7 @@
 	
 </div> <!-- div center -->
 
-<!-- LISTAR TODOS OS LINKS -->
+<!-- LISTAR TODOS AS CONSTELAÇÕES -->
 
 <input id="flagListagemConstelacao" type="hidden" value="${flagListagemConstelacao}" />
 <form id="formListarConstelacao" action="<c:url value="/constelacao/listar"/>" method="get"></form>
@@ -109,8 +119,8 @@
 			<tr>
 				<th class="metadado">Data</th>
 				<th class="metadado">Endereço</th>				
-				<th class="metadado" style="width: 160px;">Total de participante</th>
-				<th class="metadado" style="width: 30px;">Incluir participante</th>
+				<th class="metadado" style="width: 160px;">Participante</th>
+				<th class="metadado" style="width: 30px;">Gerenciar</th>
 				<th class="metadado" style="width: 30px;">Remover</th>			
 			</tr>
 		</thead>
@@ -122,7 +132,7 @@
 					<td class="infoTabelaConteudo" style="width: 160px;">${evento.totalParticipantes}</td>
 										
 					<td class="infoTabelaData" style="width: 30px;" align="center">
-						<a href="<c:url value="/constelacao/incluirParticipante/${evento.id}"/>">
+						<a href="<c:url value="/constelacao/gerenciar/${evento.id}"/>">
 							<img class="icone" alt="Incluir participante" title="Incluir participante" src="${imagem}/iconeAddPessoaHover.png"></a>
 					</td>
 					
@@ -139,6 +149,91 @@
 	</tr>
 </table>
 </div>
+
+<input id="flagGerenciarConstelacao" type="hidden" value="${flagGerenciarConstelacao}" />
+<div id="divAdmGerenciarConstelacao" align="center">
+
+	<div class="tamanhoDefault">
+	
+	<div class="alert alert-info paddingPadrao">
+		<h3>Gerenciar Constelação</h3>
+		<div align="left">
+		<p><b>Data:</b> ${evento.data}</p>
+		<p><b>Local:</b> ${evento.local}</p>
+		<p><b>Valor do Ingresso:</b> R$ ${evento.valorIngresso}</p>
+		<p><b>Valor da Constelação:</b> R$ ${evento.valorParticipacao}</p> 		
+		</div>
+	</div>
+	
+	<c:if test="${not empty constelacaoMensagemCadastroSucesso}">
+		<div class="alert alert-success ponteiro closeClick">
+			${constelacaoMensagemCadastroSucesso} 
+		</div>
+	</c:if>	
+	
+	<c:if test="${evento.totalParticipantes eq 0}">
+		<div class="alert alert-warning paddingPadrao">
+		Não existem participantes nesta Constelação		
+		</div>
+	</c:if>
+	
+	<p class="paddingPadrao">
+		<button id="btIncluirParticipante" type="button" class="btn btn-success">Incluir Participante</button>
+	</p>
+	
+	<!-- ADICIONAR UM NOVO PARTICIPANTE -->
+	<div id="formIncluirParticipante" class="cartao campoObrigatorio">
+	
+	<form id="formCadastrarParticipante" action="<c:url value="/constelacao/participante/cadastrar"/>" method="post">
+			
+		<h3 align="center">Cadastrar Participante</h3>
+		
+		<input type="hidden" name="participante.evento.id" value="${evento.id}">		
+				
+		<div class="paddingPadrao">				
+			<label class="esquerda">Nome</label>
+			<input type="text" name="participante.nome" class="form-control" maxlength="254" required="required"/>
+		</div>
+		
+		<div class="paddingPadrao">				
+			<label class="esquerda">E-mail</label>
+			<input type="text" name="participante.email" class="form-control" maxlength="254"/>
+		</div>
+		
+		<div class="paddingPadrao">				
+			<label class="esquerda">Celular</label>
+			<input id="telefoneParticipante" type="text" name="participante.celular" class="form-control"/>
+		</div>
+		
+		<div class="paddingPadrao">
+			<label class="esquerda">Como soube</label>
+			<textarea name="participante.comoSoube" class="form-control" rows="3" maxlength="254"></textarea>
+		</div>
+		
+		<div align="left">
+		<P>
+		<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso.</label>
+		</P>
+		
+		<P>
+		<label><input type="checkbox" name="participante.constelou" /> constelou.</label>
+		</P>
+		
+		<P>
+		<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
+		</P>
+		</div>
+		
+		<button type="submit" class="btn btn-success">Cadastrar</button>
+		<button id="btCancelCadastroParticipante" type="reset" class="btn btn-default">Cancelar</button>
+	
+	</form>
+	
+	</div>	
+	</div>
+</div>
+
+
 
 <div id="telaAguardeAdmConstelacaoCadastrar">
 	<div align="center">

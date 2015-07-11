@@ -6,7 +6,7 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Evento;
-import br.com.ammf.model.Link;
+import br.com.ammf.model.Participante;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.service.ValidacaoService;
@@ -37,7 +37,7 @@ public class ConstelacaoController {
 	
 	@Restrito
 	@Post("/constelacao/cadastrar")
-	public void adicionarNovoLink(Evento evento){
+	public void cadastrar(Evento evento){
 		try {
 			boolean validado = validacaoService.cadastrarEvento(evento, result);		
 						
@@ -68,19 +68,35 @@ public class ConstelacaoController {
 	
 	@Restrito
 	@Get("/constelacao/remover/{id}")
-	public void removerConstelacao(int id){
-		result.include("constelacaoMensagemSucesso", "voce acaba de remover a constelação " + id);
+	public void removerConstelacao(long id){
+		Evento evento = constelacaoRepository.obter(id);		
+		constelacaoRepository.remover(evento);
+		result.include("constelacaoMensagemSucesso", "Constelação removida com sucesso");
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
 	@Restrito
-	@Get("/constelacao/incluirParticipante/{id}")
-	public void incluirParticipante(int id){
-		result.include("constelacaoMensagemSucesso", "voce acaba de incluir um participante na constelação " + id);
+	@Get("/constelacao/gerenciar/{id}")
+	public void incluirParticipante(long id){
+		Evento evento = constelacaoRepository.obter(id);
+		
+		result.include("evento", evento);
+		result.include("flagGerenciarConstelacao", true);
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
-	
+	@Restrito
+	@Post("/constelacao/participante/cadastrar")
+	public void cadastrarParticipanteConstelacao(Participante participante){
+		
+		constelacaoRepository.cadastrar(participante);		
+		Evento evento = constelacaoRepository.obter(participante.getEvento().getId());
+		
+		result.include("evento", evento);		
+		result.include("flagGerenciarConstelacao", true);
+		result.include("constelacaoMensagemCadastroSucesso", "<b>" + participante.getNome() + "</b> incluído com sucesso!");
+		result.forwardTo(this).constelacaoAdmin();
+	}
 	
 	
 	@Get("/constelacao/cliente")

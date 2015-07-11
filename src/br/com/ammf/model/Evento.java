@@ -39,6 +39,10 @@ public class Evento implements Serializable{
 	@Column(length=255)
 	private String local;
 	
+	private Integer valorIngresso;
+	
+	private Integer valorParticipacao;
+	
 	@OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	private List<Participante> participantes;
 	
@@ -67,7 +71,7 @@ public class Evento implements Serializable{
 	public Date getPostagem() {
 		return postagem;
 	}
-
+	
 	public String getData() {
 		return data;
 	}
@@ -83,6 +87,22 @@ public class Evento implements Serializable{
 	public void setLocal(String local) {
 		this.local = local;
 	}
+	
+	public Integer getValorIngresso() {
+		return valorIngresso;
+	}
+	
+	public void setValorIngresso(Integer valorIngresso) {
+		this.valorIngresso = valorIngresso;
+	}
+	
+	public Integer getValorParticipacao() {
+		return valorParticipacao;
+	}
+	
+	public void setValorParticipacao(Integer valorParticipacao) {
+		this.valorParticipacao = valorParticipacao;
+	}
 
 	public List<Participante> getParticipantes() {
 		return participantes;
@@ -95,5 +115,5 @@ public class Evento implements Serializable{
 	public int getTotalParticipantes(){
 		return participantes.size();
 	}
-	
+		
 }
