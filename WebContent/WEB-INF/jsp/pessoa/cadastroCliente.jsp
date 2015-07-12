@@ -48,11 +48,11 @@
 	</p>
 	
 	<label class="labelForm">Nome</label>
-	<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	<input id="cadastroClienteNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="form-control" maxlength="100"/>
 	<br/><br/>
 	
 	<label class="labelForm">Email</label>
-	<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+	<input id="cadastroClienteEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100"/>
 	
 	<P>
 	<br>

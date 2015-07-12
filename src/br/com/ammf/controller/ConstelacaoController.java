@@ -75,9 +75,18 @@ public class ConstelacaoController {
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
+	
+	@Restrito
+	@Get("/constelacao/participante/remover/{idParticipante}/{idEvento}")
+	public void removerParticipante(int idParticipante, int idEvento){
+		Participante participante = constelacaoRepository.obterParticipante(idParticipante);
+		constelacaoRepository.remover(participante);
+		result.redirectTo(this).gerenciarConstelacao(idEvento);
+	}
+	
 	@Restrito
 	@Get("/constelacao/gerenciar/{id}")
-	public void incluirParticipante(long id){
+	public void gerenciarConstelacao(long id){
 		Evento evento = constelacaoRepository.obter(id);
 		
 		result.include("evento", evento);

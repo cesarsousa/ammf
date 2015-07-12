@@ -4,9 +4,9 @@ function fecharCamposConstelacao(){
 }
 
 function limparFormConstelacao(){
-	$('#formCadastroConstelacao').each (function(){
-		  this.reset();
-	});
+	$(":text").each(function () {
+        $(this).val("");
+    });
 }
 
 $(document).ready(function() {	
@@ -60,6 +60,5 @@ $(document).ready(function() {
 	$('#btCancelCadastroParticipante').click(function(){		
 		$('#formIncluirParticipante').slideUp(500);		
 	});
-	
 		
 });

@@ -115,5 +115,29 @@ public class Evento implements Serializable{
 	public int getTotalParticipantes(){
 		return participantes.size();
 	}
+	
+	public int getCapitalIngresso(){
+		int soma = 0;
+		for (Participante p : participantes ) {
+			if(p.isPagouIngresso()){
+				soma = soma + this.getValorIngresso();
+			}
+		}
+		return soma;
+	}
+	
+	public int getCapitalConstelacao(){
+		int soma = 0;
+		for (Participante p : participantes ) {
+			if(p.isPagouContelacao()){
+				soma = soma + this.getValorParticipacao();
+			}
+		}
+		return soma;
+	}
+	
+	public int getCapitalTotal(){
+		return getCapitalIngresso() + getCapitalConstelacao();
+	}
 		
 }

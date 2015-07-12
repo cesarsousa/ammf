@@ -135,17 +135,17 @@ ${conteudoEmBranco}
 													
 						<div class="paddingPadrao">
 						<label class="labelForm2">Nome</label>
-						<input id="comentarResenhaEmailNome" type="text" name="comentario.nome" value="${comentario.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+						<input id="comentarResenhaEmailNome" type="text" name="comentario.nome" value="${comentario.nome}" class="form-control" maxlength="254"/>
 						</div>
 						
 						<div class="paddingPadrao">
 						<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
-						<input id="comentarResenhaEmailEmail" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+						<input id="comentarResenhaEmailEmail" type="text" name="comentario.email" value="${comentario.email}" class="form-control" maxlength="254"/>
 						</div>
 						
 						<div class="paddingPadrao">
 						<label class="labelForm2">Coment&aacute;rio </label>
-						<textarea id="comentarResenhaEmailConteudo" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9">${comentario.conteudo}</textarea>
+						<textarea id="comentarResenhaEmailConteudo" name="comentario.conteudo" class="form-control" rows="9">${comentario.conteudo}</textarea>
 						
 						<h3 align="right" style="font-size: small;">
 						Voc&ecirc; pode digitar <span id="contadorCaracterComentarResenhaEmailConteudo">1000</span> caracteres em seu coment&aacute;rio.
@@ -249,17 +249,17 @@ ${conteudoEmBranco}
 																		
 											<div class="paddingPadrao">
 											<label class="labelForm2">Nome</label>
-											<input id="comentarResenhaNomePrincipal" type="text" name="comentario.nome" value="${comentario.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+											<input id="comentarResenhaNomePrincipal" type="text" name="comentario.nome" value="${comentario.nome}" class="form-control" maxlength="254"/>
 											</div>
 											
 											<div class="paddingPadrao">
 											<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
-											<input id="comentarResenhaEmailPrincipal" type="text" name="comentario.email" value="${comentario.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+											<input id="comentarResenhaEmailPrincipal" type="text" name="comentario.email" value="${comentario.email}" class="form-control" maxlength="254"/>
 											</div>
 											
 											<div class="paddingPadrao">
 											<label class="labelForm2">Coment&aacute;rio </label>
-											<textarea id="comentarResenhaConteudoPrincipal" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9">${comentario.conteudo}</textarea>
+											<textarea id="comentarResenhaConteudoPrincipal" name="comentario.conteudo" class="form-control" rows="9">${comentario.conteudo}</textarea>
 											
 											<h3 align="right" style="font-size: small;">
 											Voc&ecirc; pode digitar <span id="contadorCaracterComentarResenhaConteudoPrincipal">1000</span> caracteres em seu coment&aacute;rio.
@@ -397,17 +397,17 @@ ${conteudoEmBranco}
 																	
 										<div class="paddingPadrao">
 										<label class="labelForm2">Nome</label>
-										<input id="comentarNovaResenhaNome" type="text" name="comentario.nome" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+										<input id="comentarNovaResenhaNome" type="text" name="comentario.nome" class="form-control" maxlength="254"/>
 										</div>
 										
 										<div class="paddingPadrao">
 										<label class="labelForm2">Email <span class="info azulClaro" > Seu e-mail n&atilde;o ser&aacute; divulgado no site :)</span></label>
-										<input id="comentarNovaResenhaEmail" type="text" name="comentario.email" class="letraCinza largura100 altura30 bordaPadrao" maxlength="254"/>
+										<input id="comentarNovaResenhaEmail" type="text" name="comentario.email" class="form-control" maxlength="254"/>
 										</div>
 										
 										<div class="paddingPadrao">
 										<label class="labelForm2">Coment&aacute;rio </label>
-										<textarea id="comentarNovaResenhaConteudo" name="comentario.conteudo" class="letraCinza largura90 bordaPadrao" rows="9"></textarea>
+										<textarea id="comentarNovaResenhaConteudo" name="comentario.conteudo" class="form-control" rows="9"></textarea>
 										
 										<h3 align="right" style="font-size: small;">
 										Voc&ecirc; pode digitar <span id="contadorCaracterComentarNovaResenhaConteudo">1000</span> caracteres em seu coment&aacute;rio.

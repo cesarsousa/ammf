@@ -109,5 +109,17 @@ public class Participante implements Serializable{
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
+	
+	public String getIngressoPago(){
+		return pagouIngresso ? "Sim" : "Não";
+	}
+	
+	public String getParticipouEvento(){
+		return constelou ? "Sim" : "Não";
+	}
+	
+	public String getConstelacaoPaga(){
+		return pagouContelacao ? "Sim" : "Não";
+	}
 
 }

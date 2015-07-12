@@ -188,13 +188,13 @@ $(document).ready(function() {
 		$('#divNovoComentarioResenhaPrincipal').show();		
 	}
 	
-	addRemoveDestaque("#comentarResenhaNomePrincipal");
+	/*addRemoveDestaque("#comentarResenhaNomePrincipal");
 	addRemoveDestaque("#comentarResenhaEmailPrincipal");
 	addRemoveDestaque("#comentarResenhaConteudoPrincipal");
 	
 	addRemoveDestaque("#comentarResenhaEmailNome");
 	addRemoveDestaque("#comentarResenhaEmailEmail");
-	addRemoveDestaque("#comentarResenhaEmailConteudo");
+	addRemoveDestaque("#comentarResenhaEmailConteudo");*/
 		
 	if($('#flagResenhasRequest').val()){		
 		$('#divResenhasTop3, #btVisualizarOutrasResenhas').hide();		

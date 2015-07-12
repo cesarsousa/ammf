@@ -23,4 +23,8 @@ public interface ConstelacaoRepository {
 
 	void cadastrar(Participante participante);
 
+	Participante obterParticipante(long id);
+
+	void remover(Participante participante);
+
 }

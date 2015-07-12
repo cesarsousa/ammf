@@ -8,8 +8,8 @@ $(document).ready(function() {
 		$('#divNotifClienteEmailJaCadastrado').slideDown(500);
 	});
 	
-	addRemoveDestaque("#cadastroClienteNome");
-	addRemoveDestaque("#cadastroClienteEmail");
+	/*addRemoveDestaque("#cadastroClienteNome");
+	addRemoveDestaque("#cadastroClienteEmail");*/
 		
 	$('#telaAguardeCadastroCliente').hide();	
 

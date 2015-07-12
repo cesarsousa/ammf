@@ -114,17 +114,17 @@
 					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Nome</label>
-					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Email </label>
-					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="letraCinza largura100 altura30 bordaPadrao" maxlength="100"/>
+					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="form-control" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
 					<label class="labelForm2">Mensagem</label>
-					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="letraCinza largura90 bordaPadrao" rows="5">${novaMensagem.conteudo}</textarea>
+					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="form-control" rows="5">${novaMensagem.conteudo}</textarea>
 					</div>
 					
 					<h3 align="right" class="letraPequena">

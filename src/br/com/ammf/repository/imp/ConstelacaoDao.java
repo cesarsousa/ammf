@@ -13,7 +13,6 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Participante;
-import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.caelum.vraptor.ioc.Component;
@@ -45,8 +44,7 @@ private Session session;
 			session.saveOrUpdate(textosConstelacao);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-			
+		}			
 	}
 
 	@Override
@@ -69,8 +67,7 @@ private Session session;
 			session.save(evento);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
+		}		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -92,8 +89,7 @@ private Session session;
 			session.delete(evento);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}	
-		
+		}			
 	}
 
 	@Override
@@ -104,8 +100,7 @@ private Session session;
 			return (Evento) criteria.uniqueResult();	
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}
-		
+		}		
 	}
 
 	@Override
@@ -114,8 +109,27 @@ private Session session;
 			session.save(participante);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}		
+	}
+
+	@Override
+	public Participante obterParticipante(long id) {
+		try {
+			Criteria criteria = session.createCriteria(Participante.class);
+			criteria.add(Restrictions.eq("id", id));
+			return (Participante) criteria.uniqueResult();	
+		} catch (Exception e) {
+			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
-		
+	}
+
+	@Override
+	public void remover(Participante participante) {
+		try {
+			session.delete(participante);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}		
 	}
 
 }
