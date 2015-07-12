@@ -66,8 +66,3 @@
 	</div>
 
 </div>
-
-<div align="center" class="paddingPadrao">
-		<form id="formLogin" action="<c:url value="/login/autenticacao" />" method="post"></form>
-		<button id="btLogin" class="btn btn-success" onclick="javascript: submitFormulario(this)">LOGIN</button>
-		</div>
