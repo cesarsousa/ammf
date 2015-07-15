@@ -33,7 +33,10 @@ public class ConstelacaoController {
 	
 	@Restrito
 	@Get("/menu/constelacao")
-	public void constelacaoAdmin(){}
+	public void constelacaoAdmin(){
+		List<Evento> eventos = constelacaoRepository.listar(TipoEvento.CONSTELACAO);
+		result.include("eventos", eventos);
+	}
 	
 	@Restrito
 	@Post("/constelacao/cadastrar")

@@ -113,6 +113,9 @@ public class Evento implements Serializable{
 	}
 	
 	public int getTotalParticipantes(){
+		if(participantes == null){
+			return 0;
+		}
 		return participantes.size();
 	}
 	

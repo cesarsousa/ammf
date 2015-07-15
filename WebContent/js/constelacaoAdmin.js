@@ -9,13 +9,21 @@ function limparFormConstelacao(){
     });
 }
 
-$(document).ready(function() {	
+$(document).ready(function() {
 	
 	fecharCamposConstelacao();
 	
+	$('#btListarConstelacao').click(function(){
+		fecharCamposConstelacao();
+		$('#tabListagemConstelacao').slideDown(500);
+	});
+	$('#btFecharListagemConstelacao').click(function(){		
+		$('#tabListagemConstelacao').slideUp(500);		
+	});
+	
 	if($('#flagLinkConstelacaoCadastro').val()){
 		$('#tabNovaConstelacao').show();
-	}
+	}	
 	if($('#flagListagemConstelacao').val()){
 		$('#tabListagemConstelacao').show();
 	}
@@ -37,22 +45,8 @@ $(document).ready(function() {
 	
 	$('#btCadastrarConstelacao').click(function(){
 		abrirJanelaDeEspera("#divPgConstelacaoAdm", "#telaAguardeAdmConstelacaoCadastrar");
-	});
-	
-	$('#btListarConstelacao').click(function(){
-		fecharCamposConstelacao();
-		$('#tabListagemConstelacao').slideDown(500);
+		$('#formCadastrarConstelacao').submit();
 	});	
-	
-	$('#btFecharListagemConstelacao').click(function(){		
-		$('#tabListagemConstelacao').slideUp(500);		
-	});
-	
-	$('#btListarConstelacao').click(function(){
-		fecharCamposConstelacao();
-		$('#formListarConstelacao').submit();
-	});	
-	
 	
 	$('#btIncluirParticipante').click(function(){		
 		$('#formIncluirParticipante').slideDown(500);		

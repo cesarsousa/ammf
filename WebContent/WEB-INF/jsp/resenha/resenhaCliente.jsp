@@ -5,10 +5,10 @@
 
 <div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
 
-<div class="jumbotron">
+<div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
-<div align="center"><h1>Resenha</h1></div>
+<div align="center" class="paddingPadrao"><h1><b>Resenhas</b></h1></div>
 </div>
 
 <div align="center">

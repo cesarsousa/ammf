@@ -3,12 +3,12 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<div class="jumbotron">
+<div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
-<div align="center">
-<h1>Loja Virtual</h1>
-<h2>livros</h2>
+<div align="center" class="paddingPadrao">
+<h1><b>Loja Virtual</b></h1>
+<h2>Livros</h2>
 </div>
 </div>
 

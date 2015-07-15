@@ -7,10 +7,10 @@
 <form id="formBlogComentado" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 
-<div class="jumbotron">	
-	<%@ include file="/headerSite.jsp" %>
-	<%@ include file="/menuPrincipal.jsp" %>
-	<div align="center"><h1>Blog</h1></div>
+<div align="center" class="fundoPadrao"> 
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center" class="paddingPadrao"><h1><b>Blog</b></h1></div>
 </div>
 
 <div align="center">

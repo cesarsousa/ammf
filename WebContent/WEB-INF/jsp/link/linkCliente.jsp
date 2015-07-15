@@ -3,10 +3,10 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<div class="jumbotron">
+<div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
-<div align="center"><h1>Links</h1></div>
+<div align="center" class="paddingPadrao"><h1><b>Links</b></h1></div>
 </div>
 
 <div align="center">

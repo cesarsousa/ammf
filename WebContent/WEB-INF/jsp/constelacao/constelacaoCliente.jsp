@@ -3,10 +3,10 @@
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
 
-<div class="jumbotron">	
-	<%@ include file="/headerSite.jsp" %>
-	<%@ include file="/menuPrincipal.jsp" %>
-	<div align="center"><h1>Constela&ccedil;&otilde;es Sist&ecirc;micas</h1></div>
+<div align="center" class="fundoPadrao"> 
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+<div align="center" class="paddingPadrao"><h1><b>Constela&ccedil;&otilde;es Sist&ecirc;micas</b></h1></div>
 </div>
 
 <div class="fundoConstelacao" align="center">
@@ -61,5 +61,5 @@
 
 
 <div id="footer">
-<%@ include file="/footerADM.jsp" %>
+<%@ include file="/footer.jsp" %>
 </div>
