@@ -134,9 +134,7 @@ $(document).ready(function() {
 	
 	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha').hide();
 	$('#btCadastrarCategoriaResenha').toggle(function() {
-		$('#divCadastrarCategoriaResenha').show();
-		addRemoveDestaque('#inputCadastrarCategoriaResenha');
-		$('#inputCadastrarCategoriaResenha').puts("Digite a categoria");
+		$('#divCadastrarCategoriaResenha').show();		
 	}, function() {
 		$('#divCadastrarCategoriaResenha').hide();		
 	});
@@ -162,9 +160,7 @@ $(document).ready(function() {
 	
 	$('#divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
 	$('#btCadastrarCategoriaResenhaEdt').toggle(function() {
-		$('#divCadastrarCategoriaResenhaEdt').show();
-		addRemoveDestaque('#inputCadastrarCategoriaResenhaEdt');
-		$('#inputCadastrarCategoriaResenhaEdt').puts("Digite a categoria");
+		$('#divCadastrarCategoriaResenhaEdt').show();		
 	}, function() {
 		$('#divCadastrarCategoriaResenhaEdt').hide();		
 	});

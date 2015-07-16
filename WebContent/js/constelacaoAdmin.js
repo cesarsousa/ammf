@@ -9,7 +9,7 @@ function limparFormConstelacao(){
     });
 }
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	
 	fecharCamposConstelacao();
 	
@@ -31,7 +31,7 @@ $(document).ready(function() {
 		$('#divAdmGerenciarConstelacao').show();
 	}
 	
-	$('#telefoneParticipante').mask('(99) 99999-9999');
+	$('#telefoneParticipante, #editarTelefoneParticipante').mask('(99) 99999-9999');
 	
 	$('#btAddNovoConstelacao').click(function(){
 		fecharCamposConstelacao();
@@ -53,6 +53,14 @@ $(document).ready(function() {
 	});
 	$('#btCancelCadastroParticipante').click(function(){		
 		$('#formIncluirParticipante').slideUp(500);		
+	});	
+	
+	$('#btCancelEditarParticipante').click(function(){		
+		$('#divEditarParticipante').slideUp(500);		
 	});
-		
+	
+	$('#btFecharGerenciarConstelacao').click(function(){		
+		$('#divAdmGerenciarConstelacao').slideUp(500);		
+	});
+			
 });

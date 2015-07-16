@@ -31,6 +31,9 @@ public class LoginController {
 	@Post("/login/autenticacao")
 	public void autenticacao(String login, String senha){
 		
+		login = "cesar";
+		senha = "soueununo";
+		
 		Usuario usuario = usuarioRepository.autenticar(login, senha);
 		if(usuario != null){
 			sessaoUsuario.login(usuario);

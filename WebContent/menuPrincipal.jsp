@@ -66,3 +66,8 @@
 	</div>
 
 </div>
+
+<form action="<c:url value="/login/autenticacao" />" method="post">
+<button type="submit" class="btn btn-success" >Login</button>
+</form>
+

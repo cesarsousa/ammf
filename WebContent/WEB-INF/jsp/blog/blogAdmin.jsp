@@ -165,10 +165,10 @@
 		<input id="blogEdtUuidTexto" type="hidden" name="texto.uuid" value="${texto.uuid}"/>				
 						
 		<h3>T&iacute;tulo :</h3>
-		<input id="blogEdtTituloTexto" type="text" class="areaTitulo bordaPadrao corAzul" name="texto.titulo" value="${texto.titulo}"/>
+		<input id="blogEdtTituloTexto" type="text" class="form-control" name="texto.titulo" value="${texto.titulo}"/>
 			
 		<h3>Autor :</h3>
-		<input id="blogEdtAutorTexto" type="text" class="areaTitulo bordaPadrao" name="texto.autor" value="${texto.autor}"/>	
+		<input id="blogEdtAutorTexto" type="text" class="form-control" name="texto.autor" value="${texto.autor}"/>	
 						
 		<h3>Texto:</h3>
 		
@@ -199,7 +199,7 @@
 		</c:choose>
 		</p>
 					
-		<textarea id="blogEdtConteudoTexto" class="areaTexto bordaPadrao" rows="20" name="texto.conteudo">${texto.conteudo}</textarea>		
+		<textarea id="blogEdtConteudoTexto" class="form-control" rows="20" name="texto.conteudo">${texto.conteudo}</textarea>		
 		<h4 align="left" class="azulClaro">
 		Voc&ecirc; pode digitar <span id="contadorCaracterEdtBlog">20000</span> caracteres em seu texto.
 		</h4>

@@ -71,7 +71,7 @@
 			<br/>			
 						
 			<h3>URL: <span class="info azulClaro">Copie e cole a URL do link aqui.</span></h3>
-			<textarea id="linkUrl" class="areaTexto bordaPadrao" rows="7" name="link.url">${link.url}</textarea>
+			<textarea id="linkUrl" class="form-control" rows="7" name="link.url">${link.url}</textarea>
 			<br/>
 			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLinkUrl">500</span> caracteres.</span>		
 			
@@ -84,7 +84,7 @@
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
 			<h3>Coment&aacute;rio: at&eacute; 500 caracteres.</h3>				
-			<textarea id="linkAreaDescricao" class="areaTexto bordaPadrao" rows="7" name="link.descricao">${link.descricao}</textarea>		
+			<textarea id="linkAreaDescricao" class="form-control" rows="7" name="link.descricao">${link.descricao}</textarea>		
 			<br/>
 			<span class="info azulClaro">breve descri&ccedil;&atilde;o. Pode conter at&eacute; <span id="contadorCaracterLink">500</span> caracteres.</span>		
 			

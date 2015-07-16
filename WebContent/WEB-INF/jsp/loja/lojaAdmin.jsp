@@ -117,11 +117,16 @@
 		
 		<form id="formCadLivro" action="<c:url value="/livro/adm/cadastrar"/>" enctype="multipart/form-data" method="post">
 			
-			<div class="cartao campoObrigatorio">		
-				<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
+			<div class="campoObrigatorio">
+			
+				<div class="alert alert-warning" align="center">
+					<b>Campos de preenchimento obrigat&oacute;rio</b>
+				</div>
+					
+				<label class="labelForm" style="text-align: center; color: #8B0000,"></label>
 				<br/>
 				<div class="paddingPadrao">
-				<label class="labelForm">Autor <span class="info azulClaro">no caso de livro propriet&aacute;rio utilize o nome completo<br/>Alcindo Miguel Martins Filho. </span></label>
+				<label class="labelForm">Autor: no caso de livro propriet&aacute;rio utilize o nome completo<br/>Alcindo Miguel Martins Filho.</label>
 				<input id="livroAutor" type="text" name="livro.autor" value="${livroCadastro.autor}" class="form-control" maxlength="100"/>
 				</div>
 				
@@ -131,24 +136,26 @@
 				</div>
 				
 				<div class="paddingPadrao">
-				<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+				<label class="labelForm">Subt&iacute;tulo: ex. volume 1, parte 1, ...</label>
 				<br/>
 				
 				<input id="livroSubtitulo" type="text" name="livro.subtitulo" value="${livroCadastro.subtitulo}" class="form-control" maxlength="100"/>
 				</div>
 				
 				<div class="paddingPadrao">				
-				<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
-					<div id="divCadastrarCategoria">
-					<div class="paddingPadrao alert alert-info">
-					<br/>
-					<input id="inputCadastrarCategoria" type="text" class="form-control" maxlength="100"/>
-					<br>
-					<input id="ajaxCadastrarCategoria" type="button" class="btn btn-success" value="Cadastrar" class="largura50"/>
-					<br/>
-					<img id="iconeAguardeCadastrarCategoria" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-					</div>
-					</div>				
+				<label class="labelForm">Categoria <span id="btCadastrarCategoria" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
+					
+					<div id="divCadastrarCategoria">				
+						<div class="alert alert-info">
+						    <div class="input-group">
+						      <input id="inputCadastrarCategoria" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
+						      <span class="input-group-btn">
+						        <button id="ajaxCadastrarCategoria" class="btn btn-success" type="button">Cadastrar Categoria</button>
+						      </span>
+						    </div>
+						 </div>				
+						<img id="iconeAguardeCadastrarCategoria" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
+					</div>	
 				
 				<select id="comboBoxCategoriasLivro" name="livro.categoria.id" class="form-control"></select>
 				</div>
@@ -186,19 +193,16 @@
 					
 			</div>
 			
-			<br/><br/>
+			<br/>
 			
 			<div class="campoOpcional">
 				
-				<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
-				
-				<p>
-					<span class="info azulClaro">
-						<b>Os campos abaixo s&atilde;o de preenchimento opcional</b><br/><br/>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.<br/>
-						Quanto mais campo for deixado em branco menos informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e menos atrativa poder&aacute; se tornar a oferta.
-					</span>
-				</p>
-								
+				<div class="alert alert-info" align="center">
+					<p><b>Os campos abaixo s&atilde;o de preenchimento opcional</b></p>
+					<p>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios.</p>
+					<p>Quanto menos campos forem deixados em branco mais informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e mais atrativa poder&aacute; se tornar a oferta.
+				</div>
+											
 				<table class="msgMiniBorder msgInfo">
 					<tr align="center">
 					<td>
@@ -351,8 +355,8 @@
 	<table id="tabAtualizarLivro" class="cardViewText superFooter">
 		<tr>
 			<td>
-			<div align="right">
-				<input id="btFecharAtualizarLivro" type="button" value="fechar" class="backVermelho button">
+			<div align="right" class="paddingPadrao">
+				<input id="btFecharAtualizarLivro" type="button" value="fechar" class="btn btn-danger">
 			</div>	
 			<img align="left" src="${imagem}/iconeEditarHover.png" class="esquerda icone50">
 			<h2 align="center">Atualizar Livro</h2>
@@ -369,14 +373,16 @@
 				<input type="hidden" name="livro.uuid" value="${livro.uuid}">
 				<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${livro.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">		
 				
-				<div class="cartao campoObrigatorio">
+				<div class="campoObrigatorio">
 					<div class="paddingPadrao">				
 					<label class="labelForm">C&oacute;digo do livro</label>
 					<input type="text" name="livro.id" value="${livro.id}" class="form-control" readonly="readonly"/>
 					</div>
-						
-					<label class="labelForm" style="color: #8B0000">Campos de preenchimento obrigat&oacute;rio</label>
-					<br/>
+					
+					<div class="alert alert-warning">
+						<b>Campos de preenchimento obrigat&oacute;rio</b>
+					</div>
+					
 					<div class="paddingPadrao">
 					<label class="labelForm">Autor</label>
 					<input id="livroAtualizaAutor" type="text" name="livro.autor" value="${livro.autor}" class="form-control" maxlength="100"/>
@@ -388,7 +394,7 @@
 					</div>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm">Subt&iacute;tulo <span class="info azulClaro">ex. volume 1, parte 1, ...</span></label>
+					<label class="labelForm">Subt&iacute;tulo <span class="info">ex. volume 1, parte 1, ...</span></label>
 					<br/>
 					
 					<input id="livroAtualizaSubtitulo" type="text" name="livro.subtitulo" value="${livro.subtitulo}" class="form-control" maxlength="100"/>
@@ -398,17 +404,20 @@
 					<br/>
 					
 					<div class="paddingPadrao">				
-					<label class="labelForm">G&eacute;nero <span id="btCadastrarCategoriaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
-						<div id="divCadastrarCategoriaEdt">
-						<div class="paddingPadrao alert alert-info">
-						<br/>
-						<input id="inputCadastrarCategoriaEdt" type="text" class="form-control" maxlength="100"/>
-						<input id="ajaxCadastrarCategoriaEdt" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
-						<br/>
-						<img id="iconeAguardeCadastrarCategoriaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-						</div>
-						</div>				
-					
+					<label class="labelForm">Categoria <span id="btCadastrarCategoriaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></label>
+						
+						<div id="divCadastrarCategoriaEdt">				
+							<div class="alert alert-info">
+							    <div class="input-group">
+							      <input id="inputCadastrarCategoriaEdt" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
+							      <span class="input-group-btn">
+							        <button id="ajaxCadastrarCategoriaEdt" class="btn btn-success" type="button">Cadastrar Categoria</button>
+							      </span>
+							    </div>
+							 </div>				
+							<img id="iconeAguardeCadastrarCategoriaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
+						</div>	
+						
 					<select id="comboBoxCategoriasLivroEdt" name="livro.categoria.id" class="form-control"></select>
 					</div>
 				
@@ -448,13 +457,11 @@
 				
 				<div class="campoOpcional">
 					
-					<hr style="width: 90%; border: 1px dashed #CCCCCC;" >
-					
-					<p>
-						<span class="info azulClaro">
-							<b>Os campos abaixo s&atilde;o de preenchimento opcional</b><br/><br/>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios do site.
-						</span>
-					</p>
+					<div class="alert alert-info" align="center">
+						<p><b>Os campos abaixo s&atilde;o de preenchimento opcional</b></p>
+						<p>Utilizado para exibir informa&ccedil;&atilde;o adicional para os us&uacute;arios.</p>
+						<p>Quanto menos campos forem deixados em branco mais informa&ccedil;&atilde;o sobre o livro estar&aacute; dispon&iacute;vel e mais atrativa poder&aacute; se tornar a oferta.
+					</div>
 					
 					<div class="paddingPadrao bordaPadrao">					
 											

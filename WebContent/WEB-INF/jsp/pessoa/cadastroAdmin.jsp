@@ -81,11 +81,13 @@
 	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
 		
 		<label class="labelForm">Nome</label>
-		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
+		<br>
+		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="form-control" maxlength="100"/>
 		<br/><br/>	
 		
 		<label class="labelForm">Email</label>
-		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="letraCinza largura100 altura40 bordaPadrao" maxlength="100"/>
+		<br>
+		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100"/>
 		<br/><br/>
 		
 		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="btn btn-success"/>	

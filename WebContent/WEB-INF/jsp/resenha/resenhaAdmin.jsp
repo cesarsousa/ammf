@@ -81,26 +81,30 @@
 		
 		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
 			
-			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
-			<div>
-				<div id="divCadastrarCategoriaResenha">
-				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
-				<input id="inputCadastrarCategoriaResenha" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-				<input id="ajaxCadastrarCategoriaResenha" type="button" class="btn btn-success" value="Cadastrar" class="largura50"/>
-				<br/>
-				<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-				</div>
+			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
+			
+				<div id="divCadastrarCategoriaResenha">				
+				<div class="col-lg-6 alert alert-info">
+				    <div class="input-group">
+				      <input id="inputCadastrarCategoriaResenha" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
+				      <span class="input-group-btn">
+				        <button id="ajaxCadastrarCategoriaResenha" class="btn btn-success" type="button">Cadastrar Categoria</button>
+				      </span>
+				    </div>
+				 </div>				
+				<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
 				</div>				
 			
-			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao" ></select>
-			</div>
+			<br>
+			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control" ></select>
+			
 			
 			<h3>T&iacute;tulo</h3>
-			<input id="resenhaTitulo" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
+			<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.titulo" value="${resenha.titulo}" />
 			
 				
 			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-			<input id="resenhaAutor" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
+			<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -110,7 +114,7 @@
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
 			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
-			<textarea id="textoDescricaoResenha" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
+			<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
 			
 			<table class="msgBorder msgInfo">
@@ -156,32 +160,36 @@
 			
 			<div id="divIdResenha">				
 			<h3>C&oacute;digo da Resenha</h3>
-			<input id="resenhaId" type="text" class="areaTitulo bordaPadrao backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
+			<input id="resenhaId" type="text" class="form-control backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
 			
 			<br/>
 			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
 			<br/>			
-			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>
-			<div>
-				<div id="divCadastrarCategoriaResenhaEdt">
-				<div class="paddingPadrao corPrincipal" class="bordaPadrao">
-				<input id="inputCadastrarCategoriaResenhaEdt" type="text" class="letraCinza largura30 altura30 bordaPadrao" maxlength="100"/>
-				<input id="ajaxCadastrarCategoriaResenhaEdt" type="button" class="buttonCadastrar" value="Cadastrar" class="largura50"/>
-				<br/>
-				<img id="iconeAguardeCadastrarCategoriaResenhaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">
-				</div>
+			
+			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
+			
+				<div id="divCadastrarCategoriaResenhaEdt">				
+				<div class="col-lg-6 alert alert-info">
+				    <div class="input-group">
+				      <input id="inputCadastrarCategoriaResenhaEdt" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
+				      <span class="input-group-btn">
+				        <button id="ajaxCadastrarCategoriaResenhaEdt" class="btn btn-success" type="button">Cadastrar Categoria</button>
+				      </span>
+				    </div>
+				 </div>				
+				<img id="iconeAguardeCadastrarCategoriaResenhaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
 				</div>				
 			
-			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="letraCinza largura50 altura30 bordaPadrao"></select>
-			</div>
+			<br>
+			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="form-control" ></select>
 			
 			<h3>T&iacute;tulo</h3>
-			<input id="resenhaTituloEdt" type="text" class="areaTitulo bordaPadrao corAzul" name="resenha.titulo" value="${resenha.titulo}" />
+			<input id="resenhaTituloEdt" type="text" class="form-control" name="resenha.titulo" value="${resenha.titulo}" />
 			
 				
 			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3></h3>
-			<input id="resenhaAutorEdt" type="text" class="areaTitulo bordaPadrao" name="resenha.autor" value="${resenha.autor}"/>	
+			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -191,7 +199,7 @@
 				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
 			</p>
 			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
-			<textarea id="textoDescricaoResenhaEdt" class="areaTexto bordaPadrao" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
+			<textarea id="textoDescricaoResenhaEdt" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			
 			<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">10.000</span> caracteres.</h3>	
 			

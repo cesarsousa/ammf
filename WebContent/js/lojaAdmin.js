@@ -175,8 +175,6 @@ $(document).ready(function() {
 	$('#divCadastrarCategoria, #iconeAguardeCadastrarCategoria').hide();
 	$('#btCadastrarCategoria').toggle(function() {
 		$('#divCadastrarCategoria').show();
-		addRemoveDestaque('#inputCadastrarCategoria');
-		$('#inputCadastrarCategoria').puts("Digite a categoria");
 	}, function() {
 		$('#divCadastrarCategoria').hide();		
 	});
@@ -187,8 +185,6 @@ $(document).ready(function() {
 	$('#divCadastrarCategoriaEdt, #iconeAguardeCadastrarCategoriaEdt').hide();
 	$('#btCadastrarCategoriaEdt').toggle(function() {
 		$('#divCadastrarCategoriaEdt').show();
-		addRemoveDestaque('#inputCadastrarCategoriaEdt');
-		$('#inputCadastrarCategoriaEdt').puts("Digite a categoria");
 	}, function() {
 		$('#divCadastrarCategoriaEdt').hide();		
 	});

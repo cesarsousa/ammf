@@ -78,6 +78,27 @@ public class ConstelacaoController {
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
+	@Restrito
+	@Post("/constelacao/participante/cadastrar")
+	public void cadastrarParticipanteConstelacao(Participante participante){
+		
+		constelacaoRepository.cadastrar(participante);		
+		Evento evento = constelacaoRepository.obter(participante.getEvento().getId());
+		
+		result.include("evento", evento);		
+		result.include("flagGerenciarConstelacao", true);
+		result.include("constelacaoMensagemCadastroSucesso", "<b>" + participante.getNome() + "</b> incluído com sucesso!");
+		result.forwardTo(this).constelacaoAdmin();
+	}
+	
+	@Restrito
+	@Get("/constelacao/participante/alterar/{idParticipante}/{idEvento}")
+	public void editarParticipante(int idParticipante, int idEvento){
+		Participante participante = constelacaoRepository.obterParticipante(idParticipante);
+		result.include("participante", participante);
+		result.include("flagEditarParticipante", true);
+		result.redirectTo(this).gerenciarConstelacao(idEvento);
+	}
 	
 	@Restrito
 	@Get("/constelacao/participante/remover/{idParticipante}/{idEvento}")
@@ -97,18 +118,7 @@ public class ConstelacaoController {
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
-	@Restrito
-	@Post("/constelacao/participante/cadastrar")
-	public void cadastrarParticipanteConstelacao(Participante participante){
-		
-		constelacaoRepository.cadastrar(participante);		
-		Evento evento = constelacaoRepository.obter(participante.getEvento().getId());
-		
-		result.include("evento", evento);		
-		result.include("flagGerenciarConstelacao", true);
-		result.include("constelacaoMensagemCadastroSucesso", "<b>" + participante.getNome() + "</b> incluído com sucesso!");
-		result.forwardTo(this).constelacaoAdmin();
-	}
+	
 	
 	
 	@Get("/constelacao/cliente")
