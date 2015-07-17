@@ -131,4 +131,14 @@ private Session session;
 		}		
 	}
 
+	@Override
+	public void atualizar(Participante participante) {
+		try {
+			session.update(participante);
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
+		
+	}
+
 }

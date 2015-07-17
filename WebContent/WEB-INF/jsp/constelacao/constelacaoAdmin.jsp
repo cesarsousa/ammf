@@ -277,7 +277,8 @@
 		<img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png">	
 		<h3 align="center">Editar Participante</h3>
 		
-		<input type="hidden" name="participante.id" value="${participante.id}">		
+		<input type="hidden" name="participante.id" value="${participante.id}">
+		<input type="hidden" name="participante.evento.id" value="${idEvento}">		
 				
 		<div class="paddingPadrao">				
 			<label class="esquerda">Nome</label>

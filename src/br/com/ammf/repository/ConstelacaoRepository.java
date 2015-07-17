@@ -27,4 +27,6 @@ public interface ConstelacaoRepository {
 
 	void remover(Participante participante);
 
+	void atualizar(Participante participante);
+
 }

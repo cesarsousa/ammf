@@ -91,11 +91,21 @@ public class ConstelacaoController {
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
+	
+	@Restrito
+	@Post("/constelacao/participante/confirmarEditar")
+	public void confirmarEditarParticipante(Participante participante){
+		constelacaoRepository.atualizar(participante);		
+		result.redirectTo(this).gerenciarConstelacao(participante.getEvento().getId());		
+	}
+	
+	
 	@Restrito
 	@Get("/constelacao/participante/alterar/{idParticipante}/{idEvento}")
 	public void editarParticipante(int idParticipante, int idEvento){
 		Participante participante = constelacaoRepository.obterParticipante(idParticipante);
 		result.include("participante", participante);
+		result.include("idEvento", idEvento);
 		result.include("flagEditarParticipante", true);
 		result.redirectTo(this).gerenciarConstelacao(idEvento);
 	}
