@@ -14,15 +14,9 @@ function visualizarRespostaFaq(elemento){
 
 $(document).ready(function() {
 	
-	addRemoveDestaque("#cadastroFaqNome");
-	addRemoveDestaque("#cadastroFaqEmail");
-	addRemoveDestaque("#cadastroFaqPergunta");	
-	
-	$('#cadastroFaqPergunta').autoResize();
 	$('#cadastroFaqPergunta').keyup(function() {		
 		limitarCaracteres('#cadastroFaqPergunta', '#contadorCaracterFaq', 500);		  
 	});
-	
 	
 	$('#telaAguardeCadastroFaq').hide();	
 
@@ -39,7 +33,6 @@ $(document).ready(function() {
 		$('#divMsgCadCliente').slideUp(500);
 		abrirJanelaDeEspera("#divPgFaqCliente", "#telaAguardeCadastroFaq");
 	});
-	
 	
 	// codigos daqui para cima
 	if($('#flagFaqErroCadastro').val() == "true"){

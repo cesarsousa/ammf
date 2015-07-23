@@ -3,22 +3,11 @@ $(document).ready(function() {
 	
 	$('#divNotifClienteEmailJaCadastrado').hide();
 	$('#btFormNotifClienteEmailJaCadastrado').click(function(){
-		addRemoveDestaque("#campoEmailjaCadastrado");
 		$('#campoEmailjaCadastrado').puts("Digite o email que deseja receber a mensagem");
 		$('#divNotifClienteEmailJaCadastrado').slideDown(500);
 	});
-	
-	/*addRemoveDestaque("#cadastroClienteNome");
-	addRemoveDestaque("#cadastroClienteEmail");*/
 		
 	$('#telaAguardeCadastroCliente').hide();	
-
-	/*$('#btAbrirToolsCadastro').toggle(function() {
-		$('#toolsAreaCadastro').slideDown(500);
-	}, function() {
-		$('#toolsAreaCadastro').slideUp(500);
-	});	*/
-	
 	
 	$('#btnClienteCadastrar').click(function(){
 		$('#divMsgCadCliente').slideUp(500);

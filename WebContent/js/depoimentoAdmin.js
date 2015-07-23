@@ -8,13 +8,9 @@ function ajaxDepoimentos(url, idTbody){
 			$(idTbody).html('');
 			for(var i = 0; i< json.length; i++){
 				var nome = json[i].autor;
-				/*nome = nome.replace($('#campoBuscaDepoimento').val(),"<b>" + $('#campoBuscaDepoimento').val() + "</b>");*/
 				var email = json[i].email;
-				/*email = email.replace($('#campoBuscaDepoimento').val(),"<b>" + $('#campoBuscaDepoimento').val() + "</b>");*/
-				
 				var dataCadastro = getDataFormatada(json[i].postagem.time);
 				var linkRemover = $('#contexto').val() + "/menu/depoimentos/excluir/" + json[i].uuid;
-				
 				var tagConfirmacao;
 				var confirmado = json[i].status == "CONFIRMADO" ? true : false;
 				if(confirmado){
@@ -36,14 +32,6 @@ function ajaxDepoimentos(url, idTbody){
 			}
 			
 			$(idTbody).slideDown(500);
-			
-			/*if(json.length > 0) $(idTbody).slideDown(500);
-			else $(idTbody).slideUp(500);	*/		
-			
-			/*var textoBuscado = $('#campoBuscaDepoimento').val();
-			$('#campoBuscaDepoimento').attr("value", "");
-			
-			$('#labelResultadoConsulta').html('').html(json.length + ' ocorr&ecirc;ncia(s) para a pesquisa: ' + textoBuscado);*/
 							
 		},
 		error : function(){
@@ -74,7 +62,6 @@ $(document).ready(function() {
 	
 	var texto = "Digite parte do nome ou email da pessoa e pressione a tecla ENTER";
 	$('#campoBuscaDepoimento').puts(texto);
-	addRemoveDestaque('#campoBuscaDepoimento');
 	
 	$('#btFecharBuscarDepoimentos').click(function(){
 		$('#tabBuscaDepoimento').slideUp(500);
@@ -92,10 +79,4 @@ $(document).ready(function() {
 		$('#formDepoimentosPendentes').submit();
 	});	
 	
-	/*$('#btRemoverTodosDepoimentos').click(function(event){
-		var decisao = confirm("Tem certeza que deseja excluir todos os depoimentos pendente confirma��o?");
-		if(!decisao){
-			event.preventDefault();
-		}		
-	});*/	
 });

@@ -69,10 +69,8 @@ function ajaxResponderFaq(){
 }
 
 function configurarPerguntaRespondida(resposta){
-	
 	$('#divCamposParaResposta').slideUp(500);
 	$('#faqRespondida').html('<h3>' + resposta + '</h3');
-	
 }
 
 $(document).ready(function() {
@@ -94,9 +92,6 @@ $(document).ready(function() {
 		$('#formFaqTodas').submit();
 	});
 	
-	addRemoveDestaque("#cadastroFaqNome");
-	
-	addRemoveDestaque("#areaRespostaFaq");
 	$('#areaRespostaFaq').keyup(function() {		
 		limitarCaracteres('#areaRespostaFaq', '#contadorCaracterFaq', 2000);		  
 	});

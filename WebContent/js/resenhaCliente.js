@@ -1,39 +1,11 @@
 
 
 function ajaxPreencherAlgo(uuid){	
-	/*$.ajax({
-		type : 'GET',
-		url : $('#contexto').val() + "/blog/visualizar/" + uuid,
-		success : function(json){
-			$('#blogEdtUuidTexto').val(json.uuid);
-			$('#blogEdtTituloTexto').val(json.titulo);
-			$('#blogEdtAutorTexto').val(json.autor);
-			$('#blogEdtConteudoTexto').val(json.conteudo);
-			
-			$('#blogAreaBusca, #divBlogEditarTexto').slideDown(500);			
-		},
-		error : function(){
-			alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
-		}
-	});	*/
+	
 }
 
 function ajaxCadastramento(categoria){
-	/*$.ajax({
-		type : 'POST',
-		url : $('#contexto').val() + "/resenha/categoria/nova",
-		data: {"categoria" : categoria},
-		success : function(json){
-			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaResenha');
-			fecharIconeAguarde('#iconeAguardeCadastrarCategoriaResenhaEdt');
-			$('#divCadastrarCategoriaResenha, #divCadastrarCategoriaResenhaEdt').slideUp(500);
-			$('#msgCadastrarCategoriaResenha, #msgCadastrarCategoriaResenhaEdt').html('').html(json).show().slideUp(5000);			
-			listarCategoriasDeResenha();
-		},
-		error : function(){
-			ajaxErroPadrao();		
-		}
-	});	*/
+	
 }
 
 function cadastrarComentarioResenha(){
@@ -176,7 +148,6 @@ function limparFormComentarioResenha(){
 }
 
 function hideResenhafields(){
-	//$('#divComentariosResenhaPrincipal, #divNovoComentarioResenhaPrincipal, #divComentariosResenha, #divNovoComentarioResenha, #msgErroResenhaCliente').hide();
 	$('#msgErroResenhaCliente').hide();
 }
 
@@ -188,14 +159,6 @@ $(document).ready(function() {
 		$('#divNovoComentarioResenhaPrincipal').show();		
 	}
 	
-	/*addRemoveDestaque("#comentarResenhaNomePrincipal");
-	addRemoveDestaque("#comentarResenhaEmailPrincipal");
-	addRemoveDestaque("#comentarResenhaConteudoPrincipal");
-	
-	addRemoveDestaque("#comentarResenhaEmailNome");
-	addRemoveDestaque("#comentarResenhaEmailEmail");
-	addRemoveDestaque("#comentarResenhaEmailConteudo");*/
-		
 	if($('#flagResenhasRequest').val()){		
 		$('#divResenhasTop3, #btVisualizarOutrasResenhas').hide();		
 		$('#divTodasAsResenhas, #btVisualizarUltimasResenhas').show;

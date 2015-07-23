@@ -102,70 +102,42 @@ function fecharMsgLojaAdmin(){
 }
 
 function configurarCamposAddLivro(){
-	addRemoveDestaque('#livroAutor');
-	addRemoveDestaque('#livroTitulo');
-	addRemoveDestaque('#livroPreco');
 	$("#livroPreco").maskMoney({thousands:'', decimal:'.'});
-	addRemoveDestaque('#livroSubtitulo');
-	addRemoveDestaque('#livroSinopse');
-	$('#livroSinopse').autoResize();
 	$('#livroSinopse').keyup(function() {		
 		limitarCaracteres('#livroSinopse', '#contadorCaracterLivro', 1000);
 	});
-	addRemoveDestaque('#livroEditora');
-	addRemoveDestaque('#livroIsbn');
 	
-	addRemoveDestaque('#livroPaginas');
 	$('#livroPaginas').keyup(function() {		
 		editarCampoNumerico('#livroPaginas');
 	});
 	
-	addRemoveDestaque('#livroEdicao');
 	$('#livroEdicao').keyup(function() {		
 		editarCampoNumerico('#livroEdicao');
 	});
 	
-	addRemoveDestaque('#livroAno');
 	$('#livroAno').keyup(function() {		
 		editarCampoNumerico('#livroAno');
 	});
-	addRemoveDestaque('#livroAssunto');
-	addRemoveDestaque('#livroIdioma');
-	addRemoveDestaque('#livroCodigoBarra');
-	addRemoveDestaque('#livroLinkVenda');	
+	
 }
 
 function configurarCamposAtualizaLivro(){
-	addRemoveDestaque('#livroAtualizaAutor');
-	addRemoveDestaque('#livroAtualizaTitulo');
-	addRemoveDestaque('#livroAtualizaPreco');
 	$("#livroAtualizaPreco").maskMoney({symbol:'R$ ', showSymbol:false, thousands:'', decimal:'.', symbolStay: false});
-	addRemoveDestaque('#livroAtualizaSubtitulo');
-	addRemoveDestaque('#livroAtualizaSinopse');
 	$('#livroAtualizaSinopse').keyup(function() {		
 		limitarCaracteres('#livroAtualizaSinopse', '#contadorCaracterAtualizaLivro', 1000);
 	});
-	addRemoveDestaque('#livroAtualizaEditora');
-	addRemoveDestaque('#livroAtualizaIsbn');
 	
-	addRemoveDestaque('#livroAtualizaPaginas');
 	$('#livroAtualizaPaginas').keyup(function() {		
 		editarCampoNumerico('#livroAtualizaPaginas');
 	});
 	
-	addRemoveDestaque('#livroAtualizaEdicao');
 	$('#livroAtualizaEdicao').keyup(function() {		
 		editarCampoNumerico('#livroAtualizaEdicao');
 	});
 	
-	addRemoveDestaque('#livroAtualizaAno');
 	$('#livroAtualizaAno').keyup(function() {		
 		editarCampoNumerico('#livroAno');
 	});
-	addRemoveDestaque('#livroAtualizaAssunto');
-	addRemoveDestaque('#livroAtualizaIdioma');
-	addRemoveDestaque('#livroAtualizaCodigoBarra');
-	addRemoveDestaque('#livroAtualizaLinkVenda');	
 }
 
 
@@ -236,7 +208,6 @@ $(document).ready(function() {
 	});	
 	
 	$('#conteudoConsultaLivros').hide();
-	addRemoveDestaque('#campoBuscaLivro');
 	if($('#flagBuscarLivro').val()){
 		$('#tabIconesLivros, #tabBuscaLivro').slideDown(500);
 	}
@@ -256,6 +227,4 @@ $(document).ready(function() {
 	$('#btFecharAtualizarLivro').click(function(){
 		$('#tabAtualizarLivro').slideUp(500);		
 	});
-	
-	
 });

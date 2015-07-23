@@ -1,15 +1,9 @@
 
 $(document).ready(function() {
 	
-	addRemoveDestaque("#cadastroDepoimentoEmail");
-	addRemoveDestaque("#cadastroDepoimentoNome");
-	addRemoveDestaque("#cadastroDepoimentoTexto");	
-	
-	$('#cadastroDepoimentoTexto').autoResize();
 	$('#cadastroDepoimentoTexto').keyup(function() {		
 		limitarCaracteres('#cadastroDepoimentoTexto', '#contadorCaracterDepoimento', 500);		  
 	});
-	
 	
 	$('#telaAguardeCadastroDepoimento').hide();	
 
@@ -31,10 +25,10 @@ $(document).ready(function() {
 		abrirJanelaDeEspera("#divPgCadastroCliente", "#telaAguardeCadastroDepoimento");
 	});	
 
-	
 	// codigos daqui para cima
 	if($('#flagErroDepoimento').val() == "true"){
 		$('#divNovoDepoimento').show();
 		
-	}	
+	}
+	
 });

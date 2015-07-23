@@ -74,13 +74,6 @@ $(document).ready(function() {
 		$('#conteudoConta').slideDown(1000);		
 	});
 	
-	addRemoveDestaque('#campoAutorFraseIndex');
-	addRemoveDestaque('#campoFraseIndex');	
-	addRemoveDestaque('#campoConteudoQuiron');
-	
-	addRemoveDestaque('#campoContaNome, #campoContaTelefone, #campoContaLogin, #campoContaEmail, #campoContaSenha, #campoContaLinkedin, #campoContaEndereco, #areaLocalizacaoMapa');
-	/*$('#campoContaTelefone').mask("(99)9999-9999");*/
-	
 	$('#campoContaSenhaTexto').hide();
 	$('#checkOcultarSenha').hide();
 	$('#checkMostrarSenha').click(function(){
@@ -121,18 +114,6 @@ $(document).ready(function() {
 	$('#btFecharConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideUp(1000);		
 	});
-	
-	
-	addRemoveDestaque('#edtTituloTerapeuta');
-	addRemoveDestaque('#edtInfoTerapeuta');
-	addRemoveDestaque('#edtFormacaoTerapeuta');
-	addRemoveDestaque('#edtAtuacaoTerapeuta');
-	addRemoveDestaque('#edtTratamentoTerapeuta');
-	
-	addRemoveDestaque('#campoTextoPsicologia');
-	addRemoveDestaque('#campoTextoEducacao');
-	addRemoveDestaque('#campoTextoCultura');
-	addRemoveDestaque('#campoTextoOrientais');
 		
 	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
 	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
@@ -159,29 +140,6 @@ $(document).ready(function() {
 		
 		limitarCaracteres("#" + this.id, contadorDeTexto, 3000);		  
 	});
-		
-	// TAMANHO DE FONTE
-	
-	/*$('#tabelaTerapeuta tr td span').click(function(){
-		var idOrigem = this.id;
-		
-		var tamanho = idOrigem.replace("Terapeuta","");
-		
-		var tipo = tamanho.substring(tamanho.length - 1, tamanho.length);
-		
-		var area = tamanho.substring(tamanho.length - 5, tamanho.length - 1);
-		
-		var tamanhoFinal = tamanho.substring(0, tamanho.length - 1);
-		
-		alert("tamanho:"+tamanhoFinal+" tipo:"+tipo+" area:"+area);
-		
-		edtInfoTerapeuta
-		edtFormacaoTerapeuta
-		edtAtuacaoTerapeuta
-		edtTratamentoTerapeuta
-		
-		alterarTamanhoTexto(origem, '#campoFraseIndex');
-	});*/
 	
 	$('#sizeSmallIndex, #sizeMediumIndex, #sizeLargeIndex, #sizeXLargeIndex, #sizeXxLargeIndex').click(function(){
 		var idOrigem = this.id;

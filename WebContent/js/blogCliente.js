@@ -108,16 +108,6 @@ function limparFormComentarioBlogPrincipal(){
 
 $(document).ready(function() {
 	
-	/*$('#msgErroBlogCliente').hide();*/
-	
-	/*addRemoveDestaque("#comentarTextoNome");
-	addRemoveDestaque("#comentarTextoEmail");
-	addRemoveDestaque("#comentarTextoConteudo");
-	
-	addRemoveDestaque("#comentarTextoNomePrincipal");
-	addRemoveDestaque("#comentarTextoEmailPrincipal");
-	addRemoveDestaque("#comentarTextoConteudoPrincipal");*/
-	
 	$('#comentarTextoConteudoPrincipal').keyup(function() {		
 		limitarCaracteres('#comentarTextoConteudoPrincipal', '#contadorCaracterComentarTextoConteudoPrincipal', 999);		  
 	});	
@@ -127,7 +117,6 @@ $(document).ready(function() {
 	});
 	
 	$('#divTodosTextos').hide();
-	//$('#divNovoComentarioBlogPrincipal, #divComentariosTextoPrincipal, #divNovoComentarioBlog, #divComentariosBlog, #msgErroBlogCliente').hide();
 	$('#msgErroBlogCliente').hide();
 	
 	if($('#erroComentarioPrincipal').val() == "true"){

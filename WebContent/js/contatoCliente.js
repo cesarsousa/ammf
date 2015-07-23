@@ -15,10 +15,6 @@ $(document).ready(function() {
 		$('#btAbrirMapa').slideDown(500);
 	});
 	
-	addRemoveDestaque('#contatoEmailNome');
-	addRemoveDestaque('#contatoEmailEmail');
-	addRemoveDestaque('#contatoEmailMensagem');
-	$('#contatoEmailMensagem').autoResize();
 	$('#contatoEmailMensagem').keyup(function() {		
 		limitarCaracteres('#contatoEmailMensagem', '#contadorCaracterContato', 500);		  
 	});
@@ -27,6 +23,5 @@ $(document).ready(function() {
 		$('#mensagemErroContato').slideUp(500);
 		abrirJanelaDeEspera("#divPgContatoCliente", "#telaAguardeContatoCliente");
 	});
-	
-	
+
 });

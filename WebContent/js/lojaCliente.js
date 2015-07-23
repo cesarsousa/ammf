@@ -46,8 +46,6 @@ $(document).ready(function() {
 		$('#livroBuscaPersonalizada').slideDown(500);
 	});
 	
-	addRemoveDestaque('#campoBuscaLivro');
-	
 	$('#btFecharLivroBuscaPersonalizada').click(function (){
 		$('#livroBuscaPersonalizada').slideUp(500);
 	});
@@ -77,6 +75,5 @@ $(document).ready(function() {
 	if($('#flagRequestLivroEmail').val()){
 		
 	}
-	
 	
 });

@@ -41,12 +41,6 @@ function abrirTextoView(uuid){
 }
 
 $(document).ready(function() {
-	//addRemoveDestaque("#campoBuscaTxtEdtBlog");
-	
-	//addRemoveDestaque("#campoBuscaTxtEdtBlog, #blogTituloNovoTexto, #blogAutorNovoTexto, #blogConteudoNovoTexto");
-	//addRemoveDestaque("#blogEdtTituloTexto, #blogEdtAutorTexto, #blogEdtConteudoTexto");
-	/*$('#blogConteudoNovoTexto').autoResize();*/
-	/*$('#blogEdtConteudoTexto').autoResize();*/
 	
 	var caracteresNovoTexto = 0;
 	$('#blogConteudoNovoTexto').keyup(function() {		
@@ -228,48 +222,6 @@ $(document).ready(function() {
 		alterarTamanhoAreaTexto(origem, '#blogEdtConteudoTexto');
 	});
 	
-	$('#goTextoView').smoothScroll();
+	$('#goTextoView').smoothScroll();	
 	
-	/*$('#formBlogBuscaTexto').submit(function(event){
-		event.preventDefault();
-		$('#resultBuscaTxtBlog').slideUp(500);
-		$.ajax({
-			type : 'GET',
-			url : $('#contexto').val() + "/blog/busca/texto",
-			data:{"paramConsulta" : $('#campoBuscaTxtEdtBlog').val()},
-			success : function(json){
-				$('#tabEdtTextoBlog').html('');
-				for(var i = 0; i< json.length; i++){
-					var nome = json[i].titulo;
-					nome = nome.replace($('#campoBuscaTxtEdtBlog').val(),"<b>" + $('#campoBuscaTxtEdtBlog').val() + "</b>");
-					var conteudo = 	json[i].conteudo.substring(0, 50);					
-					var linkRemover = $('#contexto').val() + "/blog/remover/" + json[i].uuid;
-					var linkEditar = $('#contexto').val() + "/blog/editar/" + json[i].uuid;
-					
-					$('#tabEdtTextoBlog').append(
-						'<tr class="zebrado">' +
-						'<td class="headTabelaBlog2Info">' + json[i].postagem.$ + '</td>' +
-						'<td class="headTabelaBlog1Info">' + nome + '</td>' +
-						'<td class="headTabelaBlog1Info" title="'+ json[i].conteudo +'">' + conteudo + '</td>' +
-						'<td>' +
-							'<a href="'+ linkEditar + '"><img class="ponteiro" alt="editar" src="../image/iconeEditarHover.png" width="20px" height="20px" title="editar este texto"></a>' +
-							'<a href="'+ linkRemover + '" onclick="return confirmarExclusao()"><img class="ponteiro" alt="remover" src="../image/icone_excluir.png" width="20px" height="20px" title="excluir este texto"></a>' +
-					     	'</td>' +
-						'</tr>');					
-				}
-				
-				if(json.length > 0) $('#resultBuscaTxtBlog').slideDown(1000);
-				
-				var textoBuscado = $('#campoBuscaTxtEdtBlog').val();
-				$('#campoBuscaTxtEdtBlog').attr("value", "").focus();
-				
-				$('#labelBuscaTexto').html('').html('<b>' + json.length + '</b> ocorrência(s) para a pesquisa: <b>' + textoBuscado + '</b>');
-								
-			},
-			error : function(){
-				alert("Servidor nao esta disponivel no momento, por favor tente mais tarde!");				
-			}
-		});	
-		
-	});	*/
 });

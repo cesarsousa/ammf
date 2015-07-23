@@ -18,12 +18,10 @@ $(document).ready(function() {
 		$('#tabListagemLinks').show();
 	}	
 	
-	addRemoveDestaque('#linkUrl');
 	$('#linkUrl').keyup(function() {		
 		limitarCaracteres('#linkUrl', '#contadorCaracterLinkUrl', 500);
 	});
 	
-	addRemoveDestaque('#linkAreaDescricao');
 	$('#linkAreaDescricao').keyup(function() {		
 		limitarCaracteres('#linkAreaDescricao', '#contadorCaracterLink', 500);
 	});
