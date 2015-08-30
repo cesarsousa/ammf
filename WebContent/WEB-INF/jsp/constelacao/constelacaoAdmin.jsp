@@ -62,6 +62,7 @@
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado">ID</th>
 				<th class="metadado">Data</th>
 				<th class="metadado">Endereço</th>				
 				<th class="metadado" style="width: 160px;">Participante</th>
@@ -72,6 +73,7 @@
 		<tbody>
 	 		<c:forEach items="${eventos}" var="item">
 				<tr class="zebrado">
+					<td class="infoTabelaConteudo">${item.id}</td>
 					<td class="infoTabelaConteudo">${item.data}</td>
 					<td class="infoTabelaConteudo">${item.local}</td>					
 					<td class="infoTabelaConteudo" style="width: 160px;">${item.totalParticipantes}</td>
