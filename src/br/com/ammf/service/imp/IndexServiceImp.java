@@ -102,7 +102,7 @@ public class IndexServiceImp implements IndexService{
 			throw new Exception(new IllegalArgumentException("Impossivel definir o administrador na base de dados"));
 		}		
 		
-		String email = administrador.getEmail();
+		String email = administrador.getEmailNotificacao();
 		String linkedin = administrador.getLinkedin();
 		String telefone = administrador.getTelefone();
 		String endereco = administrador.getEndereco();

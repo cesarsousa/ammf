@@ -14,28 +14,18 @@
 	<div class="areaFormatacao">	
 		<div class="esquerda">
 			<img id="imagemPsicologia" class="imgMenuPrincipal" src="${imagem}/iconeFreud.png"/>
-		</div>
-		<span style="float: left; font-size: xx-large; padding-top: 15px;">O Terapeuta</span>
+		</div>		
 	</div>
+
+	<div align="center"><h1>O Terapeuta</h1></div>
 
 	<div class="cardViewText">
 	
-		<h2>Quem sou.</h2>
-	
-		<table>
-		<tr>
-			<td>	
-			<div align="left">		
-				<img src="${imagem}/owner.jpg" class="destaqueFoto">
-			</div>
-			</td>
-			<td class="paddingPadrao">
-			<h2>Alcindo Miguel Martins Filho.</h2>
-			<h3>${sessaoCliente.terapeuta.titulo}</h3>
-			<!-- <h3>Psic&oacute;logo, Psicoterapeuta e Psicanalista, Acupunturista e Professor.</h3> -->						
-			</td>
-		</tr>
-		</table>
+		<div align="center">
+			<img src="${imagem}/owner2.jpg" alt="Alcindo Miguel Martins Filho" class="img-circle destaqueFoto" width="300px" height="300px">		
+		</div>
+		
+		<div align="center"><h1>Alcindo Miguel Martins Filho.</h1></div>
 		
 		<!-- <h3>
 		Psic&oacute;logo, com gradua&ccedil;&atilde;o em Ci&ecirc;ncias Sociais e 
@@ -101,6 +91,8 @@
 		<li>Educa&ccedil;&atilde;o e Desenvolvimento</li>
 		<li>Dor, Sofrimento, Doen&ccedil;a e Morte</li>
 		</ul> -->
+		
+		<h2>${sessaoCliente.terapeuta.titulo}</h2>
 				
 		<c:if test="${not empty sessaoCliente.terapeuta.informacoes}">
 		<c:forEach items="${sessaoCliente.terapeuta.informacoes}" var="informacao">
@@ -108,11 +100,15 @@
 		</c:forEach>
 		</c:if>
 		
+		
+		<div style="padding-bottom: 20px; padding-top: 20px;">
 		<c:if test="${not empty sessaoCliente.terapeuta.formacoes}">
+		<h2 class="descricaoTextoIndex">Forma&ccedil;&atilde;o</h2>
 		<c:forEach items="${sessaoCliente.terapeuta.formacoes}" var="formacao">
 		<h4>${formacao}</h4>
 		</c:forEach>
 		</c:if>
+		</div>
 		
 		<c:if test="${not empty sessaoCliente.terapeuta.atuacoes}">
 		<h2 class="descricaoTextoIndex">Áreas de Atua&ccedil;&atilde;o</h2>

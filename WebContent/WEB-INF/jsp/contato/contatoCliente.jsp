@@ -56,16 +56,22 @@
 	<hr class="hrClass">
 	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda &agrave; sexta das 08:00 &agrave;s 20:00 horas.</h3>
 	<p>
-	<span class="info azulClaro negrito">Telefone: ${sessaoCliente.contato.telefone}</span>
+	<span class="info azulClaro negrito">Telefone: </span> ${sessaoCliente.contato.telefone}
 	</p>
 	
 	<p>
-	<span class="info azulClaro negrito">Email: ${sessaoCliente.contato.email}</span>
+	<span class="info azulClaro negrito">Email: </span> ${sessaoCliente.contato.email}
+	</p>
+	
+	<p>
+	<span class="info azulClaro negrito">Skype: </span> alcindomiguel
 	</p>
 	
 	<p>
 	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" class="destaqueLetraHover" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
 	</p>
+	
+	
 	
 	<div align="center">
 	<!-- Posicione esta tag onde você deseja que o widget apareça. -->

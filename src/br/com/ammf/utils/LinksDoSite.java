@@ -6,7 +6,7 @@ public class LinksDoSite {
 		if(administrativo){
 			DOMINIO = "http://localhost:8080/ammf";
 		}else{
-			DOMINIO = "http://www.alcindomiguel.br.com";
+			DOMINIO = "http://www.alcindomiguel.com.br";
 		}
 		
 		WEB_SITE = DOMINIO;
