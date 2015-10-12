@@ -2,7 +2,7 @@
 $(document).ready(function() {
 	
 	$('#telaAguardeContatoCliente').hide();
-	
+		
 	$('#mapaGeoLocalizacao, #labelFecharMapa, #btFecharMapa').hide();
 	$('#btAbrirMapa').click(function(){
 		$('#mapaGeoLocalizacao').slideDown(500);
@@ -14,6 +14,8 @@ $(document).ready(function() {
 		$('#btFecharMapa').slideUp(500);
 		$('#btAbrirMapa').slideDown(500);
 	});
+	
+	$('#mapaGeoLocalizacao').slideDown(500);
 	
 	$('#contatoEmailMensagem').keyup(function() {		
 		limitarCaracteres('#contatoEmailMensagem', '#contadorCaracterContato', 500);		  

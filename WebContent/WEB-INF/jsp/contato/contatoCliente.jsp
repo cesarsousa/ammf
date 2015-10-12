@@ -5,7 +5,7 @@
 <div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
-<div align="center" class="paddingPadrao"><h1><b>Contato</b></h1></div>
+<div align="center" class="paddingPadrao"><h1><b>De segunda &agrave; sexta das 08:00 &agrave;s 22:00 horas</b></h1></div>
 </div>
 
 <div align="center">
@@ -28,49 +28,58 @@
 
 <div id="divPgContatoCliente" align="center">
 
-	<div class="cartaoSemBordaBottom tamanhoEdicaoIndex">
+	<div>
 		<table width="100%">
 		<tr>
 		<td width="110px" align="left" >
 		<div align="left">		
-			<img src="${imagem}/fotoViewConsultorio.jpg" class="destaqueFoto" width="400">
+			<img src="${imagem}/fotoViewConsultorio.jpg" class="img-circle destaqueFoto" width="300px" height="300px">
 		</div>
 		</td>
 		<td align="right">
 		<div align="center" class="paddingPadrao">
-		<c:if test="${sessaoCliente.contato.mostrarMapa}">
+		<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>
+		<%-- <c:if test="${sessaoCliente.contato.mostrarMapa}">
 			<h3>Meu consult&oacute;rio est&aacute; localizado no endere&ccedil;o</h3>
 			<h3>${sessaoCliente.contato.endereco}</h3>	
 			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
 			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">
-		</c:if>
+		</c:if> --%>
 		</div>
 		</td>
 		</tr>
 		</table>	
 	</div>
 	
-	<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>	
+	<%-- <div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div> --%>	
 	
 	<div class="cartaoSemBordaTop tamanhoEdicaoIndex" align="left">
-	<hr class="hrClass">
-	<h3 align="center">Utilize os canais de contato abaixo para falar comigo de segunda &agrave; sexta das 08:00 &agrave;s 20:00 horas.</h3>
+	
+	<div class="jumbotron">
+	<div class="paddingPadrao">
+	<h3 align="center">Utilize os canais de contato abaixo para falar comigo.</h3>
 	<p>
-	<span class="info azulClaro negrito">Telefone: </span> ${sessaoCliente.contato.telefone}
+	<span class="info azulClaro negrito"><img src="${imagem}/iconeTelefone.png" class="img-circle" width="50px" height="50px"></span> ${sessaoCliente.contato.telefone}
 	</p>
 	
 	<p>
-	<span class="info azulClaro negrito">Email: </span> ${sessaoCliente.contato.email}
+	<span class="info azulClaro negrito"><img src="${imagem}/iconeEmail.png" class="img-circle" width="50px" height="50px"></span> ${sessaoCliente.contato.email}
 	</p>
 	
 	<p>
-	<span class="info azulClaro negrito">Skype: </span> alcindomiguel
+	<span class="info azulClaro negrito"><img src="${imagem}/iconeSkipe.png" class="img-circle" width="50px" height="50px"></span> alcindomiguel
 	</p>
 	
 	<p>
-	<span class="info azulClaro negrito">Linked In: <a style="color: #000000;" class="destaqueLetraHover" href="${sessaoCliente.contato.linkedin}" target="_blank">${sessaoCliente.contato.linkedin}</a></span>
+	<span class="info azulClaro negrito"><img src="${imagem}/iconeLinkedin.png" class="img-circle" width="50px" height="50px"><a style="color: #000000;" class="destaqueLetraHover" href="${sessaoCliente.contato.linkedin}" target="_blank"> ${sessaoCliente.contato.linkedin}</a></span>
 	</p>
 	
+	<p>
+	<span class="info azulClaro negrito"><img src="${imagem}/iconeDoctoralia.png" class="img-circle" width="50px" height="50px"><a style="color: #000000;" class="destaqueLetraHover" href="http://www.doctoralia.com.br/medico/martins+filho+alcindo+miguel-12333340" target="_blank"> http://www.doctoralia.com.br/medico/martins+filho+alcindo+miguel-12333340</a></span>
+	</p>
+	
+	</div>
+	</div>
 	
 	
 	<div align="center">
