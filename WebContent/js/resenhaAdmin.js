@@ -82,6 +82,7 @@ function ajaxResenhaCadastrar(categoria){
 			}
 			
 			listarCategoriasDeResenha();
+			 listarCategoriasDeResenhaEdicao();
 		},
 		error : function(){
 			ajaxErroPadrao();		
@@ -94,9 +95,26 @@ function listarCategoriasDeResenha() {
 		type : 'GET',
 		url : $('#contexto').val() + "/resenha/categorias",
 		success : function(json){
-			$('#comboBoxCategoriasResenha, #comboBoxCategoriasResenhaEdt').html('');			
+			$('#comboBoxCategoriasResenha').html('');			
 			for(var i = 0; i < json.length; i++){				
-				$('#comboBoxCategoriasResenha, #comboBoxCategoriasResenhaEdt').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+				$('#comboBoxCategoriasResenha').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+			}
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
+}
+
+function listarCategoriasDeResenhaEdicao() {
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/resenha/categorias/edicao",
+		data: {"id" : $('#resenhaCategoriaIdEdicao').val()},
+		success : function(json){
+			$('#comboBoxCategoriasResenhaEdt').html('');			
+			for(var i = 0; i < json.length; i++){				
+				$('#comboBoxCategoriasResenhaEdt').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
 			}
 		},
 		error : function(){
@@ -113,9 +131,12 @@ $(document).ready(function() {
         size: 4
     });
     
-	listarCategoriasDeResenha();
 	
-	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha').hide();
+    listarCategoriasDeResenha();
+    listarCategoriasDeResenhaEdicao();
+	
+	
+	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha, #divCategoriaResenhaEdt').hide();
 	$('#btCadastrarCategoriaResenha').toggle(function() {
 		$('#divCadastrarCategoriaResenha').show();		
 	}, function() {
@@ -125,6 +146,12 @@ $(document).ready(function() {
 		cadastrarNovaCategoriaResenha();	
 	});
 	
+	
+	$('#').click(function(){
+		
+	});
+	
+		
 	$('#btRemoverUploadFotoResenha').click(function(){
 		$('#divUploadFotoResenha')
 		.slideUp(500)

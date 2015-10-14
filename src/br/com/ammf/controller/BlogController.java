@@ -164,10 +164,12 @@ public class BlogController {
 	
 	@Restrito
 	@Post("/blog/atualiza")
-	public void atualizarTexto(Texto texto){		
+	public void atualizarTexto(Texto texto, boolean notificarAlteracao){		
 		try {
-			Texto textoOriginal = blogService.atualizarTexto(texto);		
-			emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
+			Texto textoOriginal = blogService.atualizarTexto(texto);
+			if(notificarAlteracao){
+				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
+			}
 			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
 			result.redirectTo(this).blogAdmin();			
 		} catch (EmailException e) {

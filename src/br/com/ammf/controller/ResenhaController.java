@@ -3,6 +3,7 @@ package br.com.ammf.controller;
 import static br.com.caelum.vraptor.view.Results.json;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.exception.CadastroException;
@@ -89,12 +90,14 @@ public class ResenhaController {
 	
 	@Restrito
 	@Post("/resenha/atualizar")
-	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt){
+	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt, boolean notificarAlteracao){
 		try {
 			if(validacaoService.atualizarResenha(novaImagemResenha, resenha, result)){
 				resenhaService.atualizar(novaImagemResenha, resenha, dataPostagem, removerImagemResenhaEdt);
-				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
-				result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
+				if(notificarAlteracao){
+				 emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
+				}
+				 result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
 			}else{
 				result.include("resenhaErroAtualizarCadastro", true);
 				result.include("resenhaEditarCadastro", true);
@@ -157,6 +160,17 @@ public class ResenhaController {
 	@Get("/resenha/categorias")
 	public void listaCategorias(){
 		List<Categoria> categorias =  categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
+		result.use(json()).withoutRoot().from(categorias).serialize();
+	}
+	
+	@Restrito
+	@Get("/resenha/categorias/edicao")
+	public void listaCategoriasParaEdicao(long id){
+		List<Categoria> categoriasCadastradas =  categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
+		Categoria categoriaAtual = categoriaRepository.obterPor(id);
+		List<Categoria> categorias = new ArrayList<Categoria>();
+		categorias.add(categoriaAtual);
+		categorias.addAll(categoriasCadastradas);		
 		result.use(json()).withoutRoot().from(categorias).serialize();
 	}
 	

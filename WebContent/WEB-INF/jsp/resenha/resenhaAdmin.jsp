@@ -163,12 +163,12 @@
 			<input id="resenhaId" type="text" class="form-control backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
 			
-			<br/>
+			<%-- <br/>
 			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
-			<br/>			
+			<br/> --%>			
 			
-			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
-			
+			<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="azulClaro ponteiro">Cadastrar uma nova categoria</span></h3>						
+			<div class="paddingPadrao">						
 				<div id="divCadastrarCategoriaResenhaEdt">				
 				<div class="col-lg-6 alert alert-info">
 				    <div class="input-group">
@@ -179,16 +179,15 @@
 				    </div>
 				 </div>				
 				<img id="iconeAguardeCadastrarCategoriaResenhaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
-				</div>				
-			
-			<br>
-			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="form-control" ></select>
-			
+				</div>			
+			</div>			
+			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="form-control" ></select>			
+			<input type="hidden" value="${resenha.categoria.id}" id="resenhaCategoriaIdEdicao">
+						
 			<h3>T&iacute;tulo</h3>
 			<input id="resenhaTituloEdt" type="text" class="form-control" name="resenha.titulo" value="${resenha.titulo}" />
-			
 				
-			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3></h3>
+			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
 			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
@@ -242,6 +241,10 @@
 					</td>
 				</tr>
 			</table>
+			
+			<label class="labelForm2 paddingPadrao">
+				<input type="checkbox" value="true" name="notificarAlteracao"/> Enviar e-mail notificando a alteração.
+			</label>
 					
 			<p class="paddingPadrao">
 			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="btn btn-success">

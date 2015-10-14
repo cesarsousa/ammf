@@ -204,6 +204,10 @@
 		Voc&ecirc; pode digitar <span id="contadorCaracterEdtBlog">20000</span> caracteres em seu texto.
 		</h4>
 		
+			<label class="labelForm2 paddingPadrao">
+				<input type="checkbox" value="true" name="notificarAlteracao"/> Enviar e-mail notificando a alteração.
+			</label>
+		
 		<p>
 		<input id="btCadEdtTexto" type="submit" value="atualizar e destravar texto" class="btn btn-success">
 		<input id="btBlogCancelEdtTexto" type="button" value="cancelar atualização" class="btn btn-default">
