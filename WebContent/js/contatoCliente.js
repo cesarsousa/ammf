@@ -1,6 +1,8 @@
 
 $(document).ready(function() {
 	
+	jQuery('#maximage').maximage();
+	
 	$('#telaAguardeContatoCliente').hide();
 		
 	$('#mapaGeoLocalizacao, #labelFecharMapa, #btFecharMapa').hide();

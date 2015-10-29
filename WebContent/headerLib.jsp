@@ -14,6 +14,11 @@
 <link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
 <link href="${css}/prettyPhoto.css" rel="stylesheet" type="text/css" />
 <link href="${css}/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="${css}/jquery.maximage.min.css" rel="stylesheet" type="text/css" />
+<link href="${css}/ie.css" rel="stylesheet" type="text/css" />
+<link href="${css}/print.css" rel="stylesheet" type="text/css" />
+<link href="${css}/screen.css" rel="stylesheet" type="text/css" />
+
 
 <script type="text/javascript" src="${javascript}/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autocomplete.min.js"></script>
@@ -48,6 +53,11 @@
 <script type="text/javascript" src="${javascript}/constelacaoAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/script.js"></script>
 <script type="text/javascript" src="${javascript}/wowslider.js"></script>
+
+<script type="text/javascript" src="${javascript}/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.localscroll.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.maximage.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.scrollto.js"></script>
 
 </head>
 <body>

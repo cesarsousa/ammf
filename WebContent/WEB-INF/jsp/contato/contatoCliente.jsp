@@ -8,6 +8,10 @@
 <div align="center" class="paddingPadrao"><h1><b>De segunda &agrave; sexta das 08:00 &agrave;s 22:00 horas</b></h1></div>
 </div>
 
+<div id="maximage">
+<img src="${imagem}/fotoViewConsultorio.jpg">
+</div>
+
 <div align="center">
 <c:if test="${not empty msgContatoCliente}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
@@ -31,11 +35,6 @@
 	<div>
 		<table width="100%">
 		<tr>
-		<td width="110px" align="left" >
-		<div align="left">		
-			<img src="${imagem}/fotoViewConsultorio.jpg" class="img-circle destaqueFoto" width="300px" height="300px">
-		</div>
-		</td>
 		<td align="right">
 		<div align="center" class="paddingPadrao">
 		<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>
@@ -82,7 +81,7 @@
 	</div>
 	
 	
-	<div align="center">
+	<div align="center" class="paddingPadrao">
 	<!-- Posicione esta tag onde você deseja que o widget apareça. -->
 	<div class="g-person" data-href="//plus.google.com/100200384204573066006" data-rel="author"></div>
 	
@@ -97,6 +96,10 @@
 	  })();
 	</script>
 	</div>
+	
+	
+	<div class="jumbotron">
+	<div class="paddingPadrao">
 	
 	<form action="<c:url value="/contato/email"/>" method="post">		
 		<table width="100%">
@@ -128,23 +131,23 @@
 					<span class="info azulClaro negrito" >N&atilde;o se preocupe seus dados n&atilde;o ser&aacute; divulgado no site :)</span>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm2">Nome</label>
-					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="form-control" maxlength="100"/>
+					<!-- <label class="labelForm2">Nome</label> -->
+					<input id="contatoEmailNome" type="text" name="mensagem.nome" value="${novaMensagem.nome}" class="form-control" placeholder="Nome" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
-					<label class="labelForm2">Email </label>
-					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="form-control" maxlength="100"/>
+					<!-- <label class="labelForm2">Email </label> -->
+					<input id="contatoEmailEmail" type="text" name="mensagem.email" value="${novaMensagem.email}" class="form-control" placeholder="E-mail" maxlength="100"/>
 					</div>
 					
-					<div class="paddingPadrao">
-					<label class="labelForm2">Mensagem</label>
-					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="form-control" rows="5">${novaMensagem.conteudo}</textarea>
-					</div>
-					
-					<h3 align="right" class="letraPequena">
+					<h4 align="left" class="letraPequena">
 					Voc&ecirc; pode digitar <span id="contadorCaracterContato">500</span> caracteres em sua mensagem.
-					</h3>
+					</h4>
+					
+					<div class="paddingPadrao">
+					<!-- <label class="labelForm2">Mensagem</label> -->
+					<textarea id="contatoEmailMensagem" name="mensagem.conteudo" class="form-control" placeholder="Mensagem" rows="5">${novaMensagem.conteudo}</textarea>
+					</div>					
 					
 					<h3 align="right">
 					<input id="btEnviarEmailContato" type="submit" value="Enviar Email"  class="btn btn-success direita"/>
@@ -154,7 +157,9 @@
 				</td>			
 			</tr>		
 		</table>		
-	</form>
+	</form>	
+	</div>
+	</div>
 	
 	
 	</div>		
