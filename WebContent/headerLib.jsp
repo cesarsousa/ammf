@@ -15,10 +15,6 @@
 <link href="${css}/prettyPhoto.css" rel="stylesheet" type="text/css" />
 <link href="${css}/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery.maximage.min.css" rel="stylesheet" type="text/css" />
-<link href="${css}/ie.css" rel="stylesheet" type="text/css" />
-<link href="${css}/print.css" rel="stylesheet" type="text/css" />
-<link href="${css}/screen.css" rel="stylesheet" type="text/css" />
-
 
 <script type="text/javascript" src="${javascript}/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autocomplete.min.js"></script>
