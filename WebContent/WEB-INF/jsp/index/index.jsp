@@ -50,42 +50,38 @@
 		<div align="center"> 
 		<div id="gatilhoNews" class="jumbotron" align="left">
 			
-			<h1 align="center">&Uacute;timas Publica&ccedil;&otilde;es</h1>
+			
 			
 			
 			<table class="tamanhoDefault">
-				<tr align="center">
+				<tr>	
+					<td class="paddingPadrao">
+					<c:if test="${not empty lojaNews}">
+	  				<h1 align="center">Livros Publicados</h1>
+	  				<h2>Loja Virtual</h2>
+				  	<h3 class="azulClaro" >${lojaNewsTitulo}</h3>
+				  	<a id="tabLojaNews" class="btn btn-primary btn-lg" role="button">Entrar na Loja</a>
+					</c:if>		
+					</td>
+				</tr>
+				<tr>
 					<td class="paddingPadrao">
 					<c:if test="${not empty blogNews}">			
+	  				<h1 align="center">Blog</h1>
 	  				<h2>Blog</h2>				  	
 				  	<h3 class="azulClaro" >${blogNewsTitulo}</h3>
 				  	<a id="tabBlogNews" class="btn btn-primary btn-lg" role="button">Ler Blog</a>
 					</c:if>	
 					</td>
-					
+				</tr>
+				<tr>					
 					<td class="paddingPadrao">
 					<c:if test="${not empty resenhaNews}">
+	  				<h1 align="center">Resenha</h1>
 	  				<h2>Resenha</h2>
 				  	<h3 class="azulClaro" >${resenhaNewsTitulo}</h3>
 				  	<a id="tabResenhaNews" class="btn btn-primary btn-lg" role="button">Ler Resenha</a>
 					</c:if>
-					</td>
-				</tr>
-				<tr align="center">
-					<td class="paddingPadrao">
-					<c:if test="${not empty linkNews}">
-	  				<h2>Links &Uacute;teis</h2>
-				  	<h3 class="azulClaro" >${linkNewsTitulo}</h3>
-				  	<a id="tabLinkNews" class="btn btn-primary btn-lg" role="button">Acessar Link</a>
-					</c:if>
-					</td>
-					
-					<td class="paddingPadrao">
-					<c:if test="${not empty lojaNews}">
-	  				<h2>Loja Virtual</h2>
-				  	<h3 class="azulClaro" >${lojaNewsTitulo}</h3>
-				  	<a id="tabLojaNews" class="btn btn-primary btn-lg" role="button">Entrar na Loja</a>
-					</c:if>		
 					</td>
 				</tr>
 			</table>			
