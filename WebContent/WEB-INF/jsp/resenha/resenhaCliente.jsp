@@ -429,15 +429,14 @@ ${conteudoEmBranco}
 				
 						
 			</td>		
+		</tr>
+		<tr>
+		<td>
+		<h2 align="center"><a id="goTopo" href="#irTopo" class="btn btn btn-primary">ler outras resenhas</a></h2>
+		</td>
 		</tr>		
 	</tbody>
-	<tfoot>		
-		<tr>
-			<th colspan="4" align="center">
-				<h2><a id="goTopo" href="#irTopo" class="info azulClaro letraGrande altura30 destaqueLetraHover ponteiro">ler outras resenhas</a></h2>
-			</th>			
-		</tr>		
-	</tfoot>
+	
 </table>
 
 </div> 
@@ -446,9 +445,9 @@ ${conteudoEmBranco}
 
 <c:if test="${not empty ultimaPublicacao or not empty resenhasRequest}">
 <div class="superFooter" align="center">
-	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="info azulClaro letraGrande altura30 destaqueLetraHover ponteiro" >Visualizar resenhas anteriores</a>
-		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro" >Visualizar ultima publica&ccedil;&atilde;o</a>
+	<div align="center" class="paddingPadrao">
+		<a id="btVisualizarOutrasResenhas" href="<c:url value="/resenha/cliente/listarTodas"/>" class="btn btn btn-primary btn-lg">Visualizar resenhas anteriores</a>
+		<a id="btVisualizarUltimasResenhas" href="<c:url value="/resenha/cliente"/>" class="btn btn btn-primary btn-lg">Visualizar ultima publica&ccedil;&atilde;o</a>
 	</div>
 </div>
 </c:if>

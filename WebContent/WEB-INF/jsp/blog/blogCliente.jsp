@@ -261,8 +261,9 @@
 <c:if test="${not empty textosBlog}">
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div class="superFooter" align="center">
-	<div style="width: 1000px; text-align: left; padding: 20px;">
-		<span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro">Visualizar textos anteriores.</span>
+	<div align="center" class="paddingPadrao">
+		<!-- <span id="btVisualizarTodos" class="info azulClaro altura30 letraGrande destaqueLetraHover ponteiro">Visualizar textos anteriores.</span> -->
+		<button id="btVisualizarTodos" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</button>
 	</div>
 </div>
 </c:if>

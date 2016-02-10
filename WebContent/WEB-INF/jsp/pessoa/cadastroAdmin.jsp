@@ -199,7 +199,9 @@
 										</a>
 									</c:when>
 									<c:otherwise>
+										<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
 										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacaoBlack.png" class="icone20">
+										</a>										
 									</c:otherwise>
 								</c:choose>
 							</td>

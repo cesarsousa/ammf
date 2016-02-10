@@ -152,6 +152,15 @@ public class IndexServiceImp implements IndexService{
 		
 		boolean existeNews = false;
 		
+		List<Livro> livros = livroRepository.listarLivrosProprietarios();
+		if(livros.size() > 1){
+			result.include("livroNaoDisponivel", true);
+		}else{
+			Livro livro = livros.get(0);
+			result.include("livroNewsUuid", livro.getUuid());
+			result.include("livroNewsSinopse", livro.getSinopse());
+		}
+		
 		Texto blog = textoRepository.obterUltimaPublicacao();
 		if(blog != null){
 			result.include("blogNews", "Blog");
@@ -164,7 +173,7 @@ public class IndexServiceImp implements IndexService{
 		Resenha resenha = resenhaRepository.obterUltimaPublicacao();
 		if(resenha != null){
 			result.include("resenhaNews", "Resenha");
-			result.include("resenhaNewsTitulo", resenha.getTitulo());
+			result.include("resenhaNewsUuid", resenha.getUuid());
 			result.include("resenhaNewsConteudo", obterDescricaoResumida(resenha.getDescricao()));
 			result.include("resenhaNewsPostagem", "resenha postada em " + resenha.getDataFormatada());
 			existeNews = true;
@@ -213,13 +222,15 @@ public class IndexServiceImp implements IndexService{
 	}
 
 	private String obterDescricaoResumida(String conteudo) {
+		String resultado = "Conte&uacute;do n&atilde;o dispon&iacute;vel";
 		if(conteudo == null || conteudo.isEmpty()){
-			return "Conte&uacute;do n&atilde;o dispon&iacute;vel";
-		}else if(conteudo.length() > 99){
-			return conteudo.substring(0, 99) + "...";
+			return resultado;
+		}else if(conteudo.length() > 500){
+			resultado = conteudo.substring(0, 500) + "...";
 		}else{
-			return conteudo;
-		}		
+			resultado = conteudo;
+		}
+		return resultado;
 	}
 
 }

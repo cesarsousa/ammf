@@ -176,7 +176,7 @@ $(document).ready(function() {
 	}, function() {
 		$('#divTodosTextos').slideUp(500);
 		$('#ultimaPublicacao').slideDown(500);
-		$('#btVisualizarTodos').html('').append('Visualizar textos anteriores.');
+		$('#btVisualizarTodos').html('').append('Visualizar textos anteriores');
 	});	
 	
 	

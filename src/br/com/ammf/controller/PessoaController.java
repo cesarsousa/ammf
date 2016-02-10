@@ -1,7 +1,5 @@
 package br.com.ammf.controller;
 
-import static br.com.caelum.vraptor.view.Results.json;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,7 +157,7 @@ public class PessoaController {
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
 		try {						
 			emailService.enviarSolicitacaoParaConfirmacaoCadastro(pessoa);
-			pessoa.setSituacao(Situacao.INATIVO_NOTIFICADO);
+			pessoa.setSituacao(Situacao.ATIVO);
 			pessoaRepository.atualizar(pessoa);
 			result.include("msgCadastro", "Notifica&ccedil;&atilde;o com solicita&ccedil;&atilde;o de confirma&ccedil;&atilde;o de cadastro reenviado para '<b>" + pessoa.getNome() + "</b>.");
 			result.include("flagVisualizarPessoas", true);
