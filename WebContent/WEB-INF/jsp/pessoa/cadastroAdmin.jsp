@@ -88,9 +88,10 @@
 		<label class="labelForm">Email</label>
 		<br>
 		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100"/>
-		<br/><br/>
-		
+		<br/>
 		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="btn btn-success"/>	
+		
+						
 	</form>
 	</div>
 </td>

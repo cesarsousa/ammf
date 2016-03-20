@@ -169,7 +169,7 @@ public class ResenhaController {
 		List<Categoria> categoriasCadastradas =  categoriaRepository.listarPorTipo(TipoCategoria.Resenha);
 		Categoria categoriaAtual = categoriaRepository.obterPor(id);
 		List<Categoria> categorias = new ArrayList<Categoria>();
-		categorias.add(categoriaAtual);
+		if (categoriaAtual != null)  categorias.add(categoriaAtual);
 		categorias.addAll(categoriasCadastradas);		
 		result.use(json()).withoutRoot().from(categorias).serialize();
 	}

@@ -3,11 +3,13 @@ package br.com.ammf.model;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="participante")
@@ -32,6 +34,9 @@ public class Participante implements Serializable{
 	private boolean constelou;
 	
 	private boolean pagouContelacao;
+	
+	@Column(length=1000)
+	private String observacao;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Evento evento;
@@ -100,6 +105,14 @@ public class Participante implements Serializable{
 
 	public void setPagouContelacao(boolean pagouContelacao) {
 		this.pagouContelacao = pagouContelacao;
+	}
+	
+	public String getObservacao() {
+		return observacao;
+	}
+	
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	public Evento getEvento() {

@@ -178,6 +178,7 @@
 		  		<th>Ingresso</th>
 				<th>Constelou</th>
 				<th>Constelação</th>
+				<th>Obs.</th>
 				<th>Ações</th>
 	  		</tr>
   		</thead>
@@ -191,6 +192,7 @@
 	  			<td>${p.ingressoPago}</td>
 				<td>${p.participouEvento}</td>
 				<td>${p.constelacaoPaga}</td>
+				<td><img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_obs.png"></img></td>
 				<td>
 				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>
 				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
@@ -207,6 +209,7 @@
   			<td><b>R$ ${evento.capitalIngresso}</b></td>
   			<td></td>
   			<td><b>R$ ${evento.capitalConstelacao}</b></td>
+  			<td></td>
   			<td><b>R$ ${evento.capitalTotal}</b></td>
   		</tr>
   		</tfoot>
@@ -262,6 +265,10 @@
 		<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
 		</P>
 		</div>
+		
+		<p>
+		<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5"></textarea>					
+		</p>
 		
 		<div align="left">
 		<button type="submit" class="btn btn-success">Cadastrar</button>
@@ -337,6 +344,10 @@
 		</c:choose>	
 		</P>
 		</div>
+		
+		<p>
+		<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5">${participante.observacao}</textarea>					
+		</p>
 	
 		<div align="left">
 		<button type="submit" class="btn btn-success">Editar</button>

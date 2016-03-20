@@ -70,6 +70,7 @@ private Session session;
 		}		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Evento> listar(TipoEvento tipoEvento) {
 		try {
