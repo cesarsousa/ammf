@@ -55,7 +55,9 @@ public class PessoaController {
 			try {
 				pessoaService.cadastrarComoAdm(pessoa);
 				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
-				redirecionarParaMenuAdm("mensagemMenuSecundario", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+				result.include("msgCadastro", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
+				result.include("flagCadastroPessoaVazio", true); // Configurar a abertura dos campos de cadastro
+				redirecionarParaCadastroAdmin();
 			} catch (EmailException e) {				
 				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");

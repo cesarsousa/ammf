@@ -19,7 +19,7 @@ public class LogAplicacao implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "[Data: " + data + " Ip: " + ip + " - Login: " + login + " Erro: " + descricaoErro + "]";
+		return descricaoErro;
 	}
 
 	private static final long serialVersionUID = 1L;

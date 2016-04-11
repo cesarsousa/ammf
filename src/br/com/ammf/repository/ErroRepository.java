@@ -22,8 +22,8 @@ public class ErroRepository extends RuntimeException {
 			
 			if(excecao.getThrowable() != null){
 				if(excecao.getThrowable() != null){				
-					mensagemErro += " | " + excecao.getThrowable().getMessage() + " |";
-					mensagemErro += " | " + excecao.getThrowable().getCause() + " |";
+					mensagemErro += " | " + excecao.getThrowable().getMessage().toString() + " |";
+					mensagemErro += " | " + excecao.getThrowable().getCause().toString() + " |";
 				}
 			}
 			
