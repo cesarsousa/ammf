@@ -49,7 +49,8 @@ jQuery(document).ready(function() {
 	});	
 	
 	$('#btIncluirParticipante').click(function(){		
-		$('#formIncluirParticipante').slideDown(500);		
+		$('#formIncluirParticipante').slideDown(500);
+		$('#edtConstelacaoCadPessoa').focus();
 	});
 	$('#btCancelCadastroParticipante').click(function(){		
 		$('#formIncluirParticipante').slideUp(500);		

@@ -133,30 +133,30 @@
 
 <!-- GERENCIAR CONSTELAÇÕES -->
 <input id="flagGerenciarConstelacao" type="hidden" value="${flagGerenciarConstelacao}" />
-<div id="divAdmGerenciarConstelacao" align="center">
 
-	<div class="tamanhoDefault">
-	
+
+
+<div id="divAdmGerenciarConstelacao">
+
+<div align="right" class="paddingPadrao">
+		<input id="btFecharGerenciarConstelacao" type="button" value="fechar" class="btn btn-danger">
+</div>
+
+<table style="width: 100%">
+<tr>
+<td style="width: 70%" align="center" valign="top">
+<div class="tamanhoDefault">
 	<div class="alert alert-info paddingPadrao">
-		<div align="right" class="paddingPadrao">
-			<input id="btFecharGerenciarConstelacao" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		<h2><b>Gerenciar Constelação</b></h2>
-		<div align="left" class="paddingPadrao">
-		<h4><b>Data:</b> ${evento.data}</h4>
-		<h4><b>Local:</b> ${evento.local}</h4>
-		<h4><b>Valor do Ingresso:</b> R$ ${evento.valorIngresso}</h4>
-		<h4><b>Valor da Constelação:</b> R$ ${evento.valorParticipacao}</h4>			
-		</div>
+			
+			<h2><b>Gerenciar Constelação</b></h2>
+			<div align="left" class="paddingPadrao">
+			<h4><b>Data:</b> ${evento.data}</h4>
+			<h4><b>Local:</b> ${evento.local}</h4>
+			<h4><b>Valor do Ingresso:</b> R$ ${evento.valorIngresso}</h4>
+			<h4><b>Valor da Constelação:</b> R$ ${evento.valorParticipacao}</h4>			
+			</div>
 	</div>
-	
-	<c:if test="${not empty constelacaoMensagemCadastroSucesso}">
-		<div class="alert alert-success ponteiro closeClick">
-			${constelacaoMensagemCadastroSucesso} 
-		</div>
-	</c:if>	
-	
-	
+
 	<c:choose>
 		
 		<c:when test="${evento.totalParticipantes eq 0}">
@@ -185,14 +185,36 @@
   		
   		<tbody>
   			<c:forEach items="${evento.participantes}" var="p">
+  			
+  			<c:choose>
+  			<c:when test="${p.inadimplente}">
+  			<tr style="background-color: #FFC1C1">
+  			</c:when>
+  			<c:otherwise>
   			<tr>
+  			</c:otherwise>
+  			</c:choose>
+  			
+  			
 	  			<td>${p.nome}</td>
 	  			<td>${p.email}</td>
 	  			<td>${p.celular}</td>
 	  			<td>${p.ingressoPago}</td>
 				<td>${p.participouEvento}</td>
 				<td>${p.constelacaoPaga}</td>
-				<td><img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_obs.png"></img></td>
+				<td>
+					
+					<c:choose>
+						<c:when test="${p.comObservacao}">
+							<img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_novo_depoimento.png"></img>
+						</c:when>
+						<c:otherwise>
+							<img class="icone" src="${imagem}/icone_novo_comentario.png"></img>
+						</c:otherwise>
+					</c:choose>
+					
+					
+				</td>
 				<td>
 				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>
 				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
@@ -217,11 +239,22 @@
 		</table>		
 		</c:otherwise>
 	</c:choose>
+</div>
+</td>
+
+<td valign="top" style="width:30%;">
+	<div class="alert alert-info paddingPadrao">
+	
+	
+	<c:if test="${not empty constelacaoMensagemCadastroSucesso}">
+		<div class="alert alert-success ponteiro closeClick">
+			${constelacaoMensagemCadastroSucesso} 
+		</div>
+	</c:if>
 	
 	<p class="paddingPadrao">
 		<button id="btIncluirParticipante" type="button" class="btn btn-success">Incluir Participante</button>
 	</p>
-	
 	
 	<!-- ADICIONAR PARTICIPANTE -->
 	<div id="formIncluirParticipante" class="campoObrigatorio">
@@ -234,7 +267,7 @@
 				
 		<div class="paddingPadrao">				
 			<label class="esquerda">Nome</label>
-			<input type="text" name="participante.nome" class="form-control" maxlength="254" required="required"/>
+			<input id="edtConstelacaoCadPessoa" type="text" name="participante.nome" class="form-control" maxlength="254" required="required"/>
 		</div>
 		
 		<div class="paddingPadrao">				
@@ -357,8 +390,14 @@
 	</form>	
 	</div>
 	</c:if>
-			
+	
+		
 	</div>
+</td>
+</tr>
+
+</table>
+	
 </div>
 
 </div>

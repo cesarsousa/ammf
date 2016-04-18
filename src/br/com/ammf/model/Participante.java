@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name="participante")
@@ -134,5 +133,22 @@ public class Participante implements Serializable{
 	public String getConstelacaoPaga(){
 		return pagouContelacao ? "Sim" : "Não";
 	}
+	
+	public boolean isComObservacao(){
+		if(observacao == null) return false;
+				
+		if(observacao.length() == 0){
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean isInadimplente(){
+		if (!pagouIngresso) return true;
+		if(constelou && !pagouContelacao) return true;
+		return false;
+		
+	 }
 
 }
