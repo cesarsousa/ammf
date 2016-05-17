@@ -428,7 +428,7 @@ public class HtmlMensagem {
 				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
 				.replace("[DATA]", constelacao.getData())
 				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
-				.replace("[INFORMACAO]", constelacao.getLocalizacao())
+				.replace("[INFORMACAO]", constelacao.getInformacao())
 				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
