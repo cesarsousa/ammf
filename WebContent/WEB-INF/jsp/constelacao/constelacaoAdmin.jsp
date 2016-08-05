@@ -144,105 +144,17 @@
 
 <table style="width: 100%">
 <tr>
-<td style="width: 70%" align="center" valign="top">
+<td style="width:100%" align="center" valign="top">
 <div class="tamanhoDefault">
 	<div class="alert alert-info paddingPadrao">
 			
 			<h2><b>Gerenciar Constelação</b></h2>
 			<div align="left" class="paddingPadrao">
-			<h4><b>Data:</b> ${evento.data}</h4>
-			<h4><b>Local:</b> ${evento.local}</h4>
-			<h4><b>Valor do Ingresso:</b> R$ ${evento.valorIngresso}</h4>
-			<h4><b>Valor da Constelação:</b> R$ ${evento.valorParticipacao}</h4>			
+			<h4><b>Data e Local:</b> ${evento.data}, ${evento.local}</h4>
+			<h4><b>Valores:</b> Do Ingresso: R$ ${evento.valorIngresso}, da constelação: R$ ${evento.valorParticipacao}</h4>			
 			</div>
 	</div>
-
-	<c:choose>
-		
-		<c:when test="${evento.totalParticipantes eq 0}">
-		<div class="alert alert-warning paddingPadrao">
-		Não existem participantes nesta Constelação		
-		</div>
-		</c:when>
-		
-		<c:otherwise>		
-		<table class="table table-hover letraPequena">
-  		<thead>
-  			<tr>
-		  		<th colspan="3">Participantes desta constelação</th>
-	  		</tr>
-	  		<tr>
-		  		<th>Nome</th>
-		  		<th>E-mail</th>
-		  		<th>Telenone</th>
-		  		<th>Ingresso</th>
-				<th>Constelou</th>
-				<th>Constelação</th>
-				<th>Obs.</th>
-				<th>Ações</th>
-	  		</tr>
-  		</thead>
-  		
-  		<tbody>
-  			<c:forEach items="${evento.participantes}" var="p">
-  			
-  			<c:choose>
-  			<c:when test="${p.inadimplente}">
-  			<tr style="background-color: #FFC1C1">
-  			</c:when>
-  			<c:otherwise>
-  			<tr>
-  			</c:otherwise>
-  			</c:choose>
-  			
-  			
-	  			<td>${p.nome}</td>
-	  			<td>${p.email}</td>
-	  			<td>${p.celular}</td>
-	  			<td>${p.ingressoPago}</td>
-				<td>${p.participouEvento}</td>
-				<td>${p.constelacaoPaga}</td>
-				<td>
-					
-					<c:choose>
-						<c:when test="${p.comObservacao}">
-							<img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_novo_depoimento.png"></img>
-						</c:when>
-						<c:otherwise>
-							<img class="icone" src="${imagem}/icone_novo_comentario.png"></img>
-						</c:otherwise>
-					</c:choose>
-					
-					
-				</td>
-				<td>
-				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>
-				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
-				</td>
-	  		</tr>
-  			</c:forEach>  			
-  		</tbody>
-  		
-  		<tfoot>
-  		<tr class="alert alert-info">
-  			<td></td>
-  			<td></td>
-  			<td><b>Totais Gerais</b></td>
-  			<td><b>R$ ${evento.capitalIngresso}</b></td>
-  			<td></td>
-  			<td><b>R$ ${evento.capitalConstelacao}</b></td>
-  			<td></td>
-  			<td><b>R$ ${evento.capitalTotal}</b></td>
-  		</tr>
-  		</tfoot>
-  		  		
-		</table>		
-		</c:otherwise>
-	</c:choose>
-</div>
-</td>
-
-<td valign="top" style="width:30%;">
+	
 	<div class="alert alert-info paddingPadrao">
 	
 	
@@ -393,6 +305,90 @@
 	
 		
 	</div>
+
+	<c:choose>
+		
+		<c:when test="${evento.totalParticipantes eq 0}">
+		<div class="alert alert-warning paddingPadrao">
+		Não existem participantes nesta Constelação		
+		</div>
+		</c:when>
+		
+		<c:otherwise>		
+		<table class="table table-hover letraPequena">
+  		<thead>
+  			<tr>
+		  		<th colspan="3">Participantes desta constelação</th>
+	  		</tr>
+	  		<tr>
+		  		<th>Nome</th>
+		  		<th>E-mail</th>
+		  		<th>Telenone</th>
+		  		<th>Ingresso</th>
+				<th>Constelou</th>
+				<th>Constelação</th>
+				<th>Obs.</th>
+				<th>Ações</th>
+	  		</tr>
+  		</thead>
+  		
+  		<tbody>
+  			<c:forEach items="${evento.participantes}" var="p">
+  			
+  			<c:choose>
+  			<c:when test="${p.inadimplente}">
+  			<tr style="background-color: #FFC1C1">
+  			</c:when>
+  			<c:otherwise>
+  			<tr>
+  			</c:otherwise>
+  			</c:choose>
+  			
+  			
+	  			<td>${p.nome}</td>
+	  			<td>${p.email}</td>
+	  			<td>${p.celular}</td>
+	  			<td>${p.ingressoPago}</td>
+				<td>${p.participouEvento}</td>
+				<td>${p.constelacaoPaga}</td>
+				<td>
+					
+					<c:choose>
+						<c:when test="${p.comObservacao}">
+							<img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_novo_depoimento.png"></img>
+						</c:when>
+						<c:otherwise>
+							<img class="icone" src="${imagem}/icone_novo_comentario.png"></img>
+						</c:otherwise>
+					</c:choose>
+					
+					
+				</td>
+				<td>
+				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>
+				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+				</td>
+	  		</tr>
+  			</c:forEach>  			
+  		</tbody>
+  		
+  		<tfoot>
+  		<tr class="alert alert-info">
+  			<td></td>
+  			<td></td>
+  			<td><b>Totais Gerais</b></td>
+  			<td><b>R$ ${evento.capitalIngresso}</b></td>
+  			<td></td>
+  			<td><b>R$ ${evento.capitalConstelacao}</b></td>
+  			<td></td>
+  			<td><b>R$ ${evento.capitalTotal}</b></td>
+  		</tr>
+  		</tfoot>
+  		  		
+		</table>		
+		</c:otherwise>
+	</c:choose>
+</div>
 </td>
 </tr>
 

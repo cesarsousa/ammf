@@ -193,7 +193,7 @@ public class PessoaController {
 			result.include("pessoasSolicitadas", pessoas);
 			result.include("visualizarPessoas", true);
 			result.include("flagVisualizarPessoas", true);
-			
+			result.include("isPessoasCadastradas", true);			
 		}
 		
 		result.include("resultBuscarPessoa", pessoas.size() +  " ocorrência(s) para a pesquisa: " + paramConsulta);
