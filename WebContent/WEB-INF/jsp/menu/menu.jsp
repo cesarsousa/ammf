@@ -392,64 +392,46 @@
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Forma de Pagamento:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Texto Final:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Data:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacao.data}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Localiza&ccedil;&atilde;o:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Informa&ccedil;&otilde;es:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
 				<h3>Dados Pessoais:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
-				<!-- <h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4> -->
-				
+								
+				<br>
+				<input id="cadastroClienteNome" type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
+																
 				<div class="checkbox" align="right">
 				    <label>
 				      <input type="checkbox" name="constelacaoEnviarEmail"> Enviar e-mail da constela&ccedil;&atilde;o para as pessoas.

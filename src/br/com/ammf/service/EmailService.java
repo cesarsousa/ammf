@@ -44,6 +44,8 @@ public interface EmailService {
 	void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException;
 
 	void notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException;
+	
+	void notificarConstelacaoParaEmail(Constelacao constelacao, String destinatario) throws EmailException;
 
 
 }

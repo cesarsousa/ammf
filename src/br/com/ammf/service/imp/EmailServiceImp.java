@@ -282,4 +282,17 @@ public class EmailServiceImp implements EmailService {
 		
 	}
 
+	@Override
+	public void notificarConstelacaoParaEmail(Constelacao constelacao, String destinatario) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemNotificacaoDe(constelacao, administrador.getLinkedin());	
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				destinatario,
+				htmlMensagem.getAssuntoConstelacao(constelacao),
+				mensagem);
+		
+	}
+
 }

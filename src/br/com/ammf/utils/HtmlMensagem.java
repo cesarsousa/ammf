@@ -434,4 +434,20 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
 				.replace("[LINKEDIN]", linkedin);
 	}
+	
+	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
+		
+		return mensagem
+				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
+				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
+				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
+				.replace("[DATA]", constelacao.getData())
+				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
+				.replace("[INFORMACAO]", constelacao.getInformacao())
+				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
+				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", "")				
+				.replace("[LINKEDIN]", linkedin);
+	}
 }

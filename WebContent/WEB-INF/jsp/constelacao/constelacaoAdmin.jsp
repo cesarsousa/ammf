@@ -63,17 +63,19 @@
 		<thead align="left">
 			<tr>
 				<th class="metadado">ID</th>
+				<th class="metadado">Postagem</th>
 				<th class="metadado">Data</th>
 				<th class="metadado">Endereço</th>				
 				<th class="metadado" style="width: 160px;">Participante</th>
-				<th class="metadado" style="width: 30px;">Gerenciar</th>
-				<th class="metadado" style="width: 30px;">Remover</th>			
+				<th class="metadado" style="width: 30px;">.</th>
+				<th class="metadado" style="width: 30px;">..</th>			
 			</tr>
 		</thead>
 		<tbody>
 	 		<c:forEach items="${eventos}" var="item">
 				<tr class="zebrado">
 					<td class="infoTabelaConteudo">${item.id}</td>
+					<td class="infoTabelaConteudo">${item.postagem}</td>
 					<td class="infoTabelaConteudo">${item.data}</td>
 					<td class="infoTabelaConteudo">${item.local}</td>					
 					<td class="infoTabelaConteudo" style="width: 160px;">${item.totalParticipantes}</td>

@@ -119,11 +119,14 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/constelacao/atualizar")
-	public void atualizarTextoConstelacao(Constelacao constelacao, boolean constelacaoEnviarEmail){
+	public void atualizarTextoConstelacao(Constelacao constelacao, boolean constelacaoEnviarEmail, String emailAdicional){
 		try {
 			constelacaoRepository.salvarAtualizar(constelacao);
 			if(constelacaoEnviarEmail){
 				emailService.notificarConstelacaoParaPessoas(constelacao);
+			}
+			if(emailAdicional != null){
+				emailService.notificarConstelacaoParaEmail(constelacao, emailAdicional);
 			}
 			redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
 		} catch (EmailException e) {
