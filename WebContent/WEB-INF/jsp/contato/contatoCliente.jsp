@@ -8,10 +8,6 @@
 <div align="center" class="paddingPadrao"><h1><b>De segunda &agrave; sexta das 08:00 &agrave;s 22:00 horas</b></h1></div>
 </div>
 
-<div id="maximage">
-<img src="${imagem}/fotoViewConsultorio.jpg">
-</div>
-
 <div align="center">
 <c:if test="${not empty msgContatoCliente}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">

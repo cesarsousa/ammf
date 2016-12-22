@@ -1,6 +1,6 @@
 
 function fecharCamposConstelacao(){
-	$('#tabNovaConstelacao, #tabListagemConstelacao, #telaAguardeAdmConstelacaoCadastrar, #divAdmGerenciarConstelacao, #formIncluirParticipante').hide();
+	$('#tabNovaConstelacao, #tabListagemConstelacao, #telaAguardeAdmConstelacaoCadastrar, #divAdmGerenciarConstelacao').hide();
 }
 
 function limparFormConstelacao(){
@@ -11,8 +11,10 @@ function limparFormConstelacao(){
 
 jQuery(document).ready(function() {
 	
-	fecharCamposConstelacao();
+	//$('#modalEditarParticipante').modal('show');
 	
+	fecharCamposConstelacao();
+		
 	$('#btListarConstelacao').click(function(){
 		fecharCamposConstelacao();
 		$('#tabListagemConstelacao').slideDown(500);
@@ -46,15 +48,7 @@ jQuery(document).ready(function() {
 	$('#btCadastrarConstelacao').click(function(){
 		abrirJanelaDeEspera("#divPgConstelacaoAdm", "#telaAguardeAdmConstelacaoCadastrar");
 		$('#formCadastrarConstelacao').submit();
-	});	
-	
-	$('#btIncluirParticipante').click(function(){		
-		$('#formIncluirParticipante').slideDown(500);
-		$('#edtConstelacaoCadPessoa').focus();
-	});
-	$('#btCancelCadastroParticipante').click(function(){		
-		$('#formIncluirParticipante').slideUp(500);		
-	});	
+	});		
 	
 	$('#btCancelEditarParticipante').click(function(){		
 		$('#divEditarParticipante').slideUp(500);		

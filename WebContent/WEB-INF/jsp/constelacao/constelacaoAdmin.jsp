@@ -148,8 +148,7 @@
 <tr>
 <td style="width:100%" align="center" valign="top">
 <div class="tamanhoDefault">
-	<div class="alert alert-info paddingPadrao">
-			
+	<div class="alert alert-info paddingPadrao">			
 			<h2><b>Gerenciar Constelação</b></h2>
 			<div align="left" class="paddingPadrao">
 			<h5><b>Data e Local:</b> ${evento.data}, ${evento.local}</h5>
@@ -158,155 +157,191 @@
 	</div>
 	
 	<div class="alert alert-info paddingPadrao">
-	
-	
+		
 	<c:if test="${not empty constelacaoMensagemCadastroSucesso}">
 		<div class="alert alert-success ponteiro closeClick">
 			${constelacaoMensagemCadastroSucesso} 
 		</div>
 	</c:if>
 	
-	<p class="paddingPadrao">
-		<button id="btIncluirParticipante" type="button" class="btn btn-success">Incluir Participante</button>
-	</p>
 	
-	
-	
-	<!-- ADICIONAR PARTICIPANTE -->
-	<div id="formIncluirParticipante" class="campoObrigatorio">
-	<form id="formCadastrarParticipante" action="<c:url value="/constelacao/participante/cadastrar"/>" method="post">
-			
-		<img class="icone" alt="Incluir participante" title="Incluir participante" src="${imagem}/iconeAddPessoaHover.png">
-		<h3 align="center">Incluir Participante</h3>
-		
-		<input type="hidden" name="participante.evento.id" value="${evento.id}">		
+	<!-- Trigger the modal with a button -->
+  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCadastrarParticipante">Incluir Participante</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalCadastrarParticipante" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Incluir Participante</h4>
+        </div>
+        <div class="modal-body">
+          	<!-- ADICIONAR PARTICIPANTE -->
+		 	<div class="campoObrigatorio">
+			<form id="formCadastrarParticipante" action="<c:url value="/constelacao/participante/cadastrar"/>" method="post">
+					
+				<img class="icone" alt="Incluir participante" title="Incluir participante" src="${imagem}/iconeAddPessoaHover.png">
+				<h3 align="center">Incluir Participante</h3>
 				
-		<div class="paddingPadrao">				
-			<label class="esquerda">Nome</label>
-			<input id="edtConstelacaoCadPessoa" type="text" name="participante.nome" class="form-control" maxlength="254" required="required"/>
-		</div>
-		
-		<div class="paddingPadrao">				
-			<label class="esquerda">E-mail</label>
-			<input type="text" name="participante.email" class="form-control" maxlength="254"/>
-		</div>
-		
-		<div class="paddingPadrao">				
-			<label class="esquerda">Celular</label>
-			<input id="telefoneParticipante" type="text" name="participante.celular" class="form-control"/>
-		</div>
-		
-		<div class="paddingPadrao">
-			<label class="esquerda">Como soube</label>
-			<textarea name="participante.comoSoube" class="form-control" rows="3" maxlength="254"></textarea>
-		</div>
-		
-		<div align="left">
-		<P>
-		<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso.</label>
-		</P>
-		
-		<P>
-		<label><input type="checkbox" name="participante.constelou" /> constelou.</label>
-		</P>
-		
-		<P>
-		<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
-		</P>
-		</div>
-		
-		<p>
-		<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5"></textarea>					
-		</p>
-		
-		<div align="left">
-		<button type="submit" class="btn btn-success">Cadastrar</button>
-		<button id="btCancelCadastroParticipante" type="reset" class="btn btn-default">Cancelar</button>
-		</div>
-	
-	</form>	
-	</div>
-	
-	<!-- EDITAR PARTICIPANTE -->
-	<c:if test="${flagEditarParticipante}">
-	<div id="divEditarParticipante" class="campoObrigatorio">
-	<form id="formEditarParticipante" action="<c:url value="/constelacao/participante/confirmarEditar"/>" method="post">
-		
-		<img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png">	
-		<h3 align="center">Editar Participante</h3>
-		
-		<input type="hidden" name="participante.id" value="${participante.id}">
-		<input type="hidden" name="participante.evento.id" value="${idEvento}">		
+				<input type="hidden" name="participante.evento.id" value="${evento.id}">		
+						
+				<div class="paddingPadrao">				
+					<label class="esquerda">Nome</label>
+					<input id="edtConstelacaoCadPessoa" type="text" name="participante.nome" class="form-control" maxlength="254" required="required"/>
+				</div>
 				
-		<div class="paddingPadrao">				
-			<label class="esquerda">Nome</label>
-			<input type="text" name="participante.nome" class="form-control" maxlength="254" value="${participante.nome}" required="required"/>
-		</div>
-		
-		<div class="paddingPadrao">				
-			<label class="esquerda">E-mail</label>
-			<input type="text" name="participante.email" class="form-control" maxlength="254" value="${participante.email}"/>
-		</div>
-		
-		<div class="paddingPadrao">				
-			<label class="esquerda">Celular</label>
-			<input id="editarTelefoneParticipante" type="text" name="participante.celular" class="form-control" value="${participante.celular}"/>
-		</div>
-		
-		<div class="paddingPadrao">
-			<label class="esquerda">Como soube</label>
-			<textarea name="participante.comoSoube" class="form-control" rows="3" maxlength="254">${participante.comoSoube}</textarea>
-		</div>
-		
-		<div align="left">
-		
-		<P>
-		<c:choose>
-			<c:when test="${participante.pagouIngresso}">
-				<label><input type="checkbox" name="participante.pagouIngresso" checked="checked" /> pagou ingresso.</label>
-			</c:when>
-			<c:otherwise>
+				<div class="paddingPadrao">				
+					<label class="esquerda">E-mail</label>
+					<input type="text" name="participante.email" class="form-control" maxlength="254"/>
+				</div>
+				
+				<div class="paddingPadrao">				
+					<label class="esquerda">Celular</label>
+					<input id="telefoneParticipante" type="text" name="participante.celular" class="form-control"/>
+				</div>
+				
+				<div class="paddingPadrao">
+					<label class="esquerda">Como soube</label>
+					<textarea name="participante.comoSoube" class="form-control" rows="3" maxlength="254"></textarea>
+				</div>
+				
+				<div align="left">
+				<P>
 				<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso.</label>
-			</c:otherwise>
-		</c:choose>	
-		</P>
-		
-		<P>
-		<c:choose>
-			<c:when test="${participante.constelou}">
-				<label><input type="checkbox" name="participante.constelou" checked="checked" /> constelou.</label>
-			</c:when>
-			<c:otherwise>
+				</P>
+				
+				<P>
 				<label><input type="checkbox" name="participante.constelou" /> constelou.</label>
-			</c:otherwise>
-		</c:choose>	
-		</P>
-	
-		<P>
-		<c:choose>
-			<c:when test="${participante.pagouContelacao}">
-				<label><input type="checkbox" name="participante.pagouContelacao" checked="checked" /> pagou constelação.</label>
-			</c:when>
-			<c:otherwise>
+				</P>
+				
+				<P>
 				<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
-			</c:otherwise>
-		</c:choose>	
-		</P>
-		</div>
-		
-		<p>
-		<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5">${participante.observacao}</textarea>					
-		</p>
-	
-		<div align="left">
-		<button type="submit" class="btn btn-success">Editar</button>
-		<button id="btCancelEditarParticipante" type="reset" class="btn btn-default">Cancelar</button>
-		</div>
-		
-	</form>	
-	</div>
-	</c:if>
-	
+				</P>
+				</div>
+				
+				<p>
+				<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5"></textarea>					
+				</p>
+				
+				<div align="left">
+				<button type="submit" class="btn btn-success">Cadastrar</button>
+				</div>
+			
+			</form>	
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+  
+  <c:if test="${flagEditarParticipante}">
+  
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarParticipante">Editar dados de ${participante.nome}</button>
+  
+  <!-- Modal Editar Participante -->
+  <div class="modal" id="modalEditarParticipante" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar Participante</h4>
+        </div>
+        <div class="modal-body">
+          	<!-- EDITAR PARTICIPANTE -->
+			
+			<!-- <div id="divEditarParticipante" class="campoObrigatorio"> -->
+			<div class="campoObrigatorio">
+			<form id="formEditarParticipante" action="<c:url value="/constelacao/participante/confirmarEditar"/>" method="post">
+				
+				<img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png">	
+				<h3 align="center">Editar Participante</h3>
+				
+				<input type="hidden" name="participante.id" value="${participante.id}">
+				<input type="hidden" name="participante.evento.id" value="${idEvento}">		
+						
+				<div class="paddingPadrao">				
+					<label class="esquerda">Nome</label>
+					<input type="text" name="participante.nome" class="form-control" maxlength="254" value="${participante.nome}" required="required"/>
+				</div>
+				
+				<div class="paddingPadrao">				
+					<label class="esquerda">E-mail</label>
+					<input type="text" name="participante.email" class="form-control" maxlength="254" value="${participante.email}"/>
+				</div>
+				
+				<div class="paddingPadrao">				
+					<label class="esquerda">Celular</label>
+					<input id="editarTelefoneParticipante" type="text" name="participante.celular" class="form-control" value="${participante.celular}"/>
+				</div>
+				
+				<div class="paddingPadrao">
+					<label class="esquerda">Como soube</label>
+					<textarea name="participante.comoSoube" class="form-control" rows="3" maxlength="254">${participante.comoSoube}</textarea>
+				</div>
+				
+				<div align="left">
+				
+				<P>
+				<c:choose>
+					<c:when test="${participante.pagouIngresso}">
+						<label><input type="checkbox" name="participante.pagouIngresso" checked="checked" /> pagou ingresso.</label>
+					</c:when>
+					<c:otherwise>
+						<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso.</label>
+					</c:otherwise>
+				</c:choose>	
+				</P>
+				
+				<P>
+				<c:choose>
+					<c:when test="${participante.constelou}">
+						<label><input type="checkbox" name="participante.constelou" checked="checked" /> constelou.</label>
+					</c:when>
+					<c:otherwise>
+						<label><input type="checkbox" name="participante.constelou" /> constelou.</label>
+					</c:otherwise>
+				</c:choose>	
+				</P>
+			
+				<P>
+				<c:choose>
+					<c:when test="${participante.pagouContelacao}">
+						<label><input type="checkbox" name="participante.pagouContelacao" checked="checked" /> pagou constelação.</label>
+					</c:when>
+					<c:otherwise>
+						<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
+					</c:otherwise>
+				</c:choose>	
+				</P>
+				</div>
+				
+				<p>
+				<textarea name="participante.observacao" class="form-control" placeholder="Observações" rows="5">${participante.observacao}</textarea>					
+				</p>
+			
+				<div align="left">
+				<button type="submit" class="btn btn-success">Editar</button>
+				</div>
+				
+			</form>	
+			</div>
+			
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+  </c:if>	
 		
 	</div>
 
@@ -369,7 +404,7 @@
 					
 				</td>
 				<td>
-				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>
+				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>				
 				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 				</td>
 	  		</tr>
