@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 <link rel="icon" type="image/gif" href="${imagem}/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -16,9 +17,9 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery.maximage.min.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="${javascript}/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="${javascript}/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autocomplete.min.js"></script>
-<script type="text/javascript" src="${javascript}/jquery.maskedinput-1.3.min.js"></script>
+<script type="text/javascript" src="${javascript}/jquery.mask.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.puts.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.autoresize.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.infinitecarousel3.js"></script>
