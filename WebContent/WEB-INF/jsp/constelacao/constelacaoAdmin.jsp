@@ -152,8 +152,8 @@
 			
 			<h2><b>Gerenciar Constelação</b></h2>
 			<div align="left" class="paddingPadrao">
-			<h4><b>Data e Local:</b> ${evento.data}, ${evento.local}</h4>
-			<h4><b>Valores:</b> Do Ingresso: R$ ${evento.valorIngresso}, da constelação: R$ ${evento.valorParticipacao}</h4>			
+			<h5><b>Data e Local:</b> ${evento.data}, ${evento.local}</h5>
+			<h5><b>Valores:</b> Do Ingresso: R$ ${evento.valorIngresso}, da constelação: R$ ${evento.valorParticipacao}</h5>			
 			</div>
 	</div>
 	
@@ -169,6 +169,8 @@
 	<p class="paddingPadrao">
 		<button id="btIncluirParticipante" type="button" class="btn btn-success">Incluir Participante</button>
 	</p>
+	
+	
 	
 	<!-- ADICIONAR PARTICIPANTE -->
 	<div id="formIncluirParticipante" class="campoObrigatorio">
@@ -320,7 +322,7 @@
 		<table class="table table-hover letraPequena">
   		<thead>
   			<tr>
-		  		<th colspan="3">Participantes desta constelação</th>
+		  		<th colspan="3">${evento.totalParticipantes} Participante(s) nesta constelação</th>
 	  		</tr>
 	  		<tr>
 		  		<th>Nome</th>
@@ -380,7 +382,7 @@
   			<td></td>
   			<td><b>Totais Gerais</b></td>
   			<td><b>R$ ${evento.capitalIngresso}</b></td>
-  			<td></td>
+  			<td><b>${evento.constelacoesRealizadas}</b></td>
   			<td><b>R$ ${evento.capitalConstelacao}</b></td>
   			<td></td>
   			<td><b>R$ ${evento.capitalTotal}</b></td>

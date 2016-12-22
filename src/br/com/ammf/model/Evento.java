@@ -139,6 +139,16 @@ public class Evento implements Serializable{
 		return soma;
 	}
 	
+	public int getConstelacoesRealizadas(){
+		int soma = 0;
+		for (Participante p : participantes ) {
+			if(p.isConstelou()){
+				soma++;
+			}
+		}
+		return soma;
+	}
+	
 	public int getCapitalTotal(){
 		return getCapitalIngresso() + getCapitalConstelacao();
 	}
