@@ -164,22 +164,12 @@ $(document).ready(function() {
 		cadastrarComentarioBlog();
 	});
 	
-	$('#btVisualizarTodos').toggle(function() {
+	$('#btVisualizarTodos').click(function(){
 		$('#ultimaPublicacao').slideUp(500);
 		$('#divTodosTextos').slideDown(500);
-		if($('#emailRequest').val()){
-			$('#btVisualizarTodos').html('').append('Visualizar texto solicitado do email');
-		}else{
-			$('#btVisualizarTodos').html('').append('Visualizar ultima publica&ccedil;&atilde;o');
-		}
+		$('#btVisualizarTodos').slideUp(500);
+	});
 		
-	}, function() {
-		$('#divTodosTextos').slideUp(500);
-		$('#ultimaPublicacao').slideDown(500);
-		$('#btVisualizarTodos').html('').append('Visualizar textos anteriores');
-	});	
-	
-	
 	$('#textoModoLeitura').hide();
 	$('#goTopo').smoothScroll();
 	

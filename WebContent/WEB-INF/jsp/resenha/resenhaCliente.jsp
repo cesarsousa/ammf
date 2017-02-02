@@ -314,7 +314,7 @@ ${conteudoEmBranco}
 			<tbody>
 				<c:forEach items="${resenhasRequest}" var="resenha">
 					<tr class="zebrado">						
-						<td><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone50"></td>
+						<td><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200"></td>
 						<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 							<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 						<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>

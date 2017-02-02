@@ -126,6 +126,8 @@ function listarCategoriasDeResenhaEdicao() {
 
 $(document).ready(function() {
 	
+	hideAllResenhaFields();
+	
     $('.selectpicker').selectpicker({
         style: 'btn-info',
         size: 4
@@ -145,12 +147,6 @@ $(document).ready(function() {
 	$('#ajaxCadastrarCategoriaResenha').click(function(){		
 		cadastrarNovaCategoriaResenha();	
 	});
-	
-	
-	$('#').click(function(){
-		
-	});
-	
 		
 	$('#btRemoverUploadFotoResenha').click(function(){
 		$('#divUploadFotoResenha')
@@ -185,9 +181,6 @@ $(document).ready(function() {
 	$('#textoDescricaoResenhaEdt').keyup(function() {		
 		limitarCaracteres('#textoDescricaoResenhaEdt', '#contadorCaracterResenhaEdt', 10000);
 	});
-	
-	hideAllResenhaFields();
-	
 	
 	$('#btCadastrarResenha, #btEditarResenha').click(function() {
 		abrirJanelaDeEspera("#divPgResenhaAdm", "#telaAguardeAdmResenhaCadastrar");

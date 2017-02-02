@@ -50,10 +50,8 @@
 <script type="text/javascript" src="${javascript}/constelacaoAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/script.js"></script>
 <script type="text/javascript" src="${javascript}/wowslider.js"></script>
-
 <script type="text/javascript" src="${javascript}/jquery.cycle.all.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.localscroll.js"></script>
-<script type="text/javascript" src="${javascript}/jquery.maximage.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.scrollto.js"></script>
 
 </head>

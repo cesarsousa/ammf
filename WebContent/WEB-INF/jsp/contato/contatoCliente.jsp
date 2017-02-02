@@ -26,7 +26,7 @@
 </div>
 
 
-<div id="divPgContatoCliente" align="center">
+<div id="divPgContatoCliente" align="center" class="fundoPadrao">
 
 	<div>
 		<table width="100%">
@@ -34,20 +34,12 @@
 		<td align="right">
 		<div align="center" class="paddingPadrao">
 		<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>
-		<%-- <c:if test="${sessaoCliente.contato.mostrarMapa}">
-			<h3>Meu consult&oacute;rio est&aacute; localizado no endere&ccedil;o</h3>
-			<h3>${sessaoCliente.contato.endereco}</h3>	
-			<img id="btAbrirMapa" class="icone50 ponteiro" alt="visualizar no mapa" title="visualizar no mapa" src="${imagem}/iconeAbrirMapa.png">
-			<img id="btFecharMapa" class="icone50 ponteiro" alt="fechar mapa" title="fechar mapa" src="${imagem}/iconeFecharMapa.png">
-		</c:if> --%>
 		</div>
 		</td>
 		</tr>
 		</table>	
 	</div>
-	
-	<%-- <div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div> --%>	
-	
+		
 	<div class="cartaoSemBordaTop tamanhoEdicaoIndex" align="left">
 	
 	<div class="jumbotron">
