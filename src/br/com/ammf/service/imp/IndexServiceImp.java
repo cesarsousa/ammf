@@ -11,6 +11,7 @@ import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.Paragrafo;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.SessaoCliente;
@@ -77,7 +78,7 @@ public class IndexServiceImp implements IndexService{
 		Texto textoArtesOrientais = textoRepository.getTextoCliente(Local.ARTESORIENTAIS);
 		Texto textoQuiron = textoRepository.getTextoCliente(Local.QUIRON);
 		
-		Constelacao constelacao = constelacaoRepository.get();
+		Constelacao constelacao = constelacaoRepository.get(LocalEvento.NITEROI);
 		if(constelacao == null) constelacao = new Constelacao();
 		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));

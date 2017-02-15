@@ -107,12 +107,19 @@ $(document).ready(function() {
 	});
 	
 	
-	$('#conteudoCampoConstelacao').hide();
+	$('#conteudoCampoConstelacao, #conteudoCampoConstelacaoBarra').hide();
 	$('#btAbrirConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideDown(1000);		
 	});
 	$('#btFecharConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideUp(1000);		
+	});
+	
+	$('#btAbrirConteudoConstelacaoBarra').click(function(){
+		$('#conteudoCampoConstelacaoBarra').slideDown(1000);		
+	});
+	$('#btFecharConteudoConstelacaoBarra').click(function(){
+		$('#conteudoCampoConstelacaoBarra').slideUp(1000);		
 	});
 		
 	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');

@@ -370,12 +370,12 @@
 	
 	<div class="separador"></div>
 	
-	<!-- EDITAR CONTEUDO CONSTELACAO -->	
+	<!-- EDITAR CONTEUDO CONSTELACAO NITERÓI -->	
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoConstelacao" class="headerSlide">
-			<span  class="esquerda">Constela&ccedil;&otilde;es</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constela&ccedil;&otilde;es.</span>
+			<span  class="esquerda">Constelação Niterói</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constelação de Niterói.</span>
 			</td>
 		</tr>
 		<tr>
@@ -383,12 +383,12 @@
 			<div id="conteudoCampoConstelacao" class="cartao tamanhoEdicaoIndex" >
 			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
-			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina Constela&ccedil;&otilde;es</h2>
+			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>
 			
 			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<h3>Local do Evento:</h3>
-				<input disabled="disabled" type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacao.localEvento}"/>
+				<input type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacao.localEvento}"/>
 											
 				<h3>Texto Inicial:</h3>
 				<div class="alert alert-warning">
@@ -452,6 +452,96 @@
 				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="btn btn-success direita" >			
 				</p>
 			</form>			
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="separador"></div>
+	
+	<!-- EDITAR CONTEUDO CONSTELACAO BARRA -->	
+	<table class="tamanhoDefault">
+		<tr>
+			<td id="btAbrirConteudoConstelacaoBarra" class="headerSlide">
+			<span  class="esquerda">Constelação Barra</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constelação da Barra da Tijuca</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="conteudoCampoConstelacaoBarra" class="cartao tamanhoEdicaoIndex" >
+			<input id="btFecharConteudoConstelacaoBarra" type="button" class="btn btn-danger direita" value="fechar">
+			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
+			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>
+			
+			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
+				
+				<h3>Local do Evento:</h3>
+				<input type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacaoBarra.localEvento}"/>
+											
+				<h3>Texto Inicial:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.textoInicial" >${sessaoUsuario.constelacaoBarra.textoInicial}</textarea>				
+								
+				<h3>Forma de Pagamento:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.formaPagamento" >${sessaoUsuario.constelacaoBarra.formaPagamento}</textarea>				
+								
+				<h3>Texto Final:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacaoBarra.textoFinal}</textarea>				
+								
+				<h3>Data: Este texto define parte do título do e-mail</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacaoBarra.data}</textarea>				
+								
+				<h3>Localiza&ccedil;&atilde;o:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacaoBarra.localizacao}</textarea>				
+				
+				<h3>Link para compartilhar Google Maps:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Gere esse link pelo Google Maps.
+				</div>
+				<textarea class="form-control" rows="3" name="constelacao.linkMapa" >${sessaoUsuario.constelacaoBarra.linkMapa}</textarea>				
+				
+								
+				<h3>Informa&ccedil;&otilde;es:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.informacao" >${sessaoUsuario.constelacaoBarra.informacao}</textarea>				
+								
+				<h3>Dados Pessoais:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacaoBarra.dadosPessoais}</textarea>				
+								
+				<br>
+				<input type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
+																
+				<div class="checkbox" align="right">
+				    <label>
+				      <input type="checkbox" name="constelacaoEnviarEmail"> Enviar e-mail da constela&ccedil;&atilde;o para as pessoas.
+				    </label>
+				  </div>
+								
+				<p class="paddingPadrao">
+				<input type="submit" value="atualizar" class="btn btn-success direita" >			
+				</p>
+			</form>	
+					
 			</div>
 			</td>
 		</tr>
