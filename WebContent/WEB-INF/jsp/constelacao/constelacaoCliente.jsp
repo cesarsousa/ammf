@@ -9,7 +9,7 @@
 <div align="center" class="paddingPadrao"><h1><b>Constela&ccedil;&otilde;es Sist&ecirc;micas</b></h1></div>
 </div>
 
-<div class="fundoConstelacao" align="center">
+<div id="divConstelacaoNiteroi" class="fundoNiteroiConstelacao" align="center">
 
 	<div style="color: white;">
 		<H2 class="paddingPadrao"><b>Workshop</b></H2>

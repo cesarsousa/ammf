@@ -300,27 +300,24 @@ ${conteudoEmBranco}
 	<c:when test="${not empty resenhasRequest}">
 		<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> a resenha na íntegra.</h3>
 		<div align="center">
-		<table style="width: 90%">
+		<table style="width: 70%" class="tabelaResenhas">
 			<thead align="left">
 				<tr>
 					<th class="metadado"></th>
 					<th class="metadado">T&iacute;tulo</th>
-					<th class="metadado">Tipo da resenha</th>			
-					<th class="metadado">Coment&aacute;rio</th>
+					<th class="metadado">Tipo da resenha</th>					
 					<th class="metadado">Postagem</th>			
 				</tr>
 				
 			</thead>
 			<tbody>
 				<c:forEach items="${resenhasRequest}" var="resenha">
-					<tr class="zebrado">						
+					<tr>						
 						<td><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200"></td>
 						<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 							<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
 						<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
-						<td class="infoTabela" title="clique no titulo para ler texto completo">					
-							<c:set var="origemResenha"	value="${resenha.descricao}"/>
-							<c:out value="${fn:substring(origemResenha,0,100)}"/>...</td>
+						
 						<td class="infoTabela" title="clique no titulo para ler texto completo"><b>${resenha.dataFormatadaSimples}</b></td>
 					</tr>			
 		 		</c:forEach>		
