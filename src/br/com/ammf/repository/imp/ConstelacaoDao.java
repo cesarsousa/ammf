@@ -41,6 +41,7 @@ private Session session;
 			textosConstelacao.setLocalizacao(constelacao.getLocalizacao());
 			textosConstelacao.setInformacao(constelacao.getInformacao());
 			textosConstelacao.setDadosPessoais(constelacao.getDadosPessoais());
+			textosConstelacao.setLinkMapa(constelacao.getLinkMapa());
 			session.saveOrUpdate(textosConstelacao);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));

@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="constelacao")
@@ -19,6 +19,9 @@ public class Constelacao implements Serializable{
 	@Id
 	@GeneratedValue
 	private long id;
+	
+	@Enumerated(EnumType.STRING)
+	private LocalEvento localEvento;
 	
 	@Column(length = 3000)
 	private String textoInicial;
@@ -40,6 +43,9 @@ public class Constelacao implements Serializable{
 	
 	@Column(length = 3000)
 	private String dadosPessoais;
+	
+	@Column(length = 3000)
+	private String linkMapa;
 	
 	public long getId() {
 		return id;
@@ -89,4 +95,21 @@ public class Constelacao implements Serializable{
 	public void setData(String data) {
 		this.data = data;
 	}
+	
+	public String getLinkMapa() {
+		return linkMapa;
+	}
+	
+	public void setLinkMapa(String linkMapa) {
+		this.linkMapa = linkMapa;
+	}
+	
+	public LocalEvento getLocalEvento() {
+		return localEvento;
+	}
+	
+	public void setLocalEvento(LocalEvento localEvento) {
+		this.localEvento = localEvento;
+	}
+	
 }

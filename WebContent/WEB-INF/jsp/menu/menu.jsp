@@ -386,7 +386,10 @@
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina Constela&ccedil;&otilde;es</h2>
 			
 			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
-							
+				
+				<h3>Local do Evento:</h3>
+				<input disabled="disabled" type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacao.localEvento}"/>
+											
 				<h3>Texto Inicial:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
@@ -405,7 +408,7 @@
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
 								
-				<h3>Data:</h3>
+				<h3>Data: Este texto define parte do título do e-mail</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
@@ -416,6 +419,13 @@
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
+				
+				<h3>Link para compartilhar Google Maps:</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Gere esse link pelo Google Maps.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="3" name="constelacao.linkMapa" >${sessaoUsuario.constelacao.linkMapa}</textarea>				
+				
 								
 				<h3>Informa&ccedil;&otilde;es:</h3>
 				<div class="alert alert-warning">
