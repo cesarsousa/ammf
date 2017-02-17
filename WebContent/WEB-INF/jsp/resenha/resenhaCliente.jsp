@@ -65,7 +65,7 @@ ${conteudoEmBranco}
 		<table>
 		<tr>
 		<td valign="top">					
-		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" rel="prettyPhoto[resenha1]" title="${resenha.titulo}">
+		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" title="${resenha.titulo}">
 			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
 		</a>				
 		</td>
@@ -180,7 +180,7 @@ ${conteudoEmBranco}
 					<table>
 					<tr>
 					<td class="paddingPadrao" valign="top">					
-					<a href="<c:url value="/resenha/visualizador/${ultimaPublicacao.uuid}" />" rel="prettyPhoto[resenha2]" title="${ultimaPublicacao.titulo}">
+					<a href="<c:url value="/resenha/visualizador/${ultimaPublicacao.uuid}" />" title="${ultimaPublicacao.titulo}">
 						<img src="<c:url value="/resenha/visualizador/${ultimaPublicacao.uuid}" />" class="fotoLivro">
 					</a>				
 					</td>
@@ -347,7 +347,7 @@ ${conteudoEmBranco}
 					<table>
 					<tr>
 					<td class="paddingPadrao" valign="top">
-					<a id="linkPrettyPhotoResenha" rel="prettyPhoto[resenha3]" title="${resenha.titulo}">
+					<a id="linkPrettyPhotoResenha" title="${resenha.titulo}">
 						<img id="imagemResenhaModoLeitura" class="fotoLivro" />
 					</a>					
 					</td>

@@ -56,7 +56,7 @@
 	  				<table>
 	  				<tr>
 	  				<td class="paddingPadrao" valign="top">
-	  				<a href="<c:url value="/loja/visualizador/${livroNewsUuid}" />" rel="prettyPhoto[resenha1]">
+	  				<a href="<c:url value="/loja/visualizador/${livroNewsUuid}" />">
 						<img src="<c:url value="/loja/visualizador/${livroNewsUuid}" />" class="fotoLivro">
 					</a>
 	  				</td>
@@ -96,7 +96,7 @@
 	  				<table>
 	  				<tr>
 	  				<td>
-	  				<a href="<c:url value="/resenha/visualizador/${resenhaNewsUuid}" />" rel="prettyPhoto[resenha1]">
+	  				<a href="<c:url value="/resenha/visualizador/${resenhaNewsUuid}" />">
 						<img src="<c:url value="/resenha/visualizador/${resenhaNewsUuid}" />" class="fotoLivro">
 					</a>
 	  				</td>
