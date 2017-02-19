@@ -416,13 +416,14 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoConstelacao(Constelacao constelacao) {
-		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
+		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - "+ constelacao.getLocalEvento().toString() + " - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
 	}
 
 	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
 		
 		return mensagem
+				.replace("[LOCALEVENTO]", constelacao.getLocalEvento().toString())
 				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
 				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
 				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
@@ -440,6 +441,7 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
 		
 		return mensagem
+				.replace("[LOCALEVENTO]", constelacao.getLocalEvento().toString())
 				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
 				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
 				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
