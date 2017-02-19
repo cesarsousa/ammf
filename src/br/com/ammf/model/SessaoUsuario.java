@@ -14,7 +14,8 @@ public class SessaoUsuario implements Serializable{
 	
 	private Usuario usuario;
 	private Terapeuta terapeuta;
-	private Constelacao constelacao;	
+	private Constelacao constelacao;
+	private Constelacao constelacaoBarra;
 	
 	private Texto textoIndex;
 	private Texto textoPsicologia;
@@ -116,6 +117,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public void setNotificacoes(List<String> notificacoes) {
 		this.notificacoes = notificacoes;
+	}
+	
+	public Constelacao getConstelacaoBarra() {
+		return constelacaoBarra;
+	}
+	
+	public void setConstelacaoBarra(Constelacao constelacaoBarra) {
+		this.constelacaoBarra = constelacaoBarra;
 	}
 
 }

@@ -26,7 +26,7 @@
 </div>
 
 
-<div id="divPgContatoCliente" align="center" class="fundoPadrao">
+<div id="divPgContatoCliente" align="center" class="fundoPadrao fundoTelaContatoCliente">
 
 	<div>
 		<table width="100%">

@@ -152,7 +152,7 @@
 	</thead>
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
-			<tr class="zebrado">
+			<tr>
 				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
 				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
 				</td>

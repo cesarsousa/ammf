@@ -252,19 +252,11 @@ function emConstrucao(){
 
 $(document).ready(function() {
 	
-	/*$('#btNovoDepoimento').toggle(function() {
-		$('#divNovoDepoimento').slideDown(1000);
-	}, function() {
-		$('#divNovoDepoimento').slideUp(1000);
-	});*/
-	
 	$('.dataTable').dataTable({
 		"bPaginate": true,
 		"bJQueryUI": false,
 		"sPaginationType": "full_numbers"
 	});
-	
-	$("a[rel^='prettyPhoto']").prettyPhoto();
 	
 	$('.closeClick').click(function(){
 		$(this).fadeOut(1000);

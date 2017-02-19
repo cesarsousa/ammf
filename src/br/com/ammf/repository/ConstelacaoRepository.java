@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
+import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.TipoEvento;
 
@@ -11,7 +12,7 @@ public interface ConstelacaoRepository {
 	
 	void salvarAtualizar(Constelacao constelacao);
 
-	Constelacao get();
+	Constelacao get(LocalEvento localEvento);
 
 	void cadastrar(Evento evento);
 

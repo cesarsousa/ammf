@@ -12,6 +12,7 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
+import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
@@ -30,7 +31,7 @@ private Session session;
 	public void salvarAtualizar(Constelacao constelacao) {
 		
 		try {
-			Constelacao textosConstelacao  = get();
+			Constelacao textosConstelacao  = get(constelacao.getLocalEvento());
 			if(textosConstelacao == null){
 				textosConstelacao = new Constelacao();
 			}
@@ -41,6 +42,8 @@ private Session session;
 			textosConstelacao.setLocalizacao(constelacao.getLocalizacao());
 			textosConstelacao.setInformacao(constelacao.getInformacao());
 			textosConstelacao.setDadosPessoais(constelacao.getDadosPessoais());
+			textosConstelacao.setLinkMapa(constelacao.getLinkMapa());
+			textosConstelacao.setLocalEvento(constelacao.getLocalEvento());
 			session.saveOrUpdate(textosConstelacao);
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -48,9 +51,10 @@ private Session session;
 	}
 
 	@Override
-	public Constelacao get() {
+	public Constelacao get(LocalEvento localEvento) {
 		try {
 			Criteria criteria = session.createCriteria(Constelacao.class);
+			criteria.add(Restrictions.eq("localEvento", localEvento));
 			Constelacao constelacao = (Constelacao) criteria.uniqueResult();
 			if(constelacao == null) return new Constelacao();			
 			return constelacao;

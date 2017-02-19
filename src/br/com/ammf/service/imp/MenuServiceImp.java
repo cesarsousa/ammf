@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ammf.model.Local;
+import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.ComentarioRepository;
@@ -57,7 +58,8 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoCultura(textoRepository.getTextoCultura());
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		sessaoUsuario.setTextoQuiron(textoRepository.getTextoQuiron());
-		sessaoUsuario.setConstelacao(constelacaoRepository.get());
+		sessaoUsuario.setConstelacao(constelacaoRepository.get(LocalEvento.NITEROI));
+		sessaoUsuario.setConstelacaoBarra(constelacaoRepository.get(LocalEvento.BARRA));
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		return sessaoUsuario;
 	}	
