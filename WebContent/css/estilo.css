@@ -527,6 +527,26 @@ a:HOVER {
     height: 100px;    
 }
 
+#constelacaoBarra {	
+	width: 400px;
+    height: 300px;
+	background: url("../image/brra-da-tijuca.jpg") no-repeat #F8F8FF center;
+	box-shadow: 2px 2px 2px #8B8484;
+}
+
+#constelacaoNiteroi {
+	width: 400px;
+    height: 300px;
+	background: url("../image/praia-de-icarai-niteroi.jpg") no-repeat #F8F8FF center;
+	box-shadow: 2px 2px 2px #8B8484;
+}
+.constelacaoNiteroiModal {	
+	width: 100%;
+	height: 400px;
+	
+}
+
+
 #shiva {	
 	width: 501px;
 	height: 501px;
@@ -541,7 +561,6 @@ a:HOVER {
 	background-image: url("../image/fundoConstelacao.jpg");
 	background-attachment: fixed;
 	padding: 10px;
-		
 }
 
 .fundoTelaContatoCliente {	
@@ -597,6 +616,11 @@ a:HOVER {
 	border-radius: 5px;
 	opacity:0.8;
 	filter:alpha(opacity=80);
+}
+
+.tamanhoBoxConstelacao{
+	width: 450px;
+	background-color: white;
 }
 
 #header1 {

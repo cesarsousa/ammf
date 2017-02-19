@@ -1,10 +1,7 @@
 
 
 jQuery(document).ready(function() {
-	
-	
-	//$('#modalEditarParticipante').modal('show');
-	
+		
 	/*fecharCamposConstelacao();
 		
 	$('#btListarConstelacao').click(function(){

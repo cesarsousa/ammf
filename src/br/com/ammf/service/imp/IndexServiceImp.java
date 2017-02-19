@@ -81,6 +81,9 @@ public class IndexServiceImp implements IndexService{
 		Constelacao constelacao = constelacaoRepository.get(LocalEvento.NITEROI);
 		if(constelacao == null) constelacao = new Constelacao();
 		
+		Constelacao constelacaoBarra = constelacaoRepository.get(LocalEvento.BARRA);
+		if(constelacaoBarra == null) constelacaoBarra = new Constelacao();
+		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);
 		sessaoCliente.setTextoPsicologia(criarListaDeParagrafos(textoPsicologia));
@@ -92,6 +95,7 @@ public class IndexServiceImp implements IndexService{
 		sessaoCliente.setContato(criarDadosDeContato());
 		
 		sessaoCliente.setConstelacao(constelacao);
+		sessaoCliente.setConstelacaoBarra(constelacaoBarra);
 		
 		return sessaoCliente;
 	}
