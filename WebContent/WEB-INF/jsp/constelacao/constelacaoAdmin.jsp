@@ -228,6 +228,7 @@
 				
 				<div align="left">
 				<button type="submit" class="btn btn-success">Cadastrar</button>
+				<button id="btCancelCadastroParticipante" type="reset" class="btn btn-default">Cancelar</button>
 				</div>
 			
 			</form>	
@@ -329,6 +330,7 @@
 			
 				<div align="left">
 				<button type="submit" class="btn btn-success">Editar</button>
+				<button id="btCancelEditarParticipante" type="reset" class="btn btn-default">Cancelar</button>
 				</div>
 				
 			</form>	
