@@ -12,20 +12,25 @@
 <div id="divConstelacaoNiteroi" class="fundoNiteroiConstelacao" align="center">
 
 <div>
-<H2 class="paddingPadrao" style="color: white;"><b>Workshop</b></H2>
+<h2 class="paddingPadrao" style="color: black;"><b>Workshop</b></h2>
 
 <div class="tamanhoDefault justificado">		
-			<h3 class="paddingPadrao" style="color: white;"><b>${sessaoCliente.constelacao.textoInicial}</b></h3>
+			<h3 class="paddingPadrao" style="color: black;"><b>${sessaoCliente.constelacao.textoInicial}</b></h3>
 			<br>
-			<h3 style="color: white;"><b>${sessaoCliente.constelacao.textoFinal}</b></h3>
+			<h3 style="color: black;"><b>${sessaoCliente.constelacao.textoFinal}</b></h3>
 			<br>
 			
 			<table>
+			<thead>
+			<tr><td colspan="2"><h3 align="center">Clique na imagem para visualizar o local e data do evento.</h3></td></tr>
+			
+			<tbody>
 			<tr>
 			
 			<td align="center" width="500">
-				<div id="constelacaoNiteroi" class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
-				<h1 align="center">${sessaoCliente.constelacao.localEvento}</h1>
+				<div id="constelacaoNiteroi" style="vertical-align: middle;" class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
+				<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</p>
+				<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</p>
 				</div>			
 				  <!-- Modal -->
 				  <div class="modal fade" id="modalConstelacaoNiteroi" role="dialog">
@@ -53,7 +58,8 @@
 			
 			<td align="center" width="500">
 			<div id="constelacaoBarra" class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
-			<h1 align="center">${sessaoCliente.constelacaoBarra.localEvento}</h1>
+			<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</p>
+			<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</p>
 			</div>
 				<!-- Modal -->
 				  <div class="modal fade" id="modalConstelacaoBarra" role="dialog">
@@ -80,12 +86,13 @@
 			
 			</td>
 			</tr>
+			</tbody>
 			</table>
 		
 			<br>
 		
-			<div align="right">
-			<div class="fundoConstelacaoInformacao" style="color: white;">
+			<div align="center">
+			<div class="fundoConstelacaoInformacao" style="color: black;">
 			<h3>${sessaoCliente.constelacao.informacao}</h3>
 			</div>
 			</div>
@@ -93,7 +100,7 @@
 			<br>
 		
 			<div align="right">
-			<div class="fundoConstelacaoDadosTerapeuta" style="color: white;">
+			<div class="fundoConstelacaoDadosTerapeuta" style="color: black;">
 			<h4>${sessaoCliente.constelacao.dadosPessoais}</h4>
 			</div>
 			</div>

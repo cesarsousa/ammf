@@ -112,4 +112,8 @@ public class Constelacao implements Serializable{
 		this.localEvento = localEvento;
 	}
 	
+	public String getDataFormatada() {
+		return data.replace("<h2>", "").replace("</h2>", "");
+	}
+	
 }
