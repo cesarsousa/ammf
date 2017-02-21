@@ -1,6 +1,6 @@
 
 function fecharCamposConstelacao(){
-	$('#tabNovaConstelacao, #tabListagemConstelacao, #telaAguardeAdmConstelacaoCadastrar, #divAdmGerenciarConstelacao').hide();
+	$('#tabListagemConstelacao, #telaAguardeAdmConstelacaoCadastrar, #divAdmGerenciarConstelacao').hide();
 }
 
 function limparFormConstelacao(){
@@ -20,31 +20,22 @@ jQuery(document).ready(function() {
 		fecharCamposConstelacao();
 		$('#tabListagemConstelacao').slideDown(500);
 	});
-	$('#btFecharListagemConstelacao').click(function(){		
-		$('#tabListagemConstelacao').slideUp(500);		
-	});
 	
-	if($('#flagLinkConstelacaoCadastro').val()){
-		$('#tabNovaConstelacao').show();
-	}	
 	if($('#flagListagemConstelacao').val()){
 		$('#tabListagemConstelacao').show();
 	}
 	if($('#flagGerenciarConstelacao').val()){
 		$('#divAdmGerenciarConstelacao').show();
+		$('#tabListagemConstelacao').hide();
+		
 	}
 	
 	$('#telefoneParticipante, #editarTelefoneParticipante').mask('(99) 99999-9999');
 	
 	$('#btAddNovoConstelacao').click(function(){
-		fecharCamposConstelacao();
 		limparFormConstelacao();
-		$('#tabNovaConstelacao').slideDown(500);
 	});
 	
-	$('#btFecharAddConstelacao, #btCancelarConstelacao').click(function(){		
-		$('#tabNovaConstelacao').slideUp(500);		
-	});
 	
 	$('#btCadastrarConstelacao').click(function(){
 		abrirJanelaDeEspera("#divPgConstelacaoAdm", "#telaAguardeAdmConstelacaoCadastrar");

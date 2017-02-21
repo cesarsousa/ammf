@@ -38,7 +38,7 @@
 		</form>
 	</li>
 	<li>
-		<img id="btAddNovoConstelacao" alt="Adicionar constelação" title="Adicionar constelação" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		<img id="btAddNovoConstelacao" alt="Adicionar constelação" title="Adicionar constelação" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarConstelacao">
 	</li>	
 	<li>
 		<img id="btListarConstelacao" alt="listar constelações" title="listar constelações" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
@@ -55,8 +55,8 @@
 <!-- LISTAR CONSTELAÇÕES -->
 <div id="tabListagemConstelacao" class="paddingPadrao">
 	
-	<div align="right" class="paddingPadrao">		
-	<input id="btFecharListagemConstelacao" type="button" value="fechar" class="btn btn-danger">
+	<div align="left" class="paddingPadrao">		
+	<img id="btListarConstelacao" alt="listar constelações" title="listar constelações" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</div>
 	
 	<table class="display dataTable cardViewText superFooter bordaLateral">
@@ -98,53 +98,56 @@
 </div>
 
 <!-- ADICIONAR CONSTELAÇÃO -->
-<input id="flagLinkConstelacaoCadastro" type="hidden" value="${flagLinkConstelacaoCadastro}" />
-<table id="tabNovaConstelacao" class="cardViewText">		
-	<tr>
-		<td>
-		<div align="right">
-		<input id="btFecharAddConstelacao" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
-		<h2 align="center">Cadastrar Constelação</h2>
-		
-		<form id="formCadastrarConstelacao" action="<c:url value="/constelacao/cadastrar"/>" method="post">
-			
-			<h3>Local do evento</h3>
-			<select name="evento.localEvento" class="form-control" >
-				<option selected="selected">NITEROI</option>
-				<option>BARRA</option>
-			</select>
-			
-			<h3>Data:</h3>
-			<input id="constelacaoData" class="form-control" name="evento.data" value="${evento.data}" maxlength="254" required="required"/>
-			<br/>			
-						
-			<h3>Endereço do local:</h3>
-			<input id="constelacaoEndereco" class="form-control" name="evento.local" value="${evento.local}" maxlength="254" required="required"/>
-			<br/>
-			
-			<h3>Valor do Ingresso:</h3>
-			<input id="constelacaoIngresso" class="form-control" name="evento.valorIngresso" value="${evento.valorIngresso}" maxlength="254" required="required"/>
-			<br/>
-			
-			<h3>Valor para Constelar:</h3>
-			<input id="constelacaoConstelar" class="form-control" name="evento.valorParticipacao" value="${evento.valorParticipacao}" maxlength="254" required="required"/>
-			<br/>
+<!-- Modal -->
+<div class="modal fade" id="modalCadastrarConstelacao" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">
+          		<h4 class="modal-title">Cadastrar Constelação</h4>
+        	</div>
+        	<div class="modal-body">
+	          	<form id="formCadastrarConstelacao" action="<c:url value="/constelacao/cadastrar"/>" method="post">
+				
+					<h3>Local do evento</h3>
+					<select name="evento.localEvento" class="form-control" >
+						<option selected="selected">NITEROI</option>
+						<option>BARRA</option>
+					</select>
 					
-			<p class="paddingPadrao">
-			<input id="btCadastrarConstelacao" type="button" value="cadastrar" class="btn btn-success">
-			<input id="btCancelarConstelacao" type="button" value="cancelar" class="btn btn-default">				
-			</p>
-		</form>			
-		</td>
-	</tr>
-</table>
+					<h3>Data:</h3>
+					<input id="constelacaoData" class="form-control" name="evento.data" value="${evento.data}" maxlength="254" required="required"/>
+					<br/>			
+								
+					<h3>Endereço do local:</h3>
+					<input id="constelacaoEndereco" class="form-control" name="evento.local" value="${evento.local}" maxlength="254" required="required"/>
+					<br/>
+					
+					<h3>Valor do Ingresso:</h3>
+					<input id="constelacaoIngresso" class="form-control" name="evento.valorIngresso" value="${evento.valorIngresso}" maxlength="254" required="required"/>
+					<br/>
+					
+					<h3>Valor para Constelar:</h3>
+					<input id="constelacaoConstelar" class="form-control" name="evento.valorParticipacao" value="${evento.valorParticipacao}" maxlength="254" required="required"/>
+					<br/>
+							
+					<p class="paddingPadrao">
+					<button type="reset" class="btn btn-primary">Limpar</button>
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					</p>
+				
+				</form>	
+        	</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        	</div>
+      	</div>      
+    </div>
+</div>
 
 <!-- GERENCIAR CONSTELAÇÕES -->
 <input id="flagGerenciarConstelacao" type="hidden" value="${flagGerenciarConstelacao}" />
-
-
 
 <div id="divAdmGerenciarConstelacao">
 
@@ -218,15 +221,15 @@
 				
 				<div align="left">
 				<P>
-				<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso.</label>
+				<label><input type="checkbox" name="participante.pagouIngresso" /> pagou ingresso</label>
 				</P>
 				
 				<P>
-				<label><input type="checkbox" name="participante.constelou" /> constelou.</label>
+				<label><input type="checkbox" name="participante.constelou" /> constelou</label>
 				</P>
 				
 				<P>
-				<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação.</label>
+				<label><input type="checkbox" name="participante.pagouContelacao" /> pagou constelação</label>
 				</P>
 				</div>
 				
@@ -236,14 +239,14 @@
 				
 				<div align="left">
 				<button type="submit" class="btn btn-success">Cadastrar</button>
-				<button id="btCancelCadastroParticipante" type="reset" class="btn btn-default">Cancelar</button>
+				<button id="btCancelCadastroParticipante" type="reset" class="btn btn-primary">Limpar</button>
 				</div>
 			
 			</form>	
 			</div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>      
     </div>

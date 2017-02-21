@@ -158,7 +158,7 @@ public class IndexServiceImp implements IndexService{
 		boolean existeNews = false;
 		
 		List<Livro> livros = livroRepository.listarLivrosProprietarios();
-		if(livros.size() > 1){
+		if(livros.size() == 0){
 			result.include("livroNaoDisponivel", true);
 		}else{
 			Livro livro = livros.get(0);

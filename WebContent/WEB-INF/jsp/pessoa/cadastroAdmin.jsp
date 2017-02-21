@@ -95,9 +95,6 @@
 <table class="superFooter">
 	<tr>
 		<td>
-		<div align="right" class="paddingPadrao">
-			<input id="btFecharPessoasSolicitadas" type="button" value="fechar" class="btn btn-danger">
-		</div>
 		
 		<c:if test="${isPessoasCadastradas}">
 			<img src="${imagem}/usuario_cinza.png" width="50" height="50" class="esquerda">
