@@ -44,7 +44,16 @@ public class PessoaController {
 	
 	@Restrito
 	@Get("/menu/cadastro")
-	public void cadastroAdmin(){}
+	public void cadastroAdmin(boolean comFiltro, boolean comBusca){
+		if(!comFiltro && !comBusca){
+			List<Pessoa> pessoas = pessoaRepository.listar();
+			result.include("pessoasSolicitadas", pessoas);
+			result.include("tituloPessoasSolicitadas", pessoas.size() + " Pessoas Cadastradas");
+			result.include("isPessoasCadastradas", true);
+			result.include("cssCorFonte", "corCinza");
+			result.include("visualizarPessoas", true);
+		}
+	}
 	
 	@Restrito
 	@Post("/menu/cadastrar")
@@ -57,14 +66,14 @@ public class PessoaController {
 				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
 				result.include("msgCadastro", "O cadastro de " + pessoa.getNome() + " foi realizado com sucesso");
 				result.include("flagCadastroPessoaVazio", true); // Configurar a abertura dos campos de cadastro
-				redirecionarParaCadastroAdmin();
+				redirecionarParaCadastroAdmin(false, false);
 			} catch (EmailException e) {				
 				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 				redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + pessoa.getNome() + " referente ao cadastro<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 			} 		
 		}else{
 			result.include("flagCadastroPessoaVazio", true);
-			redirecionarParaCadastroAdmin();
+			redirecionarParaCadastroAdmin(false, false);
 		}		
 	}
 	
@@ -72,14 +81,7 @@ public class PessoaController {
 	@Restrito
 	@Get("/pessoa/listar")
 	public void listarPessoas(){
-		List<Pessoa> pessoas = pessoaRepository.listar();
-		result.include("pessoasSolicitadas", pessoas);
-		result.include("tituloPessoasSolicitadas", pessoas.size() + " Pessoas Cadastradas");
-		result.include("isPessoasCadastradas", true);
-		result.include("cssCorFonte", "corCinza");
-		result.include("visualizarPessoas", true);
-		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
-		result.redirectTo(this).cadastroAdmin();
+		result.redirectTo(this).cadastroAdmin(false, false);
 	}
 	
 	@Restrito
@@ -91,8 +93,7 @@ public class PessoaController {
 		result.include("isPessoasConfirmadas", true);
 		result.include("cssCorFonte", "corVerde");
 		result.include("visualizarPessoas", true);
-		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
-		result.redirectTo(this).cadastroAdmin();
+		result.redirectTo(this).cadastroAdmin(true, false);
 	}
 	
 	@Restrito
@@ -104,8 +105,7 @@ public class PessoaController {
 		result.include("isPessoasPendentes", true);
 		result.include("cssCorFonte", "corVermelho");
 		result.include("visualizarPessoas", true);
-		/*result.use(json()).withoutRoot().from(pessoas).exclude("id").serialize();*/
-		result.redirectTo(this).cadastroAdmin();
+		result.redirectTo(this).cadastroAdmin(true, false);
 	}
 	
 	@Restrito
@@ -123,7 +123,7 @@ public class PessoaController {
 		}else if(destino.equals("ALL")){
 			result.redirectTo(this).listarPessoas();
 		}else{
-			result.redirectTo(this).cadastroAdmin();
+			result.redirectTo(this).cadastroAdmin(true, false);
 		}
 	}
 	
@@ -144,7 +144,7 @@ public class PessoaController {
 			}else if(destino.equals("ALL")){
 				result.redirectTo(this).listarPessoas();
 			}else{
-				result.redirectTo(this).cadastroAdmin();
+				result.redirectTo(this).cadastroAdmin(true, false);
 			}	
 			
 		} catch (EmailException e) {
@@ -171,7 +171,7 @@ public class PessoaController {
 			}else if(destino.equals("ALL")){
 				result.redirectTo(this).listarPessoas();
 			}else{
-				result.redirectTo(this).cadastroAdmin();
+				result.redirectTo(this).cadastroAdmin(true, false);
 			}	
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
@@ -198,7 +198,7 @@ public class PessoaController {
 		
 		result.include("resultBuscarPessoa", pessoas.size() +  " ocorrência(s) para a pesquisa: " + paramConsulta);
 		result.include("flagCampoBuscar", true);
-		redirecionarParaCadastroAdmin();		
+		redirecionarParaCadastroAdmin(false, true);		
 	}
 	
 	@Get("/cliente/cadastro")
@@ -277,8 +277,8 @@ public class PessoaController {
 		result.redirectTo(this).cadastroCliente();		
 	}
 	
-	private void redirecionarParaCadastroAdmin() {
-		result.redirectTo(this).cadastroAdmin();		
+	private void redirecionarParaCadastroAdmin(boolean comFiltro, boolean comBusca) {
+		result.redirectTo(this).cadastroAdmin(comFiltro, comBusca);		
 	}
 	
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {

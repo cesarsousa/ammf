@@ -26,21 +26,62 @@
 <h2>CADASTRO</h2>
 
 <div align="center" class="divMenuOpcao">
-<table class="menuOpcao">
-<tr>
-<td>
-<ul class="itemMenuOpcao">
-	<li class="itemMenuPrincipal">
-		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
+	<table class="menuOpcao">
+	<tr>
+	<td>
+		<ul class="itemMenuOpcao">
+			<li class="itemMenuPrincipal">
+				<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
+					<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
+				</form>
+			</li>
+			<li>
+				<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarPessoa">
+			</li>
+		</ul>
+	</td>
+	</tr>
+	</table>
+</div>
+
+<div class="separador"></div>
+
+<div style="width: 100%">
+
+<!-- CONSULTAR PESSOA -->
+<input id="flagCampoBuscar" type="hidden" value="${flagCampoBuscar}"  />
+<table class="cardViewText">		
+	<tr>
+		<td valign="middle">
+		<form action="<c:url value="/pessoa/consulta"></c:url>" method="get">
+		<div align="center">
+			<input width="100%" id="campoBusca" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo código, nome ou e-mail da pessoa...">
+			<br>
+			<button class="btn btn-success" type="submit">Buscar</button>
+		
+			<c:if test="${not empty resultBuscarPessoa}">
+			<p class="paddingPadrao">
+			<div class="alert alert-info" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>${resultBuscarPessoa}</b>
+			</div>
+			</p>
+			</c:if>
+		
+			
+		</div>	
 		</form>
-	</li>
-	<li>
-		<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconBuscaPessoa" alt="buscar pessoa" title="buscar pessoa" src="${imagem}/usuario_lupa.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
+		</td>
+	</tr>
+</table>
+
+<br/>
+
+<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
+<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
+<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
+
+<ul class="itemMenuOpcao">
 	<li>
 		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
 	</li>
@@ -51,84 +92,10 @@
 		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
 	</li>	
 </ul>
-</td>
-</tr>
-</table>
-</div>
-
-<div class="separador"></div>
-
-<div style="width: 100%">
-
-<!-- CADASTRAR PESSOA -->
-<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  /> 
-<table id="tabCadastrarPessoa" class="cardViewText">
-<tr>
-	<td>
-	<div align="right">
-		<input id="btFecharCadastrarPessoa" type="button" value="fechar" class="btn btn-danger">
-	</div>	
-	<img align="left" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="esquerda">
-	<h2 align="center">Cadastrar Pessoa</h2>
-	</td>
-</tr>
-
-<tr align="center">
-<td>
-	<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
-	<div id="areaLogin">
-	
-	<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
-		
-		<label class="labelForm">Nome</label>
-		<br>
-		<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="form-control" maxlength="100"/>
-		<br/><br/>	
-		
-		<label class="labelForm">Email</label>
-		<br>
-		<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100"/>
-		<br/>
-		<input id="btnCadastrarPessoa" type="submit" value="Cadastrar"  class="btn btn-success"/>	
-		
-						
-	</form>
-	</div>
-</td>
-</tr>
-</table>
-
-<br/>
-
-<form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
-<form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
-<form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
-
-<!-- CONSULTAR PESSOA -->
-<input id="flagCampoBuscar" type="hidden" value="${flagCampoBuscar}"  />
-<table id="tabBuscaPessoa" class="cardViewText">		
-	<tr>
-		<td valign="middle">
-		<form action="<c:url value="/pessoa/consulta"></c:url>" method="get">
-		<div align="center">
-			<input width="100%" id="campoBusca" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo código, nome ou e-mail da pessoa...">
-			<br>
-			<button class="btn btn-success" type="submit">Pesquisar</button>
-			<input id="btFecharBuscaPessoa" type="button" value="fechar" class="btn btn-danger">
-		
-			<p class="paddingPadrao">
-			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarPessoa}</label></span>
-			</p>
-		</div>	
-		</form>
-		</td>
-	</tr>
-</table>
 
 <!--  PESSOAS SOLICITADAS -->
 <input id="flagVisualizarPessoas" type="hidden" value="${flagVisualizarPessoas}" />
-<c:if test="${visualizarPessoas}">
-<table id="tabPessoasSolicitadas" class="superFooter">
+<table class="superFooter">
 	<tr>
 		<td>
 		<div align="right" class="paddingPadrao">
@@ -222,7 +189,41 @@
 		</td>
 	</tr>	
 </table>
-</c:if>
+
+<!-- CADASTRAR PESSOA -->
+<!-- Modal --> 
+<div class="modal fade" id="modalCadastrarPessoa" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<img src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda">
+				<h2 align="center">Cadastrar Pessoa</h2>
+			</div>
+			<div class="modal-body">
+				<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  />
+				<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
+				<div id="areaLogin">
+					<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
+					<label class="labelForm">Nome</label>
+					<br>
+					<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="form-control" maxlength="100" required="required"/>
+					<br/><br/>	
+					<label class="labelForm">Email</label>
+					<br>
+					<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100" required="required"/>
+					<br/>
+					<button type="reset" class="btn btn-primary">Limpar</button>
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>      
+		</div>
+	</div>
+</div>
 
 </div>
 </div> <!-- centralizacao -->
