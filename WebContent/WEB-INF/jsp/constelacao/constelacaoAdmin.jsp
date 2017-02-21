@@ -53,7 +53,7 @@
 
 
 <!-- LISTAR CONSTELAÇÕES -->
-<div id="tabListagemConstelacao" class="paddingPadrao tamanhoDefault">
+<div id="tabListagemConstelacao" class="paddingPadrao">
 	
 	<div align="right" class="paddingPadrao">		
 	<input id="btFecharListagemConstelacao" type="button" value="fechar" class="btn btn-danger">
@@ -64,6 +64,7 @@
 			<tr>
 				<th class="metadado">ID</th>
 				<th class="metadado">Postagem</th>
+				<th class="metadado">Local</th>
 				<th class="metadado">Data</th>
 				<th class="metadado">Endereço</th>				
 				<th class="metadado" style="width: 160px;">Participante</th>
@@ -75,7 +76,8 @@
 	 		<c:forEach items="${eventos}" var="item">
 				<tr class="zebrado">
 					<td class="infoTabelaConteudo">${item.id}</td>
-					<td class="infoTabelaConteudo">${item.postagem}</td>
+					<td class="infoTabelaConteudo">${item.postagemFormatada}</td>
+					<td class="infoTabelaConteudo">${item.localEvento}</td>
 					<td class="infoTabelaConteudo">${item.data}</td>
 					<td class="infoTabelaConteudo">${item.local}</td>					
 					<td class="infoTabelaConteudo" style="width: 160px;">${item.totalParticipantes}</td>
@@ -107,7 +109,13 @@
 		<h2 align="center">Cadastrar Constelação</h2>
 		
 		<form id="formCadastrarConstelacao" action="<c:url value="/constelacao/cadastrar"/>" method="post">
-		
+			
+			<h3>Local do evento</h3>
+			<select name="evento.localEvento" class="form-control" >
+				<option selected="selected">NITEROI</option>
+				<option>BARRA</option>
+			</select>
+			
 			<h3>Data:</h3>
 			<input id="constelacaoData" class="form-control" name="evento.data" value="${evento.data}" maxlength="254" required="required"/>
 			<br/>			

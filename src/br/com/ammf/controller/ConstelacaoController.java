@@ -128,9 +128,6 @@ public class ConstelacaoController {
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
-	
-	
-	
 	@Get("/constelacao/cliente")
 	public void constelacaoCliente(){
 		

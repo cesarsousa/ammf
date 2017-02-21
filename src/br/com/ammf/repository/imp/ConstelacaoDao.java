@@ -80,7 +80,7 @@ private Session session;
 		try {
 			Criteria criteria = session.createCriteria(Evento.class);
 			criteria.add(Restrictions.eq("tipoEvento", TipoEvento.CONSTELACAO));
-			criteria.addOrder(Order.desc("id"));
+			criteria.addOrder(Order.desc("postagem"));
 			return criteria.list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));

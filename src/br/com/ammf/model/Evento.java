@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.ammf.utils.DataUtils;
+
 @Entity
 @Table(name="evento")
 public class Evento implements Serializable{
@@ -29,6 +31,9 @@ public class Evento implements Serializable{
 
 	@Enumerated(EnumType.STRING)
 	private TipoEvento tipoEvento;
+	
+	@Enumerated(EnumType.STRING)
+	private LocalEvento localEvento;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date postagem = new Date();
@@ -64,12 +69,24 @@ public class Evento implements Serializable{
 		this.tipoEvento = tipoEvento;
 	}
 	
+	public LocalEvento getLocalEvento() {
+		return localEvento;
+	}
+	
+	public void setLocalEvento(LocalEvento localEvento) {
+		this.localEvento = localEvento;
+	}
+	
 	public void setPostagem(Date postagem) {
 		this.postagem = postagem;
 	}
 	
 	public Date getPostagem() {
 		return postagem;
+	}
+	
+	public String getPostagemFormatada(){
+		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
 	
 	public String getData() {

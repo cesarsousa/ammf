@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
 	//$('#modalEditarParticipante').modal('show');
 	
 	fecharCamposConstelacao();
+	$('#tabListagemConstelacao').show();
 		
 	$('#btListarConstelacao').click(function(){
 		fecharCamposConstelacao();

@@ -38,6 +38,15 @@
 			<li>
 				<img id="iconAddPessoa" alt="cadatrar pessoa" title="cadatrar pessoa" src="${imagem}/iconeAddPessoaHover.png" width="50" height="50" class="ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarPessoa">
 			</li>
+			<li>
+				<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
+			</li>
+			<li>
+				<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
+			</li>
+			<li>
+				<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
+			</li>
 		</ul>
 	</td>
 	</tr>
@@ -80,18 +89,6 @@
 <form id="formListarPessoasCadastradas" action="<c:url value="/pessoa/listar" />" method="get"></form>
 <form id="formListarPessoasConfirmadas" action="<c:url value="/pessoa/confirmadas" />" method="get"></form>
 <form id="formListarPessoasPendentes" action="<c:url value="/pessoa/pendentes" />" method="get"></form>
-
-<ul class="itemMenuOpcao">
-	<li>
-		<img id="iconPessoasCadastradas" alt="ver todas as pessoas" title="ver todas as pessoas" src="${imagem}/usuario_cinza.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconPessoasConfirmadas" alt="zer pessoas confirmadas" title="ver pessoas confirmadas" src="${imagem}/usuario_verde.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="iconPessoasPendentes" alt="zer pessoas pendentes" title="ver pessoas pendentes" src="${imagem}/usuario_vermelho.png" width="50" height="50" class="ponteiro esquerda">
-	</li>	
-</ul>
 
 <!--  PESSOAS SOLICITADAS -->
 <input id="flagVisualizarPessoas" type="hidden" value="${flagVisualizarPessoas}" />
