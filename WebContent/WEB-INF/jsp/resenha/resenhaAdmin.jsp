@@ -81,6 +81,22 @@
 		
 		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
 			
+			<table class="msgBorder msgInfo">
+			<tr align="center">
+			<td>
+				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
+			</td>			
+			<td>
+				<div id="divUploadFotoResenha" align="left">
+					<input id="inputImagemResenha" type="file" name="imagemResenha"/>
+				</div>
+			</td>			
+			<td>
+				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
+			</td>
+			</tr>
+			</table>
+			
 			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
 			
 				<div id="divCadastrarCategoriaResenha">				
@@ -116,22 +132,6 @@
 			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
 			<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
 			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
-			
-			<table class="msgBorder msgInfo">
-			<tr align="center">
-			<td>
-				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
-			</td>			
-			<td>
-				<div id="divUploadFotoResenha" align="left">
-					<input id="inputImagemResenha" type="file" name="imagemResenha"/>
-				</div>
-			</td>			
-			<td>
-				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
-			</td>
-			</tr>
-			</table>
 			
 			<p class="paddingPadrao">
 			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">

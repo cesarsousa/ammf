@@ -80,8 +80,6 @@ ${conteudoEmBranco}
 			</c:forEach>
 			</div>	
 		
-		<%-- <p class="textoConteudoDepoimento">&ldquo; ${resenha.descricao} &ldquo;</p> --%>
-				
 		<p class="textoAutorDepoimento azulClaro">${resenha.autor}</p>
 		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>		
 		</td>
@@ -92,8 +90,6 @@ ${conteudoEmBranco}
 	<c:if test="${not empty resenha.comentariosConfirmados}">
 		<br/>			
 		<div class="cardViewText paddingPadrao">
-		<!-- <span class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span> -->
 		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 		
 		<div id="divComentariosResenhaEmail">
@@ -118,8 +114,6 @@ ${conteudoEmBranco}
 	<div  align="left" class="cardViewTextNoBackground paddingPadrao">
 		
 		<div>
-			<!-- <span class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span> -->
 			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 		</div>
 		
@@ -206,8 +200,6 @@ ${conteudoEmBranco}
 				<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 						<br/>			
 						<div class="cardViewText">
-						<!-- <span id="sinalComentariosResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-						<span id="btViewComentariosResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
 						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 						
 						<div id="divComentariosResenhaPrincipal">
@@ -232,8 +224,6 @@ ${conteudoEmBranco}
 					<div  align="left" class="cardViewTextNoBackground">
 						
 						<div>
-							<!-- <span id="sinalNovoComentarioResenhaPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-							<span id="btNovoComentarioResenhaPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span> -->
 							<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 						</div>
 						
@@ -298,29 +288,23 @@ ${conteudoEmBranco}
 
 <c:choose>
 	<c:when test="${not empty resenhasRequest}">
-		<h3 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> a resenha na íntegra.</h3>
+		<h1 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo</h1>
 		<div align="center">
-		<table style="width: 70%" class="tabelaResenhas">
-			<thead align="left">
-				<tr>
-					<th class="metadado"></th>
-					<th class="metadado">T&iacute;tulo</th>
-					<th class="metadado">Tipo da resenha</th>					
-					<th class="metadado">Postagem</th>			
-				</tr>
-				
-			</thead>
+		<table style="width: 500px" class="tabelaResenhas">
 			<tbody>
+				<tr>
 				<c:forEach items="${resenhasRequest}" var="resenha">
-					<tr>						
-						<td><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200"></td>
-						<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-							<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');"><b>${resenha.titulo}</b></a></td>
-						<td class="infoTabela" title="clique no titulo para ler texto completo">${resenha.categoria.descricao}</td>
+											
+						<td style="vertical-align: top; padding: 5px;">
 						
-						<td class="infoTabela" title="clique no titulo para ler texto completo"><b>${resenha.dataFormatadaSimples}</b></td>
-					</tr>			
-		 		</c:forEach>		
+						<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">						
+						<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+						<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
+						
+						</a>
+						</td>
+		 		</c:forEach>
+		 		</tr>		
 			</tbody>
 			<tfoot>
 				<tr>
@@ -367,8 +351,6 @@ ${conteudoEmBranco}
 				<div id="divVisualizarComentariosResenha">
 					<br/>
 					<div class="cardViewText">
-						<!-- <span id="sinalComentariosResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
-						<span id="btViewComentariosResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
 						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>					
 						<div id="divComentariosResenha"></div>				
 					</div>
@@ -379,8 +361,6 @@ ${conteudoEmBranco}
 				<div  align="left" class="cardViewTextNoBackground">
 					
 					<div>
-						<!-- <span id="sinalNovoComentarioResenha" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
-						<span id="btNovoComentarioResenha" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar esta resenha</span> -->
 						<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
 					</div>
 					
