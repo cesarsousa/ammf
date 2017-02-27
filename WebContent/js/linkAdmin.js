@@ -1,6 +1,6 @@
 
 function hideAllLinkfields(){
-	$('#tabNovoLink, #telaAguardeAdmLinkCadastrar').hide();
+	$('#telaAguardeAdmLinkCadastrar').hide();
 }
 
 function limparFormLink(){
@@ -11,9 +11,6 @@ function limparFormLink(){
 $(document).ready(function() {
 	
 	hideAllLinkfields();
-	if($('#flagLinkErroCadastro').val()){
-		$('#tabNovoLink').show();
-	}
 	if($('#flagListagemLink').val()){
 		$('#tabListagemLinks').show();
 	}	
@@ -26,19 +23,11 @@ $(document).ready(function() {
 		limitarCaracteres('#linkAreaDescricao', '#contadorCaracterLink', 500);
 	});
 	
-	$('#btAddNovoLink').click(function(){
-		hideAllLinkfields();
-		limparFormLink();
-		$('#tabNovoLink').slideDown(500);
-	});
 	
-	$('#btCadastrarLink').click(function(){
+	$('#formNovoLink').submit(function(){
 		abrirJanelaDeEspera("#divPgLinkAdm", "#telaAguardeAdmLinkCadastrar");
 	});
 	
-	$('#btFecharAddLink, #btCancelarLink').click(function(){		
-		$('#tabNovoLink').slideUp(500);		
-	});
 	
 	$('#btListarLinks').click(function(){
 		hideAllLinkfields();

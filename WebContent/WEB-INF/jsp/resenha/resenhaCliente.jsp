@@ -296,19 +296,18 @@ ${conteudoEmBranco}
 		<tr class="bordaPadrao">
 		
 		<td class="paddingPadrao">
-		<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">
 		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
-		</a>
 		</td>
 		
 		<td class="paddingPadrao" valign="top">
-		<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">
-		<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b></a>
+		<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
 		</td>
 		
 		<td class="paddingPadrao" class="infoTabela">
 					<c:set var="origem"	value="${resenha.descricao}"/>
-					<c:out value="${fn:substring(origem,0,100)}"/>...</td>
+					<c:out value="${fn:substring(origem,0,100)}"/>...
+		<p class="paddingPadrao" align="right"><a class="btn btn-primary btn-xs" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
+		</td>
 		</tr>
 		</c:forEach>
 		</table>

@@ -76,7 +76,6 @@
 			</div>
 			</p>
 			</c:if>
-		
 			
 		</div>	
 		</form>
@@ -195,10 +194,11 @@
 				<h2 align="center">Cadastrar Pessoa</h2>
 			</div>
 			<div class="modal-body">
+				<div id="divModalPgAdmCadastroCliente">
 				<input id="flagCadastroPessoaVazio" type="hidden" value="${flagCadastroPessoaVazio}"  />
 				<p class="info azulClaro">Esta pessoa receber&aacute; um email informando deste cadastro e um link com o cancelamento, caso n&atilde;o concorde com o cadastro no site.</p>
 				<div id="areaLogin">
-					<form action="<c:url value="/menu/cadastrar"/>" method="post">	 
+					<form id="formCadastrarPessoa" action="<c:url value="/menu/cadastrar"/>" method="post">	 
 					<label class="labelForm">Nome</label>
 					<br>
 					<input id="pessoaNome" type="text" name="pessoa.nome" value="${pessoaCadastro.nome}" class="form-control" maxlength="100" required="required"/>
@@ -208,8 +208,17 @@
 					<input id="pessoaEmail" type="text" name="pessoa.email" value="${pessoaCadastro.email}" class="form-control" maxlength="100" required="required"/>
 					<br/>
 					<button type="reset" class="btn btn-primary">Limpar</button>
-					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<button id="btnCadastrarPessoa" type="submit" class="btn btn-success">Cadastrar</button>
 					</form>
+				</div>
+				</div>
+				<div id="telaModalAguardeAdmCadastroCliente">
+					<div align="center">
+						<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para o cliente referente ao cadastro.</h3>
+						<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+						<br />
+						<br />			
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

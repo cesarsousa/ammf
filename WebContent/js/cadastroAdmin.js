@@ -2,6 +2,7 @@
 $(document).ready(function() {
 	
 	$('#telaAguardeAdmCadastroCliente').hide();
+	$('#telaModalAguardeAdmCadastroCliente').hide();
 	
 	$('#btMenuAdm').click(function(){
 		$('#formMenuPrincipal').submit();
@@ -9,9 +10,13 @@ $(document).ready(function() {
 	
 	//****** CADASTRAR PESSOA
 	
-	$('#btnCadastrarPessoa, #btConfirmarPessoa, #btNotificarPessoa').click(function(){
+	$('#btConfirmarPessoa, #btNotificarPessoa').click(function(){
 		$('#divAdmMsgCadCliente').slideUp();
 		abrirJanelaDeEspera("#divPgAdmCadastroCliente", "#telaAguardeAdmCadastroCliente");
+	});
+	
+	$('#formCadastrarPessoa').submit(function(){
+		abrirJanelaDeEspera("#divModalPgAdmCadastroCliente", "#telaModalAguardeAdmCadastroCliente");
 	});
 	
 	//*** LISTAGEM DE PESSOAS SOLICITADAS	

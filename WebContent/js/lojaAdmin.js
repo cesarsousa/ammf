@@ -94,7 +94,7 @@ function verificarExtensao(formulario, arquivo) {
 } 
 
 function fecharAreasDeLivros(){
-	$('#tabBuscaLivro, #tabCadastrarLivro, #tabLivrosSolicitadas, #tabAtualizarLivro').slideUp(500);
+	$('#tabCadastrarLivro, #tabLivrosSolicitadas, #tabAtualizarLivro').slideUp(500);
 }
 
 function fecharMsgLojaAdmin(){
@@ -169,7 +169,7 @@ $(document).ready(function() {
 	
 	
 	$('#telaAguardeAdmCadastroLivro').hide();
-	$('#tabIconesLivros, #tabBuscaLivro, #tabCadastrarLivro').hide();
+	$('#tabIconesLivros, #tabCadastrarLivro').hide();
 	
 	if($('#flagCadastroLivroVazio').val()){
 		$('#tabIconesLivros, #tabCadastrarLivro').slideDown(500);		
@@ -209,16 +209,16 @@ $(document).ready(function() {
 	
 	$('#conteudoConsultaLivros').hide();
 	if($('#flagBuscarLivro').val()){
-		$('#tabIconesLivros, #tabBuscaLivro').slideDown(500);
+		$('#tabIconesLivros').slideDown(500);
 	}
-	$('#abrirBuscarEditarLivro').click(function(){
+	/*$('#abrirBuscarEditarLivro').click(function(){
 		fecharAreasDeLivros();
 		fecharMsgLojaAdmin();	
 		$('#tabBuscaLivro').slideDown(500);		
-	});
-	$('#btFecharBuscaLivro').click(function(){
+	});*/
+	/*$('#btFecharBuscaLivro').click(function(){
 		$('#tabBuscaLivro').slideUp(500);		
-	});
+	});*/
 	
 	$('#btFecharLivrosSolicitados').click(function(){
 		$('#tabLivrosSolicitadas').slideUp(500);		

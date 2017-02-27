@@ -49,9 +49,9 @@
 			<td>
 			<img id="abrirAddLivro" alt="adicionar livro" title="adicionar livro" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 			</td>
-			<td>
+			<%-- <td>
 			<img id="abrirBuscarEditarLivro" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeBuscar.png" class="icone50 ponteiro esquerda">
-			</td>
+			</td> --%>
 			<td>
 			<a href="<c:url value="/livro/adm/listar"/>"> 
 			<img alt="listar todos os livros" title="listar todos os livros" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
@@ -72,7 +72,7 @@
 
 <!-- BUSCAR LIVROS -->
 <input id="flagBuscarLivro" type="hidden" value="${flagBuscarLivro}"  />
-<table id="tabBuscaLivro" class="cardViewText">	
+<table class="cardViewText">	
 	
 	<tr>		
 		<td style="padding: 10px;">
@@ -81,15 +81,14 @@
 			<input id="campoBuscaLivro" type="text" name="param" class="form-control" placeholder="Buscar por nome de autor ou título..."/>
 			<br>
 			<input type="submit" class="btn btn-success" value="Pesquisar">
-			<input id="btFecharBuscaLivro" type="button" value="fechar" class="btn btn-danger">
-			
 			</div>
 		</form>
 		
 		<c:if test="${not empty buscaSemResultado}">
-		<div align="center">		
-		<span class="info"><b>${buscaSemResultado}</b></span>
-		</div>
+			<div class="alert alert-info" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>${buscaSemResultado}</b>
+			</div>
 		</c:if>
 						
 		</td>		
@@ -98,9 +97,9 @@
 
 <!-- CADASTRAR LIVRO -->
 <input id="flagCadastroLivroVazio" type="hidden" value="${flagCadastroLivroVazio}"/> 
-<table id="tabCadastrarLivro" class="cardViewText">
+<table id="tabCadastrarLivro" class="cardViewText zebrado">
 	<tr>
-		<td>
+		<td class="paddingPadrao">
 		<div align="right">
 			<input id="btFecharCadastrarLivro" type="button" value="fechar" class="btn btn-danger">
 		</div>	
@@ -257,6 +256,7 @@
 				<div class="paddingPadrao">
 				<input name="btnCadastrarLivro" type="button" value="Cadastrar"  class="btn btn-success direita" onclick="verificarExtensao(this.form, this.form.imagemLivro.value)"/>
 				</div>
+				<br>
 			</div>			
 		</form>
 	</td>
