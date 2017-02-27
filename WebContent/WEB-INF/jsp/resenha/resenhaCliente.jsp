@@ -290,16 +290,29 @@ ${conteudoEmBranco}
 	<c:when test="${not empty resenhasRequest}">
 		<h1 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo</h1>
 		
-		<div class="row">
-			<c:forEach items="${resenhasRequest}" var="resenha">
-  			<div class="col-md-1">
-				<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">						
-				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
-				<%-- <br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b> --%>						
-				</a>
-			</div>
-  			</c:forEach>
-		</div>	
+		<div align="center">
+		<table class="tamanhoDefault">
+		<c:forEach items="${resenhasRequest}" var="resenha">
+		<tr class="bordaPadrao">
+		
+		<td class="paddingPadrao">
+		<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">
+		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+		</a>
+		</td>
+		
+		<td class="paddingPadrao" valign="top">
+		<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">
+		<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b></a>
+		</td>
+		
+		<td class="paddingPadrao" class="infoTabela">
+					<c:set var="origem"	value="${resenha.descricao}"/>
+					<c:out value="${fn:substring(origem,0,100)}"/>...</td>
+		</tr>
+		</c:forEach>
+		</table>
+		</div>
 		
 	</c:when>
 	<c:otherwise>

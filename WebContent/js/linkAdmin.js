@@ -1,6 +1,6 @@
 
 function hideAllLinkfields(){
-	$('#tabNovoLink, #tabListagemLinks, #telaAguardeAdmLinkCadastrar').hide();
+	$('#tabNovoLink, #telaAguardeAdmLinkCadastrar').hide();
 }
 
 function limparFormLink(){

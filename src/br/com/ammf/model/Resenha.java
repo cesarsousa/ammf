@@ -146,4 +146,6 @@ public class Resenha implements Serializable {
 		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
 	}
 	
+	
+	
 }
