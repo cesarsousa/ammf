@@ -289,31 +289,18 @@ ${conteudoEmBranco}
 <c:choose>
 	<c:when test="${not empty resenhasRequest}">
 		<h1 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo</h1>
-		<div align="center">
-		<table style="width: 500px" class="tabelaResenhas">
-			<tbody>
-				<tr>
-				<c:forEach items="${resenhasRequest}" var="resenha">
-											
-						<td style="vertical-align: top; padding: 5px;">
-						
-						<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">						
-						<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
-						<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
-						
-						</a>
-						</td>
-		 		</c:forEach>
-		 		</tr>		
-			</tbody>
-			<tfoot>
-				<tr>
-					<th colspan="4" align="center"><h2>Celebre a Vida !</h2></th>			
-				</tr>		
-			</tfoot>
-		</table>
-		<br/>
+		
+		<div class="row">
+			<c:forEach items="${resenhasRequest}" var="resenha">
+  			<div class="col-md-1">
+				<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">						
+				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+				<%-- <br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b> --%>						
+				</a>
+			</div>
+  			</c:forEach>
 		</div>	
+		
 	</c:when>
 	<c:otherwise>
 		<p align="center" class="info azulClaro letraGrande">N&atilde;o existem resenhas publicadas para a sua solicita&ccedil;&atilde;o</p>
