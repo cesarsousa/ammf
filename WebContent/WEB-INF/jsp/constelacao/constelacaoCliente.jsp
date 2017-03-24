@@ -6,19 +6,28 @@
 <div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
-<div align="center" class="paddingPadrao"><h1><b>Constela&ccedil;&otilde;es Sist&ecirc;micas</b></h1></div>
 </div>
 
-<div id="divConstelacaoNiteroi" class="fundoNiteroiConstelacao" align="center">
+<div id="divConstelacaoNiteroi" align="center">
 
-<div>
-<h2 class="paddingPadrao" style="color: black;"><b>Workshop</b></h2>
 
-<div class="tamanhoDefault justificado">		
-			<h3 class="paddingPadrao" style="color: black;"><b>${sessaoCliente.constelacao.textoInicial}</b></h3>
-			<br>
+
+
+
+<div class="jumbotron">
+  <h1>Constelações Sistêmicas</h1>
+  <h2>Workshop</h2>
+  <h3 class="paddingPadrao tamanhoDefault justificado"><b>${sessaoCliente.constelacao.textoInicial}</b></h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/a-iUNpnUv-c" frameborder="0" allowfullscreen></iframe>
+</div>
+
+			<!-- <div class="fundoNiteroiConstelacao"> -->
+			<div class="tamanhoDefault justificado">
 			<h3 style="color: black;"><b>${sessaoCliente.constelacao.textoFinal}</b></h3>
-			<br>
+			</div>
+			<!-- </div> -->
+			
+			<div class="jumbotron">
 			
 			<table>
 			<thead>
@@ -88,13 +97,12 @@
 			</tr>
 			</tbody>
 			</table>
-		
-			<br>
-		
-			<div align="center">
-			<div class="fundoConstelacaoInformacao" style="color: black;">
-			<h3>${sessaoCliente.constelacao.informacao}</h3>
+			
 			</div>
+		
+			<div class="tamanhoDefault justificado">
+			<div align="center">
+			<h3>${sessaoCliente.constelacao.informacao}</h3>
 			</div>
 		
 			<br>
@@ -104,14 +112,10 @@
 			<h4>${sessaoCliente.constelacao.dadosPessoais}</h4>
 			</div>
 			</div>
-		
+			</div>
 			<br>
-		
-		</div>
 </div>
 
-	
-</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

@@ -79,10 +79,14 @@ public class IndexServiceImp implements IndexService{
 		Texto textoQuiron = textoRepository.getTextoCliente(Local.QUIRON);
 		
 		Constelacao constelacao = constelacaoRepository.get(LocalEvento.NITEROI);
-		if(constelacao == null) constelacao = new Constelacao();
+		if(constelacao == null){
+			constelacao = new Constelacao();
+		}
 		
 		Constelacao constelacaoBarra = constelacaoRepository.get(LocalEvento.BARRA);
-		if(constelacaoBarra == null) constelacaoBarra = new Constelacao();
+		if(constelacaoBarra == null){
+			constelacaoBarra = new Constelacao();
+		}
 		
 		sessaoCliente.setTerapeuta(new DadosTerapeuta(terapeuta));
 		sessaoCliente.setTextoIndex(textoIndex);

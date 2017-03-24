@@ -139,27 +139,37 @@
 
 <div id="divTodosTextos">
 
-<h3 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo.<br/>Em seguida basta <span class="azulClaro">clicar no t&iacute;tulo para ler</span> o texto na íntegra.</h3>
-
 <div align="center">
-<table style="width: 90%">
-	<thead align="left">
+<table>
+	<!-- <thead align="left">
 		<tr>
 			<th class="metadado">T&iacute;tulo</th>
 			<th class="metadado">Texto</th>
 			<th class="metadado">Postagem</th>			
 		</tr>
-	</thead>
+	</thead> -->
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
 			<tr>
-				<td class="infoTabela metadado ponteiro" title="visualizar este texto">
-				<a class="infoTabela metadado" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">${texto.titulo}</a>
+				
+				<td class="paddingPadrao">
+				<div class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela">
+				
+				<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>
+				<h6 align="left">
+				<b>Postado em ${texto.dataFormatadaSimples}</b>
+				</h6>
+				<h5 align="left">
+				<c:set var="origem"	value="${texto.conteudo}"/>
+				<c:out value="${fn:substring(origem,0,250)}"/>...
+				</h5>
+				<p class="paddingPadrao" align="right">
+				<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
+				</p>
+				
+				</div>
 				</td>
-				<td class="infoTabela">
-					<c:set var="origem"	value="${texto.conteudo}"/>
-					<c:out value="${fn:substring(origem,0,100)}"/>...</td>
-				<td class="infoTabela">${texto.dataFormatadaSimples}</td>
+				
 			</tr>			
 		</c:forEach>		
 	</tbody>
@@ -249,8 +259,10 @@
 	</tbody>
 	<tfoot>		
 		<tr>
-			<th colspan="4" align="center" class="paddingPadrao">
-				<h2><a id="goTopo" href="#irTopo">ler outros textos</a></h2>
+			<th colspan="4" class="paddingPadrao">
+			<div align="center">
+				<a id="goTopo" href="#irTopo"class="btn btn btn-primary btn-lg">ler outros textos</a>
+			</div>
 			</th>			
 		</tr>		
 	</tfoot>
@@ -260,7 +272,7 @@
 <br/><br/>
 <c:if test="${not empty textosBlog}">
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
-<div class="superFooter" align="center">
+<div align="center">
 	<div align="center" class="paddingPadrao">		
 		<button id="btVisualizarTodos" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</button>
 	</div>
