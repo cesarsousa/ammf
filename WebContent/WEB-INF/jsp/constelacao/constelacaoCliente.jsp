@@ -36,7 +36,7 @@
 			<tbody>
 			<tr>			
 				<td align="center" width="500" class="ponteiro paddingPadrao"> 
-					<div id="constelacaoNiteroi" style="vertical-align: middle;" class="img-circle ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi"></div>				  
+					<img src="${imagem}/praia-de-icarai-niteroi.jpg" alt="Constelação em Niterói" class="img-circle destaqueFoto" width="300px" height="300px" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
 				</td>
 			
 				<td align="center" width="500" class="ponteiro paddingPadrao">
@@ -56,7 +56,7 @@
 				</td>
 			
 				<td align="center" width="500" class="ponteiro paddingPadrao">
-					<div id="constelacaoBarra" style="vertical-align: middle;" class="img-circle  ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra"></div>				  
+				<img src="${imagem}/brra-da-tijuca.jpg" alt="Constelação na Barra" class="img-circle destaqueFoto" width="300px" height="300px" data-toggle="modal" data-target="#modalConstelacaoBarra">
 				</td>			
 			</tr>			
 			</tbody>
@@ -71,9 +71,21 @@
 		
 			<br>
 		
-			<div align="right">
-			<div class="fundoConstelacaoDadosTerapeuta" style="color: black;">
+			<div align="right">	
+			<table class="fundoConstelacaoDadosTerapeuta" style="color: black;">
+			<tr>
+			<td>
+			<div align="center" class="paddingPadrao">
+			<img src="${imagem}/owner2.jpg" alt="Alcindo Miguel Martins Filho" class="img-circle destaqueFoto" width="250px" height="250px">		
+			</div>
+			</td>
+			<td>
 			<h4>${sessaoCliente.constelacao.dadosPessoais}</h4>
+			</td>
+			</tr>
+			</table>		
+			<div >			
+			
 			</div>
 			</div>
 			</div>

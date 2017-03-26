@@ -293,7 +293,7 @@ ${conteudoEmBranco}
 		<div align="center">
 		<table class="tamanhoDefault">
 		<c:forEach items="${resenhasRequest}" var="resenha">
-		<tr class="bordaPadrao">
+		<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 		
 		<td class="paddingPadrao">
 		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">

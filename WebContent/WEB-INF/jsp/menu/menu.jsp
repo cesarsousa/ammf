@@ -74,7 +74,7 @@
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex" >
+			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex bordaPadrao" >
 			<input id="btFecharConteudoIndex" type="button" class="btn btn-danger direita" value="fechar">			
 			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
 			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina do Shiva</h2>
@@ -127,7 +127,7 @@
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex" >
+			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
 			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
@@ -189,7 +189,7 @@
 		</tr>
 		<tr>
 			<td>			
-			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex" >
+			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
 			<input id="btFecharConteudoConta" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
 			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
@@ -380,7 +380,7 @@
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoCampoConstelacao" class="cartao tamanhoEdicaoIndex" >
+			<div id="conteudoCampoConstelacao" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
 			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>
@@ -469,7 +469,7 @@
 		</tr>
 		<tr>
 			<td>
-			<div id="conteudoCampoConstelacaoBarra" class="cartao tamanhoEdicaoIndex" >
+			<div id="conteudoCampoConstelacaoBarra" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
 			<input id="btFecharConteudoConstelacaoBarra" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>

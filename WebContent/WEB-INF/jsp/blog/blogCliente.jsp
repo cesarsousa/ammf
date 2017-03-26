@@ -152,18 +152,18 @@
  		<c:forEach items="${textosBlog}" var="texto">
 			<tr>
 				
-				<td class="paddingPadrao">
-				<div class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela">
+				<td class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
+				<div >
 				
 				<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>
-				<h6 align="left">
+				<h6 align="center">
 				<b>Postado em ${texto.dataFormatadaSimples}</b>
 				</h6>
-				<h5 align="left">
+				<h5 align="center">
 				<c:set var="origem"	value="${texto.conteudo}"/>
 				<c:out value="${fn:substring(origem,0,250)}"/>...
 				</h5>
-				<p class="paddingPadrao" align="right">
+				<p class="paddingPadrao" align="center">
 				<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
 				</p>
 				
