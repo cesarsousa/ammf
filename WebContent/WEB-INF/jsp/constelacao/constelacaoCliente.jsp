@@ -21,11 +21,11 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/a-iUNpnUv-c" frameborder="0" allowfullscreen></iframe>
 </div>
 
-			<!-- <div class="fundoNiteroiConstelacao"> -->
-			<div class="tamanhoDefault justificado">
+			<div class="fundoNiteroiConstelacao">
+			<div class="tamanhoDefault justificado paddingPadrao">
 			<h3 style="color: black;"><b>${sessaoCliente.constelacao.textoFinal}</b></h3>
 			</div>
-			<!-- </div> -->
+			</div>
 			
 			<div class="jumbotron">
 			
@@ -34,67 +34,31 @@
 			<tr><td colspan="2"><h3 align="center">Clique na imagem para visualizar o local e data do evento.</h3></td></tr>
 			
 			<tbody>
+			<tr>			
+				<td align="center" width="500" class="ponteiro paddingPadrao"> 
+					<div id="constelacaoNiteroi" style="vertical-align: middle;" class="img-circle ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi"></div>				  
+				</td>
+			
+				<td align="center" width="500" class="ponteiro paddingPadrao">
+					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
+					<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</p>
+					<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</p>
+					</div>			
+				</td>			
+			</tr>			
 			<tr>
 			
-			<td align="center" width="500">
-				<div id="constelacaoNiteroi" style="vertical-align: middle;" class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
-				<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</p>
-				<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</p>
-				</div>			
-				  <!-- Modal -->
-				  <div class="modal fade" id="modalConstelacaoNiteroi" role="dialog">
-				    <div class="modal-dialog">
-				    
-				      <!-- Modal content-->
-				      <div class="modal-content">
-				        <div class="modal-header">
-				          <h4 class="modal-title">${sessaoCliente.constelacao.data}</h4>
-				        </div>
-				        <div class="modal-body">
-				          	<div class="fundoConstelacaoData" style="color: white;">
-								<p>${sessaoCliente.constelacao.localizacao}</p>
-								<h3>Investimento:</h3>
-								<b>${sessaoCliente.constelacao.formaPagamento}</b>
-				            </div>
-				        <div class="modal-footer">
-				          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-				        </div>
-				      </div>      
-				    </div>
-				  </div>
-				  </div>
-			</td>
+				<td align="center" width="500" class="ponteiro paddingPadrao">
+					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
+					<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</p>
+					<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</p>
+					</div>
+				</td>
 			
-			<td align="center" width="500">
-			<div id="constelacaoBarra" class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
-			<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</p>
-			<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</p>
-			</div>
-				<!-- Modal -->
-				  <div class="modal fade" id="modalConstelacaoBarra" role="dialog">
-				    <div class="modal-dialog">
-				    
-				      <!-- Modal content-->
-				      <div class="modal-content">
-				        <div class="modal-header">
-				          <h4 class="modal-title">${sessaoCliente.constelacaoBarra.data}</h4>
-				        </div>
-				        <div class="modal-body">
-				          	<div class="fundoConstelacaoData" style="color: white;">
-								<p>${sessaoCliente.constelacaoBarra.localizacao}</p>
-								<h3>Investimento:</h3>
-								<b>${sessaoCliente.constelacaoBarra.formaPagamento}</b>
-				            </div>
-				        <div class="modal-footer">
-				          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-				        </div>
-				      </div>      
-				    </div>
-				  </div>
-				  </div>
-			
-			</td>
-			</tr>
+				<td align="center" width="500" class="ponteiro paddingPadrao">
+					<div id="constelacaoBarra" style="vertical-align: middle;" class="img-circle  ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra"></div>				  
+				</td>			
+			</tr>			
 			</tbody>
 			</table>
 			
@@ -116,6 +80,53 @@
 			<br>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="modalConstelacaoNiteroi" role="dialog">
+	<div class="modal-dialog modal-lg">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<%-- <div class="modal-header">
+				<h4 class="modal-title">${sessaoCliente.constelacao.data}</h4>
+			</div> --%>
+			<div class="modal-body">
+				<div class="fundoConstelacaoData" style="color: white;">
+					<h4 class="modal-title">${sessaoCliente.constelacao.data}</h4>
+					<p>${sessaoCliente.constelacao.localizacao}</p>
+					<h3>Investimento:</h3>
+					<b>${sessaoCliente.constelacao.formaPagamento}</b>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalConstelacaoBarra" role="dialog">
+	<div class="modal-dialog modal-lg">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<%-- <div class="modal-header">
+				<h4 class="modal-title">${sessaoCliente.constelacaoBarra.data}</h4>
+			</div> --%>
+			<div class="modal-body">
+				<div class="fundoConstelacaoData" style="color: white;">
+					<h4 class="modal-title">${sessaoCliente.constelacaoBarra.data}</h4>
+					<p>${sessaoCliente.constelacaoBarra.localizacao}</p>
+					<h3>Investimento:</h3>
+					<b>${sessaoCliente.constelacaoBarra.formaPagamento}</b>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

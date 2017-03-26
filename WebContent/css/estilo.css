@@ -533,8 +533,7 @@ a:HOVER {
     vertical-align: middle;
     display: table-cell;
 	background: url("../image/brra-da-tijuca.jpg") no-repeat #F8F8FF center;
-	box-shadow: 2px 2px 2px #8B8484;
-	border: 5px solid #ffffff;
+	
 }
 
 #constelacaoNiteroi {
@@ -543,8 +542,7 @@ a:HOVER {
     vertical-align: middle;
     display: table-cell;
 	background: url("../image/praia-de-icarai-niteroi.jpg") no-repeat #F8F8FF center;
-	box-shadow: 2px 2px 2px #8B8484;
-	border: 5px solid #ffffff;
+	
 }
 .constelacaoNiteroiModal {	
 	width: 100%;
@@ -562,7 +560,7 @@ a:HOVER {
 }
 
 .fundoNiteroiConstelacao {	
-	background-image: url("../image/constelacoes_familiares.jpg");
+	background: url("../image/constelacoes_familiares.jpg") no-repeat  center;
 }
 
 .fundoTelaContatoCliente {	
@@ -619,15 +617,15 @@ a:HOVER {
 }
 
 .textoFotoConstelacao{
-	color: white;
+	color: gray;
 	font-size: xx-large;
-	text-shadow: 0.1em 0.1em #333
+	
 }
 
 .texto2FotoConstelacao{
-	color: white;
+	color: gray;
 	font-size: x-large;
-	text-shadow: 0.1em 0.1em #333
+	
 }
 
 .tamanhoBoxConstelacao{
@@ -1482,6 +1480,11 @@ a:HOVER {
 }
 
 .destaqueFoto{
+	box-shadow: 5px 5px 5px #8B8484;
+	border: 1px solid #CCCCCC;
+}
+
+.destaqueConstelacao{
 	box-shadow: 5px 5px 5px #8B8484;
 	border: 1px solid #CCCCCC;
 }
