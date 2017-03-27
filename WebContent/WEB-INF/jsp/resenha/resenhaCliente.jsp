@@ -38,21 +38,21 @@ ${conteudoEmBranco}
 <c:if test="${not empty ultimaPublicacao}">
 	<div align="center">
 	
-	<div class="paddingPadrao tamanhoDefault" style="text-align: left;">
-	
-	<p>
-	<span class="info azulClaro" >Selecione as resenhas por categorias.</span>
+	<div class="paddingPadrao tamanhoDefault">
+	<div class="alert alert-info">
+	<p class="paddingPadrao">
+	<span class="info azulClaro fonteMedia" >Selecione as resenhas por categorias</span>
 	</p>
 	
-	<div>
+	<div >
 		<c:forEach items="${categoriasResenha}" var="categoria">
-		<a href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
-		<span class="categoria destaqueLetraHover ponteiro">${categoria.descricao}</span>
+		<a class="btn btn-default" href="<c:url value="/resenha/listar/categoria/${categoria.id}"></c:url>">
+		<span class="categoria">${categoria.descricao}</span>
 		</a>
 		</c:forEach>
 	</div>
 	</div>
-	
+	</div>
 	</div>
 </c:if>
 

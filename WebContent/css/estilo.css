@@ -892,6 +892,12 @@ a:HOVER {
 	font-size: large;
 }
 
+categoria:hover {
+	color: black;
+	text-decoration: none;
+}
+	
+
 .cartao {
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
