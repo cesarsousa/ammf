@@ -156,11 +156,11 @@ public class Texto implements Serializable{
 	
 	/**
 	 * 
-	 * @return data no formato dd/MM/yyyy.
+	 * @return data no formato dd MM por extenso yyyy.
 	 */
 	public String getDataFormatadaSimples(){
 		String data = DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
-		return data.replace("/", "\n");
+		return DataUtils.decorrarData(data);
 	}
 		
 }

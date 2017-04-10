@@ -167,10 +167,8 @@ ${conteudoEmBranco}
 <div id="divResenhasTop3" align="center">
 	<c:choose>
 		<c:when test="${not empty ultimaPublicacao}">
-		
-		
 				
-				<div class="cardViewText">
+				<div class="cardViewText bordaPadrao">
 					<table>
 					<tr>
 					<td class="paddingPadrao" valign="top">					
@@ -199,7 +197,7 @@ ${conteudoEmBranco}
 				
 				<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 						<br/>			
-						<div class="cardViewText">
+						<div class="cardViewText bordaPadrao">
 						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 						
 						<div id="divComentariosResenhaPrincipal">
@@ -221,7 +219,7 @@ ${conteudoEmBranco}
 					
 					<!-- Adicionar um comentario para o texto -->
 					<br/>
-					<div  align="left" class="cardViewTextNoBackground">
+					<div  align="left" class="cardViewTextNoBackground bordaPadrao">
 						
 						<div>
 							<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
@@ -297,7 +295,13 @@ ${conteudoEmBranco}
 		<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 		
 		<td class="paddingPadrao">
-		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+		<div class="main-inner">
+			<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
+		</div>
+		</td>
+		
+		<td class="paddingPadrao">
+			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
 		</td>
 		
 		<td class="paddingPadrao" valign="top">
@@ -310,8 +314,8 @@ ${conteudoEmBranco}
 		<p class="paddingPadrao" align="right"><a class="btn btn-primary btn-xs" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
 		</td>
 		
-		
 		</tr>
+		
 		</c:forEach>
 		</table>
 		</div>
@@ -322,6 +326,8 @@ ${conteudoEmBranco}
 	</c:otherwise>
 </c:choose>
 
+<br/>
+
 <a name="irTopo"></a>
 <a name="lerTexto"></a>
 <table id="resenhaModoLeitura"  width="100%">	
@@ -329,7 +335,7 @@ ${conteudoEmBranco}
  		<tr align="center">
 			<td>
 			
-			<div class="cardViewText">
+			<div class="cardViewText bordaPadrao">
 					<table>
 					<tr>
 					<td class="paddingPadrao" valign="top">
@@ -350,9 +356,9 @@ ${conteudoEmBranco}
 					</table>									
 				</div>
 				
-				<div id="divVisualizarComentariosResenha">
+				<div id="divVisualizarComentariosResenha bordaPadrao">
 					<br/>
-					<div class="cardViewText">
+					<div class="cardViewText bordaPadrao">
 						<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>					
 						<div id="divComentariosResenha"></div>				
 					</div>
@@ -360,7 +366,7 @@ ${conteudoEmBranco}
 					
 				<!-- Adicionar um comentario para o texto -->
 				<br/>
-				<div  align="left" class="cardViewTextNoBackground">
+				<div  align="left" class="cardViewTextNoBackground bordaPadrao">
 					
 					<div>
 						<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
@@ -398,7 +404,7 @@ ${conteudoEmBranco}
 										<p class="info azulClaro">Caso seu coment&aacute;rio seja considerado impr&oacute;prio para visualiza&ccedil;&atilde;o, ser&aacute; exclu&iacute;do sem aviso pr&eacute;vio.</p>
 													
 										<h3 align="right">
-										<input id="btClienteComentarResenha" type="submit" value="Enviar comentário"  class="buttonCadastrar direita"/>
+										<input id="btClienteComentarResenha" type="submit" value="Enviar comentário"  class="btn btn-success direita"/>
 										</h3>					
 									</div>
 								</td>			
