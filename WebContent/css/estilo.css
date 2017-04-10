@@ -1997,6 +1997,26 @@ table.tabLivro thead  tr td{
 
 .cardTabela {
 	width: 1000px;
-	height: 170px;
+	height: 200px;
 }
+
+/* Personalização da data do blog*/
+.main-inner h2.date-header {
+float: left; /** data no lado esquerdo, pode mudar para right **/
+width:55px;/** largura **/
+height:55px;/** altura **/
+overflow:hidden;
+font-size:15px;/** tamanho da fonte **/
+color: #fff !important;/** cor da fonte **/
+text-align:center;/** alinha o texto **/
+margin-bottom: -65px; /** desce **/
+margin-left: -80px; /** margem pra esquerda **/
+padding: 8px 2px 0px 2px; /** espaço interno: topo, direito, embaixo, esquerdo **/
+-webkit-border-radius: 5em; -moz-border-radius: 5em; /** borda redonda **/
+background: #000; /** cor do fundo **/
 }
+/*
+.main-inner h2.date-header:hover {
+background: #fff; /** cor do fundo hover **/
+}
+*/

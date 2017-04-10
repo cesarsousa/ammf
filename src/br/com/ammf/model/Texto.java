@@ -159,7 +159,8 @@ public class Texto implements Serializable{
 	 * @return data no formato dd/MM/yyyy.
 	 */
 	public String getDataFormatadaSimples(){
-		return DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
+		String data = DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
+		return data.replace("/", "\n");
 	}
 		
 }

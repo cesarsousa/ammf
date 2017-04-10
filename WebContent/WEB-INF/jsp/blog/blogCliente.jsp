@@ -46,7 +46,7 @@
 		<c:otherwise>
 		<div id="ultimaPublicacao">			
 			<br>						
-			<div class="cardViewText paddingPadrao">
+			<div class="cardViewText paddingPadrao bordaPadrao">
 			<p class="info azulClaro letraGrande centralizar">${ultimaPublicacao.titulo}</p>
 			<p class="textoPostagemBlog aEsquerda negrito">Texto postado em ${ultimaPublicacao.dataFormatada}</p>	
 			<c:forEach items="${paragrafos}" var="paragrafo">
@@ -56,7 +56,7 @@
 			
 			<c:if test="${not empty ultimaPublicacao.comentariosConfirmados}">
 				<br/>
-				<div class="cardViewText paddingPadrao" align="left">
+				<div class="cardViewText paddingPadrao bordaPadrao" align="left">
 				<!-- <span id="imgdivComentariosTextoPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 				<span id="btdivComentariosTextoPrincipal" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
 				<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
@@ -75,14 +75,13 @@
 					</table>				
 				</c:forEach>
 				</div>
-				
 				</div>
 				
 			</c:if>			
 			
 			<!-- Adicionar um comentario para o texto -->
 			<br/>
-			<div  align="left" class="cardViewTextNoBackground paddingPadrao">
+			<div  align="left" class="cardViewTextNoBackground paddingPadrao bordaPadrao">
 				
 				<div class="paddingPadrao">
 					<!-- <span id="imgNovoComentarioBlogPrincipal" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
@@ -137,8 +136,9 @@
 	</c:choose>
 </div>
 
+<a name="irTopo"></a>
 <div id="divTodosTextos">
-
+<br/>
 <div align="center">
 <table>
 	<!-- <thead align="left">
@@ -150,26 +150,25 @@
 	</thead> -->
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
-			<tr>
-				
-				<td class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
-				<div >
-				
-				<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>
-				<h6 align="center">
-				<b>Postado em ${texto.dataFormatadaSimples}</b>
-				</h6>
-				<h5 align="center">
-				<c:set var="origem"	value="${texto.conteudo}"/>
-				<c:out value="${fn:substring(origem,0,250)}"/>...
-				</h5>
-				<p class="paddingPadrao" align="center">
-				<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
-				</p>
-				
-				</div>
-				</td>
-				
+			<tr>				
+				<td >
+					<div class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
+					<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>
+						
+					<div class="main-inner">
+						<h2 class="date-header">${texto.dataFormatadaSimples}</h2>
+					</div>
+					
+					<h5 align="center">
+					<c:set var="origem"	value="${texto.conteudo}"/>
+					<c:out value="${fn:substring(origem,0,250)}"/>...
+					</h5>
+					<p class="paddingPadrao" align="center">
+					<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
+					</p>
+					</div>
+					<br/>
+				</td>				
 			</tr>			
 		</c:forEach>		
 	</tbody>
@@ -182,13 +181,12 @@
 <br/>
 </div>
 
-<a name="irTopo"></a>
 <a name="lerTexto"></a>
 <table id="textoModoLeitura"  width="100%">	
 	<tbody>
  		<tr align="center">
 			<td>
-			<div class="cardViewText paddingPadrao">
+			<div class="cardViewText paddingPadrao bordaPadrao">
 				<input id="uuidTextoBlog" type="hidden" />
 				<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
 				<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
@@ -197,7 +195,7 @@
 			
 			<div id="divVisualizarComentarios">
 				<br/>
-				<div class="cardViewText paddingPadrao" align="left">
+				<div class="cardViewText paddingPadrao bordaPadrao" align="left">
 					<!-- <span id="imgdivComentariosBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>					
 					<span id="btdivComentariosBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Coment&aacute;rios</span> -->
 					<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
@@ -208,7 +206,7 @@
 			
 			<!-- Adicionar um comentario para o texto -->
 			<br/>
-			<div class="cardViewTextNoBackground paddingPadrao" align="left">
+			<div class="cardViewTextNoBackground paddingPadrao bordaPadrao" align="left">
 				<div>
 					<!-- <span id="imgNovoComentarioBlog" class="info azulClaro altura30" style="font-size: x-large;">+ </span>
 					<span id="btNovoComentarioBlog" class="info azulClaro altura30 destaqueLetraHover ponteiro" style="font-size: x-large;">Comentar este texto</span> -->
@@ -261,7 +259,7 @@
 		<tr>
 			<th colspan="4" class="paddingPadrao">
 			<div align="center">
-				<a id="goTopo" href="#irTopo"class="btn btn btn-primary btn-lg">ler outros textos</a>
+				<a id="goTopo" href="#irTopo" class="btn btn btn-primary btn-lg">ler outros textos</a>
 			</div>
 			</th>			
 		</tr>		
@@ -274,7 +272,7 @@
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div align="center">
 	<div align="center" class="paddingPadrao">		
-		<button id="btVisualizarTodos" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</button>
+		<button id="btVisualizarTodos" href="#irTopo" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</button>
 	</div>
 </div>
 </c:if>

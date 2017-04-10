@@ -293,6 +293,7 @@ ${conteudoEmBranco}
 		<div align="center">
 		<table class="tamanhoDefault">
 		<c:forEach items="${resenhasRequest}" var="resenha">
+		
 		<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 		
 		<td class="paddingPadrao">
@@ -308,6 +309,8 @@ ${conteudoEmBranco}
 					<c:out value="${fn:substring(origem,0,100)}"/>...
 		<p class="paddingPadrao" align="right"><a class="btn btn-primary btn-xs" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
 		</td>
+		
+		
 		</tr>
 		</c:forEach>
 		</table>
