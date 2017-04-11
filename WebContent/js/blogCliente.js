@@ -172,5 +172,8 @@ $(document).ready(function() {
 		
 	$('#textoModoLeitura').hide();
 	$('#goTopo').smoothScroll();
+	$('#btVisualizarTodos').smoothScroll();
+	
+	
 	
 });

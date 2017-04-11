@@ -24,6 +24,8 @@
 
 </div>
 
+
+
 <div align="center">
 <div id="msgErroBlogCliente" class="alert alert-danger tamanhoDefault" align="left"></div>
 </div>
@@ -48,6 +50,8 @@
 			<br>						
 			<div class="cardViewText paddingPadrao bordaPadrao">
 			<p class="info azulClaro letraGrande centralizar">${ultimaPublicacao.titulo}</p>
+			
+			
 			<p class="textoPostagemBlog aEsquerda negrito">Texto postado em ${ultimaPublicacao.dataFormatada}</p>	
 			<c:forEach items="${paragrafos}" var="paragrafo">
 				<p class="textoConteudoBlog">${paragrafo.trechoTexto}</p>		
@@ -141,13 +145,12 @@
 <br/>
 <div align="center">
 <table>
-	<!-- <thead align="left">
+	<thead align="left">
 		<tr>
-			<th class="metadado">T&iacute;tulo</th>
-			<th class="metadado">Texto</th>
-			<th class="metadado">Postagem</th>			
+			<th><h1 style="padding-left: 10px; text-align: center;">Encontre o texto que deseja ler na lista abaixo</h1>
+		</th>			
 		</tr>
-	</thead> -->
+	</thead>
 	<tbody>
  		<c:forEach items="${textosBlog}" var="texto">
 			<tr>				
@@ -272,10 +275,12 @@
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div align="center">
 	<div align="center" class="paddingPadrao">		
-		<button id="btVisualizarTodos" href="#irTopo" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</button>
+		<a id="btVisualizarTodos" href="#irTopo" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</a>
 	</div>
 </div>
 </c:if>
+
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

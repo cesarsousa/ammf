@@ -291,29 +291,32 @@ ${conteudoEmBranco}
 		<div align="center">
 		<table class="tamanhoDefault">
 		<c:forEach items="${resenhasRequest}" var="resenha">
-		
-		<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
-		
+		<tr>		
 		<td class="paddingPadrao">
-		<div class="main-inner">
-			<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
-		</div>
-		</td>
-		
-		<td class="paddingPadrao">
-			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
-		</td>
-		
-		<td class="paddingPadrao" valign="top">
-		<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
-		</td>
-		
-		<td class="paddingPadrao" class="infoTabela">
+			
+			<table class="tamanhoDefault">
+			<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
+			
+			<td width="10%" class="paddingPadrao">
+				<div class="main-inner">
+					<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
+				</div>
+				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+			</td>
+			<td width="90%" class="paddingPadrao">
+				<div>
+					<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
+				</div>
+				<div class="paddingPadrao" class="infoTabela">
 					<c:set var="origem"	value="${resenha.descricao}"/>
 					<c:out value="${fn:substring(origem,0,100)}"/>...
-		<p class="paddingPadrao" align="right"><a class="btn btn-primary btn-xs" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
+					<p class="paddingPadrao" align="right"><a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
+				</div>			
+			</td>
+			</tr>
+			</table>
+		<br/>
 		</td>
-		
 		</tr>
 		
 		</c:forEach>
