@@ -13,6 +13,8 @@
 <div align="center" class="paddingPadrao"><h1><b>Blog</b></h1></div>
 </div>
 
+<div style="background-color: #E8E8E8;">
+
 <div align="center">
 <c:if test="${not empty erroComentarioPrincipal}">
 	<div id="msgErroPadraoBlogCliente" class="msgBorder msgErro ponteiro closeClick">
@@ -53,6 +55,7 @@
 			
 			
 			<p class="textoPostagemBlog aEsquerda negrito">Texto postado em ${ultimaPublicacao.dataFormatada}</p>	
+			<hr>
 			<c:forEach items="${paragrafos}" var="paragrafo">
 				<p class="textoConteudoBlog">${paragrafo.trechoTexto}</p>		
 			</c:forEach>			
@@ -181,10 +184,10 @@
 		</tr>		
 	</tfoot>
 </table>
+<a name="lerTexto"></a>
 <br/>
 </div>
 
-<a name="lerTexto"></a>
 <table id="textoModoLeitura"  width="100%">	
 	<tbody>
  		<tr align="center">
@@ -192,7 +195,8 @@
 			<div class="cardViewText paddingPadrao bordaPadrao">
 				<input id="uuidTextoBlog" type="hidden" />
 				<p id="textoblogTitulo" class="textoAutorBlog azulClaro fonteGrande centralizar"></p>
-				<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>			
+				<p id="textoblogData" class="textoPostagemBlog aEsquerda negrito"></p>
+				<hr>			
 				<p id="textoblogConteudo" class="textoConteudoBlog"></p>
 			</div>
 			
@@ -269,18 +273,18 @@
 	</tfoot>
 </table>
 </div> 
+<br/>
+</div>
 
-<br/><br/>
+
 <c:if test="${not empty textosBlog}">
 <input id="emailRequest" type="hidden" value="${emailRequest}" />
 <div align="center">
-	<div align="center" class="paddingPadrao">		
+	<div align="center" class="superFooter">		
 		<a id="btVisualizarTodos" href="#irTopo" class="btn btn btn-primary btn-lg">Visualizar textos anteriores</a>
 	</div>
 </div>
 </c:if>
-
-</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

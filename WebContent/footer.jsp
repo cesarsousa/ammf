@@ -30,7 +30,7 @@
 		</tr>
 	</table>	
 	
-	<label id="labelFooter" >&copy; 2012 - quiron.psc.br - Todos os Direitos Reservados.
+	<label id="labelFooter" >&copy; 2012 - alcindomiguel.com.br - Todos os Direitos Reservados.
 	<br/>
 	Designed by	
 	<a id="linkein" href="http://br.linkedin.com/pub/cesar-sousa-junior/66/583/a43" target="_blank">

@@ -501,6 +501,9 @@ a:HOVER {
 
 .bordaPadrao {
 	border: 1px solid #CCCCCC;
+	background-color: white;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 1px #9C9C9C;
 }
 
 .bordaPadraoErro {
@@ -817,16 +820,17 @@ a:HOVER {
 
 .textoPostagemBlog {
 	font-size: small;
-	color: #000000;
+	color: #CCCCCC;
 }
 .textoConteudoBlog {
 	font-size: large;
 	font-style: italic;
-	color: #696969;
+	color: black;
 }
 .textoAutorBlog {
 	font-size: small;
 	font-weight: bold;
+	font-family: sans-serif;
 }
 
 .card {

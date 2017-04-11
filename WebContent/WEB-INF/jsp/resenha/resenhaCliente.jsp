@@ -5,6 +5,8 @@
 
 <div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
 
+<div style="background-color: #E8E8E8;">
+
 <div align="center" class="fundoPadrao"> 
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
@@ -37,7 +39,7 @@ ${conteudoEmBranco}
 
 <c:if test="${not empty ultimaPublicacao}">
 	<div align="center">
-	
+	<br>
 	<div class="paddingPadrao tamanhoDefault">
 	<div class="alert alert-info">
 	<p class="paddingPadrao">
@@ -72,6 +74,7 @@ ${conteudoEmBranco}
 		
 		<td class="paddingPadrao">
 		<h2>${resenha.categoria.descricao}</h2>
+		<hr>
 		<h3>${resenha.titulo}</h3>
 		
 			<div style="width: 80%">
@@ -179,6 +182,7 @@ ${conteudoEmBranco}
 					
 					<td class="paddingPadrao">
 					<h2>${ultimaPublicacao.categoria.descricao}</h2>
+					<hr>
 					<h3>${ultimaPublicacao.titulo}</h3>					
 					
 					<div style="width: 80%">
@@ -329,10 +333,10 @@ ${conteudoEmBranco}
 	</c:otherwise>
 </c:choose>
 
-<br/>
-
 <a name="irTopo"></a>
 <a name="lerTexto"></a>
+<br/>
+
 <table id="resenhaModoLeitura"  width="100%">	
 	<tbody>
  		<tr align="center">
@@ -350,6 +354,7 @@ ${conteudoEmBranco}
 					<td class="paddingPadrao">
 					<input id="uuidResenhaView" type="hidden" />
 					<h2><span id="resenhaCategoria"></span></h2>
+					<hr>
 					<h3><span id="resenhaTitulo"></span></h3>					
 					<p id="resenhaConteudo" class="textoConteudoDepoimento"></p>
 					<p id="resenhaAutor" class="textoAutorDepoimento azulClaro"></p>
@@ -440,6 +445,7 @@ ${conteudoEmBranco}
 </div>
 </c:if>
 
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
