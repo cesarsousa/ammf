@@ -17,11 +17,13 @@
 			<ul style="list-style: none;">
 		
 			<c:forEach items="${links}" var="link">
+			<div class="main-inner">
+						<h2 class="date-header">${link.dataFormatadaSimples}</h2>
+					</div>
 				<div class="cartao tamanhoEdicaoIndex bordaPadrao paddingPadrao">
 					<a class="textoAutorDepoimento azulClaro" style="font-size: medium;" href="${link.url}" target="_blank">${link.titulo}</a>
 					<ul style="list-style: none;">
 						<li><p class="textoPostagemDepoimento negrito" style="font-size: large;">&ldquo; ${link.descricao} &ldquo;</p></li>
-						<li><p class="textoConteudoDepoimento">link postado em ${link.dataFormatada}</p></li>
 					</ul>
 				</div>
 				<br/>

@@ -86,5 +86,14 @@ public class Link {
 	public String getDataFormatada(){
 		return DataUtils.getStringDataHora(postagem);
 	}
+	
+	/**
+	 * 
+	 * @return data no formato dd MM por extenso yyyy.
+	 */
+	public String getDataFormatadaSimples(){
+		String data = DataUtils.getStringFormato(postagem, "dd/MM/yyyy");
+		return DataUtils.decorrarData(data);
+	}
 
 }
