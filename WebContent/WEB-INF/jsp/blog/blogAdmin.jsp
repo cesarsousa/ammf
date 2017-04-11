@@ -73,6 +73,34 @@
 
 <div class="separador"></div>
 
+<!-- BUSCA -->
+<input id="flagBuscarBlog" type="hidden" value="${flagBuscarBlog}" />
+<table class="cardViewText">		
+		
+	<tr>
+		<td valign="middle">
+		<form id="formBlogBuscaTexto" action="<c:url value="/blog/busca/texto"></c:url>" method="get">
+		
+		<div align="center">
+			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo título do texto...">
+			<br>
+			<button class="btn btn-success" type="submit">Pesquisar</button>
+				
+			<c:if test="${not empty resultBuscarBlog}">
+			<div class="paddingPadrao">
+			<div class="alert alert-info" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>${resultBuscarBlog}</b>
+			</div>
+			</div>
+			</c:if>	
+			
+		</div>	
+		</form>
+		</td>
+	</tr>
+</table>
+
 <!-- ADICIONAR UM NOVO TEXTO -->
 <input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" />
 <input id="flagCadastrarNovoBlog" type="hidden" value="${flagCadastrarNovoBlog}" />
@@ -126,29 +154,6 @@
 		</td>
 	</tr>		
 </table>
-
-<!-- EDITAR COM CAMPO DE BUSCA -->
-<input id="flagBuscarBlog" type="hidden" value="${flagBuscarBlog}" />
-<table id="blogAreaBusca" class="cardViewText">		
-		
-	<tr>
-		<td valign="middle">
-		<form id="formBlogBuscaTexto" action="<c:url value="/blog/busca/texto"></c:url>" method="get">
-		<div align="center">
-			<input width="100%" id="campoBuscaTxtEdtBlog" type="text" name="paramConsulta" class="form-control" placeholder="Buscar pelo título do texto...">
-			<br>
-			<button class="btn btn-success" type="submit">Pesquisar</button>
-			<input id="btFecharEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
-		
-			<p class="paddingPadrao">
-			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarBlog}</label></span>
-			</p>
-		</div>	
-		</form>
-		</td>
-	</tr>
-</table>
-
 
 <input id="flagAbrirEdicaoTexto" type="hidden" value="${flagAbrirEdicaoTexto}" />
 <div id="divBlogEditarTexto" class="cardViewText">

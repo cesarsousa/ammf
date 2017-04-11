@@ -69,12 +69,12 @@
 			<button class="btn btn-success" type="submit">Buscar</button>
 		
 			<c:if test="${not empty resultBuscarPessoa}">
-			<p class="paddingPadrao">
+			<div class="paddingPadrao">
 			<div class="alert alert-info" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<b>${resultBuscarPessoa}</b>
 			</div>
-			</p>
+			</div>
 			</c:if>
 			
 		</div>	

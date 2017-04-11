@@ -139,11 +139,11 @@ $(document).ready(function() {
 	
 	
 	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha, #divCategoriaResenhaEdt').hide();
-	$('#btCadastrarCategoriaResenha').toggle(function() {
+	/*$('#btCadastrarCategoriaResenha').toggle(function() {
 		$('#divCadastrarCategoriaResenha').show();		
 	}, function() {
 		$('#divCadastrarCategoriaResenha').hide();		
-	});
+	});*/
 	$('#ajaxCadastrarCategoriaResenha').click(function(){		
 		cadastrarNovaCategoriaResenha();	
 	});

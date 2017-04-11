@@ -68,6 +68,35 @@
  
 <div class="separador"></div>
 
+<!-- EDITAR COM CAMPO  DE BUSCA -->
+<input id="flagBuscarResenhas" type="hidden" value="${flagBuscarResenhas}" />	
+<table class="cardViewText">		
+	<tr>
+		<td valign="middle">
+		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
+		<div align="center">
+			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="form-control" placeholder="Buscar pelo título da resenha..." />
+			<br>
+			<input type="submit" class="btn btn-success" value="Pesquisar">			
+			
+			<c:if test="${not empty resultBuscarResenhas}">
+			<div class="paddingPadrao">
+			<div class="alert alert-info" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>${resultBuscarResenhas}</b>
+			</div>
+			</div>
+			</c:if>
+			
+			
+			
+			
+		</div>	
+		</form>
+		</td>
+	</tr>		
+</table>
+
 <!-- ADICIONAR UMA NOVA RESENHA -->
 <input id="resenhaErroCadastro" type="hidden" value="${resenhaErroCadastro}" >
 <table id="tabNovaResenha" class="cardViewText">		
@@ -97,7 +126,7 @@
 			</tr>
 			</table>
 			
-			<h3>Tipo da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
+			<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
 			
 				<div id="divCadastrarCategoriaResenha">				
 				<div class="col-lg-6 alert alert-info">
@@ -254,30 +283,6 @@
 		</td>
 	</tr>
 </table>
-
-
-<!-- EDITAR COM CAMPO  DE BUSCA -->
-<input id="flagBuscarResenhas" type="hidden" value="${flagBuscarResenhas}" />	
-<table id="divResenhaBuscarTexto" class="cardViewText">		
-	<tr>
-		<td valign="middle">
-		<form id="formResenhaBuscaTexto" action="<c:url value="/resenha/busca"></c:url>" method="get">
-		<div align="center">
-			<input id="campoBuscaTxtResenha" type="text" name="parametro" class="form-control" placeholder="Buscar pelo título da resenha..." />
-			<br>
-			<input type="submit" class="btn btn-success" value="Pesquisar">			
-			<input id="btFecharEdtResenha" type="button" value="fechar" class="btn btn-danger">
-			
-			<p class="paddingPadrao">
-			<span class="info paddingPadrao" ><label id="labelBuscaResenha">${resultBuscarResenhas}</label></span>
-			</p>
-		</div>	
-		</form>
-		</td>
-	</tr>		
-</table>
-	
-
 
 <!-- LISTAR TODOS OS TEXTOS -->
 <!-- submit via javascript -->
