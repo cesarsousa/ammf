@@ -1445,6 +1445,10 @@ categoria:hover {
 	padding: 10px;
 }
 
+.paddingDuplo {
+	padding: 20px;
+}
+
 .paddingInput {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -2004,7 +2008,7 @@ table.tabLivro thead  tr td{
 	height: 200px;
 }
 
-/* Personalização da data do blog*/
+/* Personalizaï¿½ï¿½o da data do blog*/
 .main-inner h2.date-header {
 float: left; /** data no lado esquerdo, pode mudar para right **/
 width:60px;/** largura **/
@@ -2015,7 +2019,7 @@ color: #fff !important;/** cor da fonte **/
 text-align:center;/** alinha o texto **/
 margin-bottom: -70px; /** desce **/
 margin-left: -80px; /** margem pra esquerda **/
-padding: 8px 2px 0px 2px; /** espaço interno: topo, direito, embaixo, esquerdo **/
+padding: 8px 2px 0px 2px; /** espaï¿½o interno: topo, direito, embaixo, esquerdo **/
 -webkit-border-radius: 5em; -moz-border-radius: 5em; /** borda redonda **/
 background: #000; /** cor do fundo **/
 }

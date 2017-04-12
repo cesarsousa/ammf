@@ -44,9 +44,6 @@
 		<img id="btAddTextoBlog" alt="adicionar texto" title="adicionar texto" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btEdtTextoBlog" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeBuscar.png" class="icone50 ponteiro esquerda">
-	</li>
-	<li>
 		<img id="btListarTextosBlog" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
@@ -104,9 +101,9 @@
 <!-- ADICIONAR UM NOVO TEXTO -->
 <input id="flagCadastrarBlogVazio" type="hidden" value="${flagCadastrarBlogVazio}" />
 <input id="flagCadastrarNovoBlog" type="hidden" value="${flagCadastrarNovoBlog}" />
-<table id="tdNovoBlog" class="cardViewText">		
+<table id="tdNovoBlog" class="cardViewText bordaPadrao">		
 	<tr>
-		<td >
+		<td class="paddingDuplo">
 		
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Novo Texto</h2>
@@ -156,10 +153,10 @@
 </table>
 
 <input id="flagAbrirEdicaoTexto" type="hidden" value="${flagAbrirEdicaoTexto}" />
-<div id="divBlogEditarTexto" class="cardViewText">
+<div id="divBlogEditarTexto" class="cardViewText bordaPadrao paddingDuplo">
 	<!-- AREA DE EDICAO DE UM TEXTO -->
 	<div align="right">
-		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="btn btn-danger button">
+		<input id="btFecharEdtEdtTextoBlog" type="button" value="fechar" class="btn btn-danger">
 	</div>
 
 	<img src="${imagem}/iconeEditarHover.png" class="icone50 esquerda">

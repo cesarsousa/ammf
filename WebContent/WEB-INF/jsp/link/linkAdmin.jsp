@@ -39,9 +39,6 @@
 	<li>
 		<img id="btAddNovoLink" alt="adicionar link" title="adicionar link" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarLink">
 	</li>	
-	<li>
-		<img id="btListarLinks" alt="listar todos os links" title="listar todos os links" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
-	</li> 	
 </ul>
 </td>
 </tr>

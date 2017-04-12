@@ -42,9 +42,6 @@
 		<img id="btAddNovaResenha" alt="adicionar texto" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btBuscarResenha" alt="buscar e editar" title="buscar e editar" src="${imagem}/iconeBuscar.png" class="icone50 ponteiro esquerda">
-	</li>
-	<li>
 		<img id="btListarResenhas" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
@@ -99,9 +96,9 @@
 
 <!-- ADICIONAR UMA NOVA RESENHA -->
 <input id="resenhaErroCadastro" type="hidden" value="${resenhaErroCadastro}" >
-<table id="tabNovaResenha" class="cardViewText">		
+<table id="tabNovaResenha" class="cardViewText bordaPadrao">		
 	<tr>
-		<td>
+		<td class="paddingDuplo">
 		<div align="right">
 		<input id="btFecharAddResenha" type="button" value="fechar" class="btn btn-danger">
 		</div>
@@ -173,11 +170,11 @@
 
 <!-- EDITAR UMA RESENHA -->
 <input id="resenhaEditarCadastro" type="hidden" value="${resenhaEditarCadastro}" >
-<table id="tabEditarResenha" class="cardViewText">		
+<table id="tabEditarResenha" class="cardViewText bordaPadrao">		
 	<tr>
-		<td>
+		<td class="paddingDuplo">
 		<div align="right">
-		<input id="btFecharEditarResenha" type="button" value="fechar" class="backVermelho button">
+		<input id="btFecharEditarResenha" type="button" value="fechar" class="btn btn-danger">
 		</div>
 		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
 		<h2 align="center">Editar Resenha</h2>

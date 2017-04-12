@@ -139,11 +139,10 @@ $(document).ready(function() {
 	
 	
 	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha, #divCategoriaResenhaEdt').hide();
-	/*$('#btCadastrarCategoriaResenha').toggle(function() {
+	$('#btCadastrarCategoriaResenha').click(function() {
 		$('#divCadastrarCategoriaResenha').show();		
-	}, function() {
-		$('#divCadastrarCategoriaResenha').hide();		
-	});*/
+	});
+	
 	$('#ajaxCadastrarCategoriaResenha').click(function(){		
 		cadastrarNovaCategoriaResenha();	
 	});
@@ -165,11 +164,10 @@ $(document).ready(function() {
 	});
 	
 	$('#divCadastrarCategoriaResenhaEdt, #iconeAguardeCadastrarCategoriaResenhaEdt').hide();
-	$('#btCadastrarCategoriaResenhaEdt').toggle(function() {
+	$('#btCadastrarCategoriaResenhaEdt').click(function() {
 		$('#divCadastrarCategoriaResenhaEdt').show();		
-	}, function() {
-		$('#divCadastrarCategoriaResenhaEdt').hide();		
 	});
+	
 	$('#ajaxCadastrarCategoriaResenhaEdt').click(function(){		
 		cadastrarNovaCategoriaResenhaEdt();	
 	});
