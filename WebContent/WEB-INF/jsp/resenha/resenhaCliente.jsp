@@ -63,7 +63,7 @@ ${conteudoEmBranco}
 <c:if test="${not empty resenha}">
 	<br/>
 	<div align="center">
-	<div class="cardViewText paddingPadrao" align="left">		
+	<div class="cardViewText paddingDuplo bordaPadrao" align="left">		
 		<table>
 		<tr>
 		<td valign="top">					
@@ -92,7 +92,7 @@ ${conteudoEmBranco}
 	
 	<c:if test="${not empty resenha.comentariosConfirmados}">
 		<br/>			
-		<div class="cardViewText paddingPadrao">
+		<div class="cardViewText paddingDuplo bordaPadrao">
 		<span class="info azulClaro altura30" style="font-size: x-large;">Coment&aacute;rios</span>								
 		
 		<div id="divComentariosResenhaEmail">
@@ -114,7 +114,7 @@ ${conteudoEmBranco}
 	
 	<!-- Adicionar um comentario para o texto -->
 	<br/>
-	<div  align="left" class="cardViewTextNoBackground paddingPadrao">
+	<div  align="left" class="cardViewText paddingDuplo bordaPadrao">
 		
 		<div>
 			<span class="info azulClaro altura30" style="font-size: x-large;">Comentar esta resenha</span>
@@ -124,7 +124,7 @@ ${conteudoEmBranco}
 			<tr>
 				<td width="100%" align="left" style="padding: 20px;">								
 							
-					<div align="left">
+					<div align="left" class="paddingPadrao">
 						<form action="<c:url value="/resenha/Cliente/comentar/viaemail"></c:url>" method="post"> 
 						<input type="hidden" name="uuidResenhaEmail" value="${resenha.uuid}">								
 						
