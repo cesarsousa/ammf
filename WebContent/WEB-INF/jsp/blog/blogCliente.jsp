@@ -159,17 +159,24 @@
 			<tr>				
 				<td >
 					<div class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
-					<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>
-						
+					<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>					
+					
 					<div class="main-inner">
 						<h2 class="date-header">${texto.dataFormatadaSimples}</h2>
 					</div>
 					
-					<h5 align="center">
+					<div align="center">
+					<div style="width: 80%">
+					<h5 align="justify">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,250)}"/>...
 					</h5>
-					<p class="paddingPadrao" align="center">
+					</div>
+					</div>
+					
+					
+										
+					<p class="paddingPadrao" align="right">
 					<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
 					</p>
 					</div>

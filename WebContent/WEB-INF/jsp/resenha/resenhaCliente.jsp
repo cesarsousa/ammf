@@ -302,13 +302,13 @@ ${conteudoEmBranco}
 			<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 			
 			<td width="10%" class="paddingPadrao">
-				<div class="main-inner">
-					<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
-				</div>
 				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
 			</td>
 			<td width="90%" class="paddingPadrao">
-				<div>
+				<div class="main-inner">
+					<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
+				</div>
+				<div align="center">
 					<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
 				</div>
 				<div class="paddingPadrao" class="infoTabela">
