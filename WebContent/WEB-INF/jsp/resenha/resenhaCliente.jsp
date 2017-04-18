@@ -302,20 +302,29 @@ ${conteudoEmBranco}
 			<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 			
 			<td width="10%" class="paddingPadrao">
+				<div align="left" >
+				<table>
+					<tr>
+					<td rowspan="2" style="font-size:30px;" class="paddingPadrao"><i>30</i></td>
+					<td style="font-size:10px; vertical-align:bottom;">Dez</td>
+					</tr>
+					<tr>
+					<td style="font-size:10px; vertical-align:top;">2017</td>
+					</tr>
+				</table>
+				</div>
 				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
 			</td>
 			<td width="90%" class="paddingPadrao">
-				<div class="main-inner">
-					<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
-				</div>
-				<div align="center">
+			
+				<div align="left">
 					<br>${resenha.categoria.descricao}<br><b>${resenha.titulo}</b>
 				</div>
-				<div class="paddingPadrao" class="infoTabela">
+				<div class="paddingPadrao infoTabela">
 					<c:set var="origem"	value="${resenha.descricao}"/>
-					<c:out value="${fn:substring(origem,0,100)}"/>...
-					<p class="paddingPadrao" align="right"><a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>
-				</div>			
+					<c:out value="${fn:substring(origem,0,100)}"/>...					
+				</div>
+				<p align="left"><a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">Ler resenha</a></p>			
 			</td>
 			</tr>
 			</table>

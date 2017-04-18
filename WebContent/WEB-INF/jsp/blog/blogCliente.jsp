@@ -161,22 +161,26 @@
 					<div class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 					<h4 align="center" class="metadado"><b>${texto.titulo}</b></h4>					
 					
-					<div class="main-inner">
-						<h2 class="date-header">${texto.dataFormatadaSimples}</h2>
-					</div>
+					<table style="float: left; border-right: 1px;">
+					<tr>
+					<td rowspan="2" style="font-size:30px;" class="paddingPadrao"><i>30</i></td>
+					<td style="font-size:10px; vertical-align:bottom;">Dez</td>
+					</tr>
+					<tr>
+					<td style="font-size:10px; vertical-align:top;">2017</td>
+					</tr>
+					</table>
 					
 					<div align="center">
-					<div style="width: 80%">
+					<div style="width: 800px">
 					<h5 align="justify">
 					<c:set var="origem"	value="${texto.conteudo}"/>
 					<c:out value="${fn:substring(origem,0,250)}"/>...
 					</h5>
 					</div>
-					</div>
-					
-					
+					</div>				
 										
-					<p class="paddingPadrao" align="right">
+					<p class="paddingPadrao" align="center">
 					<a class="btn btn-primary" href="#lerTexto" onclick="javascript:visualizarTextoBlog('${texto.uuid}');">Ler texto</a>
 					</p>
 					</div>
