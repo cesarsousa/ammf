@@ -2,7 +2,6 @@
 
 <%@ include file="/headerLib.jsp" %>
 <div class="paddingHeader"></div>
-<%@ include file="/headerSite.jsp" %>
 
 <div align="center">
 <div class="tamanhoDefault" align="left">

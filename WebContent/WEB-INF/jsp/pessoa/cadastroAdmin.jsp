@@ -19,7 +19,6 @@
 </div>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
 
 <div id="divPgAdmCadastroCliente" align="center" class="paddingPadrao">
 

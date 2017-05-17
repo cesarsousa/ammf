@@ -35,7 +35,6 @@
 </div>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
 
 <div id="divPgMenu" align="center">
 

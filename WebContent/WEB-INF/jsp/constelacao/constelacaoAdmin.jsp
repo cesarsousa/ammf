@@ -20,7 +20,6 @@
 </div>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
 
 <div id="divPgConstelacaoAdm" class="paddingPadrao">
 <div align="center">

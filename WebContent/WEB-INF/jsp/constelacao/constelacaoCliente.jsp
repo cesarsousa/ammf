@@ -35,27 +35,27 @@
 			
 			<tbody>
 			<tr>			
-				<td align="center" width="500" class="ponteiro paddingPadrao"> 
+				<td align="center" width="400" class="ponteiro paddingPadrao"> 
 					<img src="${imagem}/praia-de-icarai-niteroi.jpg" alt="Constelação em Niterói" class="img-circle destaqueFoto" width="300px" height="300px" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
 				</td>
 			
-				<td align="center" width="500" class="ponteiro paddingPadrao">
+				<td align="center" width="600" class="ponteiro paddingPadrao">
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
-					<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</p>
-					<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</p>
+					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</h1>
+					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</h3>
 					</div>			
 				</td>			
 			</tr>			
 			<tr>
 			
-				<td align="center" width="500" class="ponteiro paddingPadrao">
+				<td align="center" width="600" class="ponteiro paddingPadrao">
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
-					<p class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</p>
-					<p class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</p>
+					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</h1>
+					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</h3>
 					</div>
 				</td>
 			
-				<td align="center" width="500" class="ponteiro paddingPadrao">
+				<td align="center" width="400" class="ponteiro paddingPadrao">
 				<img src="${imagem}/brra-da-tijuca.jpg" alt="Constelação na Barra" class="img-circle destaqueFoto" width="300px" height="300px" data-toggle="modal" data-target="#modalConstelacaoBarra">
 				</td>			
 			</tr>			

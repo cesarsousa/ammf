@@ -620,14 +620,12 @@ a:HOVER {
 }
 
 .textoFotoConstelacao{
-	color: gray;
-	font-size: xx-large;
+	color: #000000;
 	
 }
 
 .texto2FotoConstelacao{
-	color: gray;
-	font-size: x-large;
+	color: #000000;
 	
 }
 
@@ -1065,6 +1063,11 @@ categoria:hover {
 #mainCardHeader {
 	padding: 10px;
 	width: 1001px;
+	height: 100px;
+	background: url("../image/logoNome.png") no-repeat transparent center;
+}
+
+.fundoHeaderAdm {
 	height: 100px;
 	background: url("../image/logoNome.png") no-repeat transparent center;
 }

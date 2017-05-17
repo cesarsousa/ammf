@@ -3,8 +3,9 @@
 
 
 <div class="alert alert-info" align="center">
-<div class="paddingDuplo">
-	<b>Sistema de Administração - Bem Vindo ${sessaoUsuario.usuario.nome}.</b>
+<div class="paddingDuplo fundoHeaderAdm">
+	
+	
 	
 	<div class="direita">
 		<form id="formLogout" action="<c:url value="/logout" />">

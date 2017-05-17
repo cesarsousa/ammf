@@ -24,7 +24,6 @@
 </div>
 
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
 
 <div id="divPgBlogAdmin" align="center" class="paddingPadrao">
 
