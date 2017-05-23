@@ -2,12 +2,10 @@
 
 <%@ include file="/headerLib.jsp" %>
 <%@ include file="/headerQuiron.jsp" %>
-
-<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
-
 <div style="background-color: #E8E8E8;">
 
-<div align="center" class="fundoPadrao"> 
+<div align="center" class="fundoPadrao">
+
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 <div align="center" class="paddingPadrao"><h1><b>Resenhas</b></h1></div>
@@ -36,6 +34,8 @@ ${conteudoEmBranco}
 <form id="formResenhaComentada" method="get" action="<c:url value="/site/comentado"></c:url>"></form>
 
 <div align="center">
+
+<div id="msgErroResenhaCliente" class="msgBorder msgErro closeClick ponteiro"></div>
 
 <c:if test="${not empty ultimaPublicacao}">
 	<div align="center">
@@ -293,19 +293,23 @@ ${conteudoEmBranco}
 		<h1 style="padding-left: 10px; text-align: center;">Encontre a resenha que deseja ler na lista abaixo</h1>
 		
 		<div align="center">
-		<table class="tamanhoDefault">
+		<table class="tamanho1200">
+		<tr class="tamanho1200">
+		<td align="center">
 		<c:forEach items="${resenhasRequest}" var="resenha">
-		<tr>		
-		<td class="paddingPadrao">
+		
+		<a href="#lerTexto" onclick="javascript:visualizarTextoResenha('${resenha.uuid}');">		
+		<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200 molduraFotoResenha" data-toggle="tooltip" title="${resenha.categoria.descricao} ${resenha.titulo}">
+		</a>
 			
-			<table class="tamanhoDefault">
+			<%-- <table class="tamanhoDefault">
 			<tr class="cartao tamanhoEdicaoIndex bordaPadrao cardTabela paddingPadrao">
 			
 			<td width="10%" class="paddingPadrao">
 				<div class="main-inner">
 					<h2 class="date-header">${resenha.dataFormatadaSimples}</h2>
 				</div>
-				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200">
+				<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone100x200" data-toggle="tooltip" title="Hooray!">
 			</td>
 			<td width="90%" class="paddingPadrao">
 				<div>
@@ -318,12 +322,11 @@ ${conteudoEmBranco}
 				</div>			
 			</td>
 			</tr>
-			</table>
-		<br/>
-		</td>
-		</tr>
+			</table> --%>
 		
 		</c:forEach>
+		</td>
+		</tr>
 		</table>
 		</div>
 		

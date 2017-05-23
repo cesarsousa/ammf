@@ -384,8 +384,8 @@ textarea {
 }
 
 .icone100x200{
-	width: 80px;
-	height: 120px;
+	width: 300px;
+	height: 400px;
 }
 
 .tabelaResenhas{
@@ -1419,7 +1419,6 @@ categoria:hover {
 .altura40 {
 	height: 40px;
 }
-
 .tamanhoPadrao {
 	text-align: center;
 	width: 100px;
@@ -1427,6 +1426,10 @@ categoria:hover {
 
 .tamanhoDefault {
 	width: 1000px;
+}
+
+.tamanho1200 {
+	width: 1500px;
 }
 
 .tabEdicao {
@@ -1496,6 +1499,10 @@ categoria:hover {
 	border: 1px solid #CCCCCC;
 }
 
+.linkResenha a {
+	text-decoration: none;
+}
+
 .destaqueFoto{
 	box-shadow: 5px 5px 5px #8B8484;
 	border: 1px solid #CCCCCC;
@@ -1504,6 +1511,12 @@ categoria:hover {
 .destaqueConstelacao{
 	box-shadow: 5px 5px 5px #8B8484;
 	border: 1px solid #CCCCCC;
+}
+
+.molduraFotoResenha{
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border:4px solid #FFFFFF;
 }
 
 .divComprarLivro{
