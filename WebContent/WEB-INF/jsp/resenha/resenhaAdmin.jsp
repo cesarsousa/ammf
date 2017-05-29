@@ -38,10 +38,14 @@
 		</form>
 	</li>
 	<li>
-		<img id="btAddNovaResenha" alt="adicionar texto" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		<img id="btAddNovaResenha" alt="adicionar resenha" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
-		<img id="btListarResenhas" alt="listar todos os textos" title="listar todos os textos" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
+		<img id="btAddNovaResenhaPreDefinida" alt="adicionar resenha pré definida" title="adicionar resenha pré definida" src="${imagem}/iconeResenhaPreDefinida.png" class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarResenhaPreDefinida">
+	</li>
+	
+	<li>
+		<img id="btListarResenhas" alt="listar todas as resenhas" title="listar todas as resenhas" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
 	</li>
 	<li>
 		<img id="btVerComentariosResenha" alt="visualizar comentários" title="visualizar comentários" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
@@ -63,6 +67,87 @@
 <form id="formVerComentariosResenhaPendentes" action="<c:url value="/resenha/comentarios/PENDENTE" />" method="get"></form>
  
 <div class="separador"></div>
+
+<!-- Modal resenha pré definida -->
+<div class="modal fade" id="modalCadastrarResenhaPreDefinida" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">
+          		<h4 class="modal-title">Cadastrar Constelação</h4>
+        	</div>
+        	<div class="modal-body">
+			        <form id="formNovaResenha" action="<c:url value="/resenha/nova/preDefinida"/>" enctype="multipart/form-data" method="post">			
+					
+					<table class="alert alert-info">
+					<tr align="center">
+					<td class="paddingPadrao">
+						<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
+					</td>
+					</tr>
+					<tr>			
+					<td class="paddingPadrao">
+						<div id="divUploadFotoResenha" align="left">
+							<input id="inputImagemResenha" type="file" name="imagemResenha"/>
+						</div>
+					</td>
+					</tr>
+					<tr>			
+					<td class="paddingPadrao">
+						<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
+					</td>
+					</tr>
+					</table>
+					
+					<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
+					
+						<div id="divCadastrarCategoriaResenha">				
+						<div class="col-lg-6 alert alert-info">
+						    <div class="input-group">
+						      <input id="inputCadastrarCategoriaResenha" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
+						      <span class="input-group-btn">
+						        <button id="ajaxCadastrarCategoriaResenha" class="btn btn-success" type="button">Cadastrar Categoria</button>
+						      </span>
+						    </div>
+						 </div>				
+						<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
+						</div>				
+					
+					<br>
+					<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control" ></select>
+					
+					
+					<h3>T&iacute;tulo</h3>
+					<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.titulo" value="${resenha.titulo}" />
+					
+						
+					<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
+					<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
+					
+					<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
+						<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
+						<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
+						<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
+						<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
+						<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
+					</p>
+					<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
+					<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
+					<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
+					
+					<p class="paddingPadrao">
+					<input id="btCadastrarResenha" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
+					<input id="btCancelarResenha" type="button" value="cancelar" class="btn btn-default">				
+					</p>
+					</form>	
+        	</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        	</div>
+      	</div>      
+    </div>
+</div>
 
 <!-- EDITAR COM CAMPO  DE BUSCA -->
 <input id="flagBuscarResenhas" type="hidden" value="${flagBuscarResenhas}" />	
