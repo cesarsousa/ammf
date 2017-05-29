@@ -89,13 +89,13 @@
 					<tr>			
 					<td class="paddingPadrao">
 						<div id="divUploadFotoResenha" align="left">
-							<input id="inputImagemResenha" type="file" name="imagemResenha"/>
+							<input id="inputImagemResenha" type="file" name="imagemResenha" required="required"/>
 						</div>
 					</td>
 					</tr>
 					<tr>			
 					<td class="paddingPadrao">
-						<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
+						<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger" required="required"/>
 					</td>
 					</tr>
 					</table>
@@ -115,30 +115,22 @@
 						</div>				
 					
 					<br>
-					<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control" ></select>
+					<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control"></select>
 					
 					
 					<h3>T&iacute;tulo</h3>
-					<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.titulo" value="${resenha.titulo}" />
+					<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.titulo" required="required"/>
 					
 						
 					<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-					<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
+					<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" required="required"/>	
 					
-					<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
-						<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
-						<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
-						<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
-						<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
-						<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
-					</p>
-					<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
-					<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-					<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
+					<!-- <h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
+					<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao" required="required"></textarea>		
+					<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenhaPreDefinida">10.000</span> caracteres.</h3>	 -->	
 					
 					<p class="paddingPadrao">
-					<input id="btCadastrarResenha" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
-					<input id="btCancelarResenha" type="button" value="cancelar" class="btn btn-default">				
+					<input id="btCadastrarResenhaPreDefinida" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">			
 					</p>
 					</form>	
         	</div>
