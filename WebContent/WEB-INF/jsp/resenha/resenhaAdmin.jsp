@@ -257,10 +257,6 @@
 			<input id="resenhaId" type="text" class="form-control backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
 			</div>
 			
-			<%-- <br/>
-			<label class="labelForm" style="color: #8B0000">Aten&ccedil;&atilde;o! Altere o tipo da resenha para '${resenha.categoria.descricao}' ou selecione um novo tipo.</label>
-			<br/> --%>			
-			
 			<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="azulClaro ponteiro">Cadastrar uma nova categoria</span></h3>						
 			<div class="paddingPadrao">						
 				<div id="divCadastrarCategoriaResenhaEdt">				
@@ -400,6 +396,10 @@
 							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
 						<a href="<c:url value="/resenha/remover/${resenha.uuid}" />" onclick="return confirmarExclusao()" >
 							<img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+						<c:if test="${resenha.predefinida}">
+						<a href="<c:url value="/resenha/notificar/predefinida/${resenha.uuid}" />" >
+							<img class="icone" alt="notificação" title="notificação" src="${imagem}/iconeResenhaPreDefinida.png"></a>
+						</c:if>
 					</td>
 				</tr>			
 			</c:forEach>		

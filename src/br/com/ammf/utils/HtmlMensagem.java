@@ -454,4 +454,20 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", "")				
 				.replace("[LINKEDIN]", linkedin);
 	}
+
+	public String getMensagemNotificacaoDe(Resenha resenha) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "resenha_notificar_nova_resenha_predefinida.html");
+		
+		String link = linksDoSite.EDITAR_RESENHA_PREDEFINIDA.replace("uuid", resenha.getUuid());
+		
+		return mensagem
+				.replace("[TIPO]", resenha.getCategoria().getDescricao())
+				.replace("[TITULO]", resenha.getTitulo())
+				.replace("[LINK]", link);			
+	}
+	
+	public String getAssuntoResenhaPredefinida(Resenha resenha) {
+		return "Site AlcindoMiguel.com - Nova resenha pré-definida - " + resenha.getCategoria().getDescricao() + " - " + resenha.getTitulo();
+	}
+	
 }

@@ -295,4 +295,18 @@ public class EmailServiceImp implements EmailService {
 		
 	}
 
+	@Override
+	public void notificarResenhaPredefinidaParaAdmin(Resenha resenha) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemNotificacaoDe(resenha);
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				administrador.getEmailNotificacao(),
+				htmlMensagem.getAssuntoResenhaPredefinida(resenha),
+				mensagem);
+		
+		
+	}
+
 }

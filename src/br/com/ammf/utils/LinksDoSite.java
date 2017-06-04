@@ -2,6 +2,8 @@ package br.com.ammf.utils;
 
 public class LinksDoSite {	
 		
+	
+
 	public LinksDoSite(boolean administrativo){
 		if(administrativo){
 			DOMINIO = "http://localhost:8080/ammf";
@@ -38,6 +40,8 @@ public class LinksDoSite {
 		WEB_SITE_FAQ_CLIENTE = DOMINIO + "/cliente/faq";
 		
 		WEB_SITE_FAQ_CLIENTE_RESPOSTA = DOMINIO + "/cliente/faq/uuid";
+		
+		EDITAR_RESENHA_PREDEFINIDA = DOMINIO + "/resenha/editar/predefinida/uuid";
 	}
 	
 	public String DOMINIO;
@@ -71,5 +75,7 @@ public class LinksDoSite {
 	public String WEB_SITE_FAQ_CLIENTE;
 	
 	public String WEB_SITE_FAQ_CLIENTE_RESPOSTA;
+	
+	public String EDITAR_RESENHA_PREDEFINIDA;
 
 }
