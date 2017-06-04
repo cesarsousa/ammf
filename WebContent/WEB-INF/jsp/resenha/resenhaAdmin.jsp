@@ -78,44 +78,30 @@
           		<h4 class="modal-title">Cadastrar Constelação</h4>
         	</div>
         	<div class="modal-body">
-			        <form id="formNovaResenha" action="<c:url value="/resenha/nova/preDefinida"/>" enctype="multipart/form-data" method="post">			
+			        <form action="<c:url value="/resenha/nova/predefinida"/>" enctype="multipart/form-data" method="post">			
 					
 					<table class="alert alert-info">
 					<tr align="center">
 					<td class="paddingPadrao">
-						<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
+						<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha</label>
 					</td>
 					</tr>
 					<tr>			
 					<td class="paddingPadrao">
 						<div id="divUploadFotoResenha" align="left">
-							<input id="inputImagemResenha" type="file" name="imagemResenha" required="required"/>
+							<input id="inputImagemResenha" type="file" name="imagemResenhaPredefinida" required="required"/>
 						</div>
 					</td>
 					</tr>
 					<tr>			
 					<td class="paddingPadrao">
-						<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger" required="required"/>
+						<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger" />
 					</td>
 					</tr>
 					</table>
 					
-					<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
-					
-						<%-- <div id="divCadastrarCategoriaResenha">				
-						<div class="col-lg-6 alert alert-info">
-						    <div class="input-group">
-						      <input id="inputCadastrarCategoriaResenha" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
-						      <span class="input-group-btn">
-						        <button id="ajaxCadastrarCategoriaResenha" class="btn btn-success" type="button">Cadastrar Categoria</button>
-						      </span>
-						    </div>
-						 </div>				
-						<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
-						</div>	 --%>			
-					
-					<br>
-					<!-- <select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control"></select> -->
+					<h3>Categoria da Resenha</h3>			
+					<select id="comboBoxCategoriasResenhaPredefinidas" name="resenha.categoria.id" class="form-control"></select>
 					
 					
 					<h3>T&iacute;tulo</h3>
@@ -228,7 +214,7 @@
 			<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
 			
 			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
-			<input id="resenhaUrl" type="text" class="form-control corAzul" name="resenha.url"/>	
+			<textarea id="resenhaUrl" class="form-control" rows="5" name="resenha.url">${resenha.url}</textarea>
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -299,7 +285,7 @@
 			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
 			
 			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
-			<input id="resenhaUrlEdt" type="text" class="form-control corAzul" name="resenha.url" value="${resenha.url}"/>		
+			<textarea id="resenhaUrlEdt" class="form-control" rows="5" name="resenha.url">${resenha.url}</textarea>
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -390,6 +376,8 @@
 				<th class="metadado">T&iacute;tulo</th>
 				<th class="metadado">Autor</th>
 				<th class="metadado">Texto</th>
+				<th class="metadado">URL</th>
+				<th class="metadado">Predefinida</th>
 				<th class="metadado">Postagem</th>
 				<th class="metadado">A&ccedil;&atilde;o</th>
 			</tr>
@@ -403,7 +391,9 @@
 					<td class="infoTabelaConteudo">${resenha.autor}</td>
 					<td class="infoTabelaConteudo">
 						<c:set var="origem"	value="${resenha.descricao}"/>
-						<c:out value="${fn:substring(origem,0,50)}"/>...</td>
+						<c:out value="${fn:substring(origem,0,25)}"/>...</td>
+						<td class="infoTabelaConteudo">${resenha.dadoUrl}</td>
+						<td class="infoTabelaConteudo">${resenha.dadoPredefinida}</td>
 					<td class="infoTabelaConteudo" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
 					<td class="infoTabelaData" style="width: 80px;">
 						<a href="<c:url value="/resenha/editar/${resenha.uuid}" />" >

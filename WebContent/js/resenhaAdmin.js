@@ -124,6 +124,22 @@ function listarCategoriasDeResenhaEdicao() {
 	});	
 }
 
+function listarCategoriasDeResenha() {
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/resenha/categorias",
+		success : function(json){
+			$('#comboBoxCategoriasResenhaPredefinidas').html('');			
+			for(var i = 0; i < json.length; i++){				
+				$('#comboBoxCategoriasResenhaPredefinidas').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
+			}
+		},
+		error : function(){
+			ajaxErroPadrao();		
+		}
+	});	
+}
+
 
 $(document).ready(function() {
 	

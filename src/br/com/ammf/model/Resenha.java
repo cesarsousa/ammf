@@ -146,6 +146,20 @@ public class Resenha implements Serializable {
 		this.comentarios = comentarios;
 	}
 	
+	public String getDadoUrl(){
+		if(url == null || url.isEmpty()){
+			return "";
+		}
+		return "URL";
+	}
+	
+	public String getDadoPredefinida(){
+		if(predefinida){
+			return "Sim";
+		}
+		return "Não";
+	}
+	
 	public List<Comentario> getComentariosConfirmados() {
 		List<Comentario> todos = comentarios;
 		List<Comentario> confirmados = new ArrayList<Comentario>();

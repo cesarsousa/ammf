@@ -90,6 +90,30 @@ public class ResenhaController {
 	}
 	
 	@Restrito
+	@Post("/resenha/nova/predefinida")
+	public void cadastrarResenhaPredefinida(UploadedFile imagemResenhaPredefinida, Resenha resenha){
+		try {
+			resenha.setDescricao("Insira a descrição");
+			if(validacaoService.novaResenha(imagemResenhaPredefinida, resenha, result)){			
+				resenha.setPredefinida(true);
+				resenhaService.cadastrar(imagemResenhaPredefinida, resenha);
+				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
+				//emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);				
+			}
+			result.forwardTo(this).resenhaAdmin();			
+		} catch (CadastroException e) {
+			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).resenhaAdmin();
+		} /*catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMessage());
+			result.redirectTo(this).resenhaAdmin();
+		}*/		
+	}
+	
+	
+	
+	@Restrito
 	@Post("/resenha/atualizar")
 	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt, boolean notificarAlteracao){
 		try {
@@ -134,7 +158,7 @@ public class ResenhaController {
 	@Restrito
 	@Get("/resenha/listar")
 	public void listarTodas(){
-		List<Resenha> resenhas = resenhaRepository.listar();		
+		List<Resenha> resenhas = resenhaRepository.listar(true);		
 		result.include("flagListarResenhas", true);
 		result.include("resenhas", resenhas);
 		result.redirectTo(this).resenhaAdmin();
@@ -246,7 +270,7 @@ public class ResenhaController {
 	public void listarTodasResenhasParaCliente(Long idCategoria){
 		List<Resenha> resenhas;
 		if(idCategoria == null){
-			resenhas =  resenhaRepository.listar();
+			resenhas =  resenhaRepository.listar(false);
 		}else{
 			resenhas =  resenhaRepository.listarPorCategorias(idCategoria);
 		}
