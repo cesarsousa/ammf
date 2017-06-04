@@ -73,6 +73,7 @@ public class ResenhaController {
 	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
 		try {
 			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
+				resenha.setPredefinida(false);
 				resenhaService.cadastrar(imagemResenha, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
 				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);				
@@ -93,6 +94,7 @@ public class ResenhaController {
 	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt, boolean notificarAlteracao){
 		try {
 			if(validacaoService.atualizarResenha(novaImagemResenha, resenha, result)){
+				resenha.setPredefinida(false);
 				resenhaService.atualizar(novaImagemResenha, resenha, dataPostagem, removerImagemResenhaEdt);
 				if(notificarAlteracao){
 				 emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);

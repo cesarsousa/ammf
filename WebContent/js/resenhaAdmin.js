@@ -11,6 +11,7 @@ function removerMensagemResenha(){
 function limparFormCadastroResenha(){
 	$('#resenhaTitulo').val('');
 	$('#resenhaAutor').val('');
+	$('#resenhaUrl').val('');
 	$('#textoDescricaoResenha').val('');
 }
 

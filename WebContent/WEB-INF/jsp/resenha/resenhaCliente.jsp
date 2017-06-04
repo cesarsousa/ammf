@@ -66,13 +66,13 @@ ${conteudoEmBranco}
 	<div class="cardViewText paddingDuplo bordaPadrao" align="left">		
 		<table>
 		<tr>
-		<td valign="top">					
+		<td valign="top" width="20%">					
 		<a href="<c:url value="/resenha/visualizador/${resenha.uuid}" />" title="${resenha.titulo}">
 			<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
 		</a>				
 		</td>
 		
-		<td class="paddingPadrao">
+		<td class="paddingPadrao" width="80%">
 		<h2>${resenha.categoria.descricao}</h2>
 		<hr>
 		<h3>${resenha.titulo}</h3>
@@ -87,6 +87,14 @@ ${conteudoEmBranco}
 		<p class="textoPostagemDepoimento negrito">... resenha postada em ${resenha.dataFormatada}</p>		
 		</td>
 		</tr>
+		<c:if test="${not empty resenha.url}">
+		<tr align="center" >
+		<td colspan="2" class="paddingPadrao">
+		<hr>
+		${resenha.url}
+		</td>
+		</tr>
+		</c:if>
 		</table>	
 	</div>
 	
@@ -174,13 +182,13 @@ ${conteudoEmBranco}
 				<div class="cardViewText bordaPadrao">
 					<table>
 					<tr>
-					<td class="paddingPadrao" valign="top">					
+					<td class="paddingPadrao" valign="top" width="20%">					
 					<a href="<c:url value="/resenha/visualizador/${ultimaPublicacao.uuid}" />" title="${ultimaPublicacao.titulo}">
 						<img src="<c:url value="/resenha/visualizador/${ultimaPublicacao.uuid}" />" class="fotoLivro">
 					</a>				
 					</td>
 					
-					<td class="paddingPadrao">
+					<td class="paddingPadrao" width="80%">
 					<h2>${ultimaPublicacao.categoria.descricao}</h2>
 					<hr>
 					<h3>${ultimaPublicacao.titulo}</h3>					
@@ -196,6 +204,16 @@ ${conteudoEmBranco}
 						
 					</td>
 					</tr>
+					
+					<c:if test="${not empty ultimaPublicacao.url}">
+					<tr align="center" >
+					<td colspan="2" class="paddingPadrao">
+					<hr>
+					${ultimaPublicacao.url}
+					</td>
+					</tr>
+					</c:if>				
+					
 					</table>									
 				</div>
 				
@@ -348,13 +366,13 @@ ${conteudoEmBranco}
 			<div class="cardViewText bordaPadrao">
 					<table>
 					<tr>
-					<td class="paddingPadrao" valign="top">
+					<td class="paddingPadrao" valign="top" width="20%">
 					<a id="linkPrettyPhotoResenha" title="${resenha.titulo}">
 						<img id="imagemResenhaModoLeitura" class="fotoLivro" />
 					</a>					
 					</td>
 					
-					<td class="paddingPadrao">
+					<td class="paddingPadrao" width="80%">
 					<input id="uuidResenhaView" type="hidden" />
 					<h2><span id="resenhaCategoria"></span></h2>
 					<hr>
@@ -362,6 +380,11 @@ ${conteudoEmBranco}
 					<p id="resenhaConteudo" class="textoConteudoDepoimento"></p>
 					<p id="resenhaAutor" class="textoAutorDepoimento azulClaro"></p>
 					<p id="resenhaData" class="textoPostagemDepoimento negrito"></p>					
+					</td>
+					</tr>
+					<tr align="center" >
+					<td colspan="2" class="paddingPadrao">
+					<div id="resenhaUrl"></div>
 					</td>
 					</tr>
 					</table>									

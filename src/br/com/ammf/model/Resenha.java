@@ -32,7 +32,9 @@ public class Resenha implements Serializable {
 	private long id;
 	
 	@Column(length=45)
-	private String uuid = UUID.randomUUID().toString();	
+	private String uuid = UUID.randomUUID().toString();
+	
+	private Boolean predefinida;
 	
 	private String autor;
 	
@@ -40,6 +42,9 @@ public class Resenha implements Serializable {
 	
 	@Column(length = 10000)
 	private String descricao;
+	
+	@Column(length = 10000)
+	private String url;
 	
 	@ManyToOne
 	private Categoria categoria;
@@ -115,6 +120,22 @@ public class Resenha implements Serializable {
 	
 	public void setImagem(Imagem imagem) {
 		this.imagem = imagem;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	public boolean isPredefinida() {
+		return predefinida;
+	}
+	
+	public void setPredefinida(boolean predefinida) {
+		this.predefinida = predefinida;
 	}
 	
 	public List<Comentario> getComentarios() {

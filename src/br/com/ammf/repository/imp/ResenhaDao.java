@@ -51,6 +51,7 @@ public class ResenhaDao implements ResenhaRepository {
 	public List<Resenha> listar() {
 		try {
 			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("predefinida", false));
 			criteria.addOrder(Order.desc("postagem"));			
 			return criteria.list();
 		} catch (Exception e) {
@@ -101,6 +102,7 @@ public class ResenhaDao implements ResenhaRepository {
 	public Resenha ultimaResenhaPublicada() {
 		try {			
 			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("predefinida", false));
 			criteria.addOrder(Order.desc("postagem"));
 			criteria.setMaxResults(1);
 			return (Resenha) criteria.uniqueResult();
@@ -126,7 +128,7 @@ public class ResenhaDao implements ResenhaRepository {
 	@Override
 	public Resenha obterUltimaPublicacao() {
 		try {
-			String sql = "select max(id) from Resenha";
+			String sql = "select max(id) from Resenha where predefinida = 0";
 			Query query = session.createQuery(sql);
 			Long id = (Long) query.uniqueResult();
 			Criteria criteria = session.createCriteria(Resenha.class);

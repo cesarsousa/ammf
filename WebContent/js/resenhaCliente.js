@@ -77,6 +77,11 @@ function visualizarTextoResenha(uuid){
 			$('#resenhaTitulo').html('').append(json.titulo);
 			$('#resenhaAutor').html('').append(json.autor);
 			$('#resenhaCategoria').html('').append(json.categoria.descricao);
+			if(json.url === undefined){
+				$('#resenhaUrl').html('');
+			}else{
+				$('#resenhaUrl').html('').append("<hr>" + json.url);
+			}
 			
 			
 			$('#resenhaConteudo').html('');

@@ -102,7 +102,7 @@
 					
 					<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
 					
-						<div id="divCadastrarCategoriaResenha">				
+						<%-- <div id="divCadastrarCategoriaResenha">				
 						<div class="col-lg-6 alert alert-info">
 						    <div class="input-group">
 						      <input id="inputCadastrarCategoriaResenha" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
@@ -112,10 +112,10 @@
 						    </div>
 						 </div>				
 						<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
-						</div>				
+						</div>	 --%>			
 					
 					<br>
-					<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control"></select>
+					<!-- <select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control"></select> -->
 					
 					
 					<h3>T&iacute;tulo</h3>
@@ -128,6 +128,9 @@
 					<!-- <h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
 					<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao" required="required"></textarea>		
 					<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenhaPreDefinida">10.000</span> caracteres.</h3>	 -->	
+					
+					<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
+					<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.url" required="required"/>
 					
 					<p class="paddingPadrao">
 					<input id="btCadastrarResenhaPreDefinida" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">			
@@ -222,7 +225,10 @@
 			
 				
 			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-			<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
+			<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
+			
+			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
+			<input id="resenhaUrl" type="text" class="form-control corAzul" name="resenha.url"/>	
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
@@ -290,7 +296,10 @@
 			<input id="resenhaTituloEdt" type="text" class="form-control" name="resenha.titulo" value="${resenha.titulo}" />
 				
 			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>	
+			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
+			
+			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
+			<input id="resenhaUrlEdt" type="text" class="form-control corAzul" name="resenha.url" value="${resenha.url}"/>		
 			
 			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
 				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
