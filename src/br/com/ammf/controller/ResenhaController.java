@@ -151,6 +151,38 @@ public class ResenhaController {
 		}		
 	}
 	
+	@Post("/resenha/atualizar/predefinida")
+	public void atualizarResenhaPredefinida(Resenha resenha, boolean notificarAlteracao){
+		
+		try {
+			Resenha resenhaAtual = resenhaRepository.obterPorUuid(resenha.getUuid());
+			if(resenha.getDescricao().isEmpty()){
+				result.include("resenhaMensagemErro", "Favor inserir a resenha");
+				result.include("resenha", resenhaRepository.obterPorUuid(resenha.getUuid()));
+				result.redirectTo(this).resenhaPredefinida();
+			}else if (!resenhaAtual.isPredefinida()){
+				result.include("resenhaMensagemErro", "Esta resenha não esta mais predefinida");
+				result.include("resenha", resenhaRepository.obterPorUuid(resenha.getUuid()));
+				result.redirectTo(this).resenhaPredefinida();
+			}else {
+				String descricao  = resenha.getDescricao();
+				resenha = resenhaRepository.obterPorUuid(resenha.getUuid());
+				resenha.setDescricao(descricao);
+				resenha.setPredefinida(false);
+				resenhaRepository.atualizar(resenha);
+				result.include("resenhaMensagemSucesso", "Resenha Atualizada com sucesso");
+				if(notificarAlteracao){
+					 emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
+				}
+				result.redirectTo(this).resenhaPredefinida();
+			}	
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMensagem());
+			result.redirectTo(this).resenhaAdmin();
+		}
+	}
+	
 	@Restrito
 	@Get("/resenha/busca")
 	public void buscar(String parametro){

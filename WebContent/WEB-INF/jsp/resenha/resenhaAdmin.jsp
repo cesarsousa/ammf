@@ -398,7 +398,7 @@
 							<img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 						<c:if test="${resenha.predefinida}">
 						<a href="<c:url value="/resenha/notificar/predefinida/${resenha.uuid}" />" >
-							<img class="icone" alt="notificação" title="notificação" src="${imagem}/iconeResenhaPreDefinida.png"></a>
+							<img class="icone" alt="notificação" title="notificação" src="${imagem}/iconeEmail.png"></a>
 						</c:if>
 					</td>
 				</tr>			

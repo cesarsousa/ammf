@@ -2,8 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-
-<%-- <div id="divMensagemResenha" align="center">
+<div align="center">
 <c:if test="${not empty resenhaMensagemSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${resenhaMensagemSucesso} 
@@ -11,14 +10,10 @@
 </c:if>
 <c:if test="${not empty resenhaMensagemErro}">
 	<div class="msgBorder msgErro ponteiro closeClick">
-		${resenhaMensagemErro} 
-	</div>
+		${resenhaMensagemErro}
+		</div>
 </c:if>
-<c:if test="${not empty resenhaErroCadastro or not empty resenhaErroAtualizarCadastro}">
-	<div class="msgBorder msgErro ponteiro closeClick">
-	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}${fotoInvalida}</div>
-</c:if>
-</div> --%>
+</div>
 
 <%@ include file="/headerLib.jsp" %>
 
@@ -68,6 +63,7 @@
 
 <%-- <input id="resenhaEditarCadastro" type="hidden" value="${resenhaEditarCadastro}" > --%>
 
+<c:if test="${not empty resenha}">
 <table class="cardViewText bordaPadrao">		
 	<tr>
 		<td class="paddingDuplo">
@@ -75,7 +71,7 @@
 		
 		<h2 align="center">Editar Resenha</h2>
 		
-		<form action="<c:url value="/resenha/predefinida/atualizar"/>" enctype="multipart/form-data" method="post">				
+		<form action="<c:url value="/resenha/atualizar/predefinida"/>" enctype="multipart/form-data" method="post">				
 			
 			<table>
 			<tr>
@@ -84,26 +80,15 @@
 			</td>			
 			<td>
 				<input type="hidden" name="resenha.uuid" value="${resenha.uuid}"/>
-				<input type="hidden" name="resenha.imagem.nome" value="${resenha.imagem.nome}"/>
-				<input type="hidden" name="resenha.imagem.id" value="${resenha.imagem.id}"/>
-				<input type="hidden" name="resenha.imagem.caminho" value="${resenha.imagem.caminho}"/>
-				<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
-				
-				<div id="divIdResenha">				
-				<h3>C&oacute;digo da Resenha</h3>
-				<input id="resenhaId" type="text" class="form-control backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
-				</div>
-				
-				<h3>Categoria: <span id="btCadastrarCategoriaResenhaEdt" class="azulClaro">${resenha.categoria.descricao}</span></h3>						
+						
+				<h3><span id="btCadastrarCategoriaResenhaEdt" class="azulClaro">${resenha.categoria.descricao}</span></h3>						
 										
 				<h3>T&iacute;tulo</h3>
 				<input type="text" class="form-control" name="resenha.titulo" value="${resenha.titulo}" required="required" readonly="readonly"/>
 					
 				<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
 				<input type="text" class="form-control" name="resenha.autor" value="${resenha.autor}" required="required" readonly="readonly"/>
-				
-				<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
-				<textarea class="form-control" rows="5" name="resenha.url" required="required" readonly="readonly">${resenha.url}</textarea>
+							
 			</td>
 			</tr>
 			</table>
@@ -116,7 +101,7 @@
 			</label>
 					
 			<p class="paddingPadrao">
-			<input id="btEditarResenha" type="submit" value="atualizar" class="btn btn-success">
+			<input type="submit" value="atualizar" class="btn btn-success">
 			</p>
 			
 			<hr>			
@@ -131,7 +116,7 @@
 		</td>
 	</tr>
 </table>
-
+</c:if>
 </div> <!-- div center -->
 
 </div> <!-- main -->
