@@ -119,6 +119,7 @@ public class ResenhaDao implements ResenhaRepository {
 		try {			
 			Criteria criteria = session.createCriteria(Resenha.class);
 			criteria.add(Restrictions.eq("categoria.id", idCategoria));
+			criteria.add(Restrictions.eq("predefinida", false));
 			criteria.addOrder(Order.desc("postagem"));
 			return criteria.list();
 		} catch (Exception e) {
