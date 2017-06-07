@@ -7,8 +7,10 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Participante;
+import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
+import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -21,11 +23,17 @@ public class ConstelacaoController {
 	private Result result;
 	private ValidacaoService validacaoService;
 	private ConstelacaoRepository constelacaoRepository;
+	private IndexService indexService;
+	private SessaoCliente sessaoCliente;
 
 	public ConstelacaoController(
+			IndexService indexService,
+			SessaoCliente sessaoCliente,
 			Result result,
 			ValidacaoService validacaoService,
 			ConstelacaoRepository constelacaoRepository) {
+		this.indexService = indexService;
+		this.sessaoCliente = sessaoCliente;
 		this.result = result;
 		this.validacaoService = validacaoService;
 		this.constelacaoRepository = constelacaoRepository;
@@ -130,6 +138,13 @@ public class ConstelacaoController {
 	
 	@Get("/constelacao/cliente")
 	public void constelacaoCliente(){
+		try {
+			sessaoCliente = indexService.atualizar(sessaoCliente);
+			indexService.atualizarNews(result);			
+		} catch (Exception e) {
+			result.include("msgErro", e.getMessage());
+			result.redirectTo(IndexController.class).erro();
+		}
 		
 	}
 
