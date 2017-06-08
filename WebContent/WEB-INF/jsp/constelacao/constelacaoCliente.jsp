@@ -35,7 +35,7 @@
 			
 			<tbody>
 			<tr>			
-				<td align="center" width="400" class="ponteiro paddingPadrao"> 
+				<td align="center" width="400" class="ponteiro paddingPadrao" > 
 					<img src="${imagem}/praia-de-icarai-niteroi.jpg" alt="Constelação em Niterói" class="img-circle destaqueFoto" width="300px" height="300px" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
 				</td>
 			
@@ -43,8 +43,13 @@
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
 					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</h1>
 					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</h3>
+					<h3>Investimento:</h3>
+					<h5>${sessaoCliente.constelacao.formaPagamentoSimples}</h5>
 					</div>			
 				</td>			
+			</tr>
+			<tr>
+			<td colspan="2" align="center"><div class="separador"></div></td>
 			</tr>			
 			<tr>
 			
@@ -52,6 +57,8 @@
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
 					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</h1>
 					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</h3>
+					<h3>Investimento:</h3>
+					<h5>${sessaoCliente.constelacaoBarra.formaPagamentoSimples}</h5>
 					</div>
 				</td>
 			

@@ -116,4 +116,8 @@ public class Constelacao implements Serializable{
 		return data.replace("<h2>", "").replace("</h2>", "");
 	}
 	
+	public String getFormaPagamentoSimples() {
+		return formaPagamento.replace("<h3>", "").replace("</h3>", "");
+	}
+	
 }

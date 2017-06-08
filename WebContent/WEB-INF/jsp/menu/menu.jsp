@@ -373,8 +373,8 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoConstelacao" class="headerSlide">
-			<span  class="esquerda">Constelação Niterói</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constelação de Niterói.</span>
+			<span  class="esquerda">Constelação Niterói ${sessaoUsuario.constelacao.dataFormatada}</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do sobre constelação de Niterói.</span>
 			</td>
 		</tr>
 		<tr>
@@ -462,8 +462,8 @@
 	<table class="tamanhoDefault">
 		<tr>
 			<td id="btAbrirConteudoConstelacaoBarra" class="headerSlide">
-			<span  class="esquerda">Constelação Barra</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do dos textos da p&aacute;gina sobre constelação da Barra da Tijuca</span>
+			<span  class="esquerda">Constelação Barra ${sessaoUsuario.constelacaoBarra.dataFormatada}</span>
+			<span class="info azulClaro" >Altere o conte&uacute;do sobre constelação da Barra da Tijuca.</span>
 			</td>
 		</tr>
 		<tr>

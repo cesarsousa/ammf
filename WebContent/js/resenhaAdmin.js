@@ -97,7 +97,7 @@ function listarCategoriasDeResenha() {
 		url : $('#contexto').val() + "/resenha/categorias",
 		success : function(json){
 			$('#comboBoxCategoriasResenha').html('');			
-			for(var i = 0; i < json.length; i++){				
+			for(var i = 0; i < json.length; i++){
 				$('#comboBoxCategoriasResenha').append('<option value="' + json[i].id + '">' + json[i].descricao + '</option>');
 			}
 		},
@@ -124,7 +124,7 @@ function listarCategoriasDeResenhaEdicao() {
 	});	
 }
 
-function listarCategoriasDeResenha() {
+function listarCategoriasDeResenhaPredefinidas() {
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + "/resenha/categorias",
@@ -153,6 +153,7 @@ $(document).ready(function() {
 	
     listarCategoriasDeResenha();
     listarCategoriasDeResenhaEdicao();
+    listarCategoriasDeResenhaPredefinidas();
 	
 	
 	$('#divCadastrarCategoriaResenha, #iconeAguardeCadastrarCategoriaResenha, #divCategoriaResenhaEdt').hide();

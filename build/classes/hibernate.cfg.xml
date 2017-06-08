@@ -8,7 +8,7 @@
 		
 		<!-- <property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/amm3</property> -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property> -->
 						
 		<property name="hibernate.connection.username">quironps_user1</property>
 		<property name="hibernate.connection.password">user1</property>
