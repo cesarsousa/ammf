@@ -143,4 +143,15 @@ public class ResenhaDao implements ResenhaRepository {
 		}
 	}
 
+	@Override
+	public int getTotalResenhasPredefinidas() {
+		try {			
+			Criteria criteria = session.createCriteria(Resenha.class);
+			criteria.add(Restrictions.eq("predefinida", true));
+			return criteria.list().size();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
 }
