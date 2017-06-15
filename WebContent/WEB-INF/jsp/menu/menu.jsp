@@ -413,11 +413,17 @@
 				</div>
 				<textarea id="campoConteudoQuiron" class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacao.data}</textarea>				
 								
-				<h3>Localiza&ccedil;&atilde;o:</h3>
+				<h3>Localiza&ccedil;&atilde;o (Endere&ccedil;o):</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>				
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>
+				
+				<h3>Localiza&ccedil;&atilde;o (Google Maps):</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localMapa" >${sessaoUsuario.constelacao.localMapa}</textarea>				
 				
 				<h3>Link para compartilhar Google Maps:</h3>
 				<div class="alert alert-warning">
@@ -502,11 +508,17 @@
 				</div>
 				<textarea class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacaoBarra.data}</textarea>				
 								
-				<h3>Localiza&ccedil;&atilde;o:</h3>
+				<h3>Localiza&ccedil;&atilde;o (Endere&ccedil;o):</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacaoBarra.localizacao}</textarea>				
+				<textarea class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacaoBarra.localizacao}</textarea>
+				
+				<h3>Localiza&ccedil;&atilde;o (Google Maps):</h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localMapa" >${sessaoUsuario.constelacaoBarra.localMapa}</textarea>				
 				
 				<h3>Link para compartilhar Google Maps:</h3>
 				<div class="alert alert-warning">

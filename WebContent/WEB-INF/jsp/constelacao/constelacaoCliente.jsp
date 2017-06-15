@@ -43,6 +43,7 @@
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoNiteroi">
 					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacao.localEvento}</h1>
 					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.dataFormatada}</h3>
+					<h4 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacao.localizacaoSimples}</h4>
 					<h3>Investimento:</h3>
 					<h5>${sessaoCliente.constelacao.formaPagamentoSimples}</h5>
 					</div>			
@@ -57,6 +58,7 @@
 					<div class="ponteiro" data-toggle="modal" data-target="#modalConstelacaoBarra">
 					<h1 class="textoFotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localEvento}</h1>
 					<h3 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.dataFormatada}</h3>
+					<h4 class="texto2FotoConstelacao" align="center">${sessaoCliente.constelacaoBarra.localizacaoSimples}</h4>
 					<h3>Investimento:</h3>
 					<h5>${sessaoCliente.constelacaoBarra.formaPagamentoSimples}</h5>
 					</div>
@@ -112,6 +114,7 @@
 				<div class="fundoConstelacaoData" style="color: white;">
 					<h4 class="modal-title">${sessaoCliente.constelacao.data}</h4>
 					<p>${sessaoCliente.constelacao.localizacao}</p>
+					<p>${sessaoCliente.constelacao.localMapa}</p>
 					<h3>Investimento:</h3>
 					<b>${sessaoCliente.constelacao.formaPagamento}</b>
 				</div>
@@ -136,6 +139,7 @@
 				<div class="fundoConstelacaoData" style="color: white;">
 					<h4 class="modal-title">${sessaoCliente.constelacaoBarra.data}</h4>
 					<p>${sessaoCliente.constelacaoBarra.localizacao}</p>
+					<p>${sessaoCliente.constelacaoBarra.localMapa}</p>
 					<h3>Investimento:</h3>
 					<b>${sessaoCliente.constelacaoBarra.formaPagamento}</b>
 				</div>

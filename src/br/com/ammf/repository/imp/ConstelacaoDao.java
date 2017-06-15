@@ -40,6 +40,7 @@ private Session session;
 			textosConstelacao.setTextoFinal(constelacao.getTextoFinal());
 			textosConstelacao.setData(constelacao.getData());
 			textosConstelacao.setLocalizacao(constelacao.getLocalizacao());
+			textosConstelacao.setLocalMapa(constelacao.getLocalMapa());
 			textosConstelacao.setInformacao(constelacao.getInformacao());
 			textosConstelacao.setDadosPessoais(constelacao.getDadosPessoais());
 			textosConstelacao.setLinkMapa(constelacao.getLinkMapa());

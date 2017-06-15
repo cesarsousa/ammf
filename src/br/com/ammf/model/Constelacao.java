@@ -47,6 +47,9 @@ public class Constelacao implements Serializable{
 	@Column(length = 3000)
 	private String linkMapa;
 	
+	@Column(length = 3000)
+	private String localMapa;
+	
 	public long getId() {
 		return id;
 	}
@@ -112,12 +115,24 @@ public class Constelacao implements Serializable{
 		this.localEvento = localEvento;
 	}
 	
+	public String getLocalMapa() {
+		return localMapa;
+	}
+	
+	public void setLocalMapa(String localMapa) {
+		this.localMapa = localMapa;
+	}
+	
 	public String getDataFormatada() {
 		return data.replace("<h2>", "").replace("</h2>", "");
 	}
 	
 	public String getFormaPagamentoSimples() {
 		return formaPagamento.replace("<h3>", "").replace("</h3>", "");
+	}
+	
+	public String getLocalizacaoSimples() {
+		return localizacao.replace("<h3>", "").replace("</h3>", "");
 	}
 	
 }
