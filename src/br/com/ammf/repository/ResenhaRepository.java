@@ -28,4 +28,6 @@ public interface ResenhaRepository {
 
 	Resenha obterUltimaPublicacao();
 
+	int getTotalResenhasPredefinidas();
+
 }

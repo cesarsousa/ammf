@@ -12,6 +12,7 @@ import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.repository.UsuarioRepository;
@@ -29,6 +30,7 @@ public class MenuServiceImp implements MenuService{
 	private ConstelacaoRepository constelacaoRepository;
 	private ComentarioRepository comentarioRepository;
 	private UsuarioRepository usuarioRepository;
+	private ResenhaRepository resenhaRepository;
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
@@ -38,7 +40,8 @@ public class MenuServiceImp implements MenuService{
 			TerapeutaRepository terapeutaRepository,
 			ComentarioRepository comentarioRepository,
 			ConstelacaoRepository constelacaoRepository,
-			UsuarioRepository usuarioRepository){
+			UsuarioRepository usuarioRepository,
+			ResenhaRepository resenhaRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		/*this.depoimentoRepository = depoimentoRepository;
@@ -47,6 +50,7 @@ public class MenuServiceImp implements MenuService{
 		this.comentarioRepository = comentarioRepository;
 		this.constelacaoRepository = constelacaoRepository;
 		this.usuarioRepository = usuarioRepository;
+		this.resenhaRepository = resenhaRepository;
 	}
 
 	@Override
@@ -80,6 +84,11 @@ public class MenuServiceImp implements MenuService{
 		int totalComentariosResenhaPendentes = comentarioRepository.getTotalComentariosPendentes(Local.RESENHA);
 		if(totalComentariosResenhaPendentes > 0){
 			notificacoes.add("<b>Resenha:</b> "+ totalComentariosResenhaPendentes + " coment&aacute;rio(s) pendente(s) confirma&ccedil;&atilde;o");
+		}
+		
+		int totalResenhaPredefinidasPendentes = resenhaRepository.getTotalResenhasPredefinidas();
+		if(totalResenhaPredefinidasPendentes > 0){
+			notificacoes.add("<b>Resenha Predefinidas:</b> "+ totalResenhaPredefinidasPendentes + " resenha(s) pendente(s) atualiza&ccedil;&atilde;o");
 		}
 		
 		/*int totalDepoimentosPendentes = depoimentoRepository.getTotalDepoimentosPendentes();
