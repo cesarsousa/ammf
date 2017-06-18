@@ -92,8 +92,20 @@
 			</td>
 			</tr>
 			</table>
+			
+			<hr>
+			
+				<table class="tamanhoDefault" >
+					<tr align="center">
+					<td><span id="sizeSmallRespredef" style="font-size: small;" class="ponteiro" >A</span></td>
+					<td><span id="sizeMediumRespredef" style="font-size: medium;" class="ponteiro" >A</span></td>
+					<td><span id="sizeLargeRespredef" style="font-size: large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXLargeRespredef" style="font-size: x-large;" class="ponteiro" >A</span></td>
+					<td><span id="sizeXxLargeRespredef" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+					</tr>				
+				</table>
 						
-			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
+			<h5>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h5>				
 			<textarea class="form-control" rows="20" name="resenha.descricao" required="required">${resenha.descricao}</textarea>		
 			
 			<label class="labelForm2 paddingPadrao">
