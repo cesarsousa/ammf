@@ -391,15 +391,25 @@
 						<td class="infoTabelaConteudo">${resenha.dadoUrl}</td>
 						<td class="infoTabelaConteudo">${resenha.dadoPredefinida}</td>
 					<td class="infoTabelaConteudo" style="width: 160px;"><b>${resenha.dataFormatada}</b></td>
-					<td class="infoTabelaData" style="width: 80px;">
+					<td class="infoTabelaData">
+						<table>
+						<tr>
+						<td>
 						<a href="<c:url value="/resenha/editar/${resenha.uuid}" />" >
 							<img class="ponteiro icone" alt="editar" src="${imagem}/iconeEditarHover.png" title="editar"></a>
+						</td>
+						<td>
 						<a href="<c:url value="/resenha/remover/${resenha.uuid}" />" onclick="return confirmarExclusao()" >
 							<img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+						</td>
+						<td>
 						<c:if test="${resenha.predefinida}">
 						<a href="<c:url value="/resenha/notificar/predefinida/${resenha.uuid}" />" >
-							<img class="icone" alt="notificação" title="notificação" src="${imagem}/iconeEmail.png"></a>
+							<img class="icone" alt="notificação por email" title="notificação por email" src="${imagem}/iconeResenhaPreDefinida.png"></a>
 						</c:if>
+						</td>
+						</tr>
+						</table>
 					</td>
 				</tr>			
 			</c:forEach>		
