@@ -22,6 +22,8 @@
 
 <h2>RESENHA PREDEFINIDA</h2>
 
+<div id="pgResenhaPredef">
+
 <%-- <div align="center" class="divMenuOpcao">
 <table class="menuOpcao">
 <tr>
@@ -106,14 +108,14 @@
 				</table>
 						
 			<h5>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h5>				
-			<textarea class="form-control" rows="20" name="resenha.descricao" required="required">${resenha.descricao}</textarea>		
+			<textarea id="textDescricaoResenhaPredef" class="form-control" rows="20" name="resenha.descricao" required="required">${resenha.descricao}</textarea>		
 			
 			<label class="labelForm2 paddingPadrao">
 				<input type="checkbox" value="true" name="notificarAlteracao"/> Enviar e-mail notificando a alteração.
 			</label>
 					
 			<p class="paddingPadrao">
-			<input type="submit" value="atualizar" class="btn btn-success">
+			<input id="btAtualizarResenhaPredef" type="submit" value="atualizar" class="btn btn-success">
 			</p>
 			
 			<hr>			
@@ -130,6 +132,19 @@
 </table>
 </c:if>
 </div> <!-- div center -->
+</div>
+
+<div id="telaAguardeResenhaPredef">
+	<div align="center">						
+		<h3 class="paddingTelaAguarde">O sistema est&aacute; realizando as altera&ccedil;&otilde;es solicitadas.
+		<br/>
+		Esta opera&ccedil;&atilde;o pode levar segundos minutos porque v&aacute;rios emails podem estar sendo enviados...</h3>			
+		
+		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+		<br />
+		<br />			
+	</div>
+</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

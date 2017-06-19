@@ -46,6 +46,7 @@
 <script type="text/javascript" src="${javascript}/lojaAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/resenhaAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/resenhaCliente.js"></script>
+<script type="text/javascript" src="${javascript}/resenhaPredefinida.js"></script>
 <script type="text/javascript" src="${javascript}/linkAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/constelacaoAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/constelacaoCliente.js"></script>
