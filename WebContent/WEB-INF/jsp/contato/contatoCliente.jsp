@@ -25,6 +25,7 @@
 </c:if>
 </div>
 
+<div style="background-color: #eeeeee;">
 
 <div id="divPgContatoCliente" align="center" class="fundoPadrao fundoTelaContatoCliente">
 
@@ -163,6 +164,8 @@
 		<br />
 		<br />			
 	</div>
+</div>
+
 </div>
 
 </div> <!-- main -->
