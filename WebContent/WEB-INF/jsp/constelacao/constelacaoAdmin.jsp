@@ -374,18 +374,18 @@
 	  		<tr>
 		  		<th>Nome</th>
 		  		<th>E-mail</th>
-		  		<th>Telenone</th>
+		  		<th>Telefone</th>
 		  		<th>Ingresso</th>
 				<th>Constelou</th>
 				<th>Constelação</th>
-				<th>Obs.</th>
+				<th>Observação</th>
 				<th>Ações</th>
 	  		</tr>
   		</thead>
   		
   		<tbody>
   			<c:forEach items="${evento.participantes}" var="p">
-  			
+  			<tr>
   			<c:choose>
   			<c:when test="${p.inadimplente}">
   			<tr style="background-color: #FFC1C1">
@@ -393,28 +393,14 @@
   			<c:otherwise>
   			<tr>
   			</c:otherwise>
-  			</c:choose>
-  			
-  			
+  			</c:choose> 			
 	  			<td>${p.nome}</td>
 	  			<td>${p.email}</td>
 	  			<td>${p.celular}</td>
 	  			<td>${p.ingressoPago}</td>
 				<td>${p.participouEvento}</td>
 				<td>${p.constelacaoPaga}</td>
-				<td>
-					
-					<c:choose>
-						<c:when test="${p.comObservacao}">
-							<img class="icone" alt="${p.observacao}" title="${p.observacao}" src="${imagem}/icone_novo_depoimento.png"></img>
-						</c:when>
-						<c:otherwise>
-							<img class="icone" src="${imagem}/icone_novo_comentario.png"></img>
-						</c:otherwise>
-					</c:choose>
-					
-					
-				</td>
+				<td>${p.observacao}</td>
 				<td>
 				<a href="<c:url value="/constelacao/participante/alterar/${p.id}/${evento.id}" />" ><img class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png"></a>				
 				<a href="<c:url value="/constelacao/participante/remover/${p.id}/${evento.id}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
