@@ -14,6 +14,7 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -99,7 +100,8 @@ public class PessoaDao implements PessoaRepository {
 	@Override
 	public void remover(Pessoa pessoa) {
 		try {
-			session.delete(pessoa);
+			pessoa.setDataExclusao(DataUtils.getDateNow());
+			session.update(pessoa);
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}

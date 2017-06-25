@@ -39,6 +39,9 @@ public class Pessoa implements Serializable{
 	
 	@Enumerated(EnumType.STRING)
 	private Situacao situacao;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataExclusao;
 
 	public long getId() {
 		return id;
@@ -96,8 +99,21 @@ public class Pessoa implements Serializable{
 		this.situacao = situacao;
 	}
 	
+	public Date getDataExclusao() {
+		return dataExclusao;
+	}
+	
+	public void setDataExclusao(Date dataExclusao) {
+		this.dataExclusao = dataExclusao;
+	}
+	
 	public String getDataFormatada(){
 		return DataUtils.getStringDataHora(dataCadastro);
+	}
+	
+	public String getDataExclusaoFormatada(){
+		if(dataExclusao == null) return "";
+		return DataUtils.getStringDataHora(dataExclusao);
 	}
 	
 	public boolean isPendente(){

@@ -123,6 +123,7 @@
 					<th class="metadado">Data Cadastro</th>
 					<th class="metadado">Status</th>
 					<th class="metadado">Situa&ccedil;&atilde;o</th>
+					<th class="metadado">Data Exclus&atilde;o</th>
 					<th class="metadado">.</th>
 					<th class="metadado">.</th>
 					<th class="metadado">.</th>
@@ -137,6 +138,7 @@
 							<td class="infoTabelaConteudo">${pessoa.dataFormatada}</td>
 							<td class="infoTabelaConteudo ${pessoa.status}"><b>${pessoa.status}</b></td>
 							<td class="infoTabelaConteudo ${pessoa.situacao}"><b>${pessoa.situacao}</b></td>
+							<td class="infoTabelaConteudo">${pessoa.dataExclusaoFormatada}</td>
 							
 							<td>
 								<c:choose>
