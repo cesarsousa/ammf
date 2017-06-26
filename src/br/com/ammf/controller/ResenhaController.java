@@ -97,11 +97,16 @@ public class ResenhaController {
 			if(validacaoService.novaResenha(imagemResenhaPredefinida, resenha, result)){			
 				resenha.setPredefinida(true);
 				resenhaService.cadastrar(imagemResenhaPredefinida, resenha);
+				emailService.notificarResenhaPredefinidaParaAdmin(resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");			
 			}
 			result.forwardTo(this).resenhaAdmin();			
 		} catch (CadastroException e) {
 			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			result.redirectTo(this).resenhaAdmin();
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel enviar emails de notifica&ccedil;&atilde;o da predefinição da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMensagem());
 			result.redirectTo(this).resenhaAdmin();
 		}	
 	}

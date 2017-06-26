@@ -10,7 +10,7 @@ public interface PessoaRepository {
 
 	void cadastrar(Pessoa pessoa);
 	
-	void remover(Pessoa pessoa);
+	void remover(Pessoa pessoa, Situacao situacao);
 	
 	void confirmar(Pessoa pessoa);
 	
@@ -37,6 +37,8 @@ public interface PessoaRepository {
 	int totalCadastrosPendentes();
 
 	List<Pessoa> obter(long parseLong);
+
+	boolean jaFoiRemovida(String email);
 
 	
 

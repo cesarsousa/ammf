@@ -112,7 +112,7 @@ public class PessoaController {
 	@Get("/pessoa/remover/{uuid}/{destino}")
 	public void removerPessoa(String uuid, String destino){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);		
-		pessoaRepository.remover(pessoa);
+		pessoaRepository.remover(pessoa, Situacao.REMOVIDO_PELO_ADM);
 		result.include("msgCadastro", "Cadastro de '<b>" + pessoa.getNome() + "</b>' removido com sucesso.");
 		result.include("flagVisualizarPessoas", true);
 		
@@ -228,7 +228,7 @@ public class PessoaController {
 	@Get("/pessoa/removerAssinaturaEmail/{uuid}")
 	public void removerAssinaturaEmail(String uuid){		
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
-		if(pessoa == null){
+		if(pessoa.getSituacao() != Situacao.ATIVO){
 			result.include("pessoaInvalida", true);
 		}else{
 			result.include("pessoa", pessoa);
@@ -238,7 +238,7 @@ public class PessoaController {
 	@Get("/pessoa/confirmaRemocao/email/")
 	public void confirmarRemocaoEmail(String uuid){
 		Pessoa pessoa = pessoaRepository.obterPeloUuid(uuid);
-		pessoaRepository.remover(pessoa);		
+		pessoaRepository.remover(pessoa, Situacao.REMOVIDO_PELO_CLIENTE);		
 		result.redirectTo(this).removerAssinaturaEmail(uuid);		
 	}
 	

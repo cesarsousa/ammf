@@ -98,9 +98,10 @@ public class PessoaDao implements PessoaRepository {
 	}
 
 	@Override
-	public void remover(Pessoa pessoa) {
+	public void remover(Pessoa pessoa, Situacao situacao) {
 		try {
 			pessoa.setDataExclusao(DataUtils.getDateNow());
+			pessoa.setSituacao(situacao);
 			session.update(pessoa);
 		} catch (Exception e) {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
@@ -170,6 +171,19 @@ public class PessoaDao implements PessoaRepository {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+	
+	@Override
+	public boolean jaFoiRemovida(String email) {
+		try {
+			Criteria criteria = session.createCriteria(Pessoa.class);
+			criteria.add(Restrictions.eq("email", email));
+			criteria.add(Restrictions.ne("situacao", Situacao.ATIVO));
+			Pessoa pessoa = (Pessoa) criteria.uniqueResult();
+			return pessoa == null ? false : true;
+		} catch (Exception e) {
+			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
 
 	@Override
 	public int totalCadastrosPendentes() {
@@ -200,4 +214,5 @@ public class PessoaDao implements PessoaRepository {
 			 throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
 	}
+
 }

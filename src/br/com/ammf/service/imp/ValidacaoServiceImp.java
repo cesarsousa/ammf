@@ -132,11 +132,10 @@ public class ValidacaoServiceImp implements ValidacaoService {
 	}
 	
 	public boolean pessoa(boolean aceiteCadastro, Pessoa pessoa, Result result) {
-		/*pessoa.setNome(pessoa.getNome().trim());
-		pessoa.setEmail(pessoa.getEmail().trim());*/
-		
+				
 		boolean validada = true;
 		boolean emailCadastrado = false;
+		boolean emailRemovido = false;
 		if(pessoa.getNome() == null || pessoa.getNome().isEmpty()){
 			result.include("nomeEmBranco", "O nome deve ser informado<br/>");
 			validada = false;
@@ -150,11 +149,16 @@ public class ValidacaoServiceImp implements ValidacaoService {
 		}else{
 			emailCadastrado = pessoaRepository.jaEstaCadastrada(pessoa.getEmail());
 			if(emailCadastrado){
-				result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site<br/>");
-				result.include("emailJaCadastrado", true);
-				System.out.println("aqui");
-				//result.include("opcaoCadastro", true); // ??
-				validada = false;
+				emailRemovido = pessoaRepository.jaFoiRemovida(pessoa.getEmail());
+				if(emailRemovido){
+					result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site, porém está inativo. Caso deseje ativá-lo acesse a página de contato e envie uma mensagem solicitando a ativação<br/>");
+					result.include("emailJaCadastrado", true);
+					validada = false;
+				}else{
+					result.include("emailEmBranco", "O email " + pessoa.getEmail() + " j&aacute; est&aacute; cadastrado neste site<br/>");
+					result.include("emailJaCadastrado", true);
+					validada = false;
+				}
 			}
 		}
 		
