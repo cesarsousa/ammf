@@ -431,8 +431,8 @@
 			</td>	 
   		</tr>
   		<tr id="loaderEmail">
-  			<td align="right" colspan="8">
-  				Aguarde... <div class="loader"></div>
+  			<td align="center" colspan="8">
+  				<div class="loader"></div>
   			</td>
   		</tr>
   		

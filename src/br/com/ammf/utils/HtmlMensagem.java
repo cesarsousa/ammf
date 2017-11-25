@@ -1,5 +1,7 @@
 package br.com.ammf.utils;
 
+import java.util.Iterator;
+
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
@@ -10,6 +12,7 @@ import br.com.ammf.model.Livro;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
+import br.com.ammf.model.Participante;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
@@ -481,8 +484,10 @@ public class HtmlMensagem {
 		return mensagem
 				.replace("[LOCAL]", evento.getLocalEvento().toString())
 				.replace("[DATA]", evento.getPostagemFormatada())
+				.replace("[ENDERECO]", evento.getLocal())
 				.replace("[VALORINGRESSO]", String.valueOf(evento.getValorIngresso()))
 				.replace("[VALORCONSTELAR]", String.valueOf(evento.getValorParticipacao()))
+				.replace("[totalParticipantes]", String.valueOf(evento.getTotalParticipantes()))
 				.replace("<tbody>", getCorpoDaTabelaParticipantes(evento))
 				.replace("[capitalIngresso]", String.valueOf(evento.getCapitalIngresso()))
 				.replace("[constelacoesRealizadas]", String.valueOf(evento.getConstelacoesRealizadas()))
@@ -491,23 +496,26 @@ public class HtmlMensagem {
 				;
 	}
 
-	private CharSequence getCorpoDaTabelaParticipantes(Evento evento) {
+	private String getCorpoDaTabelaParticipantes(Evento evento) {
 		
-		/*
-		<tr>
-			<td>[nome]</td>
-			<td>[email]</td>
-			<td>[celular]</td>
-			<td>[ingressoPago]</td>
-		<td>[participouEvento]</td>
-		<td>[constelacaoPaga]</td>
-		<td>[observacao]</td>
-		</tr>
-	</tbody>
-	*/
+		StringBuilder mensagem = new StringBuilder("<tbody>");
 		
+		for(Participante participante : evento.getParticipantes()){
+			mensagem.append("<tr style=\"border: 1px\">");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getNome() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getEmail() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getCelular() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getIngressoPago() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getParticipouEvento() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getConstelacaoPaga() + "</td>");
+			mensagem.append("<td style=\"padding: 5px\">" + participante.getObservacao() + "</td>");
+			mensagem.append("</tr>");
+		}	
 		
-		return "";
+		String mensagemCorrigida = mensagem.toString();
+		mensagemCorrigida = mensagemCorrigida.replaceAll("null", "");
+		
+		return mensagemCorrigida;
 	}
 	
 }

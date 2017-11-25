@@ -8,6 +8,10 @@ text-decoration: none;
 border: 1px solid transparent;
 }
 
+table{
+	border: 1px;
+}
+
 a:hover{
 text-decoration: none;
 border: 1px solid #8B8484;
@@ -41,25 +45,29 @@ border: 1px solid #8B8484;
 <table bgcolor="#FFFFFF" width="100%">
 	<tr>
 		<td>
-		<p align="center" style="padding-top: 20px; text-decoration: none; font-size: x-large;"><b>WORKSHOP CONSTELAÇÃO</b></p>
-		<p align="center" style="padding-top: 20px; text-decoration: none; font-size: x-large;"><b>[LOCAL], em [DATA].</b></p>
+		<div align="center">
+		<h2>WORKSHOP CONSTELAÇÃO</h2>
+		<h3>[LOCAL], em [DATA].</h3>
+		</div>
+		<h3>[ENDERECO].</h3>
+		
 		<p align="left" style="font-size: large;">Valores</p>
 		<p><b>Ingresso:</b> R$ [VALORINGRESSO].</p>
 		<p><b>Constelação:</b> R$ [VALORCONSTELAR].</p>
 		
-		<table style="width: 100%">
-  		<thead>
+		<table style="width: 100%;">
+  		<thead style="color: white; background-color: gray;">
   			<tr>
-		  		<th colspan="7">[totalParticipantes] Participante(s) nesta constelação.</th>
+		  		<th colspan="7" style="padding: 10px">[totalParticipantes] Participante(s) nesta constelação.</th>
 	  		</tr>
-	  		<tr>
-		  		<th>Nome</th>
-		  		<th>E-mail</th>
-		  		<th>Telefone</th>
-		  		<th>Pagou Ingresso?</th>
-				<th>Constelou?</th>
-				<th>Pagpu Constelação?</th>
-				<th>Observação</th>
+	  		<tr style="padding: 5px">
+		  		<th style="padding: 10px">Nome</th>
+		  		<th style="padding: 10px">E-mail</th>
+		  		<th style="padding: 10px">Telefone</th>
+		  		<th style="padding: 10px">Pagou Ingresso?</th>
+				<th style="padding: 10px">Constelou?</th>
+				<th style="padding: 10px">Pagou Constelação?</th>
+				<th style="padding: 10px">Observação</th>
 	  		</tr>
   		</thead>
   		
@@ -67,12 +75,15 @@ border: 1px solid #8B8484;
   			
   		<tfoot>
   		<tr>
+  			<td colspan="7"><hr></td>
+  		</tr>
+  		<tr>
   			
   			<td colspan="3" align="left"><b>Totais Gerais</b></td>
   			<td><b>R$ [capitalIngresso]</b></td>
   			<td><b>[constelacoesRealizadas]</b></td>
   			<td><b>R$ [capitalConstelacao]</b></td>
-  			<td><b>Total Geral: R$ [capitalTotal]</b></td>
+  			<td style="font-size: x-large;"><i><b>Total Geral: R$ [capitalTotal]</b></i></td>
   		</tr>
   		</tfoot>
   		</table>
