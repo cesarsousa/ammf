@@ -2,14 +2,18 @@ package br.com.ammf.controller;
 
 import java.util.List;
 
+import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Evento;
+import br.com.ammf.model.Local;
+import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -23,17 +27,20 @@ public class ConstelacaoController {
 	private Result result;
 	private ValidacaoService validacaoService;
 	private ConstelacaoRepository constelacaoRepository;
+	private EmailService emailService;
 	private IndexService indexService;
 	private SessaoCliente sessaoCliente;
 
 	public ConstelacaoController(
 			IndexService indexService,
 			SessaoCliente sessaoCliente,
+			EmailService emailService,
 			Result result,
 			ValidacaoService validacaoService,
 			ConstelacaoRepository constelacaoRepository) {
 		this.indexService = indexService;
 		this.sessaoCliente = sessaoCliente;
+		this.emailService = emailService;
 		this.result = result;
 		this.validacaoService = validacaoService;
 		this.constelacaoRepository = constelacaoRepository;
@@ -134,6 +141,21 @@ public class ConstelacaoController {
 		result.include("evento", evento);
 		result.include("flagGerenciarConstelacao", true);
 		result.forwardTo(this).constelacaoAdmin();
+	}
+	
+	@Restrito
+	@Get("/constelacao/relatorio/email/{id}")
+	public void enviarRelatorioConstelacaoPorEmail(long id){
+		try {
+			Evento evento = constelacaoRepository.obter(id);
+			emailService.enviarRelatorioConstelacao(evento);
+			result.include("constelacaoMensagemSucesso", "Relatório da constelação enviado com sucesso");
+			result.forwardTo(this).constelacaoAdmin();
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("constelacaoMensagemErro", "Erro no envio do relatório:" + e.getMensagem());			
+			result.forwardTo(this).constelacaoAdmin();
+		}		
 	}
 	
 	@Get("/constelacao/cliente")

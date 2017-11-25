@@ -8,6 +8,11 @@
 			${constelacaoMensagemSucesso} 
 		</div>
 	</c:if>
+	<c:if test="${not empty constelacaoMensagemErro}">
+		<div class="msgBorder msgErro ponteiro closeClick">
+			${constelacaoMensagemErro} 
+		</div>
+	</c:if>
 
 	<c:if test="${not empty flagLinkConstelacaoCadastro}">
 		<div class="msgBorder msgErro ponteiro closeClick">
@@ -420,8 +425,18 @@
   			<td></td>
   			<td><b>R$ ${evento.capitalTotal}</b></td>
   		</tr>
-  		</tfoot>
-  		  		
+  		<tr id="botaoEmail">
+  			<td align="right" colspan="8">
+  				<a class="btn btn-warning" href="<c:url value="/constelacao/relatorio/email/${evento.id}" />">Enviar E-mail</a>
+			</td>	 
+  		</tr>
+  		<tr id="loaderEmail">
+  			<td align="right" colspan="8">
+  				Aguarde... <div class="loader"></div>
+  			</td>
+  		</tr>
+  		
+  		</tfoot>  		
 		</table>		
 		</c:otherwise>
 	</c:choose>

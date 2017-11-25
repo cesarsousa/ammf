@@ -6,6 +6,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -306,6 +307,19 @@ public class EmailServiceImp implements EmailService {
 				htmlMensagem.getAssuntoResenhaPredefinida(resenha),
 				mensagem);
 		
+		
+	}
+
+	@Override
+	public void enviarRelatorioConstelacao(Evento evento) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemRelatorioDe(evento);
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				administrador.getEmailNotificacao(),
+				htmlMensagem.getAssuntoRelatorioConstelacao(evento),
+				mensagem);
 		
 	}
 

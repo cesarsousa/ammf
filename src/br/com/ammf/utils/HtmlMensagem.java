@@ -3,6 +3,7 @@ package br.com.ammf.utils;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -468,6 +469,45 @@ public class HtmlMensagem {
 	
 	public String getAssuntoResenhaPredefinida(Resenha resenha) {
 		return "Site AlcindoMiguel.com - Nova resenha pré-definida - " + resenha.getCategoria().getDescricao() + " - " + resenha.getTitulo();
+	}
+	
+	public String getAssuntoRelatorioConstelacao(Evento evento) {
+		return "Site AlcindoMiguel.com - Relatório Constelação " + evento.getLocalEvento() + " em " + evento.getPostagemFormatada();
+	}
+
+	public String getMensagemRelatorioDe(Evento evento) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "relatorio_constelacao_admin.html");
+			
+		return mensagem
+				.replace("[LOCAL]", evento.getLocalEvento().toString())
+				.replace("[DATA]", evento.getPostagemFormatada())
+				.replace("[VALORINGRESSO]", String.valueOf(evento.getValorIngresso()))
+				.replace("[VALORCONSTELAR]", String.valueOf(evento.getValorParticipacao()))
+				.replace("<tbody>", getCorpoDaTabelaParticipantes(evento))
+				.replace("[capitalIngresso]", String.valueOf(evento.getCapitalIngresso()))
+				.replace("[constelacoesRealizadas]", String.valueOf(evento.getConstelacoesRealizadas()))
+				.replace("[capitalConstelacao]", String.valueOf(evento.getCapitalConstelacao()))
+				.replace("[capitalTotal]", String.valueOf(evento.getCapitalTotal()))
+				;
+	}
+
+	private CharSequence getCorpoDaTabelaParticipantes(Evento evento) {
+		
+		/*
+		<tr>
+			<td>[nome]</td>
+			<td>[email]</td>
+			<td>[celular]</td>
+			<td>[ingressoPago]</td>
+		<td>[participouEvento]</td>
+		<td>[constelacaoPaga]</td>
+		<td>[observacao]</td>
+		</tr>
+	</tbody>
+	*/
+		
+		
+		return "";
 	}
 	
 }

@@ -14,12 +14,19 @@ jQuery(document).ready(function() {
 	//$('#modalEditarParticipante').modal('show');
 	
 	fecharCamposConstelacao();
+	
 	$('#tabListagemConstelacao').show();
-		
+			
 	$('#btListarConstelacao').click(function(){
 		fecharCamposConstelacao();
 		$('#tabListagemConstelacao').slideDown(500);
 	});
+	
+	$('#loaderEmail').hide();
+	$('#botaoEmail').click(function(){
+		$('#botaoEmail').slideUp(500);
+		$('#loaderEmail').slideDown(500);		
+	});	
 	
 	if($('#flagListagemConstelacao').val()){
 		$('#tabListagemConstelacao').show();

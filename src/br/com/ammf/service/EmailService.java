@@ -4,6 +4,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Depoimento;
+import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
 import br.com.ammf.model.Link;
 import br.com.ammf.model.Livro;
@@ -48,6 +49,8 @@ public interface EmailService {
 	void notificarConstelacaoParaEmail(Constelacao constelacao, String destinatario) throws EmailException;
 
 	void notificarResenhaPredefinidaParaAdmin(Resenha resenha) throws EmailException;
+
+	void enviarRelatorioConstelacao(Evento evento) throws EmailException;
 
 
 }
