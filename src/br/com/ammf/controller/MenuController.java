@@ -11,6 +11,7 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.LogAplicacao;
+import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
@@ -274,6 +275,30 @@ public class MenuController {
 		textoRepository.atualizar(textoSessao);
 		sessaoUsuario.setTextoArtesOrientais(textoSessao);		
 		result.use(json()).withoutRoot().from(true).serialize();
+	}
+	
+	@Restrito
+	@Get("/menu/email")
+	public void enviarEmail(){}
+	
+	@Restrito
+	@Post("/menu/enviar/email")
+	public void enviarEmail(boolean todosOsContatos, Mensagem mensagem){
+		try {
+			
+			boolean emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
+			if(emailValido){
+				emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
+				result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
+			}
+			
+			result.redirectTo(this).enviarEmail();
+			
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("msgErroIndex", "Ocorreu um erro interno com nosso provedor de email. N&atilde;o foi poss&iacute;vel enviar sua mensagem .<br/>Por favor tente novamente dentro de alguns minutos. Grato pela aten&ccedil;&atilde;o e desculpem-nos o transtorno.");
+			result.redirectTo(IndexController.class).index();
+		}		
 	}
 	
 	@Restrito

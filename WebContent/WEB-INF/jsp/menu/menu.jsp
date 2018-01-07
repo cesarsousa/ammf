@@ -615,23 +615,7 @@
 				<div class="bordaInferior">
 				<h3>
 					Texto com informa&ccedil;&otilde;es gerais. (at&eacute; 2000 caracteres).
-				</h3>	
-			
-				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmall1Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMedium1Terapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLarge1Terapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLarge1Terapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLarge1Terapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-					
-					<td><span id="sizeSmallArea1Terapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumArea1Terapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeArea1Terapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeArea1Terapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeArea1Terapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table> -->						
+				</h3>										
 													
 				<textarea id="edtInfoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.informacao">${sessaoUsuario.terapeuta.informacao}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterInfoTerapeuta">2000</span></h4>	
@@ -642,22 +626,6 @@
 					Texto com as forma&ccedil;&otilde;es. (at&eacute; 2000 caracteres).
 				</h3>
 									
-				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmall2Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMedium2Terapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLarge2Terapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLarge2Terapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLarge2Terapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-					
-					<td><span id="sizeSmallArea2Terapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumArea2Terapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeArea2Terapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeArea2Terapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeArea2Terapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table> -->						
-													
 				<textarea id="edtFormacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.formacao">${sessaoUsuario.terapeuta.formacao}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterFormacaoTerapeuta">2000</span></h4>	
 				</div>
@@ -669,22 +637,6 @@
 				
 				<span class="info azulClaro">Utilize o caracter ponto '.' para delimitar par&aacute;grafos. <b>Para a &uacute;ltima &Aacute;rea de Atua&ccedil;&atilde;o N&Atilde;O utilize ponto.</b> </span>	
 			
-				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmall3Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMedium3Terapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLarge3Terapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLarge3Terapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLarge3Terapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-					
-					<td><span id="sizeSmallArea3Terapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumArea3Terapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeArea3Terapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeArea3Terapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeArea3Terapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table> -->						
-													
 				<textarea id="edtAtuacaoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.atuacao">${sessaoUsuario.terapeuta.atuacao}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterAtuacaoTerapeuta">2000</span></h4>	
 				</div>
@@ -696,22 +648,6 @@
 				
 				<span class="info azulClaro">Utilize o caracter ponto '.' para delimitar par&aacute;grafos. <b>Para a &uacute;ltima &Aacute;rea de Tratamento N&Atilde;O utilize ponto.</b> </span>	
 							
-				<!-- <table id="tabelaTerapeuta" class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmall4Terapeuta" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMedium4Terapeuta" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLarge4Terapeuta" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLarge4Terapeuta" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLarge4Terapeuta" style="font-size: xx-large;" class="ponteiro" >A</span></td>
-					
-					<td><span id="sizeSmallArea4Terapeuta" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumArea4Terapeuta" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeArea4Terapeuta" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeArea4Terapeuta" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeArea4Terapeuta" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table> -->						
-													
 				<textarea id="edtTratamentoTerapeuta" class="areaTexto h200 bordaPadrao" name="terapeuta.tratamento">${sessaoUsuario.terapeuta.tratamento}</textarea>
 				<h4>Caracteres restantes: <span id="contadorCaracterTratamentoTerapeuta">2000</span></h4>	
 				</div>
@@ -1009,6 +945,12 @@
 				<li>
 				<form action="<c:url value="/menu/loja" />" method="get" >
 				<input type="submit" value="Loja Virtual" class="buttonFooter">
+				</form>
+				</li>
+				
+				<li>
+				<form action="<c:url value="/menu/email" />" method="get" >
+				<input type="submit" value="E-mail" class="buttonFooter">
 				</form>
 				</li>
 				

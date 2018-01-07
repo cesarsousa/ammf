@@ -49,5 +49,7 @@ public interface EmailService {
 
 	void notificarResenhaPredefinidaParaAdmin(Resenha resenha) throws EmailException;
 
+	void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
+
 
 }

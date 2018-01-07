@@ -45,6 +45,8 @@ public interface ValidacaoService {
 
 	String cadastrarComentario(String uuidTextoBlog, String comentarioNome, String comentarioEmail, String comentarioConteudo);
 
-	boolean cadastrarEvento(Evento evento, Result result);	
+	boolean cadastrarEvento(Evento evento, Result result);
+
+	boolean ehEmailValido(String email, Result result);	
 
 }

@@ -2,7 +2,7 @@
 
 <%@ include file="/logAdmin.jsp" %>
 <%@ include file="/headerLib.jsp" %>
-<%@ include file="/headerSite.jsp" %>
+
 
 <div id="divPgAdmFaq" align="center" class="paddingPadrao">
 

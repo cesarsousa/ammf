@@ -469,5 +469,11 @@ public class HtmlMensagem {
 	public String getAssuntoResenhaPredefinida(Resenha resenha) {
 		return "Site AlcindoMiguel.com - Nova resenha pré-definida - " + resenha.getCategoria().getDescricao() + " - " + resenha.getTitulo();
 	}
+
+	public String getMensagemDeEmailSimples(String conteudo) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "enviar_email_simples.html");
+		
+		return mensagem.replace("[CONTEUDO]", conteudo);
+	}
 	
 }
