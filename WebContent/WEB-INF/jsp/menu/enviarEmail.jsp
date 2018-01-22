@@ -57,15 +57,15 @@
 					</div>
 					
 					<div class="paddingPadrao">
-					<input type="text" name="mensagem.email" class="form-control" placeholder="Destinatários (separe os emails com virgula)" maxlength="100"/>
+					<input type="text" name="email" class="form-control" placeholder="E-mail" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
-					<input type="text" name="mensagem.titulo" class="form-control" placeholder="Título" maxlength="100" required="required"/>
+					<input type="text" name="titulo" class="form-control" placeholder="Título" maxlength="100" required="required"/>
 					</div>
 										
 					<div class="paddingPadrao">
-					<textarea name="mensagem.conteudo" class="form-control" placeholder="Mensagem" rows="5" required="required"></textarea>
+					<textarea name="conteudo" class="form-control" placeholder="Mensagem" rows="5" required="required"></textarea>
 					</div>					
 					
 					<h3 align="right">

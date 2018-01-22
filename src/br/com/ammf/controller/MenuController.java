@@ -283,11 +283,16 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/enviar/email")
-	public void enviarEmail(boolean todosOsContatos, Mensagem mensagem){
+	public void enviarEmail(boolean todosOsContatos, String email, String titulo, String conteudo){
 		try {
+			Mensagem mensagem = new Mensagem(null, email, titulo, conteudo);
 			
-			boolean emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
-			if(emailValido){
+			boolean emailValido = false;
+			if(!email.isEmpty()) {
+				emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
+			}
+						
+			if(emailValido || email.isEmpty()){
 				emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
 				result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
 			}

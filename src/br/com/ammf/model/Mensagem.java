@@ -13,11 +13,11 @@ public class Mensagem {
 		this.conteudo = conteudo;
 	}
 	
-	public Mensagem(String nome, String email, String conteudo, String titulo) {
+	public Mensagem(String nome, String email, String titulo, String conteudo) {
 		this.nome = nome;
 		this.email = email;
-		this.conteudo = conteudo;
 		this.titulo = titulo;
+		this.conteudo = conteudo;
 	}
 
 	public String getNome() {
