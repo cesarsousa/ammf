@@ -52,20 +52,20 @@
 					
 					<div class="paddingPadrao">
 					<P>
-					<label class="labelForm2"><input type="checkbox" name="todosOsContatos" />  Enviar para todos os contatos do site.</label>
+					<label class="labelForm2"><input type="checkbox" name="todosOsContatos" />  Destinatários (todos os contatos do site).</label>
 					</P>
 					</div>
 					
 					<div class="paddingPadrao">
-					<input type="text" name="email" class="form-control" placeholder="E-mail" maxlength="100"/>
+					<input type="text" name="email" value="${email}" class="form-control" placeholder="E-mail (destinatário)" maxlength="100"/>
 					</div>
 					
 					<div class="paddingPadrao">
-					<input type="text" name="titulo" class="form-control" placeholder="Título" maxlength="100" required="required"/>
+					<input type="text" name="titulo" value="${titulo}" class="form-control" placeholder="Título" maxlength="100" required="required"/>
 					</div>
 										
 					<div class="paddingPadrao">
-					<textarea name="conteudo" class="form-control" placeholder="Mensagem" rows="5" required="required"></textarea>
+					<textarea name="conteudo" class="form-control" placeholder="Mensagem" rows="5" required="required">${conteudo}</textarea>
 					</div>					
 					
 					<h3 align="right" class="paddingPadrao">

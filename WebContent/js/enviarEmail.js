@@ -1,11 +1,11 @@
 
 $(document).ready(function() {
 	
-	$('#telaAguardeEnviarEmail').hide();
+	/*$('#telaAguardeEnviarEmail').hide();
 	
 	$('#btEnviarEmailAdmin').click(function(){
 		$('#divPgEnviarEmail').hide();
 		$('#telaAguardeEnviarEmail').show();
-	});
+	});*/
 			
 });

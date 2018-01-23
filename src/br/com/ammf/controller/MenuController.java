@@ -285,7 +285,7 @@ public class MenuController {
 	@Post("/menu/enviar/email")
 	public void enviarEmail(boolean todosOsContatos, String email, String titulo, String conteudo){
 		try {
-			
+						
 			if(!todosOsContatos && (email == null || email.isEmpty())) {
 				
 				result.include("msgErroEmail", "Destinatário não selecionado");
@@ -297,6 +297,11 @@ public class MenuController {
 				boolean emailValido = false;
 				if(!email.isEmpty()) {
 					emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
+					if(!emailValido) {
+						result.include("email", email);
+						result.include("titulo", titulo);
+						result.include("conteudo", conteudo);
+					}
 				}
 							
 				if(emailValido || email.isEmpty()){

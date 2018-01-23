@@ -682,7 +682,7 @@ public class ValidacaoServiceImp implements ValidacaoService {
 			return true;
 		} else {
 			result.include("msgErroEmail", "Email: '" + email
-					+ "' está com formato inaválido.");
+					+ "' está com formato inválido.");
 			return false;
 		}
 
