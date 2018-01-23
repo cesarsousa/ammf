@@ -285,19 +285,28 @@ public class MenuController {
 	@Post("/menu/enviar/email")
 	public void enviarEmail(boolean todosOsContatos, String email, String titulo, String conteudo){
 		try {
-			Mensagem mensagem = new Mensagem(null, email, titulo, conteudo);
 			
-			boolean emailValido = false;
-			if(!email.isEmpty()) {
-				emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
-			}
-						
-			if(emailValido || email.isEmpty()){
-				emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
-				result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
+			if(!todosOsContatos && (email == null || email.isEmpty())) {
+				
+				result.include("msgErroEmail", "Destinatário não selecionado");
+				
+			}else {
+				
+				Mensagem mensagem = new Mensagem(null, email, titulo, conteudo);
+				
+				boolean emailValido = false;
+				if(!email.isEmpty()) {
+					emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
+				}
+							
+				if(emailValido || email.isEmpty()){
+					emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
+					result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
+				}
 			}
 			
 			result.redirectTo(this).enviarEmail();
+			
 			
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));

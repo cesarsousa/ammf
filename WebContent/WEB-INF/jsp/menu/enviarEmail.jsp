@@ -40,7 +40,7 @@
 </c:if>
 
 <div class="tamanhoEdicaoIndex" align="left">	
-	<div class="jumbotron">
+	<div >
 	<div class="paddingPadrao">
 	
 	<form action="<c:url value="/menu/enviar/email"/>" method="post">		
@@ -68,7 +68,7 @@
 					<textarea name="conteudo" class="form-control" placeholder="Mensagem" rows="5" required="required"></textarea>
 					</div>					
 					
-					<h3 align="right">
+					<h3 align="right" class="paddingPadrao">
 					<input id="btEnviarEmailAdmin" type="submit" value="Enviar Email"  class="btn btn-success direita"/>
 					</h3>
 					
@@ -85,7 +85,7 @@
 
 </div> <!-- centralizacao -->
 
-<div id="telaAguardeEnviarEmail">
+<%-- <div id="telaAguardeEnviarEmail">
 	<div align="center">		
 		<h2>Enviar E-mail</h2>		
 		<h3 class="paddingTelaAguarde">Sua solicita&ccedil;&atilde;o est&aacute; sendo enviada. Esta opera&ccedil;&atilde;o pode levar alguns segundos. </h3>
@@ -93,7 +93,7 @@
 		<br />
 		<br />			
 	</div>
-</div>
+</div> --%>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
