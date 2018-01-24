@@ -317,7 +317,7 @@ public class EmailServiceImp implements EmailService {
 				enviarEmailSimples(pessoa.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
 			}
 		}
-		if(!mensagem.getEmail().isEmpty()){
+		if(mensagem.getEmail() != null && !mensagem.getEmail().isEmpty()){
 			enviarEmailSimples(mensagem.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
 		}
 	}	

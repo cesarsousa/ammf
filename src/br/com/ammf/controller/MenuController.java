@@ -295,7 +295,7 @@ public class MenuController {
 				Mensagem mensagem = new Mensagem(null, email, titulo, conteudo);
 				
 				boolean emailValido = false;
-				if(!email.isEmpty()) {
+				if(email != null && !email.isEmpty()) {
 					emailValido = validacaoService.ehEmailValido(mensagem.getEmail(), result);
 					if(!emailValido) {
 						result.include("email", email);
@@ -304,7 +304,7 @@ public class MenuController {
 					}
 				}
 							
-				if(emailValido || email.isEmpty()){
+				if(emailValido || todosOsContatos){
 					emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
 					result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
 				}
