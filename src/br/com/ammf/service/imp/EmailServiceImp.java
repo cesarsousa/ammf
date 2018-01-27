@@ -322,5 +322,30 @@ public class EmailServiceImp implements EmailService {
 				mensagem);
 		
 	}
+	
+	@Override
+	public void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException {
+		if(todosOsContatos){
+			List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+			for(Pessoa pessoa : pessoas){
+				enviarEmailSimples(pessoa.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+			}
+		}
+		if(mensagem.getEmail() != null && !mensagem.getEmail().isEmpty()){
+			enviarEmailSimples(mensagem.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+		}
+	}	
+
+	private void enviarEmailSimples(String destinatario, String titulo, String conteudo) throws EmailException {
+       String mensagem = htmlMensagem.getMensagemDeEmailSimples(conteudo);
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				destinatario,
+				titulo,
+				mensagem);
+		
+	}
 
 }

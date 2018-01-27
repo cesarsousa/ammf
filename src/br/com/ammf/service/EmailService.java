@@ -52,5 +52,6 @@ public interface EmailService {
 
 	void enviarRelatorioConstelacao(Evento evento) throws EmailException;
 
+	void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
 
 }

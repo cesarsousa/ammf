@@ -4,11 +4,19 @@ public class Mensagem {
 	
 	private String nome;
 	private String email;
+	private String titulo;
 	private String conteudo;
 	
 	public Mensagem(String nome, String email, String conteudo) {
 		this.nome = nome;
 		this.email = email;
+		this.conteudo = conteudo;
+	}
+	
+	public Mensagem(String nome, String email, String titulo, String conteudo) {
+		this.nome = nome;
+		this.email = email;
+		this.titulo = titulo;
 		this.conteudo = conteudo;
 	}
 
@@ -34,6 +42,14 @@ public class Mensagem {
 	
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 }
