@@ -120,6 +120,10 @@ public class Pessoa implements Serializable{
 		return Status.PENDENTE == this.status;
 	}
 	
+	public boolean isRemovidoPeloAdm(){
+		return Situacao.REMOVIDO_PELO_ADM == this.situacao;
+	}
+	
 	public boolean isInativa(){
 		return Situacao.INATIVO == this.situacao || Situacao.INATIVO_NOTIFICADO == this.situacao;
 	}

@@ -127,6 +127,7 @@
 					<th class="metadado">.</th>
 					<th class="metadado">.</th>
 					<th class="metadado">.</th>
+					<th class="metadado">.</th>
 					</tr>
 				</thead>					
 				<tbody>
@@ -141,31 +142,27 @@
 							<td class="infoTabelaConteudo">${pessoa.dataExclusaoFormatada}</td>
 							
 							<td>
-								<c:choose>
-									<c:when test="${pessoa.pendente}">
+									<c:if test="${pessoa.pendente}">
 										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
 										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar" title="confirmar">
 										</a>
-									</c:when>
-									<c:otherwise>
-										<img id="btNotificarPessoa" src="${imagem}/iconeConfirmarDisabled.png" class="icone20">
-									</c:otherwise>
-								</c:choose>
+									</c:if>
+							</td>
+							
+							<td>
+									<c:if test="${pessoa.removidoPeloAdm}">
+										<a href="<c:url value="/pessoa/confirmar/${pessoa.uuid}/${destino}" />">
+										<img id="btConfirmarPessoa" src="${imagem}/icone_confirmar.png" class="icone20 ponteiro" alt="confirmar" title="confirmar">
+										</a>
+									</c:if>
 							</td>
 							
 							<td>							
-								<c:choose>
-									<c:when test="${pessoa.inativa}">
+									<c:if test="${pessoa.inativa}">
 										<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
 										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacao.png" class="icone20 ponteiro" alt="reenviar notificacao" title="reenviar notificacao">
 										</a>
-									</c:when>
-									<c:otherwise>
-										<a href="<c:url value="/pessoa/notificar/${pessoa.uuid}/${destino}" />">
-										<img id="btNotificarPessoa" src="${imagem}/iconeNotificacaoBlack.png" class="icone20">
-										</a>										
-									</c:otherwise>
-								</c:choose>
+									</c:if>
 							</td>
 							
 							<td>							
