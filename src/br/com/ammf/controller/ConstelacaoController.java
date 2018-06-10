@@ -7,14 +7,15 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Evento;
-import br.com.ammf.model.Local;
-import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Participante;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
+import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
+import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -25,25 +26,31 @@ import br.com.caelum.vraptor.Result;
 public class ConstelacaoController {
 	
 	private Result result;
-	private ValidacaoService validacaoService;
-	private ConstelacaoRepository constelacaoRepository;
+	private SessaoCliente sessaoCliente;
+	private ValidacaoService validacaoService;	
 	private EmailService emailService;
 	private IndexService indexService;
-	private SessaoCliente sessaoCliente;
+	private PessoaService pessoaService;
+	private ConstelacaoRepository constelacaoRepository;
+	private PessoaRepository pessoaRepository;
 
 	public ConstelacaoController(
-			IndexService indexService,
-			SessaoCliente sessaoCliente,
-			EmailService emailService,
 			Result result,
+			SessaoCliente sessaoCliente,
+			IndexService indexService,
+			EmailService emailService,
 			ValidacaoService validacaoService,
-			ConstelacaoRepository constelacaoRepository) {
-		this.indexService = indexService;
-		this.sessaoCliente = sessaoCliente;
-		this.emailService = emailService;
+			PessoaService pessoaService,
+			ConstelacaoRepository constelacaoRepository,
+			PessoaRepository pessoaRepository) {
 		this.result = result;
+		this.sessaoCliente = sessaoCliente;
+		this.indexService = indexService;
+		this.emailService = emailService;
 		this.validacaoService = validacaoService;
+		this.pessoaService = pessoaService;
 		this.constelacaoRepository = constelacaoRepository;
+		this.pessoaRepository = pessoaRepository;
 	}
 	
 	@Restrito
@@ -100,9 +107,23 @@ public class ConstelacaoController {
 		constelacaoRepository.cadastrar(participante);		
 		Evento evento = constelacaoRepository.obter(participante.getEvento().getId());
 		
+		StringBuilder mensagemRetorno = new StringBuilder();		
+		boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
+		if(!emailCadastrado){
+			try {
+				Pessoa pessoa = pessoaService.obterPessoa(participante);
+				pessoaService.cadastrarComoAdm(pessoa);
+				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
+			} catch (EmailException e) {				
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+				mensagemRetorno.append("N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + participante.getEmail() + " referente ao cadastro<br/>");
+			}
+		}
+		
 		result.include("evento", evento);		
 		result.include("flagGerenciarConstelacao", true);
-		result.include("constelacaoMensagemCadastroSucesso", "<b>" + participante.getNome() + "</b> incluído com sucesso!");
+		mensagemRetorno.append("<b>" + participante.getNome() + "</b> incluído com sucesso!");
+		result.include("constelacaoMensagemCadastroSucesso", mensagemRetorno.toString());
 		result.forwardTo(this).constelacaoAdmin();
 	}
 	
@@ -110,7 +131,21 @@ public class ConstelacaoController {
 	@Restrito
 	@Post("/constelacao/participante/confirmarEditar")
 	public void confirmarEditarParticipante(Participante participante){
-		constelacaoRepository.atualizar(participante);		
+		constelacaoRepository.atualizar(participante);
+		
+		StringBuilder mensagemRetorno = new StringBuilder();
+		boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
+		if(!emailCadastrado){
+			try {
+				Pessoa pessoa = pessoaService.obterPessoa(participante);
+				pessoaService.cadastrarComoAdm(pessoa);
+				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
+			} catch (EmailException e) {				
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+				mensagemRetorno.append("N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + participante.getEmail() + " referente ao cadastro<br/>");
+			}
+		}
+		
 		result.redirectTo(this).gerenciarConstelacao(participante.getEvento().getId());		
 	}
 	

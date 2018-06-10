@@ -1,6 +1,7 @@
 package br.com.ammf.service.imp;
 
 import br.com.ammf.exception.DBException;
+import br.com.ammf.model.Participante;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
@@ -42,5 +43,16 @@ public class PessoaServiceImp implements PessoaService{
 		} catch (NumberFormatException e) {
 			return false;
 		}
+	}
+
+	@Override
+	public Pessoa obterPessoa(Participante participante) {
+		Pessoa pessoa = new Pessoa();
+		pessoa.setNome(participante.getNome());
+		pessoa.setEmail(participante.getEmail());
+		pessoa.setDataCadastro(DataUtils.getDateNow());
+		pessoa.setSituacao(Situacao.ATIVO);
+		pessoa.setStatus(Status.CONFIRMADO);
+		return pessoa;
 	}
 }
