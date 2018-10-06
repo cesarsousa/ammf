@@ -107,8 +107,14 @@ public class ConstelacaoController {
 		constelacaoRepository.cadastrar(participante);		
 		Evento evento = constelacaoRepository.obter(participante.getEvento().getId());
 		
-		StringBuilder mensagemRetorno = new StringBuilder();		
-		boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
+		StringBuilder mensagemRetorno = new StringBuilder();
+		
+		boolean emailCadastrado = true;
+		
+		if(participante.getEmail() != null && !participante.getEmail().isEmpty()){
+			emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
+		}
+		
 		if(!emailCadastrado){
 			try {
 				Pessoa pessoa = pessoaService.obterPessoa(participante);
