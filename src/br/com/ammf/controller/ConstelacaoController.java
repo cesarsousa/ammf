@@ -11,11 +11,13 @@ import br.com.ammf.model.Evento;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoCliente;
+import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
+import br.com.ammf.service.MenuService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
 import br.com.caelum.vraptor.Get;
@@ -28,6 +30,8 @@ public class ConstelacaoController {
 	
 	private Result result;
 	private SessaoCliente sessaoCliente;
+	private MenuService menuService;
+	private SessaoUsuario sessaoUsuario;
 	private ValidacaoService validacaoService;	
 	private EmailService emailService;
 	private IndexService indexService;
@@ -37,6 +41,8 @@ public class ConstelacaoController {
 
 	public ConstelacaoController(
 			Result result,
+			MenuService menuService,
+			SessaoUsuario sessaoUsuario,
 			SessaoCliente sessaoCliente,
 			IndexService indexService,
 			EmailService emailService,
@@ -45,6 +51,8 @@ public class ConstelacaoController {
 			ConstelacaoRepository constelacaoRepository,
 			PessoaRepository pessoaRepository) {
 		this.result = result;
+		this.menuService = menuService;
+		this.sessaoUsuario = sessaoUsuario;
 		this.sessaoCliente = sessaoCliente;
 		this.indexService = indexService;
 		this.emailService = emailService;
@@ -220,17 +228,21 @@ public class ConstelacaoController {
 			if(emailAdicional != null){
 				emailService.notificarConstelacaoParaEmail(constelacao, emailAdicional);
 			}
-			redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
+						
+			redirecionar("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			result.include("mensagem", "Textos sobre Constela&ccedil;&atilde;o atualizados com sucesso");			
-			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Constela&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+			redirecionar("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Constela&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}			
 	}
 	
-	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
+	private void redirecionar(String nomeMensagem, String mensagem) {
+		
+		sessaoUsuario = menuService.atualizar(sessaoUsuario);		
+		
 		result.include(nomeMensagem, mensagem);
-		result.forwardTo(MenuController.class).menu();
+		result.redirectTo(this).constelacaoAtualizacao();
 	}	
 
 }

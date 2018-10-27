@@ -4,8 +4,15 @@
 
 <%@ include file="/headerLib.jsp" %>
 
-
 <div align="center">
+
+<c:if test="${not empty mensagemErro}">
+	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">${mensagemErro}</div>
+</c:if>
+
+<c:if test="${not empty mensagem}">
+	<div id="boxMsgSucesso" class="msgBorder msgSucesso ponteiro closeClick">${mensagem}</div>
+</c:if>
 
 <table>
 <tr>
