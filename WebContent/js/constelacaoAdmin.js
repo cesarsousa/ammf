@@ -56,5 +56,11 @@ jQuery(document).ready(function() {
 	$('#btFecharGerenciarConstelacao').click(function(){		
 		$('#divAdmGerenciarConstelacao').slideUp(500);		
 	});
+	
+	
+	$('#telaAguardeEmailConstelacaoAtualizacao').hide();
+	$('#btFormCostelacaoNiteroiAtualizar').click(function(){
+		$('#telaAguardeEmailConstelacaoAtualizacao').slideDown(500);		
+	});
 			
 });

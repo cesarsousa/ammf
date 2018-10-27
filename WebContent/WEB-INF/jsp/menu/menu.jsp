@@ -62,7 +62,12 @@
 	</td>
 	</tr>
 	</table>
-
+	
+	
+	<form action="<c:url value="/constelacao/niteroi/atualizacao" />" method="get">
+		<input type="submit" value="Atualizar Constelação">
+	</form>
+	
 	<!-- EDITAR CONTEUDO SHIVA -->
 	<table class="tamanhoDefault">
 		<tr>

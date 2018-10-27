@@ -6,6 +6,7 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
+import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.Pessoa;
@@ -204,5 +205,32 @@ public class ConstelacaoController {
 		}
 		
 	}
+	
+	@Get("/constelacao/niteroi/atualizacao")
+	public void constelacaoAtualizacao(){}
+	
+	@Restrito
+	@Post("/constelacao/niteroi/atualizar")
+	public void atualizarTextoConstelacao(Constelacao constelacao, boolean constelacaoEnviarEmail, String emailAdicional){
+		try {
+			constelacaoRepository.salvarAtualizar(constelacao);
+			if(constelacaoEnviarEmail){
+				emailService.notificarConstelacaoParaPessoas(constelacao);
+			}
+			if(emailAdicional != null){
+				emailService.notificarConstelacaoParaEmail(constelacao, emailAdicional);
+			}
+			redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
+		} catch (EmailException e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			result.include("mensagem", "Textos sobre Constela&ccedil;&atilde;o atualizados com sucesso");			
+			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Constela&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
+		}			
+	}
+	
+	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {
+		result.include(nomeMensagem, mensagem);
+		result.forwardTo(MenuController.class).menu();
+	}	
 
 }

@@ -182,7 +182,6 @@ ul.tabs
 /******classe estatica******/
 .nav-total  {
 	height:60px;
-	background: url(img/bg-nav.jpg) repeat-x;
 }
 /******classe que sera adicionada fazendo flutuar o menu******/
 .f-nav  { 
