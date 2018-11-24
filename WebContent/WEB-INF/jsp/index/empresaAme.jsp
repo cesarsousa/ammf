@@ -7,14 +7,14 @@
 
 <div align="center">
 
-<%-- <c:if test="${not empty msgSucesso}">
+<div class="jumbotron">			
+<div id="logoAme"></div>			
+
+<c:if test="${not empty msgSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${msgSucesso} 
 	</div>
-</c:if> --%>
-
-<div class="jumbotron">			
-<div id="logoAme"></div>			
+</c:if>
 
 <div align="center">
 <div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
@@ -35,7 +35,13 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 <div align="center">
 <div class="  cardViewTextNoBackground ">
 <h1 align="center" style="color:rgb(29,23,82)">Curso</h1>
-<h2 style="color:rgb(29,23,82)">Curso  Livre de Formação Terapêutica em Terapia Transpessoal (Manejo pessoal e interpessoal da Consciência nos níveis, Inconsciente, Consciente e Super Consciente).</h2>
+
+<table style="width: 100%">
+<tr>
+<td width="80%" class="paddingPadrao"><h2 style="color:rgb(29,23,82)">Curso  Livre de Formação Terapêutica em Terapia Transpessoal (Manejo pessoal e interpessoal da Consciência nos níveis, Inconsciente, Consciente e Super Consciente).</h2></td>
+<td width="20%" class="paddingPadrao"><img class="ml-3" src="${imagem}/seloCurso.jpg" alt="selo de registro do curso"></td>
+</tr>
+</table>
 
 <h2 style="color:rgb(29,23,82)">Finalidade</h2>
 <div class="paddingPadrao">
@@ -117,7 +123,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <td>05 e 06 de Outubro</td>
     </tr> 
     <tr>
-      <th scope="row">Módulo 1</th>
+      <th scope="row">Módulo 9</th>
       <td>09 e 10 de Novembro</td>
     </tr>    
   </tbody>
@@ -159,6 +165,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 18 e 19 de Maio de 2019</p>
       <p style="font-size: small; text-align: justify;">Compreensão da Hipnose enquanto instrumento clínico com uma história bastante antiga no imaginário ocidental. Hipnose Clínica entendida como um instrumento de Diálogo Terapêutico Criativo (com práticas de exploração e treino de efetivação). As referências da antiguidade, da idade média, renascimento e moderna. As diferentes abordagens hipnóticas: Mesmerismo, Médica, Ericksoniana, Rápida, Instrumental e de Palco. As questões inerentes a influência, a produção e ao mercado. A questão da Objetificação. Os mapas de acesso ao Inconsciente e os gatilhos de dor e resgate. As manobras de troca imagética. A questão da fantasia e da verdade: Não confio mais na minha neurótica. As palavras e as coisas: o mapa não é o território. O equilíbrio do ser e as crises longas. Os cuidados com posições de manejo arrogantes.</p>
       </div>
+      </td>
     </tr>
     <tr>
       <td>
@@ -184,7 +191,34 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 17 e 18 de Agosto de 2019</p>
       <p style="font-size: small; text-align: justify;">As diferentes abordagens e mapas sobre as fantasias, o sonhar e os sonhos: Freudiana, Junguiana, Médica, Tradicional. Integração Narrativa de Sonhos e Fantasias (com práticas de grupo voltadas para didática de casos individualizados). A questão dos modelos da mente e o lugar da Consciência de Si, da Consciência como oscilação de percepção. A totalidade do Ser e a questão da dinâmica comunicacional Consciente, pré-Consciente e inconsciente. A questão linguística, da percepção e da memória. A questão do Espaço e do Pensamento e do Tempo e do Afeto. Os sonhos lúcidos. As fantasias dirigidas e sua relação com os processos hipnóticos. O manejo clínico das fantasias. Angústia, Ansiedade, Dor, Sofrimento, Doença e Morte. Os diferentes níveis da Consciência e a noção intrigante do Ser-Aí.</p>
       </div>
-    </tr>    
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="tdModulo">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 7</p>
+      <p style="font-size: medium; font-weight: bold;">Terapia de Vidas Passadas</p>
+      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 14 e 15 de Setembro de 2019</p>      
+      <p style="font-size: small; text-align: justify;">As noções tradicionais de Reencarnação, Renascimento e Transmigração. Um aprofundamento das questões sobre o desconhecido, a morte, o sentido da vida. Terapia de Vidas Passadas (com as considerações sobre bloqueios atuais e os caminhos criativos da energia pela via da fantasia e do diálogo terapêutico, reflexão sobre Morte, Renascimento, Reencarnação e Transmigração como visões de cura). A diferença entre vida, existência, significado e verdade. A noção de trauma. A perspectiva imagética de abordagem do trauma de uma forma aceitável pela consciência. As técnicas e o tempo de cada um. O campo de ação da Terapia de Vidas passadas e o respeito a diversidade de perspectivas e realidades humanas. A questão das abordagens estatísticas, qualitativas e significativas. Constituição de Grupos de Trabalho para Final de Curso. Instituição de Temáticas e Reflexão e Desempenho.</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdModulo">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 8</p>
+      <p style="font-size: medium; font-weight: bold;">Manejo de Mudança de Comportamento</p>
+      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 05 e 06 de Outubro de 2019</p>
+      <p style="font-size: small; text-align: justify;">A noção de comportamento, de reflexos condicionados e operantes, de mapas cognitivos e atenção dirigida. A importância das agendas de curto, médio e longo prazo. O manejo operacional dos focos e a noção de produtividade íntima. A instituição de planos e da organização do tempo e do movimento na realização dos desejos. A satisfação do bom como contraponto ao ótimo. As médias sociais e a Compreensão operacional da Persona. A noção de Estratégia, de Objetivo e de Método. Uma análise da autoimagem suficientemente boa em contraponto ao narcisismo como eixo existencial. Uma crítica ao Narcisismo das pequenas diferenças como contraponto a dinâmica da individuação. Apresentação dos desenvolvimentos de cada grupo para os trabalhos de final de curso, questões, escrita e reflexão em processo. A Metodologia da Construção dos Trabalhos científicos, da Forma e do contexto prático da Escritura de um Trabalho Monográfico.</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdModulo">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 9</p>
+      <p style="font-size: medium; font-weight: bold;">A Construção e a Formação do Terapeuta</p>
+      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 09 e 10 de Novembro de 2019</p>
+      <p style="font-size: small; text-align: justify;">O lugar da pesquisa e o lugar do manejo tecnológico de um instrumento clínico. Uma resistência a redução de um instrumento clínico a um território de mercado. A questão da formação continuada. O que é um Terapeuta? Como se constitui? Qual a ideia e a imagem que temos de um Terapeuta? Com que valores trabalha um Terapeuta? A Importância do Respeito ao Outro. A integração do Estranho. A compreensão dos processos de Estigmatização. Integração, Inclusão, Respeito, Compreensão, Diferenças. Trabalhos de Final de Curso em Grupo com Contribuições individuais (com ênfase em um entendimento no que é pessoal, e no que é do grupo ao qual pertencemos). A apresentação dinâmica de cada trabalho de final de curso. O que é uma avaliação? A Avaliação em Processo. Os índices sociais e os índices pessoais. Apresentação das propostas dos cursos complementares.</p>
+      </div>
+      </td>
+    </tr>     
   </tbody>
 </table>
 </div>
@@ -192,11 +226,98 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 </div> <!-- end jumbotrom -->
 
+<div class=" tamanhoEdicaoIndex  ">
+<h2>Informações Gerais</h2>
+<div style="text-align: justify;">
+<p>Por ser um curso teórico, prático e constituído por uma vivência terapêutica em seu escopo, não há a possibilidade de uma participação que seja parcial em cada módulo, portanto, eventuais problemas, como atrasos significativos, saídas durante o módulo, ou consideravelmente antes do seu fechamento, além de ausências, implicam necessariamente serem repostas em outra versão do mesmo curso, com o custo daí então advindo.</p>
+<p>Não há um compromisso fechado da nossa parte de que uma nova versão do curso, será disponível no ano seguinte àquele que está em processo. Há uma intenção de sequência e uma expectativa de possível reposição, não uma garantia.                                                                                                                                                                                                  </p>
+<p>Cada módulo se constitui de 16 (dezesseis horas) de curso presencial e mais 4 (quatro horas) de atividades complementares, somando 20 (vinte horas por módulo).                                                                                                                                                                                                                                                                     </p>
+<p>Serão oferecidas apostilas e material didático para cada Módulo.                                                                                                                                                                                                                                                                                                                                                                    </p>
+<p>A conclusão dos mesmos em sua totalidade é obrigatória para obtenção do Certificado de Conclusão com a carga horária total de 200 (duzentas horas).                                                                                                                                                                                                                                                                                 </p>
+<p>Cada módulo poderá ser feito em separado, e ao fechamento de cada um será oferecido um Certificado de Conclusão do Módulo em questão, com a carga horária de 20 (vinte horas).                                                                                                                                                                                                                                                      </p>
+<p>Ao final de cada módulo será solicitada uma avaliação do mesmo pelo aluno como instrumento de feedback didático e pedagógico.                                                                                                                                                                                                                                                                                                       </p>
+</div>
+</div>
+
+<div class="jumbotron" style="background-color: rgb(202,242,194);">			
+<div align="center">
+<div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
+<h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">Investimento</h2>
+<h3 align="center">De R$ 900,00 (novecentos reais) à R$ 9.000,00 (nove mil reais).</h3>
+
+<div class="paddingPadrao">
+<table class="tableModulos">
+  <tbody>
+    <tr>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 900</p>
+      <p style="font-size: small;">Valor de cada módulo pago até uma semana antes do mesmo.</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 1.000</p>
+      <p style="font-size: small;">Valor de Cada Módulo pago no dia do mesmo.</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 7.200</p>
+      <p style="font-size: small;">Valor Total pago à vista em dinheiro (20% de desconto).</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 7.200</p>
+      <p style="font-size: small;">Valor Total para Pacientes (20% de desconto).</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 7.650</p>
+      <p style="font-size: small;">Valor Total em cartão de Débito ou Crédito (15% de desconto).</p>
+      </div>
+      </td>
+      <td>
+      <div class="tdPrecoModulo">
+      <p style="font-size: x-large; font-weight: bold;">R$ 9.000</p>
+      <p style="font-size: small;">Valor Total do Curso (sem descontos).</p>
+      </div>
+      </td>
+    </tr>     
+  </tbody>
+</table>
+</div>
+
+<p align="center">Valores quando pagos em cartão de crédito podem ser parcelados em até doze vezes.</p>
+
+</div>
+</div>
+</div> <!-- end jumbotrom -->
 
 
+			<div align="right" class="tamanhoDefault">	
+			<table class="fundoConstelacaoDadosTerapeuta" style="color: black;">
+			<tr>
+			<td>
+			<div align="center" class="paddingPadrao">
+			<img src="${imagem}/owner2.jpg" alt="Alcindo Miguel Martins Filho" class="img-circle destaqueFoto" width="250px" height="250px">		
+			</div>
+			</td>
+			<td>
+			<h4>Dr. Alcindo Miguel Martins Filho</h4>
+			<h4>Doutor pela Universidade Federal Fluminense, possui Mestrado e Especializações em áreas afins. Graduado em Psicologia e em Ciências Sociais.</h4>
+			<h4>Com extensa atuação e formação nas áreas diretamente vinculadas à prática terapêutica, Educação, Terapia Comportamental Cognitiva - TCC, Hipnose, Constelações Sistêmicas, Acupuntura e Psicanálise.</h4>
+			<h4>Tem ampla vivência em diversos sistemas terapêuticos, relativos às áreas humanas além de um contínuo aperfeiçoamento nas práticas correlatas de meditação, atenção e conhecimento tradicional.</h4>
+			</td>
+			</tr>
+			</table>		
+			<div >			
+			</div>
+			</div>	
 	
 <div class="paddingPadrao">
-<div id="" class="msgAguarde"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif" /></div>
 <h3>Encaminhar este curso a um amigo!</h3>	
 <form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
   <div class="form-group mx-sm-3 mb-2">
@@ -209,12 +330,15 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </form>	
 </div>
 
+<p class="paddingPadrao" style="font-size: x-large;">
+<a href="<c:url value="/"></c:url>">Visite o Website.</a>
+</p>
+
 </div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->
 
-<div class="separador"></div>
 <div id="footer">
 <%@ include file="/footer.jsp" %>
 </div>

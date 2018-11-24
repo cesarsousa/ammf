@@ -2050,12 +2050,21 @@ table.tabLivro thead  tr td{
 	box-shadow: 2px 2px 2px #CCCCCC;
 }
 
-table.tableModulos tbody  tr td{
-	padding: 20px;
+.tdPrecoModulo {
+	padding: 10px;
+	width: 150px;
+	height: 150px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #CCCCCC;
 }
 
-
-
+table.tableModulos tbody  tr td{
+	padding: 10px;
+}
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
