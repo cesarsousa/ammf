@@ -19,8 +19,8 @@ public class HtmlMensagem {
 	
 	private LinksDoSite linksDoSite;
 	
-	public HtmlMensagem(boolean administrativo){
-		linksDoSite = new LinksDoSite(administrativo);
+	public HtmlMensagem(boolean dominioPadrao){
+		linksDoSite = new LinksDoSite(dominioPadrao);
 	}
 	
 	private static final String PATH = "./html_mensagem/";	

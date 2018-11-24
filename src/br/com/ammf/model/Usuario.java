@@ -46,6 +46,8 @@ public class Usuario implements Serializable{
 	
 	private boolean administrativo;
 	
+	private boolean dominioPadrao;
+	
 	public long getId() {
 		return id;
 	}
@@ -156,5 +158,13 @@ public class Usuario implements Serializable{
 	
 	public void setAdministrativo(boolean administrativo) {
 		this.administrativo = administrativo;
+	}
+	
+	public boolean isDominioPadrao() {
+		return dominioPadrao;
+	}
+	
+	public void setDominioPadrao(boolean dominioPadrao) {
+		this.dominioPadrao = dominioPadrao;
 	}
 }

@@ -4,11 +4,11 @@ public class LinksDoSite {
 		
 	
 
-	public LinksDoSite(boolean administrativo){
-		if(administrativo){
-			DOMINIO = "http://localhost:8080/ammf";
-		}else{
+	public LinksDoSite(boolean dominioPadrao){
+		if(dominioPadrao){
 			DOMINIO = "http://www.alcindomiguel.com.br";
+		}else{
+			DOMINIO = "http://localhost:8080/ammf";
 		}
 		
 		WEB_SITE = DOMINIO;

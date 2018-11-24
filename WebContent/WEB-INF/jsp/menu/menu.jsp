@@ -205,8 +205,28 @@
 							<input type="checkbox" name="usuario.administrativo" />
 						</c:otherwise>
 					</c:choose>				
-					Perfil Administrativo
-				</label>	
+					Perfil Administrativo (SMTP servidor Google)					
+				</label>
+				<ul>
+					<li>Marcar para utilizar SMTP servidor Google</li>
+					<li>Desmarcar para utilizar SMTP servidor Integrator</li>
+				</ul>
+				
+				<label class="labelForm2 h3">
+					<c:choose>
+						<c:when test="${sessaoUsuario.usuario.dominioPadrao}">
+							<input type="checkbox" name="usuario.dominioPadrao" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="usuario.dominioPadrao" />
+						</c:otherwise>
+					</c:choose>				
+					Domínio Padrão (domínio de produção)					
+				</label>
+				<ul>
+					<li>Marcar para utilizar domínio de email como produção</li>
+					<li>Desmarcar para utilizar domínio de email como localhost</li>
+				</ul>		
 								
 				<h3>Nome Completo:</h3>
 				<c:if test="${not empty usuarioNomeBranco}">
