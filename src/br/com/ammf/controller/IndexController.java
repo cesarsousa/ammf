@@ -53,6 +53,15 @@ public class IndexController {
 		result.redirectTo(this).index();
 	}
 	
+	@Get("/ame")
+	public void empresaAme(){}
+	
+	@Get("/ame/sugerir/curso")
+	public void empresaAmeSugerirCurso(String nome, String email){
+		result.include("msgSucesso", "O curso foi sugerido para " + email + "! :)");
+		result.forwardTo(this).empresaAme();
+	}
+	
 	@Get("/quiron")
 	public void quiron(){
 		try {
