@@ -2,17 +2,22 @@
 
 <%@ include file="/headerLib.jsp" %>
 
-<%-- <%@ include file="/headerSite.jsp" %> --%>
-
-
 <div align="center">
 
-<div class="jumbotron">			
+<div class="jumbotron">	
+<%@ include file="/headerSite.jsp" %>
+<%@ include file="/menuPrincipal.jsp" %>
+		
 <div id="logoAme"></div>			
 
 <c:if test="${not empty msgSucesso}">
 	<div class="msgBorder msgSucesso ponteiro closeClick">
 		${msgSucesso} 
+	</div>
+</c:if>
+<c:if test="${not empty msgErro}">
+	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">
+		${msgErro}
 	</div>
 </c:if>
 

@@ -1,7 +1,6 @@
 package br.com.ammf.utils;
 
 public class LinksDoSite {	
-		
 	
 
 	public LinksDoSite(boolean dominioPadrao){
@@ -42,6 +41,8 @@ public class LinksDoSite {
 		WEB_SITE_FAQ_CLIENTE_RESPOSTA = DOMINIO + "/cliente/faq/uuid";
 		
 		EDITAR_RESENHA_PREDEFINIDA = DOMINIO + "/resenha/editar/predefinida/uuid";
+		
+		SUGERIR_CURSO = DOMINIO + "/ame";
 	}
 	
 	public String DOMINIO;
@@ -77,5 +78,7 @@ public class LinksDoSite {
 	public String WEB_SITE_FAQ_CLIENTE_RESPOSTA;
 	
 	public String EDITAR_RESENHA_PREDEFINIDA;
+	
+	public String SUGERIR_CURSO;
 
 }

@@ -54,4 +54,6 @@ public interface EmailService {
 
 	void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
 
+	void enviarEmailSugestaoCurso(String nome, String email) throws EmailException;;
+
 }

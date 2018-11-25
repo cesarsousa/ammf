@@ -2,8 +2,13 @@ package br.com.ammf.controller;
 
 import org.apache.log4j.Logger;
 
+import br.com.ammf.exception.EmailException;
+import br.com.ammf.exception.ErroAplicacao;
+import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.SessaoCliente;
+import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
@@ -16,14 +21,17 @@ public class IndexController {
 	Logger logger = Logger.getLogger(IndexController.class);
 	
 	private IndexService indexService;
+	private EmailService emailService;
 	private SessaoCliente sessaoCliente;
 	private Result result;
 		
 	public IndexController(
 			IndexService indexService,
+			EmailService emailService,
 			SessaoCliente sessaoCliente,
 			Result result) {
 		this.indexService = indexService;
+		this.emailService = emailService;
 		this.sessaoCliente = sessaoCliente;
 		this.result = result;
 	}
@@ -58,7 +66,17 @@ public class IndexController {
 	
 	@Get("/ame/sugerir/curso")
 	public void empresaAmeSugerirCurso(String nome, String email){
-		result.include("msgSucesso", "O curso foi sugerido para " + email + "! :)");
+		if(email != null && !email.isEmpty()){
+			try {		
+				emailService.enviarEmailSugestaoCurso(nome, email);				
+			} catch (EmailException e) {
+				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+				result.include("msgErro", "Erro ao realizar a operação.");
+				result.forwardTo(this).empresaAme();
+			}	
+			result.include("msgSucesso", "O curso foi sugerido para " + email + "! :)");
+		}
+		
 		result.forwardTo(this).empresaAme();
 	}
 	

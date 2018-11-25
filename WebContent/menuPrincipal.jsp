@@ -16,23 +16,26 @@
 		<td align="center">
 			<ul id="menu">
 				<li>
-					<img id="imglinkHome" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/icone_home.png"/>
+					<a href="<c:url value="/"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/icone_home.png"/></a>
 					<a href="<c:url value="/"/>">Home</a></li>	
 				<li>
-					<img id="imglinkTerapeuta" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.png"/>
+					<a href="<c:url value="/index/terapeuta"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeFreud.png"/></a>
 					<a href="<c:url value="/index/terapeuta"/>">O Terapeuta</a></li>
 				<li>
-					<img id="imglinkPsicologia" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/>
+					<a href="<c:url value="/index/psicologia"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconePsicologiaHover.png"/></a>
 					<a href="<c:url value="/index/psicologia"/>">Psicologia</a></li>
 				<li>
-					<img id="imglinkEducacao" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeEducacaoHover.png"/>
+					<a href="<c:url value="/index/educacao"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeEducacaoHover.png"/></a>
 					<a href="<c:url value="/index/educacao"/>">Educa&ccedil;&atilde;o</a></li>
 				<li>
-					<img id="imglinkCultura" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeCulturaHover.png"/>
+					<a href="<c:url value="/index/cultura"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeCulturaHover.png"/></a>
 					<a href="<c:url value="/index/cultura"/>">Cultura</a></li>
 				<li>
-					<img id="imglinkOrientais" class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeOrientalHover.png"/>
+					<a href="<c:url value="/index/artesorientais"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/iconeOrientalHover.png"/></a>
 					<a href="<c:url value="/index/artesorientais"/>">Artes Orientais</a></li>
+				<li>
+					<a href="<c:url value="/ame"/>"><img class="imgMenuPrincipal clarear ponteiro" src="${imagem}/logoAme.png"/></a>
+					<a href="<c:url value="/ame"/>">Cursos</a></li>
 			</ul>
 		</td>
 	</tr>
@@ -49,6 +52,7 @@
 <form id="formClienteCadastro" action="<c:url value="/cliente/cadastro" />" method="get"></form>
 <form id="formClienteContato" action="<c:url value="/cliente/contato" />" method="get"></form>
 <form id="formClienteLojaVirtual" action="<c:url value="/cliente/loja" />" method="get"></form>
+<form id="formClienteAme" action="<c:url value="/ame" />" method="get"></form>
 
 <div align="center" class="nav-total">
 	<div class="separador"></div>

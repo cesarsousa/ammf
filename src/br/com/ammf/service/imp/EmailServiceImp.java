@@ -348,4 +348,17 @@ public class EmailServiceImp implements EmailService {
 		
 	}
 
+	@Override
+	public void enviarEmailSugestaoCurso(String nome, String email) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemSugestaoCurso(nome, email);
+				
+		this.email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				email,
+				htmlMensagem.getAssuntoSugestaoCurso(),
+				mensagem);
+		
+	}
+
 }

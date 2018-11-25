@@ -522,4 +522,20 @@ public class HtmlMensagem {
 		return mensagemCorrigida;
 	}
 	
+	public String getAssuntoSugestaoCurso() {
+		return "Site AlcindoMiguel.com - Curso de Terapia Transpessoal.";
+	}
+
+	public String getMensagemSugestaoCurso(String nome, String email) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "sugerir_curso_ame.html");
+		
+		if(nome != null && !nome.isEmpty()){
+			mensagem = mensagem.replace("[NOME]", nome);
+		}else{
+			mensagem = mensagem.replace("[NOME]", "Eu");
+		}
+		
+		return mensagem.replace("[EMAIL]", email).replace("[LINK]", linksDoSite.SUGERIR_CURSO);
+	}
+	
 }
