@@ -2,7 +2,7 @@
 
 <%@ include file="/headerLib.jsp" %>
 
-<div align="center">
+<div class="pgEmpresaAme" align="center">
 
 <div class="jumbotron">	
 <%@ include file="/headerSite.jsp" %>
@@ -141,7 +141,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 
 <div class="jumbotron">
 <div align="center">
-<h2 align="center" style="color:rgb(29,23,82) ">Módulos</h2>
+<h2 align="center" style="color:#151515; ">Módulos</h2>
 
 <div class="paddingPadrao">
 <table class="tableModulos">
@@ -151,7 +151,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 1</p>
       <p style="font-size: medium; font-weight: bold;">O Referencial Transpessoal</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 16 e 17 de Março de 2019</p>      
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 16 e 17 de Março de 2019</p>      
       <p style="font-size: small; text-align: justify;">Apresentação da Proposta de uma Terapia Transpessoal (com Práticas de Percepção da Consciência enquanto uma Dinâmica). A perspectiva da Ciência, Metodologia e Epistemologia. Os enfoques teóricos da Mente e suas definições. A Consciência como questão. Os Mapas da Mente. Vivências práticas sobre os níveis da mente. A perspectiva da Terapia Transpessoal. Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência. Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos. Níveis de Expressão, Manifestação e Compreensão da Consciência. Debates.</p>
       </div>
       </td>
@@ -159,7 +159,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 2</p>
       <p style="font-size: medium; font-weight: bold;">A Perspectiva de Prospecção e Diagnóstico pela via do Inconsciente</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 13 e 14 de Abril de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 13 e 14 de Abril de 2019</p>
       <p style="font-size: small; text-align: justify;">Radiestesia instrumental adaptada ao Modelo de Manejo Clínico (com Práticas de Diagnóstico de Fluxo e Ação Individual e Ambiental). A metodologia de Pesquisa, Observação e Trabalho com o Inconsciente Implicado. A questão da verificação, validação e construção de um diagnóstico em processo, da realização de uma imagem diagnóstica dinâmica, enquanto um objeto realizado a cada momento por uma relação dialógica de confiança, acolhimento e cuidado. Uma primeira abordagem ao Real, a Realidade, a Imagem interveniente enquanto uma construção social da Realidade. Uma análise do Ato, do Fato, da Natureza, do Humano, do Correto e do Justo.</p>
       </div>
       </td>
@@ -167,7 +167,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 3</p>
       <p style="font-size: medium; font-weight: bold;">A Hipnose Clínica</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 18 e 19 de Maio de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 18 e 19 de Maio de 2019</p>
       <p style="font-size: small; text-align: justify;">Compreensão da Hipnose enquanto instrumento clínico com uma história bastante antiga no imaginário ocidental. Hipnose Clínica entendida como um instrumento de Diálogo Terapêutico Criativo (com práticas de exploração e treino de efetivação). As referências da antiguidade, da idade média, renascimento e moderna. As diferentes abordagens hipnóticas: Mesmerismo, Médica, Ericksoniana, Rápida, Instrumental e de Palco. As questões inerentes a influência, a produção e ao mercado. A questão da Objetificação. Os mapas de acesso ao Inconsciente e os gatilhos de dor e resgate. As manobras de troca imagética. A questão da fantasia e da verdade: Não confio mais na minha neurótica. As palavras e as coisas: o mapa não é o território. O equilíbrio do ser e as crises longas. Os cuidados com posições de manejo arrogantes.</p>
       </div>
       </td>
@@ -177,7 +177,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 4</p>
       <p style="font-size: medium; font-weight: bold;">O Manejo da Morte</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 15 e 16 de Junho de 2019</p>      
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 15 e 16 de Junho de 2019</p>      
       <p style="font-size: small; text-align: justify;">Realização do entendimento da Morte como um dado essencial a compreensão de um sentido para a vida. As etapas da morte e do morrer. Manejo das Perspectivas da Morte e do Morrer (com os estágios da Morte e do Morrer e o manejo clínico da Velhice, Sofrimento, Dor e Morte). Os acessos necessários ao Campos dos Mortos e as restaurações e encaminhamentos essenciais a saúde. Morte natural, acidental, em sofrimento, a perspectiva de abordagem do suicídio. A questão do Luto necessário e patológico. O manejo do Luto. As imagens do confronto com o desconhecido. A perspectiva humana de que a morte não existe. A ideologia da Religião na Idade Média e a Ideologia da Ciência na Modernidade enquanto instrumentos sociais de confronto com o desconhecido. A questão dos modelos espirituais e a questão da Fé.</p>
       </div>
       </td>
@@ -185,7 +185,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 5</p>
       <p style="font-size: medium; font-weight: bold;">As Constelações Sistêmicas</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 13 e 14 de Julho de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 13 e 14 de Julho de 2019</p>
       <p style="font-size: small; text-align: justify;">A origem dos processos de Constelação. Constelações Sistêmicas compreendidas no âmbito do Ser Como Fluxo em um Flash (com práticas demonstrativas e exposição de manejo). As leis da Conservação da Energia, da Ordem e do Pertencimento. A questão das abordagens fenomenológica, estruturalista, sistêmica e das situações desconhecidas. O método de Constelação apropriado, e reordenado, como sendo uma prática terapêutica útil no âmbito da construção de uma clínica voltada a necessidade dos clientes. A questão das tribos e das famílias. O método da segmentação e desconstrução das estases imagéticas enraizadas na realização da Identidade e do Narcisismo. As Constelações Familiares, Sistêmicas, Mediais. A apropriação do trabalho de Constelações em múltiplos níveis de demanda social, cultural, econômica, política e biológica.</p>
       </div>
       </td>
@@ -193,7 +193,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 6</p>
       <p style="font-size: medium; font-weight: bold;">A integração dos Sonhos e das Fantasias</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 17 e 18 de Agosto de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 17 e 18 de Agosto de 2019</p>
       <p style="font-size: small; text-align: justify;">As diferentes abordagens e mapas sobre as fantasias, o sonhar e os sonhos: Freudiana, Junguiana, Médica, Tradicional. Integração Narrativa de Sonhos e Fantasias (com práticas de grupo voltadas para didática de casos individualizados). A questão dos modelos da mente e o lugar da Consciência de Si, da Consciência como oscilação de percepção. A totalidade do Ser e a questão da dinâmica comunicacional Consciente, pré-Consciente e inconsciente. A questão linguística, da percepção e da memória. A questão do Espaço e do Pensamento e do Tempo e do Afeto. Os sonhos lúcidos. As fantasias dirigidas e sua relação com os processos hipnóticos. O manejo clínico das fantasias. Angústia, Ansiedade, Dor, Sofrimento, Doença e Morte. Os diferentes níveis da Consciência e a noção intrigante do Ser-Aí.</p>
       </div>
       </td>
@@ -203,7 +203,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 7</p>
       <p style="font-size: medium; font-weight: bold;">Terapia de Vidas Passadas</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 14 e 15 de Setembro de 2019</p>      
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 14 e 15 de Setembro de 2019</p>      
       <p style="font-size: small; text-align: justify;">As noções tradicionais de Reencarnação, Renascimento e Transmigração. Um aprofundamento das questões sobre o desconhecido, a morte, o sentido da vida. Terapia de Vidas Passadas (com as considerações sobre bloqueios atuais e os caminhos criativos da energia pela via da fantasia e do diálogo terapêutico, reflexão sobre Morte, Renascimento, Reencarnação e Transmigração como visões de cura). A diferença entre vida, existência, significado e verdade. A noção de trauma. A perspectiva imagética de abordagem do trauma de uma forma aceitável pela consciência. As técnicas e o tempo de cada um. O campo de ação da Terapia de Vidas passadas e o respeito a diversidade de perspectivas e realidades humanas. A questão das abordagens estatísticas, qualitativas e significativas. Constituição de Grupos de Trabalho para Final de Curso. Instituição de Temáticas e Reflexão e Desempenho.</p>
       </div>
       </td>
@@ -211,7 +211,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 8</p>
       <p style="font-size: medium; font-weight: bold;">Manejo de Mudança de Comportamento</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 05 e 06 de Outubro de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 05 e 06 de Outubro de 2019</p>
       <p style="font-size: small; text-align: justify;">A noção de comportamento, de reflexos condicionados e operantes, de mapas cognitivos e atenção dirigida. A importância das agendas de curto, médio e longo prazo. O manejo operacional dos focos e a noção de produtividade íntima. A instituição de planos e da organização do tempo e do movimento na realização dos desejos. A satisfação do bom como contraponto ao ótimo. As médias sociais e a Compreensão operacional da Persona. A noção de Estratégia, de Objetivo e de Método. Uma análise da autoimagem suficientemente boa em contraponto ao narcisismo como eixo existencial. Uma crítica ao Narcisismo das pequenas diferenças como contraponto a dinâmica da individuação. Apresentação dos desenvolvimentos de cada grupo para os trabalhos de final de curso, questões, escrita e reflexão em processo. A Metodologia da Construção dos Trabalhos científicos, da Forma e do contexto prático da Escritura de um Trabalho Monográfico.</p>
       </div>
       </td>
@@ -219,7 +219,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 9</p>
       <p style="font-size: medium; font-weight: bold;">A Construção e a Formação do Terapeuta</p>
-      <p style="font-size: x-small; color: rgb(0,109,162);" align="right">Dias 09 e 10 de Novembro de 2019</p>
+      <p style="font-size: x-small; color: rgb(0,109,162); font-weight: bold;" align="right">Dias 09 e 10 de Novembro de 2019</p>
       <p style="font-size: small; text-align: justify;">O lugar da pesquisa e o lugar do manejo tecnológico de um instrumento clínico. Uma resistência a redução de um instrumento clínico a um território de mercado. A questão da formação continuada. O que é um Terapeuta? Como se constitui? Qual a ideia e a imagem que temos de um Terapeuta? Com que valores trabalha um Terapeuta? A Importância do Respeito ao Outro. A integração do Estranho. A compreensão dos processos de Estigmatização. Integração, Inclusão, Respeito, Compreensão, Diferenças. Trabalhos de Final de Curso em Grupo com Contribuições individuais (com ênfase em um entendimento no que é pessoal, e no que é do grupo ao qual pertencemos). A apresentação dinâmica de cada trabalho de final de curso. O que é uma avaliação? A Avaliação em Processo. Os índices sociais e os índices pessoais. Apresentação das propostas dos cursos complementares.</p>
       </div>
       </td>
@@ -243,6 +243,16 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 <p>Ao final de cada módulo será solicitada uma avaliação do mesmo pelo aluno como instrumento de feedback didático e pedagógico.                                                                                                                                                                                                                                                                                                       </p>
 </div>
 </div>
+
+<div class="jumbotron" style="background-color: #A9E2F3;">	
+
+<h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
+
+<h3 align="center">Hotel OK</h3>
+<p>Rua Senador Dantas, 24. Cinelândia - Centro - Rio de Janeiro</p>
+<p>Próximo ao Metrô da Cinelândia.</p>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.05608811575!2d-43.17887478503432!3d-22.91130198500953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f6229fb16ab%3A0xcd5abff0cee84fbb!2sHotel+OK!5e0!3m2!1spt-BR!2sbr!4v1543280317567" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 <div class="jumbotron" style="background-color: rgb(202,242,194);">			
 <div align="center">
@@ -302,6 +312,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div> <!-- end jumbotrom -->
 
 
+
 			<div align="right" class="tamanhoDefault">	
 			<table class="fundoConstelacaoDadosTerapeuta" style="color: black;">
 			<tr>
@@ -320,7 +331,10 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 			</table>		
 			<div >			
 			</div>
-			</div>	
+			</div>
+			
+			
+</div> <!-- end jumbotrom -->	
 	
 <div class="paddingPadrao">
 <h3>Encaminhar este curso a um amigo!</h3>	
