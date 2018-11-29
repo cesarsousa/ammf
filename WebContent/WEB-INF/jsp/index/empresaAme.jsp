@@ -292,6 +292,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdPrecoModulo">
       <p style="font-size: x-large; font-weight: bold;">R$ 7.650</p>
       <p style="font-size: small;">Valor Total em cartão de Débito ou Crédito (15% de desconto).</p>
+      <a target="blank" href="https://www.ameterapiaecursos.com/investimento" class="btn btn-success direita">Comprar</a>
       </div>
       </td>
       <td>
@@ -306,6 +307,11 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 
 <p align="center">Valores quando pagos em cartão de crédito podem ser parcelados em até doze vezes.</p>
+
+<h2 align="center">Para adquirir outros tipos de planos <a target="blank" href="https://www.ameterapiaecursos.com/contatos" class="btn btn-info">Entre em contato e solicite</a></h2>
+
+
+
 
 </div>
 </div>
