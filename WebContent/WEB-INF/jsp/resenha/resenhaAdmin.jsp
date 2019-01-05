@@ -348,6 +348,72 @@
 	</tr>
 </table>
 
+<!-- LISTAR TODOS OS COMENTARIOS -->
+<input id="flagComentariosResenha" type="hidden" value="${flagComentariosResenha}">
+<table id="tabComentariosResenhaAdmin" class="fullSize">	
+	<tr>
+	<td>
+	<div align="right" class="paddingPadrao">		
+	<input id="btFecharComentariosResenha" type="button" value="fechar" class="btn btn-danger">
+	</div>
+	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
+	<c:if test="${empty comentariosResenha}">
+	<h3 align="center" class="${cssCorTitulo}">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
+	</c:if>
+	<c:if test="${not empty comentariosResenha}">
+	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
+	<p class="info azulClaro letraGrande" align="center">Clique na resenha de referência para visualiz&aacute;-la</p>
+	<table class="display dataTable cardViewText superFooter bordaLateral">
+		<thead align="left">
+			<tr>
+				<th class="metadado">Local</th>
+				<th class="metadado">Resenha refer&ecirc;ncia</th>
+				<th class="metadado">Nome</th>
+				<th class="metadado">Email</th>
+				<th class="metadado">Conte&uacute;do</th>
+				<th class="metadado">Situa&ccedil;&atilde;o</th>
+				<th class="metadado" style="width: 160px;">Postagem</th>
+				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
+			</tr>
+		</thead>
+		<tbody>
+	 		<c:forEach items="${comentariosResenha}" var="comentario">
+				<tr class="zebrado">
+					<td class="infoTabelaConteudo"><b>${comentario.local}</b></td>
+					<td class="infoTabelaConteudo ponteiro" title="visualizar resenha">
+						<a id="goResenhaView" class="azulClaro letraMedia" href="#lerResenhaView" onclick="abrirResenhaView('${comentario.resenha.uuid}')">${comentario.resenha.titulo}</a>				
+					</td>
+					<td class="infoTabelaConteudo">${comentario.nome}</td>
+					<td class="infoTabelaConteudo">${comentario.email}</td>
+					<td class="infoTabelaConteudo">${comentario.conteudo}
+						<%-- <c:set var="origem"	value="${comentario.conteudo}"/>
+						<c:out value="${fn:substring(origem,0,50)}"/>... --%>
+					</td>
+					<td class="infoTabelaConteudo ${comentario.status}">${comentario.status}</td>
+					<td class="infoTabelaConteudo" style="width: 160px;">${comentario.dataHora}</td>
+					<td class="infoTabelaData" style="width: 80px;">						
+						<c:choose>
+							<c:when test="${comentario.confirmado}">
+								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="confirmado">
+							</c:when>
+							<c:otherwise>
+								<a href="<c:url value="/resenha/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
+								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="confirmar">
+								</a>
+							</c:otherwise>
+						</c:choose>					
+										
+						<a href="<c:url value="/resenha/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+					</td>
+				</tr>			
+			</c:forEach>		
+		</tbody>			
+	</table>
+	</c:if>	
+	</td>
+	</tr>
+</table>
+
 <!-- LISTAR TODOS OS TEXTOS -->
 <!-- submit via javascript -->
 <form id="formResenhasListarTodas" action="<c:url value="/resenha/listar" />" method="get"></form>
@@ -420,73 +486,6 @@
 	</tr>
 </table>
 </div>
-
-
-<!-- LISTAR TODOS OS COMENTARIOS -->
-<input id="flagComentariosResenha" type="hidden" value="${flagComentariosResenha}">
-<table id="tabComentariosResenhaAdmin" class="fullSize">	
-	<tr>
-	<td>
-	<div align="right" class="paddingPadrao">		
-	<input id="btFecharComentariosResenha" type="button" value="fechar" class="btn btn-danger">
-	</div>
-	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
-	<c:if test="${empty comentariosResenha}">
-	<h3 align="center" class="${cssCorTitulo}">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
-	</c:if>
-	<c:if test="${not empty comentariosResenha}">
-	<h3 align="center" class="${cssCorTitulo}">${tituloVerComentarios}</h3>
-	<p class="info azulClaro letraGrande" align="center">Clique na resenha de referência para visualiz&aacute;-la</p>
-	<table class="display dataTable cardViewText superFooter bordaLateral">
-		<thead align="left">
-			<tr>
-				<th class="metadado">Local</th>
-				<th class="metadado">Resenha refer&ecirc;ncia</th>
-				<th class="metadado">Nome</th>
-				<th class="metadado">Email</th>
-				<th class="metadado">Conte&uacute;do</th>
-				<th class="metadado">Situa&ccedil;&atilde;o</th>
-				<th class="metadado" style="width: 160px;">Postagem</th>
-				<th class="metadado" style="width: 80px;">A&ccedil;&atilde;o</th>			
-			</tr>
-		</thead>
-		<tbody>
-	 		<c:forEach items="${comentariosResenha}" var="comentario">
-				<tr class="zebrado">
-					<td class="infoTabelaConteudo"><b>${comentario.local}</b></td>
-					<td class="infoTabelaConteudo ponteiro" title="visualizar resenha">
-						<a id="goResenhaView" class="azulClaro letraMedia" href="#lerResenhaView" onclick="abrirResenhaView('${comentario.resenha.uuid}')">${comentario.resenha.titulo}</a>				
-					</td>
-					<td class="infoTabelaConteudo">${comentario.nome}</td>
-					<td class="infoTabelaConteudo">${comentario.email}</td>
-					<td class="infoTabelaConteudo">${comentario.conteudo}
-						<%-- <c:set var="origem"	value="${comentario.conteudo}"/>
-						<c:out value="${fn:substring(origem,0,50)}"/>... --%>
-					</td>
-					<td class="infoTabelaConteudo ${comentario.status}">${comentario.status}</td>
-					<td class="infoTabelaConteudo" style="width: 160px;">${comentario.dataHora}</td>
-					<td class="infoTabelaData" style="width: 80px;">						
-						<c:choose>
-							<c:when test="${comentario.confirmado}">
-								<img class="icone" alt="editar" src="${imagem}/iconeConfirmarDisabled.png" title="confirmado">
-							</c:when>
-							<c:otherwise>
-								<a href="<c:url value="/resenha/comentario/confirmar/${comentario.uuid}/${flagTitulo}" />">
-								<img class="ponteiro icone" alt="editar" src="${imagem}/icone_confirmar.png" title="confirmar">
-								</a>
-							</c:otherwise>
-						</c:choose>					
-										
-						<a href="<c:url value="/resenha/comentario/remover/${comentario.uuid}/${flagTitulo}" />" onclick="return confirmarExclusao()" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
-					</td>
-				</tr>			
-			</c:forEach>		
-		</tbody>			
-	</table>
-	</c:if>	
-	</td>
-	</tr>
-</table>
 
 <a name="lerResenhaView"></a>
 <div id="divResenhaView" class="fullSize paddingPadrao" align="center">

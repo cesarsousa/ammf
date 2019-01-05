@@ -48,6 +48,8 @@ public class Usuario implements Serializable{
 	
 	private boolean dominioPadrao;
 	
+	private boolean imagemPadrao;
+	
 	public long getId() {
 		return id;
 	}
@@ -166,5 +168,13 @@ public class Usuario implements Serializable{
 	
 	public void setDominioPadrao(boolean dominioPadrao) {
 		this.dominioPadrao = dominioPadrao;
+	}
+
+	public boolean isImagemPadrao() {
+		return imagemPadrao;
+	}
+
+	public void setImagemPadrao(boolean imagemPadrao) {
+		this.imagemPadrao = imagemPadrao;
 	}
 }

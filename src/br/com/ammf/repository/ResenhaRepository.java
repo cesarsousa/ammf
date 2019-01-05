@@ -12,7 +12,7 @@ public interface ResenhaRepository {
 	
 	List<Texto> listar(String parametro);
 
-	List<Resenha> listar(Boolean predefinida);
+	List<Resenha> listar(boolean predefinida);
 
 	void deletar(Resenha resenha);
 

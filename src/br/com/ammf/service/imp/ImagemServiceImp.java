@@ -30,10 +30,10 @@ public class ImagemServiceImp implements ImagemService {
 		
 		Usuario administrador = usuarioRepository.obterAdministrador();
 		
-		if(administrador.isAdministrativo()){
-			PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
-		}else{
+		if(administrador.isImagemPadrao()){
 			PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
+		}else{
+			PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");
 		}
 				
 		pastaImagens = new File(PASTA_IMAGEM_LIVRO);

@@ -48,7 +48,7 @@ public class ResenhaDao implements ResenhaRepository {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Resenha> listar(Boolean predefinida) {
+	public List<Resenha> listar(boolean predefinida) {
 		try {
 			Criteria criteria = session.createCriteria(Resenha.class);
             if (!predefinida) {
