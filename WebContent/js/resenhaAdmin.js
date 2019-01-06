@@ -144,6 +144,7 @@ function listarCategoriasDeResenhaPredefinidas() {
 $(document).ready(function() {
 	
 	hideAllResenhaFields();
+	$('#tabListagemResenhas').show();
 	
     $('.selectpicker').selectpicker({
         style: 'btn-info',

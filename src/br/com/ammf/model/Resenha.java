@@ -34,7 +34,7 @@ public class Resenha implements Serializable {
 	@Column(length=45)
 	private String uuid = UUID.randomUUID().toString();
 	
-	private Boolean predefinida;
+	private boolean predefinida;
 	
 	private String autor;
 	

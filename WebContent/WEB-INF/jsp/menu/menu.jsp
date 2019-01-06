@@ -205,7 +205,7 @@
 							<input type="checkbox" name="usuario.administrativo" />
 						</c:otherwise>
 					</c:choose>				
-					Perfil Administrativo (SMTP servidor Google)					
+					Perfil Administrativo					
 				</label>
 				<ul>
 					<li>Marcar para utilizar SMTP servidor Google</li>
@@ -221,11 +221,27 @@
 							<input type="checkbox" name="usuario.dominioPadrao" />
 						</c:otherwise>
 					</c:choose>				
-					Domínio Padrão (domínio de produção)					
+					Domínio Padrão					
 				</label>
 				<ul>
-					<li>Marcar para utilizar domínio de email como produção</li>
-					<li>Desmarcar para utilizar domínio de email como localhost</li>
+					<li>Marcar para utilizar domínio link de email como produção</li>
+					<li>Desmarcar para utilizar domínio link de email como localhost</li>
+				</ul>
+				
+				<label class="labelForm2 h3">
+					<c:choose>
+						<c:when test="${sessaoUsuario.usuario.imagemPadrao}">
+							<input type="checkbox" name="usuario.imagemPadrao" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="usuario.imagemPadrao" />
+						</c:otherwise>
+					</c:choose>				
+					Imagem padrão					
+				</label>
+				<ul>
+					<li>Marcar para utilizar path de imagem do servidor de produção</li>
+					<li>Desmarcar para utilizar path de imagem em desenvolvimento</li>
 				</ul>		
 								
 				<h3>Nome Completo:</h3>
