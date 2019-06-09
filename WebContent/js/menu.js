@@ -31,7 +31,7 @@ function hidenCamposEdicaoPrincipal(){
 }
 
 function hidenIconesAjaxComSucesso(){
-	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal').hide();
+	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal, #iconeconstelacaoNiteroiData, #iconeconstelacaoNiteroiLocalizacao, #iconeconstelacaoNiteroiLocalMapa, #iconeconstelacaoNiteroiLinkMapa, #iconeconstelacaoNiteroiInformacao, #iconeconstelacaoNiteroiDadosPessoais').hide();
 }
 
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
 	
 	hidenIconesAjaxComSucesso();
 
-	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
+	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiLinkMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
 		atualizarConstelacaoNiteroi(this.id);		  
 	});	
 	
