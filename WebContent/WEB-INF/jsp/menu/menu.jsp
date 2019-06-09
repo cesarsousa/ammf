@@ -419,80 +419,77 @@
 			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
 			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>
-			
-			<form action="<c:url value="/menu/constelacao/atualizar"/>" method="post" class="paddingPadrao">			
 				
 				<h3>Local do Evento:</h3>
-				<input type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacao.localEvento}"/>
+				
+				<input id="constelacaoNiteroiLocalEvento" type="text" class="form-control" name="constelacao.localEvento" value="${sessaoUsuario.constelacao.localEvento}" readonly="readonly"/>
 											
-				<h3>Texto Inicial:</h3>
+				<h3>Texto Inicial:<img id="iconeconstelacaoNiteroiTextoInicial" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
+				<textarea id="constelacaoNiteroiTextoInicial" class="form-control" rows="10" name="constelacao.textoInicial" >${sessaoUsuario.constelacao.textoInicial}</textarea>				
 								
-				<h3>Forma de Pagamento:</h3>
+				<h3>Forma de Pagamento:<img id="iconeconstelacaoNiteroiFormaPagamento" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
+				<textarea id="constelacaoNiteroiFormaPagamento" class="form-control" rows="10" name="constelacao.formaPagamento" >${sessaoUsuario.constelacao.formaPagamento}</textarea>				
 								
-				<h3>Texto Final:</h3>
+				<h3>Texto Final:<img id="iconeconstelacaoNiteroiTextoFinal" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
+				<textarea id="constelacaoNiteroiTextoFinal" class="form-control" rows="10" name="constelacao.textoFinal" >${sessaoUsuario.constelacao.textoFinal}</textarea>				
 								
 				<h3>Data: Este texto define parte do título do e-mail</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacao.data}</textarea>				
+				<textarea id="constelacaoNiteroiData" class="form-control" rows="5" name="constelacao.data" >${sessaoUsuario.constelacao.data}</textarea>				
 								
 				<h3>Localiza&ccedil;&atilde;o (Endere&ccedil;o):</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>
+				<textarea id="constelacaoNiteroiLocalizacao" class="form-control" rows="10" name="constelacao.localizacao" >${sessaoUsuario.constelacao.localizacao}</textarea>
 				
 				<h3>Localiza&ccedil;&atilde;o (Google Maps):</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.localMapa" >${sessaoUsuario.constelacao.localMapa}</textarea>				
+				<textarea id="constelacaoNiteroiLocalMapa" class="form-control" rows="10" name="constelacao.localMapa" >${sessaoUsuario.constelacao.localMapa}</textarea>				
 				
 				<h3>Link para compartilhar Google Maps:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Gere esse link pelo Google Maps.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="3" name="constelacao.linkMapa" >${sessaoUsuario.constelacao.linkMapa}</textarea>				
+				<textarea id="constelacaoNiteroiLinkMapa" class="form-control" rows="3" name="constelacao.linkMapa" >${sessaoUsuario.constelacao.linkMapa}</textarea>				
 				
 								
 				<h3>Informa&ccedil;&otilde;es:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
+				<textarea id="constelacaoNiteroiInformacao" class="form-control" rows="10" name="constelacao.informacao" >${sessaoUsuario.constelacao.informacao}</textarea>				
 								
 				<h3>Dados Pessoais:</h3>
 				<div class="alert alert-warning">
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
+				<textarea id="constelacaoNiteroiDadosPessoais" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
 								
 				<br>
-				<input id="cadastroClienteNome" type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
-																
-				<div class="checkbox" align="right">
-				    <label>
-				      <input type="checkbox" name="constelacaoEnviarEmail"> Enviar e-mail da constela&ccedil;&atilde;o para as pessoas.
-				    </label>
-				  </div>
-								
-				<p class="paddingPadrao">
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="btn btn-success direita" >			
+				
+				<p>
+				<input id="constelacaoNiteroiEmailAdicional" type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
+                <input id="constelacaoNiteroiEnviarEmail" type="button" class="btn btn-success direita" value="Enviar e-mail da constela&ccedil;&atilde;o para as pessoas">
+			    <input id="btFecharConteudoConstelacaoRodape" type="button" class="btn btn-danger direita" value="fechar">
 				</p>
-			</form>			
+				
+				<!-- <p class="paddingPadrao">
+				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="btn btn-success direita" >			
+				</p> -->
 			</div>
 			</td>
 		</tr>

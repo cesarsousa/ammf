@@ -1,7 +1,39 @@
 
+function atualizarConstelacaoNiteroi(elemento){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/menu/constelacao/atualizar",
+		data:{
+			"constelacao.localEvento" : $('#constelacaoNiteroiLocalEvento').val(),
+			"constelacao.textoInicial" : $('#constelacaoNiteroiTextoInicial').val(),
+			"constelacao.formaPagamento" : $('#constelacaoNiteroiFormaPagamento').val(),
+			"constelacao.textoFinal" : $('#constelacaoNiteroiTextoFinal').val(),
+			"constelacao.data" : $('#constelacaoNiteroiData').val(),
+			"constelacao.localizacao" : $('#constelacaoNiteroiLocalizacao').val(),
+			"constelacao.localMapa" : $('#constelacaoNiteroiLocalMapa').val(),
+			"constelacao.linkMapa" : $('#constelacaoNiteroiLinkMapa').val(),
+			"constelacao.informacao" : $('#constelacaoNiteroiInformacao').val(),
+			"constelacao.dadosPessoais" : $('#constelacaoNiteroiDadosPessoais').val(),
+			},
+		success : function(json){
+			var idIconeOk = "#icone" + elemento;
+			$(idIconeOk).show().fadeOut(4000);
+		},
+		error : function(){
+			alert("Erro :( Não foi possível atualizar dados da contelação!");				
+		}
+	});
+	
+}
+
 function hidenCamposEdicaoPrincipal(){
 	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia, #telaAguardeMenu').hide();
 }
+
+function hidenIconesAjaxComSucesso(){
+	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal').hide();
+}
+
 
 function fadeoutCamposEdicaoPrincipal(){
 	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').fadeOut();
@@ -27,9 +59,15 @@ function configurarCamposEdicaoPrincipal(elementoAbertura, elementoFechamento, t
 	});
 }
 
-$(document).ready(function() {	
+$(document).ready(function() {
 	
-	hidenCamposEdicaoPrincipal();			  
+	hidenCamposEdicaoPrincipal();	
+	
+	hidenIconesAjaxComSucesso();
+
+	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
+		atualizarConstelacaoNiteroi(this.id);		  
+	});	
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
@@ -111,7 +149,7 @@ $(document).ready(function() {
 	$('#btAbrirConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideDown(1000);		
 	});
-	$('#btFecharConteudoConstelacao').click(function(){
+	$('#btFecharConteudoConstelacao, #btFecharConteudoConstelacaoRodape').click(function(){
 		$('#conteudoCampoConstelacao').slideUp(1000);		
 	});
 	
@@ -226,5 +264,9 @@ $(document).ready(function() {
 	$('.emDesenv').click(function(){
 		alert("pagina em desenvolvimento...");
 	});
+	
+	
+	
+	
 	
 });

@@ -120,21 +120,24 @@ public class MenuController {
 	
 	@Restrito
 	@Post("/menu/constelacao/atualizar")
-	public void atualizarTextoConstelacao(Constelacao constelacao, boolean constelacaoEnviarEmail, String emailAdicional){
-		try {
+	public void atualizarTextoConstelacao(Constelacao constelacao){
+		/*try {*/
 			constelacaoRepository.salvarAtualizar(constelacao);
-			if(constelacaoEnviarEmail){
+			/*if(constelacaoEnviarEmail){
 				emailService.notificarConstelacaoParaPessoas(constelacao);
-			}
-			if(emailAdicional != null){
+			}*/
+			/*if(emailAdicional != null){
 				emailService.notificarConstelacaoParaEmail(constelacao, emailAdicional);
-			}
-			redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
-		} catch (EmailException e) {
+			}*/
+			
+			result.use(json()).withoutRoot().from("Contelação atualizada com sucesso").serialize();
+			
+			//redirecionarParaMenuAdm("mensagem", "Textos sobre constela&ccedil;&otilde;es atualizados com sucesso");	
+		/*} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 			result.include("mensagem", "Textos sobre Constela&ccedil;&atilde;o atualizados com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Constela&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
-		}			
+		}	*/		
 	}
 	
 	@Restrito

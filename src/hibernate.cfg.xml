@@ -7,9 +7,9 @@
 	<session-factory>
 		
 		<!-- DESENV >>> LOCAL -->
-		<!-- <property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property> -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property>
 		
 		<!-- DESENV >>> PRODUÇÃO -->
 		<!-- <property name="hibernate.connection.username">quironps_user1</property>
@@ -17,9 +17,9 @@
 		<property name="hibernate.connection.url">jdbc:mysql://184.107.67.241:3306/quironps_ammf</property> -->
 		
 		<!-- DEPLOY PRODUÇÃO -->				
-		<property name="hibernate.connection.username">quironps_user1</property>
+		<!-- <property name="hibernate.connection.username">quironps_user1</property>
 		<property name="hibernate.connection.password">user1</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/quironps_ammf</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/quironps_ammf</property> -->
 				
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

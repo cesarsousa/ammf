@@ -139,16 +139,18 @@ public class ConstelacaoController {
 	public void confirmarEditarParticipante(Participante participante){
 		constelacaoRepository.atualizar(participante);
 		
-		StringBuilder mensagemRetorno = new StringBuilder();
-		boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
-		if(!emailCadastrado){
-			try {
-				Pessoa pessoa = pessoaService.obterPessoa(participante);
-				pessoaService.cadastrarComoAdm(pessoa);
-				emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
-			} catch (EmailException e) {				
-				new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
-				mensagemRetorno.append("N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + participante.getEmail() + " referente ao cadastro<br/>");
+		if(participante.getEmail() != null && !participante.getEmail().isEmpty()){
+			StringBuilder mensagemRetorno = new StringBuilder();
+			boolean emailCadastrado = pessoaRepository.jaEstaCadastrada(participante.getEmail());
+			if(!emailCadastrado){
+				try {
+					Pessoa pessoa = pessoaService.obterPessoa(participante);
+					pessoaService.cadastrarComoAdm(pessoa);
+					emailService.notificarNovoCadastroFeitoPeloAdm(pessoa);
+				} catch (EmailException e) {				
+					new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+					mensagemRetorno.append("N&atilde;o foi poss&iacute;vel enviar o email de notifica&ccedil;&atilde;o para " + participante.getEmail() + " referente ao cadastro<br/>");
+				}
 			}
 		}
 		
