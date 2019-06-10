@@ -165,7 +165,7 @@ $(document).ready(function() {
 		enviarNotificacaoConstelacaoEm("NITEROI");
 	});
 	
-	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento').blur(function() {		
+	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento, #constelacaoBarraTextoFinal, #constelacaoBarraData, #constelacaoBarraLocalizacao, #constelacaoBarraLocalMapa, #constelacaoBarraLinkMapa, #constelacaoBarraInformacao, #constelacaoBarraDadosPessoais').blur(function() {		
 		atualizarConstelacaoBarra(this.id);		  
 	});
 	
