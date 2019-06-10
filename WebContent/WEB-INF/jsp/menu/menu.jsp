@@ -478,18 +478,23 @@
 				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
 				</div>
 				<textarea id="constelacaoNiteroiDadosPessoais" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacao.dadosPessoais}</textarea>				
-								
-				<br>
 				
-				<p>
-				<input id="constelacaoNiteroiEmailAdicional" type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
-                <input id="constelacaoNiteroiEnviarEmail" type="button" class="btn btn-success direita" value="Enviar e-mail da constela&ccedil;&atilde;o para as pessoas">
-			    <input id="btFecharConteudoConstelacaoRodape" type="button" class="btn btn-danger direita" value="fechar">
-				</p>
+				<br/>
 				
-				<!-- <p class="paddingPadrao">
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar" class="btn btn-success direita" >			
-				</p> -->
+				<div align="center">
+				<img id="aguardeNotificacaoConstelacaoNiteroi" alt="Aguarde" src="${imagem}/gif_aguarde.gif">
+				</div>
+				
+				<div id="msgSucessoAjaxNiteroi" class="msgBorderInterno msgSucesso ponteiro closeClick"></div>
+				<div id="msgErroAjaxNiteroi" class="msgBorderInterno msgErro ponteiro closeClick"></div>
+				
+				<div class="paddingPadrao">
+				<input id="constelacaoNiteroiEmailAdicional" type="email" class="form-control" placeholder="Enviar notificação da constelação para este e-mail">
+				</div>
+				
+				<div class="paddingPadrao">
+				<button id="constelacaoNiteroiEnviarEmails" class="btn btn-success" type="button">Enviar e-mail da constela&ccedil;&atilde;o para todas as pessoas</button>
+				</div>
 			</div>
 			</td>
 		</tr>

@@ -23,6 +23,54 @@ function atualizarConstelacaoNiteroi(elemento){
 			alert("Erro :( Não foi possível atualizar dados da contelação!");				
 		}
 	});
+}
+
+function enviarNotificacaoConstelacaoPara(local, email, campo){
+	
+	hidenCamposMensagemAjaxNiteroi();
+	$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
+	
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/menu/constelacao/notificar",
+		data:{
+			"local": local,
+			"email" : email
+			},
+		success : function(json){
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$(campo).val("");
+			$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+		},
+		error : function(){
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$(campo).val("");
+			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+		}
+	});
+	
+}
+
+function enviarNotificacaoConstelacaoEm(local){
+	
+	hidenCamposMensagemAjaxNiteroi();
+	$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
+	
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/menu/constelacao/notificar/todos",
+		data:{
+			"local": local
+			},
+		success : function(json){
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+		},
+		error : function(){
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+		}
+	});
 	
 }
 
@@ -32,6 +80,10 @@ function hidenCamposEdicaoPrincipal(){
 
 function hidenIconesAjaxComSucesso(){
 	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal, #iconeconstelacaoNiteroiData, #iconeconstelacaoNiteroiLocalizacao, #iconeconstelacaoNiteroiLocalMapa, #iconeconstelacaoNiteroiLinkMapa, #iconeconstelacaoNiteroiInformacao, #iconeconstelacaoNiteroiDadosPessoais').hide();
+}
+
+function hidenCamposMensagemAjaxNiteroi(){
+	$('#msgSucessoAjaxNiteroi, #msgErroAjaxNiteroi').hide();
 }
 
 
@@ -64,10 +116,29 @@ $(document).ready(function() {
 	hidenCamposEdicaoPrincipal();	
 	
 	hidenIconesAjaxComSucesso();
+	
+	$('#aguardeNotificacaoConstelacaoNiteroi').hide();
+	hidenCamposMensagemAjaxNiteroi();
 
 	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiLinkMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
 		atualizarConstelacaoNiteroi(this.id);		  
-	});	
+	});
+	
+	$('#constelacaoNiteroiEmailAdicional').blur(function(){
+		
+		var constelacaoNiteroiEmailAdicional = $('#constelacaoNiteroiEmailAdicional').val();
+		
+		if(constelacaoNiteroiEmailAdicional !== ""){
+			enviarNotificacaoConstelacaoPara("NITEROI", constelacaoNiteroiEmailAdicional, "#constelacaoNiteroiEmailAdicional");
+		}
+				
+	});
+	
+	$('#constelacaoNiteroiEnviarEmails').click(function(){
+		enviarNotificacaoConstelacaoEm("NITEROI");
+	});
+	
+	
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
@@ -149,7 +220,7 @@ $(document).ready(function() {
 	$('#btAbrirConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideDown(1000);		
 	});
-	$('#btFecharConteudoConstelacao, #btFecharConteudoConstelacaoRodape').click(function(){
+	$('#btFecharConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideUp(1000);		
 	});
 	

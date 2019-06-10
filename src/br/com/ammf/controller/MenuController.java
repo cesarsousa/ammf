@@ -10,6 +10,7 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Constelacao;
 import br.com.ammf.model.Local;
+import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
@@ -26,6 +27,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 @Resource
 public class MenuController {
@@ -39,6 +41,8 @@ public class MenuController {
 	private ConstelacaoRepository constelacaoRepository;
 	private ErroAplicacaoRepository erroAplicacaoRepository;
 	
+	private final Validator validation;
+	
 	public MenuController(
 			Result result,
 			MenuService menuService,
@@ -47,7 +51,8 @@ public class MenuController {
 			EmailService emailService,
 			TextoRepository textoRepository,			
 			ConstelacaoRepository constelacaoRepository,
-			ErroAplicacaoRepository erroAplicacaoRepository){
+			ErroAplicacaoRepository erroAplicacaoRepository,
+			Validator validation){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
@@ -56,6 +61,7 @@ public class MenuController {
 		this.textoRepository = textoRepository;
 		this.constelacaoRepository = constelacaoRepository;
 		this.erroAplicacaoRepository = erroAplicacaoRepository;
+		this.validation = validation;
 	}
 	
 	@Restrito
@@ -138,6 +144,30 @@ public class MenuController {
 			result.include("mensagem", "Textos sobre Constela&ccedil;&atilde;o atualizados com sucesso");			
 			redirecionarParaMenuAdm("mensagemErro", "N&atilde;o foi poss&iacute;vel enviar os emails de notifica&ccedil;&atilde;o para os clientes referente a atualiza&ccedil;&atilde;o do texto sobre Constela&ccedil;&atilde;o.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 		}	*/		
+	}
+	
+	@Restrito
+	@Get("/menu/constelacao/notificar")
+	public void notificarEmailConstelacao(String local, String email){
+		try {
+			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
+			emailService.notificarConstelacaoParaEmail(constelacao, email);
+			result.use(json()).withoutRoot().from("Contelação notificada com sucesso").serialize();
+		} catch (EmailException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Restrito
+	@Get("/menu/constelacao/notificar/todos")
+	public void notificarEmailConstelacao(String local){
+		try {
+			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
+			emailService.notificarConstelacaoParaPessoas(constelacao);
+			result.use(json()).withoutRoot().from("Contelação notificada com sucesso").serialize();
+		} catch (EmailException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Restrito
