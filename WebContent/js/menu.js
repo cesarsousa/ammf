@@ -25,6 +25,32 @@ function atualizarConstelacaoNiteroi(elemento){
 	});
 }
 
+function atualizarConstelacaoBarra(elemento){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/menu/constelacao/atualizar",
+		data:{
+			"constelacao.localEvento" : $('#constelacaoBarraLocalEvento').val(),
+			"constelacao.textoInicial" : $('#constelacaoBarraTextoInicial').val(),
+			"constelacao.formaPagamento" : $('#constelacaoBarraFormaPagamento').val(),
+			"constelacao.textoFinal" : $('#constelacaoBarraTextoFinal').val(),
+			"constelacao.data" : $('#constelacaoBarraData').val(),
+			"constelacao.localizacao" : $('#constelacaoBarraLocalizacao').val(),
+			"constelacao.localMapa" : $('#constelacaoBarraLocalMapa').val(),
+			"constelacao.linkMapa" : $('#constelacaoBarraLinkMapa').val(),
+			"constelacao.informacao" : $('#constelacaoBarraInformacao').val(),
+			"constelacao.dadosPessoais" : $('#constelacaoBarraDadosPessoais').val(),
+			},
+		success : function(json){
+			var idIconeOk = "#icone" + elemento;
+			$(idIconeOk).show().fadeOut(4000);
+		},
+		error : function(){
+			alert("Erro :( Não foi possível atualizar dados da contelação!");				
+		}
+	});
+}
+
 function enviarNotificacaoConstelacaoPara(local, email, campo){
 	
 	hidenCamposMensagemAjaxNiteroi();
@@ -80,6 +106,7 @@ function hidenCamposEdicaoPrincipal(){
 
 function hidenIconesAjaxComSucesso(){
 	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal, #iconeconstelacaoNiteroiData, #iconeconstelacaoNiteroiLocalizacao, #iconeconstelacaoNiteroiLocalMapa, #iconeconstelacaoNiteroiLinkMapa, #iconeconstelacaoNiteroiInformacao, #iconeconstelacaoNiteroiDadosPessoais').hide();
+	$('#iconeconstelacaoBarraTextoInicial, #iconeconstelacaoBarraFormaPagamento, #iconeconstelacaoBarraTextoFinal, #iconeconstelacaoBarraData, #iconeconstelacaoBarraLocalizacao, #iconeconstelacaoBarraLocalMapa, #iconeconstelacaoBarraLinkMapa, #iconeconstelacaoBarraInformacao, #iconeconstelacaoBarraDadosPessoais').hide();
 }
 
 function hidenCamposMensagemAjaxNiteroi(){
@@ -138,7 +165,9 @@ $(document).ready(function() {
 		enviarNotificacaoConstelacaoEm("NITEROI");
 	});
 	
-	
+	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento').blur(function() {		
+		atualizarConstelacaoBarra(this.id);		  
+	});
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
