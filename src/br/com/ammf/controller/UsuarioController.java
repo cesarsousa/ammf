@@ -1,5 +1,6 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Terapeuta;
@@ -48,11 +49,12 @@ public class UsuarioController {
 			usuario.setId(sessaoUsuario.getUsuario().getId());
 			usuarioRepository.atualizar(usuario);
 			sessaoUsuario.login(usuario);
-			redirecionarParaMenuAdm("mensagem", "Dados de conta de administrador atualizados com sucesso");
+			
+			result.use(json()).withoutRoot().from("sucesso").serialize();
+			
 		}else{
-			result.include("erroConfConta", true);
-			redirecionarParaMenuAdm("editarUsuario", "true");
-		}		
+			result.use(json()).withoutRoot().from("erro").serialize();
+		}
 	}
 	
 	@Restrito

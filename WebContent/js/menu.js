@@ -1,4 +1,43 @@
 
+function getCheckValue(elementId){
+	if($(elementId).is(":checked")){
+        return true;
+    }else{
+    	return false;
+    }
+}
+
+function atualizarDadosContaDeUsuario(){
+	
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/usuario/configuracao",
+		data:{
+			"usuario.uuid" : $('#usuarioUuid').val(),
+			"usuario.administrativo" : getCheckValue('#usuarioAdministrativo'),
+			"usuario.dominioPadrao" : getCheckValue('#usuarioDominioPadrao'),
+			"usuario.imagemPadrao" : getCheckValue('#usuarioImagemPadrao'),
+			"usuario.nome" : $('#campoContaNome').val(),
+			"usuario.telefone" : $('#campoContaTelefone').val(),
+			"usuario.login" : $('#campoContaLogin').val(),
+			"usuario.email" : $('#campoContaEmail').val(),
+			"usuario.senha" : $('#campoContaSenha').val(),
+			"usuario.emailAtivado" : getCheckValue('#usuarioEmailAtivado'),
+			"usuario.emailNotificacao" : $('#campoContaEmailNotificacao').val(),
+			"usuario.linkedin" : $('#campoContaLinkedin').val(),
+			"usuario.endereco" : $('#campoContaEndereco').val(),
+			"usuario.mostrarMapa" : getCheckValue('#checkHabilitarMapa'),
+			"usuario.localizacao" : $('#areaLocalizacaoMapa').val()
+			},
+		success : function(json){
+			$('#iconeAtualizarUsuario' + json).show().fadeOut(4000);
+		},
+		error : function(){
+			alert("Erro :( Não foi possível atualizar dados da conta!");				
+		}
+	});
+}
+
 function atualizarConstelacaoNiteroi(elemento){
 	$.ajax({
 		type : 'POST',
@@ -54,7 +93,8 @@ function atualizarConstelacaoBarra(elemento){
 function enviarNotificacaoConstelacaoPara(local, email, campo){
 	
 	hidenCamposMensagemAjaxNiteroi();
-	$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
+	
+	$('#aguardeNotificacaoConstelacaoNiteroi, #aguardeNotificacaoConstelacaoBarra').slideDown(500);
 	
 	$.ajax({
 		type : 'GET',
@@ -64,14 +104,26 @@ function enviarNotificacaoConstelacaoPara(local, email, campo){
 			"email" : email
 			},
 		success : function(json){
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			$(campo).val("");
-			$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+			if(local === "NITEROI"){
+				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+				$(campo).val("");
+				$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+			}else{
+				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
+				$(campo).val("");
+				$('#msgSucessoAjaxBarra').html("Operação realizada com sucesso!").show();
+			}
 		},
 		error : function(){
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			$(campo).val("");
-			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+			if(local === "NITEROI"){
+				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+				$(campo).val("");
+				$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+			}else{
+				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
+				$(campo).val("");
+				$('#msgErroAjaxBarra').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+			}
 		}
 	});
 	
@@ -80,7 +132,12 @@ function enviarNotificacaoConstelacaoPara(local, email, campo){
 function enviarNotificacaoConstelacaoEm(local){
 	
 	hidenCamposMensagemAjaxNiteroi();
-	$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
+	
+	if(local === "NITEROI"){
+		$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
+	}else{
+		$('#aguardeNotificacaoConstelacaoBarra').slideDown(500);
+	}
 	
 	$.ajax({
 		type : 'GET',
@@ -89,12 +146,22 @@ function enviarNotificacaoConstelacaoEm(local){
 			"local": local
 			},
 		success : function(json){
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+			if(local === "NITEROI"){
+				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+				$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
+			}else{
+				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
+				$('#msgSucessoAjaxBarra').html("Operação realizada com sucesso!").show();
+			}
 		},
 		error : function(){
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+			if(local === "NITEROI"){
+				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+				$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+			}else{
+				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
+				$('#msgErroAjaxBarra').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+			}
 		}
 	});
 	
@@ -107,10 +174,14 @@ function hidenCamposEdicaoPrincipal(){
 function hidenIconesAjaxComSucesso(){
 	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal, #iconeconstelacaoNiteroiData, #iconeconstelacaoNiteroiLocalizacao, #iconeconstelacaoNiteroiLocalMapa, #iconeconstelacaoNiteroiLinkMapa, #iconeconstelacaoNiteroiInformacao, #iconeconstelacaoNiteroiDadosPessoais').hide();
 	$('#iconeconstelacaoBarraTextoInicial, #iconeconstelacaoBarraFormaPagamento, #iconeconstelacaoBarraTextoFinal, #iconeconstelacaoBarraData, #iconeconstelacaoBarraLocalizacao, #iconeconstelacaoBarraLocalMapa, #iconeconstelacaoBarraLinkMapa, #iconeconstelacaoBarraInformacao, #iconeconstelacaoBarraDadosPessoais').hide();
+	$('#iconeAtualizarUsuarioerro, #iconeAtualizarUsuariosucesso').hide();
 }
 
 function hidenCamposMensagemAjaxNiteroi(){
 	$('#msgSucessoAjaxNiteroi, #msgErroAjaxNiteroi').hide();
+}
+function hidenCamposMensagemAjaxBarra(){
+	$('#msgSucessoAjaxBarra, #msgErroAjaxBarra').hide();
 }
 
 
@@ -145,10 +216,15 @@ $(document).ready(function() {
 	hidenIconesAjaxComSucesso();
 	
 	$('#aguardeNotificacaoConstelacaoNiteroi').hide();
+	$('#aguardeNotificacaoConstelacaoBarra').hide();
 	hidenCamposMensagemAjaxNiteroi();
+	hidenCamposMensagemAjaxBarra();
 
 	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiLinkMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
 		atualizarConstelacaoNiteroi(this.id);		  
+	});
+	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento, #constelacaoBarraTextoFinal, #constelacaoBarraData, #constelacaoBarraLocalizacao, #constelacaoBarraLocalMapa, #constelacaoBarraLinkMapa, #constelacaoBarraInformacao, #constelacaoBarraDadosPessoais').blur(function() {		
+		atualizarConstelacaoBarra(this.id);		  
 	});
 	
 	$('#constelacaoNiteroiEmailAdicional').blur(function(){
@@ -160,14 +236,23 @@ $(document).ready(function() {
 		}
 				
 	});
+	$('#constelacaoBarraEmailAdicional').blur(function(){
+		
+		var constelacaoBarraEmailAdicional = $('#constelacaoBarraEmailAdicional').val();
+		
+		if(constelacaoBarraEmailAdicional !== ""){
+			enviarNotificacaoConstelacaoPara("BARRA", constelacaoBarraEmailAdicional, "#constelacaoBarraEmailAdicional");
+		}
+				
+	});
 	
 	$('#constelacaoNiteroiEnviarEmails').click(function(){
 		enviarNotificacaoConstelacaoEm("NITEROI");
 	});
-	
-	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento, #constelacaoBarraTextoFinal, #constelacaoBarraData, #constelacaoBarraLocalizacao, #constelacaoBarraLocalMapa, #constelacaoBarraLinkMapa, #constelacaoBarraInformacao, #constelacaoBarraDadosPessoais').blur(function() {		
-		atualizarConstelacaoBarra(this.id);		  
+	$('#constelacaoBarraEnviarEmails').click(function(){
+		enviarNotificacaoConstelacaoEm("BARRA");
 	});
+	
 	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
@@ -363,6 +448,12 @@ $(document).ready(function() {
 		
 	$('.emDesenv').click(function(){
 		alert("pagina em desenvolvimento...");
+	});
+	
+	/*configuração da conta*/
+	
+	$('#btAlterarUsuario').click(function(){
+		atualizarDadosContaDeUsuario();
 	});
 	
 	

@@ -192,17 +192,16 @@
 			<input id="btFecharConteudoConta" type="button" class="btn btn-danger direita" value="fechar">
 			<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
 			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
-			<form action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">								
 				
-				<input type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
+				<input id="usuarioUuid" type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
 					
 				<label class="labelForm2 h3">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.administrativo}">
-							<input type="checkbox" name="usuario.administrativo" checked="checked" />
+							<input id="usuarioAdministrativo" type="checkbox" name="usuario.administrativo" checked="checked" />
 						</c:when>
 						<c:otherwise>
-							<input type="checkbox" name="usuario.administrativo" />
+							<input id="usuarioAdministrativo" type="checkbox" name="usuario.administrativo" />
 						</c:otherwise>
 					</c:choose>				
 					Perfil Administrativo					
@@ -215,10 +214,10 @@
 				<label class="labelForm2 h3">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.dominioPadrao}">
-							<input type="checkbox" name="usuario.dominioPadrao" checked="checked" />
+							<input id="usuarioDominioPadrao" type="checkbox" name="usuario.dominioPadrao" checked="checked" />
 						</c:when>
 						<c:otherwise>
-							<input type="checkbox" name="usuario.dominioPadrao" />
+							<input id="usuarioDominioPadrao" type="checkbox" name="usuario.dominioPadrao" />
 						</c:otherwise>
 					</c:choose>				
 					Domínio Padrão					
@@ -231,10 +230,10 @@
 				<label class="labelForm2 h3">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.imagemPadrao}">
-							<input type="checkbox" name="usuario.imagemPadrao" checked="checked" />
+							<input id="usuarioImagemPadrao" type="checkbox" name="usuario.imagemPadrao" checked="checked" />
 						</c:when>
 						<c:otherwise>
-							<input type="checkbox" name="usuario.imagemPadrao" />
+							<input id="usuarioImagemPadrao" type="checkbox" name="usuario.imagemPadrao" />
 						</c:otherwise>
 					</c:choose>				
 					Imagem padrão					
@@ -317,10 +316,10 @@
 				<td align="left">
 					<c:choose>
 						<c:when test="${sessaoUsuario.usuario.emailAtivado}">
-							<input type="checkbox" name="usuario.emailAtivado" checked="checked" />
+							<input id="usuarioEmailAtivado" type="checkbox" name="usuario.emailAtivado" checked="checked" />
 						</c:when>
 						<c:otherwise>
-							<input type="checkbox" name="usuario.emailAtivado" />
+							<input id="usuarioEmailAtivado" type="checkbox" name="usuario.emailAtivado" />
 						</c:otherwise>
 					</c:choose>				
 				</td>
@@ -334,10 +333,10 @@
 				<p>
 				<c:if test="${not empty usuarioErroEmailNotificacao}">				
 				<p class="labelFormErro">${usuarioErroEmailNotificacao}</p>
-				<input id="campoContaEmail" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				<input id="campoContaEmailNotificacao" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
 				</c:if>				
 				<c:if test="${empty usuarioErroEmailNotificacao}">
-				<input id="campoContaEmail" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
+				<input id="campoContaEmailNotificacao" type="text" class="form-control" name="usuario.emailNotificacao" value="${sessaoUsuario.usuario.emailNotificacao}" />
 				</c:if>
 				</p>	
 				
@@ -393,11 +392,18 @@
 				<h3>Insira o HTML contendo a localiza&ccedil;&atilde;o do endere&ccedil;o.</h3>
 				<textarea id="areaLocalizacaoMapa" class="form-control" rows="10" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
 				</div>
-							
+				
+				<div align="right">
 				<p class="paddingPadrao">
-				<input type="submit" value="atualizar" class="btn btn-success direita">				
+				<img id="iconeAtualizarUsuarioerro" src="${imagem}/icone_excluir.png" class="icone20">
+				<img id="iconeAtualizarUsuariosucesso" src="${imagem}/icone_confirmar.png" class="icone20">
+				<input id="btAlterarUsuario" type="button" value="atualizar" class="btn btn-success direita">				
 				</p>
-			</form>			
+				
+				</div>
+				
+				<br/>
+						
 			</div>
 			</td>
 		</tr>
@@ -575,18 +581,22 @@
 				</div>
 				<textarea id="constelacaoBarraDadosPessoais" class="form-control" rows="10" name="constelacao.dadosPessoais" >${sessaoUsuario.constelacaoBarra.dadosPessoais}</textarea>				
 								
-				<!-- <br>
-				<input type="text" class="form-control" name="emailAdicional" placeholder="Enviar notificação da constelação para este e-mail"/>
-																
-				<div class="checkbox" align="right">
-				    <label>
-				      <input type="checkbox" name="constelacaoEnviarEmail"> Enviar e-mail da constela&ccedil;&atilde;o para as pessoas.
-				    </label>
-				  </div>
-								
-				<p class="paddingPadrao">
-				<input type="submit" value="atualizar" class="btn btn-success direita" >			
-				</p> -->
+				<br/>
+				
+				<div align="center">
+				<img id="aguardeNotificacaoConstelacaoBarra" alt="Aguarde" src="${imagem}/gif_aguarde.gif">
+				</div>
+				
+				<div id="msgSucessoAjaxBarra" class="msgBorderInterno msgSucesso ponteiro closeClick"></div>
+				<div id="msgErroAjaxBarra" class="msgBorderInterno msgErro ponteiro closeClick"></div>
+				
+				<div class="paddingPadrao">
+				<input id="constelacaoBarraEmailAdicional" type="email" class="form-control" placeholder="Enviar notificação da constelação para este e-mail">
+				</div>
+				
+				<div class="paddingPadrao">
+				<button id="constelacaoBarraEnviarEmails" class="btn btn-success" type="button">Enviar e-mail da constela&ccedil;&atilde;o para todas as pessoas</button>
+				</div>
 					
 			</div>
 			</td>
