@@ -73,6 +73,11 @@ public class ResenhaController {
 	}
 	
 	@Restrito
+	@Get("/resenha/cadastrar")
+	public void resenhaAdminCadastrar(){}
+	
+	
+	@Restrito
 	@Post("/resenha/nova")
 	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
 		try {
@@ -80,9 +85,13 @@ public class ResenhaController {
 				resenha.setPredefinida(false);
 				resenhaService.cadastrar(imagemResenha, resenha);
 				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
-				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);				
+				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
+				result.forwardTo(this).resenhaAdmin();	
+			}else{
+				result.include("resenha", resenha);
+				result.include("resenhaErroCadastro", true);
+				result.forwardTo(this).resenhaAdminCadastrar();
 			}
-			result.forwardTo(this).resenhaAdmin();			
 		} catch (CadastroException e) {
 			result.include("resenhaMensagemErro", "Erro Durante cadastramento da resenha '" + resenha.getTitulo() + "'. Verifique se a resenha foi cadastrado com sucesso.<br/>Mensagem de Erro: " + e.getMensagem() + ".");
 			result.redirectTo(this).resenhaAdmin();
@@ -145,11 +154,13 @@ public class ResenhaController {
 				 emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
 				}
 				 result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
+				 
+				 result.forwardTo(this).resenhaAdmin();
 			}else{
 				result.include("resenhaErroAtualizarCadastro", true);
-				result.include("resenhaEditarCadastro", true);
+				result.forwardTo(this).resenhaAdminEditar();
 			}
-			result.forwardTo(this).resenhaAdmin();			
+						
 		} catch (CadastroException e) {
 			result.include("resenhaMensagemErro", "N&atilde;o foi poss&iacute;vel efetuar a atualiza&ccedil;&atilde;o da resenha " + resenha.getTitulo() + ". ERRO: " + e.getMensagem());
 			result.redirectTo(this).resenhaAdmin();
@@ -231,10 +242,11 @@ public class ResenhaController {
 	public void solicitarAtualizacao(String uuid){
 		Resenha resenha = resenhaRepository.obterPorUuid(uuid);
 		result.include("resenha", resenha);
-		result.include("resenhaEditarCadastro", true);
-		result.redirectTo(this).resenhaAdmin();
+		result.redirectTo(this).resenhaAdminEditar();
 	}
 	
+	public void resenhaAdminEditar() {}
+
 	@Restrito
 	@Get("/resenha/categorias")
 	public void listaCategorias(){

@@ -24,46 +24,7 @@
 
 <div id="pgResenhaPredef">
 
-<%-- <div align="center" class="divMenuOpcao">
-<table class="menuOpcao">
-<tr>
-<td>
-<ul class="itemMenuOpcao">
-	<li class="itemMenuPrincipal">
-		<form id="formMenuPrincipal" action="<c:url value="/menu/adm"/>" method="post">
-			<div id="btMenuAdm" title="menu principal" class="ponteiro esquerda"></div>
-		</form>
-	</li>
-	<li>
-		<img id="btAddNovaResenha" alt="adicionar resenha" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
-	</li>
-	<li>
-		<img id="btAddNovaResenhaPreDefinida" alt="adicionar resenha pré definida" title="adicionar resenha pré definida" src="${imagem}/iconeResenhaPreDefinida.png" class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarResenhaPreDefinida">
-	</li>
-	
-	<li>
-		<img id="btListarResenhas" alt="listar todas as resenhas" title="listar todas as resenhas" src="${imagem}/iconeListarHover.png" class="icone50 ponteiro esquerda">
-	</li>
-	<li>
-		<img id="btVerComentariosResenha" alt="visualizar comentários" title="visualizar comentários" src="${imagem}/iconeComentarioTodos.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="btVerComentariosResenhaConfirmados" alt="comentários confirmados" title="comentários confirmados" src="${imagem}/iconeComentarioConfirmados.png" width="50" height="50" class="ponteiro esquerda">
-	</li>
-	<li>
-		<img id="btVerComentariosResenhaPendentes" alt="comentários pendentes" title="comentários pendentes" src="${imagem}/iconeComentarioPendentes.png" width="50" height="50" class="ponteiro esquerda">
-	</li>	
-</ul>
-</td>
-</tr>
-</table>
-</div> --%>
-
 <div class="separador"></div>
-
-<!-- EDITAR UMA RESENHA -->
-
-<%-- <input id="resenhaEditarCadastro" type="hidden" value="${resenhaEditarCadastro}" > --%>
 
 <c:if test="${not empty resenha}">
 <table class="cardViewText bordaPadrao">		

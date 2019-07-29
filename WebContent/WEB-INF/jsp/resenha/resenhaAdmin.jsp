@@ -14,10 +14,6 @@
 		${resenhaMensagemErro} 
 	</div>
 </c:if>
-<c:if test="${not empty resenhaErroCadastro or not empty resenhaErroAtualizarCadastro}">
-	<div class="msgBorder msgErro ponteiro closeClick">
-	${autorEmBranco}${tituloEmBranco}${descricaoEmBranco}${fotoInvalida}</div>
-</c:if>
 </div>
 
 <%@ include file="/headerLib.jsp" %>
@@ -38,7 +34,9 @@
 		</form>
 	</li>
 	<li>
-		<img id="btAddNovaResenha" alt="adicionar resenha" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		<a href="<c:url value="/resenha/cadastrar"/>">
+		<img alt="adicionar resenha" title="adicionar resenha" src="${imagem}/iconeAddHover.png" class="icone50 ponteiro esquerda">
+		</a>
 	</li>
 	<li>
 		<img id="btAddNovaResenhaPreDefinida" alt="adicionar resenha pré definida" title="adicionar resenha pré definida" src="${imagem}/iconeResenhaPreDefinida.png" class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalCadastrarResenhaPreDefinida">
@@ -150,202 +148,10 @@
 			</div>
 			</c:if>
 			
-			
-			
-			
 		</div>	
 		</form>
 		</td>
 	</tr>		
-</table>
-
-<!-- ADICIONAR UMA NOVA RESENHA -->
-<input id="resenhaErroCadastro" type="hidden" value="${resenhaErroCadastro}" >
-<table id="tabNovaResenha" class="cardViewText bordaPadrao">		
-	<tr>
-		<td class="paddingDuplo">
-		<div align="right">
-		<input id="btFecharAddResenha" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
-		<h2 align="center">Nova Resenha</h2>
-		
-		<form id="formNovaResenha" action="<c:url value="/resenha/nova"/>" enctype="multipart/form-data" method="post">			
-			
-			<table class="msgBorder msgInfo">
-			<tr align="center">
-			<td>
-				<label class="labelForm">Foto para apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
-			</td>			
-			<td>
-				<div id="divUploadFotoResenha" align="left">
-					<input id="inputImagemResenha" type="file" name="imagemResenha"/>
-				</div>
-			</td>			
-			<td>
-				<input id="btRemoverUploadFotoResenha" type="button" value="remover foto" class="btn btn-danger"/>
-			</td>
-			</tr>
-			</table>
-			
-			<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenha" class="info azulClaro ponteiro">Cadastrar uma nova categoria?</span></h3>			
-			
-				<div id="divCadastrarCategoriaResenha">				
-				<div class="col-lg-6 alert alert-info">
-				    <div class="input-group">
-				      <input id="inputCadastrarCategoriaResenha" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
-				      <span class="input-group-btn">
-				        <button id="ajaxCadastrarCategoriaResenha" class="btn btn-success" type="button">Cadastrar Categoria</button>
-				      </span>
-				    </div>
-				 </div>				
-				<img id="iconeAguardeCadastrarCategoriaResenha" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
-				</div>				
-			
-			<br>
-			<select id="comboBoxCategoriasResenha" name="resenha.categoria.id" class="form-control" ></select>
-			
-			
-			<h3>T&iacute;tulo</h3>
-			<input id="resenhaTitulo" type="text" class="form-control corAzul" name="resenha.titulo" value="${resenha.titulo}" />
-			
-				
-			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-			<input id="resenhaAutor" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
-			
-			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
-			<textarea id="resenhaUrl" class="form-control" rows="5" name="resenha.url">${resenha.url}</textarea>
-			
-			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
-				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
-				<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
-				<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
-				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
-				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
-			</p>
-			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
-			<textarea id="textoDescricaoResenha" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			<h3 class="letraPequena">O coment&aacute;rio pode conter ate <span id="contadorCaracterResenha">10.000</span> caracteres.</h3>		
-			
-			<p class="paddingPadrao">
-			<input id="btCadastrarResenha" type="submit" value="cadastrar" class="btn btn-success" onclick="verificarExtensao(this.form, this.form.imagemResenha.value)">
-			<input id="btCancelarResenha" type="button" value="cancelar" class="btn btn-default">				
-			</p>
-		</form>			
-		</td>
-	</tr>
-</table>
-
-<!-- EDITAR UMA RESENHA -->
-<input id="resenhaEditarCadastro" type="hidden" value="${resenhaEditarCadastro}" >
-<table id="tabEditarResenha" class="cardViewText bordaPadrao">		
-	<tr>
-		<td class="paddingDuplo">
-		<div align="right">
-		<input id="btFecharEditarResenha" type="button" value="fechar" class="btn btn-danger">
-		</div>
-		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">		
-		<h2 align="center">Editar Resenha</h2>
-		
-		<form id="formNovaResenha" action="<c:url value="/resenha/atualizar"/>" enctype="multipart/form-data" method="post">				
-			
-			<input type="hidden" name="resenha.uuid" value="${resenha.uuid}"/>
-			<input type="hidden" name="dataPostagem" value="<fmt:formatDate value="${resenha.postagem}" type="date" pattern="dd/MM/yyyy HH:mm:ss" />">
-			
-			<div id="divIdResenha">				
-			<h3>C&oacute;digo da Resenha</h3>
-			<input id="resenhaId" type="text" class="form-control backCinza" name="resenha.id" value="${resenha.id}" readonly="readonly" />
-			</div>
-			
-			<h3>Categoria da Resenha <span id="btCadastrarCategoriaResenhaEdt" class="azulClaro ponteiro">Cadastrar uma nova categoria</span></h3>						
-			<div class="paddingPadrao">						
-				<div id="divCadastrarCategoriaResenhaEdt">				
-				<div class="col-lg-6 alert alert-info">
-				    <div class="input-group">
-				      <input id="inputCadastrarCategoriaResenhaEdt" type="text" class="form-control" maxlength="100" placeholder="Digite a categoria">
-				      <span class="input-group-btn">
-				        <button id="ajaxCadastrarCategoriaResenhaEdt" class="btn btn-success" type="button">Cadastrar Categoria</button>
-				      </span>
-				    </div>
-				 </div>				
-				<img id="iconeAguardeCadastrarCategoriaResenhaEdt" src="${imagem}/gif_aguarde.gif" width="100" height="100">				
-				</div>			
-			</div>			
-			<select id="comboBoxCategoriasResenhaEdt" name="resenha.categoria.id" class="form-control" ></select>			
-			<input type="hidden" value="${resenha.categoria.id}" id="resenhaCategoriaIdEdicao">
-						
-			<h3>T&iacute;tulo</h3>
-			<input id="resenhaTituloEdt" type="text" class="form-control" name="resenha.titulo" value="${resenha.titulo}" />
-				
-			<h3>Autor <span class="info azulClaro">autor do filme, livro ou do outro tipo da resenha</span></h3>
-			<input id="resenhaAutorEdt" type="text" class="form-control" name="resenha.autor" value="${resenha.autor}"/>
-			
-			<h3>URL <span class="info azulClaro">trailer do filme ou vídeo da resenha</span></h3>
-			<textarea id="resenhaUrlEdt" class="form-control" rows="5" name="resenha.url">${resenha.url}</textarea>
-			
-			<p align="center"><label class="info azulClaro">Alterar o tamanho da fonte do texto de coment&aacute;rio:</label>
-				<span id="sizeSmallResenha" style="font-size: small;" class="ponteiro" >A</span>
-				<span id="sizeMediumResenha" style="font-size: medium;" class="ponteiro" >A</span>
-				<span id="sizeLargeResenha" style="font-size: large;" class="ponteiro" >A</span>
-				<span id="sizeXLargeResenha" style="font-size: x-large;" class="ponteiro" >A</span>
-				<span id="sizeXxLargeResenha" style="font-size: xx-large;" class="ponteiro" >A</span>
-			</p>
-			<h3>Coment&aacute;rio com at&eacute; 10.000 caracteres.</h3>				
-			<textarea id="textoDescricaoResenhaEdt" class="form-control" rows="20" name="resenha.descricao">${resenha.descricao}</textarea>		
-			
-			<h3 class="letraPequena">breve descri&ccedil;&atilde;o. Pode conter ate <span id="contadorCaracterResenhaEdt">10.000</span> caracteres.</h3>	
-			
-			<table class="paddingPadrao bordaPadrao areaTexto">
-				<tr>
-					<td class="paddingPadrao">
-					<img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="fotoLivro">
-					</td>
-					<td class="paddingPadrao">
-					
-						<p>
-						<label class="labelForm2">
-						<input type="checkbox" value="true" name="removerImagemResenhaEdt"/>
-						Marque esta op&ccedil;&atilde;o para remover e n&atilde;o adicionar nenhuma imagem
-						</label>				
-						</p>
-						<p>
-						<label class="labelForm">ou</label><br/>
-						</p>
-											
-						<table class="msgBorder msgInfo">
-						<tr align="center">
-						<td>
-							<label class="labelForm">Selecione a nova imagem de apresenta&ccedil;&atilde;o da resenha <span class="info azulClaro">(opcional)</span></label>
-						</td>			
-						<td>
-							<div id="divUploadNovaFotoResenha" >
-							<input type="hidden" name="resenha.imagem.nome" value="${resenha.imagem.nome}"/>
-							<input type="hidden" name="resenha.imagem.id" value="${resenha.imagem.id}"/>
-							<input type="hidden" name="resenha.imagem.caminho" value="${resenha.imagem.caminho}"/>
-							<input id="inputNovaImagemResenha" type="file" name="novaImagemResenha" />
-						</div>
-						</td>			
-						<td>
-							<input id="btRemoverUploadNovaFotoResenha" type="button" value="Selecionar outra foto" class="btn btn-danger ponteiro"/>
-						</td>
-						</tr>
-					</table>				
-						
-					</td>
-				</tr>
-			</table>
-			
-			<label class="labelForm2 paddingPadrao">
-				<input type="checkbox" value="true" name="notificarAlteracao"/> Enviar e-mail notificando a alteração.
-			</label>
-					
-			<p class="paddingPadrao">
-			<input id="btEditarResenha" type="submit" value="atualizar" onclick="verificarExtensao(this.form, this.form.novaImagemResenha.value)" class="btn btn-success">
-			<input id="btCancelarEditarResenha" type="button" value="cancelar" class="btn btn-default">				
-			</p>
-		</form>			
-		</td>
-	</tr>
 </table>
 
 <!-- LISTAR TODOS OS COMENTARIOS -->

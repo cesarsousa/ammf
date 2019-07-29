@@ -433,6 +433,11 @@ public class ValidacaoServiceImp implements ValidacaoService {
 				validado = false;
 			}
 		}
+		
+		if(!validado){
+			result.include("anexarFoto",
+					"<b>Caso tenha sido informada anteriormente, a foto para apresenta&ccedil;&atilde;o da resenha deve ser informada novamente</b><br/>");
+		}
 
 		return validado;
 	}

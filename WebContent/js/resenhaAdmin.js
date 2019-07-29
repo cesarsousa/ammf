@@ -1,7 +1,7 @@
 
 
 function hideAllResenhaFields(){
-	$('#tabNovaResenha, #tabEditarResenha, #divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar, #tabComentariosResenhaAdmin, #divResenhaView').hide();
+	$('#divResenhaBuscarTexto, #tabListagemResenhas, #telaAguardeAdmResenhaCadastrar, #telaAguardeAdmResenhaEditar, #tabComentariosResenhaAdmin, #divResenhaView').hide();
 }
 
 function removerMensagemResenha(){	
@@ -199,36 +199,17 @@ $(document).ready(function() {
 		limitarCaracteres('#textoDescricaoResenhaEdt', '#contadorCaracterResenhaEdt', 10000);
 	});
 	
-	$('#btCadastrarResenha, #btEditarResenha').click(function() {
-		abrirJanelaDeEspera("#divPgResenhaAdm", "#telaAguardeAdmResenhaCadastrar");
-	});	
-	
-	if($('#resenhaErroCadastro').val()){
-		$('#tabNovaResenha').slideDown(500);
-	}
-	$('#btAddNovaResenha').click(function() {
-		hideAllResenhaFields();
-		removerMensagemResenha();
-		limparFormCadastroResenha();
-		
-		$('#tabNovaResenha').slideDown(500);		
+	$('#btCadastrarResenha').click(function() {
+		$('#msgResenhaErroCadastro').slideUp(500);
+		abrirJanelaDeEspera("#tableNovaResenha", "#telaAguardeAdmResenhaCadastrar");
 	});
-	$('#btFecharAddResenha').click(function() {
-		$('#tabNovaResenha').slideUp(500);		
-	});	
-
-	$('#btCancelarResenha').click(function(){
-		$('#tabNovaResenha').slideUp(500);
-		removerMensagemResenha();
-		limparFormCadastroResenha();				
+	$('#btEditarResenha').click(function() {
+		$('#msgAtualizarResenha').slideUp(500);
+		abrirJanelaDeEspera("#tableEditarResenha", "#telaAguardeAdmResenhaEditar");
 	});
 	
-	if($('#resenhaEditarCadastro').val()){
-		$('#tabEditarResenha').slideDown(500);
-	}
-	$('#btCancelarEditarResenha').click(function() {
-		$('#tabEditarResenha').slideUp(500);
-		removerMensagemResenha();
+	$('#btCancelarEditarResenha, #btCancelarCadastroResenha').click(function() {
+		$('#formMenuPrincipal').submit();
 	});	
 		
 	if($('#flagBuscarResenhas').val()){		
@@ -243,12 +224,7 @@ $(document).ready(function() {
 		$('#divResenhaBuscarTexto').slideUp(500);
 		$('#campoBuscaTxtResenha').val('');
 		$('#labelBuscaResenha').html('');
-		
 	});
-	
-	$('#btFecharEditarResenha').click(function() {
-		$('#tabEditarResenha').slideUp(500);
-	});	
 	
 	if($('#flagListarResenhas').val()){		
 		$('#tabListagemResenhas').slideDown(500);
