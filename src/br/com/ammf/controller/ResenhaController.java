@@ -76,8 +76,6 @@ public class ResenhaController {
 	@Get("/resenha/cadastrar")
 	public void resenhaAdminCadastrar(){}
 	
-	
-	@Restrito
 	@Post("/resenha/nova")
 	public void cadastrarResenha(UploadedFile imagemResenha, Resenha resenha){
 		try {
@@ -142,8 +140,7 @@ public class ResenhaController {
 			result.redirectTo(this).resenhaAdmin();
 		}
 	}
-	
-	@Restrito
+
 	@Post("/resenha/atualizar")
 	public void atualizar(UploadedFile novaImagemResenha, String dataPostagem, Resenha resenha, boolean removerImagemResenhaEdt, boolean notificarAlteracao){
 		try {
@@ -237,7 +234,6 @@ public class ResenhaController {
 		result.redirectTo(this).listarTodas();
 	}
 	
-	@Restrito
 	@Get("/resenha/editar/{uuid}")
 	public void solicitarAtualizacao(String uuid){
 		Resenha resenha = resenhaRepository.obterPorUuid(uuid);

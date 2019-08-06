@@ -8,8 +8,6 @@
 <title>Alcindo Miguel Martins Filho</title>
 
 <link href="${css}/estilo.css" rel="stylesheet" type="text/css" />
-<link href="${css}/style.css" rel="stylesheet" type="text/css" />
-<link href="${css}/style.mod.css" rel="stylesheet" type="text/css" />
 <link href="${css}/table.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
 <link href="${css}/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -47,8 +45,6 @@
 <script type="text/javascript" src="${javascript}/linkAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/constelacaoAdmin.js"></script>
 <script type="text/javascript" src="${javascript}/constelacaoCliente.js"></script>
-<script type="text/javascript" src="${javascript}/script.js"></script>
-<script type="text/javascript" src="${javascript}/wowslider.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.cycle.all.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.localscroll.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.scrollto.js"></script>
@@ -58,30 +54,6 @@
 <body>
 
 <input id="imageContexto" type="hidden" value="${imagem}"/>
-
-<!-- rede social facebook -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- rede social tweeter -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- rede social google +1 -->
-<script type="text/javascript">
-  window.___gcfg = {lang: 'pt-BR'};
-
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
 
 <div id="wrap">
 <div id="main">

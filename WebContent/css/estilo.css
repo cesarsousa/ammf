@@ -177,22 +177,6 @@ ul.tabs
 }
 /* FIM Efeitos barra notificacao salva automatica */
 
-/* INICIO Efeito para fixar o menu durante a rolagem da pagina */
-
-/******classe estatica******/
-.nav-total  {
-	height:60px;
-	background: url(img/bg-nav.jpg) repeat-x;
-}
-/******classe que sera adicionada fazendo flutuar o menu******/
-.f-nav  { 
-    z-index: 9999; 
-	position: fixed; 
-	top: 0; width:100%; 
-}
-
-/* FIM Efeito para fixar o menu durante a rolagem da pagina */
-
 body {
 	/* background-color: #F8F8FF; */	
 }

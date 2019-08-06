@@ -162,7 +162,6 @@
 	<div align="right" class="paddingPadrao">		
 	<input id="btFecharComentariosResenha" type="button" value="fechar" class="btn btn-danger">
 	</div>
-	<img src="${imagem}/${iconeVerComentarios}" class="icone50 esquerda">
 	<c:if test="${empty comentariosResenha}">
 	<h3 align="center" class="${cssCorTitulo}">N&atilde;o existem coment&aacute;rios a serem visualizados</h3>
 	</c:if>
