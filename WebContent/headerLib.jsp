@@ -12,7 +12,6 @@
 <link href="${css}/style.mod.css" rel="stylesheet" type="text/css" />
 <link href="${css}/table.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
-<link href="${css}/lightbox.css" rel="stylesheet" type="text/css" />
 <link href="${css}/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="${css}/jquery.maximage.min.css" rel="stylesheet" type="text/css" />
 
@@ -24,8 +23,6 @@
 <script type="text/javascript" src="${javascript}/jquery.infinitecarousel3.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="${javascript}/jquery.maskmoney.js"></script>
-<script type="text/javascript" src="${javascript}/lightbox.min.js"></script>
-<script type="text/javascript" src="${javascript}/lightbox-plus-jquery.min.js"></script>
 <script type="text/javascript" src="${javascript}/bootstrap.min.js"></script>
 <script type="text/javascript" src="${javascript}/bootstrap-select.js"></script>
 <script type="text/javascript" src="${javascript}/COMMONS.js"></script>
