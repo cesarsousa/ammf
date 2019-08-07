@@ -54,7 +54,8 @@ public class ResenhaDao implements ResenhaRepository {
             if (!predefinida) {
             	criteria.add(Restrictions.eq("predefinida", predefinida));
 			}
-			criteria.addOrder(Order.desc("postagem"));			
+			criteria.addOrder(Order.desc("postagem"));
+			//criteria.setMaxResults(20);
 			return criteria.list();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() +  " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));

@@ -66,11 +66,7 @@ public class ResenhaController {
 	
 	@Restrito
 	@Get("/menu/resenha")
-	public void resenhaAdmin(){
-		List<Resenha> resenhas = resenhaRepository.listar(true);		
-		result.include("flagListarResenhas", true);
-		result.include("resenhas", resenhas);
-	}
+	public void resenhaAdmin(){}
 	
 	@Restrito
 	@Get("/resenha/cadastrar")

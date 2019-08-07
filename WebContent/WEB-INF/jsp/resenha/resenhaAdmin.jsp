@@ -222,7 +222,8 @@
 <!-- LISTAR TODOS OS TEXTOS -->
 <!-- submit via javascript -->
 <form id="formResenhasListarTodas" action="<c:url value="/resenha/listar" />" method="get"></form>
-<input id="flagListarResenhas" type="hidden" value="${flagListarResenhas}" />
+
+<c:if test="${not empty resenhas}">
 <table id="tabListagemResenhas" class="fullSize">	
 	<tr>
 	<td>
@@ -230,10 +231,6 @@
 	<input id="btResenhaFecharTextos" type="button" value="fechar" class="btn btn-danger">
 	</div>
 	<img src="${imagem}/iconeListarHover.png" class="icone50 esquerda">
-	<c:if test="${empty resenhas}">
-	<h3 align="center">N&atilde;o existem resenhas cadastradas</h3>
-	</c:if>
-	<c:if test="${not empty resenhas}">
 	<h3 align="center">Resenhas Cadastradas.</h3>
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
@@ -252,7 +249,7 @@
 		<tbody>
 	 		<c:forEach items="${resenhas}" var="resenha">
 				<tr class="zebrado">
-					<td class="infoTabela"><img src="<c:url value="/resenha/visualizador/${resenha.uuid}" />" class="icone25"></td>
+					<td class="infoTabela"></td>
 					<td class="infoTabelaConteudo metadado">${resenha.categoria.descricao}</td>					
 					<td class="infoTabelaConteudo metadado">${resenha.titulo}</td>
 					<td class="infoTabelaConteudo">${resenha.autor}</td>
@@ -286,10 +283,10 @@
 			</c:forEach>		
 		</tbody>			
 	</table>
-	</c:if>	
 	</td>
 	</tr>
 </table>
+</c:if>
 </div>
 
 <a name="lerResenhaView"></a>
