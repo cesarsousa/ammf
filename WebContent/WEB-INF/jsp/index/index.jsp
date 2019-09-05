@@ -49,6 +49,18 @@
     <c:if test="${not empty news}">
 		<div align="center"> 
 		
+		<div class="jumbotron">
+		<h1 align="center">Curso Formação Em Terapia Transpessoal</h1>
+		<iframe 
+			width="800" 
+			height="581" 
+			src="https://www.youtube.com/embed/R9vauujXpHY" 
+			frameborder="0" 
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen>
+		</iframe>
+		</div>
+		
 		<c:if test="${empty livroNaoDisponivel}">		
 		<div id="gatilhoNews" class="jumbotron" align="left">			
 			<h1 align="center">Livros publicados</h1>			
