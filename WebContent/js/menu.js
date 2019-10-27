@@ -146,22 +146,32 @@ function enviarNotificacaoConstelacaoEm(local){
 			"local": local
 			},
 		success : function(json){
-			if(local === "NITEROI"){
+			
+			console.log(json)
+			
+			if(json.length > 0){
+				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+				
+				var dataDiv = '<p>Erro no envio nos email abaixo.</p>';
+				
+				dataDiv += '<ul>';
+								
+				for(var i = 0; i < json.length; i++){
+					
+					dataDiv += '<li>' + json[i].email + '</li>';
+				}
+				
+				dataDiv += '</lu>'
+				
+				$('#msgErroAjaxNiteroi').html(dataDiv).show();
+			}else{
 				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
 				$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
-			}else{
-				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
-				$('#msgSucessoAjaxBarra').html("Operação realizada com sucesso!").show();
 			}
 		},
 		error : function(){
-			if(local === "NITEROI"){
-				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-				$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
-			}else{
-				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
-				$('#msgErroAjaxBarra').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
-			}
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
 		}
 	});
 	

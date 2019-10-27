@@ -1,5 +1,6 @@
 package br.com.ammf.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -269,29 +270,38 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
+	public List<Pessoa> notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
 		
 		int totalDePessoas = pessoas.size();
 		
 		
 		System.out.println("--- Inicio da rotina de Notificação de email de constelação ---");
-		System.out.println("\n--- Total de pessoas: " + totalDePessoas);
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
 		
 		int count = 1;
 		for(Pessoa pessoa : pessoas){
 			
-			System.out.println("\n--- ------------------------------------------------------------------- ---");
-			System.out.println("\n--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
-			System.out.println("\n--- ------------------------------------------------------------------- ---");
-			System.out.println("\n--- Cliente Email " + pessoa.getEmail());
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
 			
-			enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+			try {
+				enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+			}
+			
 			
 			count++;
 		}
 		
-		logger.info("\n--- Fim da rotina de Notificação de email de constelação ---");
+		logger.info("--- Fim da rotina de Notificação de email de constelação ---");
+		
+		return pessoasNaoNotificadas;
 		
 	}
 

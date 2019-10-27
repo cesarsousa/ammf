@@ -14,6 +14,7 @@ import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.Notificacao;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ConstelacaoRepository;
@@ -139,7 +140,7 @@ public class MenuController {
 			emailService.notificarConstelacaoParaEmail(constelacao, email);
 			result.use(json()).withoutRoot().from("Contelação notificada com sucesso").serialize();
 		} catch (EmailException e) {
-			e.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 		}
 	}
 	
@@ -148,10 +149,10 @@ public class MenuController {
 	public void notificarEmailConstelacao(String local){
 		try {
 			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
-			emailService.notificarConstelacaoParaPessoas(constelacao);
-			result.use(json()).withoutRoot().from("Contelação notificada com sucesso").serialize();
+			List<Pessoa> pessoasNaoNotificadas = emailService.notificarConstelacaoParaPessoas(constelacao);
+			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).serialize();
 		} catch (EmailException e) {
-			e.printStackTrace();
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 		}
 	}
 	

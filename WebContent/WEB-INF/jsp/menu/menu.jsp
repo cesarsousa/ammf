@@ -492,7 +492,7 @@
 				</div>
 				
 				<div id="msgSucessoAjaxNiteroi" class="msgBorderInterno msgSucesso ponteiro closeClick"></div>
-				<div id="msgErroAjaxNiteroi" class="msgBorderInterno msgErro ponteiro closeClick"></div>
+				<div id="msgErroAjaxNiteroi" class="msgBorderInterno msgErro"></div>
 				
 				<div class="paddingPadrao">
 				<input id="constelacaoNiteroiEmailAdicional" type="email" class="form-control" placeholder="Enviar notificação da constelação para este e-mail">
