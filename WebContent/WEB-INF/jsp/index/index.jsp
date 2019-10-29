@@ -47,7 +47,24 @@
   <tr>
     <th>
     <c:if test="${not empty news}">
-		<div align="center"> 
+		<div align="center">
+		
+		<c:if test="${not empty videos}">
+			
+			<div class="jumbotron">
+			<h1 align="center">Videos</h1>
+			
+			<c:forEach var="video" items="${videos}">
+				<h2>${video.titulo}</h2>
+				<h3>${video.descricao}</h3>
+				<div>${video.url}</div>
+			</c:forEach>
+			
+			<br>
+			<div class="separador"></div>
+			
+			</div>
+		</c:if> 
 		
 		<c:if test="${empty livroNaoDisponivel}">		
 		<div id="gatilhoNews" class="jumbotron" align="left">			
@@ -68,7 +85,10 @@
 	  				</td>
 	  				</tr>
 	  				</table>
-					</c:if>			
+					</c:if>
+					
+					<br>
+					<div class="separador"></div>			
 		</div>	
 		</c:if>	
 			

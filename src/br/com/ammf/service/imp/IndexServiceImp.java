@@ -18,6 +18,7 @@ import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.model.Terapeuta;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
+import br.com.ammf.model.Video;
 import br.com.ammf.repository.ConstelacaoRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
@@ -27,6 +28,7 @@ import br.com.ammf.repository.ResenhaRepository;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.repository.UsuarioRepository;
+import br.com.ammf.repository.VideoRepository;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Component;
@@ -43,6 +45,7 @@ public class IndexServiceImp implements IndexService{
 	private FaqRepository faqRepository;
 	private TerapeutaRepository terapeutaRepository;
 	private ConstelacaoRepository constelacaoRepository;
+	private VideoRepository videoRepository;
 	
 	public IndexServiceImp(
 			TextoRepository textoRepository,
@@ -53,7 +56,8 @@ public class IndexServiceImp implements IndexService{
 			LivroRepository livroRepository,
 			FaqRepository faqRepository,
 			TerapeutaRepository terapeutaRepository,
-			ConstelacaoRepository constelacaoRepository){
+			ConstelacaoRepository constelacaoRepository,
+			VideoRepository videoRepository){
 		this.textoRepository = textoRepository;		
 		this.usuarioRepository = usuarioRepository;
 		this.resenhaRepository = resenhaRepository;
@@ -63,6 +67,7 @@ public class IndexServiceImp implements IndexService{
 		this.faqRepository = faqRepository;
 		this.terapeutaRepository = terapeutaRepository;
 		this.constelacaoRepository = constelacaoRepository;
+		this.videoRepository = videoRepository;
 	}
 
 	@Override
@@ -221,6 +226,12 @@ public class IndexServiceImp implements IndexService{
 			result.include("faqNewsTitulo", faq.getPergunta());
 			result.include("faqNewsConteudo", obterDescricaoResumida(faq.getResposta()));
 			result.include("faqNewsPostagem", "FAQ postada em " + faq.getDataFormatada());
+			existeNews = true;
+		}
+		
+		List<Video> videos = videoRepository.obterVideosAtivos();
+		if(!videos.isEmpty()) {
+			result.include("videos", videos);
 			existeNews = true;
 		}
 		

@@ -54,7 +54,8 @@
 		<mapping class="br.com.ammf.model.Comentario" />
 		<mapping class="br.com.ammf.model.Constelacao" />
 		<mapping class="br.com.ammf.model.Evento" />
-		<mapping class="br.com.ammf.model.Participante" />		
+		<mapping class="br.com.ammf.model.Participante" />
+		<mapping class="br.com.ammf.model.Video" />		
 		
 	</session-factory>
 </hibernate-configuration>

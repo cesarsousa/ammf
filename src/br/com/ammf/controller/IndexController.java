@@ -6,7 +6,6 @@ import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Local;
-import br.com.ammf.model.Mensagem;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
