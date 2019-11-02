@@ -218,11 +218,33 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarLivroParaPessoas(Notificacao notificacao, Livro livro) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+	public List<Pessoa> notificarLivroParaPessoas(Notificacao notificacao, Livro livro) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : enviarEmailNotificacaoLivro ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int count = 1;
 		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoLivro(notificacao, livro, pessoa);
-		}		
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailNotificacaoLivro(notificacao, livro, pessoa);
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+			}
+						
+			count++;
+			
+		}
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		return pessoasNaoNotificadas;
 	}
 
 	private void enviarEmailNotificacaoLivro(Notificacao notificacao, Livro livro, Pessoa pessoa) throws EmailException {
@@ -244,11 +266,34 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarLinkParaPessoas(Link link) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+	public List<Pessoa> notificarLinkParaPessoas(Link link) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : notificarLinkParaPessoas ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int count = 1;
 		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoLink(link, pessoa);
-		}		
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailNotificacaoLink(link, pessoa);
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+			}
+						
+			count++;
+			
+		}	
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		return pessoasNaoNotificadas;
 	}
 
 	private void enviarEmailNotificacaoLink(Link link, Pessoa pessoa) throws EmailException {

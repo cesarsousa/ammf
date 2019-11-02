@@ -13,6 +13,7 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Notificacao;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
 import br.com.ammf.repository.LivroRepository;
@@ -55,9 +56,17 @@ public class LivroController {
 	public void cadastrarLivro(UploadedFile imagemLivro, Livro livro){
 		try {			
 			if(validacaoService.cadastrarLivro(imagemLivro, livro, result)){
-				livroService.cadastrar(imagemLivro, livro);				
-				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
+				livroService.cadastrar(imagemLivro, livro);
+				
 				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi cadastrado com sucesso.");
+				
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarLivroParaPessoas(Notificacao.LIVRO_NOVO, livro);
+				
+				if(!pessoasNaoNotificadas.isEmpty()) {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
 			}			
 			result.forwardTo(LojaController.class).lojaAdmin();
 		} catch (CadastroException cadastroException) {
@@ -75,9 +84,17 @@ public class LivroController {
 	public void atualizarLivro(UploadedFile novaImagemLivro, String dataPostagem, Livro livro, boolean removerImagemLivroEdt){ 
 		try {			
 			if(validacaoService.atualizarLivro(novaImagemLivro, livro, result)){
-				livroService.atualizar(novaImagemLivro, dataPostagem, livro, removerImagemLivroEdt);				
-				emailService.notificarLivroParaPessoas(Notificacao.LIVRO_ATUALIZADO, livro);
-				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");				
+				livroService.atualizar(novaImagemLivro, dataPostagem, livro, removerImagemLivroEdt);
+				
+				result.include("msgLojaAdm", "O livro <i>" + livro.getTitulo() + "</i> foi atualizado com sucesso.");
+				
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarLivroParaPessoas(Notificacao.LIVRO_ATUALIZADO, livro);
+				
+				if(!pessoasNaoNotificadas.isEmpty()) {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
 			}
 			
 			result.forwardTo(LojaController.class).lojaAdmin();

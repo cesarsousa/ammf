@@ -7,6 +7,7 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Link;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.repository.LinkRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;
@@ -48,9 +49,17 @@ public class LinkController {
 			boolean validado = validacaoService.cadastrarLink(link, result);		
 			
 			if(validado){
-				linkRepository.cadastrar(link);			
-				emailService.notificarLinkParaPessoas(link);
+				linkRepository.cadastrar(link);
+				
 				result.include("linkMensagemSucesso", "O link cadastrado com sucesso");
+				
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarLinkParaPessoas(link);
+				
+				if(!pessoasNaoNotificadas.isEmpty()) {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
 			}
 			
 			result.forwardTo(this).linkAdmin();

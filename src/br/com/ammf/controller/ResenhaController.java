@@ -79,11 +79,12 @@ public class ResenhaController {
 			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
 				resenha.setPredefinida(false);
 				resenhaService.cadastrar(imagemResenha, resenha);
+				
+				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
+				
 				List<Pessoa> pessoasNaoNotificadas = emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
 				
-				if(pessoasNaoNotificadas.isEmpty()) {
-					result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
-				}else {
+				if(!pessoasNaoNotificadas.isEmpty()) {
 					result.include("pessoasNaoNotificadas", true);
 					result.include("pessoas", pessoasNaoNotificadas);
 				}
@@ -152,7 +153,14 @@ public class ResenhaController {
 				resenha.setPredefinida(false);
 				resenhaService.atualizar(novaImagemResenha, resenha, dataPostagem, removerImagemResenhaEdt);
 				if(notificarAlteracao){
-				 emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
+					
+					List<Pessoa> pessoasNaoNotificadas = emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_ATUALIZADA, resenha);
+					
+					if(!pessoasNaoNotificadas.isEmpty()) {
+						result.include("pessoasNaoNotificadas", true);
+						result.include("pessoas", pessoasNaoNotificadas);
+					}
+				 
 				}
 				 result.include("resenhaMensagemSucesso", "Resenha atualizada com sucesso");
 				 

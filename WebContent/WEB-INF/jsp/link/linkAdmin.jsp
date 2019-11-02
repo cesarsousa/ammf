@@ -17,6 +17,18 @@
 	<div class="msgBorder msgErro ponteiro closeClick">
 	${linkEmBranco}${urlEmBranco}${descricaoEmBranco}</div>
 </c:if>
+
+<c:if test="${pessoasNaoNotificadas}">
+	<div class="msgBorder msgErro">
+	Linkf cadastrado com sucesso, porém alguns email apresentaram erro.<br>Os emails abaixo não foram notificados: 
+	<ul>
+	<c:forEach items="${pessoas}" var="pessoa">
+		<li>${pessoa.email}</li>
+	</c:forEach>
+	</ul>
+	</div>
+</c:if>
+
 </div>
 
 <%@ include file="/headerLib.jsp" %>

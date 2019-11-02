@@ -93,11 +93,12 @@ public class BlogController {
 	public void confirmarCadastroTexto(Texto texto) {
 		try {			
 			if (validacaoService.blog(texto, result)) {
+				
+				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
+				
 				List<Pessoa> pessoasNaoNotificadas = emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, blogService.atualizarTexto(texto));
 				
-				if(pessoasNaoNotificadas.isEmpty()) {
-					result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
-				}else {
+				if(!pessoasNaoNotificadas.isEmpty()) {
 					result.include("pessoasNaoNotificadas", true);
 					result.include("pessoas", pessoasNaoNotificadas);
 				}
@@ -175,10 +176,20 @@ public class BlogController {
 	public void atualizarTexto(Texto texto, boolean notificarAlteracao){		
 		try {
 			Texto textoOriginal = blogService.atualizarTexto(texto);
-			if(notificarAlteracao){
-				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
-			}
+			
 			result.include("blogMensagemSucesso", "O texto '<i>" + texto.getTitulo() + "</i>' foi atualizado com sucesso");
+			
+			if(notificarAlteracao){
+				
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarTextoParaPessoas(Notificacao.TEXTO_ATUALIZADO, textoOriginal);
+				
+				if(!pessoasNaoNotificadas.isEmpty()) {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
+			}
+			
 			result.redirectTo(this).blogAdmin();			
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));

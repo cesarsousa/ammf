@@ -32,9 +32,9 @@ public interface EmailService {
 
 	void notificarNovoContatoFeitoCliente(Mensagem mensagem) throws EmailException;
 
-	void notificarLivroParaPessoas(Notificacao livroNovo, Livro livro) throws EmailException;
+	List<Pessoa> notificarLivroParaPessoas(Notificacao livroNovo, Livro livro) throws EmailException;
 
-	void notificarLinkParaPessoas(Link link) throws EmailException;
+	List<Pessoa> notificarLinkParaPessoas(Link link) throws EmailException;
 
 	void notificarNovaFaqParaAdmin(Faq faq) throws EmailException;
 
