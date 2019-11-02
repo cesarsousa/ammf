@@ -39,6 +39,17 @@
 	</div>
 </c:if>
 
+<c:if test="${pessoasNaoNotificadas}">
+	<div class="msgBorder msgErro">
+	Email enviado com sucesso, porém alguns email apresentaram erro.<br>Os emails abaixo não foram notificados: 
+	<ul>
+	<c:forEach items="${pessoas}" var="pessoa">
+		<li>${pessoa.email}</li>
+	</c:forEach>
+	</ul>
+	</div>
+</c:if>
+
 <div class="tamanhoEdicaoIndex" align="left">	
 	<div >
 	<div class="paddingPadrao">

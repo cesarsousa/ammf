@@ -24,9 +24,9 @@ public interface EmailService {
 
 	void enviarSolicitacaoParaConfirmacaoCadastro(Pessoa pessoa) throws EmailException;
 
-	void notificarTextoParaPessoas(Notificacao notificacao, Texto textoIndex) throws EmailException;
+	List<Pessoa> notificarTextoParaPessoas(Notificacao notificacao, Texto textoIndex) throws EmailException;
 
-	void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException;
+	List<Pessoa> notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException;
 
 	void enviarEsclarecimentoSobreCadastro(Pessoa pessoa) throws EmailException;
 
@@ -54,7 +54,7 @@ public interface EmailService {
 
 	void enviarRelatorioConstelacao(Evento evento) throws EmailException;
 
-	void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
+	List<Pessoa> enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
 
 	void enviarEmailSugestaoCurso(String nome, String email) throws EmailException;;
 

@@ -16,6 +16,7 @@ import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
@@ -78,8 +79,15 @@ public class ResenhaController {
 			if(validacaoService.novaResenha(imagemResenha, resenha, result)){			
 				resenha.setPredefinida(false);
 				resenhaService.cadastrar(imagemResenha, resenha);
-				result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
-				emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarResenhaParaPessoas(Notificacao.RESENHA_NOVA, resenha);
+				
+				if(pessoasNaoNotificadas.isEmpty()) {
+					result.include("resenhaMensagemSucesso", "Resenha cadastrada com sucesso");
+				}else {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
 				result.forwardTo(this).resenhaAdmin();	
 			}else{
 				result.include("resenha", resenha);

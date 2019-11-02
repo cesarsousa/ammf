@@ -324,8 +324,15 @@ public class MenuController {
 				}
 							
 				if(emailValido || todosOsContatos){
-					emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
-					result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
+					List<Pessoa> pessoasNaoNotificadas = emailService.enviarEmailParaClientes(mensagem, todosOsContatos);
+					
+					if(pessoasNaoNotificadas.isEmpty()) {
+						result.include("msgSucessoEmail", "E-mail enviado com sucesso.");
+					}else {
+						result.include("pessoasNaoNotificadas", true);
+						result.include("pessoas", pessoasNaoNotificadas);
+					}
+					
 				}
 			}
 			

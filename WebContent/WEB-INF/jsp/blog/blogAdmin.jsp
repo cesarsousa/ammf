@@ -21,6 +21,17 @@
 	${autorEmBranco}
 	${conteudoEmBranco}</div>
 </c:if>
+
+<c:if test="${pessoasNaoNotificadas}">
+	<div class="msgBorder msgErro">
+	Texto cadastrado com sucesso, porém alguns email apresentaram erro.<br>Os emails abaixo não foram notificados: 
+	<ul>
+	<c:forEach items="${pessoas}" var="pessoa">
+		<li>${pessoa.email}</li>
+	</c:forEach>
+	</ul>
+	</div>
+</c:if>
 </div>
 
 <%@ include file="/headerLib.jsp" %>

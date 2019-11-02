@@ -12,6 +12,7 @@ import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Notificacao;
 import br.com.ammf.model.Paragrafo;
+import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ComentarioRepository;
@@ -92,8 +93,15 @@ public class BlogController {
 	public void confirmarCadastroTexto(Texto texto) {
 		try {			
 			if (validacaoService.blog(texto, result)) {
-				emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, blogService.atualizarTexto(texto));
-				result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
+				List<Pessoa> pessoasNaoNotificadas = emailService.notificarTextoParaPessoas(Notificacao.TEXTO_NOVO, blogService.atualizarTexto(texto));
+				
+				if(pessoasNaoNotificadas.isEmpty()) {
+					result.include("blogMensagemSucesso", "O texto <i>" + texto.getTitulo()	+ "</i> foi cadastrado com sucesso.");
+				}else {
+					result.include("pessoasNaoNotificadas", true);
+					result.include("pessoas", pessoasNaoNotificadas);
+				}
+				
 			} else {
 				result.include("flagCadastrarBlogVazio", true);
 			}

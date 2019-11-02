@@ -91,11 +91,33 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarTextoParaPessoas(Notificacao notificacao, Texto texto) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+	public List<Pessoa> notificarTextoParaPessoas(Notificacao notificacao, Texto texto) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : notificarTextoParaPessoas ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int count = 1;
 		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoTexto(notificacao, texto, pessoa);
-		}		
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailNotificacaoTexto(notificacao, texto, pessoa);
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+			}
+						
+			count++;
+		}
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		return pessoasNaoNotificadas;
 	}
 
 	private void enviarEmailNotificacaoTexto(Notificacao notificacao, Texto texto, Pessoa pessoa) throws EmailException{
@@ -148,11 +170,33 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public void notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);		
+	public List<Pessoa> notificarResenhaParaPessoas(Notificacao notificacao, Resenha resenha) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : notificarResenhaParaPessoas ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int count = 1;
 		for(Pessoa pessoa : pessoas){
-			enviarEmailNotificacaoResenha(notificacao, resenha, pessoa);
-		}		
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailNotificacaoResenha(notificacao, resenha, pessoa);
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+			}
+						
+			count++;
+		}
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		return pessoasNaoNotificadas;
 	}
 
 	private void enviarEmailNotificacaoResenha(Notificacao notificacao,	Resenha resenha, Pessoa pessoa) throws EmailException {
@@ -274,11 +318,9 @@ public class EmailServiceImp implements EmailService {
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
 		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
 		
-		
 		int totalDePessoas = pessoas.size();
 		
-		
-		System.out.println("--- Inicio da rotina de Notificação de email de constelação ---");
+		System.out.println("--- Inicio da rotina : notificarConstelacaoParaPessoas ---");
 		System.out.println("--- Total de pessoas: " + totalDePessoas);
 		
 		int count = 1;
@@ -299,7 +341,7 @@ public class EmailServiceImp implements EmailService {
 			count++;
 		}
 		
-		logger.info("--- Fim da rotina de Notificação de email de constelação ---");
+		logger.info("--- Fim da rotina de Notificação de email ---");
 		
 		return pessoasNaoNotificadas;
 		
@@ -358,16 +400,56 @@ public class EmailServiceImp implements EmailService {
 	}
 	
 	@Override
-	public void enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException {
+	public List<Pessoa> enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException {
+		
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
 		if(todosOsContatos){
 			List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+			
+			int totalDePessoas = pessoas.size();
+			
+			System.out.println("--- Inicio da rotina : enviarEmailParaClientes ---");
+			System.out.println("--- Total de pessoas: " + totalDePessoas);
+			
+			int count = 1;
 			for(Pessoa pessoa : pessoas){
-				enviarEmailSimples(pessoa.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+				
+				System.out.println("--- ------------------------------------------------------------------- ---");
+				System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+				System.out.println("--- ------------------------------------------------------------------- ---");
+				System.out.println("--- Cliente Email " + pessoa.getEmail());
+				
+				try {
+					enviarEmailSimples(pessoa.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+				}catch (EmailException e) {
+					pessoasNaoNotificadas.add(pessoa);
+				}
+							
+				count++;
+				
+				
+				
 			}
 		}
 		if(mensagem.getEmail() != null && !mensagem.getEmail().isEmpty()){
-			enviarEmailSimples(mensagem.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação de email simples pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + mensagem.getEmail());
+			
+			try {
+				enviarEmailSimples(mensagem.getEmail(), mensagem.getTitulo(), mensagem.getConteudo());
+			}catch (EmailException e) {
+				Pessoa pessoa = new Pessoa();
+				pessoa.setEmail(mensagem.getEmail());
+				pessoasNaoNotificadas.add(pessoa);
+			}
+			
 		}
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		return pessoasNaoNotificadas;
 	}	
 
 	private void enviarEmailSimples(String destinatario, String titulo, String conteudo) throws EmailException {
