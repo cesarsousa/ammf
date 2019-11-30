@@ -94,7 +94,15 @@
 				<div class="fundoConstelacaoData" style="color: white;">
 					<h4 class="modal-title">${sessaoCliente.constelacao.data}</h4>
 					<p>${sessaoCliente.constelacao.localizacao}</p>
-					<p>${sessaoCliente.constelacao.localMapa}</p>
+					<p>
+					<iframe 
+						src="${sessaoCliente.constelacao.localMapa}"
+						width="600" 
+						height="400" 
+						frameborder="0"
+						style="border:0"
+						allowfullscreen></iframe>
+					</p>
 					<h3>Investimento:</h3>
 					<b>${sessaoCliente.constelacao.formaPagamento}</b>
 				</div>

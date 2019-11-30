@@ -88,10 +88,10 @@ ${conteudoEmBranco}
 		</td>
 		</tr>
 		<c:if test="${not empty resenha.url}">
-		<tr align="center" >
+		<tr align="center">
 		<td colspan="2" class="paddingPadrao">
 		<hr>
-		${resenha.url}
+		<iframe width="854" height="480" src="${resenha.url}" frameborder="0" allowfullscreen></iframe>
 		</td>
 		</tr>
 		</c:if>
@@ -209,7 +209,7 @@ ${conteudoEmBranco}
 					<tr align="center" >
 					<td colspan="2" class="paddingPadrao">
 					<hr>
-					${ultimaPublicacao.url}
+					<iframe width="854" height="480" src="${ultimaPublicacao.url}" frameborder="0" allowfullscreen></iframe>
 					</td>
 					</tr>
 					</c:if>				

@@ -34,7 +34,16 @@
 		<tr>
 		<td align="right">
 		<div align="center" class="paddingPadrao">
-		<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">${sessaoCliente.contato.localizacao}</div>
+		<div id="mapaGeoLocalizacao" style="width: 1000px; border: 1px solid #cccccc;">
+			<iframe
+				width="1000" 
+				height="350" 
+				frameborder="0" 
+				scrolling="no" 
+				marginheight="0" 
+				marginwidth="0" 
+				src="${sessaoCliente.contato.localizacao}"></iframe>
+		 </div>
 		</div>
 		</td>
 		</tr>
