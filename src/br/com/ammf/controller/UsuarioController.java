@@ -1,6 +1,5 @@
 package br.com.ammf.controller;
 
-import static br.com.caelum.vraptor.view.Results.json;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Terapeuta;
@@ -50,11 +49,13 @@ public class UsuarioController {
 			usuarioRepository.atualizar(usuario);
 			sessaoUsuario.login(usuario);
 			
-			result.use(json()).withoutRoot().from("sucesso").serialize();
+			result.include("mensagem", "Dados da conta atualizados com sucesso");
 			
 		}else{
-			result.use(json()).withoutRoot().from("erro").serialize();
+			result.include("erroConfConta", true);
 		}
+		
+		result.forwardTo(MenuController.class).menu();
 	}
 	
 	@Restrito

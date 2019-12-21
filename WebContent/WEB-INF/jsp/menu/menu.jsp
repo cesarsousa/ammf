@@ -62,136 +62,154 @@
 	</td>
 	</tr>
 	</table>
-
+	
 	<!-- EDITAR CONTEUDO SHIVA -->
-	<table class="tamanhoDefault">
-		<tr>
-			<td id="btAbrirConteudoIndex" class="headerSlide">
-			<span  class="esquerda">Shiva</span>
-			<span class="info azulClaro" >Altere o nome do autor e a frase que os da imagem do Shiva.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoIndex" class="cartao tamanhoEdicaoIndex bordaPadrao" >
-			<input id="btFecharConteudoIndex" type="button" class="btn btn-danger direita" value="fechar">			
-			<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
-			<h2 align="center">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina do Shiva</h2>
-			
-			<form action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
-				<table class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmallIndex" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMediumIndex" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+	<!-- Botão para acionar modal -->
+	<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalEditarShiva" style="width: 100%; color: black;">
+	  <b>Shiva <span class="info azulClaro">Altere o nome do autor e a frase que os da imagem do Shiva.</span></b>
+	</button>	
+	<!-- Modal -->
+	<div class="modal fade" id="modalEditarShiva" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Atualiza&ccedil;&atilde;o da frase e autor da p&aacute;gina do Shiva</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+					<div>
+					<img align="left" src="${imagem}/Shiva500.jpg" class="esquerda icone50">			
 					
-					<td><span id="sizeSmallAreaIndex" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumAreaIndex" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeAreaIndex" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeAreaIndex" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeAreaIndex" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table>						
-				
-				<h3>Frase:</h3>
-				<textarea id="campoFraseIndex" class="form-control" rows="10" name="texto.conteudo" >${sessaoUsuario.textoIndex.conteudo}</textarea>				
-								
-				<h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase.
-				</h4>
-				
-				<h3>Autor:</h3>
-				<input id="campoAutorFraseIndex" type="text" class="form-control" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
-				
-				<p class="paddingPadrao">
-				<input id="btAtualizarTextoIndex" type="submit" value="atualizar" class="btn btn-success direita" >			
-				</p>
-			</form>			
-			</div>
-			</td>
-		</tr>
-	</table>
+					<form id="formAtualizarTextoIndex" action="<c:url value="/menu/index/atualizar"/>" method="post" class="paddingPadrao">			
+						<div align="right">
+						<table>
+							<tr>
+							<td><span id="sizeLargeIndex" style="font-size: large;" class="ponteiro" >A</span></td>
+							<td><span id="sizeXLargeIndex" style="font-size: x-large;" class="ponteiro" >A</span></td>
+							<td><span id="sizeXxLargeIndex" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+							
+							<td><span id="sizeSmallAreaIndex" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+							<td><span id="sizeLargeAreaIndex" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+							<td><span id="sizeXxLargeAreaIndex" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
+					
+							</tr>				
+						</table>
+						</div>						
+						
+						<h3>Frase:</h3>
+						<textarea id="campoFraseIndex" class="form-control" rows="7" name="texto.conteudo" style="resize: none;">${sessaoUsuario.textoIndex.conteudo}</textarea>				
+										
+						<h4 class="azulClaro" align="right">
+							Voc&ecirc; pode digitar <span id="contadorCaracterShiva">600</span> caracteres na frase.
+						</h4>
+						
+						<h3>Autor:</h3>
+						<input id="campoAutorFraseIndex" type="text" class="form-control" name="texto.autor" value="${sessaoUsuario.textoIndex.autor}">
+						
+					</form>			
+					</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button id="btAtualizarTextoIndex" type="button" class="btn btn-success">Salvar mudanças</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<div class="separador"></div>
 	
-	<!-- EDITAR CONTEUDO QUIRON -->	
-	<table class="tamanhoDefault">
-		<tr>
-			<td id="btAbrirConteudoQuiron" class="headerSlide">
-			<span  class="esquerda">Quiron</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do do texto da p&aacute;gina sobre quiron.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoCampoQuiron" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
-			<input id="btFecharConteudoQuiron" type="button" class="btn btn-danger direita" value="fechar">
-			<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
-			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina sobre Quiron</h2>
-			<form action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
-								
-				<table class="tamanhoDefault">
-					<tr>
-					<td><span id="sizeSmallQuiron" style="font-size: small;" class="ponteiro" >A</span></td>
-					<td><span id="sizeMediumQuiron" style="font-size: medium;" class="ponteiro" >A</span></td>
-					<td><span id="sizeLargeQuiron" style="font-size: large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXLargeQuiron" style="font-size: x-large;" class="ponteiro" >A</span></td>
-					<td><span id="sizeXxLargeQuiron" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+	<!-- EDITAR CONTEUDO QUIRON -->
+	<!-- Botão para acionar modal -->
+	<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalEditarQuiron" style="width: 100%; color: black;">
+	  <b>Quiron <span class="info azulClaro">Altere o conte&uacute;do do texto da p&aacute;gina sobre quiron.</span></b>
+	</button>
+	<!-- Modal -->
+	<div class="modal fade" id="modalEditarQuiron" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Atualiza&ccedil;&atilde;o do conte&uacute;do do texto da p&aacute;gina quiron.</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+					<div>
+					<img align="left" src="${imagem}/quiron.jpg" class="esquerda icone50">
+
+					<form id="formAtualizarTextoQuiron" action="<c:url value="/menu/quiron/atualizar"/>" method="post" class="paddingPadrao">			
+						<div align="right">
+						<table>
+							<tr>
+							<td><span id="sizeLargeQuiron" style="font-size: large;" class="ponteiro" >A</span></td>
+							<td><span id="sizeXLargeQuiron" style="font-size: x-large;" class="ponteiro" >A</span></td>
+							<td><span id="sizeXxLargeQuiron" style="font-size: xx-large;" class="ponteiro" >A</span></td>
+							
+							<td><span id="sizeSmallAreaQuiron" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
+							<td><span id="sizeLargeAreaQuiron" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
+							<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
 					
-					<td><span id="sizeSmallAreaQuiron" style="font-size: small;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeMediumAreaQuiron" style="font-size: medium;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeLargeAreaQuiron" style="font-size: large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXLargeAreaQuiron" style="font-size: x-large;" class="ponteiro" >&equiv;</span></td>
-					<td><span id="sizeXxLargeAreaQuiron" style="font-size: xx-large;" class="ponteiro" >&equiv;</span></td>
-					</tr>				
-				</table>
-				
-				<p>				
-				<c:choose>
-					<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
-						<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
-					</c:when>
-					<c:otherwise>
-						<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
-					</c:otherwise>
-				</c:choose>
-				</p>
-				
-				
-				<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="texto.conteudo" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
-				
-				<h4 class="azulClaro" align="right">
-					Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
-				</h4>
-								
-				<p class="paddingPadrao">
-				<input id="btAtualizarTextoQuiron" type="submit" value="atualizar e destravar texto" class="btn btn-success direita" >			
-				</p>
-			</form>			
-			</div>
-			</td>
-		</tr>
-	</table>
+							</tr>				
+						</table>
+						</div>
+						
+						<p>				
+						<c:choose>
+							<c:when test="${sessaoUsuario.textoQuiron.confirmado}">
+								<label class="labelForm2"><input id="quironBtTravarTexto" type="checkbox" onclick="javascript: travarTextoParaEdicao(this)" />Travar texto para edi&ccedil;&atilde;o.</label>
+							</c:when>
+							<c:otherwise>
+								<label class="labelForm2"><input type="checkbox" checked="checked" disabled="disabled" />Travar texto para edi&ccedil;&atilde;o.</label>
+							</c:otherwise>
+						</c:choose>
+						</p>
+						
+						<textarea id="campoConteudoQuiron" class="form-control" rows="10" name="texto.conteudo" style="resize: none;" >${sessaoUsuario.textoQuiron.conteudo}</textarea>				
+						
+						<h4 class="azulClaro" align="right">
+							Voc&ecirc; pode digitar <span id="contadorCaracterQuiron">3000</span> caracteres no texto.
+						</h4>
+					</form>			
+					</div>
+	        
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button id="btAtualizarTextoQuiron" type="button" class="btn btn-success">atualizar e destravar texto</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<div class="separador"></div>
 	
 	<!-- CONFIGURACOES DA CONTA -->
-	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/> 
-	<table class="tamanhoDefault">
-		<tr>
-			<td id="btAbrirConteudoConta" class="headerSlide">
-			<span  class="esquerda">Configura&ccedil;&otilde;es da Conta</span>
-			<span class="info azulClaro" >Verifique seus dados de acesso ao sistema.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>			
-			<div id="conteudoConta" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
-			<input id="btFecharConteudoConta" type="button" class="btn btn-danger direita" value="fechar">
-			<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
-			<h2 align="center">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h2>
+	<!-- Botão para acionar modal -->
+	<input id="flagEditarUsuario" type="hidden" value="${editarUsuario}"/>
+	<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalEditarConfiguracaoConta" style="width: 100%; color: black;">
+	  <b>Configura&ccedil;&otilde;es da Conta <span class="info azulClaro">Altere os dados de acesso ao sistema.</span></b>
+	</button>
+	<!-- Modal -->
+	<div class="modal fade" id="modalEditarConfiguracaoConta" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Configura&ccedil;&atilde;o dos dados da conta e acesso ao sistema</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			<div align="left">
+				
+				<img align="left" src="${imagem}/icone_setting.png" class="esquerda icone50">
+				
+				<br/><br/><br/>
+				
+				<form id="formAlterarUsuario" action="<c:url value="/usuario/configuracao"/>" method="post" class="paddingPadrao">			
 				
 				<input id="usuarioUuid" type="hidden" name="usuario.uuid" value="${sessaoUsuario.usuario.uuid}" />
 					
@@ -206,7 +224,7 @@
 					</c:choose>				
 					Perfil Administrativo					
 				</label>
-				<ul>
+				<ul style="list-style-type: none;">
 					<li>Marcar para utilizar SMTP servidor Google</li>
 					<li>Desmarcar para utilizar SMTP servidor Integrator</li>
 				</ul>
@@ -222,7 +240,7 @@
 					</c:choose>				
 					Domínio Padrão					
 				</label>
-				<ul>
+				<ul style="list-style-type: none;">
 					<li>Marcar para utilizar domínio link de email como produção</li>
 					<li>Desmarcar para utilizar domínio link de email como localhost</li>
 				</ul>
@@ -238,7 +256,7 @@
 					</c:choose>				
 					Imagem padrão					
 				</label>
-				<ul>
+				<ul style="list-style-type: none;">
 					<li>Marcar para utilizar path de imagem do servidor de produção</li>
 					<li>Desmarcar para utilizar path de imagem em desenvolvimento</li>
 				</ul>		
@@ -392,39 +410,41 @@
 				<h3>Insira o HTML contendo a localiza&ccedil;&atilde;o do endere&ccedil;o.</h3>
 				<textarea id="areaLocalizacaoMapa" class="form-control" rows="10" name="usuario.localizacao">${sessaoUsuario.usuario.localizacao}</textarea>
 				</div>
-				
-				<div align="right">
-				<p class="paddingPadrao">
-				<img id="iconeAtualizarUsuarioerro" src="${imagem}/icone_excluir.png" class="icone20">
-				<img id="iconeAtualizarUsuariosucesso" src="${imagem}/icone_confirmar.png" class="icone20">
-				<input id="btAlterarUsuario" type="button" value="atualizar" class="btn btn-success direita">				
-				</p>
-				
-				</div>
-				
 				<br/>
-						
+				</form>
 			</div>
-			</td>
-		</tr>
-	</table>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button id="btAlterarUsuario" type="button" class="btn btn-success">Salvar mudanças</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<div class="separador"></div>
 	
-	<!-- EDITAR CONTEUDO CONSTELACAO NITERÓI -->	
-	<table class="tamanhoDefault">
-		<tr>
-			<td id="btAbrirConteudoConstelacao" class="headerSlide">
-			<span  class="esquerda">Constelação Niterói ${sessaoUsuario.constelacao.dataFormatada}</span>
-			<span class="info azulClaro" >Altere o conte&uacute;do sobre constelação de Niterói.</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id="conteudoCampoConstelacao" class="cartao tamanhoEdicaoIndex  bordaPadrao" >
-			<input id="btFecharConteudoConstelacao" type="button" class="btn btn-danger direita" value="fechar">
-			<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
-			<h2 align="center">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina.</h2>
+	<!-- EDITAR CONTEUDO CONSTELACAO NITERÓI -->
+	<!-- Botão para acionar modal -->
+	<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalEditarConstelacao" style="width: 100%; color: black;">
+	  <b>Constelação Niterói ${sessaoUsuario.constelacao.dataFormatada} <span class="info azulClaro">Altere o conte&uacute;do sobre constelação de Niterói.</span></b>
+	</button>	
+	<!-- Modal -->
+	<div class="modal fade" id="modalEditarConstelacao" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Atualiza&ccedil;&atilde;o do conte&uacute;do da p&aacute;gina da constela&ccedil;&atilde;o.</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			<div align="left">
+			
+				<img align="left" src="${imagem}/fundoConstelacao.jpg" class="esquerda icone50">
+				
+				<br/><br/><br/>
 				
 				<h3>Local do Evento:</h3>
 				
@@ -501,10 +521,14 @@
 				<div class="paddingPadrao">
 				<button id="constelacaoNiteroiEnviarEmails" class="btn btn-success" type="button">Enviar e-mail da constela&ccedil;&atilde;o para todas as pessoas</button>
 				</div>
-			</div>
-			</td>
-		</tr>
-	</table>
+			</div>			
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<div class="separador"></div>
 	

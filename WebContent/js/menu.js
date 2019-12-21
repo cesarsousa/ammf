@@ -30,7 +30,8 @@ function atualizarDadosContaDeUsuario(){
 			"usuario.localizacao" : $('#areaLocalizacaoMapa').val()
 			},
 		success : function(json){
-			$('#iconeAtualizarUsuario' + json).show().fadeOut(4000);
+			$('#modalEditarConfiguracaoConta').modal('hide');
+			
 		},
 		error : function(){
 			alert("Erro :( Não foi possível atualizar dados da conta!");				
@@ -294,9 +295,24 @@ $(document).ready(function() {
 	});	
 	
 	$('#btAtualizarTextoIndex, #btAtualizarTextoQuiron, #brAlterarTxtPsicologia, #btAlterarTxtEducacao, #btAlterarTxtCultura, #btAlterarArtOriental').click(function(){
-		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");		
-	});	
+		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");
+	});
+	$('#btAtualizarTextoIndex').click(function(){
+		$('#formAtualizarTextoIndex').submit();		
+	});
+	$('#btAtualizarTextoQuiron').click(function(){
+		$('#formAtualizarTextoQuiron').submit();		
+	});
 	
+	$('#btAlterarUsuario').click(function(){
+		abrirJanelaDeEspera("#divPgMenu", "#telaAguardeMenu");
+		$('#formAlterarUsuario').submit();
+		//atualizarDadosContaDeUsuario();
+	});
+	
+	
+	
+		
 	if($('#flagEditarUsuario').val() == "true"){
 		$('#conteudoConta').show();
 	}else{
@@ -461,13 +477,5 @@ $(document).ready(function() {
 	});
 	
 	/*configuração da conta*/
-	
-	$('#btAlterarUsuario').click(function(){
-		atualizarDadosContaDeUsuario();
-	});
-	
-	
-	
-	
 	
 });
