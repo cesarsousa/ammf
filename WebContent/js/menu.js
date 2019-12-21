@@ -195,7 +195,6 @@ function hidenCamposMensagemAjaxBarra(){
 	$('#msgSucessoAjaxBarra, #msgErroAjaxBarra').hide();
 }
 
-
 function fadeoutCamposEdicaoPrincipal(){
 	$('#tabTerapeuta, #tabArtesOrientais, #tabCultura, #tabEducacao, #tabPsicologia').fadeOut();
 }
@@ -264,7 +263,6 @@ $(document).ready(function() {
 		enviarNotificacaoConstelacaoEm("BARRA");
 	});
 	
-	
 	$('#conteudoIndex').hide();
 	$('#btAbrirConteudoIndex').click(function(){
 		$('#conteudoIndex').slideDown(1000);
@@ -309,9 +307,6 @@ $(document).ready(function() {
 		$('#formAlterarUsuario').submit();
 		//atualizarDadosContaDeUsuario();
 	});
-	
-	
-	
 		
 	if($('#flagEditarUsuario').val() == "true"){
 		$('#conteudoConta').show();
@@ -355,7 +350,6 @@ $(document).ready(function() {
 		$('#conteudoConta').slideUp(1000);		
 	});
 	
-	
 	$('#conteudoCampoConstelacao, #conteudoCampoConstelacaoBarra').hide();
 	$('#btAbrirConteudoConstelacao').click(function(){
 		$('#conteudoCampoConstelacao').slideDown(1000);		
@@ -371,11 +365,11 @@ $(document).ready(function() {
 		$('#conteudoCampoConstelacaoBarra').slideUp(1000);		
 	});
 		
-	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
-	configurarCamposEdicaoPrincipal('#linkEditarPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
-	configurarCamposEdicaoPrincipal('#linkEditarEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
-	configurarCamposEdicaoPrincipal('#linkEditarCultura', '#btFecharEditarCultura', '#tabCultura');
-	configurarCamposEdicaoPrincipal('#linkEditarOrientais', '#btFecharEditarArtesOrientais', '#tabArtesOrientais');
+	configurarCamposEdicaoPrincipal('#linkEditarTerapeuta, #imglinkTerapeuta', '#btFecharEditarTerapeuta', '#tabTerapeuta');
+	configurarCamposEdicaoPrincipal('#linkEditarPsicologia, #imglinkPsicologia', '#btFecharEditarPsicologia', '#tabPsicologia');
+	configurarCamposEdicaoPrincipal('#linkEditarEducacao, #imglinkEducacao', '#btFecharEditarEducacao', '#tabEducacao');	
+	configurarCamposEdicaoPrincipal('#linkEditarCultura, #imglinkCultura', '#btFecharEditarCultura', '#tabCultura');
+	configurarCamposEdicaoPrincipal('#linkEditarOrientais, #imglinkOrientais', '#btFecharEditarArtesOrientais', '#tabArtesOrientais');
 	
 	var contadorDeCaracteres = 0;
 	$('#campoTextoPsicologia, #campoTextoEducacao, #campoTextoCultura, #campoTextoOrientais').keyup(function() {
@@ -434,8 +428,6 @@ $(document).ready(function() {
 		alterarTamanhoTexto(origem, '#campoTextoOrientais');
 	});
 	
-	// AREA DE TEXTO
-	
 	$('#sizeSmallAreaIndex, #sizeMediumAreaIndex, #sizeLargeAreaIndex, #sizeXLargeAreaIndex, #sizeXxLargeAreaIndex').click(function(){
 		var idOrigem = this.id;
 		var origem = idOrigem.replace("Index","");		
@@ -471,11 +463,5 @@ $(document).ready(function() {
 		var origem = idOrigem.replace("ArtesOrientais","");		
 		alterarTamanhoAreaTexto(origem, '#campoTextoOrientais');
 	});
-		
-	$('.emDesenv').click(function(){
-		alert("pagina em desenvolvimento...");
-	});
-	
-	/*configuração da conta*/
 	
 });
