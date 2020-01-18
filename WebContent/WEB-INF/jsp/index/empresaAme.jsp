@@ -84,16 +84,16 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 
 
-<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
+<!-- <h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
 <div class="paddingPadrao">
 <p>9 módulos mensais a serem ministrados de março a novembro de 2019.</p>
-<p>Um módulo por final de semana, sábado e domingo.                                                                          </p>
-<p>Das 9:00 horas da manhã às 18:00 horas.                                                                              </p>
-<p>Almoço das 13:00 às 14:00 horas (não incluso).                                                                      </p>
-<p>Dois <i>Coffee Breaks</i> por dia de curso (manhã e tarde, inclusos).                           </p>
-<p>Material didático (incluso).</p>
+<p>Um módulo por final de semana, sábado e domingo.</p>
+<p>Das 9:00 horas da manhã às 18:00 horas.</p>
+<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+<p>Dois <i>Coffee Breaks</i> por dia de curso (manhã e tarde, inclusos).</p>
+<p>Material didático (incluso).</p> -->
 
-<table class="table table-bordered">
+<!-- <table class="table table-bordered">
   <tbody>
     <tr>
       <th scope="row">Módulo 1</th>
@@ -132,7 +132,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <td>09 e 10 de Novembro</td>
     </tr>    
   </tbody>
-</table>
+</table> -->
 
 </div>
 </div>
@@ -231,7 +231,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 </div> <!-- end jumbotrom -->
 
-<div class=" tamanhoEdicaoIndex  ">
+<!-- <div class="tamanhoEdicaoIndex" align="left">
 <h2>Informações Gerais</h2>
 <div style="text-align: justify;">
 <p>Por ser um curso teórico, prático e constituído por uma vivência terapêutica em seu escopo, não há a possibilidade de uma participação que seja parcial em cada módulo, portanto, eventuais problemas, como atrasos significativos, saídas durante o módulo, ou consideravelmente antes do seu fechamento, além de ausências, implicam necessariamente serem repostas em outra versão do mesmo curso, com o custo daí então advindo.</p>
@@ -242,9 +242,9 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 <p>Cada módulo poderá ser feito em separado, e ao fechamento de cada um será oferecido um Certificado de Conclusão do Módulo em questão, com a carga horária de 20 (vinte horas).                                                                                                                                                                                                                                                      </p>
 <p>Ao final de cada módulo será solicitada uma avaliação do mesmo pelo aluno como instrumento de feedback didático e pedagógico.                                                                                                                                                                                                                                                                                                       </p>
 </div>
-</div>
+</div> -->
 
-<div class="jumbotron" style="background-color: #A9E2F3;">	
+<!-- <div class="jumbotron" style="background-color: #A9E2F3;">	
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
@@ -292,7 +292,7 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
       <div class="tdPrecoModulo">
       <p style="font-size: x-large; font-weight: bold;">R$ 7.650</p>
       <p style="font-size: small;">Valor Total em cartão de Débito ou Crédito (15% de desconto).</p>
-      <!-- <a target="blank" href="https://www.ameterapiaecursos.com" class="btn btn-success direita">Comprar</a> -->
+      <a target="blank" href="https://www.ameterapiaecursos.com" class="btn btn-success direita">Comprar</a>
       </div>
       </td>
       <td>
@@ -315,11 +315,13 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 
 </div>
 </div>
-</div> <!-- end jumbotrom -->
+</div> end jumbotrom
 
+			
+</div> end jumbotrom -->	
 
-
-			<div align="right" class="tamanhoDefault">	
+<div align="center">
+<div align="center" class="tamanhoDefault">	
 			<table class="fundoConstelacaoDadosTerapeuta" style="color: black;">
 			<tr>
 			<td>
@@ -337,12 +339,10 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 			</table>		
 			<div >			
 			</div>
-			</div>
-			
-			
-</div> <!-- end jumbotrom -->	
+</div>
+</div>
 	
-<div class="paddingPadrao">
+<div class="paddingPadrao" align="center">
 <h3>Encaminhar este curso a um amigo!</h3>	
 <form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
   <div class="form-group mx-sm-3 mb-2">
@@ -353,13 +353,14 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
   </div>
   <button type="submit" class="btn btn-success mb-2">Enviar</button>
 </form>	
-</div>
+
 
 <p class="paddingPadrao" style="font-size: x-large;">
 <a href="<c:url value="/"></c:url>">Visite o Website.</a>
 </p>
 
 </div>
+
 
 </div> <!-- main -->
 </div> <!-- wrap -->
