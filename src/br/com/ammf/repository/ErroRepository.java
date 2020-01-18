@@ -7,12 +7,16 @@ import org.apache.log4j.Logger;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.repository.imp.LogAplicacaoDao;
+import br.com.caelum.vraptor.ioc.Component;
 
+@Component
 public class ErroRepository extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	static Logger logger = Logger.getLogger(ErroRepository.class);
 	
 	protected String mensagemErro;
+	
+	public ErroRepository() {}
 
 	public ErroRepository(Excecao excecao) {
 		this.mensagemErro = excecao.getMensagemErro();
@@ -31,7 +35,7 @@ public class ErroRepository extends RuntimeException {
 		}
 	}
 	
-	private void salvaLogDeErrosNoBanco(String mensagemErro){
+	public void salvaLogDeErrosNoBanco(String mensagemErro){
 		
 		LogAplicacaoRepository logRepository = new LogAplicacaoDao();
 		LogAplicacao logAplicacao = new LogAplicacao();

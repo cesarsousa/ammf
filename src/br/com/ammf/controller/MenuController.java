@@ -4,6 +4,7 @@ import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.List;
 
+import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
@@ -149,8 +150,8 @@ public class MenuController {
 	public void notificarEmailConstelacao(String local){
 		try {
 			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
-			List<Pessoa> pessoasNaoNotificadas = emailService.notificarConstelacaoParaPessoas(constelacao);
-			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).serialize();
+			RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarConstelacaoParaPessoas(constelacao);
+			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).include("emailsNaoInformados").serialize();
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
 		}

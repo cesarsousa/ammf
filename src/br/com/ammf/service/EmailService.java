@@ -2,6 +2,7 @@ package br.com.ammf.service;
 
 import java.util.List;
 
+import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
@@ -46,7 +47,7 @@ public interface EmailService {
 
 	void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException;
 
-	List<Pessoa> notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException;
+	RelatorioEmailDto notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException;
 	
 	void notificarConstelacaoParaEmail(Constelacao constelacao, String destinatario) throws EmailException;
 

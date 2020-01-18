@@ -17,13 +17,16 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import br.com.ammf.exception.EmailException;
+import br.com.ammf.service.LogAplicacaoService;
 
 public class Email {	
 		
 	private boolean emailAtivado;
 	private int SMTP;
 	
-	public Email(boolean emailAtivado, boolean administrativo) {
+	private LogAplicacaoService logAplicacaoService;
+	
+	public Email(boolean emailAtivado, boolean administrativo, LogAplicacaoService logAplicacaoService) {
 		this.emailAtivado = emailAtivado;
 		
 		/*
@@ -31,6 +34,7 @@ public class Email {
 		 * 1 = SMTP servidor Google
 		 */
 		this.SMTP = administrativo ? 1 : 0;
+		this.logAplicacaoService = logAplicacaoService;
 	}	
 		
 	public void enviarEmail(
@@ -121,6 +125,10 @@ public class Email {
 			default:
 				throw new EmailException("SMTP nao definido");
 			}						
+		}else {
+			String mensagemErro = "Tentativa de envio de email com a configuração padrão de envio de email desligada.";
+			logAplicacaoService.erro(mensagemErro);
+			throw new EmailException(mensagemErro);
 		}
 	}		
 }

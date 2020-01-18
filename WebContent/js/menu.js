@@ -150,25 +150,26 @@ function enviarNotificacaoConstelacaoEm(local){
 			
 			console.log(json)
 			
-			if(json.length > 0){
-				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
+			
+			$('#msgSucessoAjaxNiteroi').html("Total de pessoas cadastradas: " + json.totalGeral + ".<br/>Operação realizada com sucesso para " + json.totalInformado + " pessoas!").show();
+			
+			if(json.totalErros > 0){
 				
-				var dataDiv = '<p>Erro no envio nos email abaixo.</p>';
+				var dataDiv = '<p>Erro no envio para ' + json.totalErros + ' emails.</p>';
 				
 				dataDiv += '<ul>';
 								
-				for(var i = 0; i < json.length; i++){
+				for(var i = 0; i < json.emailsNaoInformados.length; i++){
 					
-					dataDiv += '<li>' + json[i].email + '</li>';
+					dataDiv += '<li>' + json.emailsNaoInformados[i].email + '</li>';
 				}
 				
 				dataDiv += '</lu>'
 				
 				$('#msgErroAjaxNiteroi').html(dataDiv).show();
-			}else{
-				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-				$('#msgSucessoAjaxNiteroi').html("Operação realizada com sucesso!").show();
 			}
+			
 		},
 		error : function(){
 			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);

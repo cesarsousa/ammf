@@ -5,8 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.sun.org.apache.bcel.internal.generic.LLOAD;
-
+import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
@@ -27,6 +26,7 @@ import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.EmailService;
+import br.com.ammf.service.LogAplicacaoService;
 import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
 import br.com.caelum.vraptor.ioc.Component;
@@ -42,11 +42,14 @@ public class EmailServiceImp implements EmailService {
 	
 	private Logger logger = Logger.getLogger(EmailServiceImp.class);
 	
-	public EmailServiceImp(UsuarioRepository usuarioRepository, PessoaRepository pessoaRepository){
+	public EmailServiceImp(
+			UsuarioRepository usuarioRepository, 
+			PessoaRepository pessoaRepository, 
+			LogAplicacaoService logAplicacaoService){
 		this.usuarioRepository = usuarioRepository;
 		this.pessoaRepository = pessoaRepository;
 		this.administrador = this.usuarioRepository.obterAdministrador();
-		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo());
+		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo(), logAplicacaoService);
 		this.htmlMensagem = new HtmlMensagem(administrador.isDominioPadrao());
 		
 	}
@@ -359,7 +362,7 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public List<Pessoa> notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
+	public RelatorioEmailDto notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
 		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
 		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
 		
@@ -368,27 +371,32 @@ public class EmailServiceImp implements EmailService {
 		System.out.println("--- Inicio da rotina : notificarConstelacaoParaPessoas ---");
 		System.out.println("--- Total de pessoas: " + totalDePessoas);
 		
-		int count = 1;
+		int contador = 1;
+		int contadorEnviados = 0;
+		int contadorErro = 0;
+		
 		for(Pessoa pessoa : pessoas){
 			
 			System.out.println("--- ------------------------------------------------------------------- ---");
-			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- Notificação " + contador + " de " + totalDePessoas + " pesssoa(s).");
 			System.out.println("--- ------------------------------------------------------------------- ---");
 			System.out.println("--- Cliente Email " + pessoa.getEmail());
 			
 			try {
 				enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+				contadorEnviados++;
 			}catch (EmailException e) {
 				pessoasNaoNotificadas.add(pessoa);
+				contadorErro++;
 			}
 			
 			
-			count++;
+			contador++;
 		}
 		
 		logger.info("--- Fim da rotina de Notificação de email ---");
 		
-		return pessoasNaoNotificadas;
+		return new RelatorioEmailDto(totalDePessoas, contadorEnviados, contadorErro, pessoasNaoNotificadas);
 		
 	}
 

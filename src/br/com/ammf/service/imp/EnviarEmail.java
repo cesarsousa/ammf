@@ -20,14 +20,11 @@ import br.com.ammf.model.Status;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.PessoaRepository;
+import br.com.ammf.service.LogAplicacaoService;
 import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
-
-/*@Component
-public class EmailServiceImp implements EmailService {*/
 	
 public class EnviarEmail {
-		
 	
 	private PessoaRepository pessoaRepository;
 	private SessaoUsuario sessaoUsuario;
@@ -36,11 +33,11 @@ public class EnviarEmail {
 	private Email email;
 	private HtmlMensagem htmlMensagem;
 	
-	public EnviarEmail(SessaoUsuario sessaoUsuario, PessoaRepository pessoaRepository){
+	public EnviarEmail(SessaoUsuario sessaoUsuario, PessoaRepository pessoaRepository, LogAplicacaoService logAplicacaoService){
 		this.sessaoUsuario = sessaoUsuario;
 		this.pessoaRepository = pessoaRepository;
 		this.administrador = this.sessaoUsuario.getUsuario();
-		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo());
+		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo(), logAplicacaoService);
 		this.htmlMensagem = new HtmlMensagem(administrador.isAdministrativo());
 		
 	}
