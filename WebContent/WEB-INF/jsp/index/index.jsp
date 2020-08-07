@@ -50,7 +50,7 @@
 		<div align="center">
 		
 		<c:if test="${not empty videos}">
-			
+					
 			<div class="jumbotron">
 			<h1 align="center">Videos</h1>
 			
@@ -61,7 +61,7 @@
 						<div>${video.url}</div>
 					</td>
 					<td style="padding: 10px;">
-						<h2 class="azulClaro">${video.titulo}</h2>
+						<h3 class="azulClaro">${video.titulo}</h3>
 						<h3 class="descricaoTextoIndex corPrincipal">${video.descricao}</h3>
 					</td>
 				</tr>
@@ -86,7 +86,7 @@
 					</a>
 	  				</td>
 	  				<td class="paddingPadrao" valign="top">
-	  				<h4 class="justificado">${livroNewsSinopse}</h4>
+	  				<h4 class="justificado descricaoTextoIndex corPrincipal">${livroNewsSinopse}</h4>
 				  	<div align="right">
 				  	<a id="tabLojaNews" class="btn btn-primary btn-lg" role="button">Visitar Loja Virtual</a>
 	  				</div>
@@ -108,8 +108,8 @@
 				<tr align="left">
 					<td class="paddingPadrao">
 					<c:if test="${not empty blogNews}">			
-	  				<h2>Blog</h2>				  	
-				  	<h3 class="justificado" >${blogNewsConteudo}</h3>
+	  				<h2 class="azulClaro">Blog</h2>				  	
+				  	<h3 class="justificado descricaoTextoIndex corPrincipal" >${blogNewsConteudo}</h3>
 				  	<div align="right">
 				  	<a id="tabBlogNews" class="btn btn-primary btn-lg" role="button">Continuar lendo...</a>
 					</div>
@@ -119,7 +119,7 @@
 				<tr align="left">	
 					<td class="paddingPadrao">
 					<c:if test="${not empty resenhaNews}">
-	  				<h2>Resenha</h2>
+	  				<h2 class="azulClaro">Resenha</h2>
 	  				
 	  				<table>
 	  				<tr>
@@ -129,7 +129,7 @@
 					</a>
 	  				</td>
 	  				<td class="paddingPadrao">
-	  				<h3 class="justificado">${resenhaNewsConteudo}</h3>
+	  				<h3 class="justificado descricaoTextoIndex corPrincipal">${resenhaNewsConteudo}</h3>
 				  	<div align="right">
 				  	<a id="tabResenhaNews" class="btn btn-primary btn-lg" role="button">Continuar lendo...</a>
 	  				</div>

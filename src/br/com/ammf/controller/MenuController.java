@@ -29,7 +29,6 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.Validator;
 
 @Resource
 public class MenuController {
@@ -43,7 +42,6 @@ public class MenuController {
 	private ConstelacaoRepository constelacaoRepository;
 	private ErroAplicacaoRepository erroAplicacaoRepository;
 	
-	private final Validator validation;
 	
 	public MenuController(
 			Result result,
@@ -53,8 +51,7 @@ public class MenuController {
 			EmailService emailService,
 			TextoRepository textoRepository,			
 			ConstelacaoRepository constelacaoRepository,
-			ErroAplicacaoRepository erroAplicacaoRepository,
-			Validator validation){
+			ErroAplicacaoRepository erroAplicacaoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
@@ -63,7 +60,6 @@ public class MenuController {
 		this.textoRepository = textoRepository;
 		this.constelacaoRepository = constelacaoRepository;
 		this.erroAplicacaoRepository = erroAplicacaoRepository;
-		this.validation = validation;
 	}
 	
 	@Restrito

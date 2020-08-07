@@ -673,6 +673,7 @@ a:HOVER {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	box-shadow: 2px 2px 2px #CCCCCC;
+	margin-bottom: 10px;
 }
 
 .destaqueImage:hover {
@@ -1103,7 +1104,7 @@ categoria:hover {
 #menuRodape li {
 	text-align: center;
 	float: left;
-	width: 110px;
+	width: 100px;
 }
 
 #menuRodape a:hover{

@@ -900,6 +900,12 @@
 				<form action="<c:url value="/menu/resenha" />" method="get">
 				<input type="submit" value="Resenhas" class="buttonFooter">
 				</form>
+				</li>
+				
+				<li>
+				<form action="<c:url value="/menu/video" />" method="get">
+				<input type="submit" value="Videos" class="buttonFooter">
+				</form>
 				</li>							
 				
 				<li>
