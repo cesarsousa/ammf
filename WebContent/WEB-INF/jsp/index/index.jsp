@@ -54,11 +54,19 @@
 			<div class="jumbotron">
 			<h1 align="center">Videos</h1>
 			
+			<table>
 			<c:forEach var="video" items="${videos}">
-				<h2>${video.titulo}</h2>
-				<h3>${video.descricao}</h3>
-				<div>${video.url}</div>
+				<tr class="cardViewText bordaSupInf">
+					<td style="padding: 5px;">
+						<div>${video.url}</div>
+					</td>
+					<td style="padding: 10px;">
+						<h2 class="azulClaro">${video.titulo}</h2>
+						<h3 class="descricaoTextoIndex corPrincipal">${video.descricao}</h3>
+					</td>
+				</tr>
 			</c:forEach>
+			</table>
 			
 			<br>
 			<div class="separador"></div>
