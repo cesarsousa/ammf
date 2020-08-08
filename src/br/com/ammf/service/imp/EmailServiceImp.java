@@ -529,5 +529,35 @@ public class EmailServiceImp implements EmailService {
 				mensagem);
 		
 	}
+	
+	@Override
+	public void notificarVideoParaPessoas(String titulo, String conteudo) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+
+		String mensagemFinal = "Olá! Gostaria de compartilhar meu novo vído, postado no canal.<br/><br/>" + conteudo;
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : notificarVideoParaPessoas ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int count = 1;
+		for(Pessoa pessoa : pessoas){
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + count + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailSimples(pessoa.getEmail(), titulo, mensagemFinal);
+			}catch (EmailException e) {
+				throw new EmailException("");
+			}
+			count++;
+		}	
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		
+	}
 
 }

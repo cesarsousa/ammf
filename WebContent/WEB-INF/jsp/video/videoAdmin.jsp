@@ -2,21 +2,6 @@
 
 <%@ include file="/logAdmin.jsp" %>
 
-
-<div id="divMensagemVideo" align="center">
-<c:if test="${not empty videoMensagemSucesso}">
-	<div class="msgBorder msgSucesso ponteiro closeClick">
-		${videoMensagemSucesso} 
-	</div>
-</c:if>
-<c:if test="${not empty videoMensagemErro}">
-	<div class="msgBorder msgErro ponteiro closeClick">
-		${videoMensagemErro} 
-	</div>
-</c:if>
-
-</div>
-
 <%@ include file="/headerLib.jsp" %>
 
 <div id="divPgVideoAdm" class="paddingPadrao">
@@ -47,34 +32,49 @@
 <div class="separador"></div>
 
 <div class="modal fade" id="modalCadastrarVideo" role="dialog">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
     	<div class="modal-content">
         	<div class="modal-header" align="center">
           		<img src="${imagem}/iconeAddHover.png" class="icone50 esquerda">
         	</div>
         	<div class="modal-body">
-			        <form action="<c:url value="/video/novo"/>" method="post">
+        	
+        		<div id="telaAguardeCadastrarVideo" style="display: none;">
+					<div align="center">
+						
+						<span class="info azulClaro" >Vídeo sendo cadastrado.</span>
+												
+						<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
+						
+						<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
+						<br />
+						<br />			
+					</div>
+				</div>
+        	
+			    <form action="<c:url value="/video/novo"/>" method="post">
 					
 					<h3>Título</h3>
 					<input type="text" class="form-control" name="video.titulo" required="required"/>
-						
+							
 					<h3>Descrição</h3>
 					<input type="text" class="form-control" name="video.descricao" required="required"/>
-						
+							
 					<h3>URL (IFrame)</h3>
 					<input type="text" class="form-control" name="video.url" required="required"/>
-					
+						
 					<h3>SRC</h3>
 					<input type="text" class="form-control" name="video.src" required="required"/>
-					
+						
 					<div align="left" style="padding-top: 10px; font-size: large;">
 					<input type="checkbox" name="video.ativo"> Vídeo ativo.
 					</div>
-					
+						
 					<p class="paddingPadrao">
-					<input id="btConfirmarVideo" type="submit" value="Confirmar" class="btn btn-success">			
+						<input id="btConfirmarVideo" type="submit" value="Confirmar" class="btn btn-success">			
 					</p>
-					</form>	
+					
+				</form>	
         	</div>
         	<div class="modal-footer">
           		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -109,8 +109,7 @@
 					<td>${video.descricao}</td>
 					<td class="${video.ativo}"></td>
 					<td>						
-						<img id="editarVideo" class="icone" alt="editar" title="editar" src="${imagem}/iconeEditarHover.png" data-target="${video.id}">
-						<a href="<c:url value="/resenha/excluir/${video.id}" />" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
+						<a href="<c:url value="/video/excluir/${video.id}" />" ><img class="icone" alt="excluir" title="excluir" src="${imagem}/icone_excluir.png"></a>
 					</td>
 				</tr>			
 			</c:forEach>		
@@ -123,20 +122,6 @@
 </div>
 
 </div> <!-- div center -->
-
-<div id="telaAguardeVideo" style="display: none;">
-	<div align="center">
-		
-		<h2>VÍDEO</h2>    
-		<span class="info azulClaro" >Vídeo sendo cadastrado/atualizado.</span>
-								
-		<h3 class="paddingTelaAguarde">Enviando notifica&ccedil;&atilde;o por email para as pessoas cadastradas no site.<br/>Esta opera&ccedil;&atilde;o pode levar alguns minutos.</h3>
-		
-		<div class="paddingTelaAguarde backgroundTelaAguarde" align="center"><img alt="Aguarde" src="${imagem}/gif_aguarde.gif"></div>			
-		<br />
-		<br />			
-	</div>
-</div>
 
 </div> <!-- main -->
 </div> <!-- wrap -->

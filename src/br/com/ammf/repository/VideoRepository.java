@@ -10,6 +10,10 @@ public interface VideoRepository {
 
 	List<Video> listarTodosDescrecente();
 
-	void salvaOuAtualiza(Video video);
+	void salvar(Video video);
+
+	Video obterPorId(long id);
+
+	void excluir(Video video);
 
 }

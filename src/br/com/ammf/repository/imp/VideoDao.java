@@ -49,15 +49,37 @@ private final Session session;
 	}
 
 	@Override
-	public void salvaOuAtualiza(Video video) {
-		/*try {
+	public void salvar(Video video) {
+		try {
 			Transaction transaction = session.beginTransaction();
-			session.saveOrUpdate(video);			
+			session.save(video);			
 			transaction.commit();
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
-		}	*/
+		}	
 		
+	}
+
+	@Override
+	public Video obterPorId(long id) {
+		try{
+			Criteria criteria = session.createCriteria(Video.class);
+			criteria.add(Restrictions.eq("id", id));
+			return (Video) criteria.uniqueResult();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public void excluir(Video video) {
+		try {
+			Transaction transaction = session.beginTransaction();
+			session.delete(video);			
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	
 	}
 
 }

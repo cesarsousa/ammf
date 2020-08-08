@@ -57,6 +57,8 @@ public interface EmailService {
 
 	List<Pessoa> enviarEmailParaClientes(Mensagem mensagem, boolean todosOsContatos) throws EmailException;
 
-	void enviarEmailSugestaoCurso(String nome, String email) throws EmailException;;
+	void enviarEmailSugestaoCurso(String nome, String email) throws EmailException;
+
+	void notificarVideoParaPessoas(String titulo, String conteudo) throws EmailException;
 
 }
