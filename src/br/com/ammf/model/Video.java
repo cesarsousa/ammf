@@ -27,7 +27,14 @@ public class Video implements Serializable{
 	@Column(length = 3000)
 	private String url;
 	
+	@Column(length = 3000)
+	private String src;
+	
 	private boolean ativo;
+
+	public Video() {
+		super();
+	}
 
 	public long getId() {
 		return id;
@@ -59,6 +66,14 @@ public class Video implements Serializable{
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	public String getSrc() {
+		return src;
+	}
+	
+	public void setSrc(String src) {
+		this.src = src;
 	}
 
 	public boolean isAtivo() {

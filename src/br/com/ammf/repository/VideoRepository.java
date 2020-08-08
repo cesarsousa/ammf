@@ -8,4 +8,8 @@ public interface VideoRepository {
 
 	List<Video> obterVideosAtivos();
 
+	List<Video> listarTodosDescrecente();
+
+	void salvaOuAtualiza(Video video);
+
 }

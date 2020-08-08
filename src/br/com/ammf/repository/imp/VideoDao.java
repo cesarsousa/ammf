@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -33,6 +34,30 @@ private final Session session;
 		} catch (Exception e) {
 			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Video> listarTodosDescrecente() {
+		try{
+			Criteria criteria = session.createCriteria(Video.class);
+			criteria.addOrder(Order.desc("id"));
+			return criteria.list();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}
+	}
+
+	@Override
+	public void salvaOuAtualiza(Video video) {
+		/*try {
+			Transaction transaction = session.beginTransaction();
+			session.saveOrUpdate(video);			
+			transaction.commit();
+		} catch (Exception e) {
+			throw new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName(), e));
+		}	*/
+		
 	}
 
 }
