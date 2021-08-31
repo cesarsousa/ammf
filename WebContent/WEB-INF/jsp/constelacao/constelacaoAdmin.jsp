@@ -118,6 +118,7 @@
 					<select name="evento.localEvento" class="form-control" >
 						<option selected="selected">NITEROI</option>
 						<option>BARRA</option>
+						<option>TERESOPOLIS</option>
 					</select>
 					
 					<h3>Data:</h3>
