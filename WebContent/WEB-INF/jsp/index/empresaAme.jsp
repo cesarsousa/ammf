@@ -36,6 +36,11 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 </div> <!-- end jumbotrom -->
 
+<div class="alert alert-warning" role="alert">
+  <h1>Devido ao atual cenário sanitário e obedecendo as regras de distânciamento social para evitar aglomerações em locais fechado as novas datas para realização
+  desse curso estão em análise. </h1>
+</div>
+
 <div class="jumbotron" style="background-color: #ffffff">
 <div align="center">
 <div class="  cardViewTextNoBackground ">
@@ -102,55 +107,56 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </ul>
 </div>
 
+<div hidden="true">
+	<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
+	<div class="paddingPadrao">
+	<p>9 módulos mensais a serem ministrados de março a novembro de 2020.</p>
+	<p>Um módulo por sábado.</p>
+	<p>Das 9:00 horas da manhã às 18:00 horas.</p>
+	<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+	<p>Material didático (incluso).</p>
 
-<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
-<div class="paddingPadrao">
-<p>9 módulos mensais a serem ministrados de março a novembro de 2020.</p>
-<p>Um módulo por sábado.</p>
-<p>Das 9:00 horas da manhã às 18:00 horas.</p>
-<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
-<p>Material didático (incluso).</p>
-
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-      <th scope="row">Módulo 1</th>
-      <td>21 de Março</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 2</th>
-      <td>18 de Abril</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 3</th>
-      <td>16 de Maio</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 4</th>
-      <td>20 de Junho</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 5</th>
-      <td>25 de Julho</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 6</th>
-      <td>22 de Agosto</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 7</th>
-      <td>19 de Setembro</td>
-    </tr>
-    <tr>
-      <th scope="row">Módulo 8</th>
-      <td>17 de Outubro</td>
-    </tr> 
-    <tr>
-      <th scope="row">Módulo 9</th>
-      <td>14 de Novembro</td>
-    </tr>    
-  </tbody>
-</table>
+	<table class="table table-bordered">
+	  <tbody>
+	    <tr>
+	      <th scope="row">Módulo 1</th>
+	      <td>21 de Março</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 2</th>
+	      <td>18 de Abril</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 3</th>
+	      <td>16 de Maio</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 4</th>
+	      <td>20 de Junho</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 5</th>
+	      <td>25 de Julho</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 6</th>
+	      <td>22 de Agosto</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 7</th>
+	      <td>19 de Setembro</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Módulo 8</th>
+	      <td>17 de Outubro</td>
+	    </tr> 
+	    <tr>
+	      <th scope="row">Módulo 9</th>
+	      <td>14 de Novembro</td>
+	    </tr>    
+	  </tbody>
+	</table>
+</div>
 
 </div>
 </div>
@@ -262,7 +268,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div>
 
-<div class="jumbotron" style="background-color: #A9E2F3;">	
+<div class="jumbotron" style="background-color: #A9E2F3;" hidden="true">	
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
@@ -312,7 +318,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 
 </div> 
 	
-<div class="paddingPadrao" align="center">
+<div class="paddingPadrao" align="center" hidden="true">
 <h3>Encaminhar este curso a um amigo!</h3>	
 <form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
   <div class="form-group mx-sm-3 mb-2">
@@ -322,14 +328,15 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
     <input type="email" class="form-control" id="" name="email" placeholder="E-mail (do amigo)" required="required">
   </div>
   <button type="submit" class="btn btn-success mb-2">Enviar</button>
-</form>	
+</form>
+</div>	
 
 
 <p class="paddingPadrao" style="font-size: x-large;">
 <a href="<c:url value="/"></c:url>">Visite o Website.</a>
 </p>
 
-</div>
+
 
 
 </div> <!-- main -->
