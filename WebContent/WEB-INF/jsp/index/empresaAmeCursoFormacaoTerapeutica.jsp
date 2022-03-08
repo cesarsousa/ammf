@@ -36,11 +36,10 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div>
 </div> <!-- end jumbotrom -->
 
-<!-- Alerta Covid -->
-<!-- <div class="alert alert-warning" role="alert">
+<div class="alert alert-warning" role="alert">
   <h1>Devido ao atual cenário sanitário e obedecendo as regras de distânciamento social para evitar aglomerações em locais fechado as novas datas para realização
   desse curso estão em análise. </h1>
-</div> -->
+</div>
 
 <div class="jumbotron" style="background-color: #ffffff">
 <div align="center">
@@ -49,16 +48,20 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 
 <table style="width: 100%">
 <tr>
-<td width="80%" class="paddingPadrao"><h2 style="color:rgb(29,23,82)">Curso livre de Formação em Terapia Transpessoal e disciplinar com Constelações</h2></td>
-<%-- <td width="20%" class="paddingPadrao"><img class="ml-3" src="${imagem}/seloCurso.jpg" alt="selo de registro do curso"></td> --%>
+<td width="80%" class="paddingPadrao"><h2 style="color:rgb(29,23,82)">Curso Livre de Formação Básica em Constelações Sistêmicas
+e Terapia Transpessoal (Manejo Pessoal e Interpessoal da Consciência nos Campos Terapêuticos)</h2></td>
+<td width="20%" class="paddingPadrao"><img class="ml-3" src="${imagem}/seloCurso.jpg" alt="selo de registro do curso"></td>
 </tr>
 </table>
 
-<!-- <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/WfX1OKVEuLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
- -->
+<div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/WfX1OKVEuLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 <h2 style="color:rgb(29,23,82)">Finalidade</h2>
 <div class="paddingPadrao">
-<p>Este curso é um processo presencial de terapia de grupo com formação terapêutica.</p> 
+<p>Este curso busca possibilitar a construção de uma base necessária para a compreensão, 
+educação continuada, e o exercício profissional de uma Terapia que se baseia na Prática 
+das Constelações Sistêmicas com um enfoque Transpessoal, apoiada em uma abordagem que componha regência, 
+vivência, terapia, aprendizagem e formação profissional.</p> 
 </div>
 
 <h2 style="color:rgb(29,23,82)">A quem se destina</h2>
@@ -76,46 +79,44 @@ em conjunto com Metodologia Científica, Existencialismo, Fenomenologia, Teoria 
 </p>
 </div>
 
-<!-- <h2 style="color:rgb(29,23,82)">Exigência de Ingresso</h2>
+<h2 style="color:rgb(29,23,82)">Exigência de Ingresso</h2>
 <div class="paddingPadrao">
 <p>Terceiro Grau em qualquer área, completo ou em desenvolvimento.</p>
-</div> -->
+</div>
 
-<!-- <h2 style="color:rgb(29,23,82)">Estrutura do Curso</h2> 
+<h2 style="color:rgb(29,23,82)">Estrutura do Curso</h2> 
 <div class="paddingPadrao">
 <p>Implica em Vivência, Teoria e Prática em um processo terapêutico 
 fechado de nove sábados no âmbito transpessoal das Constelações Sistêmicas. 
 Uma transmissão teórica das perspectivas das abordagens conhecidas como Constelações 
 Sistêmicas e Transpessoal. 
 Um exercício prático de formação dos conteúdos essenciais destas abordagens. Uma proposta de Formação Continuada.</p>
-</div> -->
+</div>
 
-<h2 style="color:rgb(29,23,82)">Este curso tem como conteúdos programáticos.</h2>
+<h2 style="color:rgb(29,23,82)">Conteúdos Estruturantes envolvidos na formação.</h2>
 <div class="paddingPadrao">
 <ul>
-<li>Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência.</li>
-<li>Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos.</li>
-<li>Níveis de Expressão, Manifestação e Compreensão da Consciência.</li>
+<li>Introdução às Constelações Familiares, Sistêmicas, Estruturantes, Mediais.</li>
 <li>Compreensão de Percurso, Propósito, Significado e Verdade na Perspectiva da Realidade Humana.</li>
 <li>Reflexão Sobre Vida, Morte, Existência, Atos, Escolhas, Consequências, Destinos, Percursos.</li>
-<li>Entendimento sobre Acumulações, Saltos, Crises, Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
+<li>Entendimento Sobre Acumulações, Saltos, Crises Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
 <li>Percepção dos Contextos, Biológicos, Linguísticos, Discursivos, Narrativos, Estruturais, Sistêmicos, Econômicos, Sociais, Culturais, Políticos.</li>
 <li>Discussão sobre Emoção, Afeto, Amor, Vínculo, Pensamento, Percepção, Relacionamento Consigo, com o Próximo e com os Liames Sociais.</li>
-<li>Referenciação do que venha a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
+<li>Referenciação do que venham a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
 <li>Qual o Lugar, o Papel, a Ação Possível do Terapeuta no âmbito dos limites impostos pelo Narcisismo e seus Referentes, a Equanimidade, a Arrogância, a Humildade e o Medo.</li>
-<li>A regência e a dinâmica das Constelações Sistêmicas, seu âmbito e suas reais dimensões terapêuticas.</li>
 </ul>
 </div>
 
-<div>
+<div hidden="true">
 	<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
 	<div class="paddingPadrao">
-	<p>O curso se compõe de oito aulas práticas, participativas e dinâmicas, uma a cada mês, de abril a novembro de 2022. 
-	<p>Uma aula por sábado.</p>
+	<p>9 módulos mensais a serem ministrados de março a novembro de 2020.</p>
+	<p>Um módulo por sábado.</p>
 	<p>Das 9:00 horas da manhã às 18:00 horas.</p>
 	<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+	<p>Material didático (incluso).</p>
 
-	<table hidden="true" class="table table-bordered">
+	<table class="table table-bordered">
 	  <tbody>
 	    <tr>
 	      <th scope="row">Módulo 1</th>
@@ -162,8 +163,8 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div> <!-- end jumbotrom -->
 
-<div class="jumbotron" hidden="true">
-<div align="center" hidden="true">
+<div class="jumbotron">
+<div align="center">
 <h2 align="center" style="color:#151515; ">Módulos</h2>
 
 <div class="paddingPadrao">
@@ -254,7 +255,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div> <!-- end jumbotrom -->
 
-<!-- <div class="tamanhoEdicaoIndex" align="left">
+<div class="tamanhoEdicaoIndex" align="left">
 <h2>Informações Gerais</h2>
 <div style="text-align: justify;">
 <p>Por ser um curso teórico, prático e constituído por uma vivência terapêutica em seu escopo, não há a possibilidade de uma participação que seja parcial em cada módulo, portanto, eventuais problemas, como atrasos significativos, saídas durante o módulo, ou consideravelmente antes do seu fechamento, além de ausências, implicam necessariamente serem repostas em outra versão do mesmo curso, com o custo daí então advindo.</p>
@@ -265,9 +266,9 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 <p>Cada módulo poderá ser feito em separado, e ao fechamento de cada um será oferecido um Certificado de Conclusão do Módulo em questão, com a carga horária de 20 (vinte horas).                                                                                                                                                                                                                                                      </p>
 <p>Ao final de cada módulo será solicitada uma avaliação do mesmo pelo aluno como instrumento de feedback didático e pedagógico.                                                                                                                                                                                                                                                                                                       </p>
 </div>
-</div> -->
+</div>
 
-<div class="jumbotron" style="background-color: #A9E2F3;">	
+<div class="jumbotron" style="background-color: #A9E2F3;" hidden="true">	
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
@@ -275,19 +276,19 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 <p>Av. Sete de Setembro, 317 sala 708, Santa Rosa – Niterói - RJ</p>
 <p>Próximo ao colégio Salesiano.</p>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.284993179031!2d-43.10146388398128!3d-22.902856785013796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983f798b2ce65%3A0x837a973c205e3223!2sAv.%20Sete%20de%20Setembro%2C%20317%20-%20Santa%20Rosa%2C%20Niter%C3%B3i%20-%20RJ%2C%2024230-251!5e0!3m2!1spt-BR!2sbr!4v1646761873622!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d550.5748301000926!2d-43.0992446563184!3d-22.903139548724464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983f7a0192bb1%3A0x72f5a4ac2e4e131f!2sAv.+Sete+de+Setembro%2C+317+-+708+-+Icara%C3%AD%2C+Niter%C3%B3i+-+RJ%2C+24230-253!5e1!3m2!1spt-BR!2sbr!4v1535426993730" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 <div class="jumbotron" style="background-color: rgb(202,242,194);">			
 <div align="center">
 <div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">Investimento</h2>
-<!-- <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">CURSO COMPLETO - 9 MÓDULOS</h2>
+<h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">CURSO COMPLETO - 9 MÓDULOS</h2>
 <h3 align="center">12x R$ 217, + R$100 (Inscrição) ou à vista <b>R$ 2.700</b>.</h3>
 
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">MÓDULO MENSAL - UNIDADE</h2>
-<h3 align="center">5x R$ 40, + R$100 (Inscrição) ou à vista <b>R$ 300</b>.</h3> -->
+<h3 align="center">5x R$ 40, + R$100 (Inscrição) ou à vista <b>R$ 300</b>.</h3>
 
-<h3 align="center">Valor do curso e datas das aulas disponível no link a seguir <a target="blank" href="https://www.ameconstelacoesecursos.com/cursos" class="btn btn-success">Entre em contato e solicite</a></h3>
+<h2 align="center">Para adquirir um de nossos planos <a target="blank" href="https://www.ameterapiaecursos.com" class="btn btn-success">Entre em contato e solicite</a></h2>
 
 </div>
 </div>
