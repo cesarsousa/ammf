@@ -271,11 +271,20 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
-<h3 align="center">Ballet Thaísa Jatobá</h3>
+<!--  
+<h3 align="center">Grupo integrado Fisioterapia</h3>
 <p>Av. Sete de Setembro, 317 sala 708, Santa Rosa – Niterói - RJ</p>
 <p>Próximo ao colégio Salesiano.</p>
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.284993179031!2d-43.10146388398128!3d-22.902856785013796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983f798b2ce65%3A0x837a973c205e3223!2sAv.%20Sete%20de%20Setembro%2C%20317%20-%20Santa%20Rosa%2C%20Niter%C3%B3i%20-%20RJ%2C%2024230-251!5e0!3m2!1spt-BR!2sbr!4v1646761873622!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+-->
+
+<h3 align="center">Grupo integrado Fisioterapia</h3>
+<p>Ministro Otávio Kelly 465, Icaraí – Niterói - RJ</p>
+<p>Em frente ao colégio Miraflores Niterói.</p>
+<br/>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d867.2291893092904!2d-43.101372444114645!3d-22.906390180371016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983f97012fa2b%3A0x27feb9cba3bb9e25!2sR.%20Min.%20Ot%C3%A1vio%20Kelly%2C%20465%20-%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ%2C%2024220-300!5e0!3m2!1spt-BR!2sbr!4v1659279890011!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 <div class="jumbotron" style="background-color: rgb(202,242,194);">			
 <div align="center">
