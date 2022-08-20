@@ -16,6 +16,7 @@ public class SessaoUsuario implements Serializable{
 	private Terapeuta terapeuta;
 	private Constelacao constelacao;
 	private Constelacao constelacaoBarra;
+	private Curso curso;
 	
 	private Texto textoIndex;
 	private Texto textoPsicologia;
@@ -125,6 +126,14 @@ public class SessaoUsuario implements Serializable{
 	
 	public void setConstelacaoBarra(Constelacao constelacaoBarra) {
 		this.constelacaoBarra = constelacaoBarra;
+	}
+	
+	public Curso getCurso() {
+		return curso;
+	}
+	
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 }

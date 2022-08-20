@@ -9,6 +9,7 @@ import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.ComentarioRepository;
 import br.com.ammf.repository.ConstelacaoRepository;
+import br.com.ammf.repository.CursoRepository;
 import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.repository.PessoaRepository;
@@ -31,6 +32,7 @@ public class MenuServiceImp implements MenuService{
 	private ComentarioRepository comentarioRepository;
 	private UsuarioRepository usuarioRepository;
 	private ResenhaRepository resenhaRepository;
+	private CursoRepository cursoRepository;
 	
 	public MenuServiceImp(
 			TextoRepository textoRepository,
@@ -65,6 +67,7 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setConstelacao(constelacaoRepository.get(LocalEvento.NITEROI));
 		sessaoUsuario.setConstelacaoBarra(constelacaoRepository.get(LocalEvento.BARRA));
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
+		sessaoUsuario.setCurso(cursoRepository.get());
 		return sessaoUsuario;
 	}	
 		
