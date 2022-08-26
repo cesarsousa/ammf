@@ -137,5 +137,32 @@ public class Curso implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public String getDataFormatada() {
+		
+		if(this.data == null) {
+			return "";
+		}
+		
+		return data.replace("<h2>", "").replace("</h2>", "");
+	}
+	
+	public String getFormaPagamentoSimples() {
+		
+		if(this.formaPagamento == null) {
+			return "";
+		}
+		
+		return formaPagamento.replace("<h3>", "").replace("</h3>", "");
+	}
+	
+	public String getLocalizacaoSimples() {
+		
+		if(this.localizacao == null) {
+			return "";
+		}
+		
+		return localizacao.replace("<h3>", "").replace("</h3>", "");
+	}
 
 }

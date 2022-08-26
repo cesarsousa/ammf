@@ -91,6 +91,57 @@ function atualizarConstelacaoBarra(elemento){
 	});
 }
 
+function atualizarCurso(elemento){
+	$.ajax({
+		type : 'POST',
+		url : $('#contexto').val() + "/menu/curso/atualizar",
+		data:{
+			"curso.nome" : $('#cursoNome').val(),
+			"curso.descricao" : $('#cursoDescricao').val(),
+			"constelacao.formaPagamento" : $('#constelacaoBarraFormaPagamento').val(),
+			"curso.formaPagamento" : $('#cursoFormaPagamento').val(),
+			"curso.data" : $('#cursoData').val(),
+			"curso.localizacao" : $('#cursoLocalizacao').val(),
+			"curso.localMapa" : $('#cursoLocalMapa').val(),
+			"curso.linkMapa" : $('#cursoLinkMapa').val(),
+			"curso.informacao" : $('#cursoInformacao').val(),
+			"curso.dadosPessoais" : $('#cursoDadosPessoais').val(),
+			},
+		success : function(json){
+			var idIconeOk = "#icone" + elemento;
+			$(idIconeOk).show().fadeOut(4000);
+		},
+		error : function(){
+			alert("Erro :( Não foi possível atualizar dados da contelação!");				
+		}
+	});
+}
+
+function enviarNotificacaoCursoPara(email, campo){
+	
+	hidenCamposMensagemAjaxCurso();
+	
+	$('#aguardeNotificacaoCurso').slideDown(500);
+	
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/menu/curso/notificar",
+		data:{"email" : email},
+		success : function(json){
+			$('#aguardeNotificacaoCurso').slideUp(500);
+			$(campo).val("");
+			$('#msgSucessoAjaxCurso').html("Operação realizada com sucesso!").show();
+		},
+		error : function(error){
+			console.log(error);
+			$('#aguardeNotificacaoCurso').slideUp(500);
+			$(campo).val("");
+			$('#msgErroAjaxCurso').html("Erro :( Não foi possível enviar a notificação do curso para: " + email).show();
+		}
+	});
+	
+}
+
 function enviarNotificacaoConstelacaoPara(local, email, campo){
 	
 	hidenCamposMensagemAjaxNiteroi();
@@ -125,6 +176,48 @@ function enviarNotificacaoConstelacaoPara(local, email, campo){
 				$(campo).val("");
 				$('#msgErroAjaxBarra').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
 			}
+		}
+	});
+	
+}
+
+function enviarNotificacaoCurso(){
+	
+	hidenCamposMensagemAjaxCurso();
+	
+	$('#aguardeNotificacaoCurso').slideDown(500);
+	
+	$.ajax({
+		type : 'GET',
+		url : $('#contexto').val() + "/menu/curso/notificar/todos",
+		success : function(json){
+			
+			console.log(json)
+			
+			$('#aguardeNotificacaoCurso').slideUp(500);
+			
+			$('#msgSucessoAjaxCurso').html("Total de pessoas cadastradas: " + json.totalGeral + ".<br/>Operação realizada com sucesso para " + json.totalInformado + " pessoas!").show();
+			
+			if(json.totalErros > 0){
+				
+				var dataDiv = '<p>Erro no envio para ' + json.totalErros + ' emails.</p>';
+				
+				dataDiv += '<ul>';
+								
+				for(var i = 0; i < json.emailsNaoInformados.length; i++){
+					
+					dataDiv += '<li>' + json.emailsNaoInformados[i].email + '</li>';
+				}
+				
+				dataDiv += '</lu>'
+				
+				$('#msgErroAjaxCurso').html(dataDiv).show();
+			}
+			
+		},
+		error : function(){
+			$('#aguardeNotificacaoCurso').slideUp(500);
+			$('#msgErroAjaxCurso').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
 		}
 	});
 	
@@ -184,6 +277,7 @@ function hidenCamposEdicaoPrincipal(){
 }
 
 function hidenIconesAjaxComSucesso(){
+	$('#iconecursoNome, #iconecursoDescricao, #iconecursoFormaPagamento, #iconecursoData, #iconecursoLocalizacao, #iconecursoLocalMapa, #iconecursoLinkMapa, #iconecursoInformacao, #iconecursoDadosPessoais').hide();
 	$('#iconeconstelacaoNiteroiTextoInicial, #iconeconstelacaoNiteroiFormaPagamento, #iconeconstelacaoNiteroiTextoFinal, #iconeconstelacaoNiteroiData, #iconeconstelacaoNiteroiLocalizacao, #iconeconstelacaoNiteroiLocalMapa, #iconeconstelacaoNiteroiLinkMapa, #iconeconstelacaoNiteroiInformacao, #iconeconstelacaoNiteroiDadosPessoais').hide();
 	$('#iconeconstelacaoBarraTextoInicial, #iconeconstelacaoBarraFormaPagamento, #iconeconstelacaoBarraTextoFinal, #iconeconstelacaoBarraData, #iconeconstelacaoBarraLocalizacao, #iconeconstelacaoBarraLocalMapa, #iconeconstelacaoBarraLinkMapa, #iconeconstelacaoBarraInformacao, #iconeconstelacaoBarraDadosPessoais').hide();
 	$('#iconeAtualizarUsuarioerro, #iconeAtualizarUsuariosucesso').hide();
@@ -194,6 +288,9 @@ function hidenCamposMensagemAjaxNiteroi(){
 }
 function hidenCamposMensagemAjaxBarra(){
 	$('#msgSucessoAjaxBarra, #msgErroAjaxBarra').hide();
+}
+function hidenCamposMensagemAjaxCurso(){
+	$('#msgSucessoAjaxCurso, #msgErroAjaxCurso').hide();
 }
 
 function fadeoutCamposEdicaoPrincipal(){
@@ -228,14 +325,19 @@ $(document).ready(function() {
 	
 	$('#aguardeNotificacaoConstelacaoNiteroi').hide();
 	$('#aguardeNotificacaoConstelacaoBarra').hide();
+	$('#aguardeNotificacaoCurso').hide();
 	hidenCamposMensagemAjaxNiteroi();
 	hidenCamposMensagemAjaxBarra();
+	hidenCamposMensagemAjaxCurso();
 
 	$('#constelacaoNiteroiTextoInicial, #constelacaoNiteroiFormaPagamento, #constelacaoNiteroiTextoFinal, #constelacaoNiteroiData, #constelacaoNiteroiLocalizacao, #constelacaoNiteroiLocalMapa, #constelacaoNiteroiLinkMapa, #constelacaoNiteroiInformacao, #constelacaoNiteroiDadosPessoais').blur(function() {		
 		atualizarConstelacaoNiteroi(this.id);		  
 	});
 	$('#constelacaoBarraTextoInicial, #constelacaoBarraFormaPagamento, #constelacaoBarraTextoFinal, #constelacaoBarraData, #constelacaoBarraLocalizacao, #constelacaoBarraLocalMapa, #constelacaoBarraLinkMapa, #constelacaoBarraInformacao, #constelacaoBarraDadosPessoais').blur(function() {		
 		atualizarConstelacaoBarra(this.id);		  
+	});
+	$('#cursoNome, #cursoDescricao, #cursoFormaPagamento, #cursoData, #cursoLocalizacao, #CursoLocalMapa, #cursoLinkMapa, #cursoInformacao, #cursoDadosPessoais').blur(function() {		
+		atualizarCurso(this.id);		  
 	});
 	
 	$('#constelacaoNiteroiEmailAdicional').blur(function(){
@@ -256,12 +358,24 @@ $(document).ready(function() {
 		}
 				
 	});
+	$('#cursoEmailAdicional').blur(function(){
+		
+		var cursoEmailAdicional = $('#cursoEmailAdicional').val();
+		
+		if(cursoEmailAdicional !== ""){
+			enviarNotificacaoCursoPara(cursoEmailAdicional, "#cursoEmailAdicional");
+		}
+				
+	});
 	
 	$('#constelacaoNiteroiEnviarEmails').click(function(){
 		enviarNotificacaoConstelacaoEm("NITEROI");
 	});
 	$('#constelacaoBarraEnviarEmails').click(function(){
 		enviarNotificacaoConstelacaoEm("BARRA");
+	});
+	$('#cursoEnviarEmails').click(function(){
+		enviarNotificacaoCurso();
 	});
 	
 	$('#conteudoIndex').hide();

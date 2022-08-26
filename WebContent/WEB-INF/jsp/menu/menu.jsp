@@ -532,6 +532,114 @@
 	
 	<div class="separador"></div>
 	
+	<!-- EDITAR CONTEUDO CURSO -->
+	<!-- Botão para acionar modal -->
+	<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalEditarCurso" style="width: 100%; color: black;">
+	  <b>Curso ${sessaoUsuario.curso.dataFormatada} <span class="info azulClaro">Altere o conte&uacute;do sobre o curso.</span></b>
+	</button>	
+	<!-- Modal -->
+	<div class="modal fade" id="modalEditarCurso" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Atualiza&ccedil;&atilde;o do conte&uacute;do do e-mail do curso.</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			<div align="left">
+			
+				<img align="left" src="${imagem}/seloCurso.jpg" class="esquerda icone50">
+				
+				<br/><br/><br/>
+				
+				<h3>Local do Evento:</h3>
+				
+				<input id="CursoLocalEvento" type="text" class="form-control" name="curso.localEvento" value="${sessaoUsuario.curso.localEvento}" readonly="readonly"/>
+											
+				<h3>Nome:<img id="iconecursoNome" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoNome" class="form-control" rows="10" name="curso.nome" >${sessaoUsuario.curso.nome}</textarea>				
+								
+				<h3>Descri&ccedil;&atilde;o:<img id="iconecursoDescricao" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoDescricao" class="form-control" rows="10" name="curso.descricao" >${sessaoUsuario.curso.descricao}</textarea>				
+								
+				<h3>Forma de pagamento:<img id="iconecursoFormaPagamento" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoFormaPagamento" class="form-control" rows="10" name="curso.formaPagamento" >${sessaoUsuario.curso.formaPagamento}</textarea>				
+								
+				<h3>Data: Este texto define parte do título do e-mail<img id="iconecursoData" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h2&gt;</b> para iniciar, e o marcador <b>&lt;/h2&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoData" class="form-control" rows="5" name="curso.data" >${sessaoUsuario.curso.data}</textarea>				
+								
+				<h3>Localiza&ccedil;&atilde;o (Endere&ccedil;o):<img id="iconecursoLocalizacao" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoLocalizacao" class="form-control" rows="10" name="curso.localizacao" >${sessaoUsuario.curso.localizacao}</textarea>
+				
+				<h3>Localiza&ccedil;&atilde;o (Google Maps):<img id="iconecursoLocalMapa" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h3&gt;</b> para iniciar, e o marcador <b>&lt;/h3&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoLocalMapa" class="form-control" rows="10" name="curso.localMapa" >${sessaoUsuario.curso.localMapa}</textarea>				
+				
+				<h3>Link para compartilhar Google Maps:<img id="iconecursoLinkMapa" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Gere esse link pelo Google Maps.
+				</div>
+				<textarea id="cursoLinkMapa" class="form-control" rows="3" name="curso.linkMapa" >${sessaoUsuario.curso.linkMapa}</textarea>				
+				
+								
+				<h3>Informa&ccedil;&otilde;es:<img id="iconecursoInformacao" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoInformacao" class="form-control" rows="10" name="curso.informacao" >${sessaoUsuario.curso.informacao}</textarea>				
+								
+				<h3>Dados Pessoais:<img id="iconecursoDadosPessoais" src="${imagem}/icone_confirmar.png" class="icone20"></h3>
+				<div class="alert alert-warning">
+				<b>Dica de Preenchimento!</b> Para delimitar um par&aacute;grafo utilize o marcador <b>&lt;h4&gt;</b> para iniciar, e o marcador <b>&lt;/h4&gt;</b> para finalizar o par&aacute;grafo.
+				</div>
+				<textarea id="cursoDadosPessoais" class="form-control" rows="10" name="curso.dadosPessoais" >${sessaoUsuario.curso.dadosPessoais}</textarea>				
+				
+				<br/>
+				
+				<div align="center">
+				<img id="aguardeNotificacaoCurso" alt="Aguarde" src="${imagem}/gif_aguarde.gif">
+				</div>
+				
+				<div id="msgSucessoAjaxCurso" class="msgBorderInterno msgSucesso ponteiro closeClick"></div>
+				<div id="msgErroAjaxCurso" class="msgBorderInterno msgErro"></div>
+				
+				<div class="paddingPadrao">
+				<input id="cursoEmailAdicional" type="email" class="form-control" placeholder="Enviar notificação do curso para este e-mail">
+				</div>
+				
+				<div class="paddingPadrao">
+				<button id="cursoEnviarEmails" class="btn btn-success" type="button">Enviar e-mail do curso para todas as pessoas</button>
+				</div>
+			</div>			
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="separador"></div>
+	
 	<table id="tabMenuPrincipal">
 	<tr>
 		<td align="center">

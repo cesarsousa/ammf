@@ -10,6 +10,7 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Constelacao;
+import br.com.ammf.model.Curso;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.LogAplicacao;
@@ -19,6 +20,7 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.model.SessaoUsuario;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ConstelacaoRepository;
+import br.com.ammf.repository.CursoRepository;
 import br.com.ammf.repository.ErroAplicacaoRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
@@ -41,7 +43,7 @@ public class MenuController {
 	private TextoRepository textoRepository;
 	private ConstelacaoRepository constelacaoRepository;
 	private ErroAplicacaoRepository erroAplicacaoRepository;
-	
+	private CursoRepository cursoRepository;
 	
 	public MenuController(
 			Result result,
@@ -51,7 +53,8 @@ public class MenuController {
 			EmailService emailService,
 			TextoRepository textoRepository,			
 			ConstelacaoRepository constelacaoRepository,
-			ErroAplicacaoRepository erroAplicacaoRepository){
+			ErroAplicacaoRepository erroAplicacaoRepository,
+			CursoRepository cursoRepository){
 		this.result = result;
 		this.menuService = menuService;
 		this.validacaoService = validacaoService;
@@ -60,6 +63,7 @@ public class MenuController {
 		this.textoRepository = textoRepository;
 		this.constelacaoRepository = constelacaoRepository;
 		this.erroAplicacaoRepository = erroAplicacaoRepository;
+		this.cursoRepository = cursoRepository;
 	}
 	
 	@Restrito
@@ -150,6 +154,45 @@ public class MenuController {
 			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).include("emailsNaoInformados").serialize();
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+		}
+	}
+	
+	@Restrito
+	@Get("/menu/curso/notificar")
+	public void notificarEmailCurso(String email){
+		try {
+			Curso curso = cursoRepository.get();
+			if(curso.getId() == 0L ) {
+				throw new IllegalStateException("Não há curso a ser informado!");
+			}
+			//emailService.notificarCursoParaEmail(curso, email);
+			result.use(json()).withoutRoot().from("Curso notificado com sucesso").serialize();
+		//} catch (EmailException e) {
+		} catch (Exception e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
+		}
+	}
+	
+	@Restrito
+	@Post("/menu/curso/atualizar")
+	public void atualizarTextoCurso(Curso curso){
+			cursoRepository.salvarAtualizar(curso);
+			result.use(json()).withoutRoot().from("Contelação atualizada com sucesso").serialize();
+	}
+	
+	@Restrito
+	@Get("/menu/constelacao/notificar/todos")
+	public void notificarEmailCursoTodos(){
+		try {
+			Curso curso = cursoRepository.get();
+			if(curso.getId() == 0L ) {
+				throw new IllegalStateException("Não há curso a ser informado!");
+			}
+			//RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarCursoParaPessoas(curso);
+			result.use(json()).withoutRoot().from(null).include("emailsNaoInformados").serialize();
+			//} catch (EmailException e) {
+		} catch (Exception e) {
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
 		}
 	}
 	

@@ -6,4 +6,6 @@ public interface CursoRepository {
 
 	Curso get();
 
+	void salvarAtualizar(Curso curso);
+
 }

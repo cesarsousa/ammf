@@ -43,7 +43,8 @@ public class MenuServiceImp implements MenuService{
 			ComentarioRepository comentarioRepository,
 			ConstelacaoRepository constelacaoRepository,
 			UsuarioRepository usuarioRepository,
-			ResenhaRepository resenhaRepository){
+			ResenhaRepository resenhaRepository,
+			CursoRepository cursoRepository){
 		this.textoRepository = textoRepository;
 		this.pessoaRepository = pessoaRepository;
 		/*this.depoimentoRepository = depoimentoRepository;
@@ -53,6 +54,7 @@ public class MenuServiceImp implements MenuService{
 		this.constelacaoRepository = constelacaoRepository;
 		this.usuarioRepository = usuarioRepository;
 		this.resenhaRepository = resenhaRepository;
+		this.cursoRepository = cursoRepository;
 	}
 
 	@Override
@@ -65,7 +67,7 @@ public class MenuServiceImp implements MenuService{
 		sessaoUsuario.setTextoArtesOrientais(textoRepository.getTextoArtesOrientais());
 		sessaoUsuario.setTextoQuiron(textoRepository.getTextoQuiron());
 		sessaoUsuario.setConstelacao(constelacaoRepository.get(LocalEvento.NITEROI));
-		sessaoUsuario.setConstelacaoBarra(constelacaoRepository.get(LocalEvento.BARRA));
+		//sessaoUsuario.setConstelacaoBarra(constelacaoRepository.get(LocalEvento.BARRA));
 		sessaoUsuario.setNotificacoes(atualizarListaDeNotificacoes());
 		sessaoUsuario.setCurso(cursoRepository.get());
 		return sessaoUsuario;
