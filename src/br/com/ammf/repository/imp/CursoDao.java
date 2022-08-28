@@ -34,8 +34,8 @@ public class CursoDao implements CursoRepository{
 			Curso cNew  = get();
 			if(cNew == null){
 				cNew = new Curso();
-				cNew.setLocalEvento(LocalEvento.NITEROI);
 			}
+			cNew.setLocalEvento(LocalEvento.NITEROI);
 			cNew.setNome(curso.getNome());
 			cNew.setDescricao(curso.getDescricao());
 			cNew.setFormaPagamento(curso.getFormaPagamento());
