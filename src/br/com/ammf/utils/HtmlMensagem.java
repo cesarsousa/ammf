@@ -481,6 +481,24 @@ public class HtmlMensagem {
 				.replace("[LINKREMOVERNOTIFICACAO]", "")				
 				.replace("[LINKEDIN]", linkedin);
 	}
+	
+	public String getMensagemNotificacaoDeCurso(Curso curso, String linkedin, Pessoa pessoa) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "curso_notificar_pessoas.html");
+		
+		return mensagem
+				.replace("[LOCALEVENTO]", curso.getLocalEvento().toString())
+				.replace("[TEXTOINICIAL]", curso.getNome())
+				.replace("[PAGAMENTO]", curso.getFormaPagamento())				
+				.replace("[TEXTOFINAL]", curso.getDescricao())
+				.replace("[DATA]", curso.getData())
+				.replace("[LOCALIZACAO]", curso.getLocalizacao())
+				.replace("[LINKMAPS]", curso.getLinkMapa())
+				.replace("[INFORMACAO]", curso.getInformacao())
+				.replace("[DADOSTERAPEUTA]", curso.getDadosPessoais())				
+				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
+				.replace("[LINKEDIN]", linkedin);
+	}
 
 	public String getMensagemNotificacaoDe(Resenha resenha) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "resenha_notificar_nova_resenha_predefinida.html");

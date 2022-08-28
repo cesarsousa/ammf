@@ -173,13 +173,6 @@ public class MenuController {
 	}
 	
 	@Restrito
-	@Post("/menu/curso/atualizar")
-	public void atualizarTextoCurso(Curso curso){
-			cursoRepository.salvarAtualizar(curso);
-			result.use(json()).withoutRoot().from("Contelação atualizada com sucesso").serialize();
-	}
-	
-	@Restrito
 	@Get("/menu/curso/notificar/todos")
 	public void notificarEmailCursoTodos(){
 		try {
@@ -187,12 +180,18 @@ public class MenuController {
 			if(curso.getId() == 0L ) {
 				throw new IllegalStateException("Não há curso a ser informado!");
 			}
-			//RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarCursoParaPessoas(curso);
-			result.use(json()).withoutRoot().from(null).include("emailsNaoInformados").serialize();
-			//} catch (EmailException e) {
-		} catch (Exception e) {
+			RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarCursoParaPessoas(curso);
+			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).include("emailsNaoInformados").serialize();
+		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
 		}
+	}
+	
+	@Restrito
+	@Post("/menu/curso/atualizar")
+	public void atualizarTextoCurso(Curso curso){
+			cursoRepository.salvarAtualizar(curso);
+			result.use(json()).withoutRoot().from("Contelação atualizada com sucesso").serialize();
 	}
 	
 	@Restrito

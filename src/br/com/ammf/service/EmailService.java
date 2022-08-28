@@ -64,4 +64,6 @@ public interface EmailService {
 
 	void notificarCursoParaEmail(Curso curso, String email) throws EmailException;
 
+	RelatorioEmailDto notificarCursoParaPessoas(Curso curso) throws EmailException;
+
 }

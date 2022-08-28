@@ -563,7 +563,6 @@ public class EmailServiceImp implements EmailService {
 
 	@Override
 	public void notificarCursoParaEmail(Curso curso, String destinatario) throws EmailException {
-		// TODO Auto-generated method stub
 		String mensagem = htmlMensagem.getMensagemNotificacaoDeCurso(curso, administrador.getLinkedin());	
 		
 		email.enviarEmail(
@@ -572,6 +571,56 @@ public class EmailServiceImp implements EmailService {
 				destinatario,
 				htmlMensagem.getAssuntoCurso(curso),
 				mensagem);
+	}
+
+	@Override
+	public RelatorioEmailDto notificarCursoParaPessoas(Curso curso) throws EmailException {
+		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
+		
+		int totalDePessoas = pessoas.size();
+		
+		System.out.println("--- Inicio da rotina : notificarCursoParaPessoas ---");
+		System.out.println("--- Total de pessoas: " + totalDePessoas);
+		
+		int contador = 1;
+		int contadorEnviados = 0;
+		int contadorErro = 0;
+		
+		for(Pessoa pessoa : pessoas){
+			
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Notificação " + contador + " de " + totalDePessoas + " pesssoa(s).");
+			System.out.println("--- ------------------------------------------------------------------- ---");
+			System.out.println("--- Cliente Email " + pessoa.getEmail());
+			
+			try {
+				enviarEmailNotificacaoCurso(curso, pessoa);
+				contadorEnviados++;
+			}catch (EmailException e) {
+				pessoasNaoNotificadas.add(pessoa);
+				contadorErro++;
+			}
+			
+			
+			contador++;
+		}
+		
+		logger.info("--- Fim da rotina de Notificação de email ---");
+		
+		return new RelatorioEmailDto(totalDePessoas, contadorEnviados, contadorErro, pessoasNaoNotificadas);
+	}
+
+	private void enviarEmailNotificacaoCurso(Curso curso, Pessoa pessoa) throws EmailException {
+		String mensagem = htmlMensagem.getMensagemNotificacaoDeCurso(curso, administrador.getLinkedin(), pessoa);	
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				pessoa.getEmail(),
+				htmlMensagem.getAssuntoCurso(curso),
+				mensagem);	
+		
 	}
 
 }
