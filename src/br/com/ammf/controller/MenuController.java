@@ -165,10 +165,9 @@ public class MenuController {
 			if(curso.getId() == 0L ) {
 				throw new IllegalStateException("Não há curso a ser informado!");
 			}
-			//emailService.notificarCursoParaEmail(curso, email);
+			emailService.notificarCursoParaEmail(curso, email);
 			result.use(json()).withoutRoot().from("Curso notificado com sucesso").serialize();
-		//} catch (EmailException e) {
-		} catch (Exception e) {
+		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
 		}
 	}
@@ -181,7 +180,7 @@ public class MenuController {
 	}
 	
 	@Restrito
-	@Get("/menu/constelacao/notificar/todos")
+	@Get("/menu/curso/notificar/todos")
 	public void notificarEmailCursoTodos(){
 		try {
 			Curso curso = cursoRepository.get();

@@ -293,7 +293,7 @@
 				<h3>Email de envio: <span class="info azulClaro">utilizado para enviar as notifica&ccedil;&otilde;es aos usu&aacute;rios.</span></h3>
 				<div class="msgBorderInterno msgAlerta t100">
 				<b>Aten&ccedil;&atilde;o !</b><br/>
-				&Eacute; obrigat&oacute;rio o uso de um email fornecido pelo servidor (<i>site@quiron.psc.br</i>) para o funcionamento correto do site.
+				&Eacute; obrigat&oacute;rio o uso de um email fornecido pelo servidor (<i>site@alcindomiguel.com.br</i>) para o funcionamento correto do site.
 				</div>
 				<p>
 				<c:if test="${not empty usuarioErroEmail}">				

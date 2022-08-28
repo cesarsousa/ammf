@@ -2,6 +2,7 @@ package br.com.ammf.utils;
 
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
+import br.com.ammf.model.Curso;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
@@ -418,7 +419,11 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoConstelacao(Constelacao constelacao) {
-		return "Site AlcindoMiguel.com - Psicoterapia e Constelações - "+ constelacao.getLocalEvento().toString() + " - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
+		return "Site AlcindoMiguel.com - Constelação - "+ constelacao.getLocalEvento().toString() + " - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
+	}
+	
+	public String getAssuntoCurso(Curso curso) {
+		return "Site AlcindoMiguel.com - Curso - "+ curso.getLocalEvento().toString() + " - " + curso.getData().replace("<h2>", "").replace("</h2>", "");
 	}
 
 	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin, Pessoa pessoa) {
@@ -439,6 +444,8 @@ public class HtmlMensagem {
 				.replace("[LINKEDIN]", linkedin);
 	}
 	
+	
+	
 	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
 		
@@ -452,6 +459,24 @@ public class HtmlMensagem {
 				.replace("[LINKMAPS]", constelacao.getLinkMapa())
 				.replace("[INFORMACAO]", constelacao.getInformacao())
 				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
+				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
+				.replace("[LINKREMOVERNOTIFICACAO]", "")				
+				.replace("[LINKEDIN]", linkedin);
+	}
+	
+	public String getMensagemNotificacaoDeCurso(Curso curso, String linkedin) {
+		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "curso_notificar_pessoas.html");
+		
+		return mensagem
+				.replace("[LOCALEVENTO]", curso.getLocalEvento().toString())
+				.replace("[TEXTOINICIAL]", curso.getNome())
+				.replace("[PAGAMENTO]", curso.getFormaPagamento())				
+				.replace("[TEXTOFINAL]", curso.getDescricao())
+				.replace("[DATA]", curso.getData())
+				.replace("[LOCALIZACAO]", curso.getLocalizacao())
+				.replace("[LINKMAPS]", curso.getLinkMapa())
+				.replace("[INFORMACAO]", curso.getInformacao())
+				.replace("[DADOSTERAPEUTA]", curso.getDadosPessoais())				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", "")				
 				.replace("[LINKEDIN]", linkedin);

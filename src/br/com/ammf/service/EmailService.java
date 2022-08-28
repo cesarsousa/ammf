@@ -6,6 +6,7 @@ import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
+import br.com.ammf.model.Curso;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
@@ -60,5 +61,7 @@ public interface EmailService {
 	void enviarEmailSugestaoCurso(String nome, String email) throws EmailException;
 
 	void notificarVideoParaPessoas(String titulo, String conteudo) throws EmailException;
+
+	void notificarCursoParaEmail(Curso curso, String email) throws EmailException;
 
 }

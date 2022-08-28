@@ -9,6 +9,7 @@ import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
+import br.com.ammf.model.Curso;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Evento;
 import br.com.ammf.model.Faq;
@@ -558,6 +559,19 @@ public class EmailServiceImp implements EmailService {
 		
 		logger.info("--- Fim da rotina de Notificação de email ---");
 		
+	}
+
+	@Override
+	public void notificarCursoParaEmail(Curso curso, String destinatario) throws EmailException {
+		// TODO Auto-generated method stub
+		String mensagem = htmlMensagem.getMensagemNotificacaoDeCurso(curso, administrador.getLinkedin());	
+		
+		email.enviarEmail(
+				administrador.getEmail(),
+				administrador.getSenha(), 
+				destinatario,
+				htmlMensagem.getAssuntoCurso(curso),
+				mensagem);
 	}
 
 }
