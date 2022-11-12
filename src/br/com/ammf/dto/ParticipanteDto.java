@@ -4,6 +4,7 @@ import br.com.ammf.model.Participante;
 
 public class ParticipanteDto {
 	
+	private long id; 
 	private String nome;
 	private String email;
 	private String telefone;
@@ -17,6 +18,7 @@ public class ParticipanteDto {
 	private Integer valorParticipacao;
 
 	public ParticipanteDto(Participante participante) {
+		this.id = participante.getId();
 		this.nome = participante.getNome();
 		this.email = participante.getEmail();
 		this.telefone = participante.getCelular();
@@ -29,6 +31,16 @@ public class ParticipanteDto {
 		this.valorIngresso = participante.getEvento().getValorIngresso();
 		this.valorParticipacao = participante.getEvento().getValorParticipacao();
 	}
+	
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 
 	public String getNome() {
 		return nome;

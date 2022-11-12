@@ -62,7 +62,7 @@
 
 <!-- LISTAR TODOS OS TEXTOS -->
 
-<c:if test="${not empty participantes}">
+<c:if test="${not empty participantesDto}">
 <table id="tabListagemResenhas" class="fullSize">	
 	<tr>
 	<td>
@@ -72,9 +72,8 @@
 	<table class="display dataTable cardViewText superFooter bordaLateral">
 		<thead align="left">
 			<tr>
+				<th class="metadado">id</th>
 				<th class="metadado">nome</th>
-				<th class="metadado">email</th>
-				<th class="metadado">telefone</th>
 				<th class="metadado">pagouIngresso</th>
 				<th class="metadado">constelou</th>
 				<th class="metadado">pagouContelacao</th>
@@ -88,17 +87,16 @@
 		<tbody>
 	 		<c:forEach items="${participantesDto}" var="participanteDto">
 				<tr class="zebrado">
-					<td class="infoTabelaConteudo metadado">${participanteDto.nome}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.email}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.telefone}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.pagouIngresso}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.constelou}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.pagouContelacao}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.observacao}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.data}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.local}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.valorIngresso}</td>
-					<td class="infoTabelaConteudo metadado">${participanteDto.valorParticipacao}</td>					
+					<td class="infoTabelaConteudo">${participanteDto.id}</td>
+					<td class="infoTabelaConteudo">${participanteDto.nome}</td>
+					<td class="infoTabelaConteudo ${participanteDto.pagouIngresso}"></td>
+					<td class="infoTabelaConteudo ${participanteDto.constelou}"></td>
+					<td class="infoTabelaConteudo ${participanteDto.pagouContelacao}"></td>
+					<td class="infoTabelaConteudo">${participanteDto.observacao}</td>
+					<td class="infoTabelaConteudo">${participanteDto.data}</td>
+					<td class="infoTabelaConteudo">${participanteDto.local}</td>
+					<td class="infoTabelaConteudo">${participanteDto.valorIngresso}</td>
+					<td class="infoTabelaConteudo">${participanteDto.valorParticipacao}</td>					
 				</tr>			
 			</c:forEach>		
 		</tbody>			
