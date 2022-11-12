@@ -1029,6 +1029,12 @@
 				</li>
 				
 				<li>
+				<form action="<c:url value="/menu/participante" />" method="get" >
+				<input type="submit" value="Participante" class="buttonFooter">
+				</form>
+				</li>
+				
+				<li>
 				<form action="<c:url value="/menu/loja" />" method="get" >
 				<input type="submit" value="Loja Virtual" class="buttonFooter">
 				</form>
