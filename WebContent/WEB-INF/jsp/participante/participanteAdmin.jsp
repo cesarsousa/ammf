@@ -89,9 +89,9 @@
 				<tr class="zebrado">
 					<td class="infoTabelaConteudo">${participanteDto.id}</td>
 					<td class="infoTabelaConteudo">${participanteDto.nome}</td>
-					<td class="infoTabelaConteudo ${participanteDto.pagouIngresso}"></td>
-					<td class="infoTabelaConteudo ${participanteDto.constelou}"></td>
-					<td class="infoTabelaConteudo ${participanteDto.pagouContelacao}"></td>
+					<td class="infoTabelaConteudo paddingInterno ${participanteDto.pagouIngresso}"></td>
+					<td class="infoTabelaConteudo paddingInterno ${participanteDto.constelou}"></td>
+					<td class="infoTabelaConteudo paddingInterno ${participanteDto.pagouContelacao}"></td>
 					<td class="infoTabelaConteudo">${participanteDto.observacao}</td>
 					<td class="infoTabelaConteudo">${participanteDto.data}</td>
 					<td class="infoTabelaConteudo">${participanteDto.local}</td>

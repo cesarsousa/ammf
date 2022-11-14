@@ -2063,14 +2063,18 @@ table.tabLivro thead  tr td{
 	padding: 10px;
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
-	background-color: green;
+	background-color: #408080;
 }
 
 .false {
 	padding: 10px;
 	border-radius: 3px 3px 3px 3px;
 	-webkit-border-radius: 3px;
-	background-color: red;
+	background-color: #ff8080;
+}
+
+.paddingInterno {
+	padding: 3px;
 }
 
 table.tableModulos tbody  tr td{
