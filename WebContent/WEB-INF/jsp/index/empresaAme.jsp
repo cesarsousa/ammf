@@ -90,30 +90,50 @@ Sistêmicas e Transpessoal.
 Um exercício prático de formação dos conteúdos essenciais destas abordagens. Uma proposta de Formação Continuada.</p>
 </div> -->
 
-<h2 style="color:rgb(29,23,82)">Este curso tem como conteúdos programáticos.</h2>
-<div class="paddingPadrao">
-<ul>
-<li>Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência.</li>
-<li>Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos.</li>
-<li>Níveis de Expressão, Manifestação e Compreensão da Consciência.</li>
-<li>Compreensão de Percurso, Propósito, Significado e Verdade na Perspectiva da Realidade Humana.</li>
-<li>Reflexão Sobre Vida, Morte, Existência, Atos, Escolhas, Consequências, Destinos, Percursos.</li>
-<li>Entendimento sobre Acumulações, Saltos, Crises, Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
-<li>Percepção dos Contextos, Biológicos, Linguísticos, Discursivos, Narrativos, Estruturais, Sistêmicos, Econômicos, Sociais, Culturais, Políticos.</li>
-<li>Discussão sobre Emoção, Afeto, Amor, Vínculo, Pensamento, Percepção, Relacionamento Consigo, com o Próximo e com os Liames Sociais.</li>
-<li>Referenciação do que venha a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
-<li>Qual o Lugar, o Papel, a Ação Possível do Terapeuta no âmbito dos limites impostos pelo Narcisismo e seus Referentes, a Equanimidade, a Arrogância, a Humildade e o Medo.</li>
-<li>A regência e a dinâmica das Constelações Sistêmicas, seu âmbito e suas reais dimensões terapêuticas.</li>
-</ul>
+<div hidden="true">
+	<h2 style="color:rgb(29,23,82)">Este curso tem como conteúdos programáticos.</h2>
+	<div class="paddingPadrao">
+	<ul>
+	<li>Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência.</li>
+	<li>Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos.</li>
+	<li>Níveis de Expressão, Manifestação e Compreensão da Consciência.</li>
+	<li>Compreensão de Percurso, Propósito, Significado e Verdade na Perspectiva da Realidade Humana.</li>
+	<li>Reflexão Sobre Vida, Morte, Existência, Atos, Escolhas, Consequências, Destinos, Percursos.</li>
+	<li>Entendimento sobre Acumulações, Saltos, Crises, Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
+	<li>Percepção dos Contextos, Biológicos, Linguísticos, Discursivos, Narrativos, Estruturais, Sistêmicos, Econômicos, Sociais, Culturais, Políticos.</li>
+	<li>Discussão sobre Emoção, Afeto, Amor, Vínculo, Pensamento, Percepção, Relacionamento Consigo, com o Próximo e com os Liames Sociais.</li>
+	<li>Referenciação do que venha a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
+	<li>Qual o Lugar, o Papel, a Ação Possível do Terapeuta no âmbito dos limites impostos pelo Narcisismo e seus Referentes, a Equanimidade, a Arrogância, a Humildade e o Medo.</li>
+	<li>A regência e a dinâmica das Constelações Sistêmicas, seu âmbito e suas reais dimensões terapêuticas.</li>
+	</ul>
+	</div>
 </div>
 
 <div>
-	<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
-	<div class="paddingPadrao">
-	<p>O curso se compõe de oito aulas práticas, participativas e dinâmicas, uma a cada mês, de abril a novembro de 2022. 
-	<p>Uma aula por sábado.</p>
-	<p>Das 9:00 horas da manhã às 18:00 horas.</p>
-	<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+
+	<div class="jumbotron paddingPadrao" style="background-color: #A9E2F3;">
+	
+		<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
+		<p>O Curso de Formação em Terapia Sistêmica, Transpessoal e Transdisciplinar com prática de Constelações de 2023, 
+		será uma continuação em fluxo daquele que inaugurou a sequência da transmissão dessa prática de um modo que tem conteúdos 
+		cognitivos mas não é um curso congnitivo, é uma formação teórico-prática que busca nos instituir 
+		enquanto praticantes minimamente capazes de compreender e atuar nessa perspectiva.</p>
+		
+		<h3><b>Início previsto para o 2o trimestre de 2023.</b></h3>
+	
+	</div>
+	
+	
+	
+	
+	<div class="paddingPadrao">	
+	
+	<div hidden="true">
+		<p>O curso se compõe de oito aulas práticas, participativas e dinâmicas, uma a cada mês, de abril a novembro de 2022. 
+		<p>Uma aula por sábado.</p>
+		<p>Das 9:00 horas da manhã às 18:00 horas.</p>
+		<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+	</div>
 
 	<table hidden="true" class="table table-bordered">
 	  <tbody>
@@ -155,7 +175,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 	    </tr>    
 	  </tbody>
 	</table>
-</div>
+	</div>
 
 </div>
 </div>
@@ -267,7 +287,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div> -->
 
-<div class="jumbotron" style="background-color: #A9E2F3;">	
+<div class="jumbotron" style="background-color: #A9E2F3;" hidden="true">	
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
@@ -301,6 +321,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div>
 </div> 
+</div> 
 
 <div align="center">
 <div align="center" class="tamanhoDefault">	
@@ -323,8 +344,6 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 			</div>
 </div>
 </div>
-
-</div> 
 	
 <div class="paddingPadrao" align="center" hidden="true">
 <h3>Encaminhar este curso a um amigo!</h3>	
