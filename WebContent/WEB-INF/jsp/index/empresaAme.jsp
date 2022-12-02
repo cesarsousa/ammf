@@ -182,6 +182,20 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div> <!-- end jumbotrom -->
 
+<div class="jumbotron">
+
+	<div class="cardViewTextNoBackground">
+		<p>Enquanto o novo curso não se inicia estamos realizando <b>de dezembro de 2022 à março 2023</b> uma atividade de <b>Terapia em Grupo</b> com os conceitos aprendidos na formação de 2022. Porém as atividades não se limitam apenas
+		as pessoas que realizaram o curso, todos são bem vindos e aptos a participar desses encontros</p>
+	</div>
+
+	<div align="center">
+		<img alt="" src="${imagem}/minicurso2022.jpeg">
+	</div>
+
+</div>
+
+
 <div class="jumbotron" hidden="true">
 <div align="center" hidden="true">
 <h2 align="center" style="color:#151515; ">Módulos</h2>
@@ -321,7 +335,21 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div>
 </div> 
-</div> 
+</div>
+
+<div class="jumbotrom paddingPadrao" align="center">
+<h3>Encaminhar este curso a um amigo!</h3>	
+<form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" id="" name="nome" placeholder="Seu nome (opicional)">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="email" class="form-control" id="" name="email" placeholder="E-mail (do amigo)" required="required">
+  </div>
+  <button type="submit" class="btn btn-success mb-2">Enviar</button>
+</form>
+<br><br>
+</div>	 
 
 <div align="center">
 <div align="center" class="tamanhoDefault">	
@@ -345,18 +373,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div>
 	
-<div class="paddingPadrao" align="center" hidden="true">
-<h3>Encaminhar este curso a um amigo!</h3>	
-<form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
-  <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="" name="nome" placeholder="Seu nome (opicional)">
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <input type="email" class="form-control" id="" name="email" placeholder="E-mail (do amigo)" required="required">
-  </div>
-  <button type="submit" class="btn btn-success mb-2">Enviar</button>
-</form>
-</div>	
+
 
 
 <p class="paddingPadrao" style="font-size: x-large;">
