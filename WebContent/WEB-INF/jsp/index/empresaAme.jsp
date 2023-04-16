@@ -8,32 +8,32 @@
 <%@ include file="/headerSite.jsp" %>
 <%@ include file="/menuPrincipal.jsp" %>
 		
-<div id="logoAme"></div>			
-
-<c:if test="${not empty msgSucesso}">
-	<div class="msgBorder msgSucesso ponteiro closeClick">
-		${msgSucesso} 
+	<div id="logoAme"></div>			
+	
+	<c:if test="${not empty msgSucesso}">
+		<div class="msgBorder msgSucesso ponteiro closeClick">
+			${msgSucesso} 
+		</div>
+	</c:if>
+	<c:if test="${not empty msgErro}">
+		<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">
+			${msgErro}
+		</div>
+	</c:if>
+	
+	<div align="center">
+		<div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
+			<h2 align="center" style="color:rgb(29,23,82) ">Conceito da Nossa Empresa</h2>
+			<p>Oferecer atendimentos na área ampla de Psicologia e Terapia; 
+			dinâmicas de Análise e Treinamento de Vida, de Estudos, de Aperfeiçoamento e Organização Profissional; 
+			Workshops Temáticos; Treinamentos, Formações e Cursos Específicos.</p>
+			<p>Nosso objetivo está em apresentar produtos de alta qualidade e desempenho.</p> 
+			<p>Nossa meta será sempre atender de um modo efetivo as necessidades dos nossos clientes.</p>
+			<p>Trabalhamos com a concepção de uma necessidade e premência atual de Formações Continuadas, 
+			incluindo o Aperfeiçoamento das Capacidades Individuais e Coletivas, 
+			com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas individuais e as demandas do mercado.</p>
+		</div>
 	</div>
-</c:if>
-<c:if test="${not empty msgErro}">
-	<div id="boxMsgErro" class="msgBorder msgErro ponteiro closeClick">
-		${msgErro}
-	</div>
-</c:if>
-
-<div align="center">
-<div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
-<h2 align="center" style="color:rgb(29,23,82) ">Conceito da Nossa Empresa</h2>
-<p>Oferecer atendimentos na área ampla de Psicologia e Terapia; 
-dinâmicas de Análise e Treinamento de Vida, de Estudos, de Aperfeiçoamento e Organização Profissional; 
-Workshops Temáticos; Treinamentos, Formações e Cursos Específicos.</p>
-<p>Nosso objetivo está em apresentar produtos de alta qualidade e desempenho.</p> 
-<p>Nossa meta será sempre atender de um modo efetivo as necessidades dos nossos clientes.</p>
-<p>Trabalhamos com a concepção de uma necessidade e premência atual de Formações Continuadas, 
-incluindo o Aperfeiçoamento das Capacidades Individuais e Coletivas, 
-com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas individuais e as demandas do mercado.</p>
-</div>
-</div>
 </div> <!-- end jumbotrom -->
 
 <!-- Alerta Covid -->
@@ -43,157 +43,152 @@ com feedbacks dinâmicos para o equilíbrio entre as vidas e perspectivas indivi
 </div> -->
 
 <div class="jumbotron" style="background-color: #ffffff">
-<div align="center">
-<div class="  cardViewTextNoBackground ">
-<h1 align="center" style="color:rgb(29,23,82)">Curso</h1>
-
-<table style="width: 100%">
-<tr>
-<td width="80%" class="paddingPadrao"><h2 style="color:rgb(29,23,82)">Curso livre de Formação em Terapia Transpessoal e disciplinar com Constelações</h2></td>
-<%-- <td width="20%" class="paddingPadrao"><img class="ml-3" src="${imagem}/seloCurso.jpg" alt="selo de registro do curso"></td> --%>
-</tr>
-</table>
-
-<!-- <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/WfX1OKVEuLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
- -->
-<h2 style="color:rgb(29,23,82)">Finalidade</h2>
-<div class="paddingPadrao">
-<p>Este curso é um processo presencial de terapia de grupo com formação terapêutica.</p> 
-</div>
-
-<h2 style="color:rgb(29,23,82)">A quem se destina</h2>
-<div class="paddingPadrao">
-<p>Todas as pessoas que desejem conhecer a si mesmas; 
-aperfeiçoar seus recursos íntimos e interpessoais; 
-compreender e aprender a vivenciar melhor os relacionamentos íntimos, 
-familiares, profissionais, econômicos, culturais e sociais; 
-participando de um processo terapêutico onde terão as condições para confrontar suas memórias, 
-dores e vivências desafiadoras de uma forma nova e dinâmica; 
-entendendo uma abordagem energética, integrativa e sistêmica da vida; 
-e tendo uma iniciação a prática das Constelações Familiares e Sistêmicas, 
-em conjunto com Metodologia Científica, Existencialismo, Fenomenologia, Teoria das Complexidades e Sistemas.
-
-</p>
-</div>
-
-<!-- <h2 style="color:rgb(29,23,82)">Exigência de Ingresso</h2>
-<div class="paddingPadrao">
-<p>Terceiro Grau em qualquer área, completo ou em desenvolvimento.</p>
-</div> -->
-
-<!-- <h2 style="color:rgb(29,23,82)">Estrutura do Curso</h2> 
-<div class="paddingPadrao">
-<p>Implica em Vivência, Teoria e Prática em um processo terapêutico 
-fechado de nove sábados no âmbito transpessoal das Constelações Sistêmicas. 
-Uma transmissão teórica das perspectivas das abordagens conhecidas como Constelações 
-Sistêmicas e Transpessoal. 
-Um exercício prático de formação dos conteúdos essenciais destas abordagens. Uma proposta de Formação Continuada.</p>
-</div> -->
-
-<div hidden="true">
-	<h2 style="color:rgb(29,23,82)">Este curso tem como conteúdos programáticos.</h2>
-	<div class="paddingPadrao">
-	<ul>
-	<li>Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência.</li>
-	<li>Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos.</li>
-	<li>Níveis de Expressão, Manifestação e Compreensão da Consciência.</li>
-	<li>Compreensão de Percurso, Propósito, Significado e Verdade na Perspectiva da Realidade Humana.</li>
-	<li>Reflexão Sobre Vida, Morte, Existência, Atos, Escolhas, Consequências, Destinos, Percursos.</li>
-	<li>Entendimento sobre Acumulações, Saltos, Crises, Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
-	<li>Percepção dos Contextos, Biológicos, Linguísticos, Discursivos, Narrativos, Estruturais, Sistêmicos, Econômicos, Sociais, Culturais, Políticos.</li>
-	<li>Discussão sobre Emoção, Afeto, Amor, Vínculo, Pensamento, Percepção, Relacionamento Consigo, com o Próximo e com os Liames Sociais.</li>
-	<li>Referenciação do que venha a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
-	<li>Qual o Lugar, o Papel, a Ação Possível do Terapeuta no âmbito dos limites impostos pelo Narcisismo e seus Referentes, a Equanimidade, a Arrogância, a Humildade e o Medo.</li>
-	<li>A regência e a dinâmica das Constelações Sistêmicas, seu âmbito e suas reais dimensões terapêuticas.</li>
-	</ul>
+	<div align="center">
+		<div class="  cardViewTextNoBackground ">
+			<h1 align="center" style="color:rgb(29,23,82)">Curso</h1>
+			
+			<table style="width: 100%">
+				<tr>
+					<td width="80%" class="paddingPadrao"><h2 style="color:rgb(29,23,82)">Curso livre de Formação em Terapia Transpessoal e disciplinar com Constelações Sistemicas</h2></td>
+					<%-- <td width="20%" class="paddingPadrao"><img class="ml-3" src="${imagem}/seloCurso.jpg" alt="selo de registro do curso"></td> --%>
+				</tr>
+			</table>
+			
+			<!-- <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/WfX1OKVEuLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			 -->
+			<div align="center">
+				<h2 style="color:rgb(29,23,82)">Finalidade</h2>
+			</div>
+			<div class="jumbotron paddingPadrao" style="background-color: #fff;">
+				<table>
+					<tr>
+						<td>
+							<div align="center">
+								<img alt="" src="${imagem}/taro.jpg">
+							</div>
+						</td>
+						<td>
+							<div class="cardViewTextNoBackground">
+								<p>Vamos discutir o sentido do caminho e o significado 
+								<br/>da vida humana utilizando as tradições ocidentais 
+								<br/>dos arcanos maiores do <b>Tarô & Astrologia</b>.</p> 
+							</div>
+						</td>
+						
+						<%-- <td>
+							<div align="center">
+								<img alt="" src="${imagem}/atrologia.jpg">
+							</div>
+						</td> --%>
+					</tr>
+				</table>
+			</div>
+			
+			<div align="center" style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #000;">
+			<div class="paddingPadrao" style="width:768px; height:512px; background-image: url('${imagem}/atrologia.jpg'); background-repeat: no-repeat;">
+				<h2 style="color: yellow">
+				Destina-se a todas as pessoas que desejem conhecer a si mesmas; 
+				aperfeiçoar seus recursos íntimos e interpessoais; 
+				compreender e aprender a vivenciar melhor os relacionamentos íntimos, 
+				familiares, profissionais, econômicos, culturais e sociais; 
+				participando de um processo terapêutico onde terão as condições para confrontar suas memórias, 
+				dores e vivências desafiadoras de uma forma nova e dinâmica; 
+				entendendo uma abordagem energética, integrativa e sistêmica da vida; 
+				e tendo uma iniciação a prática das Constelações Familiares e Sistêmicas, 
+				em conjunto com Metodologia Científica, Existencialismo, Fenomenologia, Teoria das Complexidades e Sistemas.
+				</h2>
+			</div>
+			</div>
+			
+			<!-- <h2 style="color:rgb(29,23,82)">Exigência de Ingresso</h2>
+			<div class="paddingPadrao">
+			<p>Terceiro Grau em qualquer área, completo ou em desenvolvimento.</p>
+			</div> -->
+			
+			<!-- <h2 style="color:rgb(29,23,82)">Estrutura do Curso</h2> 
+			<div class="paddingPadrao">
+			<p>Implica em Vivência, Teoria e Prática em um processo terapêutico 
+			fechado de nove sábados no âmbito transpessoal das Constelações Sistêmicas. 
+			Uma transmissão teórica das perspectivas das abordagens conhecidas como Constelações 
+			Sistêmicas e Transpessoal. 
+			Um exercício prático de formação dos conteúdos essenciais destas abordagens. Uma proposta de Formação Continuada.</p>
+			</div> -->
+			
+			<!-- <div hidden="true">
+				<h2 style="color:rgb(29,23,82)">Este curso tem como conteúdos programáticos.</h2>
+				<div class="paddingPadrao">
+				<ul>
+				<li>Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência.</li>
+				<li>Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos.</li>
+				<li>Níveis de Expressão, Manifestação e Compreensão da Consciência.</li>
+				<li>Compreensão de Percurso, Propósito, Significado e Verdade na Perspectiva da Realidade Humana.</li>
+				<li>Reflexão Sobre Vida, Morte, Existência, Atos, Escolhas, Consequências, Destinos, Percursos.</li>
+				<li>Entendimento sobre Acumulações, Saltos, Crises, Longas, Agudas, Expressivas, Manifestas, Tensionais.</li>
+				<li>Percepção dos Contextos, Biológicos, Linguísticos, Discursivos, Narrativos, Estruturais, Sistêmicos, Econômicos, Sociais, Culturais, Políticos.</li>
+				<li>Discussão sobre Emoção, Afeto, Amor, Vínculo, Pensamento, Percepção, Relacionamento Consigo, com o Próximo e com os Liames Sociais.</li>
+				<li>Referenciação do que venha a ser, Dor, Sofrimento, Morte, Significado, Narrativa, Discurso, Terapia.</li>
+				<li>Qual o Lugar, o Papel, a Ação Possível do Terapeuta no âmbito dos limites impostos pelo Narcisismo e seus Referentes, a Equanimidade, a Arrogância, a Humildade e o Medo.</li>
+				<li>A regência e a dinâmica das Constelações Sistêmicas, seu âmbito e suas reais dimensões terapêuticas.</li>
+				</ul>
+				</div>
+			</div> -->
+			
+			<div>
+			
+				<div class="jumbotron paddingPadrao" style="background-color: #F0FFFF;">
+					<h2 style="color:rgb(29,23,82); padding-bottom: 5px">Calendário do curso</h2>
+					<div>
+						<p>O curso se compõe de oito aulas práticas, participativas e dinâmicas, uma a cada mês, de abril a novembro de 2022. 
+						<p>Uma aula por domingo.</p>
+						<p>Das 9:00 horas da manhã às 18:00 horas.</p>
+						<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
+					</div>
+					
+					<div class="paddingPadrao">	
+						<table class="table table-bordered">
+						  <tbody>
+						    <tr>
+						      <th scope="row">Módulo 1</th>
+						      <td>16 de Abril</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 2</th>
+						      <td>16 de Maio</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 3</th>
+						      <td>20 de Junho</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 4</th>
+						      <td>25 de Julho</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 5</th>
+						      <td>22 de Agosto</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 6</th>
+						      <td>19 de Setembro</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Módulo 7</th>
+						      <td>17 de Outubro</td>
+						    </tr> 
+						    <tr>
+						      <th scope="row">Módulo 8</th>
+						      <td>14 de Novembro</td>
+						    </tr>    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-
-<div>
-
-	<div class="jumbotron paddingPadrao" style="background-color: #A9E2F3;">
-	
-		<h2 style="color:rgb(29,23,82)">Constituição e calendário do curso</h2>
-		<p>O Curso de Formação em Terapia Sistêmica, Transpessoal e Transdisciplinar com prática de Constelações de 2023, 
-		será uma continuação em fluxo daquele que inaugurou a sequência da transmissão dessa prática de um modo que tem conteúdos 
-		cognitivos mas não é um curso congnitivo, é uma formação teórico-prática que busca nos instituir 
-		enquanto praticantes minimamente capazes de compreender e atuar nessa perspectiva.</p>
-		
-		<h3><b>Início previsto para o 2o trimestre de 2023.</b></h3>
-	
-	</div>
-	
-	
-	
-	
-	<div class="paddingPadrao">	
-	
-	<div hidden="true">
-		<p>O curso se compõe de oito aulas práticas, participativas e dinâmicas, uma a cada mês, de abril a novembro de 2022. 
-		<p>Uma aula por sábado.</p>
-		<p>Das 9:00 horas da manhã às 18:00 horas.</p>
-		<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
-	</div>
-
-	<table hidden="true" class="table table-bordered">
-	  <tbody>
-	    <tr>
-	      <th scope="row">Módulo 1</th>
-	      <td>21 de Março</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 2</th>
-	      <td>18 de Abril</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 3</th>
-	      <td>16 de Maio</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 4</th>
-	      <td>20 de Junho</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 5</th>
-	      <td>25 de Julho</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 6</th>
-	      <td>22 de Agosto</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 7</th>
-	      <td>19 de Setembro</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">Módulo 8</th>
-	      <td>17 de Outubro</td>
-	    </tr> 
-	    <tr>
-	      <th scope="row">Módulo 9</th>
-	      <td>14 de Novembro</td>
-	    </tr>    
-	  </tbody>
-	</table>
-	</div>
-
-</div>
-</div>
-</div>
 </div> <!-- end jumbotrom -->
 
-<div class="jumbotron">
 
-	<div class="cardViewTextNoBackground">
-		<p>Enquanto o novo curso não se inicia estamos realizando <b>de dezembro de 2022 à março 2023</b> uma atividade de <b>Terapia em Grupo</b> com os conceitos aprendidos na formação de 2022. Porém as atividades não se limitam apenas
-		as pessoas que realizaram o curso, todos são bem vindos e aptos a participar desses encontros</p>
-	</div>
-
-	<div align="center">
-		<img alt="" src="${imagem}/minicurso2022.jpeg">
-	</div>
-
-</div>
 
 
 <div class="jumbotron" hidden="true">
@@ -301,7 +296,7 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 </div>
 </div> -->
 
-<div class="jumbotron" style="background-color: #A9E2F3;" hidden="true">	
+<div class="jumbotron" style="background-color: #A9E2F3;">	
 
 <h2 align="center" style="color:#2E9AFE; font-weight: bold; ">Local</h2>
 
@@ -324,13 +319,15 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 <div align="center">
 <div class=" tamanhoEdicaoIndex cardViewTextNoBackground ">
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">Investimento</h2>
-<!-- <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">CURSO COMPLETO - 9 MÓDULOS</h2>
-<h3 align="center">12x R$ 217, + R$100 (Inscrição) ou à vista <b>R$ 2.700</b>.</h3>
+<h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">CURSO COMPLETO - 8 MÓDULOS</h2>
+<h3 align="center">12x R$ 200, ou à vista <b>R$ 1.920 <span style="background-color: red; color: white; padding: 3px">20% 0ff</span></b>.</h3>
 
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">MÓDULO MENSAL - UNIDADE</h2>
-<h3 align="center">5x R$ 40, + R$100 (Inscrição) ou à vista <b>R$ 300</b>.</h3> -->
+<h3 align="center"><b>R$ 300</b>.</h3>
 
-<h3 align="center">Valor do curso e datas das aulas disponível no link a seguir <a target="blank" href="https://www.ameconstelacoesecursos.com/cursos" class="btn btn-success">Entre em contato e solicite</a></h3>
+<h3 align="center">As inscrições são realizadas no local nos dias do curso.</h3>
+
+<h3 align="center" hidden="true">Valor do curso e datas das aulas disponível no link a seguir <a target="blank" href="https://www.ameconstelacoesecursos.com/cursos" class="btn btn-success">Entre em contato e solicite</a></h3>
 
 </div>
 </div>
@@ -372,16 +369,10 @@ Um exercício prático de formação dos conteúdos essenciais destas abordagens
 			</div>
 </div>
 </div>
-	
-
-
 
 <p class="paddingPadrao" style="font-size: x-large;">
 <a href="<c:url value="/"></c:url>">Visite o Website.</a>
 </p>
-
-
-
 
 </div> <!-- main -->
 </div> <!-- wrap -->
