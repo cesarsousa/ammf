@@ -16,12 +16,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.service.LogAplicacaoService;
-import br.com.ammf.service.imp.EnviarEmail;
 
 public class Email {
 		
@@ -58,7 +54,7 @@ public class Email {
 					Session session = null;
 					
 					props = System.getProperties();
-					props.put("mail.smtp.host", "localhost");
+					props.put("mail.smtp.host", "alcindomiguel.com.br");
 					props.put("mail.smtp.port", "25");
 					props.put("mail.smtp.auth", "true");
 					session = Session.getInstance(props, new Autenticacao(emailSender, emailSenderPassword));
@@ -67,12 +63,8 @@ public class Email {
 					message.setRecipient(Message.RecipientType.TO, new InternetAddress(emailReceiver));
 					message.setFrom(new InternetAddress(emailSender));
 					message.setSubject(assunto);
-					
 					message.setSentDate(new Date());
-					
 					message.setContent(mensagem,"text/html");
-					
-					System.out.println("Enviar email [" + emailSender + "|" + emailSenderPassword + "] props: " + props.toString());
 					
 					Transport.send(message);				
 				}
