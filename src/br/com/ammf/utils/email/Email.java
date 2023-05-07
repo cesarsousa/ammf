@@ -16,10 +16,14 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.service.LogAplicacaoService;
+import br.com.ammf.service.imp.EnviarEmail;
 
-public class Email {	
+public class Email {
 		
 	private boolean emailAtivado;
 	private int SMTP;
@@ -67,6 +71,9 @@ public class Email {
 					message.setSentDate(new Date());
 					
 					message.setContent(mensagem,"text/html");
+					
+					System.out.println("Enviar email [" + emailSender + "|" + emailSenderPassword + "] props: " + props.toString());
+					
 					Transport.send(message);				
 				}
 				catch (MessagingException e) {
