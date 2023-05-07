@@ -133,7 +133,7 @@
 				</div>
 			</div> -->
 			
-			<div>
+			<div style="padding-top: 20px">
 			
 				<div class="jumbotron paddingPadrao" style="background-color: #F0FFFF;">
 					<h2 style="color:rgb(29,23,82); padding-bottom: 5px">Calendário do curso</h2>
@@ -153,7 +153,7 @@
 						    </tr>
 						    <tr>
 						      <th scope="row">Módulo 2</th>
-						      <td>16 de Maio</td>
+						      <td>7 de Maio</td>
 						    </tr>
 						    <tr>
 						      <th scope="row">Módulo 3</th>
@@ -188,11 +188,7 @@
 	</div>
 </div> <!-- end jumbotrom -->
 
-
-
-
-<div class="jumbotron" hidden="true">
-<div align="center" hidden="true">
+<div align="center">
 <h2 align="center" style="color:#151515; ">Módulos</h2>
 
 <div class="paddingPadrao">
@@ -202,25 +198,25 @@
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 1</p>
-      <p style="font-size: medium; font-weight: bold;">A Prática e o Referencial das Constelações e do Transpessoal</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">21 de Março de 2020</p>      
-      <p style="font-size: small; text-align: justify;">Apresentação da Proposta de uma Terapia de Constelações e Transpessoal (com Práticas de Percepção da Consciência enquanto uma Dinâmica). A perspectiva da Ciência, Metodologia e Epistemologia. Os enfoques teóricos da Mente e suas definições. A Consciência como questão. Os Mapas da Mente. Vivências práticas sobre os níveis da mente. A perspectiva da Terapia de Constelações e Transpessoal. Modelos Energéticos Tradicionais e Exploratórios com Base na Perspectiva da Ciência. Noção de Modelos de Reflexão em contraponto a Modelos Cognitivos. Níveis de Expressão, Manifestação e Compreensão da Consciência. Debates.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">16 de abril de 2023</p>      
+      <p style="font-size: small; text-align: justify;">Cartas do Louco e do Mundo.</p>
       </div>
       </td>
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 2</p>
-      <p style="font-size: medium; font-weight: bold;">A Prospecção e o Diagnóstico em Processo nas Constelações e no Transpessoal</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">18 de Abril de 2020</p>
-      <p style="font-size: small; text-align: justify;">A questão da verificação, validação e construção de uma hipótese diagnóstica em processo, da realização de uma imagem diagnóstica dinâmica, enquanto um objeto realizado a cada momento por uma relação dialógica de confiança, acolhimento e cuidado com uma perspectiva de prática em Constelação e Transpessoal. Uma primeira abordagem ao Real, a Realidade, a Imagem interveniente enquanto uma construção social da Realidade. Uma análise do Ato, do Fato, da Natureza, do Humano, do Correto e do Justo.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">7 de maio de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas do Mago, da Alta Sacerdotisa, do Sol e do Julgamento.</p>
       </div>
       </td>
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 3</p>
-      <p style="font-size: medium; font-weight: bold;">A Diferença entre Transe Mediúnico, Hipnótico e o Trabalho de Constelações e Transpessoal</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">16 de Maio de 2020</p>
-      <p style="font-size: small; text-align: justify;">As questões inerentes a influência, a produção e ao mercado na prática das Constelações e do Transpessoal. A questão da Objetificação. Os mapas de acesso ao Inconsciente e os gatilhos de dor e resgate. As manobras de troca imagética. A questão da fantasia e da verdade: Não confio mais na minha neurótica. As palavras e as coisas: o mapa não é o território. O equilíbrio do ser e as crises longas. Os cuidados com posições de manejo arrogantes.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">29 de junho de 2030</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Imperatriz, do Imperador, da Estrela e da Lua.</p>
       </div>
       </td>
     </tr>
@@ -228,25 +224,25 @@
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 4</p>
-      <p style="font-size: medium; font-weight: bold;">O Manejo da Morte nas Constelações e no Transpessoal</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">20 de Junho de 2020</p>      
-      <p style="font-size: small; text-align: justify;">Realização do entendimento da Morte como um dado essencial a compreensão de um sentido para a vida. As etapas da morte e do morrer. Manejo das Perspectivas da Morte e do Morrer (com os estágios da Morte e do Morrer e o manejo clínico da Velhice, Sofrimento, Dor e Morte). Os acessos necessários ao Campos dos Mortos e as restaurações e encaminhamentos essenciais a saúde. Morte natural, acidental, em sofrimento, a perspectiva de abordagem do suicídio. A questão do Luto necessário e patológico. O manejo do Luto. As imagens do confronto com o desconhecido. A questão dos modelos espirituais e a questão da Fé.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">25 de junlho de 2023</p>      
+      <p style="font-size: small; text-align: justify;">Carta do Hierofante, dos Amantes, do Demônio e da Torre.</p>
       </div>
       </td>
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 5</p>
-      <p style="font-size: medium; font-weight: bold;">As Constelações Familiares, Sistêmicas e Mediais no âmbito Transpessoal</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">25 de Julho de 2020</p>
-      <p style="font-size: small; text-align: justify;">A origem dos processos de Constelação. Constelações Sistêmicas compreendidas no âmbito do Ser Como Fluxo em um Flash (com práticas demonstrativas e exposição de manejo). As leis da Conservação da Energia, da Ordem e do Pertencimento. A questão das abordagens fenomenológica, estruturalista, sistêmica e das situações desconhecidas. O método de Constelação apropriado, e reordenado, como sendo uma prática terapêutica útil no âmbito da construção de uma clínica voltada a necessidade dos clientes. A questão das tribos e das famílias. O método da segmentação e desconstrução das estases imagéticas enraizadas na realização da Identidade e do Narcisismo. As Constelações Familiares, Sistêmicas, Mediais. A apropriação do trabalho de Constelações em múltiplos níveis de demanda social, cultural, econômica, política e biológica.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">22 de agosto de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Carruagem e da Temperança.</p>
       </div>
       </td>
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 6</p>
-      <p style="font-size: medium; font-weight: bold;">Integração de Sonhos e Fantasias através das Constelações Sistêmicas</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">22 de Agosto de 2020</p>
-      <p style="font-size: small; text-align: justify;">As diferentes abordagens e mapas sobre as fantasias, o sonhar e os sonhos. Integração Narrativa de Sonhos e Fantasias. A questão dos modelos da mente e o lugar da Consciência de Si, da Consciência como oscilação de percepção. A totalidade do Ser e a questão da dinâmica comunicacional Consciente, pré-Consciente e inconsciente. A questão linguística, da percepção e da memória. A questão do Espaço e do Pensamento e do Tempo e do Afeto. O manejo clínico das fantasias. Angústia, Ansiedade, Dor, Sofrimento, Doença e Morte. Os diferentes níveis da Consciência e a noção intrigante do Ser-Aí.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">19 de setembro de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Força e da Morte.</p>
       </div>
       </td>
     </tr>
@@ -254,34 +250,32 @@
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 7</p>
-      <p style="font-size: medium; font-weight: bold;">A Terapia de Vidas Passadas como foco de Constelações Sistêmicas</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">19 de Setembro de 2020</p>      
-      <p style="font-size: small; text-align: justify;">As noções tradicionais de Reencarnação, Renascimento e Transmigração. Um aprofundamento das questões sobre o desconhecido, a morte, o sentido da vida. Terapia de Vidas Passadas (com as considerações sobre bloqueios atuais e os caminhos criativos da energia pela via da fantasia e do diálogo terapêutico, reflexão sobre Morte, Renascimento, Reencarnação e Transmigração como visões de cura) dentro do manejo das Constelações em uma abordagem Transpessoal. A diferença entre vida, existência, significado e verdade. A noção de trauma. A perspectiva imagética de abordagem do trauma de uma forma aceitável pela consciência. As técnicas e o tempo de cada um.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">17 de outubro de 2023</p>      
+      <p style="font-size: small; text-align: justify;">Cartas do Eremita e do Enforcado.</p>
       </div>
       </td>
       <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 8</p>
-      <p style="font-size: medium; font-weight: bold;">Constelações e Transpessoal no Manejo da Mudança de Comportamento</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">17 de Outubro de 2020</p>
-      <p style="font-size: small; text-align: justify;">A noção de comportamento, de reflexos condicionados e operantes, de mapas cognitivos e atenção dirigida. A importância das agendas de curto, médio e longo prazo. O manejo operacional dos focos e a noção de produtividade íntima. A instituição de planos e da organização do tempo e do movimento na realização dos desejos. A satisfação do bom como contraponto ao ótimo. As médias sociais e a Compreensão operacional da Persona. A noção de Estratégia, de Objetivo e de Método. Uma análise da autoimagem suficientemente boa em contraponto ao narcisismo como eixo existencial. Uma crítica ao Narcisismo das pequenas diferenças como contraponto a dinâmica da individuação. Apresentação dos desenvolvimentos de cada grupo para os trabalhos de final de curso, questões, escrita e reflexão em processo. A Metodologia da Construção dos Trabalhos científicos, da Forma e do contexto prático da Escritura de um Trabalho Monográfico.</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">14 de novembro de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Roda da Fortuna e da Justiça.</p>
       </div>
       </td>
-      <td>
+      <!-- <td>
       <div class="tdModulo">
       <p style="font-size: x-large; font-weight: bold;">Módulo 9</p>
       <p style="font-size: medium; font-weight: bold;">A Construção e a Formação do terapeuta de Constelações e Transpessoal</p>
       <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">14 de Novembro de 2020</p>
       <p style="font-size: small; text-align: justify;">Uma resistência a redução de um instrumento clínico a um território de mercado. A questão da formação continuada. O que é um Terapeuta? Como se constitui? Qual a ideia e a imagem que temos de um Terapeuta? Com quais valores trabalha um Terapeuta? A Importância do Respeito ao Outro. A integração do Estranho. A compreensão dos processos de Estigmatização. Integração, Inclusão, Respeito, Compreensão, Diferenças. A apresentação dinâmica de cada trabalho de final de curso. O que é uma avaliação? A Avaliação em Processo. Os índices sociais e os índices pessoais. Apresentação das propostas dos cursos complementares.</p>
       </div>
-      </td>
+      </td> -->
     </tr>     
   </tbody>
 </table>
 </div>
-
 </div>
-</div> <!-- end jumbotrom -->
 
 <!-- <div class="tamanhoEdicaoIndex" align="left">
 <h2>Informações Gerais</h2>
@@ -331,10 +325,8 @@
 
 </div>
 </div>
-</div> 
 </div>
 
-<div class="jumbotrom paddingPadrao" align="center">
 <h3>Encaminhar este curso a um amigo!</h3>	
 <form class="form-inline" action="<c:url value="/ame/sugerir/curso"/>" method="get">
   <div class="form-group mx-sm-3 mb-2">
@@ -345,8 +337,8 @@
   </div>
   <button type="submit" class="btn btn-success mb-2">Enviar</button>
 </form>
-<br><br>
-</div>	 
+
+</div>
 
 <div align="center">
 <div align="center" class="tamanhoDefault">	
