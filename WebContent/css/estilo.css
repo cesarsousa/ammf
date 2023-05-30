@@ -367,6 +367,16 @@ textarea {
 	height: 50px;
 }
 
+.icone60x100{
+	width: 60px;
+	height: 100px;
+}
+
+.icone100{
+	width: 100px;
+	height: 100px;
+}
+
 .icone100x200{
 	width: 300px;
 	height: 400px;
@@ -383,10 +393,7 @@ textarea {
 	opacity: 0.50;
 }
 
-.icone100{
-	width: 100px;
-	height: 100px;
-}
+
 
 .HeaderMapa{
 	background-color: #CCCCCC;

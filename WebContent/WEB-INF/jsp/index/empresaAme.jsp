@@ -143,45 +143,6 @@
 						<p>Das 9:00 horas da manhã às 18:00 horas.</p>
 						<p>Almoço das 13:00 às 14:00 horas (não incluso).</p>
 					</div>
-					
-					<div class="paddingPadrao">	
-						<table class="table table-bordered">
-						  <tbody>
-						    <tr>
-						      <th scope="row">Módulo 1</th>
-						      <td>16 de Abril</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 2</th>
-						      <td>7 de Maio</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 3</th>
-						      <td>20 de Junho</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 4</th>
-						      <td>25 de Julho</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 5</th>
-						      <td>22 de Agosto</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 6</th>
-						      <td>19 de Setembro</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">Módulo 7</th>
-						      <td>17 de Outubro</td>
-						    </tr> 
-						    <tr>
-						      <th scope="row">Módulo 8</th>
-						      <td>14 de Novembro</td>
-						    </tr>    
-						  </tbody>
-						</table>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -196,71 +157,107 @@
   <tbody>
     <tr>
       <td>
-      <div class="tdModulo">
+      <div class="">
       <p style="font-size: x-large; font-weight: bold;">Módulo 1</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">16 de abril de 2023</p>      
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">16 de abril de 2023</p>      
       <p style="font-size: small; text-align: justify;">Cartas do Louco e do Mundo.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/louco.png">
+      <img class="icone100" src="${imagem}/mundo.png">
+      </div>
       </div>
       </td>
       <td>
-      <div class="tdModulo">
+      <div class="">
       <p style="font-size: x-large; font-weight: bold;">Módulo 2</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">7 de maio de 2023</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">7 de maio de 2023</p>
       <p style="font-size: small; text-align: justify;">Cartas do Mago, da Alta Sacerdotisa, do Sol e do Julgamento.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/mago.png">
+      <img class="icone100" src="${imagem}/altasacerdotisa.png">
+      <img class="icone100" src="${imagem}/sol.png">
+      <img class="icone100" src="${imagem}/julgamento.png">
+      </div>
       </div>
       </td>
       <td>
-      <div class="tdModulo">
+      <div class="">
       <p style="font-size: x-large; font-weight: bold;">Módulo 3</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">29 de junho de 2030</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">18 de junho de 2023</p>
       <p style="font-size: small; text-align: justify;">Cartas da Imperatriz, do Imperador, da Estrela e da Lua.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/imperatriz.png">
+      <img class="icone100" src="${imagem}/imperador.jpeg">
+      <img class="icone100" src="${imagem}/estrela.png">
+      <img class="icone100" src="${imagem}/lua.png">
+      </div>
       </div>
       </td>
-    </tr>
-    <tr>
       <td>
-      <div class="tdModulo">
+      <div class="">
       <p style="font-size: x-large; font-weight: bold;">Módulo 4</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">25 de junlho de 2023</p>      
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">09 de julho de 2023</p>      
       <p style="font-size: small; text-align: justify;">Carta do Hierofante, dos Amantes, do Demônio e da Torre.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/hierofante.png">
+      <img class="icone100" src="${imagem}/amantes.png">
+      <img class="icone60x100" src="${imagem}/diabo.jpeg">
+      <img class="icone100" src="${imagem}/torre.png">
       </div>
-      </td>
-      <td>
-      <div class="tdModulo">
-      <p style="font-size: x-large; font-weight: bold;">Módulo 5</p>
-      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">22 de agosto de 2023</p>
-      <p style="font-size: small; text-align: justify;">Cartas da Carruagem e da Temperança.</p>
-      </div>
-      </td>
-      <td>
-      <div class="tdModulo">
-      <p style="font-size: x-large; font-weight: bold;">Módulo 6</p>
-      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">19 de setembro de 2023</p>
-      <p style="font-size: small; text-align: justify;">Cartas da Força e da Morte.</p>
       </div>
       </td>
     </tr>
     <tr>
       <td>
-      <div class="tdModulo">
-      <p style="font-size: x-large; font-weight: bold;">Módulo 7</p>
+      <div class="">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 5</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">17 de outubro de 2023</p>      
-      <p style="font-size: small; text-align: justify;">Cartas do Eremita e do Enforcado.</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">06 de agosto de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Carruagem e da Temperança.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/carruagem.png">
+      <img class="icone100" src="${imagem}/temperanca.png">
+      </div>
       </div>
       </td>
       <td>
-      <div class="tdModulo">
+      <div class="">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 6</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">17 de setembro de 2023</p>
+      <p style="font-size: small; text-align: justify;">Cartas da Força e da Morte.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/forca.png">
+      <img class="icone100" src="${imagem}/morte.png">
+      </div>
+      </div>
+      </td>
+      <td>
+      <div class="">
+      <p style="font-size: x-large; font-weight: bold;">Módulo 7</p>
+      <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">15 de outubro de 2023</p>      
+      <p style="font-size: small; text-align: justify;">Cartas do Eremita e do Enforcado.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/eremita.png">
+      <img class="icone100" src="${imagem}/enforcado.png">
+      </div>
+      </div>
+      </td>
+      <td>
+      <div class="">
       <p style="font-size: x-large; font-weight: bold;">Módulo 8</p>
       <p style="font-size: medium; font-weight: bold;">Arcanos do Tarô</p>
-      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="right">14 de novembro de 2023</p>
+      <p style="font-size: small; color: rgb(0,109,162); font-weight: bold;" align="left">21 de novembro de 2023</p>
       <p style="font-size: small; text-align: justify;">Cartas da Roda da Fortuna e da Justiça.</p>
+      <div class="row">
+      <img class="icone100" src="${imagem}/rodadafortuna.png">
+      <img class="icone100" src="${imagem}/justica.png">
+      </div>
       </div>
       </td>
       <!-- <td>

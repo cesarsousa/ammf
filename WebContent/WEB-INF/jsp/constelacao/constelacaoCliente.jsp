@@ -51,6 +51,13 @@
 							<h2>Investimento:</h2>
 							<h3>${sessaoCliente.constelacao.formaPagamentoSimples}</h3>
 						</div>
+					</td>					
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+					<div class="separador"></div>
+						<h2>Calendário 2023</h2>
+						<h3 class="texto2FotoConstelacao" align="center">25 JUN - 23 JUL - 25 AGO - 24 SET - 22 OUT - 26 NOV - 10 DEZ</h3>
 					</td>
 				</tr>
 			</tbody>
