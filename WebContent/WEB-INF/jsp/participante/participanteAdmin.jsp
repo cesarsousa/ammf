@@ -74,6 +74,7 @@
 			<tr>
 				<th class="metadado">id</th>
 				<th class="metadado">nome</th>
+				<th class="metadado">e-mail</th>
 				<th class="metadado">pagouIngresso</th>
 				<th class="metadado">constelou</th>
 				<th class="metadado">pagouContelacao</th>
@@ -89,6 +90,7 @@
 				<tr class="zebrado">
 					<td class="infoTabelaConteudo">${participanteDto.id}</td>
 					<td class="infoTabelaConteudo">${participanteDto.nome}</td>
+					<td class="infoTabelaConteudo">${participanteDto.email}</td>
 					<td class="infoTabelaConteudo paddingInterno ${participanteDto.pagouIngresso}"></td>
 					<td class="infoTabelaConteudo paddingInterno ${participanteDto.constelou}"></td>
 					<td class="infoTabelaConteudo paddingInterno ${participanteDto.pagouContelacao}"></td>
