@@ -56,8 +56,8 @@
 				<tr>
 					<td align="center" colspan="2">
 					<div class="separador"></div>
-						<h2>Calendário 2023</h2>
-						<h3 class="texto2FotoConstelacao" align="center">25 JUN - 23 JUL - 25 AGO - 24 SET - 22 OUT - 26 NOV - 10 DEZ</h3>
+						<h2>Calendário 2024</h2>
+						<h3 class="texto2FotoConstelacao" align="center">14 JAN - 4 FEV - 10 MAR - 7 ABR - 5 MAI - 9 JUN - 14 JUL - 4 AGO - 8 SET - 13 OUT - 10 NOV - 8 DEZ</h3>
 					</td>
 				</tr>
 			</tbody>
