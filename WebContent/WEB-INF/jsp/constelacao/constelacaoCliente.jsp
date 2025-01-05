@@ -56,8 +56,9 @@
 				<tr>
 					<td align="center" colspan="2">
 					<div class="separador"></div>
-						<h2>Calendário 2024</h2>
-						<h3 class="texto2FotoConstelacao" align="center">14 JAN - 4 FEV - 10 MAR - 7 ABR - 5 MAI - 9 JUN - 14 JUL - 4 AGO - 8 SET - 13 OUT - 10 NOV - 8 DEZ</h3>
+						<h2>Calendário 2025</h2>
+						<h3 class="texto2FotoConstelacao" align="center">12 de Janeiro <br/> 9 de Fevereiro <br/> 16 de Março <br/> 13 de Abril <br/> 4 de Maio <br/> 8 de Junho <br/>
+						13 de Julho <br/> 3 de Agosto <br/> 7 de Setembro <br/> 05 de Outubro <br/> 9 de Novembro <br/> 7 de Dezembro</h3>
 					</td>
 				</tr>
 			</tbody>
