@@ -6,6 +6,6 @@ import br.com.ammf.dto.ParticipanteDto;
 
 public interface ParticipanteService {
 
-	List<ParticipanteDto> buscarPorNome(String parametro);
+	List<ParticipanteDto> buscarPorNome(String parametro, String parametroEvento);
 
 }

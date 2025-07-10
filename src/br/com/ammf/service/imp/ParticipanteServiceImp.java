@@ -19,8 +19,8 @@ public class ParticipanteServiceImp implements ParticipanteService {
 	}
 
 	@Override
-	public List<ParticipanteDto> buscarPorNome(String parametro) {
-		List<Participante> participantes = participanteRepository.buscarPorNome(parametro);
+	public List<ParticipanteDto> buscarPorNome(String parametro, String parametroEvento) {
+		List<Participante> participantes = participanteRepository.buscarPorNome(parametro, parametroEvento);
 		return converterDto(participantes);
 	}
 

@@ -31,12 +31,12 @@ public class ParticipanteController {
 	
 	@Restrito
 	@Get("/participante/busca")
-	public void buscarParticipantesEEventosRelacionados(String parametro){
+	public void buscarParticipantesEEventosRelacionados(String parametro, String parametroEvento){
 		
-		List<ParticipanteDto> participantesDto = participanteService.buscarPorNome(parametro);
+		List<ParticipanteDto> participantesDto = participanteService.buscarPorNome(parametro, parametroEvento);
 		
 		if(participantesDto.isEmpty()) {
-			result.include("resultBuscarInsucesso_paticipantes", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + parametro + "</b>");			
+			result.include("resultBuscarInsucesso_paticipantes", "0 ocorr&ecirc;ncia(s) para a pesquisa: <b>" + parametro + "</b> e <b>" + parametroEvento + "</b>");			
 		}else {
 			result.include("participantesDto", participantesDto);			
 		}

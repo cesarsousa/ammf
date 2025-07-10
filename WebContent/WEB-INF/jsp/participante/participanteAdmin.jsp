@@ -43,6 +43,8 @@
 		<div align="center">
 			<input id="campoBuscaTxt_participante" type="text" name="parametro" class="form-control" placeholder="Buscar por parte do nome..." />
 			<br>
+			<input id="campoBuscaEvento_participante" type="text" name="parametroEvento" class="form-control" placeholder="Buscar por parte do evento..." />
+			<br>
 			<input type="submit" class="btn btn-success" value="Pesquisar">			
 			
 			<c:if test="${not empty resultBuscarInsucesso_paticipantes}">
