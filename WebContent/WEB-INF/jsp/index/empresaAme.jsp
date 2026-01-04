@@ -86,7 +86,33 @@
 					<div>
 						<p>O calendário com o contéudo e as datas para 2026 será
 							disponibilizado no primeiro trismestre de 2026</p>
-						<P>Atenciosamente.</P>
+						
+						<div align="center">
+						<p>Até lá segue o calendário do 1º trimestre de terapia em grupo.</p>
+						<table border="1" style="width:60%">
+						<tr>
+							<td style="padding: 2px; width: 33%" >
+							<div align="center" style="padding: 2px; background-color: black; color: white; font-size: medium;">Janeiro</div>
+							<div align="center" style="font-size: xx-large;">25</div>
+							<div align="center" style="font-size: small;">domingo</div>
+							</td>
+							
+							<td style="padding: 2px; width: 34%">
+							<div align="center" style="padding: 2px; background-color: black; color: white; font-size: medium;">Fevereiro</div>
+							<div align="center" style="font-size: xx-large;">22</div>
+							<div align="center" style="font-size: small;">domingo</div>
+							</td>
+							
+							<td style="padding: 2px; width: 33%">
+							<div align="center" style="padding: 2px; background-color: black; color: white; font-size: medium;">Março</div>
+							<div align="center" style="font-size: xx-large;">22</div>
+							<div align="center" style="font-size: small;">domingo</div>
+							</td>
+						</tr>
+						</table>
+						<P style="padding-top: 10px">Atenciosamente.</P>
+						</div>
+						
 					</div>
 					<table>
 						<tr>
