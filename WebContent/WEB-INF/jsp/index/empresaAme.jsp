@@ -200,27 +200,27 @@ a passo.</p>
 									<td style="padding: 2px; width: 25%">
 										<div align="center"
 											style="padding: 2px; background-color: black; color: white; font-size: medium;">Agosto</div>
-										<div align="center" style="font-size: xx-large;">26</div>
+										<div align="center" style="font-size: xx-large;">30</div>
 										<div align="center" style="font-size: small;">domingo</div>
 									</td>
 
 									<td style="padding: 2px; width: 25%">
 										<div align="center"
 											style="padding: 2px; background-color: black; color: white; font-size: medium;">Setembro</div>
-										<div align="center" style="font-size: xx-large;">22</div>
+										<div align="center" style="font-size: xx-large;">27</div>
 										<div align="center" style="font-size: small;">domingo</div>
 									</td>
 
 									<td style="padding: 2px; width: 25%">
 										<div align="center"
 											style="padding: 2px; background-color: black; color: white; font-size: medium;">Outubro</div>
-										<div align="center" style="font-size: xx-large;">22</div>
+										<div align="center" style="font-size: xx-large;">18</div>
 										<div align="center" style="font-size: small;">domingo</div>
 									</td>
 									<td style="padding: 2px; width: 25%">
 										<div align="center"
 											style="padding: 2px; background-color: black; color: white; font-size: medium;">Novembro</div>
-										<div align="center" style="font-size: xx-large;">22</div>
+										<div align="center" style="font-size: xx-large;">29</div>
 										<div align="center" style="font-size: small;">domingo</div>
 									</td>
 								</tr>
@@ -367,7 +367,7 @@ a passo.</p>
 									<tr>
 										<td style="padding: 2px; width: 25%">
 											<div align="center"
-												style="padding: 2px; background-color: black; color: white; font-size: medium;">Junho</div>
+												style="padding: 2px; background-color: black; color: white; font-size: medium;">Julho</div>
 											<div align="center" style="font-size: xx-large;">26</div>
 											<div align="center" style="font-size: small;">domingo</div>
 										</td>
@@ -399,6 +399,176 @@ a passo.</p>
 									<li>Exercícios de simbolização da experiência corporal</li>
 								</ul> 
 								<b>Chamada</b> <br>“O corpo não acusa. Ele comunica.”
+							</td>
+						</tr>
+					</table>
+					
+					<table>
+						<tr>
+							<td style="padding: 10px" valign="top">
+								<table border="1" style="width: 70%">
+									<tr>
+										<td style="padding: 2px; width: 25%">
+											<div align="center"
+												style="padding: 2px; background-color: black; color: white; font-size: medium;">Agosto</div>
+											<div align="center" style="font-size: xx-large;">30</div>
+											<div align="center" style="font-size: small;">domingo</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td style="padding: 10px">
+							<h4>MÓDULO 5</h4>
+							<b>RELAÇÕES, PROJEÇÕES E ENCONTROS</b> <br>
+							O outro como espelho do inconsciente <br>
+							<b>Eixo:</b> <br>
+							Relacionamentos revelam o mapa interno. <br>
+							<b>Conteúdos integrados:</b>
+								<ul>
+									<li>Projeção e escolha amorosa (Jung)</li>
+									<li>Reedição de vínculos primários (Freud)</li>
+									<li>Lealdades familiares nos relacionamentos (Hellinger)</li>
+								</ul> 
+							<b>Arcanos trabalhados:</b>
+								<ul>
+									<li><b>O Diabo (XV)</b> – vínculos compulsivos e pactos inconscientes</li>
+									<li><b>A Morte (XIII)</b> – fim de padrões relacionais antigos</li>
+									<li><b>A Temperança (XIV)</b> – integração e vínculo possível</li>
+								</ul> 
+							<b>Práticas:</b>
+								<ul>
+									<li>Constelações relacionais</li>
+									<li>Visualizações de recolhimento de projeções</li>
+									<li>Leitura simbólica dos arcanos relacionais</li>
+								</ul> 
+								<b>Chamada</b> <br>“Você não encontra o outro. Encontra a si mesmo através dele.”
+							</td>
+						</tr>
+					</table>
+					
+					<table>
+						<tr>
+							<td style="padding: 10px" valign="top">
+								<table border="1" style="width: 70%">
+									<tr>
+										<td style="padding: 2px; width: 25%">
+											<div align="center"
+												style="padding: 2px; background-color: black; color: white; font-size: medium;">Setembro</div>
+											<div align="center" style="font-size: xx-large;">27</div>
+											<div align="center" style="font-size: small;">domingo</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td style="padding: 10px">
+							<h4>MÓDULO 6</h4>
+							<b>TRABALHO, DINHEIRO E REALIZAÇÃO</b> <br>
+							O lugar no mundo <br>
+							<b>Eixo:</b> <br>
+							Sem ordem interna, não há prosperidade sustentável. <br>
+							<b>Conteúdos integrados:</b>
+								<ul>
+									<li>Trabalho como expressão da individuação (Jung)</li>
+									<li>Dinheiro como fluxo de vida e pertencimento (Hellinger)</li>
+									<li>Repetições inconscientes no campo profissional (Freud)</li>
+								</ul> 
+							<b>Arcanos trabalhados:</b>
+								<ul>
+									<li><b>A Torre (XVI)</b> – queda de estruturas falsas</li>
+									<li><b>A Estrela (XVII)</b> – sentido, vocação e direção</li>
+									<li><b>O Sol (XIX)</b> – vitalidade, sucesso e reconhecimento</li>
+								</ul> 
+							<b>Práticas:</b>
+								<ul>
+									<li>Constelações de trabalho e dinheiro</li>
+									<li>Visualizações de alinhamento interno</li>
+									<li>Leitura simbólica de imagens de realização</li>
+								</ul> 
+								<b>Chamada</b> <br>“Quando o sistema se organiza, a vida flui.”
+							</td>
+						</tr>
+					</table>
+					
+					<table>
+						<tr>
+							<td style="padding: 10px" valign="top">
+								<table border="1" style="width: 70%">
+									<tr>
+										<td style="padding: 2px; width: 25%">
+											<div align="center"
+												style="padding: 2px; background-color: black; color: white; font-size: medium;">Outubro</div>
+											<div align="center" style="font-size: xx-large;">18</div>
+											<div align="center" style="font-size: small;">domingo</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td style="padding: 10px">
+							<h4>MÓDULO 7</h4>
+							<b>SENTIDO, ESPIRITUALIDADE E ENRAIZAMENTO</b> <br>
+							O Self como eixo <br>
+							<b>Eixo:</b> <br>
+							Espiritualidade madura sustenta a vida concreta. <br>
+							<b>Conteúdos integrados:</b>
+								<ul>
+									<li>Self e individuação (Jung)</li>
+									<li>Espírito, humildade e força da vida (Hellinger)</li>
+									<li>Espiritualidade como integração, não evasão</li>
+								</ul> 
+							<b>Arcanos trabalhados:</b>
+								<ul>
+									<li><b>A Lua (XVIII)</b> –  medos arcaicos e inconsciente profundo</li>
+									<li><b>O Julgamento (XX)</b> –  chamado do Self e despertar</li>
+								</ul> 
+							<b>Práticas:</b>
+								<ul>
+									<li>Constelações de sentido e espiritualidade</li>
+									<li>Meditações guiadas</li>
+									<li>Visualizações de eixo interno</li>
+								</ul> 
+								<b>Chamada</b> <br>“Consciência sem enraizamento vira idealização.”
+							</td>
+						</tr>
+					</table>
+					
+					<table>
+						<tr>
+							<td style="padding: 10px" valign="top">
+								<table border="1" style="width: 70%">
+									<tr>
+										<td style="padding: 2px; width: 25%">
+											<div align="center"
+												style="padding: 2px; background-color: black; color: white; font-size: medium;">Novembro</div>
+											<div align="center" style="font-size: xx-large;">29</div>
+											<div align="center" style="font-size: small;">domingo</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td style="padding: 10px">
+							<h4>MÓDULO 8</h4>
+							<b>SÍNTESE DO MAPA INTERNO</b> <br>
+							O sujeito como constelador de si mesmo <br>
+							<b>Eixo:</b> <br>
+							Autonomia psíquica e autorregulação sistêmica. <br>
+							<b>Conteúdos integrados:</b>
+								<ul>
+									<li>Integração do mapa psíquico, sistêmico e simbólico</li>
+									<li>Desenvolvimento do terapeuta interno</li>
+									<li>Constelação como prática de vida</li>
+								</ul> 
+							<b>Arcanos trabalhados:</b>
+								<ul>
+									<li><b>O Louco (0)</b> –  liberdade psíquica e confiança</li>
+									<li><b>O Mundo (XXI)</b> –   integração, totalidade e fechamento</li>
+								</ul> 
+							<b>Práticas:</b>
+								<ul>
+									<li>Constelação integrativa final</li>
+									<li>Visualização de passagem de ciclo</li>
+									<li>Ritual simbólico de encerramento</li>
+								</ul> 
+								<b>Chamada</b> <br>“Quando o mapa é interno, o caminho se revela.”
 							</td>
 						</tr>
 					</table>
