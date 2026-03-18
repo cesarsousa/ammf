@@ -572,15 +572,9 @@ a passo.</p>
 							</td>
 						</tr>
 					</table>
-
-
-
-
-
-
-
-
 				</div>
+				
+				<br/>
 
 				<div class="jumbotron" style="background-color: rgb(202,242,194);">			
 <div align="center">
@@ -588,18 +582,13 @@ a passo.</p>
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">Investimento</h2>
 <h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">CURSO COMPLETO - 8 MÓDULOS</h2>
 
-<h3 align="center">R$ 2.640,00 (R$ 320,00 por Módulo)</h3>
+<h3 align="center">R$ 2.800,00 (R$ 350,00 por Módulo)</h3>
 
-<h3 align="center">Com desconto: <span style="background-color: red; color: white; padding: 3px">15% 0ff</span><br/>R$ 2.200,00 (R$ 275,00 por Módulo, para pagamento em
-cartão de crédito em até 12 vezes, e também, disponível para
-quem já fez, em qualquer momento, o curso anteriormente).</h3>
+<h3 align="center">À Vista: <span style="background-color: red; color: white; padding: 3px">20% 0ff</span><br/>R$ 2.240,00 para pagamento à vista em dinheiro ou PIX</h3>
 
-<h3 align="center">À Vista: <span style="background-color: red; color: white; padding: 3px">25% 0ff</span><br/>R$ 2.000,00 (R$ 250,00 por módulo para pagamento à vista
-em dinheiro ou PIX)</h3>
 
-<h2 align="center" style="color:rgb(41,131,24); font-weight: bold; ">MÓDULO MENSAL - UNIDADE</h2>
-<h3 align="center"><b>R$ 320</b> ou 
-					<br/><b>R$ 275</b> para quem já fez, em qualquer momento, o curso anteriormente.</h3>
+<h3 align="center">Para quem já é aluno: <span style="background-color: red; color: white; padding: 3px">15% 0ff</span><br/>R$ 2.388,00 para pagamento em
+cartão de crédito em 12 vezes de R$ 199.</h3>
 
 <h3 align="center">As inscrições são realizadas no local nos dias do curso.</h3>
 
