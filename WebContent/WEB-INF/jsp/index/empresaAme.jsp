@@ -246,7 +246,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 1</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 1</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo1"></td>
+							</tr>
+							</table>
+							
 							<b>O SISTEMA INTERNO</b> <br>
 							O sujeito como campo de constelação <br>
 							<b>Eixo:</b> <br>
@@ -627,3 +637,162 @@ cartão de crédito em 12 vezes de R$ 199.</h3>
 <div id="footer">
 <%@ include file="/footer.jsp" %>
 </div>
+
+<!-- Modal resenha pré definida -->
+<div class="modal fade" id="modalDetalhamentoModulo1" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 1</h4>
+        	</div>
+        	<div class="modal-body">
+        	<h4>O SISTEMA INTERNO - O sujeito como campo de constelação</h4>
+        	<p>“Você não constela apenas a família. Constela quem você se tornou nela.”</p>
+        	<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Introduzir o participante à
+							compreensão de que toda constelação externa é precedida por uma
+							constelação interna, organizada por imagens psíquicas, complexos
+							e registros inconscientes. O foco deste módulo é deslocar o olhar
+							da família apenas “como sistema externo” para o sujeito como
+							campo vivo onde o sistema atua, se repete e se reorganiza. Ao
+							final do módulo, o aluno deverá ser capaz de:</p>
+			<ul style="text-align: left;">
+        	<li>compreender o conceito de sistema interno à luz da Psicologia Profunda;</li>
+        	<li>reconhecer o campo sistêmico como projeção do campo psíquico;</li>
+        	<li>utilizar imagens simbólicas (Tarot) como mediadoras do acesso ao inconsciente;</li>
+        	<li>participar e conduzir constelações do sistema interno em nível introdutório.</li>
+        	</ul>
+        	<hr>
+        	
+        	<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+        	<p>Freud - Primeiras organizações da vida psíquica</p>
+						<p style="font-size: small;">Freud demonstra que o sujeito <b>não nasce como uma unidade integrada</b>, 
+						mas como um conjunto de experiências pulsionais, afetivas e relacionais que se organizam progressivamente.
+						Pontos centrais para o módulo:
+						</p>
+			<ul style="text-align: left;">
+        	<li><b>Inconsciente</b> como campo de memória ativa, não acessível diretamente à consciência.</li>
+        	<li><b>Relações primárias</b> como base da constituição do psiquismo.</li>
+        	<li>Formação do Ego como instância mediadora entre pulsão, realidade e normas internalizadas.</li>
+        	<li>A repetição não surge do acaso, mas da <b>fixação de experiências não elaboradas</b>.</li>
+        	</ul>
+						<p style="font-size: small;">No contexto deste módulo: O
+							sistema familiar externo é introjetado como imagens parentais,
+							que passam a operar internamente, influenciando escolhas, afetos
+							e sintomas.</p>
+			<hr>
+						
+        	<p>Jung - Ego, complexos e imagens psíquicas</p>
+						<p style="font-size: small;">Jung amplia a compreensão
+							freudiana ao introduzir o conceito de complexos como núcleos
+							autônomos da psique. Elementos fundamentais:</p>
+						<ul style="text-align: left;">
+        	<li>O <b>Ego</b> é o centro da consciência, mas não governa toda a psique.</li>
+        	<li>Os <b>complexos</b> são organizações psíquicas carregadas de afeto, muitas vezes inconscientes, que se comportam como “subpersonalidades”.</li>
+        	<li>As imagens parentais (pai, mãe, autoridade, cuidado, ausência) tornam-se <b>estruturas internas vivas</b>.</li>
+        	<li>A psique se organiza simbolicamente, não apenas racionalmente.</li>
+        	</ul>
+						<p style="font-size: small;">Assim: O sujeito é, em si, um
+							sistema constelado de imagens, afetos e histórias que coexistem,
+							dialogam ou entram em conflito.</p>
+			<hr>
+
+						<p>Bert Hellinger - O campo sistêmico como fenômeno vivo</p>
+						<p style="font-size: small;">
+							Hellinger observa que os sistemas familiares operam segundo <b>ordens</b>
+							que precedem o indivíduo:
+						</p>
+						<ul style="text-align: left;">
+							<li>pertencimento,</li>
+							<li>hierarquia,</li>
+							<li>equilíbrio entre dar e receber.</li>
+						</ul>
+						<p style="font-size: small;">Quando essas ordens são violadas,
+							surgem emaranhamentos que se manifestam nos descendentes. Para
+							este módulo, o ponto essencial é:</p>
+						<p style="font-size: small;">
+							O campo sistêmico <b>não atua apenas externamente</b>, mas se
+							manifesta <b>dentro do sujeito</b>, como impulsos, sintomas,
+							escolhas repetitivas e conflitos internos. A constelação,
+							portanto, não revela apenas “a família”, mas <b>como a
+								família vive no indivíduo</b>.
+						</p>
+						<hr>
+			
+			<p>O conceito de sistema interno</p>
+						<p style="font-size: small;">
+							Define-se <b>sistema interno</b> como: A organização psíquica
+							composta por Ego, complexos, imagens parentais e registros
+							inconscientes que reproduzem, simbolizam e mantêm as dinâmicas do
+							sistema familiar. Esse sistema:
+						</p>
+						<ul style="text-align: left;">
+							<li>antecede muitas decisões conscientes;</li>
+							<li>influência percepções e reações emocionais;</li>
+							<li>é ativado automaticamente em situações de vínculo, escolha e crise. Na prática clínica:</li>
+							<li>muitas constelações externas são <b>espelhamentos de conflitos internos não simbolizados;</b></li>
+							<li>trabalhar o sistema interno favorece autonomia, autorregulação e consciência.</li>
+						</ul>
+						<hr>
+			
+			<p>O tarot como linguagem simbólica do sistema interno</p>
+						<p style="font-size: small;">
+							Neste curso, o Tarot é compreendido como:
+						</p>
+						<ul style="text-align: left;">
+							<li>um <b>sistema imagético arquetípico</b>;</li>
+							<li>um mediador simbólico entre consciência e inconsciente;</li>
+							<li>um recurso clínico de amplificação simbólica (à maneira junguiana).</li>
+						</ul>
+						<p style="font-size: small;">
+							Não há uso preditivo nem oracular. Arcanos do módulo:
+						</p>
+						<p style="font-size: small;">
+							O Mago (I)
+						</p>
+						<ul style="text-align: left;">
+							<li>Representa o <b>Ego nascente</b>, a capacidade de organizar a experiência.</li>
+							<li>Função psíquica: iniciativa, mediação, consciência operante.</li>
+							<li>Clinicamente: como o sujeito tenta controlar, iniciar ou resolver sua vida.</li>
+						</ul>
+						<p style="font-size: small;">
+							A Sacerdotisa (II)
+						</p>
+						<ul style="text-align: left;">
+							<li>Campo do inconsciente, da memória silenciosa e do não dito.</li>
+							<li>Relaciona-se ao inconsciente pessoal e coletivo.</li>
+							<li>Clinicamente: segredos, silêncios familiares, conteúdos recalcados.</li>
+						</ul>
+						<p style="font-size: small;">
+							A Imperatriz (III)
+						</p>
+						<ul style="text-align: left;">
+							<li>Matriz psíquica, princípio de vida, fertilidade simbólica.</li>
+							<li>Relaciona-se à função materna interna.</li>
+							<li>Clinicamente: capacidade de nutrir, criar, sustentar a si mesmo e aos outros.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses três arcanos representam <b>a primeira organização do sistema interno</b>: consciência – inconsciente – matriz relacional.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo estabelece a base para todo o percurso
+							formativo, introduzindo o aluno na leitura do sujeito como campo
+							sistêmico e simbólico. A partir dessa compreensão, torna-se
+							possível avançar para os módulos seguintes, que aprofundarão
+							repetição, lugar, corpo, relações, trabalho, espiritualidade e
+							síntese do mapa interno.</p>
+
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+
+
+
