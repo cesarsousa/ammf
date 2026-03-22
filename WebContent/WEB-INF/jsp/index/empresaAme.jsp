@@ -299,7 +299,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 2</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 2</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo2"></td>
+							</tr>
+							</table>
+							
 							<b>REPETIÇÃO, DESTINO e COMPULSÃO</b> <br>
 							O retorno do não elaborado <br>
 							<b>Eixo:</b> <br>
@@ -342,7 +352,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 3</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 3</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo3"></td>
+							</tr>
+							</table>
+							
 							<b>LUGAR, PERTENCIMENTO E ORDEM</b> <br>
 							A organização do sistema <br>
 							<b>Eixo:</b> <br>
@@ -385,7 +405,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 4</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 4</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo4"></td>
+							</tr>
+							</table>
+							
 							<b>CORPO PSÍQUICO E MEMÓRIA SISTÊMICA</b> <br>
 							O inconsciente vivido <br>
 							<b>Eixo:</b> <br>
@@ -428,7 +458,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 5</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 5</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo5"></td>
+							</tr>
+							</table>
+							
 							<b>RELAÇÕES, PROJEÇÕES E ENCONTROS</b> <br>
 							O outro como espelho do inconsciente <br>
 							<b>Eixo:</b> <br>
@@ -471,7 +511,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 6</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 6</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo6"></td>
+							</tr>
+							</table>
+							
 							<b>TRABALHO, DINHEIRO E REALIZAÇÃO</b> <br>
 							O lugar no mundo <br>
 							<b>Eixo:</b> <br>
@@ -514,7 +564,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 7</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 7</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo7"></td>
+							</tr>
+							</table>
+							
 							<b>SENTIDO, ESPIRITUALIDADE E ENRAIZAMENTO</b> <br>
 							O Self como eixo <br>
 							<b>Eixo:</b> <br>
@@ -556,7 +616,17 @@ a passo.</p>
 								</table>
 							</td>
 							<td style="padding: 10px">
-							<h4>MÓDULO 8</h4>
+							<table>
+							<tr>
+							<td><h2>MÓDULO 8</h2></td>
+							<td><img  
+							alt="Detalhamento do módulo" 
+							title="Detalhamento do módulo" 
+							src="${imagem}/lupa.png" 
+							class="icone50 ponteiro esquerda" data-toggle="modal" data-target="#modalDetalhamentoModulo8"></td>
+							</tr>
+							</table>
+							
 							<b>SÍNTESE DO MAPA INTERNO</b> <br>
 							O sujeito como constelador de si mesmo <br>
 							<b>Eixo:</b> <br>
@@ -638,7 +708,7 @@ cartão de crédito em 12 vezes de R$ 199.</h3>
 <%@ include file="/footer.jsp" %>
 </div>
 
-<!-- Modal resenha pré definida -->
+<!-- Modal modulo 1 -->
 <div class="modal fade" id="modalDetalhamentoModulo1" role="dialog">
 	<div class="modal-dialog">
     	<!-- Modal content-->
@@ -793,6 +863,1062 @@ cartão de crédito em 12 vezes de R$ 199.</h3>
     </div>
 </div>
 
+<!-- Modal modulo 2 -->
+<div class="modal fade" id="modalDetalhamentoModulo2" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 2</h4>
+        	</div>
+					<div class="modal-body">
+						<h4>REPETIÇÃO, DESTINO E COMPULSÃO – O retorno do não
+							elaborado</h4>
+						<p>“Destino não é castigo. É memória pedindo consciência.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">
+							Este módulo tem como objetivo aprofundar a compreensão dos
+							fenômenos de repetição na vida psíquica e sistêmica, deslocando a
+							ideia de erro, fracasso ou azar para uma leitura clínica e
+							simbólica da repetição como <b>expressão de memória
+								inconsciente e de vínculos sistêmicos ativos</b>.
+						</p>
+						<p style="font-size: small;">
+							O participante é convidado a reconhecer que aquilo que retorna
+							insistentemente na vida não o faz por acaso, mas porque <b>algo
+								permanece fora da consciência, fora da ordem ou fora do lugar</b>.
+						</p>
+						<p style="font-size: small;">Ao final do módulo, o aluno
+							deverá ser capaz de:</p>
+
+						<ul style="text-align: left;">
+							<li>compreender a compulsão à repetição como conceito
+								central da clínica psicanalítica;</li>
+							<li>reconhecer padrões recorrentes como manifestações de
+								lealdades invisíveis;</li>
+							<li>identificar a atuação de complexos autônomos na
+								repetição de destinos;</li>
+							<li>participar e conduzir constelações do sistema interno em
+								nível introdutório.</li>
+							<li>utilizar imagens simbólicas para leitura de ciclos
+								psíquicos e sistêmicos.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Freud – Compulsão à repetição e memória inconsciente</p>
+						<p style="font-size: small;">
+							Freud observa que o sujeito não repete apenas o que foi
+							prazeroso, mas sobretudo aquilo que foi <b>traumático,
+								excessivo ou não simbolizado</b>. A isso ele denomina <b>compulsão
+								à repetição</b>. Pontos centrais:
+						</p>
+						<ul style="text-align: left;">
+							<li>o sujeito repete antes de lembrar;</li>
+							<li>o sintoma é memória em ato;</li>
+							<li>a repetição ocorre para além do princípio do prazer;</li>
+							<li>o que não pôde ser elaborado retorna sob a forma de
+								destino..</li>
+						</ul>
+						<p style="font-size: small;">Na clínica, a repetição indica
+							que a experiência não encontrou representação psíquica suficiente
+							para ser integrada à consciência. Assim, ela retorna como
+							escolha, vínculo, fracasso ou sofrimento recorrente.</p>
+						<hr>
+
+						<p>Jung – Complexos autônomos e ciclos psíquicos</p>
+						<p style="font-size: small;">
+							Jung amplia essa compreensão ao afirmar que os complexos possuem
+							<b>vida própria</b> dentro da psique. Quando ativados, eles
+							assumem o comando da experiência, reduzindo a liberdade do Ego.
+							Elementos fundamentais:
+						</p>
+						<ul style="text-align: left;">
+							<li>complexos tendem a se repetir enquanto não reconhecidos;
+							</li>
+							<li>organizam experiências semelhantes ao longo da vida;</li>
+							<li>produzem reações emocionais desproporcionais;</li>
+							<li>estão associados a imagens arquetípicas e experiências
+								precoces.</li>
+						</ul>
+						<p style="font-size: small;">
+							Sob essa ótica, a repetição não é apenas memória, mas <b>um
+								ciclo psíquico autônomo</b>, que captura o sujeito até que seja
+							trazido à consciência e integrado.
+						</p>
+						<hr>
+
+						<p>Bert Hellinger – Lealdades invisíveis e destino familiar</p>
+						<p style="font-size: small;">
+							Hellinger observa que muitos destinos individuais não pertencem
+							exclusivamente ao sujeito, mas são expressões de <b>fidelidades
+								inconscientes ao sistema familiar</b>. Pontos centrais:
+						</p>
+						<ul style="text-align: left;">
+							<li>o amor sistêmico pode se manifestar como repetição de
+								sofrimento;</li>
+							<li>descendentes podem carregar destinos de excluídos;</li>
+							<li>repetir é uma forma inconsciente de pertencer;</li>
+							<li>o destino é frequentemente uma memória sistêmica viva.</li>
+						</ul>
+						<p style="font-size: small;">
+							Assim, aquilo que parece escolha pessoal pode ser, na verdade, um
+							<b>movimento de lealdade invisível</b> ao sistema.
+						</p>
+						<hr>
+
+						<p>REPETIÇÃO COMO LINGUAGEM DO DESTINO</p>
+						<p style="font-size: small;">A integração das três abordagens
+							permite compreender que:</p>
+						<ul style="text-align: left;">
+							<li>a repetição é uma linguagem, não um erro;</li>
+							<li>o destino é vínculo, não punição;</li>
+							<li>a consciência não elimina a repetição de imediato, mas
+								inaugura possibilidade de transformação.</li>
+						</ul>
+						<p style="font-size: small;">
+							O trabalho clínico e sistêmico não busca combater a repetição,
+							mas <b>reconhecer o que ela expressa</b> e devolver cada destino
+							ao seu lugar.
+						</p>
+						<hr>
+
+						<p>O TAROT COMO MAPA DOS CICLOS REPETITIVOS</p>
+						<p style="font-size: small;">
+							Neste módulo, o Tarot é utilizado como <b>linguagem simbólica
+								dos ciclos</b>, permitindo visualizar:
+						</p>
+						<ul style="text-align: left;">
+							<li>estruturas herdadas;</li>
+							<li>fidelidades inconscientes;</li>
+							<li>movimentos repetitivos do destino.</li>
+						</ul>
+						<p style="font-size: small;">
+							O Tarot não explica causalmente, mas <b>traduz imageticamente</b>
+							aquilo que se repete. Arcanos do módulo:
+						</p>
+						<p style="font-size: small;">O Imperador (IV)</p>
+						<ul style="text-align: left;">
+							<li>Representa a estrutura herdada, a lei internalizada e a
+								forma como o sujeito organiza sua vida a partir de modelos
+								recebidos. Clinicamente, indica rigidez, controle e repetição de
+								padrões normativos.</li>
+						</ul>
+						<p style="font-size: small;">O Hierofante (V)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza tradição, fidelidade e pertencimento. Aponta
+								para repetições que não surgem por escolha consciente, mas por
+								lealdade ao sistema familiar.</li>
+						</ul>
+						<p style="font-size: small;">A Roda da Fortuna (X)</p>
+						<ul style="text-align: left;">
+							<li>Expressa o ciclo, o retorno e o destino. Clinicamente,
+								revela a experiência subjetiva de estar preso a um movimento que
+								se repete, apesar das tentativas de mudança.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses três arcanos formam o eixo simbólico da repetição: <b>estrutura,
+								fidelidade e ciclo</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo aprofunda a percepção de que a repetição é um
+							fenômeno estruturante da vida psíquica e sistêmica. Ao reconhecer
+							o sentido da repetição, o sujeito inicia o deslocamento do lugar
+							de vítima do destino para o de participante consciente do próprio
+							processo.</p>
+					</div>
+					<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 3 -->
+<div class="modal fade" id="modalDetalhamentoModulo3" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 3</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>LUGAR, PERTENCIMENTO E ORDEM - A organização do sistema</h4>
+						<p>“O alívio vem quando cada um ocupa o seu lugar.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como objetivo
+							aprofundar a compreensão de que grande parte do sofrimento
+							psíquico e relacional não se origina em traumas isolados, mas em
+							<b>confusões de lugar dentro do sistema familiar e interno</b>.</p>
+						<p style="font-size: small;">O foco é tornar visível como a
+							ocupação de lugares que não pertencem ao sujeito — seja por
+							lealdade, identificação ou necessidade de compensação — produz
+							desordem, sobrecarga e sofrimento, tanto no plano psíquico quanto
+							no sistêmico.</p>
+						<p style="font-size: small;">Ao final do módulo, o aluno
+							deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>compreender os princípios de pertencimento e hierarquia
+								nos sistemas familiares;</li>
+							<li>reconhecer confusões de lugar e emaranhamentos
+								sistêmicos;</li>
+							<li>identificar como o Ego se organiza diante das imagens
+								parentais;</li>
+							<li>utilizar imagens simbólicas como mapas de reorganização
+								interna e sistêmica.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Bert Hellinger - Pertencimento, hierarquia e ordem</p>
+						<p style="font-size: small;">Hellinger observa que os sistemas
+							familiares são regidos por ordens fundamentais que, quando
+							respeitadas, favorecem o fluxo da vida, e quando violadas, geram
+							sofrimento. Princípios centrais:</p>
+						<ul style="text-align: left;">
+							<li>todos os membros do sistema têm direito ao
+								pertencimento;</li>
+							<li>quem veio antes tem precedência sobre quem veio depois;</li>
+							<li>a repetição ocorre para além do princípio do prazer;</li>
+							<li>cada membro deve ocupar o seu lugar, nem mais, nem
+								menos.</li>
+						</ul>
+						<p style="font-size: small;">Quando essas ordens são
+							desrespeitadas, surgem os <b>emaranhamentos</b>, nos quais descendentes
+							ocupam lugares que não lhes pertencem, frequentemente por amor e
+							lealdade inconsciente.</p>
+						<hr>
+
+						<p>Freud - O Ego diante das figuras parentais</p>
+						<p style="font-size: small;">Freud demonstra que o Ego se
+							constitui a partir da internalização das figuras parentais e das
+							relações primárias. Quando essas imagens não estão simbolicamente
+							organizadas, o sujeito pode permanecer <b>psiquicamente preso a
+							posições infantis ou parentais</b>. Aspectos relevantes:</p>
+						<ul style="text-align: left;">
+							<li>identificação com pai ou mãe;</li>
+							<li>conflitos edípicos não elaborados;</li>
+							<li>culpa inconsciente e necessidade de compensação;</li>
+							<li>dificuldade de assumir o próprio lugar adulto.</li>
+						</ul>
+						<p style="font-size: small;">Assim, confusões de lugar
+							sistêmicas encontram ressonância direta na organização do
+							psiquismo.</p>
+						<hr>
+
+						<p>Jung - Diferenciação do Ego e relação com o sistema</p>
+						<p style="font-size: small;">Jung acrescenta que o processo de
+							individuação exige que o Ego se diferencie tanto das imagens
+							parentais quanto das expectativas do coletivo. Elementos
+							fundamentais:</p>
+						<ul style="text-align: left;">
+							<li>o Ego precisa abandonar identificações primárias;</li>
+							<li>diferenciação não é ruptura, mas reconhecimento de
+								limites;</li>
+							<li>assumir o próprio lugar é condição para o
+								desenvolvimento psíquico.</li>
+						</ul>
+						<p style="font-size: small;">Quando essa diferenciação não
+							ocorre, o sujeito permanece aprisionado a papéis que não lhe
+							pertencem, repetindo destinos e conflitos alheios.</p>
+						<hr>
+
+						<p>Confusões de lugar e emaranhamentos</p>
+						<p style="font-size: small;">Confusões de lugar podem se
+							manifestar como:</p>
+						<ul style="text-align: left;">
+							<li>filhos emocionalmente parentificados;</li>
+							<li>parceiros tratados como pais ou mães;</li>
+							<li>identificação com membros excluídos;</li>
+							<li>culpa por viver melhor do que gerações anteriores.</li>
+						</ul>
+						<p style="font-size: small;">Esses movimentos não são
+							conscientes. Eles expressam <b>tentativas inconscientes de manter o
+							vínculo e o pertencimento</b>, ainda que ao custo do próprio
+							sofrimento.</p>
+						<hr>
+
+						<p>O tarot como mapa da organização do sistema</p>
+						<p style="font-size: small;">
+							Neste módulo, o Tarot é utilizado como linguagem simbólica para
+							representar escolhas, movimento e ordem. As imagens não indicam
+							certo ou errado, mas <b>mostram onde o fluxo está
+								interrompido</b>.
+						</p>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">Os Enamorados (VI)</p>
+						<ul style="text-align: left;">
+							<li>Representam conflitos de lealdade, escolhas divididas e
+								fidelidades cruzadas. Clinicamente, indicam dificuldade de
+								escolher o próprio caminho sem trair o sistema.</li>
+						</ul>
+						<p style="font-size: small;">O Carro (VII)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza diferenciação, autonomia e movimento próprio.
+								Aponta para a capacidade do sujeito de assumir a direção da
+								própria vida sem negar suas origens.</li>
+						</ul>
+						<p style="font-size: small;">A Justiça (XI)</p>
+						<ul style="text-align: left;">
+							<li>Representa ordem, equilíbrio e reparação simbólica.
+								Clinicamente, indica a reorganização dos lugares e o
+								restabelecimento da hierarquia interna e sistêmica.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses arcanos descrevem o percurso simbólico da ordem: <b>escolha,
+								movimento e equilíbrio</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>
+							Este módulo oferece um dos maiores fatores de alívio na clínica
+							sistêmica: <b>cada um no seu lugar</b>.
+						</p>
+						<p>Quando o sujeito devolve o que não lhe pertence e assume
+							apenas o que é seu, ocorre:</p>
+						<ul style="text-align: left;">
+							<li>diminuição de culpa;</li>
+							<li>redução de sobrecarga emocional;</li>
+							<li>maior clareza nas escolhas;</li>
+							<li>fortalecimento do Ego adulto.</li>
+						</ul>
+						<p>Esse reposicionamento prepara diretamente o trabalho com o
+							corpo, o sintoma e a memória somática, aprofundados no módulo
+							seguinte.</p>
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 4 -->
+<div class="modal fade" id="modalDetalhamentoModulo4" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 4</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>CORPO PSÍQUICO E MEMÓRIA SISTÊMICA - O inconsciente
+							vivido</h4>
+						<p>“O corpo não acusa. Ele comunica.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como objetivo
+							aprofundar a compreensão de que o corpo não é apenas suporte
+							biológico da vida psíquica, mas <b>campo de inscrição da memória
+							inconsciente e sistêmica</b>.</p>
+						<p style="font-size: small;">O corpo é compreendido como lugar
+							onde o inconsciente se manifesta de forma direta, anterior à
+							palavra e ao pensamento reflexivo. Sintomas, tensões e bloqueios
+							corporais são vistos como <b>formas de expressão de conteúdos
+							psíquicos e vínculos sistêmicos não simbolizados</b>.</p>
+						<p style="font-size: small;">Ao final do módulo, o
+							participante deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>compreender o sintoma corporal como linguagem do
+								inconsciente;</li>
+							<li>reconhecer o corpo como campo de memória
+								transgeracional;</li>
+							<li>identificar imagens arquetípicas corporificadas;</li>
+							<li>utilizar recursos simbólicos para leitura e escuta da
+								experiência corporal.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Freud - O sintoma como expressão do inconsciente</p>
+						<p style="font-size: small;">
+							Freud compreende o sintoma como uma <b>formação de
+								compromisso</b> entre o desejo inconsciente, a defesa e a realidade.
+							Quando um conteúdo psíquico não encontra via de simbolização, ele
+							pode se expressar corporalmente. Pontos centrais:
+						</p>
+						<ul style="text-align: left;">
+							<li>o corpo participa da economia libidinal;</li>
+							<li>o sintoma é uma linguagem, não um defeito;</li>
+							<li>aquilo que não pode ser lembrado retorna como sensação
+								ou dor;</li>
+							<li>o corpo fala quando a palavra falha.</li>
+						</ul>
+						<p style="font-size: small;">Assim, o sintoma corporal é uma
+							forma de memória inconsciente em ato.</p>
+						<hr>
+
+						<p>Jung - Imagens arquetípicas corporificadas</p>
+						<p style="font-size: small;">Jung amplia essa compreensão ao
+							reconhecer que a psique não se manifesta apenas em imagens
+							mentais, mas também <b>no corpo e através dele</b>. Aspectos
+							fundamentais:</p>
+						<ul style="text-align: left;">
+							<li>arquétipos podem se expressar somaticamente;</li>
+							<li>emoções intensas geram estados corporais específicos;</li>
+							<li>o corpo participa do processo simbólico;</li>
+							<li>a individuação inclui a escuta do corpo.</li>
+						</ul>
+						<p style="font-size: small;">O corpo torna-se, portanto,
+							<b>imagem viva da psique</b>, onde símbolos se atualizam na experiência
+							sensível.</p>
+						<hr>
+
+						<p>Bert Hellinger - Corpo como campo de memória sistêmica</p>
+						<p style="font-size: small;">Hellinger observa, no trabalho
+							constelatório, que representantes corporificam sensações e
+							movimentos que não lhes pertencem pessoalmente, mas ao sistema.
+							Pontos centrais:</p>
+						<ul style="text-align: left;">
+							<li>o corpo responde ao campo sistêmico;</li>
+							<li>memórias familiares podem se expressar como sensações
+								físicas;</li>
+							<li>o corpo revela exclusões, lealdades e destinos
+								interrompidos;</li>
+							<li>a reorganização do sistema altera a experiência
+								corporal.</li>
+						</ul>
+						<p style="font-size: small;">
+							Assim, o corpo é compreendido como <b>sensor e portador de
+								memória transgeracional</b>.
+						</p>
+						<hr>
+
+						<p>O corpo como campo de consciência</p>
+						<p style="font-size: small;">A integração das três abordagens
+							permite compreender que:</p>
+						<ul style="text-align: left;">
+							<li>o corpo não acusa nem pune;</li>
+							<li>o corpo comunica aquilo que não foi simbolizado;</li>
+							<li>a escuta corporal amplia a consciência.</li>
+						</ul>
+						<p style="font-size: small;">
+							O trabalho terapêutico não busca eliminar o sintoma de imediato,
+							mas <b>ouvir o que o corpo está dizendo</b>.
+						</p>
+						<hr>
+
+						<p>O tarot como linguagem da experiência corporal</p>
+						<p style="font-size: small;">
+							Neste módulo, o Tarot é utilizado como linguagem simbólica para traduzir estados internos vividos no corpo. As imagens funcionam como:
+						</p>
+						<ul style="text-align: left;">
+							<li>mediadores entre sensação e significado;</li>
+							<li>facilitadores da simbolização da experiência corporal;</li>
+							<li>pontes entre emoção, imagem e consciência.</li>
+						</ul>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">O Eremita (IX)</p>
+						<ul style="text-align: left;">
+							<li>Representa escuta interna, recolhimento e consciência.</li>
+							<li>Clinicamente, indica a necessidade de desacelerar para ouvir o corpo.</li>
+						</ul>
+						<p style="font-size: small;">A Força (VIII)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza contenção, autorregulação e manejo da pulsão.</li>
+							<li>Aponta para a capacidade de sustentar a energia vital sem repressão nem descarga excessiva.</li>
+						</ul>
+						<p style="font-size: small;">O Enforcado (XII)</p>
+						<ul style="text-align: left;">
+							<li>Representa paralisação, sacrifício e suspensão.</li>
+							<li>Clinicamente, indica estados corporais ligados a lealdades inconscientes e destinos interrompidos.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses arcanos descrevem o percurso simbólico da experiência corporal: <b>escuta, regulação e suspensão</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo ensina o aluno a <b>confiar na inteligência do
+							corpo</b> como via de acesso ao inconsciente.</p>
+						<p>Ao reconhecer o corpo como campo de memória e expressão
+							simbólica, o sujeito amplia sua capacidade de autorregulação,
+							presença e integração psíquica.</p>
+						<p>Esse trabalho prepara o terreno para o próximo módulo, que
+							abordará <b>relações, projeções e encontros</b>, onde o corpo é
+							novamente convocado na experiência do vínculo.</p>
+
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 5 -->
+<div class="modal fade" id="modalDetalhamentoModulo5" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 5</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>RELAÇÕES, PROJEÇÕES E ENCONTROS - O outro como espelho do
+							inconsciente</h4>
+						<p>“Você não encontra o outro. Encontra a si mesmo através
+							dele.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como objetivo
+							aprofundar a compreensão de que os relacionamentos não são apenas
+							encontros entre pessoas, mas <b>encontros entre sistemas internos,
+							histórias psíquicas e destinos familiares.</b></p>
+						<p style="font-size: small;">As relações afetivas, familiares
+							e profissionais são compreendidas como campos privilegiados de
+							manifestação de projeções inconscientes, repetições de vínculos
+							primários e lealdades sistêmicas. O outro surge como espelho, não
+							como causa última do sofrimento.</p>
+						<p style="font-size: small;">Ao final do módulo, o
+							participante deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>compreender o mecanismo da projeção na escolha
+								relacional;</li>
+							<li>reconhecer a reedição de vínculos primários nas relações
+								atuais;</li>
+							<li>identificar lealdades familiares atuando nos
+								relacionamentos;</li>
+							<li>utilizar imagens simbólicas para leitura do campo
+								relacional.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Jung - Projeção e escolha amorosa</p>
+						<p style="font-size: small;">Jung descreve a projeção como um
+							mecanismo pelo qual conteúdos inconscientes são atribuídos ao
+							outro. Nas relações íntimas, especialmente amorosas, a projeção
+							atua de forma intensa. Pontos centrais:</p>
+						<ul style="text-align: left;">
+							<li>o sujeito se apaixona pela própria imagem inconsciente
+								projetada;</li>
+							<li>o outro é investido de qualidades arquetípicas;</li>
+							<li>a relação revela aspectos não integrados da psique;</li>
+							<li>conflitos relacionais indicam retirada ou fixação de
+								projeções.</li>
+						</ul>
+						<p style="font-size: small;">Assim, o encontro com o outro é
+							sempre também um encontro consigo mesmo.</p>
+						<hr>
+
+						<p>Freud - Reedição de vínculos primários</p>
+						<p style="font-size: small;">Freud observa que as relações
+							adultas tendem a repetir, de forma transformada, os vínculos
+							estabelecidos na infância. Aspectos relevantes:</p>
+						<ul style="text-align: left;">
+							<li>repetição das posições infantis nos relacionamentos;</li>
+							<li>transferência afetiva para figuras atuais;</li>
+							<li>busca inconsciente de reparação;</li>
+							<li>compulsão à repetição no campo relacional.</li>
+						</ul>
+						<p style="font-size: small;">Desse modo, o parceiro não é
+							escolhido ao acaso, mas ocupa um lugar previamente estruturado na
+							psique.</p>
+						<hr>
+
+						<p>Bert Hellinger - Lealdades familiares nos relacionamentos</p>
+						<p style="font-size: small;">Hellinger demonstra que muitas
+							dificuldades conjugais e afetivas não pertencem exclusivamente ao
+							casal, mas ao sistema familiar de origem de cada parceiro. Pontos
+							centrais:</p>
+						<ul style="text-align: left;">
+							<li>fidelidade invisível aos pais ou antepassados;</li>
+							<li>exclusões sistêmicas refletidas na relação;</li>
+							<li>dificuldade de escolher o parceiro plenamente;</li>
+							<li>repetição de destinos afetivos familiares.</li>
+						</ul>
+						<p style="font-size: small;">O relacionamento torna-se, assim,
+							um palco onde o sistema busca resolução.</p>
+						<hr>
+
+						<p>Relação como campo de projeção</p>
+						<p style="font-size: small;">A integração das três abordagens
+							permite compreender que:</p>
+						<ul style="text-align: left;">
+							<li>o outro desperta conteúdos inconscientes latentes;</li>
+							<li>o vínculo relacional ativa complexos e lealdades;</li>
+							<li>o sofrimento relacional indica trabalho psíquico e
+								sistêmico pendente.</li>
+						</ul>
+						<p style="font-size: small;">O trabalho terapêutico não busca
+							eliminar o conflito, mas <b>retirar projeções, reconhecer lealdades
+							e restituir a responsabilidade psíquica ao sujeito</b>.</p>
+						<hr>
+
+						<p>O tarot como mapa do vínculo relacional</p>
+						<p style="font-size: small;">Neste módulo, o Tarot é utilizado
+							como linguagem simbólica para representar dinâmicas relacionais,
+							pactos inconscientes e possibilidades de integração. As imagens
+							permitem visualizar:</p>
+						<ul style="text-align: left;">
+							<li>vínculos compulsivos;</li>
+							<li>encerramentos necessários;</li>
+							<li>movimentos de equilíbrio e integração.</li>
+						</ul>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">O Diabo (XV)</p>
+						<ul style="text-align: left;">
+							<li>Representa vínculos compulsivos, pactos inconscientes e
+								aprisionamentos afetivos.</li>
+							<li>Clinicamente, indica relações sustentadas por medo,
+								dependência ou lealdade inconsciente.</li>
+						</ul>
+						<p style="font-size: small;">A Morte (XIII)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza fim de padrões relacionais antigos e
+								transformação necessária.</li>
+							<li>Aponta para encerramentos simbólicos que permitem
+								renovação.</li>
+						</ul>
+						<p style="font-size: small;">A Temperança (XIV)</p>
+						<ul style="text-align: left;">
+							<li>Representa integração, medida e vínculo possível.</li>
+							<li>Clinicamente, indica a possibilidade de relação
+								consciente, sem fusão nem ruptura defensiva.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses arcanos descrevem o percurso simbólico da relação: <b>compulsão,
+								término e integração</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo convida o aluno a abandonar a ilusão de que o
+							outro é a causa do sofrimento e assumir a relação como <b>campo de
+							revelação do inconsciente</b>.</p>
+						<p>Ao retirar projeções e reconhecer lealdades, o sujeito
+							amplia sua capacidade de encontro real, preparando o terreno para
+							o trabalho com <b>trabalho, dinheiro e realização</b>, abordados no
+							módulo seguinte.</p>
+
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 6 -->
+<div class="modal fade" id="modalDetalhamentoModulo6" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 6</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>TRABALHO, DINHEIRO E REALIZAÇÃO - O lugar no mundo</h4>
+						<p>“Quando o sistema se organiza, a vida flui.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como objetivo
+							aprofundar a compreensão de que trabalho e dinheiro não são
+							apenas questões práticas ou econômicas, mas <b>expressões diretas da
+							organização psíquica e sistêmica do sujeito</b>.</p>
+						<p style="font-size: small;">A forma como o indivíduo se
+							relaciona com realização, sucesso, fracasso, reconhecimento e
+							prosperidade revela seu lugar interno no sistema, suas lealdades
+							familiares e o grau de integração do próprio caminho de
+							individuação.</p>
+						<p style="font-size: small;">Ao final do módulo, o
+							participante deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>compreender o trabalho como expressão da individuação;</li>
+							<li>reconhecer o dinheiro como fluxo de vida e
+								pertencimento;</li>
+							<li>identificar repetições inconscientes no campo
+								profissional;</li>
+							<li>utilizar imagens simbólicas para leitura do campo de
+								realização.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Jung - Trabalho como expressão da individuação</p>
+						<p style="font-size: small;">Para Jung, a individuação não é
+							um processo abstrato ou apenas interior. Ela se expressa
+							concretamente na forma como o sujeito <b>ocupa um lugar no mundo</b>.
+							Aspectos centrais:</p>
+						<ul style="text-align: left;">
+							<li>vocação como chamado do Self;</li>
+							<li>trabalho como forma de manifestação do sentido;</li>
+							<li>conflitos profissionais como sinais de desalinhamento
+								psíquico;</li>
+							<li>realização como integração entre potencial interno e
+								mundo externo.</li>
+						</ul>
+						<p style="font-size: small;">Quando o trabalho não está
+							alinhado ao processo de individuação, surgem estagnação,
+							sabotagem ou vazio.</p>
+						<hr>
+
+						<p>Bert Hellinger - Dinheiro como fluxo de vida e
+							pertencimento</p>
+						<p style="font-size: small;">Hellinger observa que o dinheiro,
+							no plano sistêmico, representa um <b>fluxo de troca e pertencimento</b>.
+							A relação com o dinheiro reflete a forma como o sujeito se
+							vincula à vida e ao sistema. Pontos centrais:</p>
+						<ul style="text-align: left;">
+							<li>dificuldade com dinheiro pode indicar exclusões
+								sistêmicas;</li>
+							<li>prosperidade exige aceitar os pais e a origem;</li>
+							<li>culpa por ganhar mais ou menos que os antepassados;</li>
+							<li>equilíbrio entre dar e receber como base da abundância.</li>
+						</ul>
+						<p style="font-size: small;">Assim, o dinheiro não é apenas
+							recurso, mas símbolo de circulação da vida.</p>
+						<hr>
+
+						<p>Freud - Repetições inconscientes no campo profissional</p>
+						<p style="font-size: small;">Freud demonstra que padrões
+							inconscientes se repetem também na esfera do trabalho. Aspectos
+							relevantes:</p>
+						<ul style="text-align: left;">
+							<li>repetição de posições infantis na relação com
+								autoridade;</li>
+							<li>sabotagem inconsciente do sucesso;</li>
+							<li>culpa associada ao desejo de crescer;</li>
+							<li>sintoma profissional como expressão de conflito
+								psíquico.</li>
+						</ul>
+						<p style="font-size: small;">Dessa forma, dificuldades no
+							trabalho podem ser compreendidas como manifestações de conflitos
+							inconscientes não elaborados.</p>
+						<hr>
+
+						<p>Realização como expressão do sistema interno</p>
+						<p style="font-size: small;">A integração das três abordagens
+							permite compreender que:</p>
+						<ul style="text-align: left;">
+							<li>sucesso ou fracasso não são apenas mérito ou azar;</li>
+							<li>o lugar profissional reflete o lugar interno;</li>
+							<li>sem ordem interna, não há prosperidade sustentável.</li>
+						</ul>
+						<p style="font-size: small;">O trabalho terapêutico visa
+							alinhar <b>vocação, pertencimento e consciência</b>, permitindo que a
+							realização seja consequência, não compensação.</p>
+						<hr>
+
+						<p>O tarot como mapa da realização</p>
+						<p style="font-size: small;">Neste módulo, o Tarot é utilizado
+							como linguagem simbólica para representar quedas de estruturas,
+							redirecionamento de sentido e manifestação da vitalidade. As
+							imagens revelam:</p>
+						<ul style="text-align: left;">
+							<li>ilusões sustentadas no campo profissional;</li>
+							<li>rupturas necessárias;</li>
+							<li>novos alinhamentos com o sentido interno.</li>
+						</ul>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">A Torre (XVI)</p>
+						<ul style="text-align: left;">
+							<li>Representa queda de estruturas falsas e colapsos
+								necessários.</li>
+							<li>Clinicamente, indica rupturas que forçam reorganização
+								do campo profissional.</li>
+						</ul>
+						<p style="font-size: small;">A Estrela (XVII)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza sentido, vocação e direção.</li>
+							<li>Aponta para o reencontro com o eixo interno após a
+								queda.</li>
+						</ul>
+						<p style="font-size: small;">O Sol (XIX)</p>
+						<ul style="text-align: left;">
+							<li>Representa vitalidade, reconhecimento e sucesso.</li>
+							<li>Clinicamente, indica realização possível quando há
+								alinhamento entre sistema interno e mundo externo.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses arcanos descrevem o percurso simbólico da realização:
+							<b>ruptura, sentido e manifestação</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo convida o aluno a rever crenças, culpas e
+							lealdades ligadas ao sucesso e ao dinheiro.</p>
+						<p>Quando o sujeito assume seu lugar no mundo sem negar sua
+							origem, o fluxo de realização tende a se restabelecer, preparando
+							o terreno para o trabalho com sentido, espiritualidade e
+							enraizamento, abordados no módulo seguinte.</p>
+
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 7 -->
+<div class="modal fade" id="modalDetalhamentoModulo7" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 7</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>SENTIDO, ESPIRITUALIDADE E ENRAIZAMENTO - A vida que
+							encontra significado</h4>
+						<p>“O sentido nasce quando paramos de lutar contra a vida.”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como objetivo
+							aprofundar a compreensão de que o sentido da vida não é
+							construído por ideias abstratas ou crenças impostas, mas emerge
+							da <b>integração entre psique, sistema e realidade</b>.</p>
+						<p style="font-size: small;">A espiritualidade, aqui, não é
+							tratada como doutrina, mas como <b>experiência de pertencimento à
+							vida</b>, e o enraizamento como condição para que o sentido possa ser
+							vivido de forma concreta.</p>
+						<p style="font-size: small;">Ao final do módulo, o
+							participante deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>diferenciar espiritualidade de idealização;</li>
+							<li>compreender o sentido como expressão do Self;</li>
+							<li>reconhecer quando há fuga espiritual ou desenraizamento;</li>
+							<li>trabalhar clinicamente o alinhamento entre vida prática
+								e dimensão simbólica.</li>
+						</ul>
+						<hr>
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Jung - O Self como fonte de sentido</p>
+						<p style="font-size: small;">Para Jung, o sentido da vida
+							emerge do contato com o Self, centro regulador da psique.
+							Aspectos centrais:</p>
+						<ul style="text-align: left;">
+							<li>o sentido não é inventado, é revelado;</li>
+							<li>crises existenciais como chamadas do Self;</li>
+							<li>símbolos espirituais como mediadores psíquicos;</li>
+							<li>espiritualidade como experiência transformadora, não
+								dogma.</li>
+						</ul>
+						<p style="font-size: small;">
+							Quando o ego se afasta do <b>Self</b>, surgem vazio, niilismo ou
+							idealizações espirituais compensatórias.
+						</p>
+						<hr>
+
+						<p>Bert Hellinger - Espiritualidade como concordância com a
+							vida</p>
+						<p style="font-size: small;">Hellinger compreende
+							espiritualidade como um movimento de <b>concordância profunda com a
+							vida tal como ela é</b>. Pontos fundamentais:</p>
+						<ul style="text-align: left;">
+							<li>aceitar os pais como porta de acesso à vida;</li>
+							<li>reconhecer limites humanos diante do destino;</li>
+							<li>humildade como postura espiritual;</li>
+							<li>enraizamento como base da força vital.</li>
+						</ul>
+						<p style="font-size: small;">Para Hellinger, espiritualidade
+							não se opõe à vida concreta; ela se expressa através dela.</p>
+						<hr>
+
+						<p>Freud - Ilusão, desamparo e busca de sentido</p>
+						<p style="font-size: small;">Freud aborda a espiritualidade de
+							forma crítica, compreendendo que:</p>
+						<ul style="text-align: left;">
+							<li>o ser humano busca sentido para lidar com o desamparo;</li>
+							<li>crenças podem funcionar como defesa psíquica;</li>
+							<li>idealizações espirituais podem mascarar conflitos
+								infantis.</li>
+						</ul>
+						<p style="font-size: small;">No entanto, ao reconhecer o
+							desamparo, o sujeito pode acessar uma posição mais madura, onde o
+							sentido não nega a realidade, mas a sustenta.</p>
+						<hr>
+
+						<p>Espiritualidade e enraizamento</p>
+						<p style="font-size: small;">A integração das três abordagens permite compreender que:</p>
+						<ul style="text-align: left;">
+							<li>não há espiritualidade sem enraizamento;</li>
+							<li>não há sentido sem aceitação da realidade;</li>
+							<li>fuga espiritual enfraquece o processo de individuação.</li>
+						</ul>
+						<p style="font-size: small;">O trabalho terapêutico visa
+							trazer o sujeito de volta ao corpo, à história e ao sistema, para
+							que o espiritual possa se manifestar sem dissociação.</p>
+						<hr>
+
+						<p>O tarot como mapa do sentido</p>
+						<p style="font-size: small;">Neste módulo, o Tarot é utilizado
+							como linguagem simbólica para representar a travessia existencial
+							e o encontro com o sentido. As imagens revelam:.</p>
+						<ul style="text-align: left;">
+							<li>fases de recolhimento e busca interior;</li>
+							<li>momentos de entrega e aceitação;</li>
+							<li>integração entre humano e transcendente.</li>
+						</ul>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">O Eremita (IX)</p>
+						<ul style="text-align: left;">
+							<li>Representa recolhimento, silêncio e escuta interior.</li>
+								<li>Clinicamente, indica a necessidade de pausa e contato com o sentido interno.</li>
+						</ul>
+						<p style="font-size: small;">O Enforcado (XII)</p>
+						<ul style="text-align: left;">
+							<li>Simboliza entrega, suspensão do controle e aceitação.</li>
+								<li>Aponta para mudanças de perspectiva e rendição ao fluxo da vida.</li>
+						</ul>
+						<p style="font-size: small;">O Mundo (XXI)</p>
+						<ul style="text-align: left;">
+							<li>Representa integração, totalidade e pertencimento.</li>
+								<li>Clinicamente, indica a vivência do sentido quando há enraizamento e integração sistêmica.</li>
+						</ul>
+						<p style="font-size: small;">
+							Esses arcanos descrevem o percurso simbólico do sentido: <b>busca, entrega e integração</b>.
+						</p>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>Este módulo convida o aluno a abandonar idealizações e a
+							reconhecer que o sentido da vida não está fora, mas <b>na
+							concordância com o que é</b>.</p>
+						<p>Quando o sujeito aceita sua história, seus limites e seu
+							destino, o espiritual deixa de ser fuga e se torna força
+							sustentadora da existência.</p>
+
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
+
+<!-- Modal modulo 8 -->
+<div class="modal fade" id="modalDetalhamentoModulo8" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Módulo 8</h4>
+        	</div>
+        	<div class="modal-body">
+						<h4>SÍNTESE DO MAPA INTERNO</h4>
+						<p>“O sujeito como constelador de si mesmo”</p>
+						<h4>OBJETIVO DO MÓDULO</h4>
+						<p style="font-size: small;">Este módulo tem como finalidade
+							integrar todo o percurso formativo, consolidando a autonomia
+							psíquica e a autorregulação sistêmica.</p>
+						<p style="font-size: small;">Após atravessar os movimentos de
+							consciência, repetição, pertencimento, corpo, relações, trabalho,
+							sentido e transformação, o participante é conduzido a uma posição
+							mais madura: não apenas compreender o campo — mas sustentar-se
+							dentro dele.</p>
+						<p style="font-size: small;">Ao final do módulo, o aluno
+							deverá ser capaz de:</p>
+						<ul style="text-align: left;">
+							<li>integrar o mapa psíquico, sistêmico e simbólico;</li>
+							<li>reconhecer seus próprios movimentos internos sem
+								terceirização;</li>
+							<li>exercer autorregulação emocional e sistêmica;</li>
+							<li>compreender a constelação como prática contínua de vida.</li>
+						</ul>
+						<hr>
+
+
+						<h4>FUNDAMENTAÇÃO TEÓRICA</h4>
+						<p>Integração psíquica</p>
+						<p style="font-size: small;">A síntese não significa ausência de conflito, mas capacidade de:</p>
+						<ul style="text-align: left;">
+							<li>reconhecer complexos sem ser dominado por eles;</li>
+							<li>diferenciar projeção de realidade;</li>
+							<li>sustentar ambivalências;</li>
+							<li>agir com maior consciência do campo interno.</li>
+						</ul>
+						<p style="font-size: small;">Autonomia psíquica é a capacidade de observar-se em movimento.</p>
+						<hr>
+						
+						<p>Autorregulação sistêmica</p>
+						<p style="font-size: small;">Do ponto de vista sistêmico, maturidade implica:</p>
+						<ul style="text-align: left;">
+							<li>reconhecer o próprio lugar;</li>
+							<li>não assumir destinos que não pertencem ao sujeito;</li>
+							<li>honrar a origem sem permanecer infantilizado;</li>
+							<li>permitir que cada membro do sistema carregue seu próprio destino.</li>
+						</ul>
+						<p style="font-size: small;">A autorregulação sistêmica emerge
+							quando o indivíduo deixa de atuar por lealdade inconsciente e
+							passa a agir por escolha consciente.</p>
+						<hr>
+
+						<p>O terapeuta interno</p>
+						<p style="font-size: small;">Ao longo da formação, desenvolve-se gradualmente uma função interna capaz de:</p>
+						<ul style="text-align: left;">
+							<li>observar sem julgamento imediato;</li>
+							<li>sustentar emoções intensas;</li>
+							<li>reconhecer padrões repetitivos;</li>
+							<li>interromper movimentos automáticos.</li>
+						</ul>
+						<p style="font-size: small;">Essa instância não é um superego rígido, mas uma consciência ampliada e integrada.
+						<hr>
+
+						<p>CONSTELAÇÃO COMO PRÁTICA DE VIDA</p>
+						<p style="font-size: small;">Neste módulo, a constelação deixa
+							de ser apenas técnica e passa a ser postura existencial.
+							Constelar a si mesmo significa:</p>
+						<ul style="text-align: left;">
+							<li>perceber quando está fora do próprio lugar;</li>
+							<li>reconhecer dinâmicas invisíveis ativadas no cotidiano;</li>
+							<li>reorganizar internamente antes de reagir externamente;</li>
+							<li>escolher respostas mais conscientes.</li>
+						</ul>
+						<p style="font-size: small;">A prática se desloca do campo externo para o campo interno.</p>
+						<hr>
+						
+						<p>O TAROT COMO IMAGEM DE INTEGRAÇÃO</p>
+						<p style="font-size: small;">O Tarot, neste estágio, não é
+							utilizado para explorar conflitos isolados, mas para simbolizar o
+							fechamento de ciclo e a abertura de um novo nível de consciência.
+							Ele funciona como espelho do percurso realizado e da maturidade
+							adquirida.</p>
+						<p style="font-size: small;">Arcanos do módulo:</p>
+						<p style="font-size: small;">O Louco (0) - Representa
+							liberdade psíquica, confiança e abertura para o novo ciclo.
+							Clinicamente, simboliza:</p>
+						<ul style="text-align: left;">
+							<li>leveza após integração;</li>
+							<li>ausência de rigidez identitária;</li>
+							<li>capacidade de avançar sem a necessidade de controle absoluto.</li>
+							<li>O Louco não é irresponsabilidade; é confiança sustentada pela experiência.</li>
+						</ul>
+						<p style="font-size: small;">O Mundo (XXI) - Representa
+							totalidade, integração e conclusão de percurso. Clinicamente,
+							indica:</p>
+						<ul style="text-align: left;">
+							<li>fechamento de ciclo formativo;</li>
+							<li>integração entre consciente e inconsciente;</li>
+							<li>pertencimento à própria história.</li>
+							<li>O Mundo simboliza maturidade e inteireza.</li>
+						</ul>
+						<hr>
+
+						<h4>INTEGRAÇÃO CLÍNICA</h4>
+						<p>
+							Este módulo não propõe perfeição psíquica, mas consciência ampliada.
+						</p>
+						<p>O sujeito que integra o próprio mapa:</p>
+						<ul style="text-align: left;">
+							<li>reconhece quando está em repetição;</li>
+							<li>percebe quando está projetando;</li>
+							<li>aceita limites e destino;</li>
+							<li>escolhe com maior responsabilidade.</li>
+							<li>A autonomia não elimina o campo; permite navegar nele com maior estabilidade.</li>
+						</ul>
+						<p>FRASE-SÍNTESE DO MÓDULO <br> “Quando o mapa é interno, o caminho
+							se revela.”</p>
+					</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        	</div>
+      	</div>        
+    </div>
+</div>
 
 
 
