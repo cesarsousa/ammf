@@ -1,16 +1,12 @@
 package br.com.ammf.utils;
 
-import java.io.File;
 import java.util.Scanner;
 
 public class LeitorDeArquivo {
-	
+
 	public String lerArquivo(String arquivo) {
-		return lerArquivo(new File(arquivo));
-	}
-	
-	private String lerArquivo(File arquivo) {
-		Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream(arquivo.getName()));
+		String caminho = arquivo.startsWith("./") ? arquivo.substring(2) : arquivo;
+		Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream(caminho));
 		StringBuilder arquivoBuilder = new StringBuilder();
 
 		while (scanner.hasNext()) {
