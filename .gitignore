@@ -1,0 +1,42 @@
+# ===================================
+# Maven
+# ===================================
+target/
+
+# ===================================
+# Classes e libs compilados que NAO devem existir manualmente
+# dentro da estrutura do projeto (WEB-INF/classes e WEB-INF/lib
+# sao gerados automaticamente pelo Maven durante o build)
+# ===================================
+src/main/webapp/WEB-INF/classes/
+src/main/webapp/WEB-INF/lib/
+
+# ===================================
+# Eclipse (regenerados automaticamente ao importar como projeto Maven)
+# ===================================
+.classpath
+.project
+.settings/
+.tern-project
+
+# ===================================
+# IntelliJ IDEA (caso alguem no time use)
+# ===================================
+.idea/
+*.iml
+
+# ===================================
+# Compilados Java soltos, caso apareçam fora do target/
+# ===================================
+*.class
+
+# ===================================
+# Sistema operacional
+# ===================================
+Thumbs.db
+.DS_Store
+
+# ===================================
+# Logs locais
+# ===================================
+*.log

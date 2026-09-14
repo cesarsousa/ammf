@@ -15,6 +15,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- ATENCAO: os jars encontrados no zip indicam VRaptor 3.4.1, nao VRaptor 4.
+         Confirme qual versao voce realmente esta usando antes de seguir,
+         pois isso muda a forma de fazer injecao de dependencia (CDI vs container proprio do VRaptor 3). -->
+
     <repositories>
         <!-- Repositorio da Caelum, necessario para vraptor3, iogi, mirror e caelum-stella -->
         <repository>
@@ -61,9 +65,10 @@
         </dependency>
 
         <!-- ===================== Hibernate / JPA ===================== -->
+        <!-- ATENCAO: para esta versao antiga, o artifactId correto e "hibernate", nao "hibernate-core" -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
+            <artifactId>hibernate</artifactId>
             <version>3.2.6.ga</version>
         </dependency>
         <dependency>
@@ -74,7 +79,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
-            <version>3.0.0.GA</version>
+            <version>3.0.0.ga</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -96,10 +101,11 @@
             <artifactId>jta</artifactId>
             <version>1.1</version>
         </dependency>
+        <!-- ATENCAO: groupId correto e org.javassist (nao javassist), e a versao usa hifen antes de GA -->
         <dependency>
-            <groupId>javassist</groupId>
+            <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.14.0.GA</version>
+            <version>3.14.0-GA</version>
         </dependency>
 
         <!-- ===================== Bancos de dados / pool de conexao ===================== -->
