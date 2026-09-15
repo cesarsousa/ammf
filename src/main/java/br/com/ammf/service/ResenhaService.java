@@ -8,7 +8,7 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Status;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 public interface ResenhaService {
 	

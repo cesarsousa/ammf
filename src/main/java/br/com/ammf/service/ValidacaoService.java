@@ -13,7 +13,7 @@ import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.model.Usuario;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 public interface ValidacaoService {
 	

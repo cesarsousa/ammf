@@ -6,13 +6,14 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Imagem;
 import br.com.ammf.repository.ImagemRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ImagemDao implements ImagemRepository {
-	
+
 	private Session session;
-	
+
+	@Inject
 	public ImagemDao(Session session){
 		this.session = session;
 	}

@@ -12,13 +12,14 @@ import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.ComentarioRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ComentarioDao implements ComentarioRepository{
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public ComentarioDao(Session session){
 		this.session = session;
 	}

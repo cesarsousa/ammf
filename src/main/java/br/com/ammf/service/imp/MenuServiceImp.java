@@ -18,9 +18,9 @@ import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.MenuService;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class MenuServiceImp implements MenuService{
 	
 	private TextoRepository textoRepository;
@@ -34,6 +34,7 @@ public class MenuServiceImp implements MenuService{
 	private ResenhaRepository resenhaRepository;
 	private CursoRepository cursoRepository;
 	
+	@Inject
 	public MenuServiceImp(
 			TextoRepository textoRepository,
 			PessoaRepository pessoaRepository,

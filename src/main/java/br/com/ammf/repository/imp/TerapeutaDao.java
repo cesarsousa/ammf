@@ -8,13 +8,14 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Terapeuta;
 import br.com.ammf.repository.TerapeutaRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class TerapeutaDao implements TerapeutaRepository {
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public TerapeutaDao(Session session){
 		this.session = session;
 	}

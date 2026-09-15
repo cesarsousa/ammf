@@ -31,9 +31,9 @@ import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.repository.VideoRepository;
 import br.com.ammf.service.IndexService;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class IndexServiceImp implements IndexService{
 	
 	private TextoRepository textoRepository;
@@ -47,6 +47,7 @@ public class IndexServiceImp implements IndexService{
 	private ConstelacaoRepository constelacaoRepository;
 	private VideoRepository videoRepository;
 	
+	@Inject
 	public IndexServiceImp(
 			TextoRepository textoRepository,
 			UsuarioRepository usuarioRepository,

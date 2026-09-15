@@ -7,13 +7,14 @@ import br.com.ammf.dto.ParticipanteDto;
 import br.com.ammf.model.Participante;
 import br.com.ammf.repository.imp.ParticipanteRepository;
 import br.com.ammf.service.ParticipanteService;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ParticipanteServiceImp implements ParticipanteService {
-	
-	private ParticipanteRepository participanteRepository;	
-	
+
+	private ParticipanteRepository participanteRepository;
+
+	@Inject
 	public ParticipanteServiceImp(ParticipanteRepository participanteRepository){
 		this.participanteRepository = participanteRepository;
 	}

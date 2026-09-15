@@ -14,18 +14,21 @@ import br.com.caelum.stella.boleto.Emissor;
 import br.com.caelum.stella.boleto.Sacado;
 import br.com.caelum.stella.boleto.bancos.Bradesco;
 import br.com.caelum.stella.boleto.transformer.GeradorDeBoleto;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.download.Download;
-import br.com.caelum.vraptor.interceptor.download.InputStreamDownload;
+import br.com.caelum.vraptor.observer.download.Download;
+import br.com.caelum.vraptor.observer.download.InputStreamDownload;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class LojaController {
-	
+
 	private Result result;
 	private LivroRepository livroRepository;
-	
+
+	@Inject
 	public LojaController(
 			Result result,
 			LivroRepository livroRepository){

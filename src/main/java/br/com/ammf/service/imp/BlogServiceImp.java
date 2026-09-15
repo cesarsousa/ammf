@@ -9,14 +9,15 @@ import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.BlogService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class BlogServiceImp implements BlogService {
-	
+
 	private TextoRepository textoRepository;
 	private ComentarioRepository comentarioRepository;
-	
+
+	@Inject
 	public BlogServiceImp(
 			TextoRepository textoRepository,
 			ComentarioRepository comentarioRepository){

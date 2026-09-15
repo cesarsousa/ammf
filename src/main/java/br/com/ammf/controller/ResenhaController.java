@@ -3,6 +3,7 @@ package br.com.ammf.controller;
 import static br.com.caelum.vraptor.view.Results.json;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +29,19 @@ import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.download.Download;
+import br.com.caelum.vraptor.observer.download.FileDownload;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class ResenhaController {
-		
+
 	private Result result;
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
@@ -45,7 +50,8 @@ public class ResenhaController {
 	private ResenhaService resenhaService;
 	private EmailService emailService;
 	private IndexService indexService;
-	
+
+	@Inject
 	public ResenhaController(
 			Result result, 
 			ResenhaRepository resenhaRepository,
@@ -327,8 +333,9 @@ public class ResenhaController {
 	public void resenhaPredefinida(){}
 	
 	@Get("/resenha/visualizador/{uuid}")
-	public File downloadImagemResenha(String uuid){
-		return resenhaService.visualizarImagemResenha(uuid);
+	public Download downloadImagemResenha(String uuid) throws FileNotFoundException{
+		File foto = resenhaService.visualizarImagemResenha(uuid);
+		return new FileDownload(foto, "image/jpeg", foto.getName());
 	}
 	
 	private void retornarJson(String mensagem) {

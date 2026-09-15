@@ -8,13 +8,14 @@ import org.hibernate.criterion.Order;
 
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.repository.ErroAplicacaoRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ErroAplicacaoDao implements ErroAplicacaoRepository {
-	
+
 	private Session session;
-	
+
+	@Inject
 	public ErroAplicacaoDao(Session session){
 		this.session = session;
 	}

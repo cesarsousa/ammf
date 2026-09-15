@@ -26,25 +26,28 @@ import br.com.ammf.repository.TextoRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.MenuService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class MenuController {
-	
+
 	private Result result;
 	private MenuService menuService;
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
-	private SessaoUsuario sessaoUsuario;	
+	private SessaoUsuario sessaoUsuario;
 	private TextoRepository textoRepository;
 	private ConstelacaoRepository constelacaoRepository;
 	private ErroAplicacaoRepository erroAplicacaoRepository;
 	private CursoRepository cursoRepository;
-	
+
+	@Inject
 	public MenuController(
 			Result result,
 			MenuService menuService,

@@ -13,16 +13,17 @@ import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.LivroService;
 import br.com.ammf.utils.DataUtils;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Component
+import javax.inject.Inject;
+
 public class LivroServiceImp implements LivroService {
-	
+
 	private ImagemService imagemService;
 	private LivroRepository livroRepository;
 	private ImagemRepository imagemRepository;
 
+	@Inject
 	public LivroServiceImp(ImagemService imagemService, LivroRepository livroRepository, ImagemRepository imagemRepository) {
 		this.imagemService = imagemService;
 		this.livroRepository = livroRepository;

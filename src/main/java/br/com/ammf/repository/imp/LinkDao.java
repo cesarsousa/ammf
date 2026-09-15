@@ -12,13 +12,14 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Link;
 import br.com.ammf.repository.LinkRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class LinkDao implements LinkRepository {
-	
+
 private final Session session;
-	
+
+	@Inject
 	public LinkDao(Session session){
 		this.session = session;
 	}

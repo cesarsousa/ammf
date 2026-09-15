@@ -12,19 +12,22 @@ import br.com.ammf.repository.DepoimentoRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class DepoimentoController {
-	
+
 	private Result result;
 	private DepoimentoRepository depoimentoRepository;
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
-	
+
+	@Inject
 	public DepoimentoController(
 			Result result,
 			DepoimentoRepository depoimentoRepository,

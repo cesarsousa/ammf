@@ -4,7 +4,7 @@ import java.io.File;
 
 import br.com.ammf.exception.CadastroException;
 import br.com.ammf.model.Livro;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 public interface LivroService {
 

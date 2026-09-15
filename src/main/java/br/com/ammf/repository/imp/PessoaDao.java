@@ -15,13 +15,14 @@ import br.com.ammf.model.Situacao;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.utils.DataUtils;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class PessoaDao implements PessoaRepository {
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public PessoaDao(Session session){
 		this.session = session;
 	}

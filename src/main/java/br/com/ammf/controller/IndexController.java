@@ -9,21 +9,24 @@ import br.com.ammf.model.Local;
 import br.com.ammf.model.SessaoCliente;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class IndexController {
-	
+
 	Logger logger = Logger.getLogger(IndexController.class);
-	
+
 	private IndexService indexService;
 	private EmailService emailService;
 	private SessaoCliente sessaoCliente;
 	private Result result;
-		
+
+	@Inject
 	public IndexController(
 			IndexService indexService,
 			EmailService emailService,

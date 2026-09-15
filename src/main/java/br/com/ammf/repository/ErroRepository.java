@@ -7,9 +7,7 @@ import org.apache.log4j.Logger;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.LogAplicacao;
 import br.com.ammf.repository.imp.LogAplicacaoDao;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
 public class ErroRepository extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	static Logger logger = Logger.getLogger(ErroRepository.class);

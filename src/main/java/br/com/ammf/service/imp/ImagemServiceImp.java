@@ -15,17 +15,18 @@ import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.ImagemService;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Component
-public class ImagemServiceImp implements ImagemService {	
-	
+import javax.inject.Inject;
+
+public class ImagemServiceImp implements ImagemService {
+
 	private File pastaImagens;
-	
+
 	private String PASTA_IMAGEM_LIVRO;
 	private String NOME_DEFAULT = "imagemDefault.jpg";
-	
+
+	@Inject
 	public ImagemServiceImp(ServletContext context, UsuarioRepository usuarioRepository){
 		
 		Usuario administrador = usuarioRepository.obterAdministrador();

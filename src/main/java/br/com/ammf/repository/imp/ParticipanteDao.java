@@ -13,13 +13,14 @@ import org.hibernate.criterion.SimpleExpression;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Participante;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ParticipanteDao implements ParticipanteRepository {
-	
+
 private final Session session;
-	
+
+	@Inject
 	public ParticipanteDao(Session session){
 		this.session = session;
 	}

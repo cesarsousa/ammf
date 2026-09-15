@@ -5,16 +5,19 @@ import java.util.List;
 import br.com.ammf.dto.ParticipanteDto;
 import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.service.ParticipanteService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class ParticipanteController {
-	
+
 	private Result result;
 	private ParticipanteService participanteService;
 
+	@Inject
 	public ParticipanteController(
 			Result result,
 			ParticipanteService participanteService) {

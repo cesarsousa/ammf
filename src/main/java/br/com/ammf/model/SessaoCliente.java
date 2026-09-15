@@ -3,10 +3,8 @@ package br.com.ammf.model;
 import java.io.Serializable;
 import java.util.List;
 
-import br.com.caelum.vraptor.ioc.Component;
-import br.com.caelum.vraptor.ioc.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 
-@Component
 @SessionScoped
 public class SessaoCliente implements Serializable {
 

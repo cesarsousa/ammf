@@ -21,22 +21,25 @@ import br.com.ammf.service.BlogService;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class BlogController {
-	
+
 	private Result result;
 	private IndexService indexService;
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
 	private BlogService blogService;
 	private TextoRepository textoRepository;
-	private ComentarioRepository comentarioRepository;	
-	
+	private ComentarioRepository comentarioRepository;
+
+	@Inject
 	public BlogController(
 			Result result, 
 			IndexService indexService,

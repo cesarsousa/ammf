@@ -7,7 +7,7 @@ import java.io.IOException;
 import br.com.ammf.model.Imagem;
 import br.com.ammf.model.Livro;
 import br.com.ammf.model.Resenha;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 public interface ImagemService {
 

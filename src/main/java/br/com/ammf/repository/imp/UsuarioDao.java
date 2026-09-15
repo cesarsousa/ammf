@@ -9,14 +9,14 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.UsuarioRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
+import javax.inject.Inject;
 
-@Component
 public class UsuarioDao implements UsuarioRepository{
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public UsuarioDao(Session session){
 		this.session =  session;
 	}

@@ -7,19 +7,22 @@ import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.TerapeutaRepository;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class UsuarioController {
-	
+
 	private Result result;
 	private final SessaoUsuario sessaoUsuario;
 	private UsuarioRepository usuarioRepository;
 	private TerapeutaRepository terapeutaRepository;
 	private ValidacaoService validacaoService;
-	
+
+	@Inject
 	public UsuarioController(
 			Result result, 
 			SessaoUsuario sessaoUsuario, 

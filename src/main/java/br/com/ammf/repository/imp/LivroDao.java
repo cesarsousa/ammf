@@ -13,13 +13,14 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Livro;
 import br.com.ammf.repository.LivroRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class LivroDao implements LivroRepository {
 
 	private final Session session;
-	
+
+	@Inject
 	public LivroDao(Session session){
 		this.session = session;
 	}

@@ -13,19 +13,22 @@ import br.com.ammf.model.Faq;
 import br.com.ammf.repository.FaqRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class FaqController {
-	
+
 	private Result result;
 	private ValidacaoService validacaoService;
 	private FaqRepository faqRepositoty;
 	private EmailService emailService;
-	
+
+	@Inject
 	public FaqController(
 			Result result, 
 			ValidacaoService validacaoService,

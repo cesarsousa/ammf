@@ -16,13 +16,14 @@ import br.com.ammf.model.LocalEvento;
 import br.com.ammf.model.Participante;
 import br.com.ammf.model.TipoEvento;
 import br.com.ammf.repository.ConstelacaoRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ConstelacaoDao implements ConstelacaoRepository{
-	
+
 private Session session;
-	
+
+	@Inject
 	public ConstelacaoDao(Session session){
 		this.session = session;
 	}

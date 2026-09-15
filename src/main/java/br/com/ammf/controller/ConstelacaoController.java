@@ -17,23 +17,26 @@ import br.com.ammf.service.EmailService;
 import br.com.ammf.service.IndexService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class ConstelacaoController {
-	
+
 	private Result result;
 	private SessaoCliente sessaoCliente;
-	private ValidacaoService validacaoService;	
+	private ValidacaoService validacaoService;
 	private EmailService emailService;
 	private IndexService indexService;
 	private PessoaService pessoaService;
 	private ConstelacaoRepository constelacaoRepository;
 	private PessoaRepository pessoaRepository;
 
+	@Inject
 	public ConstelacaoController(
 			Result result,
 			SessaoCliente sessaoCliente,

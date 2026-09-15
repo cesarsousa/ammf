@@ -30,19 +30,20 @@ import br.com.ammf.service.EmailService;
 import br.com.ammf.service.LogAplicacaoService;
 import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class EmailServiceImp implements EmailService {
-	
+
 	private UsuarioRepository usuarioRepository;
 	private PessoaRepository pessoaRepository;
 	private Usuario administrador;
 	private Email email;
 	private HtmlMensagem htmlMensagem;
-	
+
 	private Logger logger = Logger.getLogger(EmailServiceImp.class);
-	
+
+	@Inject
 	public EmailServiceImp(
 			UsuarioRepository usuarioRepository, 
 			PessoaRepository pessoaRepository, 

@@ -10,17 +10,15 @@
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- ATENCAO: os jars encontrados no zip indicam VRaptor 3.4.1, nao VRaptor 4.
-         Confirme qual versao voce realmente esta usando antes de seguir,
-         pois isso muda a forma de fazer injecao de dependencia (CDI vs container proprio do VRaptor 3). -->
+    <!-- Migrado de VRaptor 3.4.1/Hibernate 3.2.6 para VRaptor 4.2.2/Hibernate 5.2 (CDI/Weld no lugar do container proprio do V3). -->
 
     <repositories>
-        <!-- Repositorio da Caelum, necessario para vraptor3, iogi, mirror e caelum-stella -->
+        <!-- Repositorio da Caelum, necessario para vraptor, vraptor-hibernate e caelum-stella -->
         <repository>
             <id>caelum</id>
             <url>https://repo.maven.apache.org/maven2</url>
@@ -29,27 +27,33 @@
 
     <dependencies>
 
-        <!-- ===================== VRaptor 3 e dependencias diretas ===================== -->
+        <!-- ===================== VRaptor 4 (CDI) e integracao Hibernate/Weld ===================== -->
         <dependency>
             <groupId>br.com.caelum</groupId>
             <artifactId>vraptor</artifactId>
-            <version>3.4.1</version>
+            <version>4.2.2</version>
         </dependency>
         <dependency>
-            <groupId>br.com.caelum</groupId>
-            <artifactId>iogi</artifactId>
-            <version>0.9.1</version>
+            <groupId>br.com.caelum.vraptor</groupId>
+            <artifactId>vraptor-hibernate</artifactId>
+            <version>4.1.0</version>
+            <exclusions>
+                <!-- vraptor-hibernate:4.1.0 traz vraptor:4.2.0-RC5 transitivo; a dependencia direta acima (4.2.2) deve prevalecer -->
+                <exclusion>
+                    <groupId>br.com.caelum</groupId>
+                    <artifactId>vraptor</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!-- ATENCAO: o groupId correto da lib "mirror" e net.vidageek, nao br.com.caelum -->
         <dependency>
-            <groupId>net.vidageek</groupId>
-            <artifactId>mirror</artifactId>
-            <version>1.5.1</version>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>2.1.2.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.scannotation</groupId>
-            <artifactId>scannotation</artifactId>
-            <version>1.0.3</version>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-core-impl</artifactId>
+            <version>2.1.2.Final</version>
         </dependency>
 
         <!-- ===================== Caelum Stella (boleto / validacao) ===================== -->
@@ -65,47 +69,25 @@
         </dependency>
 
         <!-- ===================== Hibernate / JPA ===================== -->
-        <!-- ATENCAO: para esta versao antiga, o artifactId correto e "hibernate", nao "hibernate-core" -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate</artifactId>
-            <version>3.2.6.ga</version>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.18.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.3.1.GA</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-commons-annotations</artifactId>
-            <version>3.0.0.ga</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>3.3.2.GA</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.0.Final</version>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.2.18.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.0.2.GA</version>
+            <version>5.4.3.Final</version>
         </dependency>
         <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>jta</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <!-- ATENCAO: groupId correto e org.javassist (nao javassist), e a versao usa hifen antes de GA -->
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.14.0-GA</version>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
         </dependency>
 
         <!-- ===================== Bancos de dados / pool de conexao ===================== -->
@@ -123,58 +105,6 @@
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
-        </dependency>
-
-        <!-- ===================== Spring (aop, contexto etc) ===================== -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>3.0.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.6.8</version>
-        </dependency>
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <version>2.1_3</version>
         </dependency>
 
         <!-- ===================== Web / JSP / Upload ===================== -->

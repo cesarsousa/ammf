@@ -15,20 +15,23 @@ import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.PessoaService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class PessoaController {
-	
+
 	private Result result;
-	private PessoaRepository pessoaRepository;	
+	private PessoaRepository pessoaRepository;
 	private ValidacaoService validacaoService;
 	private PessoaService pessoaService;
 	private EmailService emailService;
-	
+
+	@Inject
 	public PessoaController(
 			Result result, 
 			PessoaRepository pessoaRepository,			

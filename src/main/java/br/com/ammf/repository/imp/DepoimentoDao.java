@@ -13,13 +13,14 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Depoimento;
 import br.com.ammf.model.Status;
 import br.com.ammf.repository.DepoimentoRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class DepoimentoDao implements DepoimentoRepository {
 
 	private final Session session;
-	
+
+	@Inject
 	public DepoimentoDao(Session session){
 		this.session = session;
 	}

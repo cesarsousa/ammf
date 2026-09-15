@@ -14,13 +14,14 @@ import br.com.ammf.model.Categoria;
 import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.ResenhaRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class ResenhaDao implements ResenhaRepository {
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public ResenhaDao(Session session){
 		this.session = session;
 	}

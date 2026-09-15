@@ -1,43 +1,37 @@
 package br.com.ammf.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.inject.Inject;
 
 import br.com.ammf.controller.LoginController;
 import br.com.ammf.model.SessaoUsuario;
-import br.com.caelum.vraptor.InterceptionException;
+import br.com.caelum.vraptor.AroundCall;
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.interceptor.Interceptor;
-import br.com.caelum.vraptor.resource.ResourceMethod;
+import br.com.caelum.vraptor.interceptor.AcceptsWithAnnotations;
+import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 
 @Intercepts
-public class AutorizacaoInterceptor implements Interceptor{
-		
+@AcceptsWithAnnotations(Restrito.class)
+public class AutorizacaoInterceptor{
+
 	private final Result result;
 	private final SessaoUsuario sessaoUsuario;
-	
+
+	@Inject
 	public AutorizacaoInterceptor(
 			Result result,
-			SessaoUsuario sessaoUsuario,
-			HttpServletRequest request){		
-		this.result = result; 
-		this.sessaoUsuario = sessaoUsuario;		
+			SessaoUsuario sessaoUsuario){
+		this.result = result;
+		this.sessaoUsuario = sessaoUsuario;
 	}
 
-	@Override
-	public boolean accepts(ResourceMethod method) {
-		return !this.sessaoUsuario.isLogado() && method.containsAnnotation(Restrito.class);
-	}
-
-	@Override
-	public void intercept(InterceptorStack stack, ResourceMethod method,
-			Object resourceInstance) throws InterceptionException {
+	@AroundCall
+	public void intercept(SimpleInterceptorStack stack){
 		if(usuarioEstaLogado()){
-			stack.next(method, resourceInstance);
+			stack.next();
 		}else{
 			result.redirectTo(LoginController.class).login();
-		}				
+		}
 	}
 
 	private boolean usuarioEstaLogado() {

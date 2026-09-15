@@ -12,13 +12,14 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Categoria;
 import br.com.ammf.model.TipoCategoria;
 import br.com.ammf.repository.CategoriaRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class CategoriaDao implements CategoriaRepository {
-	
+
 	private Session session;
-	
+
+	@Inject
 	public CategoriaDao(Session session){
 		this.session = session;
 	}

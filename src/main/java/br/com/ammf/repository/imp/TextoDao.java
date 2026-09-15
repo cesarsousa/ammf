@@ -13,13 +13,14 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Local;
 import br.com.ammf.model.Texto;
 import br.com.ammf.repository.TextoRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class TextoDao implements TextoRepository{
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public TextoDao(Session session){
 		this.session =  session;
 	}

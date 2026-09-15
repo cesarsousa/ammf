@@ -8,13 +8,14 @@ import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Curso;
 import br.com.ammf.model.LocalEvento;
 import br.com.ammf.repository.CursoRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class CursoDao implements CursoRepository{
-	
+
 	private final Session session;
-	
+
+	@Inject
 	public CursoDao(Session session){
 		this.session = session;
 	}

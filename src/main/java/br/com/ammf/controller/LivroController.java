@@ -3,6 +3,7 @@ package br.com.ammf.controller;
 import static br.com.caelum.vraptor.view.Results.json;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import br.com.ammf.exception.CadastroException;
@@ -20,22 +21,27 @@ import br.com.ammf.repository.LivroRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.LivroService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.observer.download.Download;
+import br.com.caelum.vraptor.observer.download.FileDownload;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class LivroController {
-	
+
 	private Result result;
 	private ValidacaoService validacaoService;
 	private LivroService livroService;
 	private EmailService emailService;
 	private LivroRepository livroRepository;
 	private CategoriaRepository categoriaRepository;
-	
+
+	@Inject
 	public LivroController(
 			Result result, 
 			ValidacaoService validacaoService,
@@ -184,8 +190,9 @@ public class LivroController {
 	}
 	
 	@Get("/loja/visualizador/{uuid}")
-	public File downloadImagemLivro(String uuid){
-		return livroService.visualizarImagemLivro(uuid);
+	public Download downloadImagemLivro(String uuid) throws FileNotFoundException{
+		File foto = livroService.visualizarImagemLivro(uuid);
+		return new FileDownload(foto, "image/jpeg", foto.getName());
 	}
 
 	private void retornarJson(String mensagem) {

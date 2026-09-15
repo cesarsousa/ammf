@@ -19,14 +19,15 @@ import br.com.ammf.repository.PessoaRepository;
 import br.com.ammf.service.ValidacaoService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Component
+import javax.inject.Inject;
+
 public class ValidacaoServiceImp implements ValidacaoService {
 
 	private PessoaRepository pessoaRepository;
 
+	@Inject
 	public ValidacaoServiceImp(PessoaRepository pessoaRepository) {
 		this.pessoaRepository = pessoaRepository;
 	}

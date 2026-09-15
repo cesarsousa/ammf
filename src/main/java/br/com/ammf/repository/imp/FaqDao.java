@@ -13,13 +13,14 @@ import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
 import br.com.ammf.model.Faq;
 import br.com.ammf.repository.FaqRepository;
-import br.com.caelum.vraptor.ioc.Component;
 
-@Component
+import javax.inject.Inject;
+
 public class FaqDao implements FaqRepository{
-	
+
 	private Session session;
-	
+
+	@Inject
 	public FaqDao(Session session){
 		this.session = session;
 	}

@@ -11,19 +11,22 @@ import br.com.ammf.model.Pessoa;
 import br.com.ammf.repository.LinkRepository;
 import br.com.ammf.service.EmailService;
 import br.com.ammf.service.ValidacaoService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class LinkController {
-	
+
 	private Result result;
 	private LinkRepository linkRepository;
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
-	
+
+	@Inject
 	public LinkController(
 			Result result,
 			LinkRepository linkRepository,

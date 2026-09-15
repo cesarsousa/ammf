@@ -19,18 +19,19 @@ import br.com.ammf.service.ImagemService;
 import br.com.ammf.service.ResenhaService;
 import br.com.ammf.utils.DataUtils;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
-@Component
+import javax.inject.Inject;
+
 public class ResenhaServiceImp implements ResenhaService {
-	
+
 	private ResenhaRepository resenhaRepository;
 	private CategoriaRepository categoriaRepository;
 	private ImagemRepository imagemRepository;
 	private ComentarioRepository comentarioRepository;
 	private ImagemService imagemService;
-	
+
+	@Inject
 	public ResenhaServiceImp(
 			ResenhaRepository resenhaRepository, 
 			CategoriaRepository categoriaRepository,

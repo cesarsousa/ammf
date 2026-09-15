@@ -9,18 +9,21 @@ import br.com.ammf.interceptor.Restrito;
 import br.com.ammf.model.Video;
 import br.com.ammf.repository.VideoRepository;
 import br.com.ammf.service.EmailService;
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
-@Resource
+import javax.inject.Inject;
+
+@Controller
 public class VideoController {
-	
+
 	private Result result;
 	private VideoRepository videoRepository;
 	private EmailService emailService;
-	
+
+	@Inject
 	public VideoController(
 			Result result, 
 			VideoRepository videoRepository,
