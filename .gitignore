@@ -18,6 +18,7 @@ src/main/webapp/WEB-INF/lib/
 .project
 .settings/
 .tern-project
+bin/
 
 # ===================================
 # IntelliJ IDEA (caso alguem no time use)
