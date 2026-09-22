@@ -17,6 +17,11 @@ public class AutorizacaoInterceptor{
 	private final Result result;
 	private final SessaoUsuario sessaoUsuario;
 
+	protected AutorizacaoInterceptor() {
+		this.result = null;
+		this.sessaoUsuario = null;
+	}
+
 	@Inject
 	public AutorizacaoInterceptor(
 			Result result,

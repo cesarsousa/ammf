@@ -39,6 +39,9 @@ public class BlogController {
 	private TextoRepository textoRepository;
 	private ComentarioRepository comentarioRepository;
 
+	protected BlogController() {
+	}
+
 	@Inject
 	public BlogController(
 			Result result, 

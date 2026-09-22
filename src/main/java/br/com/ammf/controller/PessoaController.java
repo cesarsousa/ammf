@@ -31,6 +31,9 @@ public class PessoaController {
 	private PessoaService pessoaService;
 	private EmailService emailService;
 
+	protected PessoaController() {
+	}
+
 	@Inject
 	public PessoaController(
 			Result result, 

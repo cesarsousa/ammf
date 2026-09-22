@@ -26,6 +26,9 @@ public class ContatoController {
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
 
+	protected ContatoController() {
+	}
+
 	@Inject
 	public ContatoController(
 			Result result,

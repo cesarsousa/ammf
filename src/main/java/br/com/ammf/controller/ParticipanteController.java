@@ -17,6 +17,9 @@ public class ParticipanteController {
 	private Result result;
 	private ParticipanteService participanteService;
 
+	protected ParticipanteController() {
+	}
+
 	@Inject
 	public ParticipanteController(
 			Result result,

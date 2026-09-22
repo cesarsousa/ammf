@@ -28,6 +28,9 @@ public class LojaController {
 	private Result result;
 	private LivroRepository livroRepository;
 
+	protected LojaController() {
+	}
+
 	@Inject
 	public LojaController(
 			Result result,

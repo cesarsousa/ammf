@@ -27,6 +27,9 @@ public class DepoimentoController {
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
 
+	protected DepoimentoController() {
+	}
+
 	@Inject
 	public DepoimentoController(
 			Result result,

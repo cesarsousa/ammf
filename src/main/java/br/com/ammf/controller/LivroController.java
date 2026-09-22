@@ -41,6 +41,9 @@ public class LivroController {
 	private LivroRepository livroRepository;
 	private CategoriaRepository categoriaRepository;
 
+	protected LivroController() {
+	}
+
 	@Inject
 	public LivroController(
 			Result result, 

@@ -28,6 +28,9 @@ public class FaqController {
 	private FaqRepository faqRepositoty;
 	private EmailService emailService;
 
+	protected FaqController() {
+	}
+
 	@Inject
 	public FaqController(
 			Result result, 

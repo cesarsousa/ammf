@@ -26,6 +26,9 @@ public class IndexController {
 	private SessaoCliente sessaoCliente;
 	private Result result;
 
+	protected IndexController() {
+	}
+
 	@Inject
 	public IndexController(
 			IndexService indexService,

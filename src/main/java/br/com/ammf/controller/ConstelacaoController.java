@@ -36,6 +36,9 @@ public class ConstelacaoController {
 	private ConstelacaoRepository constelacaoRepository;
 	private PessoaRepository pessoaRepository;
 
+	protected ConstelacaoController() {
+	}
+
 	@Inject
 	public ConstelacaoController(
 			Result result,

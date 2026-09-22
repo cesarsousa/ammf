@@ -26,6 +26,9 @@ public class LinkController {
 	private ValidacaoService validacaoService;
 	private EmailService emailService;
 
+	protected LinkController() {
+	}
+
 	@Inject
 	public LinkController(
 			Result result,

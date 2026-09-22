@@ -23,6 +23,9 @@ public class VideoController {
 	private VideoRepository videoRepository;
 	private EmailService emailService;
 
+	protected VideoController() {
+	}
+
 	@Inject
 	public VideoController(
 			Result result, 

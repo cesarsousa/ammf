@@ -51,6 +51,9 @@ public class ResenhaController {
 	private EmailService emailService;
 	private IndexService indexService;
 
+	protected ResenhaController() {
+	}
+
 	@Inject
 	public ResenhaController(
 			Result result, 

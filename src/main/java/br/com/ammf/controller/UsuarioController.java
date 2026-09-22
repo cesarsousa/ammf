@@ -22,6 +22,10 @@ public class UsuarioController {
 	private TerapeutaRepository terapeutaRepository;
 	private ValidacaoService validacaoService;
 
+	protected UsuarioController() {
+		this.sessaoUsuario = null;
+	}
+
 	@Inject
 	public UsuarioController(
 			Result result, 

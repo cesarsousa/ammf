@@ -47,6 +47,9 @@ public class MenuController {
 	private ErroAplicacaoRepository erroAplicacaoRepository;
 	private CursoRepository cursoRepository;
 
+	protected MenuController() {
+	}
+
 	@Inject
 	public MenuController(
 			Result result,

@@ -18,6 +18,9 @@ public class LoginController {
 	private SessaoUsuario sessaoUsuario;
 	private UsuarioRepository usuarioRepository;
 
+	protected LoginController() {
+	}
+
 	@Inject
 	public LoginController(
 			Result result,
