@@ -30,6 +30,7 @@ import br.com.ammf.service.EmailService;
 import br.com.ammf.service.LogAplicacaoService;
 import br.com.ammf.utils.HtmlMensagem;
 import br.com.ammf.utils.email.Email;
+import br.com.ammf.utils.email.EnvioEmailEmSegundoPlano;
 
 import javax.inject.Inject;
 
@@ -40,6 +41,8 @@ public class EmailServiceImp implements EmailService {
 	private Usuario administrador;
 	private Email email;
 	private HtmlMensagem htmlMensagem;
+	private LogAplicacaoService logAplicacaoService;
+	private EnvioEmailEmSegundoPlano envioEmailEmSegundoPlano;
 
 	private Logger logger = Logger.getLogger(EmailServiceImp.class);
 
@@ -47,9 +50,12 @@ public class EmailServiceImp implements EmailService {
 	public EmailServiceImp(
 			UsuarioRepository usuarioRepository, 
 			PessoaRepository pessoaRepository, 
-			LogAplicacaoService logAplicacaoService){
+			LogAplicacaoService logAplicacaoService,
+			EnvioEmailEmSegundoPlano envioEmailEmSegundoPlano){
 		this.usuarioRepository = usuarioRepository;
 		this.pessoaRepository = pessoaRepository;
+		this.logAplicacaoService = logAplicacaoService;
+		this.envioEmailEmSegundoPlano = envioEmailEmSegundoPlano;
 		this.administrador = this.usuarioRepository.obterAdministrador();
 		this.email = new Email(administrador.isEmailAtivado(), administrador.isAdministrativo(), logAplicacaoService);
 		this.htmlMensagem = new HtmlMensagem(administrador.isDominioPadrao());
@@ -364,42 +370,141 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public RelatorioEmailDto notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException{
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+	public int notificarConstelacaoParaPessoasEmSegundoPlano(final Constelacao constelacao) {
+		// A lista e carregada aqui, ainda dentro do request (Session do Hibernate aberta);
+		// o envio em si roda em outra thread e so usa objetos ja carregados.
+		final List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+
+		envioEmailEmSegundoPlano.executar("notificarConstelacaoParaPessoas", new Runnable() {
+			@Override
+			public void run() {
+				RelatorioEmailDto relatorio = notificarConstelacaoParaPessoas(constelacao, pessoas);
+				enviarRelatorioNotificacaoParaAdmin(
+						"Constelação - " + constelacao.getLocalEvento().toString(),
+						relatorio);
+			}
+		});
+
+		return pessoas.size();
+	}
+
+	private RelatorioEmailDto notificarConstelacaoParaPessoas(final Constelacao constelacao, List<Pessoa> pessoas) {
+		return notificarPessoas("notificarConstelacaoParaPessoas", pessoas, new EnvioParaPessoa() {
+			@Override
+			public void enviar(Pessoa pessoa) throws EmailException {
+				enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+			}
+		});
+	}
+
+	/** Envio de uma notificacao para uma pessoa da lista (constelacao, curso, ...). */
+	private interface EnvioParaPessoa {
+		void enviar(Pessoa pessoa) throws EmailException;
+	}
+
+	/**
+	 * Apos esse numero de falhas seguidas o envio e interrompido: indica problema no servidor SMTP
+	 * (fora do ar, credencial invalida, bloqueio) e nao nos destinatarios, e continuar so faria cada
+	 * pessoa restante esperar o timeout de conexao antes de falhar.
+	 */
+	private static final int MAXIMO_FALHAS_SEGUIDAS = 10;
+
+	private RelatorioEmailDto notificarPessoas(String rotina, List<Pessoa> pessoas, EnvioParaPessoa envio) {
 		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
-		
+
 		int totalDePessoas = pessoas.size();
-		
-		System.out.println("--- Inicio da rotina : notificarConstelacaoParaPessoas ---");
+
+		System.out.println("--- Inicio da rotina : " + rotina + " ---");
 		System.out.println("--- Total de pessoas: " + totalDePessoas);
-		
+
 		int contador = 1;
 		int contadorEnviados = 0;
 		int contadorErro = 0;
-		
+		int falhasSeguidas = 0;
+		String ultimoErro = null;
+		String motivoInterrupcao = null;
+
 		for(Pessoa pessoa : pessoas){
-			
+
 			System.out.println("--- ------------------------------------------------------------------- ---");
 			System.out.println("--- Notificação " + contador + " de " + totalDePessoas + " pesssoa(s).");
 			System.out.println("--- ------------------------------------------------------------------- ---");
 			System.out.println("--- Cliente Email " + pessoa.getEmail());
-			
+
 			try {
-				enviarEmailNotificacaoConstelacao(constelacao, pessoa);
+				envio.enviar(pessoa);
 				contadorEnviados++;
+				falhasSeguidas = 0;
 			}catch (EmailException e) {
+				ultimoErro = e.getMensagem();
+				System.out.println("--- Falha no envio para " + pessoa.getEmail() + ": " + ultimoErro);
 				pessoasNaoNotificadas.add(pessoa);
 				contadorErro++;
+				falhasSeguidas++;
+			}catch (Exception e) {
+				// Erro inesperado (ex.: e-mail nulo no cadastro) conta como falha desta pessoa,
+				// sem interromper o envio para o restante da lista.
+				ultimoErro = e.toString();
+				System.out.println("--- Erro inesperado no envio para " + pessoa.getEmail() + ": " + ultimoErro);
+				pessoasNaoNotificadas.add(pessoa);
+				contadorErro++;
+				falhasSeguidas++;
 			}
-			
-			
+
+			if(falhasSeguidas >= MAXIMO_FALHAS_SEGUIDAS){
+				motivoInterrupcao = MAXIMO_FALHAS_SEGUIDAS + " falhas seguidas. Último erro: " + ultimoErro;
+				System.out.println("--- Envio interrompido: " + motivoInterrupcao);
+				break;
+			}
+
 			contador++;
 		}
-		
+
 		logger.info("--- Fim da rotina de Notificação de email ---");
-		
-		return new RelatorioEmailDto(totalDePessoas, contadorEnviados, contadorErro, pessoasNaoNotificadas);
-		
+
+		RelatorioEmailDto relatorio = new RelatorioEmailDto(totalDePessoas, contadorEnviados, contadorErro, pessoasNaoNotificadas);
+		relatorio.setMotivoInterrupcao(motivoInterrupcao);
+		return relatorio;
+	}
+
+	private void enviarRelatorioNotificacaoParaAdmin(String descricao, RelatorioEmailDto relatorio) {
+		StringBuilder conteudo = new StringBuilder();
+		conteudo.append("Relatório do envio de notificação: <b>" + descricao + "</b><br/><br/>");
+		conteudo.append("Total de pessoas cadastradas: " + relatorio.getTotalGeral() + "<br/>");
+		conteudo.append("Enviados com sucesso: " + relatorio.getTotalInformado() + "<br/>");
+		conteudo.append("Falhas no envio: " + relatorio.getTotalErros() + "<br/>");
+
+		if(relatorio.getMotivoInterrupcao() != null){
+			int naoProcessados = relatorio.getTotalGeral() - relatorio.getTotalInformado() - relatorio.getTotalErros();
+			conteudo.append("<br/><b>ENVIO INTERROMPIDO</b> após " + relatorio.getMotivoInterrupcao() + "<br/>");
+			conteudo.append("Pessoas não processadas (envio não tentado): " + naoProcessados + "<br/>");
+			conteudo.append("Verifique a configuração/servidor de e-mail e dispare a notificação novamente.<br/>");
+
+			logAplicacaoService.erro("Notificação " + descricao + " interrompida após " + relatorio.getMotivoInterrupcao()
+					+ " | Não processadas: " + naoProcessados + " de " + relatorio.getTotalGeral());
+		}
+
+		if(relatorio.getTotalErros() > 0){
+			StringBuilder emails = new StringBuilder();
+			conteudo.append("<br/>E-mails não notificados:<ul>");
+			for(Pessoa pessoa : relatorio.getEmailsNaoInformados()){
+				conteudo.append("<li>" + pessoa.getEmail() + "</li>");
+				emails.append(pessoa.getEmail()).append(" ");
+			}
+			conteudo.append("</ul>");
+
+			logAplicacaoService.erro("Notificação " + descricao + ": falha no envio para "
+					+ relatorio.getTotalErros() + " de " + relatorio.getTotalGeral() + " e-mail(s): " + emails.toString().trim());
+		}
+
+		try {
+			enviarEmailSimples(
+					administrador.getEmailNotificacao(),
+					"Site AlcindoMiguel.com - Relatório de envio - " + descricao,
+					conteudo.toString());
+		} catch (EmailException e) {
+			logAplicacaoService.erro("Não foi possível enviar o relatório da notificação " + descricao + " para o administrador: " + e.getMensagem());
+		}
 	}
 
 	private void enviarEmailNotificacaoConstelacao(Constelacao constelacao, Pessoa pessoa) throws EmailException {
@@ -575,41 +680,31 @@ public class EmailServiceImp implements EmailService {
 	}
 
 	@Override
-	public RelatorioEmailDto notificarCursoParaPessoas(Curso curso) throws EmailException {
-		List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
-		List<Pessoa> pessoasNaoNotificadas = new ArrayList<Pessoa>();
-		
-		int totalDePessoas = pessoas.size();
-		
-		System.out.println("--- Inicio da rotina : notificarCursoParaPessoas ---");
-		System.out.println("--- Total de pessoas: " + totalDePessoas);
-		
-		int contador = 1;
-		int contadorEnviados = 0;
-		int contadorErro = 0;
-		
-		for(Pessoa pessoa : pessoas){
-			
-			System.out.println("--- ------------------------------------------------------------------- ---");
-			System.out.println("--- Notificação " + contador + " de " + totalDePessoas + " pesssoa(s).");
-			System.out.println("--- ------------------------------------------------------------------- ---");
-			System.out.println("--- Cliente Email " + pessoa.getEmail());
-			
-			try {
-				enviarEmailNotificacaoCurso(curso, pessoa);
-				contadorEnviados++;
-			}catch (EmailException e) {
-				pessoasNaoNotificadas.add(pessoa);
-				contadorErro++;
+	public int notificarCursoParaPessoasEmSegundoPlano(final Curso curso) {
+		// A lista e carregada aqui, ainda dentro do request (Session do Hibernate aberta);
+		// o envio em si roda em outra thread e so usa objetos ja carregados.
+		final List<Pessoa> pessoas = pessoaRepository.listarPorStatus(Status.CONFIRMADO, Situacao.ATIVO);
+
+		envioEmailEmSegundoPlano.executar("notificarCursoParaPessoas", new Runnable() {
+			@Override
+			public void run() {
+				RelatorioEmailDto relatorio = notificarCursoParaPessoas(curso, pessoas);
+				enviarRelatorioNotificacaoParaAdmin(
+						"Curso - " + curso.getLocalEvento(),
+						relatorio);
 			}
-			
-			
-			contador++;
-		}
-		
-		logger.info("--- Fim da rotina de Notificação de email ---");
-		
-		return new RelatorioEmailDto(totalDePessoas, contadorEnviados, contadorErro, pessoasNaoNotificadas);
+		});
+
+		return pessoas.size();
+	}
+
+	private RelatorioEmailDto notificarCursoParaPessoas(final Curso curso, List<Pessoa> pessoas) {
+		return notificarPessoas("notificarCursoParaPessoas", pessoas, new EnvioParaPessoa() {
+			@Override
+			public void enviar(Pessoa pessoa) throws EmailException {
+				enviarEmailNotificacaoCurso(curso, pessoa);
+			}
+		});
 	}
 
 	private void enviarEmailNotificacaoCurso(Curso curso, Pessoa pessoa) throws EmailException {

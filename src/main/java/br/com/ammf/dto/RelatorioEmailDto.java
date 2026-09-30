@@ -12,7 +12,10 @@ public class RelatorioEmailDto {
 	
 	private int totalErros;
 	
-	private List<Pessoa> emailsNaoInformados;	
+	private List<Pessoa> emailsNaoInformados;
+
+	/** Preenchido quando o envio foi interrompido antes do fim da lista; null se processou todas as pessoas. */
+	private String motivoInterrupcao;
 
 	public RelatorioEmailDto(int totalGeral, int totalInformado, int totalErros, List<Pessoa> emailsNaoInformados) {
 		super();
@@ -51,6 +54,14 @@ public class RelatorioEmailDto {
 	
 	public void setEmailsNaoInformados(List<Pessoa> emailsNaoInformados) {
 		this.emailsNaoInformados = emailsNaoInformados;
+	}
+
+	public String getMotivoInterrupcao() {
+		return motivoInterrupcao;
+	}
+
+	public void setMotivoInterrupcao(String motivoInterrupcao) {
+		this.motivoInterrupcao = motivoInterrupcao;
 	}
 
 }

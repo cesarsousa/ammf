@@ -21,6 +21,14 @@ import br.com.ammf.service.LogAplicacaoService;
 
 public class Email {
 		
+	/*
+	 * Timeouts do SMTP em milissegundos. Sem eles o JavaMail espera indefinidamente, e um servidor
+	 * que aceita a conexao mas para de responder travaria a fila de envio em segundo plano.
+	 * O timeout de leitura/escrita vale por operacao (cada resposta do servidor), nao para o e-mail inteiro.
+	 */
+	private static final String TIMEOUT_CONEXAO = "30000";
+	private static final String TIMEOUT_LEITURA_ESCRITA = "60000";
+
 	private boolean emailAtivado;
 	private int SMTP;
 	
@@ -57,6 +65,9 @@ public class Email {
 					props.put("mail.smtp.host", "alcindomiguel.com.br");
 					props.put("mail.smtp.port", "25");
 					props.put("mail.smtp.auth", "true");
+					props.put("mail.smtp.connectiontimeout", TIMEOUT_CONEXAO);
+					props.put("mail.smtp.timeout", TIMEOUT_LEITURA_ESCRITA);
+					props.put("mail.smtp.writetimeout", TIMEOUT_LEITURA_ESCRITA);
 					session = Session.getInstance(props, new Autenticacao(emailSender, emailSenderPassword));
 					
 					MimeMessage message = new MimeMessage(session);
@@ -88,6 +99,9 @@ public class Email {
 					properties.put("mail.smtp.socketFactory.fallback", "false");
 					properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 					properties.put("mail.smtp.quitwait", "false");
+					properties.put("mail.smtp.connectiontimeout", TIMEOUT_CONEXAO);
+					properties.put("mail.smtp.timeout", TIMEOUT_LEITURA_ESCRITA);
+					properties.put("mail.smtp.writetimeout", TIMEOUT_LEITURA_ESCRITA);
 					properties.setProperty("mail.transport.protocol", "smtp");
 
 					Session session = Session.getInstance(properties, new Autenticacao(emailSender, emailSenderPassword));

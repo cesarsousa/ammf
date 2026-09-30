@@ -419,29 +419,37 @@ public class HtmlMensagem {
 	}
 
 	public String getAssuntoConstelacao(Constelacao constelacao) {
-		return "Site AlcindoMiguel.com - Constelação - "+ constelacao.getLocalEvento().toString() + " - " + constelacao.getData().replace("<h2>", "").replace("</h2>", "");
+		return "Site AlcindoMiguel.com - Constelação - "+ valor(constelacao.getLocalEvento()) + " - " + valor(constelacao.getData()).replace("<h2>", "").replace("</h2>", "");
 	}
-	
+
 	public String getAssuntoCurso(Curso curso) {
-		return "Site AlcindoMiguel.com - Curso - "+ curso.getLocalEvento().toString() + " - " + curso.getData().replace("<h2>", "").replace("</h2>", "");
+		return "Site AlcindoMiguel.com - Curso - "+ valor(curso.getLocalEvento()) + " - " + valor(curso.getData()).replace("<h2>", "").replace("</h2>", "");
+	}
+
+	/**
+	 * String.replace(CharSequence, null) lanca NullPointerException; campos ainda nao preenchidos
+	 * no cadastro (constelacao, curso) viram texto vazio no e-mail em vez de derrubar o envio.
+	 */
+	private static String valor(Object valor) {
+		return valor == null ? "" : valor.toString();
 	}
 
 	public String getMensagemNotificacaoDe(Constelacao constelacao, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
 		
 		return mensagem
-				.replace("[LOCALEVENTO]", constelacao.getLocalEvento().toString())
-				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
-				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
-				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
-				.replace("[DATA]", constelacao.getData())
-				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
-				.replace("[LINKMAPS]", constelacao.getLinkMapa())
-				.replace("[INFORMACAO]", constelacao.getInformacao())
-				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
+				.replace("[LOCALEVENTO]", valor(constelacao.getLocalEvento()))
+				.replace("[TEXTOINICIAL]", valor(constelacao.getTextoInicial()))
+				.replace("[PAGAMENTO]", valor(constelacao.getFormaPagamento()))				
+				.replace("[TEXTOFINAL]", valor(constelacao.getTextoFinal()))
+				.replace("[DATA]", valor(constelacao.getData()))
+				.replace("[LOCALIZACAO]", valor(constelacao.getLocalizacao()))
+				.replace("[LINKMAPS]", valor(constelacao.getLinkMapa()))
+				.replace("[INFORMACAO]", valor(constelacao.getInformacao()))
+				.replace("[DADOSTERAPEUTA]", valor(constelacao.getDadosPessoais()))				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
-				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
-				.replace("[LINKEDIN]", linkedin);
+				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", valor(pessoa.getUuid())))				
+				.replace("[LINKEDIN]", valor(linkedin));
 	}
 	
 	
@@ -450,54 +458,54 @@ public class HtmlMensagem {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "constelacao_notificar_pessoas.html");
 		
 		return mensagem
-				.replace("[LOCALEVENTO]", constelacao.getLocalEvento().toString())
-				.replace("[TEXTOINICIAL]", constelacao.getTextoInicial())
-				.replace("[PAGAMENTO]", constelacao.getFormaPagamento())				
-				.replace("[TEXTOFINAL]", constelacao.getTextoFinal())
-				.replace("[DATA]", constelacao.getData())
-				.replace("[LOCALIZACAO]", constelacao.getLocalizacao())
-				.replace("[LINKMAPS]", constelacao.getLinkMapa())
-				.replace("[INFORMACAO]", constelacao.getInformacao())
-				.replace("[DADOSTERAPEUTA]", constelacao.getDadosPessoais())				
+				.replace("[LOCALEVENTO]", valor(constelacao.getLocalEvento()))
+				.replace("[TEXTOINICIAL]", valor(constelacao.getTextoInicial()))
+				.replace("[PAGAMENTO]", valor(constelacao.getFormaPagamento()))				
+				.replace("[TEXTOFINAL]", valor(constelacao.getTextoFinal()))
+				.replace("[DATA]", valor(constelacao.getData()))
+				.replace("[LOCALIZACAO]", valor(constelacao.getLocalizacao()))
+				.replace("[LINKMAPS]", valor(constelacao.getLinkMapa()))
+				.replace("[INFORMACAO]", valor(constelacao.getInformacao()))
+				.replace("[DADOSTERAPEUTA]", valor(constelacao.getDadosPessoais()))				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", "")				
-				.replace("[LINKEDIN]", linkedin);
+				.replace("[LINKEDIN]", valor(linkedin));
 	}
 	
 	public String getMensagemNotificacaoDeCurso(Curso curso, String linkedin) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "curso_notificar_pessoas.html");
 		
 		return mensagem
-				.replace("[LOCALEVENTO]", curso.getLocalEvento().toString())
-				.replace("[TEXTOINICIAL]", curso.getNome())
-				.replace("[PAGAMENTO]", curso.getFormaPagamento())				
-				.replace("[TEXTOFINAL]", curso.getDescricao())
-				.replace("[DATA]", curso.getData())
-				.replace("[LOCALIZACAO]", curso.getLocalizacao())
-				.replace("[LINKMAPS]", curso.getLinkMapa())
-				.replace("[INFORMACAO]", curso.getInformacao())
-				.replace("[DADOSTERAPEUTA]", curso.getDadosPessoais())				
+				.replace("[LOCALEVENTO]", valor(curso.getLocalEvento()))
+				.replace("[TEXTOINICIAL]", valor(curso.getNome()))
+				.replace("[PAGAMENTO]", valor(curso.getFormaPagamento()))				
+				.replace("[TEXTOFINAL]", valor(curso.getDescricao()))
+				.replace("[DATA]", valor(curso.getData()))
+				.replace("[LOCALIZACAO]", valor(curso.getLocalizacao()))
+				.replace("[LINKMAPS]", valor(curso.getLinkMapa()))
+				.replace("[INFORMACAO]", valor(curso.getInformacao()))
+				.replace("[DADOSTERAPEUTA]", valor(curso.getDadosPessoais()))				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
 				.replace("[LINKREMOVERNOTIFICACAO]", "")				
-				.replace("[LINKEDIN]", linkedin);
+				.replace("[LINKEDIN]", valor(linkedin));
 	}
 	
 	public String getMensagemNotificacaoDeCurso(Curso curso, String linkedin, Pessoa pessoa) {
 		String mensagem = new LeitorDeArquivo().lerArquivo(PATH + "curso_notificar_pessoas.html");
 		
 		return mensagem
-				.replace("[LOCALEVENTO]", curso.getLocalEvento().toString())
-				.replace("[TEXTOINICIAL]", curso.getNome())
-				.replace("[PAGAMENTO]", curso.getFormaPagamento())				
-				.replace("[TEXTOFINAL]", curso.getDescricao())
-				.replace("[DATA]", curso.getData())
-				.replace("[LOCALIZACAO]", curso.getLocalizacao())
-				.replace("[LINKMAPS]", curso.getLinkMapa())
-				.replace("[INFORMACAO]", curso.getInformacao())
-				.replace("[DADOSTERAPEUTA]", curso.getDadosPessoais())				
+				.replace("[LOCALEVENTO]", valor(curso.getLocalEvento()))
+				.replace("[TEXTOINICIAL]", valor(curso.getNome()))
+				.replace("[PAGAMENTO]", valor(curso.getFormaPagamento()))				
+				.replace("[TEXTOFINAL]", valor(curso.getDescricao()))
+				.replace("[DATA]", valor(curso.getData()))
+				.replace("[LOCALIZACAO]", valor(curso.getLocalizacao()))
+				.replace("[LINKMAPS]", valor(curso.getLinkMapa()))
+				.replace("[INFORMACAO]", valor(curso.getInformacao()))
+				.replace("[DADOSTERAPEUTA]", valor(curso.getDadosPessoais()))				
 				.replace("[WEBSITE]", linksDoSite.WEB_SITE)
-				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", pessoa.getUuid()))				
-				.replace("[LINKEDIN]", linkedin);
+				.replace("[LINKREMOVERNOTIFICACAO]", linksDoSite.REMOVER_EMAIL.replace("uuid", valor(pessoa.getUuid())))				
+				.replace("[LINKEDIN]", valor(linkedin));
 	}
 
 	public String getMensagemNotificacaoDe(Resenha resenha) {

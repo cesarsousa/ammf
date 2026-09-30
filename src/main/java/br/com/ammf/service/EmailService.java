@@ -2,7 +2,6 @@ package br.com.ammf.service;
 
 import java.util.List;
 
-import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.model.Comentario;
 import br.com.ammf.model.Constelacao;
@@ -48,7 +47,12 @@ public interface EmailService {
 
 	void notificarNovoDepoimentoParaAdmin(Depoimento depoimento) throws EmailException;
 
-	RelatorioEmailDto notificarConstelacaoParaPessoas(Constelacao constelacao) throws EmailException;
+	/**
+	 * Carrega as pessoas confirmadas/ativas e dispara o envio em segundo plano; ao final envia
+	 * um relatorio para o e-mail de notificacao do administrador.
+	 * @return total de pessoas que serao notificadas
+	 */
+	int notificarConstelacaoParaPessoasEmSegundoPlano(Constelacao constelacao);
 	
 	void notificarConstelacaoParaEmail(Constelacao constelacao, String destinatario) throws EmailException;
 
@@ -64,6 +68,11 @@ public interface EmailService {
 
 	void notificarCursoParaEmail(Curso curso, String email) throws EmailException;
 
-	RelatorioEmailDto notificarCursoParaPessoas(Curso curso) throws EmailException;
+	/**
+	 * Carrega as pessoas confirmadas/ativas e dispara o envio em segundo plano; ao final envia
+	 * um relatorio para o e-mail de notificacao do administrador.
+	 * @return total de pessoas que serao notificadas
+	 */
+	int notificarCursoParaPessoasEmSegundoPlano(Curso curso);
 
 }
