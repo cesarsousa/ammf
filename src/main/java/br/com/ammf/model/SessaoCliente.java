@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
+// @Named expõe o bean às JSPs como ${sessaoCliente} (no VRaptor 3 o @Component de sessão fazia isso sozinho).
+@Named
 @SessionScoped
 public class SessaoCliente implements Serializable {
 
