@@ -15,6 +15,7 @@ import br.com.ammf.model.Resenha;
 import br.com.ammf.model.Usuario;
 import br.com.ammf.repository.UsuarioRepository;
 import br.com.ammf.service.ImagemService;
+import br.com.ammf.utils.Ambiente;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 import javax.inject.Inject;
@@ -30,8 +31,9 @@ public class ImagemServiceImp implements ImagemService {
 	public ImagemServiceImp(ServletContext context, UsuarioRepository usuarioRepository){
 		
 		Usuario administrador = usuarioRepository.obterAdministrador();
-		
-		if(administrador.isImagemPadrao()){
+
+		// Em dsv a pasta do servidor (/home/quironps/...) nao existe: usa sempre a pasta da aplicacao.
+		if(!Ambiente.isDsv() && administrador.isImagemPadrao()){
 			PASTA_IMAGEM_LIVRO = "/home/quironps/ammf/livroImagem";
 		}else{
 			PASTA_IMAGEM_LIVRO = context.getRealPath("/WEB-INF/imagens");

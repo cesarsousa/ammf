@@ -6,25 +6,16 @@
 
 	<session-factory>
 		
-		<!-- DESENV >>> LOCAL -->
-		<!-- <property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/ammf</property> -->
-		
-		<!-- DESENV >>> PRODUÇÃO -->
-		<!-- <property name="hibernate.connection.username">quironps_user1</property>
-		<property name="hibernate.connection.password">user1</property>
-		<property name="hibernate.connection.url">jdbc:mysql://148.113.153.60:3306/quironps_ammf</property> -->
-		
-		<!-- DEPLOY PRODUÇÃO -->				
+		<!-- CONEXAO: usuario e senha sao os mesmos em todos os ambientes. A url NAO fica aqui:
+		     e carregada por ambiente (ambiente/hibernate-<ambiente>.properties) em HibernateUtil,
+		     conforme -Dammf.ambiente=dsv|prd ou AMMF_AMBIENTE. Padrao: prd. -->
 		<property name="hibernate.connection.username">quironps_user1</property>
 		<property name="hibernate.connection.password">user1</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/quironps_ammf</property>
-				
+
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		<property name="show_sql">false</property>
+		<!-- show_sql e definido por ambiente (ambiente/hibernate-<ambiente>.properties) -->
 		<property name="format_sql">false</property>
 		
 		<!-- C3PO PROPERTIES -->
