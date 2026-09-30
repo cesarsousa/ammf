@@ -11,18 +11,11 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 	static Logger logger = Logger.getLogger(HibernateUtil.class);
 
-	/** System property (-Dammf.ambiente=dsv) que define o ambiente. */
-	public static final String PROPRIEDADE_AMBIENTE = "ammf.ambiente";
-	/** Variavel de ambiente alternativa a system property. */
-	public static final String VARIAVEL_AMBIENTE = "AMMF_AMBIENTE";
-	/** Sem configuracao explicita assume producao, para o deploy nao depender de ajuste no servidor. */
-	public static final String AMBIENTE_PADRAO = "prd";
-
 	private static SessionFactory factory;
 
 	static{
 		try {
-			String ambiente = getAmbiente();
+			String ambiente = Ambiente.getAtual();
 			Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 			configuration.addProperties(carregarPropriedades(ambiente));
 			logger.info("=> :: HibernateUtil.java :: ambiente [" + ambiente + "] url ["
@@ -31,17 +24,6 @@ public class HibernateUtil {
 		} catch (Exception e) {
 			logger.error("=> :: HibernateUtil.java :: " + e.getMessage(), e);
 		}
-	}
-
-	public static String getAmbiente() {
-		String ambiente = System.getProperty(PROPRIEDADE_AMBIENTE);
-		if (ambiente == null || ambiente.trim().isEmpty()) {
-			ambiente = System.getenv(VARIAVEL_AMBIENTE);
-		}
-		if (ambiente == null || ambiente.trim().isEmpty()) {
-			ambiente = AMBIENTE_PADRAO;
-		}
-		return ambiente.trim().toLowerCase();
 	}
 
 	private static Properties carregarPropriedades(String ambiente) throws Exception {
