@@ -959,6 +959,17 @@ categoria:hover {
 	height: 60px;
 }
 
+/* carrossel (bootstrap) das telas psicologia, educacao, cultura e artes orientais */
+.carrosselMenu {
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.carrosselMenu .item img {
+	width: 100%;
+}
+
 .xLarge{
 	font-size: large;
 }

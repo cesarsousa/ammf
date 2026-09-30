@@ -10,20 +10,20 @@
 
 <div align="center">
 
-	<div id="wowslider-container1">
-	<div class="ws_images"><ul>
-	<li><img src="${imagem}/cultura_foto1.jpg" alt="" title="" id="wows1_0"/></li>
-	<li><img src="${imagem}/cultura_foto2.jpg" alt="" title="" id="wows1_1"/></li>
-	<li><img src="${imagem}/cultura_foto3.jpg" alt="" title="" id="wows1_2"/></li>
-	</ul>
+	<div id="carouselCultura" class="carousel slide carrosselMenu" data-ride="carousel" data-interval="5000">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselCultura" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselCultura" data-slide-to="1"></li>
+			<li data-target="#carouselCultura" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active"><img src="${imagem}/cultura_foto1.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/cultura_foto2.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/cultura_foto3.jpg" alt=""/></div>
+		</div>
+		<a class="left carousel-control" href="#carouselCultura" data-slide="prev"><span class="icon-prev"></span></a>
+		<a class="right carousel-control" href="#carouselCultura" data-slide="next"><span class="icon-next"></span></a>
 	</div>
-	</div>
-
-	<%-- <ul id="carouselCultura">
-		<li><img src="${imagem}/cultura_foto1.jpg"></li>
-		<li><img src="${imagem}/cultura_foto2.jpg"></li>
-		<li><img src="${imagem}/cultura_foto3.jpg"></li>
-	</ul> --%>
 
 	<div id="espacador"></div>
 	

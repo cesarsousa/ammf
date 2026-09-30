@@ -10,20 +10,20 @@
 
 <div align="center">
 
-	<div id="wowslider-container1">
-	<div class="ws_images"><ul>
-	<li><img src="${imagem}/psico_foto_1.jpg" alt="" title="" id="wows1_0"/></li>
-	<li><img src="${imagem}/psico_foto_2.jpg" alt="" title="" id="wows1_1"/></li>
-	<li><img src="${imagem}/psico_foto_3.jpg" alt="" title="" id="wows1_2"/></li>
-	</ul>
+	<div id="carouselPsicologia" class="carousel slide carrosselMenu" data-ride="carousel" data-interval="5000">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselPsicologia" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselPsicologia" data-slide-to="1"></li>
+			<li data-target="#carouselPsicologia" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active"><img src="${imagem}/psico_foto_1.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/psico_foto_2.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/psico_foto_3.jpg" alt=""/></div>
+		</div>
+		<a class="left carousel-control" href="#carouselPsicologia" data-slide="prev"><span class="icon-prev"></span></a>
+		<a class="right carousel-control" href="#carouselPsicologia" data-slide="next"><span class="icon-next"></span></a>
 	</div>
-	</div>
-
-	<%-- <ul id="carouselPsicologia">
-		<li><img src="${imagem}/psico_foto_1.jpg"></li>
-		<li><img src="${imagem}/psico_foto_2.jpg"></li>
-		<li><img src="${imagem}/psico_foto_3.jpg"></li>
-	</ul> --%>	
 
 	<div id="espacador"></div>
 	
