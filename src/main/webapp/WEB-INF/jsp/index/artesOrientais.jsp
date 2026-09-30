@@ -10,20 +10,20 @@
 
 <div align="center">
 
-	<div id="wowslider-container1">
-	<div class="ws_images"><ul>
-	<li><img src="${imagem}/artesorientais_foto1.jpg" alt="" title="" id="wows1_0"/></li>
-	<li><img src="${imagem}/artesorientais_foto2.jpg" alt="" title="" id="wows1_1"/></li>
-	<li><img src="${imagem}/artesorientais_foto3.jpg" alt="" title="" id="wows1_2"/></li>
-	</ul>
+	<div id="carouselArtesOrientais" class="carousel slide carrosselMenu" data-ride="carousel" data-interval="5000">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselArtesOrientais" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselArtesOrientais" data-slide-to="1"></li>
+			<li data-target="#carouselArtesOrientais" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active"><img src="${imagem}/artesorientais_foto1.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/artesorientais_foto2.jpg" alt=""/></div>
+			<div class="item"><img src="${imagem}/artesorientais_foto3.jpg" alt=""/></div>
+		</div>
+		<a class="left carousel-control" href="#carouselArtesOrientais" data-slide="prev"><span class="icon-prev"></span></a>
+		<a class="right carousel-control" href="#carouselArtesOrientais" data-slide="next"><span class="icon-next"></span></a>
 	</div>
-	</div>
-
-	<%-- <ul id="carouselArtesOrientais">
-		<li><img src="${imagem}/artesorientais_foto1.jpg"></li>
-		<li><img src="${imagem}/artesorientais_foto2.jpg"></li>
-		<li><img src="${imagem}/artesorientais_foto3.jpg"></li>
-	</ul>	 --%>
 
 	<div id="espacador"></div>
 	
