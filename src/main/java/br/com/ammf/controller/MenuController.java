@@ -1,10 +1,10 @@
 package br.com.ammf.controller;
 
+import static br.com.caelum.vraptor.view.Results.http;
 import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.List;
 
-import br.com.ammf.dto.RelatorioEmailDto;
 import br.com.ammf.exception.EmailException;
 import br.com.ammf.exception.ErroAplicacao;
 import br.com.ammf.exception.Excecao;
@@ -145,22 +145,22 @@ public class MenuController {
 		try {
 			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
 			emailService.notificarConstelacaoParaEmail(constelacao, email);
-			result.use(json()).withoutRoot().from("Contelação notificada com sucesso").serialize();
+			result.use(json()).withoutRoot().from("Constelação notificada com sucesso").serialize();
 		} catch (EmailException e) {
 			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			responderErroJson(500, e.getMensagem() == null ? "Erro no envio do e-mail" : e.getMensagem());
 		}
 	}
-	
+
 	@Restrito
 	@Get("/menu/constelacao/notificar/todos")
 	public void notificarEmailConstelacao(String local){
-		try {
-			Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
-			RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarConstelacaoParaPessoas(constelacao);
-			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).include("emailsNaoInformados").serialize();
-		} catch (EmailException e) {
-			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
-		}
+		// O envio para todas as pessoas roda em segundo plano (ver EnvioEmailEmSegundoPlano): feito de forma
+		// sincrona, o request estourava o timeout do Apache/mod_jk e o navegador recebia erro mesmo com o
+		// envio concluido no servidor. O resultado chega ao administrador por e-mail ao final.
+		Constelacao constelacao = constelacaoRepository.get("NITEROI".equals(local) ? LocalEvento.NITEROI : LocalEvento.BARRA);
+		int totalDePessoas = emailService.notificarConstelacaoParaPessoasEmSegundoPlano(constelacao);
+		result.use(json()).withoutRoot().from(totalDePessoas).serialize();
 	}
 	
 	@Restrito
@@ -169,28 +169,28 @@ public class MenuController {
 		try {
 			Curso curso = cursoRepository.get();
 			if(curso.getId() == 0L ) {
-				throw new IllegalStateException("Não há curso a ser informado!");
+				responderErroJson(400, "Não há curso a ser informado!");
+				return;
 			}
 			emailService.notificarCursoParaEmail(curso, email);
 			result.use(json()).withoutRoot().from("Curso notificado com sucesso").serialize();
 		} catch (EmailException e) {
-			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
+			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMensagem()));
+			responderErroJson(500, e.getMensagem() == null ? "Erro no envio do e-mail" : e.getMensagem());
 		}
 	}
-	
+
 	@Restrito
 	@Get("/menu/curso/notificar/todos")
 	public void notificarEmailCursoTodos(){
-		try {
-			Curso curso = cursoRepository.get();
-			if(curso.getId() == 0L ) {
-				throw new IllegalStateException("Não há curso a ser informado!");
-			}
-			RelatorioEmailDto pessoasNaoNotificadas = emailService.notificarCursoParaPessoas(curso);
-			result.use(json()).withoutRoot().from(pessoasNaoNotificadas).include("emailsNaoInformados").serialize();
-		} catch (EmailException e) {
-			new ErroAplicacao(new Excecao(this.getClass().getSimpleName() + " " + Thread.currentThread().getStackTrace()[1].getMethodName() + " | " + e.getMessage()));
+		// Envio em segundo plano, pelo mesmo motivo de notificarEmailConstelacao(String local).
+		Curso curso = cursoRepository.get();
+		if(curso.getId() == 0L ) {
+			responderErroJson(400, "Não há curso a ser informado!");
+			return;
 		}
+		int totalDePessoas = emailService.notificarCursoParaPessoasEmSegundoPlano(curso);
+		result.use(json()).withoutRoot().from(totalDePessoas).serialize();
 	}
 	
 	@Restrito
@@ -395,6 +395,15 @@ public class MenuController {
 	public void errosAplicacao(){
 		List<LogAplicacao> errosAplicacao = erroAplicacaoRepository.listar();
 		result.include("errosAplicacao", errosAplicacao);		
+	}
+
+	/**
+	 * Responde a um AJAX com status de erro e a mensagem em JSON. Sem uma resposta explicita,
+	 * o VRaptor tenta renderizar um JSP inexistente e o navegador recebe um 404 sem a causa real.
+	 */
+	private void responderErroJson(int status, String mensagem) {
+		result.use(http()).setStatusCode(status);
+		result.use(json()).withoutRoot().from(mensagem).serialize();
 	}
 
 	private void redirecionarParaMenuAdm(String nomeMensagem, String mensagem) {

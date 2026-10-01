@@ -132,11 +132,10 @@ function enviarNotificacaoCursoPara(email, campo){
 			$(campo).val("");
 			$('#msgSucessoAjaxCurso').html("Operação realizada com sucesso!").show();
 		},
-		error : function(error){
-			console.log(error);
+		error : function(xhr){
 			$('#aguardeNotificacaoCurso').slideUp(500);
 			$(campo).val("");
-			$('#msgErroAjaxCurso').html("Erro :( Não foi possível enviar a notificação do curso para: " + email).show();
+			$('#msgErroAjaxCurso').text("Erro :( Não foi possível enviar a notificação do curso para: " + email + detalheErroAjax(xhr)).show();
 		}
 	});
 	
@@ -166,15 +165,16 @@ function enviarNotificacaoConstelacaoPara(local, email, campo){
 				$('#msgSucessoAjaxBarra').html("Operação realizada com sucesso!").show();
 			}
 		},
-		error : function(){
+		error : function(xhr){
+			var mensagem = "Erro :( Não foi possível enviar a notificação da constelação para: " + email + detalheErroAjax(xhr);
 			if(local === "NITEROI"){
 				$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
 				$(campo).val("");
-				$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+				$('#msgErroAjaxNiteroi').text(mensagem).show();
 			}else{
 				$('#aguardeNotificacaoConstelacaoBarra').slideUp(500);
 				$(campo).val("");
-				$('#msgErroAjaxBarra').html("Erro :( Não foi possível enviar a notificação da contelação para: " + email).show();
+				$('#msgErroAjaxBarra').text(mensagem).show();
 			}
 		}
 	});
@@ -187,89 +187,60 @@ function enviarNotificacaoCurso(){
 	
 	$('#aguardeNotificacaoCurso').slideDown(500);
 	
+	// O servidor apenas inicia o envio (em segundo plano) e responde com o total de pessoas;
+	// o relatorio final chega por e-mail ao administrador.
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + "/menu/curso/notificar/todos",
-		success : function(json){
-			
-			console.log(json)
-			
+		success : function(totalDePessoas){
 			$('#aguardeNotificacaoCurso').slideUp(500);
-			
-			$('#msgSucessoAjaxCurso').html("Total de pessoas cadastradas: " + json.totalGeral + ".<br/>Operação realizada com sucesso para " + json.totalInformado + " pessoas!").show();
-			
-			if(json.totalErros > 0){
-				
-				var dataDiv = '<p>Erro no envio para ' + json.totalErros + ' emails.</p>';
-				
-				dataDiv += '<ul>';
-								
-				for(var i = 0; i < json.emailsNaoInformados.length; i++){
-					
-					dataDiv += '<li>' + json.emailsNaoInformados[i].email + '</li>';
-				}
-				
-				dataDiv += '</lu>'
-				
-				$('#msgErroAjaxCurso').html(dataDiv).show();
-			}
-			
+			$('#msgSucessoAjaxCurso').html("Envio iniciado para " + totalDePessoas + " pessoas.<br/>Você receberá um relatório por e-mail quando o envio terminar.").show();
 		},
-		error : function(){
+		error : function(xhr){
 			$('#aguardeNotificacaoCurso').slideUp(500);
-			$('#msgErroAjaxCurso').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+			$('#msgErroAjaxCurso').text("Erro :( Não foi possível iniciar o envio da notificação do curso." + detalheErroAjax(xhr)).show();
 		}
 	});
 	
 }
 
 function enviarNotificacaoConstelacaoEm(local){
-	
+
 	hidenCamposMensagemAjaxNiteroi();
-	
-	if(local === "NITEROI"){
-		$('#aguardeNotificacaoConstelacaoNiteroi').slideDown(500);
-	}else{
-		$('#aguardeNotificacaoConstelacaoBarra').slideDown(500);
-	}
-	
+	hidenCamposMensagemAjaxBarra();
+
+	var sufixo = local === "NITEROI" ? "Niteroi" : "Barra";
+
+	$('#aguardeNotificacaoConstelacao' + sufixo).slideDown(500);
+
+	// O servidor apenas inicia o envio (em segundo plano) e responde com o total de pessoas;
+	// o relatorio final chega por e-mail ao administrador.
 	$.ajax({
 		type : 'GET',
 		url : $('#contexto').val() + "/menu/constelacao/notificar/todos",
 		data:{
 			"local": local
 			},
-		success : function(json){
-			
-			console.log(json)
-			
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			
-			$('#msgSucessoAjaxNiteroi').html("Total de pessoas cadastradas: " + json.totalGeral + ".<br/>Operação realizada com sucesso para " + json.totalInformado + " pessoas!").show();
-			
-			if(json.totalErros > 0){
-				
-				var dataDiv = '<p>Erro no envio para ' + json.totalErros + ' emails.</p>';
-				
-				dataDiv += '<ul>';
-								
-				for(var i = 0; i < json.emailsNaoInformados.length; i++){
-					
-					dataDiv += '<li>' + json.emailsNaoInformados[i].email + '</li>';
-				}
-				
-				dataDiv += '</lu>'
-				
-				$('#msgErroAjaxNiteroi').html(dataDiv).show();
-			}
-			
+		success : function(totalDePessoas){
+			$('#aguardeNotificacaoConstelacao' + sufixo).slideUp(500);
+			$('#msgSucessoAjax' + sufixo).html("Envio iniciado para " + totalDePessoas + " pessoas.<br/>Você receberá um relatório por e-mail quando o envio terminar.").show();
 		},
-		error : function(){
-			$('#aguardeNotificacaoConstelacaoNiteroi').slideUp(500);
-			$('#msgErroAjaxNiteroi').html("Erro :( Não foi possível enviar a notificação da contelação.").show();
+		error : function(xhr){
+			$('#aguardeNotificacaoConstelacao' + sufixo).slideUp(500);
+			$('#msgErroAjax' + sufixo).text("Erro :( Não foi possível iniciar o envio da notificação da constelação." + detalheErroAjax(xhr)).show();
 		}
 	});
-	
+
+}
+
+function detalheErroAjax(xhr){
+	try {
+		var mensagem = JSON.parse(xhr.responseText);
+		if(typeof mensagem === "string" && mensagem !== ""){
+			return " Motivo: " + mensagem;
+		}
+	} catch (e) {}
+	return xhr.status ? " (HTTP " + xhr.status + ")" : "";
 }
 
 function hidenCamposEdicaoPrincipal(){
